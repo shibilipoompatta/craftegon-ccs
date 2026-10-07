@@ -1,0 +1,8 @@
+# Cloudflare Pages 301 Redirect Rules & SPA routing
+/verticals/*   /verticals/:splat  200
+/services/*    /services/:splat   200
+/knowledge/*   /knowledge/:splat  200
+/conversion/*  /conversion/:splat 200
+
+# Fallback
+/*             /index.html        404
