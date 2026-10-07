@@ -1,14 +1,73 @@
-<header style="position: fixed; top: 0; left: 0; width: 100%; z-index: 120; background: #ffffff; border-bottom: 1px solid rgba(226, 232, 240, 0.8);">
-  <div style="max-width: 1600px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem;">
-    <a href="/index.html" style="font-weight: 700; font-size: 1.25rem; color: #5c3bff;">CraftEgon <span style="color:#1e293b;">CCS</span></a>
-    <nav style="display: flex; gap: 1.5rem; font-size: 0.9rem; font-weight: 500;">
-      <a href="/verticals/01-entity-formation.html">Entity Formation</a>
-      <a href="/verticals/02-roc-compliance.html">RoC Compliance</a>
-      <a href="/verticals/03-tax-compliance.html">Tax</a>
-      <a href="/verticals/06-ipr-protection.html">IPR</a>
-      <a href="/conversion/calculator.html" style="color: #5c3bff;">Fee Calculator</a>
+<header class="if-header">
+  <div class="if-header-inner">
+    <!-- Brand Logo -->
+    <a href="/index.html" class="if-brand-logo">
+      CraftEgon <span>CCS</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="if-nav">
+      <a href="/index.html" class="if-nav-link">Home</a>
+      
+      <!-- Verticals Mega-Menu Dropdown -->
+      <div class="if-dropdown" style="position: relative;">
+        <a href="#" class="if-nav-link" style="display: flex; align-items: center; gap: 4px;">
+          Compliance Verticals 
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+        
+        <!-- Mega Menu Container -->
+        <div class="if-megamenu" style="position: absolute; top: 100%; left: -150px; width: 750px; background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: 1.5rem; display: none; grid-template-columns: repeat(3, 1fr); gap: 1rem; z-index: 130;">
+          <div>
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Core Setup & Compliance</h4>
+            <ul style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.85rem;">
+              <li><a href="/verticals/01-entity-formation.html">01. Entity Formation</a></li>
+              <li><a href="/verticals/02-roc-compliance.html">02. RoC Compliance</a></li>
+              <li><a href="/verticals/03-tax-compliance.html">03. Tax Compliance</a></li>
+              <li><a href="/verticals/04-statutory-licenses.html">04. Statutory Licenses</a></li>
+              <li><a href="/verticals/05-contracts-legal.html">05. Contracts & Legal</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em;">IPR, Labour & Growth</h4>
+            <ul style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.85rem;">
+              <li><a href="/verticals/06-ipr-protection.html">06. IPR Protection</a></li>
+              <li><a href="/verticals/07-labour-hr.html">07. Labour & HR</a></li>
+              <li><a href="/verticals/08-fundraising-investment.html">08. Fundraising & Investment</a></li>
+              <li><a href="/verticals/09-ma-restructuring.html">09. M&A & Restructuring</a></li>
+              <li><a href="/verticals/10-litigation-dispute.html">10. Litigation & NCLT</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Governance & Digital</h4>
+            <ul style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.85rem;">
+              <li><a href="/verticals/11-governance-audit.html">11. Governance Audit</a></li>
+              <li><a href="/verticals/12-esg-csr.html">12. ESG & CSR</a></li>
+              <li><a href="/verticals/13-cross-border-fema.html">13. Cross-Border & FEMA</a></li>
+              <li><a href="/verticals/14-exit-insolvency.html">14. Exit & Insolvency</a></li>
+              <li><a href="/verticals/15-it-digital.html">15. IT & Digital Compliance</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <a href="/conversion/calculator.html" class="if-nav-link">Fee Calculator</a>
+      <a href="/knowledge/spice-plus-mca-v3-blueprint.html" class="if-nav-link">Knowledge Base</a>
     </nav>
-    <a href="/conversion/calculator.html" style="background: linear-gradient(135deg, #5c3bff, #ff4ed0); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600;">Get Started</a>
+
+    <!-- Header Actions -->
+    <div class="if-header-actions">
+      <a href="/conversion/calculator.html" class="if-btn-primary">Calculate Retainer</a>
+    </div>
   </div>
 </header>
-<div style="height: 75px;"></div>
+
+<script>
+  // Simple hover handler for the mega-menu dropdown
+  const dropdown = document.querySelector('.if-dropdown');
+  const megamenu = document.querySelector('.if-megamenu');
+  if (dropdown && megamenu) {
+    dropdown.addEventListener('mouseenter', () => { megamenu.style.display = 'grid'; });
+    dropdown.addEventListener('mouseleave', () => { megamenu.style.display = 'none'; });
+  }
+</script>
