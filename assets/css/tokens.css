@@ -1,0 +1,15 @@
+:root {
+  --primary: #5c3bff;
+  --primary-hover: #4326d6;
+  --accent: #ff4ed0;
+  --bg-main: #ffffff;
+  --bg-surface: #faf8f8;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-lg: 0 12px 34px rgba(0,0,0,0.08);
+}
