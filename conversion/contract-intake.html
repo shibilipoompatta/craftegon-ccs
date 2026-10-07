@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contract Review & Custom Quote Intake | CraftEgon CCS</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 800px;">
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <a href="/verticals/05-contracts-legal.html">Contracts & Legal</a> / <span>Contract Review Intake</span>
+    </nav>
+    
+    <div class="if-service-hero" style="text-align: left; padding: 2rem 0;">
+      <h1>Contract Review & Custom Quote Portal</h1>
+      <p>Upload your agreement draft or specify your custom drafting requirements for senior legal counsel review and itemized commercial quotation.</p>
+    </div>
+
+    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+      <form class="if-lead-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Entity / Organization Name</label>
+            <input type="text" name="entity_name" required placeholder="e.g. CraftEgon Technologies" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Contract Type Required</label>
+            <select name="contract_type" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="sha-spa">Founder / Shareholder Agreement (SHA/SPA)</option>
+              <option value="msa-vendor">Master Service Agreement (MSA) / Vendor Contract</option>
+              <option value="tech-transfer">Cross-Border Technology Transfer Agreement</option>
+              <option value="custom-review">General Commercial Contract Review / Audit</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Project Scope & Key Legal Requirements</label>
+          <textarea name="scope" rows="4" placeholder="Describe the parties involved, key commercial terms, liability concerns, or specific clauses required..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-family: inherit;"></textarea>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Contact Person Name</label>
+            <input type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Mobile Number</label>
+            <input type="tel" name="phone" required placeholder="9876543210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Email Address</label>
+          <input type="email" name="email" required placeholder="legal@company.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+        </div>
+
+        <button type="submit" class="if-btn-primary" style="margin-top: 1rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Submit Contract for Legal Quote</button>
+      </form>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/forms.js"></script>
+</body>
+</html>
