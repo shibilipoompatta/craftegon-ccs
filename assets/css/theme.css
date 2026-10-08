@@ -1,136 +1,183 @@
-/**
- * ==========================================================================
- * CRAFTEGON CORPORATE SERVICES (CCS) - GLOBAL THEME & LAYOUT RESET
- * ==========================================================================
- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700;800&display=swap');
 
-/* --- Modern CSS Reset --- */
-*,
-*::before,
-*::after {
+/* ==========================================================================
+   1. BASE VARIABLES & ROOT
+   ========================================================================== */
+:root {
+  --color-canvas: #f8f9f6;
+  --color-surface: #ffffff;
+  --color-obsidian: #0e1712;
+  --color-obsidian-surface: #15221b;
+  --color-gold: #c5a059;
+  --color-gold-hover: #b38e46;
+  --color-gold-light: #f6eedf;
+  --color-mint: #2dd4bf;
+  --color-mint-dark: #0f766e;
+  --color-slate-text: #2e3a33;
+  --color-slate-muted: #5e6c63;
+  --border-subtle: rgba(14, 23, 18, 0.12);
+  --border-dark: rgba(255, 255, 255, 0.10);
+  --border-gold: rgba(197, 160, 89, 0.35);
+
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Cinzel', Georgia, serif;
+  --font-mono: 'DM Mono', monospace;
+
+  --shadow-obsidian-card: 0 12px 32px rgba(14, 23, 18, 0.08);
+  --shadow-gold-card: 0 10px 30px -5px rgba(197, 160, 89, 0.20);
+  --shadow-focus-gold: 0 0 0 3px rgba(197, 160, 89, 0.30);
+}
+
+/* ==========================================================================
+   2. CORE RESET & BODY STYLES
+   ========================================================================== */
+*, ::before, ::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
-  font-size: 16px;
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--color-canvas);
+  color: var(--color-obsidian);
 }
 
 body {
+  margin: 0;
+  background-color: var(--color-canvas);
+  color: var(--color-obsidian);
   font-family: var(--font-sans);
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.62;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Typography Defaults --- */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-main);
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+/* Selection */
+::selection {
+  background-color: var(--color-gold-light);
+  color: var(--color-obsidian);
 }
 
-p {
-  color: var(--text-muted);
-  margin-bottom: var(--space-4);
+/* Typography Hierarchy */
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.2s ease;
+.font-mono {
+  font-family: var(--font-mono);
 }
 
-ul, ol {
-  list-style: none;
+.font-sans {
+  font-family: var(--font-sans);
 }
 
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+/* ==========================================================================
+   3. BACKGROUNDS & PATTERNS
+   ========================================================================== */
+.grid-bg-light {
+  background-image: radial-gradient(rgba(14, 23, 18, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-button, input, select, textarea {
-  font: inherit;
-  color: inherit;
-  border: none;
+.grid-bg-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ==========================================================================
+   4. NAVIGATION & GLASSMORPHISM
+   ========================================================================== */
+.glass-nav-dark {
+  background: rgba(14, 23, 18, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-card-dark {
+  background: rgba(21, 34, 27, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-dark);
+}
+
+/* ==========================================================================
+   5. TEXT GRADIENTS & ACCENTS
+   ========================================================================== */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #b38e46 0%, #c5a059 50%, #e2c07a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-glow {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.25);
+}
+
+/* ==========================================================================
+   6. CARD ANIMATIONS & INTERACTIVITY
+   ========================================================================== */
+.card-transition {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-transition:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-gold);
+  box-shadow: 0 12px 30px -5px rgba(197, 160, 89, 0.22);
+}
+
+/* Service Filter Active States */
+.filter-btn {
+  transition: all 0.20s ease-in-out;
+}
+
+.filter-btn.active-tab {
+  background-color: var(--color-obsidian);
+  color: #ffffff;
+}
+
+/* Interactive Chips / Scope Selection */
+.scope-chip {
+  transition: all 0.20s ease;
+  user-select: none;
+}
+
+.scope-chip.selected {
+  background-color: var(--color-obsidian);
+  color: #ffffff;
+  border-color: var(--color-obsidian);
+}
+
+/* ==========================================================================
+   7. FORM CONTROL ENHANCEMENTS
+   ========================================================================== */
+input:focus, select:focus, textarea:focus {
   outline: none;
-  background: transparent;
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-focus-gold);
 }
 
-button {
-  cursor: pointer;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* --- Container Layout Classes --- */
-.container {
-  width: 100%;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--space-6);
-  padding-right: var(--space-6);
+::-webkit-scrollbar-track {
+  background: var(--color-canvas);
 }
 
-.container-fluid {
-  width: 100%;
-  padding-left: var(--space-6);
-  padding-right: var(--space-6);
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
 }
 
-.container-narrow {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--space-6);
-  padding-right: var(--space-6);
-}
-
-/* --- Utility Flexbox Helpers --- */
-.flex {
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.gap-4 {
-  gap: var(--space-4);
-}
-
-.gap-6 {
-  gap: var(--space-6);
-}
-
-/* --- Section Spacing --- */
-section {
-  padding-top: var(--space-12);
-  padding-bottom: var(--space-12);
-}
-
-@media (min-width: 768px) {
-  section {
-    padding-top: var(--space-16);
-    padding-bottom: var(--space-16);
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
 }
