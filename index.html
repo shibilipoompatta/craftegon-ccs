@@ -70,162 +70,7 @@
     };
   </script>
 
-  <style>
-    body {
-      background-color: #f8f9f6;
-      color: #0e1712;
-      font-family: 'Manrope', sans-serif;
-    }
-    .grid-bg-light {
-      background-image: radial-gradient(rgba(14, 23, 18, 0.12) 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-    .glass-nav-dark {
-      background: rgba(14, 23, 18, 0.95);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-    .gold-gradient-text {
-      background: linear-gradient(135deg, #b38e46 0%, #c5a059 50%, #e2c07a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .card-transition {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .card-transition:hover {
-      transform: translateY(-3px);
-      border-color: #c5a059;
-      box-shadow: 0 12px 30px -5px rgba(197, 160, 89, 0.22);
-    }
-    
-    /* CraftEgon CCS visual system: consistent, responsive, premium legal-tech UI */
-    :root {
-      --ce-forest: #10251c;
-      --ce-forest-2: #173529;
-      --ce-gold: #bd9852;
-      --ce-gold-soft: #f5eddd;
-      --ce-ink: #17251e;
-      --ce-muted: #66746b;
-      --ce-line: #e2e8e1;
-      --ce-paper: #fbfcf9;
-      --ce-radius: 20px;
-      --ce-shadow: 0 14px 38px rgba(16, 37, 28, .075);
-    }
-    html { scroll-padding-top: 92px; }
-    body { background: var(--ce-paper); color: var(--ce-ink); letter-spacing: -.012em; }
-    ::selection { background: #e9d9b8; color: var(--ce-forest); }
-    a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-      outline: 3px solid rgba(189, 152, 82, .55); outline-offset: 3px;
-    }
-    header { box-shadow: 0 5px 24px rgba(5, 17, 11, .12); }
-    header > div:first-child { min-height: 76px; }
-    header nav { gap: clamp(1rem, 2vw, 2rem) !important; }
-    header nav a { position: relative; padding: 9px 0; color: #d6ddd7; }
-    header nav a::after { content: ''; position: absolute; left: 0; bottom: 1px; height: 2px; width: 0; background: var(--ce-gold); transition: width .22s ease; }
-    header nav a:hover::after, header nav a:focus-visible::after { width: 100%; }
-    #mobileMenu { background: rgba(16, 37, 28, .985); }
-
-    main > section { position: relative; isolation: isolate; }
-    main > section:not(:first-child) { scroll-margin-top: 88px; }
-    main > section:not(#digital) > div { position: relative; }
-    main > section:not(:first-child) { padding-top: clamp(4.5rem, 7vw, 6.5rem) !important; padding-bottom: clamp(4.5rem, 7vw, 6.5rem) !important; }
-    main h2 { max-width: 850px; line-height: 1.12; letter-spacing: -.045em; }
-    main section p { text-wrap: pretty; }
-    main section .font-mono.uppercase { letter-spacing: .16em; }
-
-    /* Hero */
-    main > section:first-child {
-      min-height: min(860px, calc(100svh - 76px));
-      padding-top: clamp(5rem, 9vw, 8rem) !important;
-      padding-bottom: clamp(4rem, 7vw, 6rem) !important;
-      background: radial-gradient(ellipse at 50% 0%, rgba(221, 198, 149, .23), transparent 42%), linear-gradient(180deg, #fff 0%, #f7f8f3 75%, #f0f3ed 100%);
-    }
-    main > section:first-child::before {
-      content: ''; position: absolute; z-index: -1; width: min(72vw, 850px); aspect-ratio: 1;
-      border: 1px solid rgba(189, 152, 82, .16); border-radius: 50%; left: 50%; top: 48%; transform: translate(-50%, -50%);
-      box-shadow: 0 0 0 52px rgba(189, 152, 82, .035), 0 0 0 104px rgba(189, 152, 82, .025); pointer-events: none;
-    }
-    main > section:first-child h1 { max-width: 1050px; margin-left: auto; margin-right: auto; font-size: clamp(2.6rem, 5.7vw, 5.25rem); line-height: 1.03; letter-spacing: -.065em; }
-    main > section:first-child h1 span { display: inline-block; padding-bottom: .08em; }
-    main > section:first-child .inline-flex.rounded-full { box-shadow: 0 5px 20px rgba(16, 37, 28, .045); }
-    main > section:first-child > div > p { max-width: 760px; font-size: clamp(1rem, 1.4vw, 1.13rem); line-height: 1.85; color: #526158; }
-    main > section:first-child a[class*="bg-gradient"] { box-shadow: 0 10px 24px rgba(132, 98, 39, .2); }
-    main > section:first-child a[class*="bg-gradient"]:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(132, 98, 39, .25); }
-    main > section:first-child .grid.grid-cols-2 { max-width: 920px; margin: 0 auto; padding: clamp(1.1rem, 2.5vw, 1.75rem); border-radius: 22px; background: rgba(255,255,255,.86); box-shadow: 0 22px 60px rgba(16,37,28,.08); backdrop-filter: blur(12px); }
-    main > section:first-child .grid.grid-cols-2 > div { padding: .6rem 1rem; }
-
-    /* Service catalogue */
-    #services { background: linear-gradient(180deg, #f5f7f2 0%, #fbfcf9 100%); }
-    #services .service-card { min-height: 300px; border-radius: var(--ce-radius); border-color: var(--ce-line); box-shadow: 0 5px 18px rgba(16,37,28,.035); padding: 1.65rem; }
-    #services .service-card:hover { border-color: rgba(189,152,82,.75); box-shadow: 0 18px 42px rgba(16,37,28,.09); transform: translateY(-5px); }
-    #services .service-card > div:first-child > div:first-child { border-radius: 14px; box-shadow: inset 0 0 0 1px rgba(189,152,82,.05); }
-    #services .service-card h3 { font-size: 1rem; line-height: 1.5; }
-    #services .service-card h3 a { align-items: flex-start; }
-    #services .service-card p { font-size: .82rem; line-height: 1.75; color: #5a695f; }
-    #services .service-card > div:last-child { margin-top: 1.5rem; padding-top: 1rem; }
-    #services .filter-btn { min-height: 40px; border-radius: 10px; }
-    #services .filter-btn[aria-pressed="true"] { background: var(--ce-forest) !important; color: #fff !important; box-shadow: 0 4px 12px rgba(16,37,28,.15); }
-
-    /* Timelines and cards */
-    #pipeline .grid > div { border-radius: 18px; padding: 1.65rem; transition: transform .2s ease, box-shadow .2s ease; }
-    #pipeline .grid > div:hover { transform: translateY(-3px); box-shadow: var(--ce-shadow); }
-    #pipeline .grid > div h3 { line-height: 1.45; }
-    #packages { background: #f5f7f2; }
-    #packages > div > div.overflow-x-auto { border-radius: 18px; box-shadow: 0 15px 40px rgba(16,37,28,.06); }
-    #packages table { min-width: 760px; border-collapse: separate; border-spacing: 0; }
-    #packages thead { background: #edf1eb; }
-    #packages th { padding-top: 1.1rem; padding-bottom: 1.1rem; color: #526158; letter-spacing: .04em; }
-    #packages td { padding-top: 1.15rem; padding-bottom: 1.15rem; line-height: 1.65; }
-    #packages tbody tr:last-child td { border-bottom: 0; }
-    #retainers .grid > div { border-radius: 22px; padding: clamp(1.5rem, 3vw, 2.25rem); }
-    #retainers .grid > div:hover { transform: translateY(-4px); }
-    #retainers .grid > div h3 { letter-spacing: -.03em; }
-    #retainers .grid > div ul { line-height: 1.65; }
-    #digital { background: radial-gradient(ellipse at 100% 0%, rgba(189,152,82,.12), transparent 45%), linear-gradient(135deg, #10251c, #0c1712 80%); }
-    #digital h2 { max-width: 650px; }
-    #digital .grid > div:last-child { border-radius: 22px; border-color: rgba(255,255,255,.12); box-shadow: 0 24px 70px rgba(0,0,0,.25); }
-    #digital .grid > div:last-child .py-6 p { line-height: 1.85; overflow-wrap: anywhere; }
-
-    /* Intake form */
-    #consultation { background: linear-gradient(180deg, #fff 0%, #f4f6f1 100%); }
-    #formContainer { border-radius: 24px; padding: clamp(1.4rem, 4vw, 3.25rem); box-shadow: 0 24px 70px rgba(16,37,28,.09); }
-    #formContainer input, #formContainer select, #formContainer textarea { min-height: 48px; border-radius: 11px; border-color: #d5ddd5; transition: border-color .18s ease, box-shadow .18s ease; }
-    #formContainer textarea { min-height: 120px; }
-    #formContainer input:focus, #formContainer select:focus, #formContainer textarea:focus { border-color: var(--ce-gold); box-shadow: 0 0 0 4px rgba(189,152,82,.13); outline: none; }
-    #formContainer label { letter-spacing: .08em; }
-    #formContainer .scope-chip { padding: .65rem .9rem; border-radius: 999px; line-height: 1.4; }
-    #formContainer .scope-chip[aria-pressed="true"], #formContainer .scope-chip.active { color: #fff; background: var(--ce-forest); border-color: var(--ce-forest); }
-    #formContainer button[type="submit"] { min-height: 52px; border-radius: 12px; box-shadow: 0 10px 24px rgba(132,98,39,.19); }
-    footer { background: #0b1711; }
-    footer a { text-underline-offset: 4px; }
-    footer a:hover { color: #e4c47f; }
-
-    @media (max-width: 767px) {
-      header > div:first-child { height: 68px; }
-      header a[href="https://ccs.craftegon.com"] span:first-child { font-size: 1rem; }
-      main { padding-top: 68px !important; }
-      main > section:first-child { min-height: auto; padding-top: 4.5rem !important; }
-      main > section:first-child::before { width: 105vw; top: 38%; }
-      main > section:first-child h1 { font-size: clamp(2.35rem, 10vw, 3.5rem); }
-      main > section:first-child .grid.grid-cols-2 { gap: .25rem; padding: .8rem; }
-      main > section:first-child .grid.grid-cols-2 > div { padding: .7rem .55rem; border-right: 0; }
-      main > section:first-child .grid.grid-cols-2 > div:nth-child(odd) { border-right: 1px solid #e2e8e1; }
-      main > section:first-child .grid.grid-cols-2 > div:nth-child(-n+2) { border-bottom: 1px solid #e2e8e1; }
-      main > section:first-child .grid.grid-cols-2 > div p:nth-child(2) { font-size: 1rem; overflow-wrap: anywhere; }
-      #services .flex.flex-wrap.gap-2.p-1\.5 { border-radius: 14px; }
-      #services .filter-btn { padding: .6rem .75rem; }
-      #pipeline .grid > div { padding: 1.25rem; }
-      #packages .overflow-x-auto { border-radius: 14px; }
-      #digital .grid { gap: 2.5rem; }
-      footer .grid { gap: 2rem; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-    }
-  </style>
-  <link rel="stylesheet" href="./assets/css/ux-refresh.css" />
+<link rel="stylesheet" href="./assets/css/ux-refresh.css" />
 </head>
 <body class="selection:bg-brand-goldLight selection:text-brand-obsidian antialiased">
 
@@ -244,11 +89,11 @@
 
       <!-- Desktop Nav -->
       <nav aria-label="Main navigation" class="hidden lg:flex items-center space-x-8 text-xs uppercase tracking-wider font-semibold text-slate-300">
-        <a href="#services" class="hover:text-brand-gold transition-colors">Verticals</a>
-        <a href="#pipeline" class="hover:text-brand-gold transition-colors">Incorporation Timeline</a>
-        <a href="#packages" class="hover:text-brand-gold transition-colors">Fee Schedules</a>
+        <a href="#services" class="hover:text-brand-gold transition-colors">Services</a>
+        <a href="#pipeline" class="hover:text-brand-gold transition-colors">Process</a>
+        <a href="#packages" class="hover:text-brand-gold transition-colors">Pricing</a>
         <a href="#retainers" class="hover:text-brand-gold transition-colors">Retainers</a>
-        <a href="#digital" class="hover:text-brand-gold transition-colors">Digital Ops</a>
+        <a href="#digital" class="hover:text-brand-gold transition-colors">Digital</a>
       </nav>
 
       <!-- CTA Hub -->
@@ -257,7 +102,7 @@
           craftegon.com &nearr;
         </a>
         <a href="#consultation" class="bg-gradient-to-r from-amber-700 via-brand-gold to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-sm flex items-center space-x-1.5">
-          <span>Engage Counsel</span>
+          <span>Get in touch</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
       </div>
@@ -270,13 +115,13 @@
 
     <!-- Mobile Drawer -->
     <div id="mobileMenu" class="hidden lg:hidden border-b border-brand-borderDark bg-brand-obsidian px-6 py-6 space-y-4 shadow-xl">
-      <a href="#services" class="block text-white font-semibold text-sm mobile-link">Service Verticals</a>
-      <a href="#pipeline" class="block text-white font-semibold text-sm mobile-link">Incorporation Timeline</a>
-      <a href="#packages" class="block text-white font-semibold text-sm mobile-link">Package Pricing</a>
-      <a href="#retainers" class="block text-white font-semibold text-sm mobile-link">Corporate Retainers</a>
-      <a href="#digital" class="block text-white font-semibold text-sm mobile-link">Digital Infrastructure & AI</a>
+      <a href="#services" class="block text-white font-semibold text-sm mobile-link">Services</a>
+      <a href="#pipeline" class="block text-white font-semibold text-sm mobile-link">Process</a>
+      <a href="#packages" class="block text-white font-semibold text-sm mobile-link">Pricing</a>
+      <a href="#retainers" class="block text-white font-semibold text-sm mobile-link">Retainers</a>
+      <a href="#digital" class="block text-white font-semibold text-sm mobile-link">Digital services</a>
       <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
-        <a href="#consultation" class="w-full text-center bg-brand-gold text-brand-obsidian font-extrabold py-2.5 rounded-lg text-xs uppercase tracking-wider mobile-link">Schedule Consultation</a>
+        <a href="#consultation" class="w-full text-center bg-brand-gold text-brand-obsidian font-extrabold py-2.5 rounded-lg text-xs uppercase tracking-wider mobile-link">Get in touch</a>
         <a href="https://craftegon.com" class="w-full text-center py-2 text-xs font-mono text-slate-400 border border-slate-700 rounded">Visit Ecosystem</a>
       </div>
     </div>
@@ -317,7 +162,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <p class="text-xs font-mono uppercase tracking-widest text-brand-gold font-bold mb-2">Practice Architecture</p>
+            <p class="section-kicker"><span>01</span> SERVICES</p>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-obsidian tracking-tight font-serif">
               15 Corporate & Infrastructure Verticals
             </h2>
@@ -711,7 +556,7 @@
     <section id="pipeline" class="py-24 border-b border-brand-borderSubtle bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-16">
-          <p class="text-xs font-mono uppercase tracking-widest text-brand-gold font-bold mb-2">Turnaround Precision</p>
+          <p class="section-kicker"><span>02</span> HOW IT WORKS</p>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-obsidian tracking-tight font-serif">
             Company Incorporation Timeline
           </h2>
