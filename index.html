@@ -1,195 +1,1130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CraftEgon CCS — Professional Corporate & Legal Compliance Platform</title>
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/theme.css">
-  <link rel="stylesheet" href="/assets/css/navbar.css">
-  <link rel="stylesheet" href="/assets/css/service-page.css">
-</head>
-<body>
-  <div id="global-navbar"></div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CraftEgon CCS | Building Business Infrastructure | ccs.craftegon.com</title>
+  <meta name="description" content="CraftEgon Corporate Services (CCS) delivers institutional business formation, corporate compliance, contract architecture, IPR protection, and modern digital operational infrastructure." />
+  
+  <!-- Social Media & Open Graph Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ccs.craftegon.com" />
+  <meta property="og:title" content="CraftEgon CCS | Building Business Infrastructure" />
+  <meta property="og:description" content="Institutional business formation, corporate compliance, contract architecture, IPR protection, and modern digital operational infrastructure." />
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CraftEgon CCS | Building Business Infrastructure" />
+  <meta name="twitter:description" content="Institutional business formation, corporate compliance, contract architecture, IPR protection, and modern digital operational infrastructure." />
 
-  <!-- Hero Section -->
-  <header style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 5rem 1.5rem; text-align: center;">
-    <div class="container" style="max-width: 900px; margin: 0 auto;">
-      <span style="background: rgba(255,255,255,0.1); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Integrated Corporate & Legal Infrastructure</span>
-      <h1 style="font-size: 3rem; font-weight: 700; margin: 1.25rem 0; line-height: 1.2;">Enterprise Compliance & Secretarial Execution Platform</h1>
-      <p style="font-size: 1.15rem; color: #94a3b8; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-        Seamless digital governance across 15 specialized service verticals—from entity formation and MCA V3 filings to venture funding, cross-border FEMA, and DPDP data compliance.
-      </p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="/conversion/calculator.html" class="if-btn-primary" style="padding: 0.85rem 2rem; font-size: 1rem;">Launch Cost Estimator</a>
-        <a href="/conversion/retainer-desk.html" style="background: transparent; color: white; border: 1px solid rgba(255,255,255,0.3); padding: 0.85rem 2rem; border-radius: var(--radius-sm); font-weight: 500; text-decoration: none;">Explore Annual Retainers</a>
+  <link rel="canonical" href="https://ccs.craftegon.com" />
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/theme.css" />
+
+  <!-- Fonts & CDN Preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              canvas: '#f8f9f6',
+              surface: '#ffffff',
+              obsidian: '#0e1712',
+              obsidianSurface: '#15221b',
+              gold: '#c5a059',
+              goldHover: '#b38e46',
+              goldLight: '#f6eedf',
+              mint: '#2dd4bf',
+              mintDark: '#0f766e',
+              slateText: '#2e3a33',
+              slateMuted: '#5e6c63',
+              borderSubtle: 'rgba(14, 23, 18, 0.12)',
+              borderDark: 'rgba(255, 255, 255, 0.10)',
+              borderGold: 'rgba(197, 160, 89, 0.35)'
+            }
+          },
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            serif: ['Cinzel', 'serif'],
+            mono: ['DM Mono', 'monospace']
+          },
+          boxShadow: {
+            'gold-card': '0 10px 30px -5px rgba(197, 160, 89, 0.20)',
+            'obsidian-card': '0 12px 32px rgba(14, 23, 18, 0.08)',
+            'focus-gold': '0 0 0 3px rgba(197, 160, 89, 0.30)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #f8f9f6;
+      color: #0e1712;
+      font-family: 'Manrope', sans-serif;
+    }
+    .grid-bg-light {
+      background-image: radial-gradient(rgba(14, 23, 18, 0.12) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .glass-nav-dark {
+      background: rgba(14, 23, 18, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #b38e46 0%, #c5a059 50%, #e2c07a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card-transition {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-transition:hover {
+      transform: translateY(-3px);
+      border-color: #c5a059;
+      box-shadow: 0 12px 30px -5px rgba(197, 160, 89, 0.22);
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-goldLight selection:text-brand-obsidian antialiased">
+
+  <!-- Executive Deep Obsidian Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav-dark border-b border-brand-borderDark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="https://ccs.craftegon.com" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-lg bg-brand-obsidianSurface border border-brand-gold/60 flex items-center justify-center text-brand-gold font-serif font-bold text-lg group-hover:border-brand-gold transition-colors shadow-sm">
+          C
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-bold tracking-tight text-white leading-none font-serif">CRAFTEGON</span>
+          <span class="text-[10px] uppercase tracking-[0.22em] text-brand-gold font-mono mt-1 font-bold">Corporate Services</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center space-x-8 text-xs uppercase tracking-wider font-semibold text-slate-300">
+        <a href="#services" class="hover:text-brand-gold transition-colors">Verticals</a>
+        <a href="#pipeline" class="hover:text-brand-gold transition-colors">Incorporation Timeline</a>
+        <a href="#packages" class="hover:text-brand-gold transition-colors">Fee Schedules</a>
+        <a href="#retainers" class="hover:text-brand-gold transition-colors">Retainers</a>
+        <a href="#digital" class="hover:text-brand-gold transition-colors">Digital Ops</a>
+      </nav>
+
+      <!-- CTA Hub -->
+      <div class="hidden sm:flex items-center space-x-4">
+        <a href="https://craftegon.com" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-300 hover:text-white px-3 py-1.5 rounded border border-slate-700 hover:border-brand-gold transition-colors bg-brand-obsidianSurface">
+          craftegon.com &nearr;
+        </a>
+        <a href="#consultation" class="bg-gradient-to-r from-amber-700 via-brand-gold to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shadow-sm flex items-center space-x-1.5">
+          <span>Engage Counsel</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Button -->
+      <button id="mobileMenuBtn" aria-expanded="false" aria-label="Toggle Mobile Menu" class="lg:hidden p-2 text-slate-300 hover:text-white">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-b border-brand-borderDark bg-brand-obsidian px-6 py-6 space-y-4 shadow-xl">
+      <a href="#services" class="block text-white font-semibold text-sm mobile-link">Service Verticals</a>
+      <a href="#pipeline" class="block text-white font-semibold text-sm mobile-link">Incorporation Timeline</a>
+      <a href="#packages" class="block text-white font-semibold text-sm mobile-link">Package Pricing</a>
+      <a href="#retainers" class="block text-white font-semibold text-sm mobile-link">Corporate Retainers</a>
+      <a href="#digital" class="block text-white font-semibold text-sm mobile-link">Digital Infrastructure & AI</a>
+      <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+        <a href="#consultation" class="w-full text-center bg-brand-gold text-brand-obsidian font-extrabold py-2.5 rounded-lg text-xs uppercase tracking-wider mobile-link">Schedule Consultation</a>
+        <a href="https://craftegon.com" class="w-full text-center py-2 text-xs font-mono text-slate-400 border border-slate-700 rounded">Visit Ecosystem</a>
       </div>
     </div>
   </header>
 
-  <!-- Service Verticals Directory Grid -->
-  <main class="container" style="padding: 4rem 1.5rem; max-width: 1200px;">
-    <div style="text-align: center; margin-bottom: 3rem;">
-      <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">Explore Our 15 Core Service Verticals</h2>
-      <p style="color: var(--text-muted); font-size: 1rem;">Specialized compliance hubs engineered for high-growth enterprises and legal teams.</p>
-    </div>
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center border-b border-brand-borderSubtle grid-bg-light overflow-hidden py-24 bg-gradient-to-b from-white via-brand-canvas to-slate-100">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-brand-gold/50 bg-white shadow-sm mb-8">
+          <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
+          <span class="text-xs font-mono tracking-widest uppercase text-brand-obsidian font-bold">Building Business Infrastructure</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-brand-obsidian leading-[1.12] mb-6 font-serif">
+          Architecting Enterprise <br class="hidden sm:block" />
+          <span class="gold-gradient-text">
+            Compliance & Corporate Systems
+          </span>
+        </h1>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-      
-      <!-- Vertical 01 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 01</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Entity Formation & Structuring</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">SPICe+ incorporation, Private Limited, LLP, Section 8, and Trust formations.</p>
-        <a href="/verticals/01-entity-formation.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
+        <p class="max-w-3xl mx-auto text-base sm:text-lg text-brand-slateText mb-10 leading-relaxed font-normal">
+          CraftEgon Corporate Services (CCS) unifies statutory business formation, secretarial filings, institutional contract architecture, IPR protection, and modern digital operations under one roof.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <a href="#consultation" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-gradient-to-r from-amber-700 via-brand-gold to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center space-x-2">
+            <span>Schedule Legal Consultation</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#services" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-white hover:bg-slate-50 border border-brand-borderSubtle text-brand-obsidian font-bold text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center space-x-2">
+            <span>Explore 15 Verticals</span>
+            <i data-lucide="layers" class="w-4 h-4 text-brand-gold"></i>
+          </a>
+        </div>
+
+        <!-- Executive Metrics & Indicators -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card text-left">
+          <div class="border-r border-slate-200/80 last:border-0 pr-4">
+            <p class="text-[11px] font-mono text-brand-slateMuted uppercase font-semibold">Standard Delivery</p>
+            <p class="text-xl font-bold text-brand-obsidian mt-0.5 font-mono">7–10 Days</p>
+            <p class="text-[11px] text-brand-slateMuted">Entity Incorporation</p>
+          </div>
+          <div class="border-r border-slate-200/80 last:border-0 pr-4">
+            <p class="text-[11px] font-mono text-brand-slateMuted uppercase font-semibold">Comprehensive Scope</p>
+            <p class="text-xl font-bold text-brand-goldHover mt-0.5 font-mono">15 Verticals</p>
+            <p class="text-[11px] text-brand-slateMuted">Formation to AI Ops</p>
+          </div>
+          <div class="border-r border-slate-200/80 last:border-0 pr-4">
+            <p class="text-[11px] font-mono text-brand-slateMuted uppercase font-semibold">Pricing Model</p>
+            <p class="text-xl font-bold text-brand-obsidian mt-0.5 font-mono">Transparent</p>
+            <p class="text-[11px] text-brand-slateMuted">Fixed Fee & Retainers</p>
+          </div>
+          <div>
+            <p class="text-[11px] font-mono text-brand-slateMuted uppercase font-semibold">Legal Practice</p>
+            <p class="text-xl font-bold text-brand-mintDark mt-0.5 font-mono flex items-center gap-1.5">
+              <span>Non-Litigation</span>
+              <span class="inline-block w-2 h-2 rounded-full bg-brand-mint"></span>
+            </p>
+            <p class="text-[11px] text-brand-slateMuted">Corporate & Strategic</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Vertical 02 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 02</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">RoC Annual Compliance & Maintenance</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">AOC-4, MGT-7, DIR-3 KYC, XBRL filing, and statutory register maintenance.</p>
-        <a href="/verticals/02-roc-compliance.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
+    <!-- Services Section -->
+    <section id="services" class="py-24 border-b border-brand-borderSubtle bg-brand-canvas">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <p class="text-xs font-mono uppercase tracking-widest text-brand-gold font-bold mb-2">Practice Architecture</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-obsidian tracking-tight font-serif">
+              15 Corporate & Infrastructure Verticals
+            </h2>
+            <p class="text-brand-slateText mt-2 text-sm max-w-2xl">
+              Filter by operational requirements or browse our complete capabilities across entity structuring, contracts, governance, and technology infrastructure.
+            </p>
+          </div>
+
+          <!-- Dynamic Filter Tabs -->
+          <div class="flex flex-wrap gap-2 p-1.5 bg-white rounded-xl border border-brand-borderSubtle shadow-sm">
+            <button class="filter-btn active-tab px-4 py-2 rounded-lg text-xs font-bold transition-all bg-brand-obsidian text-white" data-category="all">All Verticals (15)</button>
+            <button class="filter-btn px-4 py-2 rounded-lg text-xs font-bold text-brand-slateMuted hover:text-brand-obsidian transition-all" data-category="formation">Start & Comply</button>
+            <button class="filter-btn px-4 py-2 rounded-lg text-xs font-bold text-brand-slateMuted hover:text-brand-obsidian transition-all" data-category="legal">Draft & Protect</button>
+            <button class="filter-btn px-4 py-2 rounded-lg text-xs font-bold text-brand-slateMuted hover:text-brand-obsidian transition-all" data-category="tech">Scale & Tech</button>
+          </div>
+        </div>
+
+        <!-- Verticals Grid -->
+        <div id="verticalsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- 1. Entity Structuring -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="formation" data-target="incorporation">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-goldLight border border-brand-gold/40 flex items-center justify-center text-brand-goldHover mb-5">
+                <i data-lucide="building-2" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">
+                <a href="./verticals/01-entity-formation.html" class="hover:text-brand-gold transition-colors inline-flex items-center space-x-1">
+                  <span>1. Business Formation & Structuring</span>
+                  <span>&rarr;</span>
+                </a>
+              </h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Pvt Ltd, LLP, OPC, Partnership, Sole Proprietorship, Section 8 NGO, Trust, Society, MSME (Udyam), and DPIIT Startup India registration.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Baseline Fee</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">From ₹8,000</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <button class="sync-service-btn text-xs font-bold text-brand-goldHover hover:underline" data-value="incorporation">
+                  Inquire
+                </button>
+                <a href="./verticals/01-entity-formation.html" class="text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1">
+                  <span>Explore</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. ROC Filings -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="formation" data-target="compliance">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-brand-obsidian mb-5">
+                <i data-lucide="file-check-2" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">
+                <a href="./verticals/02-roc-compliance.html" class="hover:text-brand-gold transition-colors inline-flex items-center space-x-1">
+                  <span>2. Corporate Compliance & Secretarial</span>
+                  <span>&rarr;</span>
+                </a>
+              </h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Annual ROC filings (AOC-4, MGT-7, Form 11), event-based MCA filings (DIR-12, PAS-3, SH-7), Director KYC, registers, and strike-off.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Turnover Scale</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">From ₹15,000/yr</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <button class="sync-service-btn text-xs font-bold text-brand-goldHover hover:underline" data-value="compliance">
+                  Inquire
+                </button>
+                <a href="./verticals/02-roc-compliance.html" class="text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1">
+                  <span>Explore</span>
+                  <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Tax & Regulatory -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="formation" data-target="compliance">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-goldLight border border-brand-gold/40 flex items-center justify-center text-brand-goldHover mb-5">
+                <i data-lucide="receipt" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">3. Tax & Regulatory Registrations</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                GST registration and returns, PAN/TAN, TDS returns, Business Income Tax returns, E-Way bills, and non-litigation drafting for tax notices.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Direct & Indirect</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">From ₹500</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="compliance">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Licenses & Approvals -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="formation" data-target="compliance">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-brand-obsidian mb-5">
+                <i data-lucide="stamp" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">4. Licenses & Statutory Registrations</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Trade Licenses, Shops & Establishments, Import Export Code (IEC), FSSAI food licenses, Factory licenses, and EPFO/ESIC enrolments.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Statutory Approvals</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">From ₹1,000</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="compliance">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 5. Contracts & Legal Docs -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="legal" data-target="contracts">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-goldLight border border-brand-gold/40 flex items-center justify-center text-brand-goldHover mb-5">
+                <i data-lucide="file-text" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">5. Contracts & Legal Architecture</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Shareholders' Agreements (SHA), Founders' Agreements, MoUs, Master Service Agreements (MSA), SLAs, NDAs, and platform Terms & Privacy Policies.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Institutional Draft</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">From ₹2,000</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="contracts">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 6. Intellectual Property -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="legal" data-target="trademark">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-brand-obsidian mb-5">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">6. Intellectual Property (IPR)</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Trademark search, registration, and objection handling; Copyright and Design registration; Patent facilitation and IP licensing strategy.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Per Class Filing</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">From ₹6,000</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="trademark">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 7. Employment & Labour -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="legal" data-target="contracts">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-goldLight border border-brand-gold/40 flex items-center justify-center text-brand-goldHover mb-5">
+                <i data-lucide="users" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">7. Employment & HR Compliance</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Employment agreements, HR manuals, POSH policy compliance architecture, employee handbooks, disciplinary frameworks, and termination documentation.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Workforce Defense</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">From ₹5,000</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="contracts">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 8. Startup & Investment -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="tech" data-target="fundraising">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-brand-obsidian mb-5">
+                <i data-lucide="trending-up" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">8. Startup & Investment Advisory</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Investor legal due diligence, cap table structuring, Angel & Seed documentation, SAFE / Convertible notes, ESOP plans, and founder legal defense.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Deal Structure</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">0.5%–1.5% Deal</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="fundraising">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 9. Transactions & Restructuring -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="tech" data-target="fundraising">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-goldLight border border-brand-gold/40 flex items-center justify-center text-brand-goldHover mb-5">
+                <i data-lucide="git-merge" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">9. Corporate Transactions & M&A</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Mergers & acquisitions legal advisory, transaction due diligence, share purchase agreements, capital reorganization, and LLP to Pvt Ltd conversions.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">M&A Scope</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">1%–3% Deal</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="fundraising">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 10. Dispute Avoidance -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="legal" data-target="contracts">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-brand-obsidian mb-5">
+                <i data-lucide="scale" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">10. Dispute Avoidance (Non-Litigation)</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Legal notice drafting, replies to notices, settlement agreements, consumer complaint drafting, commercial negotiation, and arbitration briefs.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Notice & Defense</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">From ₹3,000</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="contracts">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 11. Governance & Risk -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="tech" data-target="compliance">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-goldLight border border-brand-gold/40 flex items-center justify-center text-brand-goldHover mb-5">
+                <i data-lucide="shield-alert" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">11. Governance, Audit & Risk</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Corporate governance frameworks, compliance risk assessments, contract compliance audits, ESG advisory, and secretarial audit coordination.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Governance Audit</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">Bespoke Scope</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="compliance">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 12. Tech & DPDP -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="tech" data-target="digital">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-brand-mint/40 flex items-center justify-center text-brand-mintDark mb-5">
+                <i data-lucide="cpu" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">12. Data Privacy & Tech Law</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                DPDP Act readiness, AI governance frameworks, AI acceptable usage policies, SaaS license contracts, and non-litigation cyber law advisory.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">DPDP Ready</span>
+                <span class="text-xs font-bold text-brand-mintDark font-mono">From ₹15,000</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="digital">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 13. Cross-Border & FEMA -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="tech" data-target="fundraising">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-brand-goldLight border border-brand-gold/40 flex items-center justify-center text-brand-goldHover mb-5">
+                <i data-lucide="globe" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">13. International Business & FEMA</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Foreign direct investment advisory, RBI regulatory filings, FEMA compliance, cross-border deal structuring, and international trade contracts.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Cross-Border Scope</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">Custom Scope</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="fundraising">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 14. Retainer Desk -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="formation" data-target="retainer">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-brand-obsidian mb-5">
+                <i data-lucide="calendar-check" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">14. Corporate Retainers & Legal Desk</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Dedicated monthly corporate counsel, routine document reviews, statutory compliance calendar tracking, and proactive governance monitoring.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Monthly Plans</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">₹10K–₹50K+</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="retainer">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 15. Digital Infrastructure -->
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="tech" data-target="digital">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-brand-mint/40 flex items-center justify-center text-brand-mintDark mb-5">
+                <i data-lucide="terminal" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">15. IT & Digital Infrastructure</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                Brand identity, corporate website design, no-code CRM and workflow automation, AI productivity setups, and privacy-aligned digital platforms.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Full-Stack Tech</span>
+                <span class="text-xs font-bold text-brand-mintDark font-mono">Enterprise Pack</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="digital">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
       </div>
+    </section>
 
-      <!-- Vertical 03 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 03</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Direct & Indirect Tax Compliance</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">GST annual returns (9/9C), ITR-7, Form 10B trust audits, and Form 3CEB.</p>
-        <a href="/verticals/03-tax-compliance.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
+    <!-- Incorporation Stepper Timeline -->
+    <section id="pipeline" class="py-24 border-b border-brand-borderSubtle bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-16">
+          <p class="text-xs font-mono uppercase tracking-widest text-brand-gold font-bold mb-2">Turnaround Precision</p>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-obsidian tracking-tight font-serif">
+            Company Incorporation Timeline
+          </h2>
+          <p class="text-brand-slateText mt-3 text-base">
+            Systematic execution from KYC onboarding to Certificate of Incorporation (COI) in 7–10 working days.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+          <div class="p-6 rounded-2xl bg-brand-canvas border border-slate-200 shadow-sm">
+            <span class="text-xs font-mono text-brand-gold font-bold block mb-2">STAGE 01</span>
+            <h3 class="text-base font-bold text-brand-obsidian mb-1">Documentation & DSC</h3>
+            <p class="text-xs font-mono text-brand-slateMuted mb-3">Duration: 1–2 Days</p>
+            <p class="text-xs text-brand-slateText leading-relaxed">
+              Collection of KYC credentials, Director identification verification, and Digital Signature Certificate (DSC) generation.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-canvas border border-slate-200 shadow-sm">
+            <span class="text-xs font-mono text-brand-gold font-bold block mb-2">STAGE 02</span>
+            <h3 class="text-base font-bold text-brand-obsidian mb-1">Name Reservation</h3>
+            <p class="text-xs font-mono text-brand-slateMuted mb-3">Duration: 1–2 Days</p>
+            <p class="text-xs text-brand-slateText leading-relaxed">
+              MCA RUN filing for company name clearance and legal uniqueness checks against registered trademark databases.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-goldLight/70 border border-brand-gold relative shadow-gold-card">
+            <span class="text-xs font-mono text-brand-goldHover font-bold block mb-2">STAGE 03</span>
+            <h3 class="text-base font-bold text-brand-obsidian mb-1">SPICe+ Submission</h3>
+            <p class="text-xs font-mono text-brand-goldHover mb-3 font-semibold">Duration: 3–5 Days</p>
+            <p class="text-xs text-brand-slateText leading-relaxed">
+              Integrated filing covering MoA, AoA, DIN allocation, PAN/TAN generation, EPFO, ESIC, and statutory banking integration.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-canvas border border-slate-200 shadow-sm">
+            <span class="text-xs font-mono text-brand-gold font-bold block mb-2">STAGE 04</span>
+            <h3 class="text-base font-bold text-brand-obsidian mb-1">COI & Handover</h3>
+            <p class="text-xs font-mono text-brand-slateMuted mb-3">Duration: 1 Day</p>
+            <p class="text-xs text-brand-slateText leading-relaxed">
+              Issuance of Certificate of Incorporation, corporate identity kit, bank account setup facilitation, and compliance schedule.
+            </p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Vertical 04 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 04</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Statutory Licenses & Registrations</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">MSME Udyam, DPIIT Startup India, FSSAI, IEC, and Trademark filings.</p>
-        <a href="/verticals/04-statutory-licenses.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
+    <!-- Transparent Package Schedules -->
+    <section id="packages" class="py-24 border-b border-brand-borderSubtle bg-brand-canvas">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <p class="text-xs font-mono uppercase tracking-widest text-brand-gold font-bold mb-2">Commercial Clarity</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-obsidian tracking-tight font-serif">
+              Standard Package Fee Schedule
+            </h2>
+            <p class="text-brand-slateText mt-2 text-base">Standardized packages for founders and corporate groups.</p>
+          </div>
+          <div class="text-xs font-mono text-brand-slateMuted bg-white p-3 rounded-lg border border-slate-200 shadow-sm max-w-sm">
+            Statutory notice: Government fees, state stamp duties, and GST are extra.
+          </div>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-brand-borderSubtle bg-white shadow-obsidian-card">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50 font-mono text-xs text-brand-slateMuted border-b border-brand-borderSubtle">
+              <tr>
+                <th class="py-4 px-6 whitespace-nowrap">Vertical / Scope</th>
+                <th class="py-4 px-6 whitespace-nowrap">Basic Package</th>
+                <th class="py-4 px-6 whitespace-nowrap">Pro Package</th>
+                <th class="py-4 px-6 whitespace-nowrap">Enterprise Package</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-sans text-brand-obsidian text-xs">
+              <tr class="hover:bg-brand-goldLight/30 transition-colors">
+                <td class="py-4 px-6 font-semibold whitespace-nowrap">Private Limited Incorporation</td>
+                <td class="py-4 px-6 text-brand-slateMuted">₹8K–₹12K (SPICe+, MoA/AoA, PAN/TAN)</td>
+                <td class="py-4 px-6 text-brand-goldHover font-bold">₹15K–₹20K (Includes DSC & post-inc kit)</td>
+                <td class="py-4 px-6">₹25K–₹35K (GST, PF/ESI, Board governance pack)</td>
+              </tr>
+              <tr class="hover:bg-brand-goldLight/30 transition-colors">
+                <td class="py-4 px-6 font-semibold whitespace-nowrap">Annual ROC Compliance</td>
+                <td class="py-4 px-6 text-brand-slateMuted">₹15,000 (Turnover &lt;₹50 Lakhs)</td>
+                <td class="py-4 px-6 text-brand-goldHover font-bold">₹17,000 (Turnover &lt;₹1 Crore)</td>
+                <td class="py-4 px-6">₹19,000–₹25,000 (Turnover &lt;₹2 Crore+)</td>
+              </tr>
+              <tr class="hover:bg-brand-goldLight/30 transition-colors">
+                <td class="py-4 px-6 font-semibold whitespace-nowrap">Trademark Filing (Per Class)</td>
+                <td class="py-4 px-6 text-brand-slateMuted">₹6,000–₹8,000 (Govt fee + basic search)</td>
+                <td class="py-4 px-6 text-brand-goldHover font-bold">₹10,000–₹12,000 (Filing + 1 objection draft)</td>
+                <td class="py-4 px-6">₹15,000 (Full lifecycle + 1-yr monitoring)</td>
+              </tr>
+              <tr class="hover:bg-brand-goldLight/30 transition-colors">
+                <td class="py-4 px-6 font-semibold whitespace-nowrap">Institutional Contracts (SHA/ESOP)</td>
+                <td class="py-4 px-6 text-brand-slateMuted">₹10,000–₹15,000 (Standard commercial SLA)</td>
+                <td class="py-4 px-6 text-brand-goldHover font-bold">₹20,000–₹35,000 (Custom SHA / ESOP pool)</td>
+                <td class="py-4 px-6">₹35,000–₹50,000 (Multi-party investment SHA)</td>
+              </tr>
+              <tr class="hover:bg-brand-goldLight/30 transition-colors">
+                <td class="py-4 px-6 font-semibold whitespace-nowrap">M&A & Deal Advisory</td>
+                <td class="py-4 px-6 text-brand-slateMuted">₹50,000 (Fixed seed diligence report)</td>
+                <td class="py-4 px-6 text-brand-goldHover font-bold">1.0% of deal value</td>
+                <td class="py-4 px-6">1.5%–3.0% of deal value</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+    </section>
 
-      <!-- Vertical 05 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 05</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Contracts & Commercial Legal Drafting</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Founder SHAs, Master Service Agreements, SaaS terms, and NDA suites.</p>
-        <a href="/verticals/05-contracts-legal.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
+    <!-- Monthly Retainers -->
+    <section id="retainers" class="py-24 border-b border-brand-borderSubtle bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <p class="text-xs font-mono uppercase tracking-widest text-brand-gold font-bold mb-2">Dedicated Legal Department</p>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-obsidian tracking-tight font-serif">
+            Monthly Corporate Retainers
+          </h2>
+          <p class="text-brand-slateText mt-3 text-base">
+            Replace fragmented invoices with an outsourced corporate legal department on predictable monthly retainer.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Basic Plan -->
+          <div class="p-8 rounded-2xl bg-brand-canvas border border-slate-200 flex flex-col justify-between shadow-obsidian-card card-transition">
+            <div>
+              <span class="text-xs font-mono text-brand-slateMuted uppercase font-bold">Micro & Seed Startups</span>
+              <h3 class="text-2xl font-bold text-brand-obsidian mt-1">Basic Retainer</h3>
+              <p class="text-3xl font-extrabold text-brand-obsidian font-mono mt-4">₹10,000<span class="text-sm font-normal text-brand-slateMuted">/mo</span></p>
+              <p class="text-xs text-brand-slateMuted mt-1">To ₹15,000/mo scaled by activity volume</p>
+              <ul class="mt-6 space-y-3 text-xs text-brand-slateText">
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover"></i><span>5–10 hours of dedicated corporate advisory</span></li>
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover"></i><span>Monthly statutory compliance check-up</span></li>
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover"></i><span>ROC & GST filing reminder calendar</span></li>
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover"></i><span>Email & telephonic direct counsel</span></li>
+              </ul>
+            </div>
+            <button class="sync-service-btn mt-8 block w-full text-center py-3 rounded-lg border border-slate-300 bg-white text-xs font-bold text-brand-obsidian hover:border-brand-gold hover:text-brand-goldHover transition-all shadow-sm" data-value="retainer">
+              Select Basic Retainer
+            </button>
+          </div>
+
+          <!-- Pro Plan -->
+          <div class="p-8 rounded-2xl bg-gradient-to-b from-brand-goldLight/80 to-white border-2 border-brand-gold flex flex-col justify-between relative shadow-gold-card">
+            <span class="absolute -top-3 right-6 bg-gradient-to-r from-amber-700 via-brand-gold to-amber-600 text-white px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm">Preferred</span>
+            <div>
+              <span class="text-xs font-mono text-brand-goldHover uppercase font-bold">Growth Ventures</span>
+              <h3 class="text-2xl font-bold text-brand-obsidian mt-1">Pro Retainer</h3>
+              <p class="text-3xl font-extrabold text-brand-goldHover font-mono mt-4">₹25,000<span class="text-sm font-normal text-brand-slateMuted">/mo</span></p>
+              <p class="text-xs text-brand-slateMuted mt-1">To ₹40,000/mo for high transaction velocities</p>
+              <ul class="mt-6 space-y-3 text-xs text-brand-obsidian">
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover font-bold"></i><span>Unlimited routine corporate consultations</span></li>
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover font-bold"></i><span>Drafting of up to 3 custom agreements/mo</span></li>
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover font-bold"></i><span>Contract review (up to 20 pages/mo)</span></li>
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover font-bold"></i><span>Active compliance calendar management</span></li>
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover font-bold"></i><span>Priority SLA response window</span></li>
+              </ul>
+            </div>
+            <button class="sync-service-btn mt-8 block w-full text-center py-3 rounded-lg bg-gradient-to-r from-amber-700 via-brand-gold to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md" data-value="retainer">
+              Deploy Pro Retainer
+            </button>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div class="p-8 rounded-2xl bg-brand-canvas border border-slate-200 flex flex-col justify-between shadow-obsidian-card card-transition">
+            <div>
+              <span class="text-xs font-mono text-brand-slateMuted uppercase font-bold">Conglomerates & Holdings</span>
+              <h3 class="text-2xl font-bold text-brand-obsidian mt-1">Enterprise Retainer</h3>
+              <p class="text-3xl font-extrabold text-brand-obsidian font-mono mt-4">₹50,000+<span class="text-sm font-normal text-brand-slateMuted">/mo</span></p>
+              <p class="text-xs text-brand-slateMuted mt-1">Custom scope tailored to group entities</p>
+              <ul class="mt-6 space-y-3 text-xs text-brand-slateText">
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover"></i><span>Dedicated corporate legal team allocation</span></li>
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover"></i><span>Unlimited bespoke contracts and policies</span></li>
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover"></i><span>Internal & secretarial audit coordination</span></li>
+                <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-brand-goldHover"></i><span>Quarterly strategy and risk assessments</span></li>
+              </ul>
+            </div>
+            <button class="sync-service-btn mt-8 block w-full text-center py-3 rounded-lg border border-slate-300 bg-white text-xs font-bold text-brand-obsidian hover:border-brand-gold hover:text-brand-goldHover transition-all shadow-sm" data-value="retainer">
+              Initiate Enterprise Scope
+            </button>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Vertical 06 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 06</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Intellectual Property & Brand Protection</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Trademark class search, Form TM-A filings, software copyrights, and C&D notices.</p>
-        <a href="/verticals/06-ipr-protection.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
+    <!-- Digital & AI Operations (Deep Forest Obsidian Dark Module) -->
+    <section id="digital" class="py-24 border-b border-brand-borderSubtle bg-brand-obsidian text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-xs font-mono uppercase tracking-widest text-brand-gold font-bold mb-2">Modern Operational Edge</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-serif">
+              Beyond Filing: Building Modern Digital Infrastructure
+            </h2>
+            <p class="text-slate-300 mt-4 text-sm leading-relaxed">
+              Standard legal platforms stop once an MCA certificate is generated. CraftEgon Corporate Services unites corporate architecture with modern digital operations:
+            </p>
+
+            <div class="mt-8 space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-brand-obsidianSurface border border-brand-gold/50 flex items-center justify-center text-brand-gold shrink-0 mt-0.5">
+                  <i data-lucide="shield" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">DPDP Act & Data Privacy Architecture</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Privacy-by-design policy setup, cross-border data transfer compliance, and cookie consent mechanisms.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-brand-obsidianSurface border border-brand-mint/50 flex items-center justify-center text-brand-mint shrink-0 mt-0.5">
+                  <i data-lucide="bot" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">AI Usage Governance & Workflow Automation</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Internal AI acceptable use protocols, prompt safety policies, no-code CRM automation, and data hygiene.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-brand-obsidianSurface border border-brand-gold/50 flex items-center justify-center text-brand-gold shrink-0 mt-0.5">
+                  <i data-lucide="layout" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">Brand Identity & Digital Presence</h4>
+                  <p class="text-xs text-slate-400 mt-0.5">Corporate identity books, investor pitch decks, compliant websites, and institutional web presence.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-2xl bg-brand-obsidianSurface border border-brand-borderDark font-mono text-xs shadow-2xl">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 rounded-full bg-slate-700"></div>
+                <div class="w-3 h-3 rounded-full bg-brand-gold"></div>
+                <div class="w-3 h-3 rounded-full bg-brand-mint"></div>
+              </div>
+              <span class="text-slate-500 text-[11px]">ccs_system_engine.sh</span>
+            </div>
+            <div class="py-6 space-y-3 text-slate-200">
+              <p class="text-brand-gold font-bold">&gt; Initializing enterprise corporate pipeline...</p>
+              <p>&gt; SPICe+ entity configuration: <span class="font-bold text-white">PRIVATE_LIMITED</span></p>
+              <p>&gt; DPDP data mapping: <span class="text-brand-mint font-bold">PRIVACY_VERIFIED</span></p>
+              <p>&gt; SHA & Founder Vesting Schedule: <span class="text-amber-300 font-bold">EXECUTED</span></p>
+              <p>&gt; Automation & CRM connectors: <span class="text-slate-400 font-bold">ACTIVE</span></p>
+              <p class="text-slate-500">&gt; Status: 100% compliant business infrastructure deployed.</p>
+            </div>
+            <div class="pt-4 border-t border-slate-800 text-slate-500 text-[11px] flex justify-between">
+              <span>Domain: ccs.craftegon.com</span>
+              <span class="text-brand-mint font-bold">Production Ready</span>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Vertical 07 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 07</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Labour, HR & Employment Compliance</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Mandatory POSH Internal Committee setup, PF/ESIC returns, and handbooks.</p>
-        <a href="/verticals/07-labour-hr.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
+    <!-- Consultation & Qualified Intake Form -->
+    <section id="consultation" class="py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="formContainer" class="p-8 sm:p-12 rounded-3xl bg-brand-canvas border border-brand-borderSubtle shadow-obsidian-card transition-all">
+          <div class="mb-8">
+            <span class="text-xs font-mono uppercase tracking-widest text-brand-gold font-bold">Direct Intake</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-obsidian mt-1 font-serif">Initiate Corporate Advisory</h2>
+            <p class="text-xs text-brand-slateText mt-2">Connect with our corporate advisory desk for entity structuring, compliance audit, or ongoing retainer support.</p>
+          </div>
+
+          <form id="consultationForm" class="space-y-6">
+            <!-- Multi-Select Scope Chips -->
+            <div>
+              <label class="block text-xs font-mono text-brand-slateMuted mb-2 font-semibold">SELECT AREAS OF ENGAGEMENT *</label>
+              <div class="flex flex-wrap gap-2" id="scopeChips">
+                <button type="button" class="scope-chip px-3.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-brand-slateText hover:border-brand-gold" data-scope="incorporation">Company / LLP Incorporation</button>
+                <button type="button" class="scope-chip px-3.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-brand-slateText hover:border-brand-gold" data-scope="compliance">ROC & Tax Compliance</button>
+                <button type="button" class="scope-chip px-3.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-brand-slateText hover:border-brand-gold" data-scope="trademark">Trademark & IPR</button>
+                <button type="button" class="scope-chip px-3.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-brand-slateText hover:border-brand-gold" data-scope="contracts">Contracts (SHA / ESOP)</button>
+                <button type="button" class="scope-chip px-3.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-brand-slateText hover:border-brand-gold" data-scope="fundraising">Startup Fundraising</button>
+                <button type="button" class="scope-chip px-3.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-brand-slateText hover:border-brand-gold" data-scope="retainer">Monthly Retainer</button>
+                <button type="button" class="scope-chip px-3.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-brand-slateText hover:border-brand-gold" data-scope="digital">Digital & AI Infrastructure</button>
+              </div>
+              <input type="hidden" name="selectedScopes" id="selectedScopesInput" value="" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="fullName" class="block text-xs font-mono text-brand-slateMuted mb-2 font-semibold">FULL NAME *</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="e.g. John Doe" class="w-full px-4 py-3 rounded-lg bg-white border border-slate-300 text-brand-obsidian text-sm focus:outline-none focus:border-brand-gold shadow-sm" />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-mono text-brand-slateMuted mb-2 font-semibold">WORK EMAIL *</label>
+                <input type="email" id="email" name="email" required placeholder="founder@company.com" class="w-full px-4 py-3 rounded-lg bg-white border border-slate-300 text-brand-obsidian text-sm focus:outline-none focus:border-brand-gold shadow-sm" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="phone" class="block text-xs font-mono text-brand-slateMuted mb-2 font-semibold">PHONE / WHATSAPP *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210" class="w-full px-4 py-3 rounded-lg bg-white border border-slate-300 text-brand-obsidian text-sm focus:outline-none focus:border-brand-gold shadow-sm" />
+              </div>
+              <div>
+                <label for="primaryVerticalSelect" class="block text-xs font-mono text-brand-slateMuted mb-2 font-semibold">PRIMARY VERTICAL *</label>
+                <select id="primaryVerticalSelect" name="primaryVertical" class="w-full px-4 py-3 rounded-lg bg-white border border-slate-300 text-brand-obsidian text-sm focus:outline-none focus:border-brand-gold shadow-sm">
+                  <option value="incorporation">Company / LLP Incorporation</option>
+                  <option value="compliance">Annual ROC & MCA Compliance</option>
+                  <option value="trademark">Trademark & IPR Protection</option>
+                  <option value="contracts">Contracts & Drafting (SHA / ESOP)</option>
+                  <option value="fundraising">Startup Fundraising & Term Sheets</option>
+                  <option value="retainer">Monthly Corporate Retainer</option>
+                  <option value="digital">Digital & AI Infrastructure</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="projectDetails" class="block text-xs font-mono text-brand-slateMuted mb-2 font-semibold">PROJECT SCOPE & REQUIREMENTS</label>
+              <textarea id="projectDetails" name="projectDetails" rows="4" placeholder="Briefly outline your entity type, team size, or target timeline..." class="w-full px-4 py-3 rounded-lg bg-white border border-slate-300 text-brand-obsidian text-sm focus:outline-none focus:border-brand-gold shadow-sm"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-lg bg-gradient-to-r from-amber-700 via-brand-gold to-amber-600 hover:from-amber-800 hover:to-amber-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center space-x-2">
+              <span>Submit Advisory Request</span>
+              <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+          </form>
+
+          <div id="formSuccess" class="hidden mt-6 p-6 rounded-2xl bg-brand-goldLight border border-brand-gold text-center">
+            <div class="w-12 h-12 rounded-full bg-white border border-brand-gold mx-auto flex items-center justify-center text-brand-goldHover mb-3 shadow-sm">
+              <i data-lucide="check" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-base font-bold text-brand-obsidian font-serif">Advisory Request Received</h4>
+            <p class="text-xs text-brand-slateText mt-1">Our corporate advisory desk will review your submission and contact you within 24 business hours.</p>
+          </div>
+        </div>
       </div>
-
-      <!-- Vertical 08 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 08</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Venture Capital, Fundraising & Cap Table</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Form PAS-3, MGT-14 investment resolutions, and Rule 11UA valuations.</p>
-        <a href="/verticals/08-fundraising-investment.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
-      </div>
-
-      <!-- Vertical 09 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 09</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Mergers, Acquisitions & Restructuring</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Section 233 fast-track mergers, slump sales, and NCLT amalgamation schemes.</p>
-        <a href="/verticals/09-ma-restructuring.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
-      </div>
-
-      <!-- Vertical 10 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 10</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Corporate Disputes, Litigation & NCLT</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Section 241/242 oppression petitions, board deadlocks, and IBC defense.</p>
-        <a href="/verticals/10-litigation-dispute.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
-      </div>
-
-      <!-- Vertical 11 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 11</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Secretarial Audit & Governance Controls</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Mandatory Form MR-3 secretarial audits and board governance risk assessments.</p>
-        <a href="/verticals/11-governance-audit.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
-      </div>
-
-      <!-- Vertical 12 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 12</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">ESG & Corporate Social Responsibility</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Section 135 CSR policy setup, Form CSR-2 annual reporting, and unspent funds.</p>
-        <a href="/verticals/12-esg-csr.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
-      </div>
-
-      <!-- Vertical 13 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 13</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Cross-Border, FEMA & Foreign Subsidiary</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">RBI FIRMS portal FDI reporting, Form FC-3/FC-4, and annual FLA returns.</p>
-        <a href="/verticals/13-cross-border-fema.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
-      </div>
-
-      <!-- Vertical 14 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 14</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">Corporate Exit & Fast-Track Strike-Off</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Form STK-2 company closures, LLP Form 24 strike-offs, and MSC-1 dormant status.</p>
-        <a href="/verticals/14-exit-insolvency.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
-      </div>
-
-      <!-- Vertical 15 -->
-      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.75rem; box-shadow: var(--shadow-sm);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Vertical 15</span>
-        <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0.5rem 0 0.75rem;">IT, Data Protection & DPDP Legal Rules</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">DPDP Act data fiduciary compliance, SaaS EULAs, and CERT-In breach reporting.</p>
-        <a href="/verticals/15-it-digital.html" style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-decoration: none;">Access Hub &rarr;</a>
-      </div>
-
-    </div>
+    </section>
   </main>
 
-  <!-- Footer with Legal Links Integration -->
-  <footer style="background: #0f172a; color: #94a3b8; padding: 4rem 1.5rem 2rem; margin-top: 4rem; font-size: 0.9rem;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem;">
-      <div>
-        <p style="color: white; font-weight: 600; margin-bottom: 0.75rem; font-size: 1rem;">CraftEgon CCS</p>
-        <p style="margin: 0; font-size: 0.85rem; line-height: 1.6;">Integrated corporate secretarial, tax, and legal infrastructure platforms engineered for modern enterprises.</p>
+  <!-- Institutional Footer (Deep Forest Obsidian) -->
+  <footer class="border-t border-brand-borderDark bg-brand-obsidian py-16 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-3">
+            <div class="w-7 h-7 rounded bg-brand-obsidianSurface border border-brand-gold/60 flex items-center justify-center text-brand-gold font-serif text-xs font-bold shadow-sm">
+              C
+            </div>
+            <span class="text-sm font-bold text-white font-serif">CRAFTEGON CCS</span>
+          </div>
+          <p class="text-[11px] leading-relaxed text-slate-400">
+            CraftEgon Corporate Services (CCS) is an integrated corporate solutions division under CraftEgon LLP.
+          </p>
+          <p class="font-mono text-[10px] text-brand-gold font-bold mt-3">Building Business Infrastructure</p>
+        </div>
+
+        <div>
+          <p class="font-mono text-xs font-bold text-white uppercase mb-3">Core Verticals</p>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="#services" class="hover:text-brand-gold transition-colors">Business Formation</a></li>
+            <li><a href="#services" class="hover:text-brand-gold transition-colors">ROC & MCA Compliance</a></li>
+            <li><a href="#services" class="hover:text-brand-gold transition-colors">Intellectual Property (IPR)</a></li>
+            <li><a href="#services" class="hover:text-brand-gold transition-colors">Contract Architecture</a></li>
+            <li><a href="#services" class="hover:text-brand-gold transition-colors">DPDP & Tech Governance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="font-mono text-xs font-bold text-white uppercase mb-3">Retainers & Plans</p>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="#retainers" class="hover:text-brand-gold transition-colors">Startup Basic Retainer</a></li>
+            <li><a href="#retainers" class="hover:text-brand-gold transition-colors">Growth Pro Retainer</a></li>
+            <li><a href="#retainers" class="hover:text-brand-gold transition-colors">Enterprise Corporate Desk</a></li>
+            <li><a href="#packages" class="hover:text-brand-gold transition-colors">Standard Fee Schedule</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="font-mono text-xs font-bold text-white uppercase mb-3">Ecosystem</p>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="https://ecosystem.craftegon.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">CraftEgon Ecosystem &nearr;</a></li>
+            <li><span class="text-white font-semibold">Domain:</span> ccs.craftegon.com</li>
+            <li><span class="text-white font-semibold">Location:</span> Kerala, India</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <p style="color: white; font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">Quick Navigation</p>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem;">
-          <li><a href="/index.html" style="color: #94a3b8; text-decoration: none;">Home Dashboard</a></li>
-          <li><a href="/conversion/calculator.html" style="color: #94a3b8; text-decoration: none;">Cost & Retainer Estimator</a></li>
-          <li><a href="/conversion/retainer-desk.html" style="color: #94a3b8; text-decoration: none;">Annual Retainer Desk</a></li>
-        </ul>
+
+      <!-- Statutory Notes & Disclaimers -->
+      <div class="pt-8 border-t border-slate-800 text-[11px] space-y-2 text-slate-500">
+        <p>
+          <strong class="text-slate-400">Regulatory Notice:</strong> Litigation, court representation, and appearance before judicial tribunals are excluded from our direct scope and are handled solely through Everest Law Firm or independent licensed advocates as mandated by the Advocates Act, 1961.
+        </p>
+        <p>
+          <strong class="text-slate-400">Professional Compliance:</strong> Audit, taxation certification, independent valuation, patent agent filings, and related statutory services are rendered through qualified independent associate professionals (CAs/CSs/Registered Valuers) in strict adherence to regulatory guidelines.
+        </p>
+        <div class="pt-4 flex flex-col sm:flex-row justify-between items-center text-[10px] text-slate-500">
+          <p>&copy; 2026 CraftEgon LLP. All rights reserved.</p>
+          <p class="mt-2 sm:mt-0 font-mono">ccs.craftegon.com | Enterprise Infrastructure</p>
+        </div>
       </div>
-      <div>
-        <p style="color: white; font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem;">Legal & Policies</p>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem;">
-          <li><a href="/legal/terms.html" style="color: #94a3b8; text-decoration: none;">Terms & Conditions</a></li>
-          <li><a href="/legal/privacy.html" style="color: #94a3b8; text-decoration: none;">Privacy Policy</a></li>
-          <li><a href="/legal/refund.html" style="color: #94a3b8; text-decoration: none;">Refund Policy</a></li>
-          <li><a href="/legal/disclaimer.html" style="color: #94a3b8; text-decoration: none;">Professional Disclaimer</a></li>
-          <li><a href="/legal/confidentiality.html" style="color: #94a3b8; text-decoration: none;">Confidentiality Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container" style="max-width: 1200px; margin: 3rem auto 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; font-size: 0.8rem;">
-      &copy; 2026 CraftEgon LLP. All rights reserved.
     </div>
   </footer>
 
-  <script src="/assets/js/navigation.js"></script>
+  <!-- Global Scripts -->
+  <script src="./assets/js/navigation.js"></script>
+  <script src="./assets/js/calculator.js"></script>
+  <script src="./assets/js/forms.js"></script>
+
+  <!-- Component & Filter Logic Scripts -->
+  <script>
+    // 1. Initialize Icons immediately
+    lucide.createIcons();
+
+    // 2. Mobile Menu Navigation
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        mobileBtn.setAttribute('aria-expanded', !isHidden);
+      });
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+    }
+
+    // 3. Dynamic Filter Tabs for 15 Verticals
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-brand-obsidian', 'text-white');
+          b.classList.add('text-brand-slateMuted');
+        });
+        btn.classList.add('bg-brand-obsidian', 'text-white');
+        btn.classList.remove('text-brand-slateMuted');
+
+        const category = btn.getAttribute('data-category');
+        serviceCards.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-group') === category) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 4. Multi-Select Scope Chips
+    const selectedScopes = new Set();
+    const scopeChips = document.querySelectorAll('.scope-chip');
+    const scopesInput = document.getElementById('selectedScopesInput');
+
+    scopeChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const scope = chip.getAttribute('data-scope');
+        if (selectedScopes.has(scope)) {
+          selectedScopes.delete(scope);
+          chip.classList.remove('bg-brand-goldLight', 'border-brand-gold', 'text-brand-goldHover');
+          chip.classList.add('bg-white', 'border-slate-300', 'text-brand-slateText');
+        } else {
+          selectedScopes.add(scope);
+          chip.classList.add('bg-brand-goldLight', 'border-brand-gold', 'text-brand-goldHover');
+          chip.classList.remove('bg-white', 'border-slate-300', 'text-brand-slateText');
+        }
+        scopesInput.value = Array.from(selectedScopes).join(',');
+      });
+    });
+
+    // 5. Card-to-Form Dynamic Syncing
+    const verticalSelect = document.getElementById('primaryVerticalSelect');
+    const formContainer = document.getElementById('formContainer');
+
+    document.querySelectorAll('.sync-service-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetValue = btn.getAttribute('data-value');
+        if (verticalSelect && targetValue) {
+          verticalSelect.value = targetValue;
+          
+          const matchingChip = document.querySelector(`.scope-chip[data-scope="${targetValue}"]`);
+          if (matchingChip && !selectedScopes.has(targetValue)) {
+            matchingChip.click();
+          }
+        }
+        const targetSection = document.getElementById('consultation');
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        if (formContainer) {
+          formContainer.classList.add('ring-2', 'ring-brand-gold');
+          setTimeout(() => {
+            formContainer.classList.remove('ring-2', 'ring-brand-gold');
+          }, 1500);
+        }
+      });
+    });
+
+    // 6. Form Submission Simulation
+    const form = document.getElementById('consultationForm');
+    const successBox = document.getElementById('formSuccess');
+
+    if (form && successBox) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        form.classList.add('hidden');
+        successBox.classList.remove('hidden');
+        lucide.createIcons();
+      });
+    }
+  </script>
 </body>
 </html>
