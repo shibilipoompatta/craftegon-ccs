@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSR Statutory Compliance Audit & Calculator | CraftEgon CCS</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 800px;">
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <a href="/verticals/12-esg-csr.html">ESG & CSR</a> / <span>CSR Audit Form</span>
+    </nav>
+    
+    <div class="if-service-hero" style="text-align: left; padding: 2rem 0;">
+      <h1>CSR Statutory Compliance Calculator & Audit Intake</h1>
+      <p>Calculate your mandatory 2% CSR spending obligation under Section 135 and submit your enterprise parameters for immediate Form CSR-2 filing support.</p>
+    </div>
+
+    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+      <form class="if-lead-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Corporate Entity Name</label>
+            <input type="text" name="entity_name" required placeholder="e.g. Enterprise Ltd" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Applicability Criteria Met</label>
+            <select name="criteria" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="net-worth">Net Worth ≥ ₹500 Crores</option>
+              <option value="turnover">Turnover ≥ ₹1,000 Crores</option>
+              <option value="net-profit">Net Profit ≥ ₹5 Crores</option>
+              <option value="multiple">Multiple / All Criteria</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Average Net Profit (Last 3 Years)</label>
+            <input type="text" name="net_profit" required placeholder="e.g. ₹25 Crores" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Estimated 2% Obligation</label>
+            <input type="text" name="obligation" placeholder="Auto-calculated on submission" readonly style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: #f8fafc;">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">CSR Committee Chair / Contact Name</label>
+            <input type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Direct Phone Number</label>
+            <input type="tel" name="phone" required placeholder="9876543210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Official Email Address</label>
+          <input type="email" name="email" required placeholder="csr@enterprise.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+        </div>
+
+        <button type="submit" class="if-btn-primary" style="margin-top: 0.5rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Submit CSR Audit & File Form CSR-2</button>
+      </form>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/forms.js"></script>
+</body>
+</html>
