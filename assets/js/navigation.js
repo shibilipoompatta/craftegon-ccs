@@ -1,11 +1,11 @@
 /**
  * ==========================================================================
- * CRAFTEGON CORPORATE SERVICES (CCS) - NAVIGATION & COMPONENT INJECTOR
+ * CRAFTEGON CORPORATE SERVICES (CCS) - GLOBAL NAVIGATION & LAYOUT INJECTOR
  * ==========================================================================
  */
 
 document.addEventListener("DOMContentLoaded", async function () {
-  // 1. Load and inject Navbar (with automatic inline fallback)
+  // 1. Load and inject Navbar with graceful fallback
   const navContainer = document.getElementById("global-navbar");
   if (navContainer) {
     try {
@@ -30,10 +30,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       `;
     }
     highlightActiveRoute();
-    initMobileMenu();
   }
 
-  // 2. Load and inject Footer (with automatic inline fallback)
+  // 2. Load and inject Footer with graceful fallback
   const footerContainer = document.getElementById("global-footer");
   if (footerContainer) {
     try {
@@ -66,35 +65,14 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 });
 
-/**
- * Highlights the active navigation link based on the current browser path
- */
 function highlightActiveRoute() {
   const currentPath = window.location.pathname;
   const navLinks = document.querySelectorAll('.if-nav-link');
-  
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (href && currentPath.includes(href) && href !== '/index.html' && href !== '/') {
       link.style.color = 'var(--primary)';
       link.style.fontWeight = '600';
-    } else if ((currentPath === '/' || currentPath === '/index.html') && (href === '/' || href === '/index.html')) {
-      link.style.color = 'var(--primary)';
-      link.style.fontWeight = '600';
     }
   });
-}
-
-/**
- * Mobile Navigation Drawer Toggle Handler
- */
-function initMobileMenu() {
-  const menuToggle = document.getElementById('if-mobile-menu-toggle');
-  const mobileNav = document.getElementById('if-mobile-nav');
-
-  if (menuToggle && mobileNav) {
-    menuToggle.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
-  }
 }
