@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entity Cost & Compliance Retainer Estimator | CraftEgon CCS</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 900px;">
+    <!-- Breadcrumb -->
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <span>Cost & Retainer Calculator</span>
+    </nav>
+    
+    <!-- Hero Section -->
+    <div class="if-service-hero" style="text-align: left; padding: 2rem 0;">
+      <h1>Interactive Entity Cost & Compliance Retainer Estimator</h1>
+      <p>Configure your business structure and select required secretarial or tax retainers to instantly compute transparent professional and estimated government fees.</p>
+    </div>
+
+    <!-- Calculator Grid Container -->
+    <div style="display: grid; grid-template-columns: 1fr 350px; gap: 2rem; align-items: start;">
+      
+      <!-- Options Form Section -->
+      <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm);">
+        <form id="estimator-form" style="display: flex; flex-direction: column; gap: 1.5rem;" onsubmit="event.preventDefault();">
+          
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 600; margin-bottom: 0.5rem;">1. Select Core Service Type</label>
+            <select id="service-type" onchange="calculateCost()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="pvt-ltd">Private Limited Company Incorporation (SPICe+)</option>
+              <option value="llp">Limited Liability Partnership (LLP) Setup</option>
+              <option value="roc-retainer">RoC Annual Compliance Retainer (Standard)</option>
+              <option value="gst-annual">GST Annual Return & 9C Audit Package</option>
+              <option value="trademark">Trademark Registration (Form TM-A)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 600; margin-bottom: 0.5rem;">2. Authorized Capital / Turnover Bracket</label>
+            <select id="capital-tier" onchange="calculateCost()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="tier-1">Standard / Up to ₹10 Lakhs Capital</option>
+              <option value="tier-2">Growth / ₹10 Lakhs to ₹1 Crore Capital</option>
+              <option value="tier-3">Enterprise / Above ₹1 Crore Capital</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 600; margin-bottom: 0.5rem;">3. Optional Add-on Services</label>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.5rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm);"><input type="checkbox" id="addon-msme" value="999" onchange="calculateCost()"> MSME Udyam Registration (+₹999)</label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm);"><input type="checkbox" id="addon-sha" value="4999" onchange="calculateCost()"> Founder Shareholder Agreement (+₹4,999)</label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: var(--text-sm);"><input type="checkbox" id="addon-current-ac" value="1499" onchange="calculateCost()"> Zero-Balance Current Account Support (+₹1,499)</label>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Real-Time Estimate Summary Card -->
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm); position: sticky; top: 2rem;">
+        <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 1rem; color: var(--primary);">Estimated Cost Summary</h3>
+        
+        <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-muted);">
+          <span>Professional Fees:</span>
+          <span id="prof-fee" style="font-weight: 600; color: var(--text-main);">₹7,499</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-muted);">
+          <span>Estimated Govt. Fees:</span>
+          <span id="govt-fee" style="font-weight: 600; color: var(--text-main);">₹3,500</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 1.25rem; color: var(--text-muted);">
+          <span>Selected Add-ons:</span>
+          <span id="addon-fee" style="font-weight: 600; color: var(--text-main);">₹0</span>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.25rem;">
+
+        <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.5rem;">
+          <span>Total Estimate:</span>
+          <span id="total-fee" style="color: var(--primary);">₹10,999</span>
+        </div>
+
+        <a href="/conversion/post-incorporation-checkout.html" class="if-btn-primary" style="text-align: center; display: block; width: 100%;">Proceed to Secure Checkout</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script>
+    function calculateCost() {
+      const service = document.getElementById('service-type').value;
+      const tier = document.getElementById('capital-tier').value;
+      
+      let baseProf = 7499;
+      let baseGovt = 3500;
+
+      if (service === 'pvt-ltd') {
+        baseProf = 7499; baseGovt = 3500;
+      } else if (service === 'llp') {
+        baseProf = 5999; baseGovt = 2500;
+      } else if (service === 'roc-retainer') {
+        baseProf = 14999; baseGovt = 0;
+      } else if (service === 'gst-annual') {
+        baseProf = 12999; baseGovt = 0;
+      } else if (service === 'trademark') {
+        baseProf = 4499; baseGovt = 4500;
+      }
+
+      // Tier multiplier
+      if (tier === 'tier-2') baseGovt *= 1.5;
+      if (tier === 'tier-3') baseGovt *= 2.5;
+
+      // Addons
+      let addonTotal = 0;
+      if (document.getElementById('addon-msme').checked) addonTotal += 999;
+      if (document.getElementById('addon-sha').checked) addonTotal += 4999;
+      if (document.getElementById('addon-current-ac').checked) addonTotal += 1499;
+
+      const total = baseProf + baseGovt + addonTotal;
+
+      document.getElementById('prof-fee').innerText = '₹' + baseProf.toLocaleString('en-IN');
+      document.getElementById('govt-fee').innerText = '₹' + Math.round(baseGovt).toLocaleString('en-IN');
+      document.getElementById('addon-fee').innerText = '₹' + addonTotal.toLocaleString('en-IN');
+      document.getElementById('total-fee').innerText = '₹' + Math.round(total).toLocaleString('en-IN');
+    }
+
+    // Initialize calculation on load
+    window.onload = calculateCost;
+  </script>
+</body>
+</html>
