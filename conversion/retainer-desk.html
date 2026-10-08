@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annual Corporate Retainer Desk Intake | CraftEgon CCS</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 800px;">
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <span>Annual Retainer Desk</span>
+    </nav>
+    
+    <div class="if-service-hero" style="text-align: left; padding: 2rem 0;">
+      <h1>Annual Corporate Compliance Retainer Desk</h1>
+      <p>Secure full-year statutory protection, RoC annual filings, secretarial maintenance, and priority advisory by engaging our institutional retainer desk.</p>
+    </div>
+
+    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+      <form class="if-lead-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Corporate Entity / Business Name</label>
+            <input type="text" name="entity_name" required placeholder="e.g. CraftEgon Technologies Pvt Ltd" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Select Retainer Package</label>
+            <select name="retainer_package" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="standard-roc">Standard RoC Annual Retainer (AOC-4, MGT-7, DIR-3 KYC) — ₹14,999/yr</option>
+              <option value="enterprise-roc">Enterprise RoC Retainer (XBRL, DPT-3, MSME-1) — ₹29,999/yr</option>
+              <option value="dual-tax-roc">Comprehensive Dual Retainer (RoC + Tax Compliance) — ₹49,999/yr</option>
+              <option value="custom">Custom Multi-Entity Group Retainer</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Authorized Capital / Turnover Bracket</label>
+            <select name="capital_tier" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="under-10l">Authorized Capital up to ₹10 Lakhs</option>
+              <option value="10l-1cr">Authorized Capital ₹10L to ₹1 Crore</option>
+              <option value="above-1cr">Authorized Capital above ₹1 Crore / Large Enterprise</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Current Compliance Status</label>
+            <select name="compliance_status" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="up-to-date">Up-to-date (No active defaults)</option>
+              <option value="has-backlogs">Has pending / backlog filings</option>
+              <option value="newly-incorporated">Newly incorporated (First year compliance)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Director / Contact Person Name</label>
+            <input type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Direct Mobile Number</label>
+            <input type="tel" name="phone" required placeholder="9876543210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Official Corporate Email</label>
+          <input type="email" name="email" required placeholder="compliance@company.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+        </div>
+
+        <button type="submit" class="if-btn-primary" style="margin-top: 0.5rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Submit Retainer Intake for Partner Review</button>
+      </form>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/forms.js"></script>
+</body>
+</html>
