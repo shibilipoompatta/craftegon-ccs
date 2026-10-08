@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 /* ==========================================================================
-   1. BASE VARIABLES & ROOT
+   1. CORE VARIABLES & THEME ENGINE
    ========================================================================== */
 :root {
   --color-canvas: #f8f9f6;
@@ -13,23 +13,22 @@
   --color-gold-light: #f6eedf;
   --color-mint: #2dd4bf;
   --color-mint-dark: #0f766e;
-  --color-slate-text: #2e3a33;
-  --color-slate-muted: #5e6c63;
-  --border-subtle: rgba(14, 23, 18, 0.12);
-  --border-dark: rgba(255, 255, 255, 0.10);
+  
+  --border-subtle: rgba(14, 23, 18, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.12);
   --border-gold: rgba(197, 160, 89, 0.35);
 
   --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: 'Cinzel', Georgia, serif;
   --font-mono: 'DM Mono', monospace;
 
-  --shadow-obsidian-card: 0 12px 32px rgba(14, 23, 18, 0.08);
-  --shadow-gold-card: 0 10px 30px -5px rgba(197, 160, 89, 0.20);
-  --shadow-focus-gold: 0 0 0 3px rgba(197, 160, 89, 0.30);
+  --shadow-subtle: 0 4px 20px -2px rgba(14, 23, 18, 0.05);
+  --shadow-card: 0 12px 32px -4px rgba(14, 23, 18, 0.08);
+  --shadow-hover: 0 20px 40px -10px rgba(197, 160, 89, 0.22);
 }
 
 /* ==========================================================================
-   2. CORE RESET & BODY STYLES
+   2. GLOBAL RESETS & TYPOGRAPHY
    ========================================================================== */
 *, ::before, ::after {
   box-sizing: border-box;
@@ -40,144 +39,93 @@ html {
   font-family: var(--font-sans);
   background-color: var(--color-canvas);
   color: var(--color-obsidian);
-}
-
-body {
-  margin: 0;
-  background-color: var(--color-canvas);
-  color: var(--color-obsidian);
-  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Selection */
 ::selection {
   background-color: var(--color-gold-light);
   color: var(--color-obsidian);
 }
 
-/* Typography Hierarchy */
 h1, h2, h3, .font-serif {
   font-family: var(--font-serif);
+  letter-spacing: -0.02em;
 }
 
-.font-mono {
-  font-family: var(--font-mono);
-}
-
-.font-sans {
-  font-family: var(--font-sans);
-}
-
-/* ==========================================================================
-   3. BACKGROUNDS & PATTERNS
-   ========================================================================== */
-.grid-bg-light {
-  background-image: radial-gradient(rgba(14, 23, 18, 0.12) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.grid-bg-dark {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* ==========================================================================
-   4. NAVIGATION & GLASSMORPHISM
-   ========================================================================== */
-.glass-nav-dark {
-  background: rgba(14, 23, 18, 0.95);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.80);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-subtle);
-}
-
-.glass-card-dark {
-  background: rgba(21, 34, 27, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-dark);
-}
-
-/* ==========================================================================
-   5. TEXT GRADIENTS & ACCENTS
-   ========================================================================== */
-.gold-gradient-text {
-  background: linear-gradient(135deg, #b38e46 0%, #c5a059 50%, #e2c07a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gold-border-glow {
-  border-color: var(--color-gold);
-  box-shadow: 0 0 15px rgba(197, 160, 89, 0.25);
-}
-
-/* ==========================================================================
-   6. CARD ANIMATIONS & INTERACTIVITY
-   ========================================================================== */
-.card-transition {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-transition:hover {
-  transform: translateY(-3px);
-  border-color: var(--color-gold);
-  box-shadow: 0 12px 30px -5px rgba(197, 160, 89, 0.22);
-}
-
-/* Service Filter Active States */
-.filter-btn {
-  transition: all 0.20s ease-in-out;
-}
-
-.filter-btn.active-tab {
-  background-color: var(--color-obsidian);
-  color: #ffffff;
-}
-
-/* Interactive Chips / Scope Selection */
-.scope-chip {
-  transition: all 0.20s ease;
-  user-select: none;
-}
-
-.scope-chip.selected {
-  background-color: var(--color-obsidian);
-  color: #ffffff;
-  border-color: var(--color-obsidian);
-}
-
-/* ==========================================================================
-   7. FORM CONTROL ENHANCEMENTS
-   ========================================================================== */
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  border-color: var(--color-gold);
-  box-shadow: var(--shadow-focus-gold);
-}
+.font-mono { font-family: var(--font-mono); }
+.font-sans { font-family: var(--font-sans); }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-canvas);
-}
-
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-canvas); }
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
 }
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold); }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold);
+/* ==========================================================================
+   3. VISUAL EFFECTS & BACKGROUND PATTERNS
+   ========================================================================== */
+.grid-bg-light {
+  background-image: radial-gradient(rgba(14, 23, 18, 0.10) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.hero-glow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, rgba(248, 249, 246, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass-nav-dark {
+  background: rgba(14, 23, 18, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #96722d 0%, #c5a059 45%, #e2c07a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   4. INTERACTIVE CARDS & BUTTONS
+   ========================================================================== */
+.service-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Filter Tab Toggle */
+.filter-btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.filter-btn.active-tab {
+  background-color: var(--color-obsidian) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(14, 23, 18, 0.15);
+}
+
+/* Form Elements Focus State */
+input:focus, select:focus, textarea:focus {
+  outline: none !important;
+  border-color: var(--color-gold) !important;
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.25) !important;
 }
