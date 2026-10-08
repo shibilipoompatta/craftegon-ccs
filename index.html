@@ -486,6 +486,28 @@
             </div>
           </div>
 
+          <div class="service-card p-7 rounded-2xl bg-white border border-brand-borderSubtle shadow-obsidian-card card-transition flex flex-col justify-between" data-group="tech" data-target="digital">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-brand-mint/40 flex items-center justify-center text-brand-mintDark mb-5">
+                <i data-lucide="cpu" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-base font-bold text-brand-obsidian">12. Data Privacy & Tech Law</h3>
+              <p class="text-xs text-brand-slateText mt-2 leading-relaxed">
+                DPDP Act readiness, AI governance frameworks, AI acceptable usage policies, SaaS license contracts, and non-litigation cyber law advisory.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] font-mono text-brand-slateMuted uppercase">Tech Compliance</span>
+                <span class="text-xs font-bold text-brand-goldHover font-mono">From ₹10,000</span>
+              </div>
+              <button class="sync-service-btn text-xs font-bold text-brand-obsidian hover:text-brand-gold flex items-center space-x-1" data-value="digital">
+                <span>Inquire</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -541,6 +563,48 @@
         });
       });
     });
+
+    // Sync Service Buttons Interaction
+    const verticalSelect = document.getElementById('verticalSelect');
+    const formContainer = document.getElementById('formContainer');
+
+    document.querySelectorAll('.sync-service-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetValue = btn.getAttribute('data-value');
+        if (verticalSelect && targetValue) {
+          verticalSelect.value = targetValue;
+          
+          const matchingChip = document.querySelector(`.scope-chip[data-scope="${targetValue}"]`);
+          if (matchingChip && typeof selectedScopes !== 'undefined' && !selectedScopes.has(targetValue)) {
+            matchingChip.click();
+          }
+        }
+        const targetSection = document.getElementById('consultation');
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        if (formContainer) {
+          formContainer.classList.add('ring-2', 'ring-brand-gold');
+          setTimeout(() => {
+            formContainer.classList.remove('ring-2', 'ring-brand-gold');
+          }, 1500);
+        }
+      });
+    });
+
+    // Form Submission Simulation
+    const form = document.getElementById('consultationForm');
+    const successBox = document.getElementById('formSuccess');
+
+    if (form && successBox) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        form.classList.add('hidden');
+        successBox.classList.remove('hidden');
+      });
+    }
   </script>
 </body>
 </html>
