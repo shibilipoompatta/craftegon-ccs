@@ -96,14 +96,14 @@ document.addEventListener("DOMContentLoaded", async function () {
               <a href="/index.html" class="if-brand-logo" style="margin-bottom: 0.85rem;" aria-label="CraftEgon Corporate Services Home">
                 <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
                 <div class="brand-text-block">
-                  <span class="brand-title" style="letter-spacing: 2px; font-weight: 700; color: #F8FAFC;">CRAFTEGON</span>
-                  <span class="brand-subtitle" style="font-size: 0.75rem; color: #D4AF37; letter-spacing: 1px; text-transform: uppercase;">Corporate Services</span>
+                  <span class="brand-title" style="font-family: var(--font-serif); letter-spacing: 2px; font-weight: 700; color: #F8FAFC;">CRAFTEGON</span>
+                  <span class="brand-subtitle" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--brand-gold, #C59B27); letter-spacing: 1.2px; text-transform: uppercase;">Corporate Services</span>
                 </div>
               </a>
-              <p style="margin: 0; font-size: 0.85rem; color: #94a3b8; max-width: 400px;">India's premier AI-powered digital corporate and legal compliance operating system.</p>
-              <div style="margin-top: 0.75rem; font-size: 0.82rem; color: #94a3b8; display: flex; flex-direction: column; gap: 0.25rem;">
-                <span>Phone: <a href="tel:+918606918247" style="color: #F8FAFC; text-decoration: none;">+91 86069 18247</a></span>
-                <span>WhatsApp: <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light); text-decoration: none;">+91 86069 18247 &bull; Chat Live &rarr;</a></span>
+              <p style="margin: 0; font-size: 0.85rem; color: #94a3b8; max-width: 400px; line-height: 1.6;">India's premier AI-powered digital corporate and legal compliance operating system.</p>
+              <div style="margin-top: 0.75rem; font-size: 0.82rem; color: #94a3b8; display: flex; flex-direction: column; gap: 0.35rem;">
+                <span>Phone: <a href="tel:+918606918247" style="color: #CBD5E1; text-decoration: none;">+91 86069 18247</a></span>
+                <span>WhatsApp: <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light); text-decoration: none; font-weight: 600;">+91 86069 18247 &bull; Chat Live &rarr;</a></span>
                 <span>Email: <a href="mailto:admin@craftegon.com" style="color: var(--gold-light); text-decoration: none;">admin@craftegon.com</a></span>
               </div>
             </div>
@@ -118,8 +118,11 @@ document.addEventListener("DOMContentLoaded", async function () {
               <a href="/legal/privacy.html" style="color: #94a3b8; text-decoration: none;">Privacy</a>
             </div>
           </div>
-          <div style="max-width: 1200px; margin: 2rem auto 0; border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 1.5rem; text-align: center; font-size: 0.8rem; color: #64748b;">
-            &copy; 2026 CraftEgon LLP. All rights reserved. Registered HQ: Kozhikode, Kerala, India.
+          <div style="max-width: 1200px; margin: 2rem auto 0; border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 1.5rem; text-align: center; font-size: 0.8rem; color: #94a3b8;">
+            <p>&copy; 2026 CraftEgon LLP. All rights reserved. Registered HQ: Kozhikode, Kerala, India.</p>
+            <p style="margin-top: 0.4rem; font-size: 0.75rem; color: #94a3b8; line-height: 1.5;">
+              <strong style="color: #CBD5E1;">Statutory Disclaimer:</strong> CraftEgon CCS provides corporate secretarial, compliance, and document drafting infrastructure. All formal legal representation, court appearances, and litigation advocacy are handled exclusively through our panel of independent associated advocates and senior legal counsel.
+            </p>
           </div>
         </footer>
       `;

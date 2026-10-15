@@ -224,7 +224,7 @@ function showFormFallbackNotice(form, data) {
   alertBox.className = "if-form-alert";
   alertBox.setAttribute("role", "alert");
   alertBox.setAttribute("aria-live", "assertive");
-  alertBox.style.cssText = "background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.4); padding: 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;";
+  alertBox.style.cssText = "background: #FFFFFF; border: 1.5px solid var(--gold-border-strong, #C59B27); padding: 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem; box-shadow: var(--shadow-sm);";
 
   const serviceName = (data && (data.service_id || data.service_category || data.service)) || "Corporate Compliance";
   const prefill = encodeURIComponent(`Hello CraftEgon Compliance Desk, I would like to consult on: ${serviceName}.`);
@@ -232,17 +232,17 @@ function showFormFallbackNotice(form, data) {
   const mailUrl = `mailto:admin@craftegon.com?subject=${encodeURIComponent("Compliance Inquiry: " + serviceName)}`;
 
   alertBox.innerHTML = `
-    <div style="font-weight: 700; color: #F8FAFC; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-      <span style="color: var(--gold-light);">⚡ Direct Compliance Connection</span>
+    <div style="font-weight: 700; color: var(--text-dark, #090D16); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-cinzel, 'Cinzel', serif);">
+      <span style="color: var(--text-dark-gold, #785B0D);">⚡ Direct Compliance Connection</span>
     </div>
-    <p style="font-size: 0.85rem; color: #94A3B8; margin: 0 0 1rem 0; line-height: 1.5;">
+    <p style="font-size: 0.875rem; color: var(--text-main, #334155); margin: 0 0 1rem 0; line-height: 1.5; font-family: var(--font-body, 'Manrope', sans-serif);">
       Your enquiry parameters have been staged locally. Connect directly with our practicing legal and corporate compliance team via WhatsApp or Email:
     </p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-      <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border-color: rgba(37, 211, 102, 0.6); color: #25D366; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+      <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
         💬 Chat on WhatsApp (+91 86069 18247) &rarr;
       </a>
-      <a href="${mailUrl}" class="if-btn-secondary" style="border-color: rgba(212, 175, 55, 0.4); color: var(--gold-light); padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+      <a href="${mailUrl}" class="if-btn-secondary" style="border: 1px solid var(--gold-border, rgba(197, 155, 39, 0.28)); color: var(--text-dark-gold, #785B0D); background: #fefce8; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
         ✉️ Email Desk (admin@craftegon.com)
       </a>
     </div>
