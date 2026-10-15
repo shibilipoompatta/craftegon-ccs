@@ -85,6 +85,7 @@ p, li, span, input, select, textarea, button {
 .gold-gradient-text, .text-gradient-gold {
   background: linear-gradient(135deg, #F9E7B0 0%, #D4AF37 45%, #C5A059 85%, #E5C568 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
@@ -92,6 +93,7 @@ p, li, span, input, select, textarea, button {
 .silver-gradient-text {
   background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 50%, #94A3B8 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
