@@ -1,0 +1,14 @@
+# --- Custom 301 Permanent Redirects (Legacy to New Structure) ---
+# Example: /old-path  /new-path  301
+
+# --- Clean URL Rewrites (Status 200 for internal mapping) ---
+/knowledge     /knowledge/index.html   200
+/conversion    /conversion/index.html  200
+/verticals/*   /verticals/:splat       200
+/services/*    /services/:splat        200
+/knowledge/*   /knowledge/:splat       200
+/conversion/*  /conversion/:splat      200
+/legal/*       /legal/:splat           200
+
+# --- Global Fallback for SPA / Clean Routing ---
+/*             /index.html             404

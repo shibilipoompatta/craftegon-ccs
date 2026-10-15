@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instant License Qualification Audit Tool | CraftEgon CCS</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 800px;">
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <a href="/verticals/04-statutory-licenses.html">Statutory Licenses</a> / <span>License Audit Tool</span>
+    </nav>
+    
+    <div class="if-service-hero" style="text-align: left; padding: 2rem 0;">
+      <h1>Instant License Qualification Audit Engine</h1>
+      <p>Answer a few operational parameters to instantly determine your mandatory statutory licenses, MSME eligibility, and DPIIT startup tax exemption readiness.</p>
+    </div>
+
+    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+      <form class="if-lead-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Business Structure</label>
+            <select name="entity_type" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="pvt-ltd">Private Limited Company</option>
+              <option value="llp">Limited Liability Partnership</option>
+              <option value="proprietorship">Sole Proprietorship</option>
+              <option value="partnership">Partnership Firm</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Industry / Sector</label>
+            <select name="industry" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="tech-saas">Tech / SaaS / Software</option>
+              <option value="ecommerce">E-Commerce & Retail</option>
+              <option value="manufacturing">Manufacturing / Industrial</option>
+              <option value="services">Professional Consulting / Services</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Years in Operation</label>
+            <select name="age" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="pre-launch">Pre-Launch / Startup (0-1 Year)</option>
+              <option value="1-3-years">1 to 3 Years</option>
+              <option value="3-plus">Over 3 Years</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Do you have physical premises / offices?</label>
+            <select name="premises" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="commercial">Commercial Office / Warehouse</option>
+              <option value="home">Home Office / Coworking</option>
+              <option value="factory">Manufacturing Plant</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Contact Person Name</label>
+            <input type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Mobile Number</label>
+            <input type="tel" name="phone" required placeholder="9876543210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Email Address</label>
+          <input type="email" name="email" required placeholder="founder@company.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+        </div>
+
+        <button type="submit" class="if-btn-primary" style="margin-top: 1rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Run License Qualification Audit</button>
+      </form>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/forms.js"></script>
+</body>
+</html>

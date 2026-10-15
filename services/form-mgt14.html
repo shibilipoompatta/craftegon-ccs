@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form MGT-14 Filing & Resolution Services | CraftEgon CCS</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="container" style="padding: 3rem 1.5rem;">
+    <!-- Breadcrumb -->
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <a href="/verticals/02-roc-compliance.html">RoC Compliance</a> / <span>Form MGT-14 Services</span>
+    </nav>
+    
+    <!-- Hero Section -->
+    <div class="if-service-hero">
+      <h1>Form MGT-14 Resolution & Filing Solutions</h1>
+      <p>Comprehensive MCA Form MGT-14 filing services tailored for general corporate secretarial compliance or venture capital preferential share allotments.</p>
+    </div>
+
+    <!-- Context Switcher Tabs -->
+    <div style="display: flex; gap: 1rem; margin-bottom: 2rem; justify-content: center;">
+      <button type="button" onclick="switchContext('roc')" id="btn-roc" class="if-btn-primary" style="padding: 0.6rem 1.2rem; cursor: pointer;">RoC Secretarial Filing</button>
+      <button type="button" onclick="switchContext('venture')" id="btn-venture" class="if-btn-secondary" style="padding: 0.6rem 1.2rem; cursor: pointer; background: white; color: var(--primary); border: 1px solid var(--border-color);">Venture Capital Allotment</button>
+    </div>
+
+    <!-- RoC View Container -->
+    <div id="view-roc" class="if-pricing-grid" style="max-width: 600px; margin: 0 auto;">
+      <div class="if-pricing-card">
+        <h3 class="if-pricing-title">MGT-14 Filing Service (RoC Compliance)</h3>
+        <p class="if-pricing-desc">Mandatory filing of special resolutions, board resolutions, and MoA/AoA changes within 30 days.</p>
+        <div class="if-pricing-price">₹1,999 <span>+ Govt. Fees</span></div>
+        <ul class="if-feature-list">
+          <li class="if-feature-item">Resolution & Explanatory Statement Drafting</li>
+          <li class="if-feature-item">Professional Certification</li>
+          <li class="if-feature-item">MCA Form MGT-14 Upload</li>
+        </ul>
+        <a href="/conversion/calculator.html" class="if-btn-primary" style="text-align: center; display: block; margin-top: 1.5rem;">File RoC MGT-14 Now</a>
+      </div>
+    </div>
+
+    <!-- Venture View Container -->
+    <div id="view-venture" class="if-pricing-grid" style="max-width: 600px; margin: 0 auto; display: none;">
+      <div class="if-pricing-card">
+        <h3 class="if-pricing-title">Venture Resolution & MGT-14 Package</h3>
+        <p class="if-pricing-desc">End-to-end drafting of EGM notices, valuation reports alignment, and preferential allotment filings.</p>
+        <div class="if-pricing-price">₹4,999 <span>+ Govt. Fees</span></div>
+        <ul class="if-feature-list">
+          <li class="if-feature-item">EGM Notice & Special Resolution Drafting</li>
+          <li class="if-feature-item">Practicing Company Secretary Certification</li>
+          <li class="if-feature-item">MCA Portal E-Form MGT-14 Submission</li>
+        </ul>
+        <a href="/conversion/venture-deal-booking.html" class="if-btn-primary" style="text-align: center; display: block; margin-top: 1.5rem;">Schedule Venture Deal Call</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script>
+    function switchContext(type) {
+      const rocView = document.getElementById('view-roc');
+      const ventureView = document.getElementById('view-venture');
+      const btnRoc = document.getElementById('btn-roc');
+      const btnVenture = document.getElementById('btn-venture');
+
+      if (type === 'roc') {
+        rocView.style.display = 'block';
+        ventureView.style.display = 'none';
+        btnRoc.className = 'if-btn-primary';
+        btnRoc.style.background = 'var(--primary)';
+        btnRoc.style.color = 'white';
+        btnVenture.className = '';
+        btnVenture.style.background = 'white';
+        btnVenture.style.color = 'var(--primary)';
+        btnVenture.style.border = '1px solid var(--border-color)';
+      } else {
+        rocView.style.display = 'none';
+        ventureView.style.display = 'block';
+        btnVenture.className = 'if-btn-primary';
+        btnVenture.style.background = 'var(--primary)';
+        btnVenture.style.color = 'white';
+        btnRoc.className = '';
+        btnRoc.style.background = 'white';
+        btnRoc.style.color = 'var(--primary)';
+        btnRoc.style.border = '1px solid var(--border-color)';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast-Track Strike-Off Eligibility Checker | CraftEgon CCS</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 800px;">
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <a href="/verticals/14-exit-insolvency.html">Exit & Insolvency</a> / <span>Eligibility Checker</span>
+    </nav>
+    
+    <div class="if-service-hero" style="text-align: left; padding: 2rem 0;">
+      <h1>Fast-Track Company / LLP Strike-Off Eligibility Quiz</h1>
+      <p>Verify whether your dormant entity meets the mandatory statutory criteria under Section 248 for Form STK-2 fast-track removal before submitting an execution request.</p>
+    </div>
+
+    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+      <form class="if-lead-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Entity Type</label>
+            <select name="entity_type" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="pvt-ltd">Private Limited Company</option>
+              <option value="llp">Limited Liability Partnership (LLP)</option>
+              <option value="opc">One Person Company (OPC)</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Has the entity commenced business or carried out operations in the last 2 years?</label>
+            <select name="operations" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="no">No, completely dormant / inactive</option>
+              <option value="yes">Yes, active recently</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Are there any active litigations, tax dues, or charges?</label>
+            <select name="litigation" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="no">No pending disputes / clean record</option>
+              <option value="yes">Yes, ongoing matters</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Are all statutory financial returns up-to-date?</label>
+            <select name="filings" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="yes">Yes, filed up to last active year</option>
+              <option value="no">No, defaults exist</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Director / Applicant Name</label>
+            <input type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Direct Phone Number</label>
+            <input type="tel" name="phone" required placeholder="9876543210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Email Address</label>
+          <input type="email" name="email" required placeholder="director@company.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+        </div>
+
+        <button type="submit" class="if-btn-primary" style="margin-top: 0.5rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Run Eligibility Check & Request STK-2 Execution</button>
+      </form>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/forms.js"></script>
+</body>
+</html>

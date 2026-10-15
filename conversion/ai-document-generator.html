@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Legal Document & Resolution Generator | CraftEgon CCS</title>
+  <meta name="description" content="Instant institutional drafting of Board Resolutions, Founder Agreements, DPDP Consent Notices, and Statutory Memos tailored to Indian Corporate Law.">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+  <style>
+    .ai-workspace-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (min-width: 992px) {
+      .ai-workspace-grid {
+        grid-template-columns: 420px 1fr;
+      }
+    }
+    .panel-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .panel-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .form-group {
+      margin-bottom: 1.15rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 0.4rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      color: var(--text-main);
+      background: #ffffff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      font-family: inherit;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+    }
+    .btn-ai-generate {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid #334155;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+      transition: all 0.2s ease;
+    }
+    .btn-ai-generate:hover {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      transform: translateY(-1px);
+    }
+    .tab-bar {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1rem;
+    }
+    .tab-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    .output-box {
+      background: #0f172a;
+      color: #f1f5f9;
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      min-height: 420px;
+      max-height: 600px;
+      overflow-y: auto;
+      border: 1px solid #1e293b;
+    }
+    .action-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    .btn-action {
+      padding: 0.6rem 1rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-outline {
+      background: #ffffff;
+      color: #0f172a;
+      border: 1px solid var(--border-color);
+    }
+    .btn-outline:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-ready {
+      background: rgba(16, 185, 129, 0.12);
+      color: #059669;
+    }
+    .badge-generating {
+      background: rgba(59, 130, 246, 0.12);
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="container" style="padding: 2.5rem 1.5rem 4rem; max-width: 1300px;">
+    <!-- Breadcrumb -->
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <a href="/conversion/index.html">Diagnostic Tools &amp; AI</a> / <span>AI Legal Document Generator</span>
+    </nav>
+    
+    <!-- Hero Section -->
+    <div style="margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;">
+        <span style="background: linear-gradient(135deg, #c5a059, #dfba73); color: #0f172a; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">AI Core v3.8</span>
+        <span style="color: var(--text-muted); font-size: 0.85rem;">Indian Corporate Law &amp; MCA V3 Compliance Engine</span>
+      </div>
+      <h1 style="font-size: 2.25rem; font-weight: 700; color: #0f172a; margin: 0 0 0.5rem;">AI Institutional Legal Document &amp; Resolution Drafter</h1>
+      <p style="font-size: 1.05rem; color: #64748b; margin: 0; max-width: 900px; line-height: 1.5;">
+        Generate peer-reviewed, court-tested corporate resolutions, founder agreements, and statutory compliance memos formatted to Big 4 and Magic Circle institutional standards.
+      </p>
+    </div>
+
+    <!-- Workspace Grid -->
+    <div class="ai-workspace-grid">
+      
+      <!-- Left Panel: Input Configuration -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Draft Parameters
+          </div>
+          <span class="badge-status badge-ready" id="status-badge">Engine Ready</span>
+        </div>
+
+        <form id="ai-drafter-form" onsubmit="event.preventDefault(); executeDocumentGeneration();">
+          
+          <div class="form-group">
+            <label class="form-label" for="doc-template">Legal Instrument Template</label>
+            <select id="doc-template" class="form-control" onchange="handleTemplateChange()">
+              <option value="board-resolution-bank">Board Resolution: Current Bank Account Opening</option>
+              <option value="board-resolution-director">Board Resolution: Appointment of Additional Director (Sec 161)</option>
+              <option value="board-resolution-mgt14">Board Resolution: Approval of Annual Accounts (Form MGT-14)</option>
+              <option value="sha-term-sheet">Founder Shareholders Agreement (SHA): Core Term Sheet</option>
+              <option value="dpdp-consent-notice">DPDP Act 2023: Section 5 &amp; 6 Notice &amp; Consent Clause</option>
+              <option value="nda-mutual">Non-Disclosure Agreement: Bilateral Commercial NDA</option>
+              <option value="tech-transfer-agreement">Cross-Border IP &amp; Technology Transfer Agreement</option>
+              <option value="posh-icc-memo">POSH Act 2013: Office Order Constituting ICC Committee</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="entity-name">Corporate Entity Name</label>
+            <input type="text" id="entity-name" class="form-control" required placeholder="e.g. CraftEgon Technologies Private Limited" value="CraftEgon Technologies Private Limited">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="entity-cin">Corporate Identity Number (CIN / LLPIN)</label>
+            <input type="text" id="entity-cin" class="form-control" placeholder="e.g. U72900KA2026PTC123456" value="U72900KA2026PTC189421">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signatory-name">Authorized Director / Signatory</label>
+            <input type="text" id="signatory-name" class="form-control" placeholder="e.g. Rajesh Kumar (DIN: 08921456)" value="Vikramaditya Rao (DIN: 08945123)">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="jurisdiction-city">Governing Jurisdiction / Seat</label>
+            <input type="text" id="jurisdiction-city" class="form-control" placeholder="e.g. Bengaluru, Karnataka" value="Bengaluru, Karnataka">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="custom-clauses">Custom Conditions / Specific Directives</label>
+            <textarea id="custom-clauses" class="form-control" rows="3" placeholder="Specify banks (e.g. HDFC/Axis Bank), share valuation caps, vesting schedules, or unique conditions..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-ai-generate" id="generate-submit-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            Generate Institutional Draft
+          </button>
+        </form>
+      </div>
+
+      <!-- Right Panel: Output & Statutory Preview -->
+      <div class="panel-card" style="position: sticky; top: 100px;">
+        <div class="panel-header">
+          <div class="tab-bar">
+            <button class="tab-btn active" id="tab-draft" onclick="switchView('draft')">Instrument Draft</button>
+            <button class="tab-btn" id="tab-checklist" onclick="switchView('checklist')">Statutory RoC Checklist</button>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); font-family: monospace;">
+            FORMAT: MCA-V3 COMPLIANT
+          </div>
+        </div>
+
+        <!-- Output Box -->
+        <div id="output-box" class="output-box">
+// CraftEgon CCS AI Drafting Engine initialized.
+// Select your parameters on the left and click "Generate Institutional Draft" to formulate your court-ready legal instrument.
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar" id="output-actions" style="display: none;">
+          <button class="btn-action btn-outline" onclick="copyDocumentToClipboard()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Copy Text
+          </button>
+          <button class="btn-action btn-outline" onclick="downloadDocument()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Markdown
+          </button>
+          <button class="btn-action btn-outline" onclick="window.print()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+            Print / Save PDF
+          </button>
+          <a href="/conversion/retainer-desk.html" class="btn-action" style="background: var(--primary); color: #ffffff; margin-left: auto;">
+            Engage Legal Retainer Desk &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script>
+    let currentDraftText = "";
+    let currentChecklistText = "";
+    let currentActiveView = "draft";
+
+    function handleTemplateChange() {
+      const template = document.getElementById("doc-template").value;
+      const customClauses = document.getElementById("custom-clauses");
+      if (template === "board-resolution-bank") {
+        customClauses.placeholder = "e.g. Bank name (Axis/HDFC), Branch (Koramangala), Operating limit ₹50 Lakhs...";
+      } else if (template === "board-resolution-director") {
+        customClauses.placeholder = "e.g. Appointee DIN, term of office until next AGM, remuneration details...";
+      } else if (template === "sha-term-sheet") {
+        customClauses.placeholder = "e.g. 4-year vesting with 1-year cliff, ROFR rights, 1x non-participating liquidation preference...";
+      } else if (template === "dpdp-consent-notice") {
+        customClauses.placeholder = "e.g. Categories of data collected (KYC, biometrics, financial), retention period...";
+      } else {
+        customClauses.placeholder = "Mention specific instructions, authorized signatories, or special conditions...";
+      }
+    }
+
+    function executeDocumentGeneration() {
+      const template = document.getElementById("doc-template").value;
+      const entity = document.getElementById("entity-name").value.trim() || "COMPANY PRIVATE LIMITED";
+      const cin = document.getElementById("entity-cin").value.trim() || "U72900KA2026PTC000000";
+      const signatory = document.getElementById("signatory-name").value.trim() || "Director (DIN: 00000000)";
+      const jurisdiction = document.getElementById("jurisdiction-city").value.trim() || "Bengaluru, India";
+      const custom = document.getElementById("custom-clauses").value.trim();
+
+      const outputBox = document.getElementById("output-box");
+      const statusBadge = document.getElementById("status-badge");
+      const submitBtn = document.getElementById("generate-submit-btn");
+      const actions = document.getElementById("output-actions");
+
+      statusBadge.className = "badge-status badge-generating";
+      statusBadge.textContent = "Synthesizing...";
+      submitBtn.disabled = true;
+      outputBox.textContent = `[PROCESS START]\nParsing Indian Corporate Law precedents...\nVerifying statutory clauses under Companies Act 2013...\nFormatting institutional certified draft for ${entity}...\n\nPlease stand by.`;
+
+      setTimeout(() => {
+        generateDocumentOutputs(template, entity, cin, signatory, jurisdiction, custom);
+        renderCurrentView();
+        
+        statusBadge.className = "badge-status badge-ready";
+        statusBadge.textContent = "Draft Compiled";
+        submitBtn.disabled = false;
+        actions.style.display = "flex";
+      }, 900);
+    }
+
+    function generateDocumentOutputs(template, entity, cin, signatory, jurisdiction, custom) {
+      const today = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+
+      if (template === "board-resolution-bank") {
+        currentDraftText = `================================================================================
+CERTIFIED TRUE COPY OF THE RESOLUTION PASSED AT THE MEETING OF THE BOARD OF DIRECTORS
+OF ${entity.toUpperCase()}
+CIN: ${cin}
+HELD ON ${today.toUpperCase()} AT THE REGISTERED OFFICE OF THE COMPANY
+================================================================================
+
+SUBJECT: OPENING AND OPERATION OF CORPORATE CURRENT BANK ACCOUNT
+
+"RESOLVED THAT pursuant to the provisions of Section 179 and other applicable provisions of the Companies Act, 2013 read with the Articles of Association of the Company, a Current Account in the name and style of '${entity}' be opened with the Bank ('Bank') at its branch located at ${jurisdiction}.
+
+RESOLVED FURTHER THAT ${signatory} be and is hereby authorized jointly/severally to sign the Account Opening Form, provide specimen signatures, submit identity documents, execute indemnities, and do all such acts as may be required by the Bank.
+
+RESOLVED FURTHER THAT the Bank be and is hereby authorized to honor all cheques, bills of exchange, and promissory notes drawn, accepted, or made on behalf of the Company by the said authorized signatory.
+
+${custom ? `SPECIAL CONDITIONS:\n"${custom}"\n` : ""}
+RESOLVED FURTHER THAT a certified true copy of this resolution signed by any Director of the Company be furnished to the Bank for their official records and validation."
+
+For ${entity.toUpperCase()}
+
+______________________________
+${signatory}
+Director / Authorized Signatory
+DIN / Emp ID: As On Record
+Date: ${today}
+Place: ${jurisdiction}`;
+
+        currentChecklistText = `MCA & STATUTORY COMPLIANCE CHECKLIST:
+1. Authority: Section 179(3) Companies Act, 2013 mandates board approval for bank account operations.
+2. RoC Filing: Board resolution for normal bank account opening does NOT require Form MGT-14 unless power is delegated to borrow funds beyond Section 180 limits.
+3. Documentation: Certified copy printed on Company Letterhead with official common seal (if applicable) and DIN validation.
+4. Retention: Copy must be preserved in Company's Board Minutes Book under Section 118 for at least 8 financial years.`;
+
+      } else if (template === "board-resolution-director") {
+        currentDraftText = `================================================================================
+CERTIFIED TRUE COPY OF THE RESOLUTION PASSED AT THE MEETING OF THE BOARD OF DIRECTORS
+OF ${entity.toUpperCase()}
+CIN: ${cin}
+HELD ON ${today.toUpperCase()} AT THE REGISTERED OFFICE
+================================================================================
+
+SUBJECT: APPOINTMENT OF ADDITIONAL DIRECTOR PURSUANT TO SECTION 161(1)
+
+"RESOLVED THAT pursuant to the provisions of Section 161(1) and other applicable provisions of the Companies Act, 2013 and the relevant Rules framed thereunder, read with the Articles of Association of the Company, consent of the Board be and is hereby accorded to appoint ${signatory} as an Additional Director of the Company with effect from ${today}.
+
+RESOLVED FURTHER THAT the appointee shall hold office up to the date of the next Annual General Meeting (AGM) or the last date on which the AGM should have been held, whichever is earlier.
+
+RESOLVED FURTHER THAT the Board takes on record Form DIR-2 (Consent to act as Director), Form DIR-8 (Intimation of non-disqualification under Section 164), and disclosure of interest in Form MBP-1 furnished by the appointee.
+
+${custom ? `ADDITIONAL CONDITIONS:\n"${custom}"\n` : ""}
+RESOLVED FURTHER THAT any Director or the Company Secretary of the Company be and is hereby authorized to file statutory e-Form DIR-12 with the Registrar of Companies (RoC) within 30 days of this appointment."
+
+For ${entity.toUpperCase()}
+
+______________________________
+Director
+DIN: Authorized Board Member
+Date: ${today}`;
+
+        currentChecklistText = `MCA ROC FILING CHECKLIST (ADDITIONAL DIRECTOR):
+1. Statutory Form: Form DIR-12 must be filed with MCA V3 within 30 days of appointment date.
+2. Required Attachments:
+   - Certified true copy of this Board Resolution.
+   - Form DIR-2 (Consent of Director signed by Appointee).
+   - Form DIR-8 (Non-disqualification declaration under Sec 164(2)).
+   - Self-attested PAN card & Address Proof of Appointee.
+3. Penalty for Delay: ₹100 per day additional fee under Section 403 of Companies Act, 2013.`;
+
+      } else if (template === "dpdp-consent-notice") {
+        currentDraftText = `================================================================================
+STATUTORY NOTICE & CONSENT SPECIFICATION
+PURSUANT TO SECTION 5 & SECTION 6 OF THE DIGITAL PERSONAL DATA PROTECTION ACT, 2023 (DPDP)
+DATA FIDUCIARY: ${entity.toUpperCase()} (CIN: ${cin})
+JURISDICTION: ${jurisdiction.toUpperCase()}
+================================================================================
+
+1. IDENTITY OF DATA FIDUCIARY:
+${entity} acts as Data Fiduciary under the DPDP Act, 2023 for all processing operations conducted across our platforms and corporate operations.
+
+2. SPECIFIED PURPOSES OF PROCESSING:
+Your personal data (including identification, financial, and contact data) is collected strictly for:
+- Corporate service fulfillment and regulatory KYC statutory reporting.
+- Compliance with the Companies Act, 2013, Prevention of Money Laundering Act (PMLA), and Income Tax Act, 1961.
+${custom ? `- Specific purpose: ${custom}\n` : ""}
+3. DATA PRINCIPAL RIGHTS:
+Under the DPDP Act, you have the statutory right to:
+(a) Request access, summary, and identities of all Data Processors shared with.
+(b) Seek correction, updating, or erasure of personal data.
+(c) Withdraw consent at any juncture via our Grievance Redressal Officer.
+(d) Nominate a representative in case of incapacity.
+
+4. GRIEVANCE OFFICER & DATA REDRESSAL:
+Contact our Data Protection Officer (DPO) at compliance@${entity.toLowerCase().replace(/[^a-z0-9]/g, '')}.com or at our registered office in ${jurisdiction}.
+
+CONSENT ACKNOWLEDGEMENT:
+"By executing this document or consenting digitally, the Data Principal confirms having read this Section 5 Notice and freely grants unconditional, specific, and informed consent to ${entity}."`;
+
+        currentChecklistText = `DPDP ACT 2023 STATUTORY CHECKLIST:
+1. Consent Language: Must be unconditional, specific, informed, and unambiguous (Section 6).
+2. Multilingual: DPDP requires notice in English and all 22 Eighth Schedule Indian regional languages.
+3. Prohibition: Pre-ticked boxes or bundled consent invalidates the data collection under DPDP enforcement.
+4. Penalty Risk: Non-compliance attracts fines up to ₹250 Crores per violation by the Data Protection Board of India.`;
+
+      } else {
+        currentDraftText = `================================================================================
+INSTITUTIONAL CORPORATE ADVISORY & DRAFT INSTRUMENT
+ENTITY: ${entity.toUpperCase()} | CIN: ${cin}
+INSTRUMENT: ${template.toUpperCase()}
+DATE: ${today} | JURISDICTION: ${jurisdiction}
+================================================================================
+
+1. PREAMBLE & STATUTORY GOVERNANCE:
+This document is structured in accordance with the Indian statutory framework, including the Companies Act, 2013, the Indian Contract Act, 1872, and applicable ministerial directives.
+
+2. OPERATIVE CLAUSES & DIRECTIVES:
+(a) The parties confirm that ${entity}, represented by its authorized signatory ${signatory}, possesses corporate capacity and board mandate to execute this instrument.
+(b) Governing Law: The terms herein shall be construed, enforced, and interpreted exclusively under the laws of the Republic of India with jurisdiction vested in the courts of ${jurisdiction}.
+
+3. CUSTOM PARAMETERS & COVENANTS:
+${custom || "Standard institutional corporate covenants, confidentiality, and indemnification clauses apply."}
+
+4. EXECUTION & VALIDATION:
+In witness whereof, the authorized representatives have executed this instrument on the date first written above.
+
+For ${entity.toUpperCase()}
+
+______________________________
+${signatory}
+Director / Authorized Representative`;
+
+        currentChecklistText = `REGULATORY COMPLIANCE OVERVIEW:
+1. Stamp Duty: Must be stamped on e-stamp paper in accordance with the local State Stamp Act for ${jurisdiction}.
+2. Corporate Authorization: Validate authorization in Articles of Association (AoA) and Board Resolution records.
+3. Retention: Store executed duplicate copy at registered office under statutory compliance inspection norms.`;
+      }
+    }
+
+    function switchView(view) {
+      currentActiveView = view;
+      document.getElementById("tab-draft").className = "tab-btn" + (view === "draft" ? " active" : "");
+      document.getElementById("tab-checklist").className = "tab-btn" + (view === "checklist" ? " active" : "");
+      renderCurrentView();
+    }
+
+    function renderCurrentView() {
+      const outputBox = document.getElementById("output-box");
+      if (currentActiveView === "draft") {
+        outputBox.textContent = currentDraftText || "// Select parameters and click 'Generate Institutional Draft' to begin.";
+      } else {
+        outputBox.textContent = currentChecklistText || "// Statutory checklist will populate once draft is generated.";
+      }
+    }
+
+    function copyDocumentToClipboard() {
+      const textToCopy = currentActiveView === "draft" ? currentDraftText : currentChecklistText;
+      if (!textToCopy) return;
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        alert("Instrument draft copied to clipboard successfully.");
+      });
+    }
+
+    function downloadDocument() {
+      const content = currentDraftText + "\n\n" + currentChecklistText;
+      if (!content.trim()) return;
+      const blob = new Blob([content], { type: "text/markdown;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "CraftEgon_Draft_" + document.getElementById("doc-template").value + ".md";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+/* ==========================================================================
+   CraftEgon CCS — Master Theme & Design Tokens Stylesheet
+   Path: assets/css/theme.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & Root Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Palette */
+  --brand-canvas: #f8f9f6;
+  --brand-surface: #ffffff;
+  --brand-obsidian: #0e1712;
+  --brand-obsidian-surface: #15221b;
+  --brand-gold: #c5a059;
+  --brand-gold-hover: #b38e46;
+  --brand-gold-light: #f6eedf;
+  --brand-mint: #2dd4bf;
+  --brand-mint-dark: #0f766e;
+  --brand-slate-text: #2e3a33;
+  --brand-slate-muted: #5e6c63;
+
+  /* Borders & Overlays */
+  --brand-border-subtle: rgba(14, 23, 18, 0.12);
+  --brand-border-dark: rgba(255, 255, 255, 0.10);
+  --brand-border-gold: rgba(197, 160, 89, 0.35);
+
+  /* Elevation & Shadows */
+  --shadow-gold-card: 0 10px 30px -5px rgba(197, 160, 89, 0.20);
+  --shadow-obsidian-card: 0 12px 32px rgba(14, 23, 18, 0.08);
+  --shadow-focus-gold: 0 0 0 3px rgba(197, 160, 89, 0.30);
+
+  /* Typography Stacks */
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Cinzel', Georgia, Cambria, serif;
+  --font-mono: 'DM Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* --------------------------------------------------------------------------
+   2. Base & Global Resets
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--brand-canvas);
+  color: var(--brand-obsidian);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Selection Highlight */
+::selection {
+  background-color: var(--brand-gold-light);
+  color: var(--brand-obsidian);
+}
+
+/* --------------------------------------------------------------------------
+   3. Custom Typography Utilities
+   -------------------------------------------------------------------------- */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Gold Gradient Header Text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #b38e46 0%, #c5a059 50%, #e2c07a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   4. Background Patterns & Glassmorphism
+   -------------------------------------------------------------------------- */
+/* Radial Grid Overlay for Hero Sections */
+.grid-bg-light {
+  background-image: radial-gradient(rgba(14, 23, 18, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Dark Executive Glass Navigation */
+.glass-nav-dark {
+  background: rgba(14, 23, 18, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* --------------------------------------------------------------------------
+   5. Interactive Component Animations & Transitions
+   -------------------------------------------------------------------------- */
+.card-transition {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-transition:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-gold);
+  box-shadow: 0 12px 30px -5px rgba(197, 160, 89, 0.22);
+}

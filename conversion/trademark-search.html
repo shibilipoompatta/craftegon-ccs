@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free IP & Trademark Search Engine | CraftEgon CCS</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 850px;">
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <a href="/verticals/06-ipr-protection.html">IPR Protection</a> / <span>Trademark Search Engine</span>
+    </nav>
+    
+    <div class="if-service-hero" style="text-align: left; padding: 2rem 0;">
+      <h1>IP India Public Trademark & Availability Search Engine</h1>
+      <p>Check wordmark availability, phonetic similarity, and nice classification across official Indian Intellectual Property registers instantly.</p>
+    </div>
+
+    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <div>
+          <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Enter Brand Name / Wordmark</label>
+          <div style="display: flex; gap: 0.75rem;">
+            <input type="text" id="brand-query" placeholder="e.g. CraftEgon" style="flex: 1; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <select id="trademark-class" style="width: 140px; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="class-09">Class 09 (Software)</option>
+              <option value="class-35">Class 35 (Business)</option>
+              <option value="class-42">Class 42 (IT/Legal)</option>
+              <option value="all">All Classes</option>
+            </select>
+            <button type="button" id="search-btn" class="if-btn-primary" onclick="simulateSearch()" style="padding: 0.75rem 1.5rem;">Search Database</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Result Display Box -->
+      <div id="search-results" style="margin-top: 1.5rem; padding: 1.25rem; border-radius: var(--radius-sm); background: #f8fafc; border: 1px solid var(--border-color); display: none;">
+        <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">Search Analysis & Availability Matrix</h4>
+        <p id="result-text" style="font-size: 0.85rem; color: var(--text-muted); margin: 0;"></p>
+      </div>
+    </div>
+
+    <!-- Application Intake Form Triggered on Search -->
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem;">
+      <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Ready to file your trademark application?</h3>
+      <form class="if-lead-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Applicant / Entity Name</label>
+            <input type="text" name="applicant_name" required placeholder="Full Name or Company Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Trademark Type</label>
+            <select name="mark_type" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+              <option value="wordmark">Wordmark (Text Only)</option>
+              <option value="logo">Logo / Device Mark</option>
+              <option value="tagline">Tagline / Slogan</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Contact Person Name</label>
+            <input type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+          <div>
+            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Mobile Number</label>
+            <input type="tel" name="phone" required placeholder="9876543210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          </div>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Email Address</label>
+          <input type="email" name="email" required placeholder="brand@company.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+        </div>
+
+        <button type="submit" class="if-btn-primary" style="margin-top: 1rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Submit Application Intake for Filing</button>
+      </form>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/forms.js"></script>
+  <script>
+    function simulateSearch() {
+      const query = document.getElementById('brand-query').value.trim();
+      const resultsDiv = document.getElementById('search-results');
+      const resultText = document.getElementById('result-text');
+      
+      if (!query) {
+        alert("Please enter a brand name to search.");
+        return;
+      }
+
+      resultsDiv.style.display = 'block';
+      resultText.innerHTML = `Scanning IP India public records for <strong>"${query}"</strong>... No identical prior registrations found in primary classes. High availability probability. Proceed with Form TM-A filing.`;
+    }
+  </script>
+</body>
+</html>

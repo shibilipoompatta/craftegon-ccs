@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore CraftEgon CCS Diagnostic Engines & Conversion Suite: AI Legal Document Drafter, RoC Late Fee Calculator, Trademark Class Checker, STK-2 Strike-Off Analyzer, and Compliance Desks.">
+  <title>Diagnostic Engines &amp; Conversion Tools Suite | CraftEgon CCS</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+  <style>
+    .conv-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 4.5rem 1.5rem 3.5rem;
+      border-bottom: 1px solid var(--border-color);
+      text-align: center;
+    }
+    .conv-badge {
+      display: inline-block;
+      background: rgba(92, 59, 255, 0.2);
+      border: 1px solid rgba(92, 59, 255, 0.4);
+      color: #a5b4fc;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .conv-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 2rem 0;
+      justify-content: center;
+    }
+    .conv-filter-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .conv-filter-btn.active, .conv-filter-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+    .conv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .conv-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .conv-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    .conv-card.featured {
+      border: 2px solid var(--primary);
+      background: linear-gradient(180deg, #ffffff 0%, #faf8ff 100%);
+    }
+    .conv-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .conv-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+    .conv-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .conv-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-color);
+      padding-top: 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <!-- Hero Section -->
+  <header class="conv-hero">
+    <div class="container" style="max-width: 900px; margin: 0 auto;">
+      <span class="conv-badge">Autonomous Diagnostic &amp; Conversion Infrastructure</span>
+      <h1 style="font-size: 2.75rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">
+        Interactive Legal Tech &amp; Compliance Engines
+      </h1>
+      <p style="font-size: 1.15rem; color: #94a3b8; max-width: 750px; margin: 0 auto 1.5rem; line-height: 1.6;">
+        Execute instant cost simulations, AI legal drafting, statutory eligibility checks, and secure multi-vertical client intake flows with algorithmic precision.
+      </p>
+      <div style="max-width: 500px; margin: 0 auto;">
+        <input type="text" id="conv-search-input" placeholder="Search tools (e.g. AI generator, calculator, trademark, STK-2, FEMA)..." 
+               onkeyup="filterConvCards()" 
+               style="width: 100%; padding: 0.85rem 1.25rem; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.95); font-size: 0.95rem;">
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem;">
+    <!-- Breadcrumb -->
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <span aria-current="page">Conversion Tools</span>
+    </nav>
+
+    <!-- Filters -->
+    <div class="conv-filter-bar">
+      <button class="conv-filter-btn active" onclick="filterCategory('all', this)">All Engines (18)</button>
+      <button class="conv-filter-btn" onclick="filterCategory('ai-calc', this)">AI &amp; Computational Estimators</button>
+      <button class="conv-filter-btn" onclick="filterCategory('eligibility', this)">Diagnostic &amp; Search Checkers</button>
+      <button class="conv-filter-btn" onclick="filterCategory('intake', this)">Corporate Advisory Intake Desks</button>
+    </div>
+
+    <!-- Tools Grid -->
+    <div class="conv-grid" id="conv-grid-container">
+
+      <!-- Tool 1: AI Document Generator -->
+      <a href="/conversion/ai-document-generator.html" class="conv-card featured" data-category="ai-calc">
+        <span class="conv-tag" style="color: #ff4ed0;">Flagship AI Engine</span>
+        <h2 class="conv-title">AI Legal Document &amp; Board Resolution Generator</h2>
+        <p class="conv-desc">
+          Automated legal drafting assistant generating certified board resolutions, founder agreements, and compliance memorandums conforming to Big 4 corporate standards.
+        </p>
+        <div class="conv-action">
+          <span>Real-Time Generation</span>
+          <span>Launch AI Drafter &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 2: Fee Calculator -->
+      <a href="/conversion/calculator.html" class="conv-card featured" data-category="ai-calc">
+        <span class="conv-tag">Interactive Calculator</span>
+        <h2 class="conv-title">RoC Late Fee &amp; Retainer Cost Estimator</h2>
+        <p class="conv-desc">
+          Interactive calculator computing statutory MCA late fees based on delayed days alongside custom corporate secretarial retainer quotes for startups and enterprises.
+        </p>
+        <div class="conv-action">
+          <span>Algorithmic Fee Model</span>
+          <span>Open Calculator &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 3: Trademark Search Engine -->
+      <a href="/conversion/trademark-search.html" class="conv-card" data-category="eligibility">
+        <span class="conv-tag">IP Intelligence</span>
+        <h2 class="conv-title">IP India Trademark Class &amp; Conflict Search Engine</h2>
+        <p class="conv-desc">
+          Multi-class wordmark search interface with automated NICE classification mapping and conflict risk scoring before filing Form TM-A with the Trademark Registry.
+        </p>
+        <div class="conv-action">
+          <span>Class 1 - 45 Analysis</span>
+          <span>Start Search &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 4: STK-2 Strike-Off Checker -->
+      <a href="/conversion/strike-off-checker.html" class="conv-card" data-category="eligibility">
+        <span class="conv-tag">Exit Diagnostic</span>
+        <h2 class="conv-title">Form STK-2 Strike-Off Eligibility Checker</h2>
+        <p class="conv-desc">
+          Multi-point statutory validator assessing bank account closure, assets/liabilities, pending litigation, and RoC conditions for lawful fast-track corporate closure.
+        </p>
+        <div class="conv-action">
+          <span>Section 248 Validator</span>
+          <span>Check Eligibility &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 5: License Qualification Engine -->
+      <a href="/conversion/license-qualification.html" class="conv-card" data-category="eligibility">
+        <span class="conv-tag">Statutory Licensing</span>
+        <h2 class="conv-title">Enterprise License Qualification Engine</h2>
+        <p class="conv-desc">
+          Automated multi-criteria evaluation mapping company operations to required statutory licenses including FSSAI, Shops Act, Factory, Pollution, and IEC registrations.
+        </p>
+        <div class="conv-action">
+          <span>Sectoral Assessment</span>
+          <span>Run Diagnosis &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 6: Annual Retainer Desk -->
+      <a href="/conversion/retainer-desk.html" class="conv-card" data-category="intake">
+        <span class="conv-tag">Corporate Retainers</span>
+        <h2 class="conv-title">Annual Corporate Retainer Desk</h2>
+        <p class="conv-desc">
+          Dedicated corporate client onboarding desk for continuous RoC annual filings, statutory board minutes, and quarterly governance compliance retainers.
+        </p>
+        <div class="conv-action">
+          <span>Dedicated CS Retainer</span>
+          <span>Access Retainer Desk &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 7: Post-Incorporation Checkout -->
+      <a href="/conversion/post-incorporation-checkout.html" class="conv-card" data-category="ai-calc">
+        <span class="conv-tag">Entity Formation</span>
+        <h2 class="conv-title">Post-Incorporation Compliance Bundle Checkout</h2>
+        <p class="conv-desc">
+          Bundled setup suite covering Form INC-20A commencement of business, auditor appointment (ADT-1), share certificate stamping, and first board meeting documentation.
+        </p>
+        <div class="conv-action">
+          <span>First 180 Days Setup</span>
+          <span>View Packages &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 8: Contract Intake Desk -->
+      <a href="/conversion/contract-intake.html" class="conv-card" data-category="intake">
+        <span class="conv-tag">Legal Drafting</span>
+        <h2 class="conv-title">Commercial Contract &amp; SHA Intake Desk</h2>
+        <p class="conv-desc">
+          Secure drafting intake portal for Founder Agreements, Master Service Agreements (MSAs), SaaS terms, and customized commercial contracts.
+        </p>
+        <div class="conv-action">
+          <span>NDA Protected</span>
+          <span>Submit Request &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 9: Tax Intake Portal -->
+      <a href="/conversion/tax-intake.html" class="conv-card" data-category="intake">
+        <span class="conv-tag">Tax Compliance</span>
+        <h2 class="conv-title">Corporate Tax &amp; GST Audit Intake Portal</h2>
+        <p class="conv-desc">
+          Secure document repository and intake portal for GSTR-9/9C reconciliations, Form 3CEB transfer pricing, and trust Form 10B/ITR-7 documentation.
+        </p>
+        <div class="conv-action">
+          <span>CA Certified Review</span>
+          <span>Upload Files &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 10: Venture Deal Booking -->
+      <a href="/conversion/venture-deal-booking.html" class="conv-card" data-category="intake">
+        <span class="conv-tag">Venture Capital</span>
+        <h2 class="conv-title">Venture Deal, PAS-3 &amp; Term Sheet Strategy Desk</h2>
+        <p class="conv-desc">
+          Direct advisory intake for startup founders raising institutional capital: term sheet validation, valuation reports, and Form PAS-3 allotment filings.
+        </p>
+        <div class="conv-action">
+          <span>Capital Raise Advisory</span>
+          <span>Book Session &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 11: Secretarial Audit Scope -->
+      <a href="/conversion/secretarial-audit-scope.html" class="conv-card" data-category="eligibility">
+        <span class="conv-tag">Governance &amp; Audit</span>
+        <h2 class="conv-title">Secretarial Audit (MR-3) Scope Configurator</h2>
+        <p class="conv-desc">
+          Interactive applicability checker for Section 204 secretarial audits evaluating turnover and paid-up capital thresholds with custom audit scope generation.
+        </p>
+        <div class="conv-action">
+          <span>Section 204 Audit</span>
+          <span>Configure Scope &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 12: CSR Audit & Spend Form -->
+      <a href="/conversion/csr-audit-form.html" class="conv-card" data-category="eligibility">
+        <span class="conv-tag">ESG &amp; CSR</span>
+        <h2 class="conv-title">Corporate CSR Applicability &amp; Audit Form</h2>
+        <p class="conv-desc">
+          Assess corporate net worth, turnover, and net profit against Section 135 thresholds to calculate mandatory 2% CSR obligations and Form CSR-2 reporting requirements.
+        </p>
+        <div class="conv-action">
+          <span>Section 135 Matrix</span>
+          <span>Assess Obligation &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 13: HR & Labour Audit -->
+      <a href="/conversion/hr-audit.html" class="conv-card" data-category="eligibility">
+        <span class="conv-tag">Workforce Compliance</span>
+        <h2 class="conv-title">Workforce &amp; HR Statutory Compliance Diagnostic</h2>
+        <p class="conv-desc">
+          Complete statutory audit checklist reviewing EPF, ESIC, Professional Tax, POSH Internal Committee constitution, and New Labour Code contract alignments.
+        </p>
+        <div class="conv-action">
+          <span>Workforce Review</span>
+          <span>Start Audit &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 14: FEMA Consultation Desk -->
+      <a href="/conversion/fema-consultation.html" class="conv-card" data-category="intake">
+        <span class="conv-tag">Cross-Border Law</span>
+        <h2 class="conv-title">FEMA &amp; Inbound FDI Advisory Consultation Desk</h2>
+        <p class="conv-desc">
+          Direct consultation booking for foreign investors, cross-border acquisitions, FIRMS portal reporting (Form FC-GPR), and annual FLA return submissions.
+        </p>
+        <div class="conv-action">
+          <span>RBI Advisory</span>
+          <span>Consult Desk &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 15: Cross-Border Retainer Desk -->
+      <a href="/conversion/cross-border-retainer.html" class="conv-card" data-category="intake">
+        <span class="conv-tag">Cross-Border Law</span>
+        <h2 class="conv-title">Cross-Border Retainer Desk (FC-3/FC-4 &amp; FLA)</h2>
+        <p class="conv-desc">
+          Specialized ongoing compliance retainer for foreign subsidiaries, liaison offices, branch offices, and multinational enterprises operating in India.
+        </p>
+        <div class="conv-action">
+          <span>International Entities</span>
+          <span>Access Retainer &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 16: Dispute Consultation Portal -->
+      <a href="/conversion/dispute-consultation.html" class="conv-card" data-category="intake">
+        <span class="conv-tag">Litigation &amp; NCLT</span>
+        <h2 class="conv-title">Confidential Corporate Dispute &amp; NCLT Intake</h2>
+        <p class="conv-desc">
+          Priority intake for oppression/mismanagement claims under Section 241/242, board deadlocks, director disqualifications, and IBC insolvency defense.
+        </p>
+        <div class="conv-action">
+          <span>Litigation Support</span>
+          <span>Submit Incident &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 17: M&A Advisory Enquiry -->
+      <a href="/conversion/ma-advisory-enquiry.html" class="conv-card" data-category="intake">
+        <span class="conv-tag">M&amp;A Restructuring</span>
+        <h2 class="conv-title">M&amp;A, Fast-Track Merger &amp; Slump Sale Advisory</h2>
+        <p class="conv-desc">
+          Confidential enquiry desk for corporate mergers under Section 233, asset purchases, business restructuring, and due diligence execution.
+        </p>
+        <div class="conv-action">
+          <span>Deal Structuring</span>
+          <span>Initiate Enquiry &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Tool 18: DPDP Audit Request -->
+      <a href="/conversion/dpdp-audit-request.html" class="conv-card" data-category="intake">
+        <span class="conv-tag">Data Protection</span>
+        <h2 class="conv-title">DPDP Act 2023 Readiness &amp; Privacy Audit Booking</h2>
+        <p class="conv-desc">
+          Institutional data protection compliance audit examining data fiduciary obligations, consent architecture, privacy notices, and CERT-In cyber compliance.
+        </p>
+        <div class="conv-action">
+          <span>Privacy &amp; IT Law</span>
+          <span>Request Audit &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script>
+    function filterCategory(category, button) {
+      document.querySelectorAll('.conv-filter-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const cards = document.querySelectorAll('.conv-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function filterConvCards() {
+      const query = document.getElementById('conv-search-input').value.toLowerCase();
+      const cards = document.querySelectorAll('.conv-card');
+      cards.forEach(card => {
+        const title = card.querySelector('.conv-title').innerText.toLowerCase();
+        const desc = card.querySelector('.conv-desc').innerText.toLowerCase();
+        const tag = card.querySelector('.conv-tag').innerText.toLowerCase();
+        if (title.includes(query) || desc.includes(query) || tag.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

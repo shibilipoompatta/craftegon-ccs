@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Access CraftEgon CCS Regulatory Knowledge Base & Blueprints Hub: In-depth compliance guides, MCA V3 architecture, SBO rules, PAS-6 demat, RBI FLA, and Transfer Pricing frameworks.">
+  <title>Regulatory Knowledge Base &amp; Compliance Blueprints | CraftEgon CCS</title>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+  <style>
+    .kb-hero {
+      background: linear-gradient(135deg, #0e1712 0%, #15221b 100%);
+      color: #ffffff;
+      padding: 4.5rem 1.5rem 3.5rem;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+      position: relative;
+    }
+    .kb-badge {
+      display: inline-block;
+      background: rgba(197, 160, 89, 0.15);
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      color: #c5a059;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .kb-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 2rem 0;
+      justify-content: center;
+    }
+    .kb-filter-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .kb-filter-btn.active, .kb-filter-btn:hover {
+      background: #0e1712;
+      color: #ffffff;
+      border-color: #0e1712;
+    }
+    .kb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .kb-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .kb-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(14, 23, 18, 0.1);
+      border-color: #c5a059;
+    }
+    .kb-card-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #c5a059;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .kb-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0e1712;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+    .kb-card-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .kb-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-color);
+      padding-top: 0.85rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+    .kb-card-action {
+      color: var(--primary);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <!-- Hero Section -->
+  <header class="kb-hero">
+    <div class="container" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+      <span class="kb-badge">Regulatory Intelligence &amp; Technical Blueprints</span>
+      <h1 style="font-size: 2.75rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">
+        Corporate Governance, MCA &amp; Statutory Blueprints
+      </h1>
+      <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 1.5rem; line-height: 1.6;">
+        Institutional walkthroughs, statutory filing architectures, compliance formulas, and procedural roadmaps compiled by senior corporate secretarial and legal practitioners.
+      </p>
+      <div style="max-width: 500px; margin: 0 auto;">
+        <input type="text" id="kb-search-input" placeholder="Search blueprints (e.g. SBO, PAS-6, SPICe+, FLA, Late fees)..." 
+               onkeyup="filterKnowledgeCards()" 
+               style="width: 100%; padding: 0.85rem 1.25rem; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.95); font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem;">
+    <!-- Breadcrumb -->
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <span aria-current="page">Knowledge Base</span>
+    </nav>
+
+    <!-- Category Filters -->
+    <div class="kb-filter-bar">
+      <button class="kb-filter-btn active" onclick="filterCategory('all', this)">All Blueprints (9)</button>
+      <button class="kb-filter-btn" onclick="filterCategory('incorporation', this)">Entity Formation &amp; MCA V3</button>
+      <button class="kb-filter-btn" onclick="filterCategory('roc-governance', this)">RoC, SBO &amp; Share Capital</button>
+      <button class="kb-filter-btn" onclick="filterCategory('tax-crossborder', this)">Tax &amp; Cross-Border FEMA</button>
+      <button class="kb-filter-btn" onclick="filterCategory('llp-directors', this)">LLP &amp; Director Compliance</button>
+    </div>
+
+    <!-- Blueprints Grid -->
+    <div class="kb-grid" id="kb-grid-container">
+
+      <!-- Blueprint 1 -->
+      <a href="/knowledge/spice-plus-mca-v3-blueprint.html" class="kb-card" data-category="incorporation">
+        <span class="kb-card-tag">Vertical 01 &bull; MCA V3 Incorporation</span>
+        <h2 class="kb-card-title">SPICe+ MCA V3 Blueprint &amp; Form INC-20A Commencement Guide</h2>
+        <p class="kb-card-desc">
+          An exhaustive regulatory walkthrough of the MCA V3 portal architecture for Private Limited Company incorporation, Part A/B execution, AGILE-PRO-S registrations, and statutory commencement of business.
+        </p>
+        <div class="kb-card-meta">
+          <span>Sec. 7 &amp; 10A, Co. Act 2013</span>
+          <span class="kb-card-action">Read Blueprint &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Blueprint 2 -->
+      <a href="/knowledge/mca-v3-filing-guide.html" class="kb-card" data-category="incorporation">
+        <span class="kb-card-tag">Vertical 02 &bull; Digital Infrastructure</span>
+        <h2 class="kb-card-title">MCA V3 Portal User Roles &amp; E-Filing Architecture Guide</h2>
+        <p class="kb-card-desc">
+          Complete guide for business users, practicing professionals, and authorized signatories navigating DSC association, multi-factor OTP auth, and electronic filing errors on the MCA V3 system.
+        </p>
+        <div class="kb-card-meta">
+          <span>MCA Digital Services</span>
+          <span class="kb-card-action">Read Blueprint &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Blueprint 3 -->
+      <a href="/knowledge/sbo-ben2-guide.html" class="kb-card" data-category="roc-governance">
+        <span class="kb-card-tag">Vertical 02 &bull; Corporate Transparency</span>
+        <h2 class="kb-card-title">Significant Beneficial Ownership (SBO) &amp; Form BEN-2 Blueprint</h2>
+        <p class="kb-card-desc">
+          Step-by-step methodology to identify indirect natural person ownership above the 10% statutory threshold under Section 90, serving BEN-4 notice letters, and submitting mandatory Form BEN-2 e-filings.
+        </p>
+        <div class="kb-card-meta">
+          <span>Sec. 90 &bull; Co. (SBO) Rules</span>
+          <span class="kb-card-action">Read Blueprint &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Blueprint 4 -->
+      <a href="/knowledge/pas6-demat-audit-guide.html" class="kb-card" data-category="roc-governance">
+        <span class="kb-card-tag">Vertical 02 &bull; Share Capital Audit</span>
+        <h2 class="kb-card-title">Form PAS-6 Share Capital Demat Audit &amp; Rule 9B Blueprint</h2>
+        <p class="kb-card-desc">
+          Detailed procedural roadmap for non-small private companies to achieve mandatory equity dematerialization, generate ISIN numbers with NSDL/CDSL, and file half-yearly Form PAS-6 reconciliation returns.
+        </p>
+        <div class="kb-card-meta">
+          <span>Rule 9B &bull; PAS Rules 2014</span>
+          <span class="kb-card-action">Read Blueprint &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Blueprint 5 -->
+      <a href="/knowledge/rbi-fla-return-blueprint.html" class="kb-card" data-category="tax-crossborder">
+        <span class="kb-card-tag">Vertical 13 &bull; Cross-Border &amp; FEMA</span>
+        <h2 class="kb-card-title">RBI Foreign Liabilities &amp; Assets (FLA) Return Blueprint</h2>
+        <p class="kb-card-desc">
+          Authoritative reporting manual for Indian companies and LLPs with foreign direct investment (FDI) or overseas investment (ODI), covering FLAIR portal login, balance sheet reconciliation, and July 15 filings.
+        </p>
+        <div class="kb-card-meta">
+          <span>FEMA 1999 &bull; RBI FLAIR</span>
+          <span class="kb-card-action">Read Blueprint &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Blueprint 6 -->
+      <a href="/knowledge/transfer-pricing-guide.html" class="kb-card" data-category="tax-crossborder">
+        <span class="kb-card-tag">Vertical 03 &bull; International Tax</span>
+        <h2 class="kb-card-title">Transfer Pricing, Arm's Length Principle &amp; Form 3CEB Guide</h2>
+        <p class="kb-card-desc">
+          Technical breakdown of international transactions and specified domestic transactions, documentation maintenance under Rule 10D, benchmarking methodologies, and CA audit certification via Form 3CEB.
+        </p>
+        <div class="kb-card-meta">
+          <span>Sec. 92E &bull; Income-tax Act</span>
+          <span class="kb-card-action">Read Blueprint &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Blueprint 7 -->
+      <a href="/knowledge/late-fee-calculator-guide.html" class="kb-card" data-category="roc-governance">
+        <span class="kb-card-tag">Vertical 02 &bull; Compliance Risk</span>
+        <h2 class="kb-card-title">MCA Late Fee Computational Logic &amp; Penalty Slabs Guide</h2>
+        <p class="kb-card-desc">
+          Exhaustive statutory calculation rules under Section 403 of the Companies Act, detailing the ₹100/day ongoing default formula, normal fee multiplication slabs (2x to 18x), and adjudication mitigation strategies.
+        </p>
+        <div class="kb-card-meta">
+          <span>Sec. 403 &amp; 454 &bull; Fee Rules</span>
+          <span class="kb-card-action">Read Blueprint &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Blueprint 8 -->
+      <a href="/knowledge/director-disqualification-guide.html" class="kb-card" data-category="llp-directors">
+        <span class="kb-card-tag">Vertical 10 &bull; Board Governance</span>
+        <h2 class="kb-card-title">Director Disqualification (Sec 164) &amp; DIN Reactivation Blueprint</h2>
+        <p class="kb-card-desc">
+          Comprehensive legal analysis on Section 164(2)(a) default triggers, DIN deactivation repercussions across active directorships, High Court writ petition avenues, and Section 441 RoC compounding mechanisms.
+        </p>
+        <div class="kb-card-meta">
+          <span>Sec. 164(2) &amp; 167 &bull; Co. Act</span>
+          <span class="kb-card-action">Read Blueprint &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Blueprint 9 -->
+      <a href="/knowledge/llp-compliance-solvency-guide.html" class="kb-card" data-category="llp-directors">
+        <span class="kb-card-tag">Vertical 02 &bull; LLP Architecture</span>
+        <h2 class="kb-card-title">LLP Annual Compliance, Form 11 &amp; Form 8 Solvency Blueprint</h2>
+        <p class="kb-card-desc">
+          Detailed procedural handbook for Limited Liability Partnerships, covering mandatory Form 11 annual returns, Form 8 Statement of Account &amp; Solvency, partner contribution disclosures, and audit thresholds.
+        </p>
+        <div class="kb-card-meta">
+          <span>Sec. 34 &amp; 35 &bull; LLP Act 2008</span>
+          <span class="kb-card-action">Read Blueprint &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Interactive Tools Callout -->
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 3rem;">
+      <div style="max-width: 700px;">
+        <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">Computational Engines</span>
+        <h3 style="font-size: 1.35rem; font-weight: 700; margin: 0.25rem 0 0.5rem; color: #0e1712;">Execute Calculations in Real-Time</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">
+          Need to compute statutory RoC late fees, assess your startup retainer tier, or run an AI document generation draft? Our conversion tools convert these legal blueprints into automated workflows.
+        </p>
+      </div>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="/conversion/calculator.html" class="if-btn-primary">Fee &amp; Late Fee Calculator</a>
+        <a href="/conversion/ai-document-generator.html" class="if-btn-secondary" style="padding: 0.6rem 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); text-decoration: none; color: var(--text-main); font-weight: 600; background: white;">AI Document Drafter</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+  <script>
+    function filterCategory(category, button) {
+      document.querySelectorAll('.kb-filter-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const cards = document.querySelectorAll('.kb-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function filterKnowledgeCards() {
+      const query = document.getElementById('kb-search-input').value.toLowerCase();
+      const cards = document.querySelectorAll('.kb-card');
+      cards.forEach(card => {
+        const title = card.querySelector('.kb-card-title').innerText.toLowerCase();
+        const desc = card.querySelector('.kb-card-desc').innerText.toLowerCase();
+        const tag = card.querySelector('.kb-card-tag').innerText.toLowerCase();
+        if (title.includes(query) || desc.includes(query) || tag.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
