@@ -1,0 +1,23 @@
+{
+  "name": "craftegon-ccs",
+  "version": "1.0.0",
+  "description": "CraftEgon Corporate Services (CCS) - Enterprise Corporate Governance & Legal Compliance Operating System",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/verify-links.js && node scripts/check-orphans.js && node scripts/audit-seo.js && node scripts/test-chat-engine.js && node -c assets/js/config.js assets/js/navigation.js assets/js/forms.js assets/js/calculator.js assets/js/chat-widget.js",
+    "test:links": "node scripts/verify-links.js",
+    "test:orphans": "node scripts/check-orphans.js",
+    "test:seo": "node scripts/audit-seo.js",
+    "test:chat": "node scripts/test-chat-engine.js"
+  },
+  "keywords": [
+    "craftegon",
+    "compliance",
+    "legaltech",
+    "companies-act-2013",
+    "fema",
+    "dpdp"
+  ],
+  "author": "CraftEgon LLP",
+  "license": "UNLICENSED"
+}

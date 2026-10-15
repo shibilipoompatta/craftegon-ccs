@@ -5,6 +5,14 @@
  */
 
 document.addEventListener("DOMContentLoaded", async function () {
+  // 0. Ensure Central Configuration is loaded
+  if (!window.CRAFTEGON_CONFIG && !document.getElementById("craftegon-config-script")) {
+    const configScript = document.createElement("script");
+    configScript.id = "craftegon-config-script";
+    configScript.src = "/assets/js/config.js";
+    document.head.appendChild(configScript);
+  }
+
   preserveConversionContext();
 
   // 1. Load and inject Navbar with graceful fallback

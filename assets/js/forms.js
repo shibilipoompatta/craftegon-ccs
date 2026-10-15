@@ -226,10 +226,17 @@ function showFormFallbackNotice(form, data) {
   alertBox.setAttribute("aria-live", "assertive");
   alertBox.style.cssText = "background: #FFFFFF; border: 1.5px solid var(--gold-border-strong, #C59B27); padding: 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem; box-shadow: var(--shadow-sm);";
 
+  const cfg = window.CRAFTEGON_CONFIG || {};
   const serviceName = (data && (data.service_id || data.service_category || data.service)) || "Corporate Compliance";
   const prefill = encodeURIComponent(`Hello CraftEgon Compliance Desk, I would like to consult on: ${serviceName}.`);
-  const waUrl = `https://wa.me/918606918247?text=${prefill}`;
-  const mailUrl = `mailto:admin@craftegon.com?subject=${encodeURIComponent("Compliance Inquiry: " + serviceName)}`;
+  const waUrl = (typeof cfg.getWhatsAppUrl === "function") 
+    ? cfg.getWhatsAppUrl(serviceName) 
+    : `https://wa.me/918606918247?text=${prefill}`;
+  const mailUrl = (typeof cfg.getEmailUrl === "function") 
+    ? cfg.getEmailUrl("Compliance Inquiry: " + serviceName) 
+    : `mailto:admin@craftegon.com?subject=${encodeURIComponent("Compliance Inquiry: " + serviceName)}`;
+  const phoneDisplay = cfg.phoneDisplay || "+91 86069 18247";
+  const emailDisplay = cfg.email || "admin@craftegon.com";
 
   alertBox.innerHTML = `
     <div style="font-weight: 700; color: var(--text-dark, #090D16); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-cinzel, 'Cinzel', serif);">
@@ -240,10 +247,10 @@ function showFormFallbackNotice(form, data) {
     </p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
       <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
-        💬 Chat on WhatsApp (+91 86069 18247) &rarr;
+        💬 Chat on WhatsApp (${phoneDisplay}) &rarr;
       </a>
       <a href="${mailUrl}" class="if-btn-secondary" style="border: 1px solid var(--gold-border, rgba(197, 155, 39, 0.28)); color: var(--text-dark-gold, #785B0D); background: #fefce8; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
-        ✉️ Email Desk (admin@craftegon.com)
+        ✉️ Email Desk (${emailDisplay})
       </a>
     </div>
   `;
