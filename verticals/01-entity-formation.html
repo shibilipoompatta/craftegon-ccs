@@ -14,13 +14,107 @@
     .v01-breadcrumb { margin-bottom: 1.5rem; font-size: .875rem; color: var(--text-muted); }
     .v01-intro { max-width: 900px; margin-bottom: 2rem; color: var(--text-muted); }
     .v01-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 1rem; }
-    .v01-card { display: flex; flex-direction: column; gap: .65rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: #fff; box-shadow: var(--shadow-sm); }
+    .v01-card { display: flex; flex-direction: column; gap: .65rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--card-gradient); box-shadow: var(--shadow-sm); }
     .v01-card h3 { margin: 0; color: var(--primary); font-size: 1.05rem; }
     .v01-card p { margin: 0; color: var(--text-muted); font-size: .9rem; }
     .v01-links { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-top: auto; padding-top: .35rem; }
-    .v01-note { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 4px solid var(--primary); background: var(--bg-surface); color: var(--text-muted); }
+    .v01-note { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 4px solid var(--primary); background: var(--card-gradient); border: 1px solid rgba(212, 175, 55, 0.22); color: var(--text-main); color: var(--text-muted); }
     @media (max-width: 600px) { .v01-main { padding: 2rem 1rem; } }
   </style>
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
+  <link rel="apple-touch-icon" href="/assets/images/craftegon-logo.jpg">
+  <link rel="canonical" href="https://craftegon.com/verticals/01-entity-formation.html">
+
+  <!-- Open Graph / Meta Protocol -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CraftEgon CCS">
+  <meta property="og:url" content="https://craftegon.com/verticals/01-entity-formation.html">
+  <meta property="og:title" content="Business Formation &amp; Structuring | CraftEgon CCS">
+  <meta property="og:description" content="Explore CraftEgon">
+  <meta property="og:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@craftegon">
+  <meta name="twitter:title" content="Business Formation &amp; Structuring | CraftEgon CCS">
+  <meta name="twitter:description" content="Explore CraftEgon">
+  <meta name="twitter:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://craftegon.com/verticals/01-entity-formation.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://craftegon.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Compliance Verticals",
+          "item": "https://craftegon.com/#service-verticals"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Business Formation &amp; Structuring",
+          "item": "https://craftegon.com/verticals/01-entity-formation.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://craftegon.com/verticals/01-entity-formation.html#webpage",
+      "url": "https://craftegon.com/verticals/01-entity-formation.html",
+      "name": "Business Formation &amp; Structuring | CraftEgon CCS",
+      "description": "Explore CraftEgon",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://craftegon.com/#website",
+        "name": "CraftEgon CCS",
+        "url": "https://craftegon.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://craftegon.com/#organization",
+        "name": "CraftEgon CCS",
+        "logo": "https://craftegon.com/assets/images/craftegon-logo.jpg"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://craftegon.com/verticals/01-entity-formation.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the standard timeline and procedure for Private Limited Company incorporation under SPICe+ MCA V3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Incorporation is executed via the unified MCA V3 SPICe+ web-form (Part A for RUN name reservation, Part B for incorporation, DIN allocation, PAN, TAN, EPFO, ESIC, Professional Tax, and bank account opening) typically completed in 3 to 5 business days upon digital signature verification."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the mandatory timeline for filing Form INC-20A (Commencement of Business)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pursuant to Section 10A of the Companies Act, 2013, every company incorporated after November 2, 2018 having share capital must file e-Form INC-20A with the RoC within 180 days of incorporation confirming receipt of subscription money from directors."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <div id="global-navbar"></div>
@@ -83,6 +177,36 @@
     <aside class="v01-note" aria-label="Formation workflow status">
       <strong>Workflow status:</strong> these are service-directory links, not an entity-selection or incorporation application. Configurable packages, verified government fee rules, conditional document checklists, multi-step intake, and a post-formation handoff to <a href="/verticals/02-roc-compliance.html">Vertical 02</a> remain to be implemented and verified. Public Limited formation appears in the supplied entity typology, but no matching service page exists in the current repository, so it is not linked as an available service.
     </aside>
+  
+    <!-- Statutory FAQ Accordions Grounded in Schema -->
+    <section id="statutory-faqs" style="margin: 3.5rem 0 2rem;">
+      <h2 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: #F8FAFC; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span class="noble-badge" style="font-size: 0.75rem;">Statutory Q&amp;A</span>
+        Authoritative Legal Provisions &amp; FAQs
+      </h2>
+      <div class="if-faq-container" style="max-width: 100%; margin: 1rem 0;">
+        
+        <div class="if-faq-item">
+          <div class="if-faq-question">
+            <span>What is the standard timeline and procedure for Private Limited Company incorporation under SPICe+ MCA V3?</span>
+            <span style="color: var(--gold);">+</span>
+          </div>
+          <div class="if-faq-answer">
+            Incorporation is executed via the unified MCA V3 SPICe+ web-form (Part A for RUN name reservation, Part B for incorporation, DIN allocation, PAN, TAN, EPFO, ESIC, Professional Tax, and bank account opening) typically completed in 3 to 5 business days upon digital signature verification.
+          </div>
+        </div>
+        <div class="if-faq-item">
+          <div class="if-faq-question">
+            <span>What is the mandatory timeline for filing Form INC-20A (Commencement of Business)?</span>
+            <span style="color: var(--gold);">+</span>
+          </div>
+          <div class="if-faq-answer">
+            Pursuant to Section 10A of the Companies Act, 2013, every company incorporated after November 2, 2018 having share capital must file e-Form INC-20A with the RoC within 180 days of incorporation confirming receipt of subscription money from directors.
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <div id="global-footer"></div>
   <script src="/assets/js/navigation.js"></script>

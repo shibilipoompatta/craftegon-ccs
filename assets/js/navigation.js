@@ -21,7 +21,10 @@ document.addEventListener("DOMContentLoaded", async function () {
       navContainer.innerHTML = `
         <header class="if-header">
           <div class="if-header-inner">
-            <a href="/index.html" class="if-brand-logo">CraftEgon <span>CCS</span></a>
+            <a href="/index.html" class="if-brand-logo">
+              <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Logo" class="brand-logo-img">
+              CraftEgon <span>CCS</span>
+            </a>
             <nav class="if-nav">
               <a href="/index.html" class="if-nav-link">Home</a>
               <a href="/index.html#service-verticals" class="if-nav-link">Verticals</a>
@@ -30,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               <a href="/conversion/calculator.html" class="if-nav-link">Fee Estimator</a>
             </nav>
             <div class="if-header-actions">
-              <a href="/conversion/ai-document-generator.html" class="if-btn-secondary" style="padding: 0.55rem 1rem; font-size: 0.85rem; font-weight: 600; text-decoration: none; border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: var(--text-main); background: white;">AI Drafter</a>
+              <a href="/conversion/ai-document-generator.html" class="if-btn-secondary">AI Drafter</a>
               <a href="/conversion/calculator.html" class="if-btn-primary">Calculate Retainer</a>
               <button class="if-mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -40,7 +43,10 @@ document.addEventListener("DOMContentLoaded", async function () {
           <div class="if-mobile-backdrop" id="mobile-drawer-backdrop"></div>
           <div class="if-mobile-drawer" id="mobile-drawer" aria-hidden="true">
             <div class="if-mobile-drawer-header">
-              <a href="/index.html" class="if-brand-logo">CraftEgon <span>CCS</span></a>
+              <a href="/index.html" class="if-brand-logo">
+                <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Logo" class="brand-logo-img">
+                CraftEgon <span>CCS</span>
+              </a>
               <button class="if-mobile-drawer-close" id="mobile-drawer-close" aria-label="Close Navigation Menu">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </button>
@@ -75,20 +81,23 @@ document.addEventListener("DOMContentLoaded", async function () {
         <footer class="if-footer">
           <div class="if-footer-grid" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
             <div>
-              <p style="color: white; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">CraftEgon Corporate Services (CCS)</p>
-              <p style="margin: 0; font-size: 0.85rem; color: #94a3b8; max-width: 400px;">India's premier AI-powered digital corporate and legal consultancy platform.</p>
+              <p style="color: #F8FAFC; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.6rem;">
+                <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Logo" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--gold);">
+                CraftEgon Corporate Services (CCS)
+              </p>
+              <p style="margin: 0; font-size: 0.85rem; color: #94a3b8; max-width: 400px;">India's premier AI-powered digital corporate and legal compliance operating system.</p>
             </div>
-            <div style="display: flex; gap: 2rem; font-size: 0.85rem;">
+            <div style="display: flex; gap: 2rem; font-size: 0.85rem; flex-wrap: wrap;">
               <a href="/index.html" style="color: #94a3b8; text-decoration: none;">Home</a>
-              <a href="/conversion/ai-document-generator.html" style="color: #ff4ed0; text-decoration: none; font-weight: 600;">AI Legal Drafter</a>
+              <a href="/conversion/ai-document-generator.html" style="color: var(--gold-light); text-decoration: none; font-weight: 600;">AI Legal Drafter</a>
               <a href="/conversion/calculator.html" style="color: #94a3b8; text-decoration: none;">Fee Calculator</a>
-              <a href="/knowledge/index.html" style="color: #c5a059; text-decoration: none;">Knowledge Hub</a>
+              <a href="/knowledge/index.html" style="color: var(--gold-light); text-decoration: none;">Knowledge Hub</a>
               <a href="/legal/terms.html" style="color: #94a3b8; text-decoration: none;">Terms</a>
               <a href="/legal/privacy.html" style="color: #94a3b8; text-decoration: none;">Privacy</a>
             </div>
           </div>
-          <div style="max-width: 1200px; margin: 2rem auto 0; border-top: 1px solid rgba(255,255,255,0.1); padding: 1.5rem; text-align: center; font-size: 0.8rem; color: #64748b;">
-            &copy; 2026 CraftEgon LLP. All rights reserved.
+          <div style="max-width: 1200px; margin: 2rem auto 0; border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 1.5rem; text-align: center; font-size: 0.8rem; color: #64748b;">
+            &copy; 2026 CraftEgon LLP. All rights reserved. Registered HQ: Kozhikode, Kerala, India.
           </div>
         </footer>
       `;

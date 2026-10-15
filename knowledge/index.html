@@ -11,110 +11,203 @@
   <link rel="stylesheet" href="/assets/css/service-page.css">
   <style>
     .kb-hero {
-      background: linear-gradient(135deg, #0e1712 0%, #15221b 100%);
-      color: #ffffff;
-      padding: 4.5rem 1.5rem 3.5rem;
-      border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+      background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 80%, rgba(30, 41, 59, 0.4) 0%, transparent 50%),
+                  var(--royal-gradient);
+      color: #F8FAFC;
+      padding: 5.5rem 1.5rem 4rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
       position: relative;
     }
     .kb-badge {
       display: inline-block;
-      background: rgba(197, 160, 89, 0.15);
-      border: 1px solid rgba(197, 160, 89, 0.4);
-      color: #c5a059;
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--gold-light);
+      padding: 0.4rem 1.1rem;
+      border-radius: var(--radius-full);
       font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
     }
     .kb-filter-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
       margin: 2rem 0;
       justify-content: center;
     }
     .kb-filter-btn {
-      background: #ffffff;
+      background: var(--card-gradient);
       border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 0.5rem 1rem;
+      color: var(--text-light);
+      padding: 0.55rem 1.25rem;
       border-radius: var(--radius-sm);
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
     }
     .kb-filter-btn.active, .kb-filter-btn:hover {
-      background: #0e1712;
-      color: #ffffff;
-      border-color: #0e1712;
+      background: var(--cta-gradient);
+      color: #0A0F1D;
+      border-color: var(--gold);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.28);
     }
     .kb-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.5rem;
+      gap: 1.75rem;
       margin-bottom: 4rem;
     }
     .kb-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
+      background: var(--card-gradient);
+      border: 1px solid rgba(212, 175, 55, 0.2);
       border-radius: var(--radius-md);
-      padding: 1.75rem;
+      padding: 1.85rem;
       display: flex;
       flex-direction: column;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: var(--shadow-noble);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       text-decoration: none;
       color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+    .kb-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.35) 50%, transparent 100%);
     }
     .kb-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px -5px rgba(14, 23, 18, 0.1);
-      border-color: #c5a059;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(212, 175, 55, 0.22);
+      border-color: var(--gold);
     }
     .kb-card-tag {
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
-      color: #c5a059;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.04em;
+      color: var(--gold-light);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.06em;
     }
     .kb-card-title {
-      font-size: 1.15rem;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
       font-weight: 700;
-      color: #0e1712;
+      color: #F8FAFC;
       margin-bottom: 0.75rem;
-      line-height: 1.4;
+      line-height: 1.35;
     }
     .kb-card-desc {
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.6;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.35rem;
       flex-grow: 1;
     }
     .kb-card-meta {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
       padding-top: 0.85rem;
       font-size: 0.8rem;
       color: var(--text-light);
     }
     .kb-card-action {
-      color: var(--primary);
-      font-weight: 600;
+      color: var(--gold-light);
+      font-weight: 700;
       display: flex;
       align-items: center;
       gap: 4px;
+      transition: gap 0.2s ease;
+    }
+    .kb-card:hover .kb-card-action {
+      gap: 7px;
+      color: #FFFFFF;
     }
   </style>
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
+  <link rel="apple-touch-icon" href="/assets/images/craftegon-logo.jpg">
+  <link rel="canonical" href="https://craftegon.com/knowledge/index.html">
+
+  <!-- Open Graph / Meta Protocol -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CraftEgon CCS">
+  <meta property="og:url" content="https://craftegon.com/knowledge/index.html">
+  <meta property="og:title" content="Regulatory Knowledge Base &amp; Compliance Blueprints | CraftEgon CCS">
+  <meta property="og:description" content="Access CraftEgon CCS Regulatory Knowledge Base & Blueprints Hub: In-depth compliance guides, MCA V3 architecture, SBO rules, PAS-6 demat, RBI FLA, and Transfer Pricing frameworks.">
+  <meta property="og:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@craftegon">
+  <meta name="twitter:title" content="Regulatory Knowledge Base &amp; Compliance Blueprints | CraftEgon CCS">
+  <meta name="twitter:description" content="Access CraftEgon CCS Regulatory Knowledge Base & Blueprints Hub: In-depth compliance guides, MCA V3 architecture, SBO rules, PAS-6 demat, RBI FLA, and Transfer Pricing frameworks.">
+  <meta name="twitter:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://craftegon.com/knowledge/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://craftegon.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Regulatory Intelligence",
+          "item": "https://craftegon.com/knowledge/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Regulatory Knowledge Base &amp; Compliance Blueprints",
+          "item": "https://craftegon.com/knowledge/index.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://craftegon.com/knowledge/index.html#webpage",
+      "url": "https://craftegon.com/knowledge/index.html",
+      "name": "Regulatory Knowledge Base &amp; Compliance Blueprints | CraftEgon CCS",
+      "description": "Access CraftEgon CCS Regulatory Knowledge Base & Blueprints Hub: In-depth compliance guides, MCA V3 architecture, SBO rules, PAS-6 demat, RBI FLA, and Transfer Pricing frameworks.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://craftegon.com/#website",
+        "name": "CraftEgon CCS",
+        "url": "https://craftegon.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://craftegon.com/#organization",
+        "name": "CraftEgon CCS",
+        "logo": "https://craftegon.com/assets/images/craftegon-logo.jpg"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <div id="global-navbar"></div>
@@ -285,7 +378,7 @@
       </div>
       <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
         <a href="/conversion/calculator.html" class="if-btn-primary">Fee &amp; Late Fee Calculator</a>
-        <a href="/conversion/ai-document-generator.html" class="if-btn-secondary" style="padding: 0.6rem 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); text-decoration: none; color: var(--text-main); font-weight: 600; background: white;">AI Document Drafter</a>
+        <a href="/conversion/ai-document-generator.html" class="if-btn-secondary">AI Document Drafter</a>
       </div>
     </div>
   </main>

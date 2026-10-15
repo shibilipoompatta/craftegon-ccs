@@ -1,65 +1,73 @@
 /* ==========================================================================
-   CraftEgon CCS — Master Theme & Design Tokens Stylesheet
+   CraftEgon CCS — Master Royal Noble Theme & Framework Stylesheet
    Path: assets/css/theme.css
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Design Tokens & Root Custom Properties
+   1. Base & Global Resets
    -------------------------------------------------------------------------- */
-:root {
-  /* Brand Palette */
-  --brand-canvas: #f8f9f6;
-  --brand-surface: #ffffff;
-  --brand-obsidian: #0e1712;
-  --brand-obsidian-surface: #15221b;
-  --brand-gold: #c5a059;
-  --brand-gold-hover: #b38e46;
-  --brand-gold-light: #f6eedf;
-  --brand-mint: #2dd4bf;
-  --brand-mint-dark: #0f766e;
-  --brand-slate-text: #2e3a33;
-  --brand-slate-muted: #5e6c63;
-
-  /* Borders & Overlays */
-  --brand-border-subtle: rgba(14, 23, 18, 0.12);
-  --brand-border-dark: rgba(255, 255, 255, 0.10);
-  --brand-border-gold: rgba(197, 160, 89, 0.35);
-
-  /* Elevation & Shadows */
-  --shadow-gold-card: 0 10px 30px -5px rgba(197, 160, 89, 0.20);
-  --shadow-obsidian-card: 0 12px 32px rgba(14, 23, 18, 0.08);
-  --shadow-focus-gold: 0 0 0 3px rgba(197, 160, 89, 0.30);
-
-  /* Typography Stacks */
-  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Cinzel', Georgia, Cambria, serif;
-  --font-mono: 'DM Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-/* --------------------------------------------------------------------------
-   2. Base & Global Resets
-   -------------------------------------------------------------------------- */
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background-color: var(--brand-canvas);
-  color: var(--brand-obsidian);
+  background-color: var(--bg-main);
+  color: var(--text-main);
   font-family: var(--font-sans);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(30, 41, 59, 0.35) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(10, 15, 29, 0.8) 0%, var(--bg-main) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 /* Custom Selection Highlight */
 ::selection {
-  background-color: var(--brand-gold-light);
-  color: var(--brand-obsidian);
+  background-color: var(--gold);
+  color: #0A0F1D;
+}
+
+/* Scrollbar Polish */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0F1D;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
 }
 
 /* --------------------------------------------------------------------------
-   3. Custom Typography Utilities
+   2. Typography System: Noble Serifs & Modern Sans
    -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6, .noble-heading {
+  font-family: var(--font-serif);
+  color: var(--text-main);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+p, li, span, input, select, textarea, button {
+  font-family: var(--font-sans);
+}
+
 .font-serif {
   font-family: var(--font-serif);
 }
@@ -72,38 +80,152 @@ body {
   font-family: var(--font-mono);
 }
 
-/* Gold Gradient Header Text */
-.gold-gradient-text {
-  background: linear-gradient(135deg, #b38e46 0%, #c5a059 50%, #e2c07a 100%);
+/* Gold Gradient Typography */
+.gold-gradient-text, .text-gradient-gold {
+  background: linear-gradient(135deg, #F9E7B0 0%, #D4AF37 45%, #C5A059 85%, #E5C568 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.silver-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 50%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 /* --------------------------------------------------------------------------
-   4. Background Patterns & Glassmorphism
+   3. Glassmorphism & Noble Surface Cards
    -------------------------------------------------------------------------- */
-/* Radial Grid Overlay for Hero Sections */
-.grid-bg-light {
-  background-image: radial-gradient(rgba(14, 23, 18, 0.12) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* Dark Executive Glass Navigation */
-.glass-nav-dark {
-  background: rgba(14, 23, 18, 0.95);
+.noble-card {
+  background: var(--card-gradient);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-noble);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.noble-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 50%, transparent 100%);
+}
+
+.noble-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-border-strong);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(212, 175, 55, 0.22);
+}
+
+/* Frosted Glass Dark Slate */
+.glass-slate {
+  background: rgba(22, 31, 51, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+}
+
+/* Royal Background Grids */
+.grid-bg-royal {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 /* --------------------------------------------------------------------------
-   5. Interactive Component Animations & Transitions
+   4. Buttons & Interactive Elements
    -------------------------------------------------------------------------- */
-.card-transition {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+.btn-royal-gold {
+  background: var(--cta-gradient);
+  color: #0A0F1D;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.32);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
 }
 
-.card-transition:hover {
-  transform: translateY(-3px);
-  border-color: var(--brand-gold);
-  box-shadow: 0 12px 30px -5px rgba(197, 160, 89, 0.22);
+.btn-royal-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.48);
+  filter: brightness(1.06);
+}
+
+.btn-royal-outline {
+  background: rgba(212, 175, 55, 0.06);
+  color: var(--gold-light);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gold-border);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.btn-royal-outline:hover {
+  background: rgba(212, 175, 55, 0.16);
+  border-color: var(--gold);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   5. Noble Badges & Indicators
+   -------------------------------------------------------------------------- */
+.noble-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.75rem;
+  background: rgba(212, 175, 55, 0.10);
+  border: 1px solid rgba(212, 175, 55, 0.30);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.noble-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+}
+
+/* Container Utility */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
 }

@@ -14,15 +14,109 @@
     .v04-breadcrumb { margin-bottom: 1.5rem; font-size: .875rem; color: var(--text-muted); }
     .v04-intro { max-width: 900px; margin-bottom: 2rem; color: var(--text-muted); }
     .v04-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 1rem; }
-    .v04-card { display: flex; flex-direction: column; gap: .65rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: #fff; box-shadow: var(--shadow-sm); }
+    .v04-card { display: flex; flex-direction: column; gap: .65rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--card-gradient); box-shadow: var(--shadow-sm); }
     .v04-card h3 { margin: 0; color: var(--primary); font-size: 1.05rem; }
     .v04-card p { margin: 0; color: var(--text-muted); font-size: .9rem; }
     .v04-card .v04-deliverables { color: var(--text-color); }
     .v04-status { margin-top: auto; padding-top: .35rem; font-size: .8rem; font-weight: 600; }
-    .v04-notice { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 4px solid var(--primary); background: var(--bg-surface); color: var(--text-muted); }
+    .v04-notice { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 4px solid var(--primary); background: var(--card-gradient); border: 1px solid rgba(212, 175, 55, 0.22); color: var(--text-main); color: var(--text-muted); }
     .v04-cta { margin-top: 1.5rem; }
     @media (max-width: 600px) { .v04-main { padding: 2rem 1rem; } }
   </style>
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
+  <link rel="apple-touch-icon" href="/assets/images/craftegon-logo.jpg">
+  <link rel="canonical" href="https://craftegon.com/verticals/04-statutory-licenses.html">
+
+  <!-- Open Graph / Meta Protocol -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CraftEgon CCS">
+  <meta property="og:url" content="https://craftegon.com/verticals/04-statutory-licenses.html">
+  <meta property="og:title" content="Licenses &amp; Statutory Registrations | CraftEgon CCS">
+  <meta property="og:description" content="Explore CraftEgon">
+  <meta property="og:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@craftegon">
+  <meta name="twitter:title" content="Licenses &amp; Statutory Registrations | CraftEgon CCS">
+  <meta name="twitter:description" content="Explore CraftEgon">
+  <meta name="twitter:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://craftegon.com/verticals/04-statutory-licenses.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://craftegon.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Compliance Verticals",
+          "item": "https://craftegon.com/#service-verticals"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Licenses &amp; Statutory Registrations",
+          "item": "https://craftegon.com/verticals/04-statutory-licenses.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://craftegon.com/verticals/04-statutory-licenses.html#webpage",
+      "url": "https://craftegon.com/verticals/04-statutory-licenses.html",
+      "name": "Licenses &amp; Statutory Registrations | CraftEgon CCS",
+      "description": "Explore CraftEgon",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://craftegon.com/#website",
+        "name": "CraftEgon CCS",
+        "url": "https://craftegon.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://craftegon.com/#organization",
+        "name": "CraftEgon CCS",
+        "logo": "https://craftegon.com/assets/images/craftegon-logo.jpg"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://craftegon.com/verticals/04-statutory-licenses.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is DGFT Import Export Code (IEC) required to be updated annually?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, as per DGFT Public Notice No. 58/2015-2020, an IEC holder must electronically confirm and update its IEC details between April and June every year on the DGFT portal, even if there are no changes, failing which the IEC is deactivated."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is a Central FSSAI License mandatory over a State License?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Central FSSAI License is required for food business operators (FBOs) operating in multiple states with a head office, 100% export-oriented units (EOUs), large manufacturers exceeding 2 Metric Tonnes/day capacity, or businesses with annual turnover exceeding ₹20 Crores."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <div id="global-navbar"></div>
@@ -89,6 +183,36 @@
     </aside>
 
     <p class="v04-cta"><a class="if-btn-primary" href="/conversion/license-qualification.html">Open the existing license enquiry</a></p>
+  
+    <!-- Statutory FAQ Accordions Grounded in Schema -->
+    <section id="statutory-faqs" style="margin: 3.5rem 0 2rem;">
+      <h2 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: #F8FAFC; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span class="noble-badge" style="font-size: 0.75rem;">Statutory Q&amp;A</span>
+        Authoritative Legal Provisions &amp; FAQs
+      </h2>
+      <div class="if-faq-container" style="max-width: 100%; margin: 1rem 0;">
+        
+        <div class="if-faq-item">
+          <div class="if-faq-question">
+            <span>Is DGFT Import Export Code (IEC) required to be updated annually?</span>
+            <span style="color: var(--gold);">+</span>
+          </div>
+          <div class="if-faq-answer">
+            Yes, as per DGFT Public Notice No. 58/2015-2020, an IEC holder must electronically confirm and update its IEC details between April and June every year on the DGFT portal, even if there are no changes, failing which the IEC is deactivated.
+          </div>
+        </div>
+        <div class="if-faq-item">
+          <div class="if-faq-question">
+            <span>When is a Central FSSAI License mandatory over a State License?</span>
+            <span style="color: var(--gold);">+</span>
+          </div>
+          <div class="if-faq-answer">
+            A Central FSSAI License is required for food business operators (FBOs) operating in multiple states with a head office, 100% export-oriented units (EOUs), large manufacturers exceeding 2 Metric Tonnes/day capacity, or businesses with annual turnover exceeding ₹20 Crores.
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <div id="global-footer"></div>
   <script src="/assets/js/navigation.js"></script>

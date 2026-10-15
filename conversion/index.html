@@ -11,107 +11,198 @@
   <link rel="stylesheet" href="/assets/css/service-page.css">
   <style>
     .conv-hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #ffffff;
-      padding: 4.5rem 1.5rem 3.5rem;
-      border-bottom: 1px solid var(--border-color);
+      background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 80%, rgba(30, 41, 59, 0.4) 0%, transparent 50%),
+                  var(--royal-gradient);
+      color: #F8FAFC;
+      padding: 5.5rem 1.5rem 4rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
       text-align: center;
+      position: relative;
     }
     .conv-badge {
       display: inline-block;
-      background: rgba(92, 59, 255, 0.2);
-      border: 1px solid rgba(92, 59, 255, 0.4);
-      color: #a5b4fc;
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: var(--gold-light);
+      padding: 0.4rem 1.1rem;
+      border-radius: var(--radius-full);
       font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
     }
     .conv-filter-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
       margin: 2rem 0;
       justify-content: center;
     }
     .conv-filter-btn {
-      background: #ffffff;
+      background: var(--card-gradient);
       border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 0.5rem 1rem;
+      color: var(--text-light);
+      padding: 0.55rem 1.25rem;
       border-radius: var(--radius-sm);
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
     }
     .conv-filter-btn.active, .conv-filter-btn:hover {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
+      background: var(--cta-gradient);
+      color: #0A0F1D;
+      border-color: var(--gold);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.28);
     }
     .conv-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.5rem;
+      gap: 1.75rem;
       margin-bottom: 4rem;
     }
     .conv-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
+      background: var(--card-gradient);
+      border: 1px solid rgba(212, 175, 55, 0.2);
       border-radius: var(--radius-md);
-      padding: 1.75rem;
+      padding: 1.85rem;
       display: flex;
       flex-direction: column;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: var(--shadow-noble);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       text-decoration: none;
       color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+    .conv-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.35) 50%, transparent 100%);
     }
     .conv-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(212, 175, 55, 0.22);
+      border-color: var(--gold);
     }
     .conv-card.featured {
-      border: 2px solid var(--primary);
-      background: linear-gradient(180deg, #ffffff 0%, #faf8ff 100%);
+      border: 1.5px solid var(--gold);
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.7), 0 0 24px rgba(212, 175, 55, 0.18);
     }
     .conv-tag {
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.04em;
+      color: var(--gold-light);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.06em;
     }
     .conv-title {
-      font-size: 1.2rem;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
       font-weight: 700;
-      color: var(--text-main);
+      color: #F8FAFC;
       margin-bottom: 0.75rem;
+      line-height: 1.35;
     }
     .conv-desc {
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.6;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.35rem;
       flex-grow: 1;
     }
     .conv-action {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
       padding-top: 0.85rem;
       font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--primary);
+      font-weight: 700;
+      color: var(--gold-light);
     }
   </style>
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
+  <link rel="apple-touch-icon" href="/assets/images/craftegon-logo.jpg">
+  <link rel="canonical" href="https://craftegon.com/conversion/index.html">
+
+  <!-- Open Graph / Meta Protocol -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CraftEgon CCS">
+  <meta property="og:url" content="https://craftegon.com/conversion/index.html">
+  <meta property="og:title" content="Diagnostic Engines &amp; Conversion Tools Suite | CraftEgon CCS">
+  <meta property="og:description" content="Explore CraftEgon CCS Diagnostic Engines & Conversion Suite: AI Legal Document Drafter, RoC Late Fee Calculator, Trademark Class Checker, STK-2 Strike-Off Analyzer, and Compliance Desks.">
+  <meta property="og:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@craftegon">
+  <meta name="twitter:title" content="Diagnostic Engines &amp; Conversion Tools Suite | CraftEgon CCS">
+  <meta name="twitter:description" content="Explore CraftEgon CCS Diagnostic Engines & Conversion Suite: AI Legal Document Drafter, RoC Late Fee Calculator, Trademark Class Checker, STK-2 Strike-Off Analyzer, and Compliance Desks.">
+  <meta name="twitter:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://craftegon.com/conversion/index.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://craftegon.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Diagnostic Tools & AI",
+          "item": "https://craftegon.com/conversion/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Diagnostic Engines &amp; Conversion Tools Suite",
+          "item": "https://craftegon.com/conversion/index.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://craftegon.com/conversion/index.html#webpage",
+      "url": "https://craftegon.com/conversion/index.html",
+      "name": "Diagnostic Engines &amp; Conversion Tools Suite | CraftEgon CCS",
+      "description": "Explore CraftEgon CCS Diagnostic Engines & Conversion Suite: AI Legal Document Drafter, RoC Late Fee Calculator, Trademark Class Checker, STK-2 Strike-Off Analyzer, and Compliance Desks.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://craftegon.com/#website",
+        "name": "CraftEgon CCS",
+        "url": "https://craftegon.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://craftegon.com/#organization",
+        "name": "CraftEgon CCS",
+        "logo": "https://craftegon.com/assets/images/craftegon-logo.jpg"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <div id="global-navbar"></div>
