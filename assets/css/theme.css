@@ -2,6 +2,7 @@
    CraftEgon CCS — Master Royal Noble Theme & Framework Stylesheet
    Path: assets/css/theme.css
    ========================================================================== */
+@import url('/assets/css/chat-widget.css');
 
 /* --------------------------------------------------------------------------
    1. Base & Global Resets

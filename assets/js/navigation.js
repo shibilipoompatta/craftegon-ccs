@@ -103,6 +103,15 @@ document.addEventListener("DOMContentLoaded", async function () {
       `;
     }
   }
+
+  // 3. Load CraftEgon AI Chat Widget
+  if (!document.getElementById("craftegon-chat-script") && !window.__CRAFTEGON_CHAT_INITIALIZED__) {
+    const chatScript = document.createElement("script");
+    chatScript.id = "craftegon-chat-script";
+    chatScript.src = "/assets/js/chat-widget.js";
+    chatScript.defer = true;
+    document.body.appendChild(chatScript);
+  }
 });
 
 function initDropdowns() {
