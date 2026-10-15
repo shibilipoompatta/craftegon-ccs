@@ -21,9 +21,12 @@ document.addEventListener("DOMContentLoaded", async function () {
       navContainer.innerHTML = `
         <header class="if-header">
           <div class="if-header-inner">
-            <a href="/index.html" class="if-brand-logo">
-              <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Logo" class="brand-logo-img">
-              CraftEgon <span>CCS</span>
+            <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
+              <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
+              <div class="brand-text-block">
+                <span class="brand-title" style="letter-spacing: 2px; font-weight: 700; color: #F8FAFC;">CRAFTEGON</span>
+                <span class="brand-subtitle" style="font-size: 0.75rem; color: #D4AF37; letter-spacing: 1px; text-transform: uppercase;">Corporate Services</span>
+              </div>
             </a>
             <nav class="if-nav">
               <a href="/index.html" class="if-nav-link">Home</a>
@@ -46,9 +49,12 @@ document.addEventListener("DOMContentLoaded", async function () {
           <div class="if-mobile-backdrop" id="mobile-drawer-backdrop"></div>
           <div class="if-mobile-drawer" id="mobile-drawer" aria-hidden="true">
             <div class="if-mobile-drawer-header">
-              <a href="/index.html" class="if-brand-logo">
-                <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Logo" class="brand-logo-img">
-                CraftEgon <span>CCS</span>
+              <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
+                <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
+                <div class="brand-text-block">
+                  <span class="brand-title" style="letter-spacing: 2px; font-weight: 700; color: #F8FAFC;">CRAFTEGON</span>
+                  <span class="brand-subtitle" style="font-size: 0.75rem; color: #D4AF37; letter-spacing: 1px; text-transform: uppercase;">Corporate Services</span>
+                </div>
               </a>
               <button class="if-mobile-drawer-close" id="mobile-drawer-close" aria-label="Close Navigation Menu">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -87,10 +93,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         <footer class="if-footer">
           <div class="if-footer-grid" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
             <div>
-              <p style="color: #F8FAFC; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.6rem;">
-                <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Logo" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--gold);">
-                CraftEgon Corporate Services (CCS)
-              </p>
+              <a href="/index.html" class="if-brand-logo" style="margin-bottom: 0.85rem;" aria-label="CraftEgon Corporate Services Home">
+                <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
+                <div class="brand-text-block">
+                  <span class="brand-title" style="letter-spacing: 2px; font-weight: 700; color: #F8FAFC;">CRAFTEGON</span>
+                  <span class="brand-subtitle" style="font-size: 0.75rem; color: #D4AF37; letter-spacing: 1px; text-transform: uppercase;">Corporate Services</span>
+                </div>
+              </a>
               <p style="margin: 0; font-size: 0.85rem; color: #94a3b8; max-width: 400px;">India's premier AI-powered digital corporate and legal compliance operating system.</p>
               <div style="margin-top: 0.75rem; font-size: 0.82rem; color: #94a3b8; display: flex; flex-direction: column; gap: 0.25rem;">
                 <span>Phone: <a href="tel:+918606918247" style="color: #F8FAFC; text-decoration: none;">+91 86069 18247</a></span>
