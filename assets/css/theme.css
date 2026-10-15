@@ -83,6 +83,19 @@ p, li, span, input, select, textarea, button {
   font-family: var(--font-mono);
 }
 
+/* DM Mono Technical Applications */
+.tech-label, 
+.meta-tag, 
+.status-indicator, 
+.pricing-figure, 
+.stage-tag, 
+.statutory-ref, 
+.code-snippet,
+.if-pricing-price,
+.countdown-box-num {
+  font-family: var(--font-mono);
+}
+
 /* Gold Gradient Typography */
 .gold-gradient-text, .text-gradient-gold {
   background: linear-gradient(135deg, #785B0D 0%, #C59B27 50%, #D4AF37 100%);
@@ -124,15 +137,17 @@ p, li, span, input, select, textarea, button {
   background: linear-gradient(90deg, transparent 0%, rgba(197, 155, 39, 0.35) 50%, transparent 100%);
 }
 
+.card-transition {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .noble-card:hover,
 .card-transition:hover {
   transform: translateY(-3px);
   border-color: var(--brand-gold);
   box-shadow: 0 12px 30px -5px rgba(197, 155, 39, 0.16);
-}
-
-.card-transition {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Frosted Glass UI */
@@ -151,6 +166,10 @@ p, li, span, input, select, textarea, button {
 
 .section-pearl, .bg-pearl {
   background-color: var(--bg-secondary);
+}
+
+.section-white, .bg-white {
+  background-color: #FFFFFF;
 }
 
 .bg-surface-light {
