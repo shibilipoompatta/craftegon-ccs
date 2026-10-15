@@ -1,15 +1,15 @@
 /**
  * ==========================================================================
- * CRAFTEGON CORPORATE SERVICES (CCS) - ROYAL NOBLE SERVICE PAGE STYLES
- * High-Prestige Legal OS: Deep Obsidian, Noble Gold Borders & Cards
+ * CRAFTEGON CORPORATE SERVICES (CCS) - SERVICE PAGE STYLES
+ * Premium Corporate Ivory, Gold, Silver & Charcoal Specification
  * ==========================================================================
  */
 
 /* --- Service Hero Section --- */
 .if-service-hero {
-  background: linear-gradient(180deg, rgba(22, 31, 51, 0.75) 0%, rgba(10, 15, 29, 0.95) 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCFBF7 50%, #F8FAFC 100%);
   padding: var(--space-12) 0 var(--space-8);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid var(--border-color);
   text-align: center;
   position: relative;
 }
@@ -21,14 +21,14 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(197, 155, 39, 0.4) 50%, transparent 100%);
 }
 
 .if-service-hero h1 {
   font-family: var(--font-serif);
   font-size: var(--text-3xl);
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   margin-bottom: var(--space-4);
   max-width: 950px;
   margin-left: auto;
@@ -38,7 +38,7 @@
 
 .if-service-hero p {
   font-size: var(--text-base);
-  color: var(--text-muted);
+  color: var(--text-main);
   max-width: 780px;
   margin: 0 auto var(--space-6);
   line-height: 1.6;
@@ -63,29 +63,27 @@
 }
 
 .if-pricing-card {
-  background: var(--card-gradient);
-  border: 1px solid rgba(212, 175, 55, 0.22);
-  border-radius: var(--radius-md);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: var(--space-8);
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: var(--shadow-noble);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-standard);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .if-pricing-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(212, 175, 55, 0.25);
-  border-color: var(--gold);
+  box-shadow: var(--shadow-gold);
+  border-color: var(--brand-gold);
 }
 
 .if-pricing-card.featured {
-  border: 1.5px solid var(--gold);
-  background: linear-gradient(180deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
-  box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.7), 0 0 24px rgba(212, 175, 55, 0.18);
+  border: 2px solid var(--brand-gold);
+  background: #FFFFFF;
+  box-shadow: var(--shadow-gold);
 }
 
 .if-badge-featured {
@@ -94,21 +92,21 @@
   left: 50%;
   transform: translateX(-50%);
   background: var(--cta-gradient);
-  color: #0A0F1D;
+  color: #FFFFFF;
   font-size: var(--text-xs);
   font-weight: 700;
   padding: 0.25rem 0.85rem;
   border-radius: var(--radius-full);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
 }
 
 .if-pricing-title {
   font-family: var(--font-serif);
   font-size: var(--text-xl);
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   margin-bottom: var(--space-2);
 }
 
@@ -121,9 +119,10 @@
 }
 
 .if-pricing-price {
+  font-family: var(--font-mono);
   font-size: var(--text-3xl);
   font-weight: 700;
-  color: var(--gold-light);
+  color: var(--brand-gold);
   margin-bottom: var(--space-6);
   display: flex;
   align-items: baseline;
@@ -131,6 +130,7 @@
 }
 
 .if-pricing-price span {
+  font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: 400;
   color: var(--text-muted);
@@ -150,13 +150,13 @@
   align-items: flex-start;
   gap: var(--space-3);
   font-size: var(--text-sm);
-  color: #CBD5E1;
-  line-height: 1.4;
+  color: var(--text-main);
+  line-height: 1.45;
 }
 
 .if-feature-item::before {
   content: "✓";
-  color: var(--gold);
+  color: var(--brand-gold);
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -166,9 +166,10 @@
   width: 100%;
   border-collapse: collapse;
   margin: var(--space-8) 0;
-  background: var(--card-gradient);
-  border: 1px solid rgba(212, 175, 55, 0.22);
-  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-standard);
   overflow: hidden;
 }
 
@@ -176,16 +177,16 @@
 .if-comparison-table td {
   padding: var(--space-4) var(--space-6);
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border-color);
   font-size: var(--text-sm);
-  color: #CBD5E1;
+  color: var(--text-main);
 }
 
 .if-comparison-table th {
-  background-color: rgba(17, 24, 39, 0.9);
+  background-color: var(--surface-light);
   font-family: var(--font-serif);
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
 }
 
 .if-comparison-table tr:last-child td {
@@ -203,22 +204,22 @@
   font-family: var(--font-serif);
   font-size: var(--text-2xl);
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   margin-bottom: var(--space-8);
 }
 
 .if-faq-item {
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-4);
-  background-color: rgba(22, 31, 51, 0.6);
+  background-color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: all 0.25s ease;
 }
 
 .if-faq-item:hover {
-  border-color: var(--gold-border-strong);
-  background-color: rgba(26, 37, 60, 0.8);
+  border-color: var(--brand-gold);
 }
 
 .if-faq-question {
@@ -229,7 +230,7 @@
   justify-content: space-between;
   font-size: var(--text-base);
   font-weight: 600;
-  color: #F8FAFC;
+  color: var(--text-dark);
   text-align: left;
   cursor: pointer;
 }
@@ -237,6 +238,6 @@
 .if-faq-answer {
   padding: 0 var(--space-6) var(--space-4);
   font-size: var(--text-sm);
-  color: var(--text-muted);
+  color: var(--text-main);
   line-height: 1.6;
 }

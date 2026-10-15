@@ -24,14 +24,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
               <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
               <div class="brand-text-block">
-                <span class="brand-title" style="letter-spacing: 2px; font-weight: 700; color: #F8FAFC;">CRAFTEGON</span>
-                <span class="brand-subtitle" style="font-size: 0.75rem; color: #D4AF37; letter-spacing: 1px; text-transform: uppercase;">Corporate Services</span>
+                <span class="brand-title" style="letter-spacing: 2px; font-weight: 700; color: var(--text-dark, #090D16);">CRAFTEGON</span>
+                <span class="brand-subtitle" style="font-size: 0.75rem; color: var(--brand-gold, #C59B27); letter-spacing: 1px; text-transform: uppercase;">Corporate Services</span>
               </div>
             </a>
             <nav class="if-nav">
               <a href="/index.html" class="if-nav-link">Home</a>
               <a href="/index.html#service-verticals" class="if-nav-link">Practice Areas</a>
-              <a href="/portal/dashboard.html" class="if-nav-link" style="color: var(--gold-light);">Client Portal</a>
+              <a href="/portal/dashboard.html" class="if-nav-link" style="color: var(--brand-gold);">Client Portal</a>
               <a href="/conversion/index.html" class="if-nav-link">Diagnostic Tools &amp; AI</a>
               <a href="/knowledge/index.html" class="if-nav-link">Knowledge Base</a>
               <a href="/conversion/calculator.html" class="if-nav-link">Fee Estimator</a>
@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", async function () {
               <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
                 <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
                 <div class="brand-text-block">
-                  <span class="brand-title" style="letter-spacing: 2px; font-weight: 700; color: #F8FAFC;">CRAFTEGON</span>
-                  <span class="brand-subtitle" style="font-size: 0.75rem; color: #D4AF37; letter-spacing: 1px; text-transform: uppercase;">Corporate Services</span>
+                  <span class="brand-title" style="letter-spacing: 2px; font-weight: 700; color: var(--text-dark, #090D16);">CRAFTEGON</span>
+                  <span class="brand-subtitle" style="font-size: 0.75rem; color: var(--brand-gold, #C59B27); letter-spacing: 1px; text-transform: uppercase;">Corporate Services</span>
                 </div>
               </a>
               <button class="if-mobile-drawer-close" id="mobile-drawer-close" aria-label="Close Navigation Menu">

@@ -1,21 +1,22 @@
 /**
  * ==========================================================================
- * CRAFTEGON CORPORATE SERVICES (CCS) - ROYAL NOBLE NAVBAR & FOOTER
- * The Royal Legal OS: Frosted Midnight Glass, Gold Rings & Deep Slate
+ * CRAFTEGON CORPORATE SERVICES (CCS) - NAVBAR & INSTITUTIONAL FOOTER
+ * Premium Corporate Ivory, Gold & Charcoal Design Specification
  * ==========================================================================
  */
 
-/* --- Universal Fixed Header (Frosted Midnight Glass) --- */
+/* --- Universal Fixed Header (Translucent White with Blur) --- */
 .if-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 120;
-  background-color: rgba(10, 15, 29, 0.88);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.22);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.05);
   transition: all 0.3s ease;
 }
 
@@ -46,8 +47,8 @@
   height: 38px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1.5px solid var(--gold);
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+  border: 1.5px solid var(--brand-gold);
+  box-shadow: 0 0 10px rgba(197, 155, 39, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: inline-block;
   vertical-align: middle;
@@ -56,7 +57,7 @@
 
 .if-brand-logo:hover .brand-logo-img {
   transform: scale(1.06);
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.55);
+  box-shadow: 0 0 16px rgba(197, 155, 39, 0.45);
 }
 
 .brand-text-block {
@@ -69,9 +70,9 @@
 
 .brand-title {
   font-family: var(--font-serif);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   letter-spacing: 2px;
   text-transform: uppercase;
   line-height: 1.1;
@@ -79,10 +80,10 @@
 }
 
 .brand-subtitle {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 600;
-  color: #D4AF37;
+  color: var(--brand-gold);
   letter-spacing: 1px;
   text-transform: uppercase;
   line-height: 1.15;
@@ -94,7 +95,7 @@
   font-family: var(--font-serif);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   letter-spacing: -0.01em;
   display: flex;
   align-items: center;
@@ -102,13 +103,13 @@
 }
 
 .brand-suffix {
-  color: var(--gold-light);
+  color: var(--brand-gold);
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 2px 7px;
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.32);
+  background: rgba(197, 155, 39, 0.08);
+  border: 1px solid rgba(197, 155, 39, 0.25);
   border-radius: 4px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -129,21 +130,22 @@
 
 .if-nav-link {
   font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-light);
+  font-weight: 600;
+  color: var(--text-dark);
   text-decoration: none;
   transition: all 0.2s ease;
   padding: var(--space-2) 0;
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  font-family: var(--font-sans);
 }
 
 .if-nav-link:hover, .if-nav-link:focus {
-  color: var(--gold-light);
+  color: var(--brand-gold);
 }
 
-/* Mega-Menu & Dropdown Styling (Dark Frosted Slate Glass) */
+/* Mega-Menu & Dropdown Styling (Pure White Surface) */
 .if-dropdown {
   position: relative;
 }
@@ -151,23 +153,29 @@
 .if-dropdown-content, .if-megamenu {
   position: absolute;
   top: 100%;
-  background: #111827 !important;
-  border: 1px solid rgba(212, 175, 55, 0.28) !important;
+  background: #FFFFFF !important;
+  border: 1px solid var(--border-color) !important;
   border-radius: var(--radius-md) !important;
-  box-shadow: 0 20px 45px -5px rgba(0, 0, 0, 0.85), 0 0 20px rgba(212, 175, 55, 0.12) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 16px 36px -5px rgba(15, 23, 42, 0.12), 0 0 18px rgba(197, 155, 39, 0.08) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 130;
 }
 
 .if-dropdown-content a, .if-megamenu a {
-  color: #CBD5E1 !important;
+  color: var(--text-main) !important;
   transition: all 0.2s ease;
+  font-family: var(--font-sans);
 }
 
 .if-dropdown-content a:hover, .if-megamenu a:hover {
-  color: var(--gold-light) !important;
+  color: var(--brand-gold) !important;
   transform: translateX(2px);
+}
+
+.if-megamenu h4 {
+  color: var(--brand-gold) !important;
+  font-family: var(--font-sans);
 }
 
 /* --- Header Actions --- */
@@ -179,14 +187,14 @@
 
 .if-btn-primary {
   background: var(--cta-gradient);
-  color: #0A0F1D !important;
+  color: #FFFFFF !important;
   padding: 0.6rem 1.35rem;
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.28);
+  border: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -195,26 +203,28 @@
 
 .if-btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
 }
 
 .if-btn-secondary {
-  background: rgba(22, 31, 51, 0.8);
-  color: #F8FAFC !important;
+  background: #FFFFFF;
+  color: var(--text-dark) !important;
   padding: 0.55rem 1.15rem;
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1.5px solid var(--border-color);
   border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
   transition: all 0.2s ease;
 }
 
 .if-btn-secondary:hover {
-  background: rgba(30, 41, 59, 1);
-  border-color: var(--gold);
-  color: var(--gold-light) !important;
+  background: #FFFFFF;
+  border-color: var(--brand-gold);
+  color: var(--brand-gold) !important;
   transform: translateY(-1px);
+  box-shadow: var(--shadow-gold);
 }
 
 /* --- Spacer for Fixed Header --- */
@@ -235,29 +245,29 @@
 }
 
 .if-breadcrumb a {
-  color: var(--gold);
+  color: var(--brand-gold);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .if-breadcrumb a:hover {
-  color: var(--gold-light);
+  color: var(--brand-gold-hover);
   text-decoration: underline;
 }
 
 .if-breadcrumb span {
-  color: #CBD5E1;
-  font-weight: 500;
+  color: var(--text-dark);
+  font-weight: 600;
 }
 
-/* --- Royal Institutional Footer --- */
+/* --- Corporate Institutional Footer --- */
 .if-footer {
-  background-color: #070B14;
-  color: var(--text-muted);
+  background-color: #090D16;
+  color: #94A3B8;
   padding-top: var(--space-16);
   padding-bottom: var(--space-8);
   margin-top: var(--space-16);
-  border-top: 1px solid rgba(212, 175, 55, 0.22);
+  border-top: 1px solid rgba(197, 155, 39, 0.25);
   position: relative;
 }
 
@@ -268,7 +278,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.5) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(197, 155, 39, 0.5) 50%, transparent 100%);
 }
 
 .if-footer-grid {
@@ -294,7 +304,7 @@
 .if-footer-col p {
   font-size: 0.875rem;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: #94A3B8;
 }
 
 .if-footer-list {
@@ -305,7 +315,7 @@
 
 .if-footer-list a {
   font-size: 0.85rem;
-  color: #94A3B8;
+  color: #CBD5E1;
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -315,14 +325,18 @@
   transform: translateX(2px);
 }
 
+.if-footer .brand-title {
+  color: #F8FAFC;
+}
+
 .if-footer-bottom {
   max-width: 1600px;
   margin: 0 auto;
   padding: var(--space-6) var(--space-6) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.8rem;
   text-align: center;
-  color: #64748B;
+  color: #94A3B8;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -330,24 +344,25 @@
 }
 
 /* ==========================================================================
-   MOBILE NAVIGATION DRAWER & TOGGLE (Royal Obsidian Styling)
+   MOBILE NAVIGATION DRAWER & TOGGLE (Clean Light Styling)
    ========================================================================== */
 .if-mobile-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(22, 31, 51, 0.8);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 0.45rem;
-  color: var(--gold-light);
+  color: var(--text-dark);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .if-mobile-toggle:hover {
-  background: rgba(30, 41, 59, 1);
-  border-color: var(--gold);
+  background: var(--surface-light);
+  border-color: var(--brand-gold);
+  color: var(--brand-gold);
 }
 
 @media (min-width: 1024px) {
@@ -359,9 +374,9 @@
 .if-mobile-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(10, 15, 29, 0.8);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 190;
   opacity: 0;
   pointer-events: none;
@@ -380,10 +395,10 @@
   width: 100%;
   max-width: 380px;
   height: 100vh;
-  background-color: #0D1527;
-  border-left: 1px solid rgba(212, 175, 55, 0.25);
+  background-color: #FFFFFF;
+  border-left: 1px solid var(--border-color);
   z-index: 200;
-  box-shadow: -6px 0 35px rgba(0, 0, 0, 0.85);
+  box-shadow: -6px 0 35px rgba(15, 23, 42, 0.15);
   display: flex;
   flex-direction: column;
   transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -398,16 +413,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-  background: #0A0F1D;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
 }
 
 .if-mobile-drawer-close {
-  background: transparent;
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 0.35rem;
-  color: #CBD5E1;
+  color: var(--text-dark);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -416,8 +431,8 @@
 }
 
 .if-mobile-drawer-close:hover {
-  color: var(--gold-light);
-  border-color: var(--gold);
+  color: var(--brand-gold);
+  border-color: var(--brand-gold);
 }
 
 .if-mobile-drawer-body {
@@ -427,6 +442,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  background: #FFFFFF;
 }
 
 .if-mobile-actions {
@@ -434,21 +450,26 @@
   flex-direction: column;
   gap: 0.75rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .if-mobile-btn-ai {
   display: block;
   text-align: center;
   padding: 0.65rem 1rem;
-  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  background: var(--cta-gradient);
   color: #FFFFFF;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.85rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+  transition: all 0.2s ease;
+}
+
+.if-mobile-btn-ai:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(217, 119, 6, 0.35);
 }
 
 .if-mobile-nav-group {
@@ -458,39 +479,39 @@
 }
 
 .if-mobile-nav-title {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--brand-gold);
   margin-bottom: 0.25rem;
 }
 
 .if-mobile-nav-link {
   font-size: 0.95rem;
-  font-weight: 500;
-  color: #CBD5E1;
+  font-weight: 600;
+  color: var(--text-main);
   text-decoration: none;
   padding: 0.4rem 0;
   transition: color 0.2s ease;
 }
 
 .if-mobile-nav-link:hover {
-  color: var(--gold-light);
+  color: var(--brand-gold);
 }
 
 .if-mobile-accordion {
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: rgba(22, 31, 51, 0.6);
+  background: var(--surface-light);
 }
 
 .if-mobile-accordion summary {
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #F8FAFC;
+  color: var(--text-dark);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -499,7 +520,7 @@
 }
 
 .if-mobile-accordion summary svg {
-  color: var(--gold);
+  color: var(--brand-gold);
   transition: transform 0.2s ease;
 }
 
@@ -509,8 +530,8 @@
 
 .if-mobile-sublinks {
   padding: 0.75rem 1rem;
-  background: #0A0F1D;
-  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -518,12 +539,12 @@
 
 .if-mobile-sublinks a {
   font-size: 0.825rem;
-  color: #94A3B8;
+  color: var(--text-muted);
   text-decoration: none;
   line-height: 1.4;
   transition: color 0.2s ease;
 }
 
 .if-mobile-sublinks a:hover {
-  color: var(--gold-light);
+  color: var(--brand-gold);
 }

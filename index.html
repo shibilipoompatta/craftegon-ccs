@@ -38,22 +38,21 @@
   <style>
     /* Hero & Unique Index Styling */
     .hero-container {
-      background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 80%, rgba(30, 41, 59, 0.4) 0%, transparent 50%),
-                  var(--royal-gradient);
-      color: #F8FAFC;
+      background: radial-gradient(circle at 50% 20%, rgba(197, 155, 39, 0.06) 0%, transparent 60%),
+                  linear-gradient(180deg, #FFFFFF 0%, #FCFBF7 50%, #F8FAFC 100%);
+      color: var(--text-dark);
       padding: 6.5rem 1.5rem 5.5rem;
       text-align: center;
       position: relative;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+      border-bottom: 1px solid var(--border-color);
     }
     .hero-badge-wrap {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      background: rgba(212, 175, 55, 0.10);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      color: var(--gold-light);
+      background: rgba(197, 155, 39, 0.08);
+      border: 1px solid rgba(197, 155, 39, 0.3);
+      color: var(--text-dark-gold);
       padding: 0.45rem 1.25rem;
       border-radius: var(--radius-full);
       font-size: 0.8rem;
@@ -61,12 +60,13 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 1.75rem;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+      box-shadow: 0 4px 15px rgba(197, 155, 39, 0.12);
     }
     .hero-h1 {
       font-family: var(--font-serif);
       font-size: clamp(2.4rem, 5.5vw, 4rem);
       font-weight: 700;
+      color: var(--text-dark);
       line-height: 1.15;
       margin-bottom: 1.35rem;
       max-width: 1000px;
@@ -76,7 +76,7 @@
     }
     .hero-p {
       font-size: 1.15rem;
-      color: #CBD5E1;
+      color: var(--text-main);
       max-width: 820px;
       margin: 0 auto 2.75rem;
       line-height: 1.65;
@@ -88,10 +88,10 @@
       flex-wrap: wrap;
     }
     .trust-strip {
-      background: #070B14;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-color);
       padding: 1.25rem 1.5rem;
-      color: #94A3B8;
+      color: var(--text-muted);
       font-size: 0.85rem;
     }
     .trust-grid {
@@ -104,7 +104,7 @@
       gap: 1.5rem;
     }
     .trust-grid span strong {
-      color: var(--gold-light);
+      color: var(--brand-gold);
     }
     .section-header {
       text-align: center;
@@ -115,7 +115,7 @@
       font-size: 2.35rem;
       font-weight: 700;
       margin: 0.6rem 0;
-      color: #F8FAFC;
+      color: var(--text-dark);
     }
     .vertical-grid {
       display: grid;
@@ -123,12 +123,12 @@
       gap: 1.75rem;
     }
     .vertical-card {
-      background: var(--card-gradient);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      border-radius: var(--radius-md);
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
       padding: 1.85rem;
-      box-shadow: var(--shadow-noble);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-standard);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       position: relative;
@@ -141,17 +141,18 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.35) 50%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(197, 155, 39, 0.4) 50%, transparent 100%);
     }
     .vertical-card:hover {
       transform: translateY(-4px);
-      border-color: var(--gold);
-      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(212, 175, 55, 0.22);
+      border-color: var(--brand-gold);
+      box-shadow: var(--shadow-gold);
     }
     .vertical-tag {
+      font-family: var(--font-mono);
       font-size: 0.75rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--brand-gold);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 0.5rem;
@@ -161,12 +162,12 @@
       font-family: var(--font-serif);
       font-size: 1.25rem;
       font-weight: 700;
-      color: #F8FAFC;
+      color: var(--text-dark);
       margin: 0 0 0.75rem;
     }
     .vertical-card p {
       font-size: 0.875rem;
-      color: var(--text-muted);
+      color: var(--text-main);
       margin-bottom: 1.35rem;
       line-height: 1.55;
       flex-grow: 1;
@@ -174,16 +175,16 @@
     .vertical-card a.card-cta {
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--brand-gold);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      transition: gap 0.2s ease;
+      transition: all 0.2s ease;
     }
     .vertical-card:hover a.card-cta {
       gap: 0.6rem;
-      color: #FFFFFF;
+      color: var(--brand-gold-hover);
     }
   </style>
 
@@ -382,7 +383,7 @@
   </div>
 
   <!-- Featured AI & Diagnostic Tools Spotlight -->
-  <section style="background: #0A0F1D; padding: 5rem 1.5rem; border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+  <section class="section-pearl" style="padding: 5rem 1.5rem; border-bottom: 1px solid var(--border-color);">
     <div class="container" style="max-width: 1260px; margin: 0 auto;">
       <div class="section-header">
         <span class="noble-badge">Autonomous Compliance Suite</span>
@@ -397,14 +398,14 @@
         <!-- Tool 1: AI Drafter -->
         <a href="/conversion/ai-document-generator.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column; border-color: var(--gold-border-strong);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
-            <span class="noble-badge" style="background: rgba(212, 175, 55, 0.15); font-size: 0.7rem;">Flagship AI</span>
-            <span style="font-size: 0.75rem; color: var(--gold-light); font-family: var(--font-mono);">v3.8 Core</span>
+            <span class="noble-badge" style="background: rgba(197, 155, 39, 0.12); font-size: 0.7rem;">Flagship AI</span>
+            <span style="font-size: 0.75rem; color: var(--brand-gold); font-family: var(--font-mono);">v3.8 Core</span>
           </div>
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: #F8FAFC; margin: 0 0 0.65rem;">AI Legal Document Drafter</h3>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">AI Legal Document Drafter</h3>
           <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
             Draft certified Board Resolutions, Founder SHAs, DPDP consent notices, and Section 161 appointment orders in seconds with full statutory RoC checklists.
           </p>
-          <span style="font-weight: 700; font-size: 0.85rem; color: var(--gold-light); display: inline-flex; align-items: center; gap: 0.35rem;">
+          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold); display: inline-flex; align-items: center; gap: 0.35rem;">
             Draft Instrument Online &rarr;
           </span>
         </a>
@@ -412,31 +413,31 @@
         <!-- Tool 2: Fee Calculator -->
         <a href="/conversion/calculator.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column;">
           <span class="noble-badge" style="align-self: flex-start; margin-bottom: 0.85rem; font-size: 0.7rem;">Computational Logic</span>
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: #F8FAFC; margin: 0 0 0.65rem;">RoC Late Fee &amp; Retainer Calculator</h3>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">RoC Late Fee &amp; Retainer Calculator</h3>
           <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
             Calculate ₹100/day ongoing MCA penalty exposure under Section 403 and compute transparent tiered retainer fees for incorporation and annual compliance.
           </p>
-          <span style="font-weight: 700; font-size: 0.85rem; color: var(--gold-light);">Estimate Costs Instantly &rarr;</span>
+          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold);">Estimate Costs Instantly &rarr;</span>
         </a>
 
         <!-- Tool 3: Trademark Search -->
         <a href="/conversion/trademark-search.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column;">
           <span class="noble-badge" style="align-self: flex-start; margin-bottom: 0.85rem; font-size: 0.7rem;">IP Intelligence</span>
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: #F8FAFC; margin: 0 0 0.65rem;">Trademark Class Search Engine</h3>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">Trademark Class Search Engine</h3>
           <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
             Query all 45 NICE classification classes for conflicting phonetics, evaluate Form TM-A registration viability, and defend brand integrity.
           </p>
-          <span style="font-weight: 700; font-size: 0.85rem; color: var(--gold-light);">Search Registry &rarr;</span>
+          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold);">Search Registry &rarr;</span>
         </a>
 
         <!-- Tool 4: Strike Off Checker -->
         <a href="/conversion/strike-off-checker.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column;">
           <span class="noble-badge" style="align-self: flex-start; margin-bottom: 0.85rem; font-size: 0.7rem;">Diagnostic Diagnostic</span>
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: #F8FAFC; margin: 0 0 0.65rem;">STK-2 Fast-Track Strike-Off Checker</h3>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">STK-2 Fast-Track Strike-Off Checker</h3>
           <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
             Determine entity eligibility for lawful corporate dissolution under Section 248(2) of the Companies Act 2013 and calculate asset liquidation roadmaps.
           </p>
-          <span style="font-weight: 700; font-size: 0.85rem; color: var(--gold-light);">Evaluate Eligibility &rarr;</span>
+          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold);">Evaluate Eligibility &rarr;</span>
         </a>
 
       </div>
@@ -585,32 +586,32 @@
   </main>
 
   <!-- Regulatory Knowledge Blueprints Section -->
-  <section style="background: #070B14; color: white; padding: 5.5rem 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.22);">
+  <section class="section-pearl" style="padding: 5.5rem 1.5rem; border-top: 1px solid var(--border-color);">
     <div class="container" style="max-width: 1300px; margin: 0 auto;">
       <div class="section-header">
         <span class="noble-badge">Statutory Blueprints</span>
         <h2>Regulatory Intelligence &amp; Technical Roadmaps</h2>
-        <p style="color: #94A3B8; font-size: 1.05rem; max-width: 720px; margin: 0.5rem auto 0; line-height: 1.6;">
+        <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 720px; margin: 0.5rem auto 0; line-height: 1.6;">
           Peer-reviewed institutional operational manuals interpreting Companies Act 2013 rules, MCA V3 protocols, and RBI FEMA mandates.
         </p>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
         <a href="/knowledge/spice-plus-mca-v3-blueprint.html" class="noble-card" style="text-decoration: none;">
-          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--gold-light); margin: 0 0 0.5rem;">SPICe+ MCA V3 Blueprint &rarr;</h4>
-          <p style="font-size: 0.85rem; color: #CBD5E1; margin: 0; line-height: 1.5;">Complete incorporation, Part A/B workflow, DSC registration, and INC-20A business commencement guide.</p>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--brand-gold); margin: 0 0 0.5rem;">SPICe+ MCA V3 Blueprint &rarr;</h4>
+          <p style="font-size: 0.85rem; color: var(--text-main); margin: 0; line-height: 1.5;">Complete incorporation, Part A/B workflow, DSC registration, and INC-20A business commencement guide.</p>
         </a>
         <a href="/knowledge/sbo-ben2-guide.html" class="noble-card" style="text-decoration: none;">
-          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--gold-light); margin: 0 0 0.5rem;">SBO &amp; Form BEN-2 Guide &rarr;</h4>
-          <p style="font-size: 0.85rem; color: #CBD5E1; margin: 0; line-height: 1.5;">Section 90 Significant Beneficial Ownership determination, holding thresholds, and RoC reporting.</p>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--brand-gold); margin: 0 0 0.5rem;">SBO &amp; Form BEN-2 Guide &rarr;</h4>
+          <p style="font-size: 0.85rem; color: var(--text-main); margin: 0; line-height: 1.5;">Section 90 Significant Beneficial Ownership determination, holding thresholds, and RoC reporting.</p>
         </a>
         <a href="/knowledge/pas6-demat-audit-guide.html" class="noble-card" style="text-decoration: none;">
-          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--gold-light); margin: 0 0 0.5rem;">PAS-6 Demat Audit Blueprint &rarr;</h4>
-          <p style="font-size: 0.85rem; color: #CBD5E1; margin: 0; line-height: 1.5;">Rule 9B share dematerialization mandate, ISIN generation with NSDL/CDSL, and half-yearly reconciliations.</p>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--brand-gold); margin: 0 0 0.5rem;">PAS-6 Demat Audit Blueprint &rarr;</h4>
+          <p style="font-size: 0.85rem; color: var(--text-main); margin: 0; line-height: 1.5;">Rule 9B share dematerialization mandate, ISIN generation with NSDL/CDSL, and half-yearly reconciliations.</p>
         </a>
         <a href="/knowledge/rbi-fla-return-blueprint.html" class="noble-card" style="text-decoration: none;">
-          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--gold-light); margin: 0 0 0.5rem;">RBI FLA Return Blueprint &rarr;</h4>
-          <p style="font-size: 0.85rem; color: #CBD5E1; margin: 0; line-height: 1.5;">Annual Foreign Liabilities and Assets return submission via RBI FLAIR portal before July 15th statutory deadline.</p>
+          <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--brand-gold); margin: 0 0 0.5rem;">RBI FLA Return Blueprint &rarr;</h4>
+          <p style="font-size: 0.85rem; color: var(--text-main); margin: 0; line-height: 1.5;">Annual Foreign Liabilities and Assets return submission via RBI FLAIR portal before July 15th statutory deadline.</p>
         </a>
       </div>
 
@@ -623,7 +624,7 @@
   </section>
 
   <!-- Comprehensive FAQ Section with Rich Schema Grounding -->
-  <section style="background: #0A0F1D; padding: 5.5rem 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.15);">
+  <section class="section-ivory" style="padding: 5.5rem 1.5rem; border-top: 1px solid var(--border-color);">
     <div class="container" style="max-width: 950px; margin: 0 auto;">
       <div class="section-header">
         <span class="noble-badge">Statutory FAQs</span>

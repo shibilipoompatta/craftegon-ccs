@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
  * CRAFTEGON CORPORATE SERVICES (CCS) - AI CHAT CO-PILOT WIDGET STYLES
- * Royal Noble Design System: Obsidian Frosted Glass & Champagne Gold Accents
+ * Premium Corporate Ivory, Gold, Silver & Charcoal Specification
  * ==========================================================================
  */
 
@@ -13,9 +13,9 @@
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #161F33 0%, #0A0F1D 100%);
-  border: 1.5px solid rgba(212, 175, 55, 0.6);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.35);
+  background: var(--cta-gradient);
+  border: 1.5px solid var(--brand-gold);
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.35), 0 0 20px rgba(197, 155, 39, 0.25);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -27,8 +27,7 @@
 
 #craftegon-chat-trigger:hover {
   transform: translateY(-3px) scale(1.05);
-  border-color: #D4AF37;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 30px rgba(212, 175, 55, 0.55);
+  box-shadow: 0 12px 30px rgba(217, 119, 6, 0.45), 0 0 25px rgba(197, 155, 39, 0.4);
 }
 
 #craftegon-chat-trigger .chat-pulse {
@@ -38,7 +37,7 @@
   right: -2px;
   bottom: -2px;
   border-radius: 50%;
-  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  border: 1.5px solid var(--brand-gold);
   animation: craftegon-pulse 2.8s infinite;
   pointer-events: none;
 }
@@ -53,8 +52,8 @@
   width: 26px;
   height: 26px;
   fill: none;
-  stroke: #D4AF37;
-  stroke-width: 1.8;
+  stroke: #FFFFFF;
+  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
   transition: transform 0.3s ease;
@@ -64,8 +63,8 @@
   display: none;
   width: 22px;
   height: 22px;
-  stroke: #F8FAFC;
-  stroke-width: 2;
+  stroke: #FFFFFF;
+  stroke-width: 2.2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -78,15 +77,15 @@
   position: fixed;
   bottom: 35px;
   right: 94px;
-  background: linear-gradient(135deg, rgba(22, 31, 51, 0.95) 0%, rgba(10, 15, 29, 0.95) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
   padding: 0.4rem 0.85rem;
   border-radius: 20px;
-  color: #F8FAFC;
+  color: var(--text-dark);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 15px rgba(212, 175, 55, 0.2);
+  box-shadow: var(--shadow-gold);
   pointer-events: none;
   z-index: 99998;
   display: flex;
@@ -111,12 +110,10 @@
   width: 400px;
   height: 600px;
   max-height: calc(100vh - 120px);
-  background: linear-gradient(180deg, rgba(16, 23, 41, 0.96) 0%, rgba(10, 15, 29, 0.98) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
   border-radius: 16px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.18);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16), 0 0 35px rgba(197, 155, 39, 0.12);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -136,8 +133,8 @@
 /* Window Header */
 .cchat-header {
   padding: 1rem 1.25rem;
-  background: linear-gradient(90deg, rgba(22, 31, 51, 0.95) 0%, rgba(17, 24, 39, 0.95) 100%);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+  background: linear-gradient(90deg, #FFFFFF 0%, #FCFBF7 100%);
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -151,7 +148,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.45) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(197, 155, 39, 0.45) 50%, transparent 100%);
 }
 
 .cchat-brand-wrap {
@@ -164,17 +161,17 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1.5px solid #D4AF37;
+  border: 1.5px solid var(--brand-gold);
   object-fit: cover;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 10px rgba(197, 155, 39, 0.25);
 }
 
 .cchat-brand-info h4 {
   margin: 0;
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   letter-spacing: -0.01em;
   display: flex;
   align-items: center;
@@ -183,7 +180,7 @@
 
 .cchat-brand-info span {
   font-size: 0.72rem;
-  color: #94A3B8;
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   gap: 0.35rem;
@@ -208,7 +205,7 @@
 .cchat-btn-icon {
   background: transparent;
   border: none;
-  color: #94A3B8;
+  color: var(--text-muted);
   width: 28px;
   height: 28px;
   border-radius: 6px;
@@ -220,8 +217,8 @@
 }
 
 .cchat-btn-icon:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #D4AF37;
+  background: var(--surface-light);
+  color: var(--brand-gold);
 }
 
 /* Chat Messages Stream */
@@ -233,6 +230,7 @@
   flex-direction: column;
   gap: 1rem;
   scroll-behavior: smooth;
+  background: #FFFFFF;
 }
 
 .cchat-body::-webkit-scrollbar {
@@ -240,7 +238,7 @@
 }
 
 .cchat-body::-webkit-scrollbar-thumb {
-  background: rgba(212, 175, 55, 0.3);
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
@@ -274,29 +272,33 @@
 }
 
 .cchat-msg.bot .cchat-bubble {
-  background: rgba(22, 31, 51, 0.85);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  color: #E2E8F0;
+  background: var(--surface-light);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
   border-bottom-left-radius: 4px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .cchat-msg.user .cchat-bubble {
-  background: linear-gradient(135deg, #1E293B 0%, #172033 100%);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  color: #F8FAFC;
+  background: linear-gradient(135deg, #090D16 0%, #1E293B 100%);
+  border: 1px solid var(--brand-gold);
+  color: #FFFFFF;
   border-bottom-right-radius: 4px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow-sm);
 }
 
 .cchat-bubble strong {
-  color: #F8FAFC;
+  color: var(--text-dark);
   font-weight: 600;
+}
+
+.cchat-msg.user .cchat-bubble strong {
+  color: #FFFFFF;
 }
 
 .cchat-timestamp {
   font-size: 0.65rem;
-  color: #64748B;
+  color: var(--text-secondary);
   margin-top: 0.25rem;
   align-self: flex-start;
 }
@@ -311,7 +313,7 @@
   flex-direction: column;
   gap: 0.4rem;
   margin-top: 0.75rem;
-  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-top: 1px solid var(--border-color);
   padding-top: 0.6rem;
 }
 
@@ -319,23 +321,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(30, 41, 59, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: #F5E6A3;
+  background: #FFFFFF;
+  border: 1.5px solid var(--brand-gold);
+  color: var(--brand-gold);
   padding: 0.45rem 0.8rem;
   border-radius: 6px;
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .cchat-action-btn:hover {
-  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
-  color: #0A0F1D;
-  border-color: #D4AF37;
+  background: var(--cta-gradient);
+  color: #FFFFFF;
+  border-color: var(--brand-gold);
   transform: translateX(3px);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  box-shadow: var(--shadow-gold);
 }
 
 /* Quick Prompt Pills Section */
@@ -344,8 +347,8 @@
   display: flex;
   gap: 0.4rem;
   overflow-x: auto;
-  background: rgba(10, 15, 29, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--surface-light);
+  border-top: 1px solid var(--border-color);
   white-space: nowrap;
   scrollbar-width: none;
 }
@@ -355,22 +358,23 @@
 }
 
 .cchat-pill {
-  background: rgba(22, 31, 51, 0.9);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  color: #CBD5E1;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
   padding: 0.35rem 0.7rem;
   border-radius: 14px;
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .cchat-pill:hover {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: #D4AF37;
-  color: #F8FAFC;
+  background: rgba(197, 155, 39, 0.1);
+  border-color: var(--brand-gold);
+  color: var(--brand-gold);
 }
 
 /* Typing Indicator */
@@ -379,11 +383,11 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.6rem 0.9rem;
-  background: rgba(22, 31, 51, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  background: var(--surface-light);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   font-size: 0.75rem;
-  color: #94A3B8;
+  color: var(--text-muted);
   align-self: flex-start;
   margin-top: 0.25rem;
 }
@@ -396,7 +400,7 @@
 .cchat-typing-dots span {
   width: 5px;
   height: 5px;
-  background: #D4AF37;
+  background: var(--brand-gold);
   border-radius: 50%;
   animation: cchat-bounce 1.2s infinite;
 }
@@ -412,44 +416,45 @@
 /* Input Footer */
 .cchat-footer {
   padding: 0.75rem 1rem;
-  background: rgba(17, 24, 39, 0.95);
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-color);
 }
 
 .cchat-input-row {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(10, 15, 29, 0.85);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: var(--surface-light);
+  border: 1.5px solid var(--border-color);
   border-radius: 8px;
   padding: 0.35rem 0.6rem 0.35rem 0.85rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cchat-input-row:focus-within {
-  border-color: #D4AF37;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+  border-color: var(--brand-gold);
+  box-shadow: var(--focus-gold);
+  background: #FFFFFF;
 }
 
 .cchat-input {
   flex: 1;
   background: transparent;
   border: none;
-  color: #F8FAFC;
+  color: var(--text-dark);
   font-family: inherit;
   font-size: 0.85rem;
   outline: none;
 }
 
 .cchat-input::placeholder {
-  color: #64748B;
+  color: var(--text-secondary);
 }
 
 .cchat-send-btn {
-  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+  background: var(--cta-gradient);
   border: none;
-  color: #0A0F1D;
+  color: #FFFFFF;
   width: 32px;
   height: 32px;
   border-radius: 6px;
@@ -463,12 +468,12 @@
 
 .cchat-send-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 2px 10px rgba(217, 119, 6, 0.35);
 }
 
 .cchat-disclaimer {
   font-size: 0.65rem;
-  color: #64748B;
+  color: var(--text-secondary);
   text-align: center;
   margin-top: 0.4rem;
 }

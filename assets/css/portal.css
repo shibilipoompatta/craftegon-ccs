@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
  * CRAFTEGON CORPORATE SERVICES (CCS) - SAAS CLIENT PORTAL & CALENDAR STYLES
- * Royal Noble Design System: Obsidian Frosted Glass & Champagne Gold Accents
+ * Premium Corporate Ivory, Gold, Silver & Charcoal Specification
  * ==========================================================================
  */
 
@@ -14,15 +14,14 @@
 
 /* --- Hero Banner --- */
 .portal-hero {
-  background: radial-gradient(circle at 50% 15%, rgba(212, 175, 55, 0.08) 0%, transparent 65%),
-              linear-gradient(180deg, rgba(22, 31, 51, 0.95) 0%, rgba(10, 15, 29, 0.98) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCFBF7 60%, #F8FAFC 100%);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 2.5rem 2rem;
   margin-bottom: 2.5rem;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-noble);
+  box-shadow: var(--shadow-standard);
 }
 
 .portal-hero::before {
@@ -32,16 +31,16 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.6) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(197, 155, 39, 0.6) 50%, transparent 100%);
 }
 
 .portal-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  color: var(--gold-light);
+  background: rgba(197, 155, 39, 0.08);
+  border: 1px solid rgba(197, 155, 39, 0.3);
+  color: var(--text-dark-gold);
   padding: 0.35rem 0.9rem;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
@@ -55,14 +54,14 @@
   font-family: var(--font-serif);
   font-size: 2.25rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   margin-bottom: 0.75rem;
   letter-spacing: -0.015em;
 }
 
 .portal-subtitle {
   font-size: 1rem;
-  color: var(--text-muted);
+  color: var(--text-main);
   max-width: 820px;
   line-height: 1.6;
   margin: 0;
@@ -70,12 +69,12 @@
 
 /* --- CIN / LLPIN Entity Lookup Section --- */
 .entity-lookup-card {
-  background: var(--card-gradient);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: var(--radius-md);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: 2rem;
   margin-bottom: 2.5rem;
-  box-shadow: var(--shadow-noble);
+  box-shadow: var(--shadow-standard);
 }
 
 .lookup-form {
@@ -93,9 +92,9 @@
 
 .lookup-input {
   width: 100%;
-  background: rgba(10, 15, 29, 0.85);
-  border: 1.5px solid rgba(212, 175, 55, 0.3);
-  color: #F8FAFC;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-dark);
   padding: 0.85rem 1.25rem;
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
@@ -105,8 +104,8 @@
 }
 
 .lookup-input:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.25);
+  border-color: var(--brand-gold);
+  box-shadow: var(--focus-gold);
 }
 
 .sample-entities {
@@ -118,9 +117,9 @@
 }
 
 .sample-pill {
-  background: rgba(22, 31, 51, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  color: #CBD5E1;
+  background: var(--surface-light);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
@@ -129,19 +128,20 @@
 }
 
 .sample-pill:hover {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: var(--gold);
-  color: #F8FAFC;
+  background: rgba(197, 155, 39, 0.1);
+  border-color: var(--brand-gold);
+  color: var(--brand-gold);
 }
 
 /* --- Entity Metadata Display Card --- */
 .entity-meta-card {
-  background: linear-gradient(135deg, rgba(22, 31, 51, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: 1.75rem;
   margin-top: 1.5rem;
   display: none;
+  box-shadow: var(--shadow-standard);
   animation: fadeIn 0.35s ease;
 }
 
@@ -160,7 +160,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 1rem;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 1.25rem;
   margin-bottom: 1.25rem;
 }
@@ -169,23 +169,23 @@
   font-family: var(--font-serif);
   font-size: 1.35rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   margin: 0 0 0.25rem 0;
 }
 
 .entity-cin {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--gold-light);
+  color: var(--brand-gold);
 }
 
 .status-verified {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  color: #10B981;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #059669;
   padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
@@ -210,7 +210,7 @@
 .entity-stat-val {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #F8FAFC;
+  color: var(--text-dark);
 }
 
 /* --- Regulatory Countdown Dashboard --- */
@@ -230,8 +230,8 @@
 }
 
 .calendar-tab {
-  background: rgba(22, 31, 51, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
   color: var(--text-muted);
   padding: 0.45rem 1rem;
   border-radius: var(--radius-sm);
@@ -239,12 +239,14 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .calendar-tab.active, .calendar-tab:hover {
   background: var(--cta-gradient);
-  color: #0A0F1D;
-  border-color: var(--gold);
+  color: #FFFFFF;
+  border-color: var(--brand-gold);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
 }
 
 .milestones-grid {
@@ -255,21 +257,21 @@
 }
 
 .milestone-card {
-  background: var(--card-gradient);
-  border: 1px solid rgba(212, 175, 55, 0.22);
-  border-radius: var(--radius-md);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-noble);
+  box-shadow: var(--shadow-standard);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .milestone-card:hover {
   transform: translateY(-4px);
-  border-color: var(--gold);
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.25);
+  border-color: var(--brand-gold);
+  box-shadow: var(--shadow-gold);
 }
 
 .milestone-header {
@@ -289,47 +291,47 @@
 }
 
 .badge-amber {
-  background: rgba(245, 158, 11, 0.15);
-  border: 1px solid rgba(245, 158, 11, 0.4);
-  color: #FBBF24;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #B45309;
 }
 
 .badge-green {
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  color: #34D399;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #047857;
 }
 
 .badge-blue {
-  background: rgba(59, 130, 246, 0.15);
-  border: 1px solid rgba(59, 130, 246, 0.4);
-  color: #60A5FA;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #1D4ED8;
 }
 
 .badge-red {
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.4);
-  color: #F87171;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #B91C1C;
 }
 
 .milestone-title {
   font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   margin: 0 0 0.4rem 0;
 }
 
 .milestone-section {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--gold-light);
+  color: var(--brand-gold);
   margin-bottom: 0.85rem;
 }
 
 .milestone-desc {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-main);
   line-height: 1.5;
   margin-bottom: 1.25rem;
   flex-grow: 1;
@@ -337,8 +339,8 @@
 
 /* Countdown Clock Box */
 .countdown-box {
-  background: rgba(10, 15, 29, 0.9);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: var(--surface-light);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 0.75rem;
   margin-bottom: 1.25rem;
@@ -356,7 +358,7 @@
   font-family: var(--font-mono);
   font-size: 1.35rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
 }
 
 .countdown-lbl {
@@ -373,12 +375,12 @@
 
 /* --- Automated Alerts Settings Bar --- */
 .alerts-settings-card {
-  background: var(--card-gradient);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: var(--radius-md);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: 2rem;
   margin-bottom: 3rem;
-  box-shadow: var(--shadow-noble);
+  box-shadow: var(--shadow-standard);
 }
 
 .alerts-grid {
@@ -389,8 +391,8 @@
 }
 
 .alert-item {
-  background: rgba(10, 15, 29, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface-light);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 1.25rem;
   display: flex;
@@ -402,7 +404,7 @@
 .alert-info h5 {
   margin: 0 0 0.25rem 0;
   font-size: 0.95rem;
-  color: #F8FAFC;
+  color: var(--text-dark);
 }
 
 .alert-info p {
@@ -433,10 +435,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #CBD5E1;
   transition: 0.3s;
   border-radius: 26px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--border-color);
 }
 
 .slider:before {
@@ -449,15 +451,16 @@
   background-color: white;
   transition: 0.3s;
   border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 }
 
 input:checked + .slider {
-  background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+  background: var(--cta-gradient);
 }
 
 input:checked + .slider:before {
   transform: translateX(22px);
-  background-color: #0A0F1D;
+  background-color: #FFFFFF;
 }
 
 /* Toast Message */
@@ -466,12 +469,12 @@ input:checked + .slider:before {
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
-  background: linear-gradient(135deg, #161F33 0%, #0A0F1D 100%);
-  border: 1.5px solid var(--gold);
-  color: #F8FAFC;
+  background: #FFFFFF;
+  border: 1.5px solid var(--brand-gold);
+  color: var(--text-dark);
   padding: 0.85rem 1.75rem;
   border-radius: var(--radius-full);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.3);
+  box-shadow: var(--shadow-gold);
   font-size: 0.88rem;
   font-weight: 600;
   display: flex;
@@ -503,13 +506,13 @@ input:checked + .slider:before {
 }
 
 .billing-lbl.active {
-  color: #F8FAFC;
+  color: var(--text-dark);
 }
 
 .discount-badge {
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  color: #34D399;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #047857;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.2rem 0.6rem;
@@ -525,33 +528,34 @@ input:checked + .slider:before {
 }
 
 .tier-card {
-  background: var(--card-gradient);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: var(--radius-md);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   padding: 2.25rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: var(--shadow-noble);
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  box-shadow: var(--shadow-standard);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .tier-card:hover {
   transform: translateY(-4px);
-  border-color: var(--gold);
+  border-color: var(--brand-gold);
+  box-shadow: var(--shadow-gold);
 }
 
 .tier-card.featured {
-  border: 1.5px solid var(--gold);
-  background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.98) 100%);
-  box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.25);
+  border: 2px solid var(--brand-gold);
+  background: #FFFFFF;
+  box-shadow: var(--shadow-gold);
 }
 
 .tier-name {
   font-family: var(--font-serif);
   font-size: 1.35rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   margin: 0 0 0.5rem 0;
 }
 
@@ -571,9 +575,10 @@ input:checked + .slider:before {
 }
 
 .tier-price {
+  font-family: var(--font-mono);
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--gold-light);
+  color: var(--brand-gold);
 }
 
 .tier-cycle {
@@ -596,13 +601,13 @@ input:checked + .slider:before {
   align-items: flex-start;
   gap: 0.6rem;
   font-size: 0.88rem;
-  color: #CBD5E1;
-  line-height: 1.4;
+  color: var(--text-main);
+  line-height: 1.45;
 }
 
 .tier-feature-item::before {
   content: "✓";
-  color: var(--gold);
+  color: var(--brand-gold);
   font-weight: bold;
 }
 
@@ -613,7 +618,7 @@ input:checked + .slider:before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(15, 23, 42, 0.45);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: none;
@@ -628,13 +633,13 @@ input:checked + .slider:before {
 }
 
 .checkout-modal {
-  background: linear-gradient(180deg, #161F33 0%, #0A0F1D 100%);
-  border: 1.5px solid var(--gold);
-  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
   width: 100%;
   max-width: 550px;
   padding: 2.25rem;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.18), 0 0 40px rgba(197, 155, 39, 0.12);
   position: relative;
   animation: modalSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -658,12 +663,12 @@ input:checked + .slider:before {
 }
 
 .modal-close:hover {
-  color: #F8FAFC;
+  color: var(--text-dark);
 }
 
 .order-summary-box {
-  background: rgba(10, 15, 29, 0.8);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: var(--surface-light);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   padding: 1rem 1.25rem;
   margin: 1.25rem 0;
@@ -678,23 +683,23 @@ input:checked + .slider:before {
 }
 
 .summary-row.total {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-color);
   padding-top: 0.5rem;
   margin-top: 0.5rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   font-size: 1rem;
 }
 
 .summary-row.total span:last-child {
-  color: var(--gold-light);
+  color: var(--brand-gold);
 }
 
 .checkout-input {
   width: 100%;
-  background: rgba(10, 15, 29, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #F8FAFC;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-dark);
   padding: 0.75rem 1rem;
   border-radius: var(--radius-sm);
   font-size: 0.88rem;
@@ -704,7 +709,8 @@ input:checked + .slider:before {
 }
 
 .checkout-input:focus {
-  border-color: var(--gold);
+  border-color: var(--brand-gold);
+  box-shadow: var(--focus-gold);
 }
 
 .payment-tabs {
@@ -715,8 +721,8 @@ input:checked + .slider:before {
 
 .payment-tab {
   flex: 1;
-  background: rgba(22, 31, 51, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface-light);
+  border: 1px solid var(--border-color);
   color: var(--text-muted);
   padding: 0.5rem;
   font-size: 0.78rem;
@@ -728,7 +734,8 @@ input:checked + .slider:before {
 }
 
 .payment-tab.active {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: var(--gold);
-  color: #F8FAFC;
+  background: rgba(197, 155, 39, 0.12);
+  border-color: var(--brand-gold);
+  color: var(--brand-gold);
+  font-weight: 700;
 }

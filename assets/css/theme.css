@@ -1,5 +1,6 @@
 /* ==========================================================================
-   CraftEgon CCS — Master Royal Noble Theme & Framework Stylesheet
+   CraftEgon CCS — Master Premium Corporate Theme & Framework Stylesheet
+   Ivory, Gold, Silver & Charcoal Visual Identity
    Path: assets/css/theme.css
    ========================================================================== */
 @import url('/assets/css/chat-widget.css');
@@ -14,28 +15,28 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  background-color: var(--bg-main);
+  background-color: var(--bg-primary);
   color: var(--text-main);
   font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: 
-    radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 85% 80%, rgba(30, 41, 59, 0.35) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(10, 15, 29, 0.8) 0%, var(--bg-main) 100%);
+    radial-gradient(circle at 15% 10%, rgba(197, 155, 39, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(241, 245, 249, 0.8) 0%, transparent 50%),
+    linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   background-attachment: fixed;
   min-height: 100vh;
 }
 
 /* Custom Selection Highlight */
 ::selection {
-  background-color: var(--gold);
-  color: #0A0F1D;
+  background-color: var(--brand-gold);
+  color: #FFFFFF;
 }
 
 /* Scrollbar Polish */
@@ -44,23 +45,23 @@ body {
   height: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0F1D;
+  background: var(--surface-light);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
+  background: #CBD5E1;
   border-radius: 4px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--border-color);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-dark);
+  background: var(--brand-gold);
 }
 
 /* --------------------------------------------------------------------------
-   2. Typography System: Noble Serifs & Modern Sans
+   2. Typography System: Manrope, Cinzel & DM Mono
    -------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, .noble-heading {
   font-family: var(--font-serif);
-  color: var(--text-main);
+  color: var(--text-dark);
   font-weight: 700;
   letter-spacing: -0.015em;
   line-height: 1.25;
@@ -84,7 +85,7 @@ p, li, span, input, select, textarea, button {
 
 /* Gold Gradient Typography */
 .gold-gradient-text, .text-gradient-gold {
-  background: linear-gradient(135deg, #F9E7B0 0%, #D4AF37 45%, #C5A059 85%, #E5C568 100%);
+  background: linear-gradient(135deg, #785B0D 0%, #C59B27 50%, #D4AF37 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -92,7 +93,7 @@ p, li, span, input, select, textarea, button {
 }
 
 .silver-gradient-text {
-  background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 50%, #94A3B8 100%);
+  background: linear-gradient(135deg, #090D16 0%, #334155 50%, #64748B 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -100,17 +101,15 @@ p, li, span, input, select, textarea, button {
 }
 
 /* --------------------------------------------------------------------------
-   3. Glassmorphism & Noble Surface Cards
+   3. Card Styling & Micro-Interactions
    -------------------------------------------------------------------------- */
 .noble-card {
-  background: var(--card-gradient);
+  background: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: var(--space-6);
-  box-shadow: var(--shadow-noble);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-standard);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
@@ -122,26 +121,45 @@ p, li, span, input, select, textarea, button {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.4) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(197, 155, 39, 0.35) 50%, transparent 100%);
 }
 
-.noble-card:hover {
+.noble-card:hover,
+.card-transition:hover {
   transform: translateY(-3px);
-  border-color: var(--gold-border-strong);
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(212, 175, 55, 0.22);
+  border-color: var(--brand-gold);
+  box-shadow: 0 12px 30px -5px rgba(197, 155, 39, 0.16);
 }
 
-/* Frosted Glass Dark Slate */
+.card-transition {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Frosted Glass UI */
 .glass-slate {
-  background: rgba(22, 31, 51, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-standard);
+}
+
+/* Alternating Section Backgrounds */
+.section-ivory, .bg-ivory {
+  background-color: var(--bg-primary);
+}
+
+.section-pearl, .bg-pearl {
+  background-color: var(--bg-secondary);
+}
+
+.bg-surface-light {
+  background-color: var(--surface-light);
 }
 
 /* Royal Background Grids */
 .grid-bg-royal {
-  background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(197, 155, 39, 0.12) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
@@ -150,13 +168,13 @@ p, li, span, input, select, textarea, button {
    -------------------------------------------------------------------------- */
 .btn-royal-gold {
   background: var(--cta-gradient);
-  color: #0A0F1D;
+  color: #FFFFFF !important;
   font-weight: 700;
   font-size: var(--text-sm);
   padding: 0.75rem 1.6rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.32);
+  border: none;
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.28);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -169,33 +187,34 @@ p, li, span, input, select, textarea, button {
 
 .btn-royal-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.48);
-  filter: brightness(1.06);
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+  filter: brightness(1.04);
 }
 
 .btn-royal-outline {
-  background: rgba(212, 175, 55, 0.06);
-  color: var(--gold-light);
+  background: #FFFFFF;
+  color: var(--text-dark) !important;
   font-weight: 600;
   font-size: var(--text-sm);
   padding: 0.7rem 1.5rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--gold-border);
+  border: 1.5px solid var(--border-color);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
-  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
   transition: all 0.25s ease;
 }
 
 .btn-royal-outline:hover {
-  background: rgba(212, 175, 55, 0.16);
-  border-color: var(--gold);
-  color: #FFFFFF;
+  background: #FFFFFF;
+  border-color: var(--brand-gold);
+  color: var(--brand-gold) !important;
   transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
 }
 
 /* --------------------------------------------------------------------------
@@ -206,12 +225,12 @@ p, li, span, input, select, textarea, button {
   align-items: center;
   gap: 0.4rem;
   padding: 0.28rem 0.75rem;
-  background: rgba(212, 175, 55, 0.10);
-  border: 1px solid rgba(212, 175, 55, 0.30);
+  background: rgba(197, 155, 39, 0.08);
+  border: 1px solid rgba(197, 155, 39, 0.28);
   border-radius: var(--radius-full);
   font-size: var(--text-xs);
   font-weight: 700;
-  color: var(--gold-light);
+  color: var(--text-dark-gold);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -220,8 +239,8 @@ p, li, span, input, select, textarea, button {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 8px var(--gold);
+  background: var(--brand-gold);
+  box-shadow: 0 0 8px rgba(197, 155, 39, 0.4);
 }
 
 /* Container Utility */
@@ -254,8 +273,8 @@ p, li, span, input, select, textarea, button {
   height: 38px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1.5px solid var(--gold);
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+  border: 1.5px solid var(--brand-gold);
+  box-shadow: 0 0 10px rgba(197, 155, 39, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: inline-block;
   vertical-align: middle;
@@ -264,7 +283,7 @@ p, li, span, input, select, textarea, button {
 
 .if-brand-logo:hover .brand-logo-img {
   transform: scale(1.06);
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.55);
+  box-shadow: 0 0 16px rgba(197, 155, 39, 0.45);
 }
 
 .brand-text-block {
@@ -277,9 +296,9 @@ p, li, span, input, select, textarea, button {
 
 .brand-title {
   font-family: var(--font-serif);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #F8FAFC;
+  color: var(--text-dark);
   letter-spacing: 2px;
   text-transform: uppercase;
   line-height: 1.1;
@@ -287,14 +306,13 @@ p, li, span, input, select, textarea, button {
 }
 
 .brand-subtitle {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 600;
-  color: #D4AF37;
+  color: var(--brand-gold);
   letter-spacing: 1px;
   text-transform: uppercase;
   line-height: 1.15;
   display: block;
   margin-top: 2px;
 }
-
