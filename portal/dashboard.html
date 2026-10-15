@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous Compliance Calendar &amp; Client Portal | CraftEgon CCS</title>
+  <meta name="description" content="CraftEgon CCS Autonomous Corporate Compliance Operating System: Live CIN/LLPIN lookup, real-time statutory regulatory countdown timers, and automated MCA V3 alerts.">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/portal.css">
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
+  <link rel="apple-touch-icon" href="/assets/images/craftegon-logo.jpg">
+  <link rel="canonical" href="https://craftegon.com/portal/dashboard.html">
+
+  <!-- Open Graph / Meta Protocol -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CraftEgon CCS">
+  <meta property="og:url" content="https://craftegon.com/portal/dashboard.html">
+  <meta property="og:title" content="Autonomous Compliance Calendar &amp; Client Portal | CraftEgon CCS">
+  <meta property="og:description" content="CraftEgon CCS Autonomous Corporate Compliance Operating System: Live CIN/LLPIN lookup, real-time statutory regulatory countdown timers, and automated MCA V3 alerts.">
+  <meta property="og:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@craftegon">
+  <meta name="twitter:title" content="Autonomous Compliance Calendar &amp; Client Portal | CraftEgon CCS">
+  <meta name="twitter:description" content="CraftEgon CCS Autonomous Corporate Compliance Operating System: Live CIN/LLPIN lookup, real-time statutory regulatory countdown timers, and automated MCA V3 alerts.">
+  <meta name="twitter:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://craftegon.com/portal/dashboard.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://craftegon.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Client Portal", "item": "https://craftegon.com/portal/dashboard.html" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://craftegon.com/portal/dashboard.html#webpage",
+        "url": "https://craftegon.com/portal/dashboard.html",
+        "name": "Autonomous Compliance Calendar & Client Portal | CraftEgon CCS",
+        "description": "CraftEgon CCS Autonomous Corporate Compliance Operating System: Live CIN/LLPIN lookup, real-time statutory regulatory countdown timers, and automated MCA V3 alerts.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://craftegon.com/#website",
+          "name": "CraftEgon CCS",
+          "url": "https://craftegon.com"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="portal-container">
+    <!-- Breadcrumb -->
+    <nav class="if-breadcrumb" aria-label="Breadcrumb" style="margin-bottom: 1.5rem;">
+      <a href="/index.html">Home</a> / <a href="/portal/dashboard.html">Client Portal</a> / <span>Compliance Calendar OS</span>
+    </nav>
+
+    <!-- Portal Hero Header -->
+    <div class="portal-hero">
+      <div class="portal-badge"><span class="cchat-status-dot"></span> Autonomous Regulatory Operating System</div>
+      <h1 class="portal-title">Corporate Compliance Calendar &amp; Statutory Command Center</h1>
+      <p class="portal-subtitle">
+        Real-time regulatory tracking, automated MCA V3 e-filing milestones, and statutory countdown clocks calibrated for Indian Private Limited Companies, LLPs, and Cross-Border FDI Entities.
+      </p>
+      <div style="margin-top: 1.5rem; display: flex; gap: 0.85rem; flex-wrap: wrap;">
+        <a href="/portal/subscription.html" class="btn-royal-gold" style="font-size: 0.88rem; padding: 0.65rem 1.35rem;">Manage SaaS Subscription &rarr;</a>
+        <a href="/conversion/calculator.html" class="btn-royal-outline" style="font-size: 0.88rem; padding: 0.65rem 1.35rem;">Open Late Fee Calculator</a>
+      </div>
+    </div>
+
+    <!-- Entity CIN / LLPIN Lookup Card -->
+    <div class="entity-lookup-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+        <div>
+          <h3 style="margin: 0 0 0.25rem 0; font-family: var(--font-serif); font-size: 1.25rem; color: #F8FAFC;">Entity CIN / LLPIN Regulatory Sync</h3>
+          <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Enter your 21-digit Corporate Identity Number (CIN) or LLPIN to calibrate statutory countdown clocks.</p>
+        </div>
+        <span class="noble-badge"><span class="noble-badge-dot"></span> MCA V3 Live Connector</span>
+      </div>
+
+      <form id="cin-lookup-form" class="lookup-form" onsubmit="handleCinLookup(event)">
+        <div class="lookup-input-wrap">
+          <input type="text" id="cin-input" class="lookup-input" placeholder="e.g. U72900KL2023PTC078912 or AAB-8910" value="U72900KL2023PTC078912" required>
+        </div>
+        <button type="submit" id="sync-btn" class="if-btn-primary" style="padding: 0.85rem 1.6rem; font-size: 0.92rem;">
+          <span id="sync-btn-text">Sync Compliance OS</span>
+        </button>
+      </form>
+
+      <!-- Sample Demo Entity Quick Selectors -->
+      <div class="sample-entities">
+        <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Quick Demo Enquiries:</span>
+        <button class="sample-pill" onclick="loadSampleEntity('U72900KL2023PTC078912', 'CraftEgon Technologies Private Limited', 'Pvt Ltd', 'Kozhikode, Kerala', '₹10,00,000')">⚡ CraftEgon Tech Pvt Ltd</button>
+        <button class="sample-pill" onclick="loadSampleEntity('AAB-8910', 'Malabar Ventures LLP', 'LLP', 'Ernakulam, Kerala', '₹5,00,000')">⚡ Malabar Ventures LLP</button>
+        <button class="sample-pill" onclick="loadSampleEntity('L01111KL2020PLC065432', 'Bharat Agri-Tech Public Limited', 'Public Ltd', 'Thiruvananthapuram, Kerala', '₹1,00,00,000')">⚡ Bharat Agri-Tech Ltd</button>
+      </div>
+
+      <!-- Dynamic Entity Metadata Display -->
+      <div id="entity-meta-card" class="entity-meta-card visible">
+        <div class="entity-header">
+          <div>
+            <h4 class="entity-name" id="disp-entity-name">CraftEgon Technologies Private Limited</h4>
+            <div class="entity-cin" id="disp-entity-cin">CIN: U72900KL2023PTC078912 &bull; RoC Ernakulam / Kerala</div>
+          </div>
+          <div class="status-verified">
+            <span style="display:inline-block; width:6px; height:6px; background:#10B981; border-radius:50%;"></span>
+            Active &bull; MCA Verified
+          </div>
+        </div>
+
+        <div class="entity-grid">
+          <div>
+            <div class="entity-stat-label">Entity Structure</div>
+            <div class="entity-stat-val" id="disp-entity-type">Private Limited Company</div>
+          </div>
+          <div>
+            <div class="entity-stat-label">Incorporation Date</div>
+            <div class="entity-stat-val">14 August 2023</div>
+          </div>
+          <div>
+            <div class="entity-stat-label">Authorized Capital</div>
+            <div class="entity-stat-val" id="disp-entity-capital">₹10,00,000 INR</div>
+          </div>
+          <div>
+            <div class="entity-stat-label">Registered Office</div>
+            <div class="entity-stat-val" id="disp-entity-location">Kozhikode, Kerala, India</div>
+          </div>
+          <div>
+            <div class="entity-stat-label">Active Directors / Partners</div>
+            <div class="entity-stat-val">2 Active DINs (KYC Verified)</div>
+          </div>
+          <div>
+            <div class="entity-stat-label">Statutory Retainer Status</div>
+            <div class="entity-stat-val" style="color: var(--gold-light);">Growth Retainer Active</div>
+          </div>
+        </div>
+
+        <!-- 1-Click AI Document Generation Shortcut -->
+        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+          <span style="font-size: 0.85rem; color: #CBD5E1;">
+            ⚡ Need a Board Resolution for AOC-4 Adoption or Director Disclosure?
+          </span>
+          <a id="ai-draft-shortcut" href="/conversion/ai-document-generator.html?doc_type=board_resolution&company=CraftEgon+Technologies+Private+Limited" class="cchat-action-btn" style="padding: 0.5rem 1rem;">
+            <span>Draft Board Resolution via AI Drafter</span> &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendar Category Filters & Header -->
+    <div class="calendar-controls">
+      <div>
+        <h3 style="margin: 0; font-family: var(--font-serif); font-size: 1.5rem; color: #F8FAFC;">Autonomous Regulatory Countdown Calendar</h3>
+        <p style="margin: 0.25rem 0 0; font-size: 0.85rem; color: var(--text-muted);">Real-time statutory filing deadlines computed in accordance with the Companies Act 2013, FEMA, and CBDT.</p>
+      </div>
+      <div class="calendar-tabs">
+        <button class="calendar-tab active" onclick="filterMilestones('all', this)">All Milestones (8)</button>
+        <button class="calendar-tab" onclick="filterMilestones('mca', this)">MCA V3 RoC (5)</button>
+        <button class="calendar-tab" onclick="filterMilestones('tax', this)">Corporate Tax &amp; GST (2)</button>
+        <button class="calendar-tab" onclick="filterMilestones('fema', this)">RBI &amp; FEMA (1)</button>
+      </div>
+    </div>
+
+    <!-- Milestones Countdown Grid -->
+    <div class="milestones-grid" id="milestones-container">
+      
+      <!-- 1. Form AOC-4 -->
+      <div class="milestone-card" data-category="mca">
+        <div class="milestone-header">
+          <span class="milestone-badge badge-amber">Action Due &bull; 14 Days</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Annual Filing</span>
+        </div>
+        <h4 class="milestone-title">Form AOC-4 (Financial Statements)</h4>
+        <div class="milestone-section">Section 137, Companies Act 2013</div>
+        <p class="milestone-desc">Mandatory e-filing of audited balance sheet, P&amp;L statement, and Director's Report within 30 days of Annual General Meeting.</p>
+        
+        <div class="countdown-box" id="timer-aoc4">
+          <div class="countdown-unit"><span class="countdown-num" id="aoc4-d">14</span><span class="countdown-lbl">Days</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="aoc4-h">08</span><span class="countdown-lbl">Hours</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="aoc4-m">42</span><span class="countdown-lbl">Mins</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="aoc4-s">19</span><span class="countdown-lbl">Secs</span></div>
+        </div>
+
+        <div class="milestone-actions">
+          <a href="/services/form-aoc4.html" class="if-btn-secondary" style="flex:1; text-align:center; font-size:0.8rem;">Service Scope</a>
+          <a href="/conversion/calculator.html" class="if-btn-primary" style="flex:1; text-align:center; font-size:0.8rem;">Late Fee Check</a>
+        </div>
+      </div>
+
+      <!-- 2. Form MGT-7 -->
+      <div class="milestone-card" data-category="mca">
+        <div class="milestone-header">
+          <span class="milestone-badge badge-green">Secure &bull; 44 Days</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Annual Filing</span>
+        </div>
+        <h4 class="milestone-title">Form MGT-7 / 7A (Annual Return)</h4>
+        <div class="milestone-section">Section 92, Companies Act 2013</div>
+        <p class="milestone-desc">Annual return disclosing shareholder register, board meetings, director remuneration, and cap table breakdown within 60 days of AGM.</p>
+        
+        <div class="countdown-box" id="timer-mgt7">
+          <div class="countdown-unit"><span class="countdown-num" id="mgt7-d">44</span><span class="countdown-lbl">Days</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="mgt7-h">14</span><span class="countdown-lbl">Hours</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="mgt7-m">15</span><span class="countdown-lbl">Mins</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="mgt7-s">30</span><span class="countdown-lbl">Secs</span></div>
+        </div>
+
+        <div class="milestone-actions">
+          <a href="/services/form-mgt7.html" class="if-btn-secondary" style="flex:1; text-align:center; font-size:0.8rem;">Service Scope</a>
+          <a href="/conversion/retainer-desk.html" class="if-btn-primary" style="flex:1; text-align:center; font-size:0.8rem;">Retainer Staging</a>
+        </div>
+      </div>
+
+      <!-- 3. Form DIR-3 KYC -->
+      <div class="milestone-card" data-category="mca">
+        <div class="milestone-header">
+          <span class="milestone-badge badge-blue">Verified &bull; Completed</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Director KYC</span>
+        </div>
+        <h4 class="milestone-title">Form DIR-3 KYC (Director Verification)</h4>
+        <div class="milestone-section">Rule 12A, Companies (Appointment) Rules</div>
+        <p class="milestone-desc">Annual digital identity verification for all active DIN holders. Status marked compliant for current financial year cycle.</p>
+        
+        <div class="countdown-box" style="border-color: rgba(59, 130, 246, 0.4);">
+          <div style="font-family: var(--font-mono); font-size: 0.95rem; color: #60A5FA; font-weight: 700; padding: 0.35rem 0;">
+            ✓ KYC Verified &bull; Next Cycle Opens April 2027
+          </div>
+        </div>
+
+        <div class="milestone-actions">
+          <a href="/services/dir3-kyc.html" class="if-btn-secondary" style="flex:1; text-align:center; font-size:0.8rem;">KYC Rules</a>
+          <a href="/knowledge/director-disqualification-guide.html" class="if-btn-secondary" style="flex:1; text-align:center; font-size:0.8rem;">DIN Defense</a>
+        </div>
+      </div>
+
+      <!-- 4. Form MSME-1 -->
+      <div class="milestone-card" data-category="mca">
+        <div class="milestone-header">
+          <span class="milestone-badge badge-amber">Action Due &bull; 15 Days</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Half-Yearly</span>
+        </div>
+        <h4 class="milestone-title">Form MSME-1 (Outstanding Vendor Dues)</h4>
+        <div class="milestone-section">Section 405, Companies Act 2013</div>
+        <p class="milestone-desc">Half-yearly disclosure of outstanding payments to MSME registered suppliers exceeding 45 days. Strict compliance mandate.</p>
+        
+        <div class="countdown-box" id="timer-msme1">
+          <div class="countdown-unit"><span class="countdown-num" id="msme-d">15</span><span class="countdown-lbl">Days</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="msme-h">11</span><span class="countdown-lbl">Hours</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="msme-m">02</span><span class="countdown-lbl">Mins</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="msme-s">45</span><span class="countdown-lbl">Secs</span></div>
+        </div>
+
+        <div class="milestone-actions">
+          <a href="/services/form-msme1.html" class="if-btn-secondary" style="flex:1; text-align:center; font-size:0.8rem;">Service Scope</a>
+          <a href="/conversion/calculator.html" class="if-btn-primary" style="flex:1; text-align:center; font-size:0.8rem;">Check Filings</a>
+        </div>
+      </div>
+
+      <!-- 5. Form DPT-3 -->
+      <div class="milestone-card" data-category="mca">
+        <div class="milestone-header">
+          <span class="milestone-badge badge-green">Upcoming &bull; Monitored</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Annual Deposit</span>
+        </div>
+        <h4 class="milestone-title">Form DPT-3 (Return of Deposits &amp; Loans)</h4>
+        <div class="milestone-section">Rule 16, Companies (Acceptance of Deposits)</div>
+        <p class="milestone-desc">Mandatory annual return disclosing outstanding loans, advances, or receipts not treated as deposits as of March 31.</p>
+        
+        <div class="countdown-box">
+          <div style="font-family: var(--font-mono); font-size: 0.88rem; color: #34D399; font-weight: 600; padding: 0.35rem 0;">
+            Scheduled Due Date: June 30 &bull; Automated Staging Ready
+          </div>
+        </div>
+
+        <div class="milestone-actions">
+          <a href="/services/form-dpt3.html" class="if-btn-secondary" style="flex:1; text-align:center; font-size:0.8rem;">Service Scope</a>
+          <a href="/conversion/retainer-desk.html" class="if-btn-primary" style="flex:1; text-align:center; font-size:0.8rem;">Pre-Stage DPT-3</a>
+        </div>
+      </div>
+
+      <!-- 6. Form 3CEB (Transfer Pricing) -->
+      <div class="milestone-card" data-category="tax">
+        <div class="milestone-header">
+          <span class="milestone-badge badge-amber">Action Due &bull; 15 Days</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Income Tax</span>
+        </div>
+        <h4 class="milestone-title">Form 3CEB (Transfer Pricing Report)</h4>
+        <div class="milestone-section">Section 92E, Income-tax Act 1961</div>
+        <p class="milestone-desc">Mandatory statutory accountant certificate for corporate entities undertaking international or specified domestic cross-border transactions.</p>
+        
+        <div class="countdown-box" id="timer-3ceb">
+          <div class="countdown-unit"><span class="countdown-num" id="tceb-d">15</span><span class="countdown-lbl">Days</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="tceb-h">11</span><span class="countdown-lbl">Hours</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="tceb-m">02</span><span class="countdown-lbl">Mins</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="tceb-s">45</span><span class="countdown-lbl">Secs</span></div>
+        </div>
+
+        <div class="milestone-actions">
+          <a href="/services/form-3ceb.html" class="if-btn-secondary" style="flex:1; text-align:center; font-size:0.8rem;">Service Scope</a>
+          <a href="/conversion/tax-intake.html" class="if-btn-primary" style="flex:1; text-align:center; font-size:0.8rem;">Tax Consultation</a>
+        </div>
+      </div>
+
+      <!-- 7. GSTR-9 / 9C -->
+      <div class="milestone-card" data-category="tax">
+        <div class="milestone-header">
+          <span class="milestone-badge badge-green">Secure &bull; 76 Days</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">GST Annual</span>
+        </div>
+        <h4 class="milestone-title">GSTR-9 &amp; 9C (GST Annual Return)</h4>
+        <div class="milestone-section">Section 44, Central Goods &amp; Services Tax Act</div>
+        <p class="milestone-desc">Annual return and self-certified reconciliation statement for registered regular taxpayers for financial year turnover reconciliation.</p>
+        
+        <div class="countdown-box">
+          <div class="countdown-unit"><span class="countdown-num">76</span><span class="countdown-lbl">Days</span></div>
+          <div class="countdown-unit"><span class="countdown-num">18</span><span class="countdown-lbl">Hours</span></div>
+          <div class="countdown-unit"><span class="countdown-num">50</span><span class="countdown-lbl">Mins</span></div>
+          <div class="countdown-unit"><span class="countdown-num">12</span><span class="countdown-lbl">Secs</span></div>
+        </div>
+
+        <div class="milestone-actions">
+          <a href="/services/gst-annual.html" class="if-btn-secondary" style="flex:1; text-align:center; font-size:0.8rem;">Service Scope</a>
+          <a href="/conversion/tax-intake.html" class="if-btn-primary" style="flex:1; text-align:center; font-size:0.8rem;">GST Audit Desk</a>
+        </div>
+      </div>
+
+      <!-- 8. RBI FLA Return -->
+      <div class="milestone-card" data-category="fema">
+        <div class="milestone-header">
+          <span class="milestone-badge badge-green">Annual FEMA</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">RBI FIRMS</span>
+        </div>
+        <h4 class="milestone-title">RBI FLA Return (Foreign Liabilities &amp; Assets)</h4>
+        <div class="milestone-section">Foreign Exchange Management Act, 1999</div>
+        <p class="milestone-desc">Annual online reporting on the RBI FLAIR portal for Indian entities having foreign direct investment (FDI) or overseas investment (ODI).</p>
+        
+        <div class="countdown-box">
+          <div style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--gold-light); font-weight: 600; padding: 0.35rem 0;">
+            Annual Window: Due July 15 &bull; Monitored on FLAIRS
+          </div>
+        </div>
+
+        <div class="milestone-actions">
+          <a href="/services/rbi-fla-return.html" class="if-btn-secondary" style="flex:1; text-align:center; font-size:0.8rem;">Service Scope</a>
+          <a href="/conversion/cross-border-retainer.html" class="if-btn-primary" style="flex:1; text-align:center; font-size:0.8rem;">FEMA Retainer</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Automated Regulatory Alert Toggles -->
+    <div class="alerts-settings-card">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h3 style="margin: 0 0 0.35rem 0; font-family: var(--font-serif); font-size: 1.25rem; color: #F8FAFC;">Automated Multi-Channel Regulatory Alerts</h3>
+          <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Autonomous alerts dispatched 7 days, 3 days, and 24 hours prior to MCA, Tax, and RBI statutory deadlines.</p>
+        </div>
+        <span class="status-verified"><span style="display:inline-block; width:6px; height:6px; background:#10B981; border-radius:50%;"></span> Active Triggers</span>
+      </div>
+
+      <div class="alerts-grid">
+        <!-- WhatsApp -->
+        <div class="alert-item">
+          <div class="alert-info">
+            <h5>WhatsApp Compliance Bot Alerts</h5>
+            <p>Direct notification with draft resolution PDFs sent to verified Director mobile number.</p>
+          </div>
+          <label class="switch" aria-label="Toggle WhatsApp Alerts">
+            <input type="checkbox" id="toggle-whatsapp" checked onchange="handleAlertToggle('WhatsApp Alerts')">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- Email Reminders -->
+        <div class="alert-item">
+          <div class="alert-info">
+            <h5>Executive Email Summaries</h5>
+            <p>Bi-weekly digest and critical statutory warnings sent to CFO and compliance desk.</p>
+          </div>
+          <label class="switch" aria-label="Toggle Email Alerts">
+            <input type="checkbox" id="toggle-email" checked onchange="handleAlertToggle('Email Notifications')">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <!-- SMS Emergency -->
+        <div class="alert-item">
+          <div class="alert-info">
+            <h5>Urgent SMS Penalty Triggers</h5>
+            <p>High-priority alert triggered 24 hours before automatic MCA late fee accrual commences.</p>
+          </div>
+          <label class="switch" aria-label="Toggle SMS Alerts">
+            <input type="checkbox" id="toggle-sms" checked onchange="handleAlertToggle('SMS Priority Alerts')">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Feedback Toast -->
+  <div id="portal-toast" class="portal-toast">
+    <span style="color: #10B981;">✓</span>
+    <span id="toast-message">Regulatory settings updated successfully.</span>
+  </div>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+
+  <!-- Dashboard Controller Script -->
+  <script>
+    // 1. Live Countdown Engine (Every Second)
+    let countdownInterval;
+    function startCountdowns() {
+      // Mock target dates for demonstration
+      const now = new Date().getTime();
+      const aocTarget = now + (14 * 86400000) + (8 * 3600000) + (42 * 60000);
+      const mgtTarget = now + (44 * 86400000) + (14 * 3600000) + (15 * 60000);
+      const msmeTarget = now + (15 * 86400000) + (11 * 3600000) + (2 * 60000);
+
+      function update() {
+        const current = new Date().getTime();
+
+        function setUnits(target, dId, hId, mId, sId) {
+          const diff = Math.max(0, target - current);
+          const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+          const elD = document.getElementById(dId);
+          if (elD) elD.innerText = String(d).padStart(2, '0');
+          const elH = document.getElementById(hId);
+          if (elH) elH.innerText = String(h).padStart(2, '0');
+          const elM = document.getElementById(mId);
+          if (elM) elM.innerText = String(m).padStart(2, '0');
+          const elS = document.getElementById(sId);
+          if (elS) elS.innerText = String(s).padStart(2, '0');
+        }
+
+        setUnits(aocTarget, 'aoc4-d', 'aoc4-h', 'aoc4-m', 'aoc4-s');
+        setUnits(mgtTarget, 'mgt7-d', 'mgt7-h', 'mgt7-m', 'mgt7-s');
+        setUnits(msmeTarget, 'msme-d', 'msme-h', 'msme-m', 'msme-s');
+        setUnits(msmeTarget, 'tceb-d', 'tceb-h', 'tceb-m', 'tceb-s');
+      }
+
+      update();
+      countdownInterval = setInterval(update, 1000);
+    }
+    startCountdowns();
+
+    // 2. CIN / LLPIN Dynamic Lookup Simulation
+    function handleCinLookup(e) {
+      e.preventDefault();
+      const cin = document.getElementById('cin-input').value.trim().toUpperCase();
+      const btn = document.getElementById('sync-btn');
+      const btnText = document.getElementById('sync-btn-text');
+
+      btnText.innerText = 'Connecting to MCA V3...';
+      btn.style.opacity = '0.7';
+
+      setTimeout(() => {
+        btnText.innerText = 'Sync Compliance OS';
+        btn.style.opacity = '1';
+
+        const card = document.getElementById('entity-meta-card');
+        card.classList.add('visible');
+
+        if (cin.includes('LLP') || cin.startsWith('AAB')) {
+          loadSampleEntity(cin, 'Malabar Ventures LLP', 'Limited Liability Partnership (LLP)', 'Ernakulam, Kerala', '₹5,00,000');
+        } else if (cin.includes('PLC') || cin.startsWith('L01')) {
+          loadSampleEntity(cin, 'Bharat Agri-Tech Public Limited', 'Public Limited Company', 'Thiruvananthapuram, Kerala', '₹1,00,00,000');
+        } else {
+          loadSampleEntity(cin, 'CraftEgon Technologies Private Limited', 'Private Limited Company', 'Kozhikode, Kerala', '₹10,00,000');
+        }
+
+        showToast('Entity record synced successfully with MCA Regulatory Register.');
+      }, 650);
+    }
+
+    function loadSampleEntity(cin, name, type, location, capital) {
+      document.getElementById('cin-input').value = cin;
+      document.getElementById('disp-entity-name').innerText = name;
+      document.getElementById('disp-entity-cin').innerText = 'CIN/LLPIN: ' + cin + ' • RoC Kerala / Ernakulam';
+      document.getElementById('disp-entity-type').innerText = type;
+      document.getElementById('disp-entity-capital').innerText = capital + ' INR';
+      document.getElementById('disp-entity-location').innerText = location + ', India';
+
+      const shortcutLink = document.getElementById('ai-draft-shortcut');
+      if (shortcutLink) {
+        shortcutLink.href = `/conversion/ai-document-generator.html?doc_type=board_resolution&company=${encodeURIComponent(name)}&cin=${encodeURIComponent(cin)}`;
+      }
+
+      const card = document.getElementById('entity-meta-card');
+      card.classList.add('visible');
+    }
+
+    // 3. Category Filter Tabs
+    function filterMilestones(cat, btn) {
+      document.querySelectorAll('.calendar-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.milestone-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 4. Alert Toggles Toast
+    function handleAlertToggle(name) {
+      showToast(`${name} preference saved and synced with notification gateway.`);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('portal-toast');
+      const text = document.getElementById('toast-message');
+      text.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

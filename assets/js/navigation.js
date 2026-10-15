@@ -28,11 +28,13 @@ document.addEventListener("DOMContentLoaded", async function () {
             <nav class="if-nav">
               <a href="/index.html" class="if-nav-link">Home</a>
               <a href="/index.html#service-verticals" class="if-nav-link">Verticals</a>
+              <a href="/portal/dashboard.html" class="if-nav-link" style="color: var(--gold-light);">Client Portal</a>
               <a href="/conversion/index.html" class="if-nav-link">Diagnostic Tools &amp; AI</a>
               <a href="/knowledge/index.html" class="if-nav-link">Knowledge Base</a>
               <a href="/conversion/calculator.html" class="if-nav-link">Fee Estimator</a>
             </nav>
             <div class="if-header-actions">
+              <a href="/portal/dashboard.html" class="if-btn-secondary" style="border-color: rgba(212, 175, 55, 0.4);"><span class="noble-badge-dot" style="margin-right: 4px;"></span>Portal OS</a>
               <a href="/conversion/ai-document-generator.html" class="if-btn-secondary">AI Drafter</a>
               <a href="/conversion/calculator.html" class="if-btn-primary">Calculate Retainer</a>
               <button class="if-mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
@@ -53,6 +55,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
             <div class="if-mobile-drawer-body">
               <a href="/index.html" class="if-mobile-nav-link">Home</a>
+              <a href="/portal/dashboard.html" class="if-mobile-nav-link" style="color: var(--gold-light); font-weight:700;">⚡ Compliance Calendar OS</a>
+              <a href="/portal/subscription.html" class="if-mobile-nav-link">SaaS Retainer Plans</a>
               <a href="/conversion/index.html" class="if-mobile-nav-link">Diagnostic Tools Hub</a>
               <a href="/knowledge/index.html" class="if-mobile-nav-link">Knowledge Base Hub</a>
               <a href="/conversion/ai-document-generator.html" class="if-mobile-btn-ai" style="margin-top: 1rem;">⚡ AI Legal Drafter</a>
@@ -89,9 +93,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
             <div style="display: flex; gap: 2rem; font-size: 0.85rem; flex-wrap: wrap;">
               <a href="/index.html" style="color: #94a3b8; text-decoration: none;">Home</a>
+              <a href="/portal/dashboard.html" style="color: var(--gold-light); text-decoration: none; font-weight: 600;">Compliance OS</a>
+              <a href="/portal/subscription.html" style="color: #94a3b8; text-decoration: none;">Retainer Plans</a>
               <a href="/conversion/ai-document-generator.html" style="color: var(--gold-light); text-decoration: none; font-weight: 600;">AI Legal Drafter</a>
               <a href="/conversion/calculator.html" style="color: #94a3b8; text-decoration: none;">Fee Calculator</a>
-              <a href="/knowledge/index.html" style="color: var(--gold-light); text-decoration: none;">Knowledge Hub</a>
+              <a href="/knowledge/index.html" style="color: #94a3b8; text-decoration: none;">Knowledge Hub</a>
               <a href="/legal/terms.html" style="color: #94a3b8; text-decoration: none;">Terms</a>
               <a href="/legal/privacy.html" style="color: #94a3b8; text-decoration: none;">Privacy</a>
             </div>

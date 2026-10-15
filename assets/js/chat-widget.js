@@ -24,7 +24,16 @@ r:`Annual RoC filings under Companies Act 2013:<br>
 • <b>Form MSME-1:</b> Vendor dues >45 days (due April 30 & Oct 31).<br>
 • <b>Form MGT-14:</b> Special resolutions filed within 30 days.<br>
 Late filing penalty: ₹100/day per form without monetary ceiling.`,
-a:[['RoC Annual Retainer Plan','/services/roc-annual-compliance.html'],['Calculate RoC Late Fees','/conversion/calculator.html'],['MCA V3 Filing Blueprint','/knowledge/mca-v3-filing-guide.html']]},
+a:[['Live Compliance Calendar OS','/portal/dashboard.html'],['RoC Annual Retainer Plan','/services/roc-annual-compliance.html'],['Calculate RoC Late Fees','/conversion/calculator.html']]},
+
+{k:['portal','client portal','dashboard','compliance calendar','subscription','pricing','retainer plan','starter','growth','enterprise','tier','plan','retainer plans'],
+r:`CraftEgon CCS Autonomous Client Portal &amp; Compliance OS:<br>
+• <b>Live Regulatory Calendar:</b> Real-time countdown clocks calibrated for your CIN/LLPIN with automated alerts (WhatsApp/Email/SMS).<br>
+• <b>Starter Plan (₹1,499/mo):</b> Ideal for LLPs &amp; micro-enterprises with deadline alerts &amp; AI drafting credits.<br>
+• <b>Growth Plan (₹4,999/mo):</b> Ideal for Pvt Ltd Startups with automated AOC-4/MGT-7 staging &amp; priority CS review.<br>
+• <b>Enterprise Plan (₹14,999/mo):</b> Dedicated secretarial desk, Form MR-3 secretarial audit &amp; cross-border FEMA advisory.<br>
+Annual billing includes 2 Months Free (Save 17%).`,
+a:[['Launch Compliance Calendar OS','/portal/dashboard.html'],['View Subscription Tiers & Checkout','/portal/subscription.html'],['Client Portal Gateway','/portal/index.html']]},
 
 {k:['late fee','delay','penalty','calculate fee','fine','cost of filing','overdue','fees calculator','mca penalty'],
 r:`Under MCA Fee Rules 2014:<br>
@@ -79,12 +88,13 @@ a:[['STK-2 Eligibility Checker','/conversion/strike-off-checker.html'],['Form ST
 ];
 
 const PILLS=[
+['⚡ Compliance Calendar','Open the Autonomous Compliance Calendar OS'],
+['💎 Subscription Plans','What are the SaaS subscription retainer tiers and pricing?'],
 ['⚡ Incorporate Pvt Ltd','How do I incorporate a Pvt Ltd company in India?'],
 ['📅 MCA Due Dates','What are annual RoC compliance filing due dates?'],
 ['💰 RoC Late Fees','How much are late fees for Form AOC-4 and MGT-7?'],
 ['🌐 RBI FLA Return','What is the deadline and requirement for RBI FLA return?'],
 ['🔒 DPDP Act Audit','What are our fiduciary obligations under DPDP Act 2023?'],
-['⚖️ NCLT Litigation','How do we defend against NCLT insolvency or oppression?'],
 ['📄 AI Doc Drafter','Can you generate a founder or NDA agreement?']
 ];
 

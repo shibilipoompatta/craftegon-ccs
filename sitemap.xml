@@ -211,6 +211,24 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://craftegon.com/portal/dashboard.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://craftegon.com/portal/index.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://craftegon.com/portal/subscription.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://craftegon.com/services/aoc4-xbrl.html</loc>
     <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
