@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             </a>
             <nav class="if-nav">
               <a href="/index.html" class="if-nav-link">Home</a>
-              <a href="/index.html#service-verticals" class="if-nav-link">Verticals</a>
+              <a href="/index.html#service-verticals" class="if-nav-link">Practice Areas</a>
               <a href="/portal/dashboard.html" class="if-nav-link" style="color: var(--gold-light);">Client Portal</a>
               <a href="/conversion/index.html" class="if-nav-link">Diagnostic Tools &amp; AI</a>
               <a href="/knowledge/index.html" class="if-nav-link">Knowledge Base</a>
