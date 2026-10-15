@@ -1,7 +1,8 @@
-node_modules/
 .DS_Store
 Thumbs.db
+node_modules/
 .antigravity-ide/
 .gemini/
 .vscode/
 *.log
+.cache/
