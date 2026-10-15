@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               <a href="/conversion/calculator.html" class="if-nav-link">Fee Estimator</a>
             </nav>
             <div class="if-header-actions">
+              <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border-color: rgba(37, 211, 102, 0.4); color: #25D366; padding: 0.6rem 0.95rem;">WhatsApp</a>
               <a href="/portal/dashboard.html" class="if-btn-secondary" style="border-color: rgba(212, 175, 55, 0.4);"><span class="noble-badge-dot" style="margin-right: 4px;"></span>Portal OS</a>
               <a href="/conversion/ai-document-generator.html" class="if-btn-secondary">AI Drafter</a>
               <a href="/conversion/calculator.html" class="if-btn-primary">Calculate Retainer</a>
@@ -55,6 +56,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
             <div class="if-mobile-drawer-body">
               <a href="/index.html" class="if-mobile-nav-link">Home</a>
+              <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-mobile-nav-link" style="color: #25D366; font-weight:700;">💬 WhatsApp Desk: +91 86069 18247</a>
               <a href="/portal/dashboard.html" class="if-mobile-nav-link" style="color: var(--gold-light); font-weight:700;">⚡ Compliance Calendar OS</a>
               <a href="/portal/subscription.html" class="if-mobile-nav-link">SaaS Retainer Plans</a>
               <a href="/conversion/index.html" class="if-mobile-nav-link">Diagnostic Tools Hub</a>
@@ -90,6 +92,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                 CraftEgon Corporate Services (CCS)
               </p>
               <p style="margin: 0; font-size: 0.85rem; color: #94a3b8; max-width: 400px;">India's premier AI-powered digital corporate and legal compliance operating system.</p>
+              <div style="margin-top: 0.75rem; font-size: 0.82rem; color: #94a3b8; display: flex; flex-direction: column; gap: 0.25rem;">
+                <span>Phone: <a href="tel:+918606918247" style="color: #F8FAFC; text-decoration: none;">+91 86069 18247</a></span>
+                <span>WhatsApp: <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light); text-decoration: none;">+91 86069 18247 &bull; Chat Live &rarr;</a></span>
+                <span>Email: <a href="mailto:admin@craftegon.com" style="color: var(--gold-light); text-decoration: none;">admin@craftegon.com</a></span>
+              </div>
             </div>
             <div style="display: flex; gap: 2rem; font-size: 0.85rem; flex-wrap: wrap;">
               <a href="/index.html" style="color: #94a3b8; text-decoration: none;">Home</a>

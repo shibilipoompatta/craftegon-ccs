@@ -84,11 +84,20 @@ a:[['⚡ AI Legal Document Drafter','/conversion/ai-document-generator.html'],['
 r:`Under Section 248 of Companies Act 2013:<br>
 • <b>Form STK-2:</b> Fast-track closure for entities inactive for 2 financial years with zero assets/liabilities.<br>
 • <b>Form MSC-1:</b> Retain corporate name with minimal compliance via Dormant Status.`,
-a:[['STK-2 Eligibility Checker','/conversion/strike-off-checker.html'],['Form STK-2 Strike-Off Service','/services/form-stk2-strike-off.html'],['Dormant Status (MSC-1) Filing','/services/form-msc1-dormant.html']]}
+a:[['STK-2 Eligibility Checker','/conversion/strike-off-checker.html'],['Form STK-2 Strike-Off Service','/services/form-stk2-strike-off.html'],['Dormant Status (MSC-1) Filing','/services/form-msc1-dormant.html']]},
+
+{k:['contact','phone','whatsapp','email','call','office','address','location','reach out','support','admin@craftegon.com'],
+r:`CraftEgon Corporate Services (CCS) — Official Corporate Desk:<br>
+• <b>WhatsApp &amp; Phone:</b> +91 86069 18247 (Direct Compliance Advisory)<br>
+• <b>Email:</b> admin@craftegon.com<br>
+• <b>Registered HQ:</b> CraftEgon LLP, Kozhikode, Kerala, India &bull; PIN: 673001<br>
+• <b>Jurisdiction:</b> Pan-India coverage across all 24 RoC Offices, NCLT Benches &amp; RBI Regional Offices.`,
+a:[['Chat Live on WhatsApp','https://wa.me/918606918247'],['Email Legal Desk','mailto:admin@craftegon.com'],['Annual Retainer Desk','/conversion/retainer-desk.html']]}
 ];
 
 const PILLS=[
 ['⚡ Compliance Calendar','Open the Autonomous Compliance Calendar OS'],
+['💬 Contact Desk','How do I contact CraftEgon CCS via WhatsApp or email?'],
 ['💎 Subscription Plans','What are the SaaS subscription retainer tiers and pricing?'],
 ['⚡ Incorporate Pvt Ltd','How do I incorporate a Pvt Ltd company in India?'],
 ['📅 MCA Due Dates','What are annual RoC compliance filing due dates?'],
