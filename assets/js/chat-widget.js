@@ -24,16 +24,16 @@ r:`Annual RoC filings under Companies Act 2013:<br>
 • <b>Form MSME-1:</b> Vendor dues >45 days (due April 30 & Oct 31).<br>
 • <b>Form MGT-14:</b> Special resolutions filed within 30 days.<br>
 Late filing penalty: ₹100/day per form without monetary ceiling.`,
-a:[['Live Compliance Calendar OS','/portal/dashboard.html'],['RoC Annual Retainer Plan','/services/roc-annual-compliance.html'],['Calculate RoC Late Fees','/conversion/calculator.html']]},
+a:[['Compliance Calendar','/portal/dashboard.html'],['RoC Annual Retainer Plan','/services/roc-annual-compliance.html'],['Calculate RoC Late Fees','/conversion/calculator.html']]},
 
 {k:['portal','client portal','dashboard','compliance calendar','subscription','pricing','retainer plan','starter','growth','enterprise','tier','plan','retainer plans'],
-r:`CraftEgon CCS Autonomous Client Portal &amp; Compliance OS:<br>
-• <b>Live Regulatory Calendar:</b> Real-time countdown clocks calibrated for your CIN/LLPIN with automated alerts (WhatsApp/Email/SMS).<br>
-• <b>Starter Plan (₹1,499/mo):</b> Ideal for LLPs &amp; micro-enterprises with deadline alerts &amp; AI drafting credits.<br>
+r:`CraftEgon CCS Client Portal &amp; Compliance Calendar:<br>
+• <b>Regulatory Calendar:</b> Real-time countdown clocks calibrated for your CIN/LLPIN with automated alerts (WhatsApp/Email/SMS).<br>
+• <b>Starter Plan (₹1,499/mo):</b> Ideal for LLPs &amp; micro-enterprises with deadline alerts &amp; drafting credits.<br>
 • <b>Growth Plan (₹4,999/mo):</b> Ideal for Pvt Ltd Startups with automated AOC-4/MGT-7 staging &amp; priority CS review.<br>
 • <b>Enterprise Plan (₹14,999/mo):</b> Dedicated secretarial desk, Form MR-3 secretarial audit &amp; cross-border FEMA advisory.<br>
 Annual billing includes 2 Months Free (Save 17%).`,
-a:[['Launch Compliance Calendar OS','/portal/dashboard.html'],['View Subscription Tiers & Checkout','/portal/subscription.html'],['Client Portal Gateway','/portal/index.html']]},
+a:[['Launch Compliance Calendar','/portal/dashboard.html'],['View Subscription Tiers & Checkout','/portal/subscription.html'],['Client Portal Gateway','/portal/index.html']]},
 
 {k:['late fee','delay','penalty','calculate fee','fine','cost of filing','overdue','fees calculator','mca penalty'],
 r:`Under MCA Fee Rules 2014:<br>
@@ -76,10 +76,10 @@ a:[['Priority Incident Intake Desk','/conversion/dispute-consultation.html'],['N
 
 {k:['contract','agreement','draft','nda','sha','employment','trademark','trademark search','ipr','copyright','patent'],
 r:`Contract drafting & IP protection:<br>
-• <b>AI Legal Drafter:</b> Real-time NDAs, Founder Agreements, SaaS MSAs & Employment Handbooks.<br>
+• <b>Document Drafter:</b> Standard NDAs, Founder Agreements, SaaS MSAs & Employment Handbooks.<br>
 • <b>Trademark Search:</b> Clearance search across all 45 NICE classes to avoid opposition.<br>
 • <b>Contract Review:</b> Comprehensive legal redlining within 24 business hours.`,
-a:[['⚡ AI Legal Document Drafter','/conversion/ai-document-generator.html'],['Trademark Clearance Search','/conversion/trademark-search.html'],['Upload Contract for Legal Review','/conversion/contract-intake.html']]},
+a:[['Document Drafter','/conversion/ai-document-generator.html'],['Trademark Clearance Search','/conversion/trademark-search.html'],['Upload Contract for Legal Review','/conversion/contract-intake.html']]},
 
 {k:['strike off','stk-2','stk2','close company','shut down','dormant','msc-1','exit','winding up'],
 r:`Under Section 248 of Companies Act 2013:<br>
@@ -97,7 +97,7 @@ a:[['Chat Live on WhatsApp','https://wa.me/918606918247'],['Email Legal Desk','m
 ];
 
 const PILLS=[
-['⚡ Compliance Calendar','Open the Autonomous Compliance Calendar OS'],
+['⚡ Compliance Calendar','Open the Compliance Calendar'],
 ['💬 Contact Desk','How do I contact CraftEgon CCS via WhatsApp or email?'],
 ['💎 Subscription Plans','What are the SaaS subscription retainer tiers and pricing?'],
 ['⚡ Incorporate Pvt Ltd','How do I incorporate a Pvt Ltd company in India?'],
@@ -105,7 +105,7 @@ const PILLS=[
 ['💰 RoC Late Fees','How much are late fees for Form AOC-4 and MGT-7?'],
 ['🌐 RBI FLA Return','What is the deadline and requirement for RBI FLA return?'],
 ['🔒 DPDP Act Audit','What are our fiduciary obligations under DPDP Act 2023?'],
-['📄 AI Doc Drafter','Can you generate a founder or NDA agreement?']
+['📄 Doc Drafter','Can you generate a founder or NDA agreement?']
 ];
 
 function ensureStyles(){
@@ -122,26 +122,26 @@ function createWidget(){
 if(document.getElementById('craftegon-chat-window'))return;
 const t=document.createElement('button');
 t.id='craftegon-chat-trigger';
-t.setAttribute('aria-label','Open CraftEgon AI Legal Counsel');
+t.setAttribute('aria-label','Open CraftEgon Compliance Assistant');
 t.innerHTML=`<div class="chat-pulse"></div><svg class="trigger-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><svg class="close-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
 const b=document.createElement('div');
 b.id='craftegon-chat-badge';
-b.innerHTML=`<span class="badge-dot"></span> Ask AI Counsel`;
+b.innerHTML=`<span class="badge-dot"></span> Compliance Help`;
 const w=document.createElement('div');
 w.id='craftegon-chat-window';
 w.setAttribute('role','dialog');
-w.setAttribute('aria-label','CraftEgon AI Legal & Compliance Co-Pilot');
+w.setAttribute('aria-label','CraftEgon Compliance Assistant');
 w.innerHTML=`<div class="cchat-header">
 <div class="cchat-brand-wrap">
 <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon CCS Logo" class="cchat-avatar">
 <div class="cchat-brand-info">
-<h4>CraftEgon CCS AI Counsel</h4>
-<span><span class="cchat-status-dot"></span> Ready for Statutory Advisory</span>
+<h4>Compliance Assistant</h4>
+<span><span class="cchat-status-dot"></span> Informational Compliance Guide</span>
 </div>
 </div>
 <div class="cchat-header-actions">
 <button class="cchat-btn-icon" id="cchat-clear-btn" title="Reset Conversation"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.8 1 6.5 2.7L21 8M21 3v5h-5"/></svg></button>
-<button class="cchat-btn-icon" id="cchat-close-btn" title="Minimize Co-Pilot"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+<button class="cchat-btn-icon" id="cchat-close-btn" title="Minimize Assistant"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
 </div>
 </div>
 <div class="cchat-body" id="cchat-messages-container"></div>
@@ -153,7 +153,7 @@ ${PILLS.map(([l,q])=>`<button class="cchat-pill" data-query="${escapeHtml(q)}">$
 <input type="text" id="cchat-input-field" class="cchat-input" placeholder="Ask statutory rule, due date, or fee..." autocomplete="off">
 <button type="submit" id="cchat-send-btn" class="cchat-send-btn" aria-label="Send message"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>
 </form>
-<div class="cchat-disclaimer">Cites Companies Act 2013, FEMA &amp; DPDP. For reference.</div>
+<div class="cchat-disclaimer">Automated informational guide for statutory reference only. Not legal advice.</div>
 </div>`;
 document.body.appendChild(t);
 document.body.appendChild(b);
@@ -178,7 +178,7 @@ if(!b)return;
 let aHtml=acts&&acts.length?`<div class="cchat-actions-grid">${acts.map(([l,u])=>`<a href="${u}" class="cchat-action-btn"><span>${l}</span><span>&rarr;</span></a>`).join('')}</div>`:'';
 const e=document.createElement('div');
 e.className='cchat-msg bot';
-e.innerHTML=`<div class="cchat-bubble">${h}${aHtml}</div><div class="cchat-timestamp">${getTime()} • CCS AI</div>`;
+e.innerHTML=`<div class="cchat-bubble">${h}${aHtml}</div><div class="cchat-timestamp">${getTime()} • CCS Assistant</div>`;
 b.appendChild(e);
 b.scrollTop=b.scrollHeight;
 }
@@ -208,9 +208,9 @@ if(score>maxScore){maxScore=score;best=item;}
 if(maxScore>=2&&best)return{r:best.r,a:best.a};
 return{
 r:`I have noted your inquiry regarding <em>"${escapeHtml(q)}"</em>.<br>
-CraftEgon CCS advises enterprise clients across all 15 corporate law verticals under the <b>Companies Act, 2013</b>, <b>FEMA 1999</b>, <b>DPDP Act, 2023</b>, and <b>SEBI/RBI</b> regulations.<br>
-You can compute statutory fees, draft agreements via our AI engine, or consult our practicing legal desk:`,
-a:[['Open Fee & Late Fee Calculator','/conversion/calculator.html'],['Priority Consultation Intake','/conversion/dispute-consultation.html'],['Explore All 15 Verticals','/index.html#service-verticals']]
+CraftEgon CCS provides corporate secretarial and statutory compliance assistance under the <b>Companies Act, 2013</b>, <b>FEMA 1999</b>, and <b>DPDP Act, 2023</b>.<br>
+You can calculate statutory fees, review compliance requirements, or connect with our corporate advisory desk:`,
+a:[['Fee & Late Fee Calculator','/conversion/calculator.html'],['Contact Compliance Desk','/conversion/retainer-desk.html'],['Explore Practice Areas','/index.html#practice-areas']]
 };
 }
 
@@ -228,9 +228,10 @@ appendBotMsg(res.r,res.a);
 function initGreeting(){
 const b=document.getElementById('cchat-messages-container');
 if(!b||b.children.length>0)return;
-appendBotMsg(`Welcome to <b>CraftEgon CCS AI Counsel</b>.<br>
-I am your statutory co-pilot for Indian corporate legal affairs, trained on the <b>Companies Act, 2013</b>, <b>FEMA 1999</b>, <b>RBI Master Directions</b>, and <b>DPDP Act, 2023</b>.<br>
-Select a prompt below or ask any question regarding incorporations, annual RoC filings, late fee calculations, or cross-border compliances.`);
+appendBotMsg(`Welcome to the <b>CraftEgon CCS Compliance Assistant</b>.<br>
+I provide automated guidance on Indian corporate statutory procedures, filing timelines, and regulatory workflows under the <b>Companies Act, 2013</b>, <b>FEMA 1999</b>, and <b>DPDP Act, 2023</b>.<br>
+<i>Note: This assistant provides procedural information only and does not constitute formal legal advice or representation.</i><br>
+Select a prompt below or type your inquiry.`);
 }
 
 function bind(){

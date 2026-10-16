@@ -24,15 +24,7 @@
   box-shadow: var(--shadow-standard);
 }
 
-.portal-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, rgba(197, 155, 39, 0.6) 50%, transparent 100%);
-}
+/* Cleaned decorative top line */
 
 .portal-badge {
   display: inline-flex;
@@ -51,12 +43,12 @@
 }
 
 .portal-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 2.25rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 0.75rem;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
 .portal-subtitle {
@@ -166,9 +158,9 @@
 }
 
 .entity-name {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 1.35rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-dark);
   margin: 0 0 0.25rem 0;
 }
@@ -315,9 +307,9 @@
 }
 
 .milestone-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-dark);
   margin: 0 0 0.4rem 0;
 }
@@ -552,9 +544,9 @@ input:checked + .slider:before {
 }
 
 .tier-name {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 1.35rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-dark);
   margin: 0 0 0.5rem 0;
 }

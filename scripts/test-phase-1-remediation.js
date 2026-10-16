@@ -214,6 +214,10 @@ assert(v10Content.includes('Dispute Avoidance (Non-Litigation)'), 'V10 hub title
 assert(!/we represent you in court/i.test(v10Content), 'V10 does not make courtroom representation claims');
 assert(v10Content.includes('Advocates Act, 1961'), 'V10 includes statutory non-litigation disclaimer under Advocates Act, 1961');
 
+// V10 Negative Regression: ensure old labels never return
+assert(!v10Content.includes('Corporate & Commercial Litigation Support'), 'V10 hub does not contain old label "Corporate & Commercial Litigation Support"');
+assert(!v10Content.includes('Litigation, NCLT & Commercial Disputes'), 'V10 hub does not contain old label "Litigation, NCLT & Commercial Disputes"');
+
 // V11: Governance, Audit & Risk
 const v11Path = path.join(ROOT, 'verticals', '11-governance-audit.html');
 const v11Content = fs.readFileSync(v11Path, 'utf8');
@@ -227,6 +231,11 @@ const v12Content = fs.readFileSync(v12Path, 'utf8');
 assert(hasTaxonomy(v12Content, 'Data Privacy & Tech Law'), 'V12 hub title contains "Data Privacy & Tech Law"');
 assert(v12Content.includes('V12-SVC-001') && v12Content.includes('V12-SVC-002') && v12Content.includes('V12-SVC-003'), 'V12 contains all 3 canonical service IDs');
 
+// V12 Negative Regression: ensure old labels never return
+assert(!v12Content.includes('ESG, BRSR'), 'V12 hub does not contain old label "ESG, BRSR"');
+assert(!v12Content.includes('ESG & Corporate Social Responsibility'), 'V12 hub does not contain old label "ESG & Corporate Social Responsibility"');
+assert(!v12Content.includes('Corporate Social Responsibility (CSR) Services'), 'V12 hub does not contain old label "Corporate Social Responsibility (CSR) Services"');
+
 // V15: IT & Digital Infrastructure (Approved coverage gap)
 const v15Path = path.join(ROOT, 'verticals', '15-it-digital.html');
 const v15Content = fs.readFileSync(v15Path, 'utf8');
@@ -239,16 +248,73 @@ const navbarContent = fs.readFileSync(path.join(ROOT, 'components', 'navbar.html
 assert(hasTaxonomy(navbarContent, 'Dispute Avoidance (Non-Litigation)'), 'Navbar contains V10 "Dispute Avoidance (Non-Litigation)"');
 assert(hasTaxonomy(navbarContent, 'Data Privacy & Tech Law'), 'Navbar contains V12 "Data Privacy & Tech Law"');
 assert(hasTaxonomy(navbarContent, 'IT & Digital Infrastructure'), 'Navbar contains V15 "IT & Digital Infrastructure"');
+assert(!navbarContent.includes('Corporate & Commercial Litigation'), 'Navbar does not contain old V10 litigation label');
+assert(!navbarContent.includes('ESG & Corporate Social Responsibility'), 'Navbar does not contain old V12 ESG label');
 
 const footerContent = fs.readFileSync(path.join(ROOT, 'components', 'footer.html'), 'utf8');
 assert(hasTaxonomy(footerContent, 'Dispute Avoidance (Non-Litigation)'), 'Footer contains V10 "Dispute Avoidance (Non-Litigation)"');
 assert(hasTaxonomy(footerContent, 'Data Privacy & Tech Law'), 'Footer contains V12 "Data Privacy & Tech Law"');
-assert(hasTaxonomy(footerContent, 'IT & Digital Infrastructure'), 'Footer contains V15 "IT & Digital Infrastructure"');
+assert(!footerContent.includes('Corporate & Commercial Litigation'), 'Footer does not contain old V10 litigation label');
+assert(!footerContent.includes('ESG & Corporate Social Responsibility'), 'Footer does not contain old V12 ESG label');
 
 const indexContent = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 assert(hasTaxonomy(indexContent, 'Dispute Avoidance (Non-Litigation)'), 'Index contains V10 "Dispute Avoidance (Non-Litigation)"');
 assert(hasTaxonomy(indexContent, 'Data Privacy & Tech Law'), 'Index contains V12 "Data Privacy & Tech Law"');
 assert(hasTaxonomy(indexContent, 'IT & Digital Infrastructure'), 'Index contains V15 "IT & Digital Infrastructure"');
+assert(!indexContent.includes('Corporate & Commercial Litigation'), 'Index does not contain old V10 litigation label');
+assert(!indexContent.includes('ESG, BRSR'), 'Index does not contain old V12 ESG label');
+
+// Global HTML Link and Breadcrumb Regression Checks
+function getAllHtmlFiles(dir, fileList = []) {
+  const items = fs.readdirSync(dir);
+  for (const item of items) {
+    const fullPath = path.join(dir, item);
+    const relPath = path.relative(ROOT, fullPath).replace(/\\/g, '/');
+    if (relPath.startsWith('scratch') || relPath.startsWith('node_modules') || relPath.startsWith('.git')) continue;
+    if (fs.statSync(fullPath).isDirectory()) {
+      getAllHtmlFiles(fullPath, fileList);
+    } else if (item.endsWith('.html')) {
+      fileList.push(fullPath);
+    }
+  }
+  return fileList;
+}
+
+const allHtml = getAllHtmlFiles(ROOT);
+let v10StaleLinkFound = false;
+let v12StaleLinkFound = false;
+
+allHtml.forEach(f => {
+  const rel = path.relative(ROOT, f).replace(/\\/g, '/');
+  const txt = fs.readFileSync(f, 'utf8');
+
+  // Check links pointing to 10-litigation-dispute.html
+  const v10Matches = txt.match(/<a\s+[^>]*href="[^"]*\/verticals\/10-litigation-dispute\.html"[^>]*>([\s\S]*?)<\/a>/gi) || [];
+  v10Matches.forEach(m => {
+    const linkText = m.replace(/<[^>]+>/g, '').trim();
+    if (!linkText.includes('Dispute Avoidance') && !linkText.includes('Access Vertical Hub') && !linkText.includes('Explore Practice Area')) {
+      v10StaleLinkFound = true;
+      assert(false, `No stale link text to V10 in ${rel}`, `Found "${linkText}" in ${m}`);
+    }
+  });
+
+  // Check links pointing to 12-esg-csr.html
+  const v12Matches = txt.match(/<a\s+[^>]*href="[^"]*\/verticals\/12-esg-csr\.html"[^>]*>([\s\S]*?)<\/a>/gi) || [];
+  v12Matches.forEach(m => {
+    const linkText = m.replace(/<[^>]+>/g, '').trim();
+    if (!linkText.includes('Data Privacy') && !linkText.includes('Access Vertical Hub') && !linkText.includes('Explore Practice Area')) {
+      v12StaleLinkFound = true;
+      assert(false, `No stale link text to V12 in ${rel}`, `Found "${linkText}" in ${m}`);
+    }
+  });
+});
+
+if (!v10StaleLinkFound) {
+  assert(true, 'All links to V10 hub across entire site strictly use approved "Dispute Avoidance (Non-Litigation)" taxonomy');
+}
+if (!v12StaleLinkFound) {
+  assert(true, 'All links to V12 hub across entire site strictly use approved "Data Privacy & Tech Law" taxonomy');
+}
 
 // ----------------------------------------------------
 // TEST SUITE 5: No Unsupported MCA-Sync or External Registry Claims

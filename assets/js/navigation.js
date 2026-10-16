@@ -32,22 +32,22 @@ document.addEventListener("DOMContentLoaded", async function () {
             <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
               <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
               <div class="brand-text-block">
-                <span class="brand-title" style="font-family: var(--font-serif); letter-spacing: 2.2px; font-weight: 700; color: var(--text-dark, #090D16);">CRAFTEGON</span>
-                <span class="brand-subtitle" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--brand-gold, #C59B27); letter-spacing: 1.2px; text-transform: uppercase;">Corporate Services</span>
+                <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #0F172A);">CRAFTEGON</span>
+                <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--brand-gold, #B4881B); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
               </div>
             </a>
             <nav class="if-nav">
               <a href="/index.html" class="if-nav-link">Home</a>
-              <a href="/index.html#service-verticals" class="if-nav-link">Practice Areas</a>
+              <a href="/index.html#practice-areas" class="if-nav-link">Practice Areas</a>
               <a href="/portal/dashboard.html" class="if-nav-link" style="color: var(--brand-gold);">Client Portal</a>
-              <a href="/conversion/index.html" class="if-nav-link">Diagnostic Tools &amp; AI</a>
-              <a href="/knowledge/index.html" class="if-nav-link">Knowledge Base</a>
+              <a href="/conversion/index.html" class="if-nav-link">Diagnostic Tools</a>
+              <a href="/knowledge/index.html" class="if-nav-link">Knowledge Centre</a>
               <a href="/conversion/calculator.html" class="if-nav-link">Fee Estimator</a>
             </nav>
             <div class="if-header-actions">
               <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border-color: rgba(37, 211, 102, 0.4); color: #25D366; padding: 0.6rem 0.95rem;">WhatsApp</a>
-              <a href="/portal/dashboard.html" class="if-btn-secondary" style="border-color: rgba(212, 175, 55, 0.4);"><span class="noble-badge-dot" style="margin-right: 4px;"></span>Portal OS</a>
-              <a href="/conversion/ai-document-generator.html" class="if-btn-secondary">AI Drafter</a>
+              <a href="/portal/dashboard.html" class="if-btn-secondary" style="border-color: rgba(212, 175, 55, 0.4);"><span class="noble-badge-dot" style="margin-right: 4px;"></span>Client Portal</a>
+              <a href="/conversion/ai-document-generator.html" class="if-btn-secondary">Doc Drafter</a>
               <a href="/conversion/calculator.html" class="if-btn-primary">Calculate Retainer</a>
               <button class="if-mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", async function () {
               <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
                 <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
                 <div class="brand-text-block">
-                  <span class="brand-title" style="font-family: var(--font-serif); letter-spacing: 2.2px; font-weight: 700; color: var(--text-dark, #090D16);">CRAFTEGON</span>
-                  <span class="brand-subtitle" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--brand-gold, #C59B27); letter-spacing: 1.2px; text-transform: uppercase;">Corporate Services</span>
+                  <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #0F172A);">CRAFTEGON</span>
+                  <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--brand-gold, #B4881B); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
                 </div>
               </a>
               <button class="if-mobile-drawer-close" id="mobile-drawer-close" aria-label="Close Navigation Menu">
@@ -70,12 +70,13 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
             <div class="if-mobile-drawer-body">
               <a href="/index.html" class="if-mobile-nav-link">Home</a>
+              <a href="/index.html#practice-areas" class="if-mobile-nav-link">Practice Areas</a>
               <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-mobile-nav-link" style="color: #25D366; font-weight:700;">💬 WhatsApp Desk: +91 86069 18247</a>
-              <a href="/portal/dashboard.html" class="if-mobile-nav-link" style="color: var(--gold-light); font-weight:700;">⚡ Compliance Calendar OS</a>
-              <a href="/portal/subscription.html" class="if-mobile-nav-link">SaaS Retainer Plans</a>
-              <a href="/conversion/index.html" class="if-mobile-nav-link">Diagnostic Tools Hub</a>
-              <a href="/knowledge/index.html" class="if-mobile-nav-link">Knowledge Base Hub</a>
-              <a href="/conversion/ai-document-generator.html" class="if-mobile-btn-ai" style="margin-top: 1rem;">⚡ AI Legal Drafter</a>
+              <a href="/portal/dashboard.html" class="if-mobile-nav-link" style="color: var(--gold-light); font-weight:700;">Client Portal &amp; Calendar</a>
+              <a href="/portal/subscription.html" class="if-mobile-nav-link">Retainer Plans</a>
+              <a href="/conversion/index.html" class="if-mobile-nav-link">Diagnostic Tools</a>
+              <a href="/knowledge/index.html" class="if-mobile-nav-link">Knowledge Centre</a>
+              <a href="/conversion/ai-document-generator.html" class="if-mobile-btn-ai" style="margin-top: 1rem;">Doc Drafter</a>
             </div>
           </div>
         </header>
@@ -99,38 +100,75 @@ document.addEventListener("DOMContentLoaded", async function () {
     } catch (error) {
       footerContainer.innerHTML = `
         <footer class="if-footer">
-          <div class="if-footer-grid" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
-            <div>
-              <a href="/index.html" class="if-brand-logo" style="margin-bottom: 0.85rem;" aria-label="CraftEgon Corporate Services Home">
-                <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
-                <div class="brand-text-block">
-                  <span class="brand-title" style="font-family: var(--font-serif); letter-spacing: 2px; font-weight: 700; color: #F8FAFC;">CRAFTEGON</span>
-                  <span class="brand-subtitle" style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--brand-gold, #C59B27); letter-spacing: 1.2px; text-transform: uppercase;">Corporate Services</span>
+          <div class="if-footer-inner">
+            <div class="if-footer-grid">
+              <div class="if-footer-col if-footer-brand">
+                <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
+                  <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
+                  <div class="brand-text-block">
+                    <span class="brand-title">CRAFTEGON</span>
+                    <span class="brand-subtitle">Corporate Services</span>
+                  </div>
+                </a>
+                <p class="if-footer-desc">
+                  Corporate secretarial, regulatory compliance, and statutory filing services for companies, LLPs, and foreign subsidiaries in India.
+                </p>
+                <div class="if-footer-contact">
+                  <p class="if-contact-item"><strong>Entity:</strong> CraftEgon LLP</p>
+                  <p class="if-contact-item"><strong>Office:</strong> Kozhikode, Kerala, India &bull; PIN 673001</p>
+                  <p class="if-contact-item"><strong>Phone:</strong> <a href="tel:+918606918247">+91 86069 18247</a></p>
+                  <p class="if-contact-item"><strong>WhatsApp:</strong> <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer">+91 86069 18247 &bull; Chat Live &rarr;</a></p>
+                  <p class="if-contact-item"><strong>Email:</strong> <a href="mailto:admin@craftegon.com">admin@craftegon.com</a></p>
                 </div>
-              </a>
-              <p style="margin: 0; font-size: 0.85rem; color: #94a3b8; max-width: 400px; line-height: 1.6;">India's premier AI-powered digital corporate and legal compliance operating system.</p>
-              <div style="margin-top: 0.75rem; font-size: 0.82rem; color: #94a3b8; display: flex; flex-direction: column; gap: 0.35rem;">
-                <span>Phone: <a href="tel:+918606918247" style="color: #CBD5E1; text-decoration: none;">+91 86069 18247</a></span>
-                <span>WhatsApp: <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" style="color: var(--gold-light); text-decoration: none; font-weight: 600;">+91 86069 18247 &bull; Chat Live &rarr;</a></span>
-                <span>Email: <a href="mailto:admin@craftegon.com" style="color: var(--gold-light); text-decoration: none;">admin@craftegon.com</a></span>
+              </div>
+              <div class="if-footer-col">
+                <h4 class="if-footer-heading">Services</h4>
+                <ul class="if-footer-list">
+                  <li><a href="/verticals/01-entity-formation.html">Entity Formation &amp; Structuring</a></li>
+                  <li><a href="/verticals/02-roc-compliance.html">RoC Secretarial &amp; Annual Filings</a></li>
+                  <li><a href="/verticals/03-tax-compliance.html">Corporate Tax &amp; GST Compliance</a></li>
+                  <li><a href="/verticals/04-statutory-licenses.html">Statutory Licenses &amp; Registrations</a></li>
+                  <li><a href="/verticals/05-contracts-legal.html">Commercial Contracts &amp; Drafting</a></li>
+                  <li><a href="/verticals/06-ipr-protection.html">IPR &amp; Trademark Protection</a></li>
+                  <li><a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a></li>
+                  <li><a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law</a></li>
+                  <li><a href="/verticals/13-cross-border-fema.html">Cross-Border FDI &amp; FEMA</a></li>
+                  <li class="if-footer-all-link"><a href="/index.html#practice-areas">Explore All Practice Areas &rarr;</a></li>
+                </ul>
+              </div>
+              <div class="if-footer-col">
+                <h4 class="if-footer-heading">Company &amp; Resources</h4>
+                <ul class="if-footer-list">
+                  <li><a href="/portal/dashboard.html">Client Portal &amp; Compliance Calendar</a></li>
+                  <li><a href="/portal/subscription.html">Annual Retainer Plans</a></li>
+                  <li><a href="/knowledge/index.html">Compliance Knowledge Centre</a></li>
+                  <li><a href="/conversion/calculator.html">RoC Late Fee Calculator</a></li>
+                  <li><a href="/conversion/index.html">Diagnostic Tools &amp; Checkers</a></li>
+                  <li><a href="/conversion/retainer-desk.html">Contact Compliance Desk</a></li>
+                </ul>
               </div>
             </div>
-            <div style="display: flex; gap: 2rem; font-size: 0.85rem; flex-wrap: wrap;">
-              <a href="/index.html" style="color: #94a3b8; text-decoration: none;">Home</a>
-              <a href="/portal/dashboard.html" style="color: var(--gold-light); text-decoration: none; font-weight: 600;">Compliance OS</a>
-              <a href="/portal/subscription.html" style="color: #94a3b8; text-decoration: none;">Retainer Plans</a>
-              <a href="/conversion/ai-document-generator.html" style="color: var(--gold-light); text-decoration: none; font-weight: 600;">AI Legal Drafter</a>
-              <a href="/conversion/calculator.html" style="color: #94a3b8; text-decoration: none;">Fee Calculator</a>
-              <a href="/knowledge/index.html" style="color: #94a3b8; text-decoration: none;">Knowledge Hub</a>
-              <a href="/legal/terms.html" style="color: #94a3b8; text-decoration: none;">Terms</a>
-              <a href="/legal/privacy.html" style="color: #94a3b8; text-decoration: none;">Privacy</a>
+            <div class="if-footer-legal-row">
+              <nav class="if-footer-legal-nav" aria-label="Legal and Policy Links">
+                <a href="/legal/terms.html">Terms &amp; Conditions</a>
+                <span class="if-legal-sep">&bull;</span>
+                <a href="/legal/privacy.html">Privacy Policy</a>
+                <span class="if-legal-sep">&bull;</span>
+                <a href="/legal/refund.html">Refund Policy</a>
+                <span class="if-legal-sep">&bull;</span>
+                <a href="/legal/disclaimer.html">Professional Disclaimer</a>
+                <span class="if-legal-sep">&bull;</span>
+                <a href="/legal/confidentiality.html">Confidentiality Policy</a>
+              </nav>
             </div>
-          </div>
-          <div style="max-width: 1200px; margin: 2rem auto 0; border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 1.5rem; text-align: center; font-size: 0.8rem; color: #94a3b8;">
-            <p>&copy; 2026 CraftEgon LLP. All rights reserved. Registered HQ: Kozhikode, Kerala, India.</p>
-            <p style="margin-top: 0.4rem; font-size: 0.75rem; color: #94a3b8; line-height: 1.5;">
-              <strong style="color: #CBD5E1;">Statutory Disclaimer:</strong> CraftEgon CCS provides corporate secretarial, compliance, and document drafting infrastructure. CraftEgon CCS does not provide legal representation, court appearances, or litigation advocacy before courts or tribunals; parties requiring representation must engage an independent advocate enrolled under the Advocates Act, 1961.
-            </p>
+            <div class="if-footer-bottom">
+              <p class="if-footer-disclaimer">
+                <strong>Statutory Disclosure:</strong> CraftEgon CCS provides corporate secretarial, compliance, and procedural documentation infrastructure. We do not provide court appearances or litigation advocacy; matters requiring courtroom representation must be handled by an independent advocate enrolled under the Advocates Act, 1961. <a href="/legal/disclaimer.html">Read full professional disclaimer &rarr;</a>
+              </p>
+              <p class="if-footer-copy">
+                &copy; 2026 CraftEgon LLP. All rights reserved. Registered Office: Kozhikode, Kerala, India &bull; PIN 673001. Operating across all RoC Jurisdictions nationwide.
+              </p>
+            </div>
           </div>
         </footer>
       `;
