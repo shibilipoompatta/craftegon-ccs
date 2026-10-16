@@ -87,12 +87,12 @@
 
   <main class="container" style="padding: 3rem 1.5rem; max-width: 850px;">
     <nav class="if-breadcrumb" aria-label="Breadcrumb">
-      <a href="/index.html">Home</a> / <a href="/verticals/06-ipr-protection.html">IPR Protection</a> / <span>Trademark Search Engine</span>
+      <a href="/index.html">Home</a> / <a href="/verticals/06-ipr-protection.html">IPR Protection</a> / <span>Trademark Classification & Clearance Intake</span>
     </nav>
     
     <div class="if-service-hero" style="text-align: left; padding: 2rem 0;">
-      <h1>IP India Public Trademark & Availability Search Engine</h1>
-      <p>Check wordmark availability, phonetic similarity, and nice classification across official Indian Intellectual Property registers instantly.</p>
+      <h1>Trademark Classification & Preliminary Clearance Intake</h1>
+      <p>Format validation, Nice classification selection, and professional clearance intake for Indian trademark applicants under the Trade Marks Act, 1999.</p>
     </div>
 
     <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
@@ -107,15 +107,15 @@
               <option value="class-42">Class 42 (IT/Legal)</option>
               <option value="all">All Classes</option>
             </select>
-            <button type="button" id="search-btn" class="if-btn-primary" onclick="simulateSearch()" style="padding: 0.75rem 1.5rem;">Search Database</button>
+            <button type="button" id="search-btn" class="if-btn-primary" onclick="simulateSearch()" style="padding: 0.75rem 1.5rem;">Analyze Mark Format</button>
           </div>
         </div>
       </div>
 
       <!-- Search Result Display Box -->
       <div id="search-results" style="margin-top: 1.5rem; padding: 1.25rem; border-radius: var(--radius-sm); background: #f8fafc; border: 1px solid var(--border-color); display: none;">
-        <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">Search Analysis & Availability Matrix</h4>
-        <p id="result-text" style="font-size: 0.85rem; color: var(--text-muted); margin: 0;"></p>
+        <h4 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">Format & Preliminary Classification Analysis</h4>
+        <div id="result-text" style="font-size: 0.85rem; color: var(--text-muted); margin: 0;"></div>
       </div>
     </div>
 
@@ -154,7 +154,7 @@
           <input type="email" name="email" required placeholder="brand@company.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
         </div>
 
-        <button type="submit" class="if-btn-primary" style="margin-top: 1rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Submit Application Intake for Filing</button>
+        <button type="submit" class="if-btn-primary" style="margin-top: 1rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Submit Application Intake for Clearance & Filing</button>
       </form>
     </div>
   </main>
@@ -164,17 +164,63 @@
   <script src="/assets/js/forms.js"></script>
   <script>
     function simulateSearch() {
-      const query = document.getElementById('brand-query').value.trim();
+      const queryInput = document.getElementById('brand-query');
+      const classSelect = document.getElementById('trademark-class');
       const resultsDiv = document.getElementById('search-results');
       const resultText = document.getElementById('result-text');
       
+      if (!queryInput || !resultsDiv || !resultText) return;
+      
+      const query = queryInput.value.trim();
       if (!query) {
-        alert("Please enter a brand name to search.");
+        alert("Please enter a brand name or wordmark to analyze.");
         return;
       }
 
+      // Display container & clear previous content safely
       resultsDiv.style.display = 'block';
-      resultText.innerHTML = `Scanning IP India public records for <strong>"${query}"</strong>... No identical prior registrations found in primary classes. High availability probability. Proceed with Form TM-A filing.`;
+      resultText.textContent = '';
+
+      const selectedClass = classSelect ? classSelect.options[classSelect.selectedIndex].text : 'Selected Class';
+
+      // Safe DOM construction — zero innerHTML interpolation of user input
+      const container = document.createElement('div');
+      container.style.cssText = 'padding: 0.5rem 0; line-height: 1.6;';
+
+      const badge = document.createElement('div');
+      badge.style.cssText = 'display: inline-block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: #b45309; background: #fef3c7; padding: 3px 8px; border-radius: 4px; margin-bottom: 0.6rem;';
+      badge.textContent = 'Format & Nice Class Analysis (Demo/Educational)';
+      container.appendChild(badge);
+
+      const markInfo = document.createElement('div');
+      markInfo.style.cssText = 'font-weight: 600; color: var(--text-dark, #090D16); margin-bottom: 0.5rem;';
+      markInfo.appendChild(document.createTextNode('Analyzed Wordmark: '));
+      const markSpan = document.createElement('span');
+      markSpan.style.color = 'var(--brand-gold, #C59B27)';
+      markSpan.textContent = query; // SAFE textContent
+      markInfo.appendChild(markSpan);
+      markInfo.appendChild(document.createTextNode(' in ' + selectedClass));
+      container.appendChild(markInfo);
+
+      const disclaimer = document.createElement('p');
+      disclaimer.style.cssText = 'font-size: 0.85rem; color: var(--text-main, #334155); margin: 0 0 0.75rem 0;';
+      disclaimer.textContent = 'Notice: No official trademark registry search was performed. This client-side tool evaluates mark format and Nice classification structure only. It does NOT query the IP India registry or guarantee mark availability or lack of conflicting prior registrations.';
+      container.appendChild(disclaimer);
+
+      const linkContainer = document.createElement('div');
+      linkContainer.style.cssText = 'font-size: 0.825rem; color: var(--text-muted, #64748b);';
+      linkContainer.textContent = 'For authoritative search results, consult the official IP India public search portal or request a comprehensive professional clearance search by a trademark attorney: ';
+      
+      const officialLink = document.createElement('a');
+      officialLink.href = 'https://ipindiaservices.gov.in/tmrpublicsearch/';
+      officialLink.target = '_blank';
+      officialLink.rel = 'noopener noreferrer';
+      officialLink.style.cssText = 'color: var(--brand-gold, #C59B27); font-weight: 600; text-decoration: underline;';
+      officialLink.textContent = 'IP India Public Search Portal (Official)';
+      linkContainer.appendChild(officialLink);
+      container.appendChild(linkContainer);
+
+      resultText.appendChild(container);
     }
   </script>
 </body>
