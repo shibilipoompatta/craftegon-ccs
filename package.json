@@ -4,12 +4,13 @@
   "description": "CraftEgon Corporate Services (CCS) - Enterprise Corporate Governance & Legal Compliance Operating System",
   "private": true,
   "scripts": {
-    "test": "node scripts/verify-links.js && node scripts/check-orphans.js && node scripts/audit-seo.js && node scripts/test-chat-engine.js && node scripts/test-trademark-search.js && node -c assets/js/config.js assets/js/navigation.js assets/js/forms.js assets/js/calculator.js assets/js/chat-widget.js",
+    "test": "node scripts/verify-links.js && node scripts/check-orphans.js && node scripts/audit-seo.js && node scripts/test-chat-engine.js && node scripts/test-trademark-search.js && node scripts/test-phase-1-remediation.js && node -c assets/js/config.js assets/js/navigation.js assets/js/forms.js assets/js/calculator.js assets/js/chat-widget.js",
     "test:links": "node scripts/verify-links.js",
     "test:orphans": "node scripts/check-orphans.js",
     "test:seo": "node scripts/audit-seo.js",
     "test:chat": "node scripts/test-chat-engine.js",
-    "test:tm": "node scripts/test-trademark-search.js"
+    "test:tm": "node scripts/test-trademark-search.js",
+    "test:remediation": "node scripts/test-phase-1-remediation.js"
   },
   "keywords": [
     "craftegon",

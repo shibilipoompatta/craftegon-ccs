@@ -67,10 +67,11 @@ r:`Corporate tax & audit milestones:<br>
 a:[['Transfer Pricing Filing','/services/form-3ceb.html'],['Corporate Tax Intake Portal','/conversion/tax-intake.html'],['Transfer Pricing Blueprint','/knowledge/transfer-pricing-guide.html']]},
 
 {k:['nclt','dispute','litigation','oppression','mismanagement','insolvency','cirp','ibc','disqualif','din restoration','section 241','section 242','section 7','section 9','writ'],
-r:`Litigation before NCLT, NCLAT & High Courts:<br>
-• <b>Oppression & Mismanagement (Sec 241/242):</b> Shareholder protection against unlawful dilution or oppression.<br>
-• <b>IBC Insolvency (Sec 7/9/10):</b> CIRP defense against claims meeting ₹1 Cr threshold.<br>
-• <b>DIN Restoration:</b> Sec 164(2) relief via HC Art 226 Writs or Sec 252 restorations.`,
+r:`Dispute Avoidance & External Legal Referral:<br>
+• <b>Oppression & Mismanagement (Sec 241/242):</b> Statutory guidance and independent advocate referral for shareholder deadlocks.<br>
+• <b>IBC Insolvency (Sec 7/9):</b> Creditor notice response advisory & independent counsel referral.<br>
+• <b>DIN Restoration:</b> Sec 164(2) relief via High Court Art 226 Writs or RoC compounding.<br>
+<i>Note: Court and tribunal appearances require an independent advocate enrolled under the Advocates Act, 1961.</i>`,
 a:[['Priority Incident Intake Desk','/conversion/dispute-consultation.html'],['NCLT Insolvency Defense','/services/nclt-insolvency-defense.html'],['DIN Restoration Guide','/knowledge/director-disqualification-guide.html']]},
 
 {k:['contract','agreement','draft','nda','sha','employment','trademark','trademark search','ipr','copyright','patent'],

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://craftegon.com/sitemap.xml
+Sitemap: https://ccs.craftegon.com/sitemap.xml

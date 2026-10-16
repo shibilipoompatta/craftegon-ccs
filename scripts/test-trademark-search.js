@@ -37,7 +37,7 @@ console.log('\n=== RUNNING TRADEMARK SEARCH DOM-XSS & CLAIM SAFETY TEST SUITE ==
 function createDomInstance() {
   const dom = new JSDOM(htmlSource, {
     runScripts: 'dangerously',
-    url: 'https://craftegon.com/conversion/trademark-search.html'
+    url: 'https://ccs.craftegon.com/conversion/trademark-search.html'
   });
   return dom;
 }
@@ -120,7 +120,7 @@ console.log('\n--- Test Suite 2: False Claims & Registry Query Audit ---');
   const officialLink = document.getElementById('result-text').querySelector('a[href*="ipindiaservices.gov.in"]');
   assert(
     officialLink !== null && officialLink.getAttribute('target') === '_blank' && officialLink.getAttribute('rel')?.includes('noopener'),
-    'Provides safe external link to official IP India portal with rel="noopener noreferrer"'
+    'Provides outbound link to official IP India portal with rel="noopener noreferrer"'
   );
 }
 

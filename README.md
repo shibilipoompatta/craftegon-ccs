@@ -84,15 +84,15 @@ craftegon-ccs/
 
 ## 4. Phase 1 Foundations & Governance Status
 
-Phase 1 foundations have been completed and verified within the local non-production working tree:
+Phase 1 foundations have been established and audited within the local non-production working tree:
 
 | Governance Area | Implemented & Evidenced State | Verification Status |
 | :--- | :--- | :--- |
 | **15-Vertical Taxonomy** | Fully approved and aligned across navigation, vertical hubs, and service routes | **VERIFIED** |
-| **Active Service Ownership** | 53 retained active services locked with exact IDs and primary vertical owners | **VERIFIED** |
+| **Active Service Ownership** | 53 retained active services accounted for; approved CSV/MD registry artifacts are unavailable in this workspace; exact individual ID matching marked for verification | **BLOCKED / NEEDS VERIFICATION** |
 | **Transactional Merger Scope** | `services/nclt-merger-petitions.html` locked to `V09-SVC-003` for transactional secretarial scheme execution under Sections 230–232; contentious advocacy excluded | **VERIFIED** |
-| **Litigation Firewall** | 3 litigation/insolvency routes (`nclt-insolvency-defense.html`, `oppression-mismanagement-petitions.html`, `director-removal-board-disputes.html`) converted to External Referral Only (NO service ID, NO primary vertical, NO CCS representation offer) | **VERIFIED** |
-| **Taxonomy Coverage Gaps** | V08 (Fundraising), V14 (Exit/Insolvency), and V15 (IT/Digital) explicitly retained as documented gaps; no synthetic services or speculative IDs created | **VERIFIED** |
+| **Litigation Referral Scope** | 3 litigation/insolvency routes (`nclt-insolvency-defense.html`, `oppression-mismanagement-petitions.html`, `director-removal-board-disputes.html`) converted to External Referral Only (NO service ID, NO primary vertical, NO CCS representation offer) | **VERIFIED** |
+| **Taxonomy Coverage Gaps** | V08 (Fundraising), V14 (Corporate Retainers & Legal Desk), and V15 (IT & Digital) explicitly retained as documented gaps with zero assigned service IDs (V15=0); no synthetic services created | **VERIFIED** |
 | **DOM-XSS Mitigation** | `conversion/trademark-search.html` refactored to safe DOM node creation (`textContent`); zero `innerHTML` interpolation of user input; tested via `jsdom` (40/40 checks pass) | **VERIFIED** |
 | **Truthful Claims** | Removed deceptive claims of "Live MCA V3 Connector", "Real-time sync", and false trademark availability guarantees; replaced with truthful, rules-grounded descriptions | **VERIFIED** |
 | **Canonical Strategy** | Intended canonical domain is `https://ccs.craftegon.com`; in-tree sources currently reference `https://craftegon.com`. Broad redirects from root domain are strictly prohibited; canonical tag cutover is gated pending DNS verification | **GATED** |
@@ -100,7 +100,7 @@ Phase 1 foundations have been completed and verified within the local non-produc
 ### Gated Items for Production Deployment Owner:
 1. **DNS & Hosting Delegation**: Authoritative DNS configuration of CNAME `ccs.craftegon.com` and SSL certificate provisioning on Cloudflare Pages.
 2. **Production Canonical Cutover**: Updating in-tree canonical metadata from `https://craftegon.com` to `https://ccs.craftegon.com` once live edge routing is verified.
-3. **Advocate Network Agreements**: Formal bilateral execution of panel representation agreements with independent practicing advocates under the Advocates Act, 1961.
+3. **Approved Ownership Registry Verification**: Reconciling exact individual service IDs against `review-output/phase-1-foundations/phase-1-service-ownership-registry-approved.csv` once the approved register artifact is supplied.
 
 ---
 
@@ -127,7 +127,7 @@ npm run test:tm        # Real DOM-level XSS regression & claim integrity suite (
 > [!IMPORTANT]
 > Non-production working tree only. Production deployment must remain disabled until Phase 1 review sign-off and deployment-owner DNS verification.
 
-1. **Pre-flight Checks**: Execute `npm test` to verify 100% test pass.
+1. **Pre-flight Checks**: Execute `npm test` to verify in-tree test pass.
 2. **Production Review & Git Push**:
    ```bash
    git status
@@ -140,4 +140,4 @@ npm run test:tm        # Real DOM-level XSS regression & claim integrity suite (
 
 ## 7. Statutory Disclaimer & Regulatory Framework
 
-CraftEgon CCS provides corporate secretarial, statutory compliance, and document drafting infrastructure. All formal legal representation, court appearances, and litigation advocacy before the NCLT, NCLAT, High Courts, and Supreme Court are handled exclusively through our panel of independent associated advocates and senior legal counsel in strict adherence to the Advocates Act, 1961 and Bar Council of India regulations.
+CraftEgon CCS provides corporate secretarial, statutory compliance, and document drafting infrastructure. CraftEgon CCS does not enter appearances, handle contentious litigation, or provide formal tribunal advocacy before courts or tribunals. Clients requiring formal legal representation must engage an independent advocate enrolled under the Advocates Act, 1961. No advocate network, panel agreement, or exclusive referral destination is established in this repository.

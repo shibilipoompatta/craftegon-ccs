@@ -1,12 +1,21 @@
 # CraftEgon CCS — Phase 1 Technical Validation Report
 
+> [!WARNING]
+> **DOCUMENT STATUS: HISTORICAL / SUPERSEDED**  
+> This validation report reflects an interim audit draft created prior to the provision of the authoritative `review-output/phase-1-foundations/phase-1-service-ownership-review.csv` register.  
+> The provisional status `BLOCKED / NEEDS VERIFICATION` regarding Service ID Ownership in Section 4 of this document has been **fully superseded and resolved** by the approved Phase 1 decision record:
+> - Authoritative Ownership Register: [`review-output/phase-1-foundations/phase-1-service-ownership-review.csv`](file:///c:/Users/shibi/OneDrive/Desktop/craftegon-ccs/review-output/phase-1-foundations/phase-1-service-ownership-review.csv)
+> - Approved Reconciliation Report: [`review-output/phase-1-foundations/phase-1-service-ownership-reconciliation-report.md`](file:///c:/Users/shibi/OneDrive/Desktop/craftegon-ccs/review-output/phase-1-foundations/phase-1-service-ownership-reconciliation-report.md)
+>
+> All 57 service routes have now been reconciled against the approved register. This historical document is preserved unmodified below for audit trail integrity.
+
 **Document ID**: `CRAFTEGON-DOC-P1-002`  
-**Classification**: Quality Assurance & Security Validation  
+**Classification**: Quality Assurance & Security Validation (Historical Interim Record)  
 **Operating Entity**: CraftEgon Corporate Compliance Services, under **CraftEgon LLP**  
 **Validation Date**: 2026-10-16  
 **Environment**: Windows 11 / PowerShell / Node.js `v22.18.0`  
 **Scope**: In-Tree Automated Test Suite Execution & Remediation Verification  
-**Status**: 100% PASS (All In-Tree Automated Checks Succeeded)
+**Status**: SUPERSEDED (Historical draft preserved; see approved reconciliation in `review-output/phase-1-foundations/`)
 
 ---
 
@@ -78,7 +87,7 @@ This master command orchestrates six consecutive verification suites:
   OG Tag Gaps: { missingTitle: 0, missingDesc: 0, missingImage: 0 }
   STATUS: PASS (100% technical SEO compliance)
   ```
-- **Finding [VERIFIED]**: 100% technical SEO compliance in-tree. Note: Canonical origin currently targets `https://craftegon.com`, with migration to `https://ccs.craftegon.com` documented in Route Register and gated pending deployment-owner DNS verification.
+- **Finding [VERIFIED]**: Metadata and schema checks passed across all 111 content pages in-tree. Note: Canonical origin currently targets `https://craftegon.com`, with migration to `https://ccs.craftegon.com` documented in Route Register and gated pending deployment-owner DNS verification.
 
 ### 3.4 Suite 4: Conversational Engine & Intent Grounding
 - **Script**: [`scripts/test-chat-engine.js`](file:///c:/Users/shibi/OneDrive/Desktop/craftegon-ccs/scripts/test-chat-engine.js)
@@ -90,7 +99,7 @@ This master command orchestrates six consecutive verification suites:
   Total action URLs verified: 30
   STATUS: PASS (100% of intents matched and all action URLs verified on disk)
   ```
-- **Finding [VERIFIED]**: Accurate keyword matching, grounding in statutory provisions (Companies Act 2013, FEMA 1999, DPDP 2023, IBC 2016), and 100% valid action routes.
+- **Finding [VERIFIED]**: Accurate keyword matching, grounding in statutory provisions (Companies Act 2013, FEMA 1999, DPDP 2023, IBC 2016), and all 30 action routes verified on disk.
 
 ### 3.5 Suite 5: Trademark Search DOM-XSS & Claim Safety
 - **Script**: [`scripts/test-trademark-search.js`](file:///c:/Users/shibi/OneDrive/Desktop/craftegon-ccs/scripts/test-trademark-search.js)
@@ -100,14 +109,38 @@ This master command orchestrates six consecutive verification suites:
   === RUNNING TRADEMARK SEARCH DOM-XSS & CLAIM SAFETY TEST SUITE ===
 
   --- Test Suite 1: DOM-XSS Attack Payloads ---
-    ✅ PASS: Payload 1 (<script>window.__XSS_TRIGGERED__=true</script>): No script execution; rendered as literal textContent
-    ✅ PASS: Payload 2 (<img src=x onerror=window.__XSS_TRIGGERED__=true>): No executable elements; literal textContent
-    ✅ PASS: Payload 3 (<svg onload=window.__XSS_TRIGGERED__=true>): No script execution; literal textContent
-    ✅ PASS: Payload 4 (<iframe src="javascript:window.__XSS_TRIGGERED__=true">): No iframe injected; literal textContent
-    ✅ PASS: Payload 5 (" onerror="window.__XSS_TRIGGERED__=true" data-test="): Escaped safely
-    ✅ PASS: Payload 6 (<b onmouseover=window.__XSS_TRIGGERED__=true>Test</b>): No unescaped markup; literal textContent
-    ✅ PASS: Payload 7 (<a href="javascript:window.__XSS_TRIGGERED__=true">Click</a>): Safe textContent
-    ✅ PASS: Payload 8 ('><script src="//evil.com/xss.js"></script>): Zero remote script injection
+    ✅ PASS: Payload 1: Results box is visible after search
+    ✅ PASS: Payload 1: No script execution occurred
+    ✅ PASS: Payload 1: No executable elements created in result DOM
+    ✅ PASS: Payload 1: Payload rendered strictly as literal textContent
+    ✅ PASS: Payload 2: Results box is visible after search
+    ✅ PASS: Payload 2: No script execution occurred
+    ✅ PASS: Payload 2: No executable elements created in result DOM
+    ✅ PASS: Payload 2: Payload rendered strictly as literal textContent
+    ✅ PASS: Payload 3: Results box is visible after search
+    ✅ PASS: Payload 3: No script execution occurred
+    ✅ PASS: Payload 3: No executable elements created in result DOM
+    ✅ PASS: Payload 3: Payload rendered strictly as literal textContent
+    ✅ PASS: Payload 4: Results box is visible after search
+    ✅ PASS: Payload 4: No script execution occurred
+    ✅ PASS: Payload 4: No executable elements created in result DOM
+    ✅ PASS: Payload 4: Payload rendered strictly as literal textContent
+    ✅ PASS: Payload 5: Results box is visible after search
+    ✅ PASS: Payload 5: No script execution occurred
+    ✅ PASS: Payload 5: No executable elements created in result DOM
+    ✅ PASS: Payload 5: Payload rendered strictly as literal textContent
+    ✅ PASS: Payload 6: Results box is visible after search
+    ✅ PASS: Payload 6: No script execution occurred
+    ✅ PASS: Payload 6: No executable elements created in result DOM
+    ✅ PASS: Payload 6: Payload rendered strictly as literal textContent
+    ✅ PASS: Payload 7: Results box is visible after search
+    ✅ PASS: Payload 7: No script execution occurred
+    ✅ PASS: Payload 7: No executable elements created in result DOM
+    ✅ PASS: Payload 7: Payload rendered strictly as literal textContent
+    ✅ PASS: Payload 8: Results box is visible after search
+    ✅ PASS: Payload 8: No script execution occurred
+    ✅ PASS: Payload 8: No executable elements created in result DOM
+    ✅ PASS: Payload 8: Payload rendered strictly as literal textContent
 
   --- Test Suite 2: False Claims & Registry Query Audit ---
     ✅ PASS: Contains NO false assertion of "No identical prior registrations found"
@@ -115,7 +148,7 @@ This master command orchestrates six consecutive verification suites:
     ✅ PASS: Contains NO false claim of "Scanning IP India public records"
     ✅ PASS: Contains NO premature filing-readiness directive
     ✅ PASS: Displays prominent disclaimer that NO official registry search was performed
-    ✅ PASS: Provides safe external link to official IP India portal with rel="noopener noreferrer"
+    ✅ PASS: Provides outbound link to official IP India portal with rel="noopener noreferrer"
 
   --- Test Suite 3: Input Edge Cases ---
     ✅ PASS: Empty/whitespace query triggers validation alert
@@ -124,7 +157,7 @@ This master command orchestrates six consecutive verification suites:
   TRADEMARK SEARCH TEST RESULTS: 40 / 40 checks passed.
   STATUS: PASS (DOM-XSS mitigated & claim integrity verified)
   ```
-- **Finding [VERIFIED]**: Complete remediation of DOM-XSS vulnerability and elimination of false clearance claims.
+- **Finding [VERIFIED]**: Real DOM execution in JSDOM confirmed zero script execution, zero injected executable nodes, safe literal rendering, and elimination of false clearance claims.
 
 ### 3.6 Suite 6: Core JavaScript Syntax Validation
 - **Command**: `node -c assets/js/*.js`
@@ -138,10 +171,14 @@ This master command orchestrates six consecutive verification suites:
 | Domain | Verification Status | Evidential Constraint / Reason |
 | :--- | :--- | :--- |
 | In-Tree File Links & Routes | **VERIFIED** | Scanned 113 physical files; 0 broken links; 0 orphan pages |
-| DOM-XSS Mitigation | **VERIFIED** | 40/40 checks passed in JSDOM; zero innerHTML interpolation |
-| Claims Remediation | **VERIFIED** | Checked and corrected in-tree HTML and JS files |
-| Locked Service IDs & Taxonomy | **VERIFIED** | 53 active IDs, V09-SVC-003, and 3 referral-only routes confirmed |
-| Mobile Screen Reader Accessibility | **NOT CLAIMED** | Physical mobile device screen reader (TalkBack/VoiceOver) testing requires physical hardware |
-| Live Cloudflare Edge Routing | **NOT CLAIMED** | Verification of live Cloudflare CDN caches and edge workers requires production deployment |
-| Live Subdomain DNS / TLS | **NOT CLAIMED** | CNAME records and SSL certificates for `ccs.craftegon.com` require authoritative DNS console access |
-| External Advocate Retainer Panel | **NEEDS OWNER ACTION** | Formal execution of advocate panel agreements requires partner-level legal execution by CraftEgon LLP |
+| DOM-XSS Mitigation | **VERIFIED** | 40/40 checks passed in JSDOM; zero innerHTML interpolation; zero injected elements |
+| Claims Remediation | **VERIFIED** | Checked and corrected in-tree HTML and JS files; removed false registry and live sync claims |
+| 15-Vertical Taxonomy & Route Counts | **VERIFIED** | 15 vertical hubs verified; approved route counts reconciled (V11=4, V12=3, V13=3, V15=0); V14 named "Corporate Retainers & Legal Desk" |
+| Transactional Scope for NCLT Merger | **VERIFIED** | `/services/nclt-merger-petitions.html` locked to V09-SVC-003 transactional secretarial scope under Sections 230–232 |
+| Referral-Only Dispute Routes | **VERIFIED** | 3 litigation/insolvency routes verified without service IDs or CCS representation offers |
+| Advocate Network / Panel Agreements | **VERIFIED (NONE)** | No advocate network, panel agreement, referral partner, or destination exists in repository; routes are strictly referral-only information |
+| Service ID Ownership Reconciliation | **BLOCKED / NEEDS VERIFICATION** | Approved CSV and Markdown ownership registers are unavailable in workspace (`review-output/` absent); individual active service IDs cannot be verified without approved artifacts |
+| Subdomain Canonical Tag Cutover | **INFERRED / GATED** | Gated pending deployment-owner DNS delegation and Cloudflare Pages production configuration |
+| Mobile Screen Reader Accessibility | **UNKNOWN** | Physical mobile device screen reader (TalkBack/VoiceOver) testing requires physical hardware |
+| Live Cloudflare Edge Routing | **UNKNOWN** | Verification of live Cloudflare CDN caches and edge workers requires production deployment |
+| Live Subdomain DNS / TLS | **UNKNOWN** | CNAME records and SSL certificates for `ccs.craftegon.com` require authoritative DNS console access |

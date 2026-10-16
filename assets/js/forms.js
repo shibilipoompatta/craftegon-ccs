@@ -219,6 +219,17 @@ function showFormError(form, message) {
   form.prepend(alertBox);
 }
 
+function escapeHtml(str) {
+  if (!str) return "";
+  return String(str).replace(/[&<>"']/g, m => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[m]));
+}
+
 function showFormFallbackNotice(form, data) {
   const alertBox = document.createElement("div");
   alertBox.className = "if-form-alert";
@@ -240,10 +251,13 @@ function showFormFallbackNotice(form, data) {
 
   alertBox.innerHTML = `
     <div style="font-weight: 700; color: var(--text-dark, #090D16); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-cinzel, 'Cinzel', serif);">
-      <span style="color: var(--text-dark-gold, #785B0D);">⚡ Direct Compliance Connection</span>
+      <span style="color: var(--text-dark-gold, #785B0D);">Notice: Direct Engagement Channel</span>
     </div>
-    <p style="font-size: 0.875rem; color: var(--text-main, #334155); margin: 0 0 1rem 0; line-height: 1.5; font-family: var(--font-body, 'Manrope', sans-serif);">
-      Your enquiry parameters have been staged locally. Connect directly with our practicing legal and corporate compliance team via WhatsApp or Email:
+    <div style="background: rgba(245, 158, 11, 0.1); border-left: 3px solid #F59E0B; padding: 0.6rem 0.8rem; border-radius: 4px; margin-bottom: 0.85rem; font-size: 0.8rem; color: var(--text-dark, #090D16); line-height: 1.45;">
+      <strong>Submission Notice:</strong> Online form transmission to a backend server is not active in this static environment. Details entered in this form are not stored or transmitted to CraftEgon CCS.
+    </div>
+    <p style="font-size: 0.85rem; color: var(--text-main, #334155); margin: 0 0 1rem 0; line-height: 1.5; font-family: var(--font-body, 'Manrope', sans-serif);">
+      To consult with our corporate compliance desk regarding <strong>${escapeHtml(serviceName)}</strong>, please connect directly using our verified WhatsApp or Email channels:
     </p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
       <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">

@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           <div style="max-width: 1200px; margin: 2rem auto 0; border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 1.5rem; text-align: center; font-size: 0.8rem; color: #94a3b8;">
             <p>&copy; 2026 CraftEgon LLP. All rights reserved. Registered HQ: Kozhikode, Kerala, India.</p>
             <p style="margin-top: 0.4rem; font-size: 0.75rem; color: #94a3b8; line-height: 1.5;">
-              <strong style="color: #CBD5E1;">Statutory Disclaimer:</strong> CraftEgon CCS provides corporate secretarial, compliance, and document drafting infrastructure. All formal legal representation, court appearances, and litigation advocacy are handled exclusively through our panel of independent associated advocates and senior legal counsel.
+              <strong style="color: #CBD5E1;">Statutory Disclaimer:</strong> CraftEgon CCS provides corporate secretarial, compliance, and document drafting infrastructure. CraftEgon CCS does not provide legal representation, court appearances, or litigation advocacy before courts or tribunals; parties requiring representation must engage an independent advocate enrolled under the Advocates Act, 1961.
             </p>
           </div>
         </footer>

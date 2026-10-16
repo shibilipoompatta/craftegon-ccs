@@ -35,6 +35,9 @@ let missingDescriptions = [];
 let missingSchemas = [];
 let ogTags = { missingTitle: 0, missingDesc: 0, missingImage: 0 };
 
+const APPROVED_CANONICAL_HOST = 'https://ccs.craftegon.com';
+let invalidOrigins = [];
+
 htmlFiles.forEach(f => {
   const rel = path.relative(rootDir, f).replace(/\\/g, '/');
   if (rel.startsWith('components/')) return;
@@ -47,8 +50,12 @@ htmlFiles.forEach(f => {
     try {
       const u = new URL(cm[1]);
       canonicals[u.origin] = (canonicals[u.origin] || 0) + 1;
+      if (u.origin !== APPROVED_CANONICAL_HOST) {
+        invalidOrigins.push({ file: rel, origin: u.origin });
+      }
     } catch(e) {
       canonicals[cm[1]] = (canonicals[cm[1]] || 0) + 1;
+      invalidOrigins.push({ file: rel, origin: cm[1] });
     }
   } else {
     missingCanonicals.push(rel);
@@ -73,17 +80,22 @@ htmlFiles.forEach(f => {
 
 console.log(`\n=== TECHNICAL SEO AUDIT REPORT ===`);
 console.log(`Total content HTML files evaluated: ${htmlFiles.length - 2}`);
-console.log(`Canonical Origins:`, canonicals);
+console.log(`Approved Canonical Target: ${APPROVED_CANONICAL_HOST}`);
+console.log(`Canonical Origins Detected:`, canonicals);
+console.log(`Invalid Canonical Origins: ${invalidOrigins.length}`);
 console.log(`Missing Canonicals: ${missingCanonicals.length}`);
 console.log(`Missing Titles: ${missingTitles.length}`);
 console.log(`Missing Descriptions: ${missingDescriptions.length}`);
 console.log(`Missing JSON-LD Schemas: ${missingSchemas.length}`);
 console.log(`OG Tag Gaps:`, ogTags);
 
-const totalErrors = missingCanonicals.length + missingTitles.length + missingDescriptions.length + missingSchemas.length + ogTags.missingTitle + ogTags.missingDesc + ogTags.missingImage;
+const totalErrors = invalidOrigins.length + missingCanonicals.length + missingTitles.length + missingDescriptions.length + missingSchemas.length + ogTags.missingTitle + ogTags.missingDesc + ogTags.missingImage;
 
 if (totalErrors > 0) {
+  if (invalidOrigins.length > 0) {
+    console.error(`ERROR: Found ${invalidOrigins.length} files with non-canonical origin. Examples:`, invalidOrigins.slice(0, 3));
+  }
   process.exit(1);
 } else {
-  console.log(`STATUS: PASS (100% technical SEO compliance)\n`);
+  console.log(`STATUS: PASS (100% technical SEO & canonical host compliance)\n`);
 }

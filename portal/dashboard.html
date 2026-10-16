@@ -13,22 +13,22 @@
   <!-- Favicon & Brand Icons -->
   <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
   <link rel="apple-touch-icon" href="/assets/images/craftegon-logo.jpg">
-  <link rel="canonical" href="https://craftegon.com/portal/dashboard.html">
+  <link rel="canonical" href="https://ccs.craftegon.com/portal/dashboard.html">
 
   <!-- Open Graph / Meta Protocol -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CraftEgon CCS">
-  <meta property="og:url" content="https://craftegon.com/portal/dashboard.html">
+  <meta property="og:url" content="https://ccs.craftegon.com/portal/dashboard.html">
   <meta property="og:title" content="Corporate Compliance Calendar &amp; Client Portal | CraftEgon CCS">
   <meta property="og:description" content="CraftEgon CCS Corporate Compliance Operating System: Rules-based statutory deadline calculations, filing countdown clocks, and compliance calendar tracking.">
-  <meta property="og:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+  <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@craftegon">
   <meta name="twitter:title" content="Corporate Compliance Calendar &amp; Client Portal | CraftEgon CCS">
   <meta name="twitter:description" content="CraftEgon CCS Corporate Compliance Operating System: Rules-based statutory deadline calculations, filing countdown clocks, and compliance calendar tracking.">
-  <meta name="twitter:image" content="https://craftegon.com/assets/images/craftegon-logo.jpg">
+  <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
 
   <!-- Structured Schema Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -37,23 +37,23 @@
     "@graph": [
       {
         "@type": "BreadcrumbList",
-        "@id": "https://craftegon.com/portal/dashboard.html#breadcrumb",
+        "@id": "https://ccs.craftegon.com/portal/dashboard.html#breadcrumb",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://craftegon.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Client Portal", "item": "https://craftegon.com/portal/dashboard.html" }
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ccs.craftegon.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Client Portal", "item": "https://ccs.craftegon.com/portal/dashboard.html" }
         ]
       },
       {
         "@type": "WebPage",
-        "@id": "https://craftegon.com/portal/dashboard.html#webpage",
-        "url": "https://craftegon.com/portal/dashboard.html",
+        "@id": "https://ccs.craftegon.com/portal/dashboard.html#webpage",
+        "url": "https://ccs.craftegon.com/portal/dashboard.html",
         "name": "Corporate Compliance Calendar & Client Portal | CraftEgon CCS",
         "description": "CraftEgon CCS Corporate Compliance Operating System: Rules-based statutory deadline calculations, filing countdown clocks, and compliance calendar tracking.",
         "isPartOf": {
           "@type": "WebSite",
-          "@id": "https://craftegon.com/#website",
+          "@id": "https://ccs.craftegon.com/#website",
           "name": "CraftEgon CCS",
-          "url": "https://craftegon.com"
+          "url": "https://ccs.craftegon.com"
         }
       }
     ]
@@ -92,6 +92,10 @@
         <span class="noble-badge"><span class="noble-badge-dot"></span> Rules-Based Engine</span>
       </div>
 
+      <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #F59E0B; padding: 0.75rem 1rem; border-radius: 4px; margin-bottom: 1.25rem; font-size: 0.82rem; color: var(--text-dark); line-height: 1.5;">
+        <strong>Demo &amp; Reference Mode:</strong> Deadlines and entity profiles shown are simulated demonstrations computed using statutory formulas under the Companies Act 2013 and sample reference datasets. This interface does not connect to, query, or live-sync with the Ministry of Corporate Affairs (MCA) V3 portal or any government registry.
+      </div>
+
       <form id="cin-lookup-form" class="lookup-form" onsubmit="handleCinLookup(event)">
         <div class="lookup-input-wrap">
           <input type="text" id="cin-input" class="lookup-input" placeholder="e.g. U72900KL2023PTC078912 or AAB-8910" value="U72900KL2023PTC078912" required>
@@ -114,7 +118,7 @@
         <div class="entity-header">
           <div>
             <h4 class="entity-name" id="disp-entity-name">CraftEgon Technologies Private Limited</h4>
-            <div class="entity-cin" id="disp-entity-cin">CIN: U72900KL2023PTC078912 &bull; RoC Ernakulam / Kerala</div>
+            <div class="entity-cin" id="disp-entity-cin">CIN: U72900KL2023PTC078912 &bull; RoC Ernakulam / Kerala (Sample Profile)</div>
           </div>
           <div class="status-verified">
             <span style="display:inline-block; width:6px; height:6px; background:#10B981; border-radius:50%;"></span>
@@ -365,10 +369,10 @@
     <div class="alerts-settings-card">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <h3 style="margin: 0 0 0.35rem 0; font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-dark);">Automated Multi-Channel Regulatory Alerts</h3>
-          <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Autonomous alerts dispatched 7 days, 3 days, and 24 hours prior to MCA, Tax, and RBI statutory deadlines.</p>
+          <h3 style="margin: 0 0 0.35rem 0; font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-dark);">Regulatory Alert Preferences (Sandbox Configuration)</h3>
+          <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Configure compliance reminder intervals. Automated gateway dispatch (WhatsApp Business API / SendGrid) is scheduled for Phase 2 backend binding.</p>
         </div>
-        <span class="status-verified"><span style="display:inline-block; width:6px; height:6px; background:#10B981; border-radius:50%;"></span> Active Triggers</span>
+        <span class="noble-badge"><span class="noble-badge-dot"></span> Prototype Settings</span>
       </div>
 
       <div class="alerts-grid">
@@ -469,11 +473,11 @@
       const btn = document.getElementById('sync-btn');
       const btnText = document.getElementById('sync-btn-text');
 
-      btnText.innerText = 'Connecting to MCA V3...';
+      btnText.innerText = 'Calibrating statutory rules...';
       btn.style.opacity = '0.7';
 
       setTimeout(() => {
-        btnText.innerText = 'Sync Compliance OS';
+        btnText.innerText = 'Calibrate Deadlines';
         btn.style.opacity = '1';
 
         const card = document.getElementById('entity-meta-card');
@@ -487,14 +491,14 @@
           loadSampleEntity(cin, 'CraftEgon Technologies Private Limited', 'Private Limited Company', 'Kozhikode, Kerala', '₹10,00,000');
         }
 
-        showToast('Entity record synced successfully with MCA Regulatory Register.');
+        showToast('Statutory calendar calibrated using sample reference profile. (No official registry lookup performed)');
       }, 650);
     }
 
     function loadSampleEntity(cin, name, type, location, capital) {
       document.getElementById('cin-input').value = cin;
       document.getElementById('disp-entity-name').innerText = name;
-      document.getElementById('disp-entity-cin').innerText = 'CIN/LLPIN: ' + cin + ' • RoC Kerala / Ernakulam';
+      document.getElementById('disp-entity-cin').innerText = 'CIN/LLPIN: ' + cin + ' • RoC Kerala / Ernakulam (Sample Profile)';
       document.getElementById('disp-entity-type').innerText = type;
       document.getElementById('disp-entity-capital').innerText = capital + ' INR';
       document.getElementById('disp-entity-location').innerText = location + ', India';
@@ -525,7 +529,7 @@
 
     // 4. Alert Toggles Toast
     function handleAlertToggle(name) {
-      showToast(`${name} preference saved and synced with notification gateway.`);
+      showToast(`${name} preference updated locally. Automated notification gateway scheduled for Phase 2.`);
     }
 
     function showToast(msg) {
