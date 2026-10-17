@@ -319,3 +319,75 @@ p {
   display: block;
   margin-top: 1px;
 }
+
+/* Responsive foundations: shared across home, vertical, service, legal, knowledge, portal, and conversion pages. */
+body { overflow-x: clip; }
+
+img, video, canvas, iframe { max-inline-size: 100%; }
+img, video { block-size: auto; }
+:where(p, li, td, th, a) { overflow-wrap: anywhere; }
+:where(input, select, textarea, button) { max-inline-size: 100%; }
+
+.container {
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.if-pricing-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18.75rem), 1fr));
+}
+
+/* Several page-level grids are inline styled; keep their existing layout intent while allowing one narrow column. */
+[style*="minmax(280px"],
+[style*="minmax(300px"],
+[style*="minmax(320px"],
+[style*="minmax(340px"] {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18.75rem), 1fr)) !important;
+}
+
+.if-pricing-grid > *,
+.portal-container > *,
+.container > * { min-width: 0; }
+
+/* Tables retain their native semantics and scroll within the viewport when their columns need more room. */
+table {
+  display: block;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 600px) {
+  .container { padding-inline: 1rem; }
+  .if-service-hero { padding-block: 2rem 1.5rem; }
+  .if-service-hero h1 { font-size: clamp(1.75rem, 7vw, 2.25rem); }
+  .if-pricing-card { padding: 1.25rem; }
+  .if-comparison-table th,
+  .if-comparison-table td { padding: 0.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .vertical-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)) !important;
+  }
+  .hero-container { padding-inline: 1rem !important; }
+}
+
+@media (max-width: 600px) {
+  .trademark-search-row { flex-wrap: wrap; }
+  .trademark-search-row #brand-query,
+  .trademark-search-row #trademark-class,
+  .trademark-search-row #search-btn {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+}

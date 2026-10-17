@@ -661,3 +661,40 @@
 .if-mobile-sublinks a:hover {
   color: var(--brand-gold);
 }
+
+/* Keep the full navigation and its four action links on screens wide enough to fit them. */
+@media (min-width: 1024px) and (max-width: 1359px) {
+  .if-nav { display: none; }
+  .if-header-actions > a { display: none; }
+  .if-mobile-toggle { display: flex; }
+}
+
+@media (max-width: 1023px) {
+  .if-header-inner { padding: 0.75rem 1rem; }
+  .if-header-actions { gap: 0.5rem; }
+}
+
+@media (max-width: 380px) {
+  .brand-title { font-size: 1rem; }
+  .brand-subtitle { font-size: 0.65rem; }
+  .if-mobile-drawer { max-width: none; }
+  .if-mobile-drawer-header,
+  .if-mobile-drawer-body { padding-inline: 1rem; }
+}
+
+.if-mobile-drawer {
+  height: 100vh;
+  height: 100dvh;
+  padding-block-end: env(safe-area-inset-bottom);
+}
+
+.if-mobile-toggle,
+.if-mobile-drawer-close {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+@media (max-width: 1023px) {
+  .if-header-actions > a { display: none; }
+  .if-mobile-toggle { display: flex; }
+}

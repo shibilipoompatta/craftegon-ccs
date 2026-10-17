@@ -237,3 +237,8 @@
   color: var(--text-main);
   line-height: var(--lh-relaxed, 1.65);
 }
+
+/* Let standard service plan cards use one column when the content area is narrower than 300px. */
+.if-pricing-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18.75rem), 1fr));
+}
