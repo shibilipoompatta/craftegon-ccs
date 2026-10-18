@@ -1,0 +1,122 @@
+[
+  {
+    "vertical_id": "V01",
+    "vertical_name": "Business Formation & Structuring",
+    "description": "Statutory corporate and enterprise incorporation, including Private Limited (SPICe+), LLP, OPC, Section 8, Trust, Society, and MSME/DPIIT registrations under the Companies Act 2013 and applicable statutes.",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 10
+  },
+  {
+    "vertical_id": "V02",
+    "vertical_name": "Corporate Compliance & Secretarial",
+    "description": "Routine and event-based company secretarial compliance, statutory RoC filings, annual returns (AOC-4, MGT-7, ADT-1), DIR-3 KYC, and corporate secretarial retainers under the Companies Act 2013.",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 18
+  },
+  {
+    "vertical_id": "V03",
+    "vertical_name": "Tax & Regulatory Registrations",
+    "description": "Corporate direct and indirect tax return filings, statutory trust audits (Form 10B/10BB), transfer pricing reports (Form 3CEB), and GST annual reconciliations (GSTR-9/9C).",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 5
+  },
+  {
+    "vertical_id": "V04",
+    "vertical_name": "Licenses & Statutory Registrations",
+    "description": "Labour and social security establishment registrations, monthly EPFO and ESIC compliance, and statutory enterprise registrations.",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 1
+  },
+  {
+    "vertical_id": "V05",
+    "vertical_name": "Contracts & Legal Architecture",
+    "description": "Corporate commercial agreements, Master Service Agreements (MSA), Statements of Work (SOW), Founder Vesting Pacts, and Share Purchase/Shareholders Agreements under the Indian Contract Act 1872.",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 2
+  },
+  {
+    "vertical_id": "V06",
+    "vertical_name": "Intellectual Property (IPR)",
+    "description": "Trademark clearance searches, Form TM-A filings, software copyright registration, technology patent documentation, and formal IP enforcement notices under the Trade Marks Act 1999 and Copyright Act 1957.",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 3
+  },
+  {
+    "vertical_id": "V07",
+    "vertical_name": "Employment & HR Compliance",
+    "description": "Employment policy handbooks aligned with the 4 Labour Codes, statutory POSH Act Internal Committee (IC) constitution, governance, and annual compliance reporting.",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 2
+  },
+  {
+    "vertical_id": "V08",
+    "vertical_name": "Startup & Investment Advisory",
+    "description": "Approved Coverage Gap in this 57-route archive. Seed/venture investment governance, cap table management, and term sheet advisory; cross-linked secondarily from V05 Founder Agreements.",
+    "approval_status": "APPROVED_COVERAGE_GAP",
+    "is_coverage_gap": true,
+    "active_service_count": 0
+  },
+  {
+    "vertical_id": "V09",
+    "vertical_name": "Corporate Transactions & M&A",
+    "description": "Section 233 fast-track mergers, business slump sales and asset purchase transfers, and transactional scheme company secretarial documentation under Sections 230–232 of the Companies Act 2013.",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 3
+  },
+  {
+    "vertical_id": "V10",
+    "vertical_name": "Dispute Avoidance (Non-Litigation)",
+    "description": "Approved Coverage Gap in this 57-route archive. Neutral statutory guidance and external referral advisory. All contentious tribunal advocacy and litigation representation are referred to independent advocates under the Advocates Act 1961.",
+    "approval_status": "APPROVED_COVERAGE_GAP",
+    "is_coverage_gap": true,
+    "active_service_count": 0
+  },
+  {
+    "vertical_id": "V11",
+    "vertical_name": "Governance, Audit & Risk",
+    "description": "Internal Board governance reviews, Secretarial Standards SS-1/SS-2 compliance, Form CSR-2 corporate social responsibility reporting, and Form MR-3 secretarial audit services under Section 204.",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 4
+  },
+  {
+    "vertical_id": "V12",
+    "vertical_name": "Data Privacy & Tech Law",
+    "description": "Digital Personal Data Protection (DPDP) Act 2023 compliance audits, CERT-In statutory 6-hour cyber incident disclosures, and enterprise SaaS terms and privacy architecture.",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 3
+  },
+  {
+    "vertical_id": "V13",
+    "vertical_name": "International Business & FEMA",
+    "description": "Cross-border intellectual property licensing, Form FC-3/FC-4 foreign branch and liaison office compliance, and RBI Foreign Liabilities and Assets (FLA) return filings under FEMA 1999.",
+    "approval_status": "APPROVED_ACTIVE",
+    "is_coverage_gap": false,
+    "active_service_count": 3
+  },
+  {
+    "vertical_id": "V14",
+    "vertical_name": "Corporate Retainers & Legal Desk",
+    "description": "Approved Coverage Gap in this 57-route archive. General corporate counsel retainers and ongoing legal desk advisory; cross-linked secondarily from V02 RoC Retainer.",
+    "approval_status": "APPROVED_COVERAGE_GAP",
+    "is_coverage_gap": true,
+    "active_service_count": 0
+  },
+  {
+    "vertical_id": "V15",
+    "vertical_name": "IT & Digital Infrastructure",
+    "description": "Approved Coverage Gap in this 57-route archive. IT compliance architecture and digital systems governance; zero active services or artificial IDs created.",
+    "approval_status": "APPROVED_COVERAGE_GAP",
+    "is_coverage_gap": true,
+    "active_service_count": 0
+  }
+]

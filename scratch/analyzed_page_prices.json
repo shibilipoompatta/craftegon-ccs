@@ -1,0 +1,780 @@
+[
+  {
+    "canonical_route": "/services/aoc4-xbrl.html",
+    "service_id": "V02-SVC-001",
+    "service_name": "AOC-4 XBRL Financial Tagging & Filing",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹7,999",
+        "context": "₹7,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/board-governance-risk-assessment.html",
+    "service_id": "V11-SVC-001",
+    "service_name": "Internal Board Governance & Secretarial Health Check",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹12,999",
+        "context": "₹12,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/board-minutes.html",
+    "service_id": "V11-SVC-002",
+    "service_name": "Board Minutes & Statutory Registers Maintenance",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹6,999",
+        "context": "₹6,999 / year",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/cross-border-tech-transfer.html",
+    "service_id": "V13-SVC-001",
+    "service_name": "Cross-Border Technology Transfer & Licensing Agreements",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹18,999",
+        "context": "₹18,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/cyber-incident-reporting.html",
+    "service_id": "V12-SVC-001",
+    "service_name": "Cyber Incident Reporting, CERT-In & IT Act Statutory Mandates",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹14,999",
+        "context": "₹14,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/dir3-kyc.html",
+    "service_id": "V02-SVC-002",
+    "service_name": "DIR-3 KYC Annual Director Verification",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹5,000 l",
+        "context": "Mandatory annual KYC filing for all holders of active Director Identification Numbers (DIN) to prevent disqualification and ₹5,000 late penalties.",
+        "tag": "P",
+        "className": ""
+      },
+      {
+        "rawAmount": "₹999",
+        "context": "₹999 per DIN",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/dpdp-compliance-audit.html",
+    "service_id": "V12-SVC-002",
+    "service_name": "DPDP Act Data Fiduciary Governance & Readiness Audit",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹16,999",
+        "context": "₹16,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/dpiit-startup-india.html",
+    "service_id": "V01-SVC-001",
+    "service_name": "DPIIT Startup India Recognition & Section 56(2)(viib) Exemption",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹4,999",
+        "context": "₹4,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/fast-track-mergers.html",
+    "service_id": "V09-SVC-001",
+    "service_name": "Section 233 Fast-Track Parent-Subsidiary & Small Company Mergers",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹29,999",
+        "context": "₹29,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-10b.html",
+    "service_id": "V03-SVC-001",
+    "service_name": "Form 10B / 10BB Trust Audit Report",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹7,999",
+        "context": "₹7,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-3ceb.html",
+    "service_id": "V03-SVC-002",
+    "service_name": "Form 3CEB International Transfer Pricing Report",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹19,999",
+        "context": "₹19,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-adt1.html",
+    "service_id": "V02-SVC-003",
+    "service_name": "Form ADT-1 Statutory Auditor Appointment",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹1,499",
+        "context": "₹1,499 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-aoc4.html",
+    "service_id": "V02-SVC-004",
+    "service_name": "Form AOC-4 Financial Statements Filing",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹3,499",
+        "context": "₹3,499 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-ben2.html",
+    "service_id": "V02-SVC-005",
+    "service_name": "Form BEN-2 Significant Beneficial Ownership (SBO)",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹4,999",
+        "context": "₹4,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-csr2.html",
+    "service_id": "V11-SVC-003",
+    "service_name": "Form CSR-2 Annual Corporate Social Responsibility Report",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹4,999",
+        "context": "₹4,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-dpt3.html",
+    "service_id": "V02-SVC-006",
+    "service_name": "Form DPT-3 Return of Deposits & Loans",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹2,499",
+        "context": "₹2,499 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-fc3-fc4.html",
+    "service_id": "V13-SVC-002",
+    "service_name": "Form FC-3 / FC-4 Foreign Branch Office (BO) & Liaison Office (LO) Compliance",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹19,999",
+        "context": "₹19,999 / year",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-mgt14.html",
+    "service_id": "V02-SVC-007",
+    "service_name": "Form MGT-14 Resolution & Filing Solutions",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹1,999",
+        "context": "₹1,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      },
+      {
+        "rawAmount": "₹4,999",
+        "context": "₹4,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-mgt7.html",
+    "service_id": "V02-SVC-008",
+    "service_name": "Form MGT-7 Annual Return Filing",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹3,999",
+        "context": "₹3,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-mr1.html",
+    "service_id": "V02-SVC-009",
+    "service_name": "Form MR-1 Appointment of Managing Director, WTD or Manager",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹2,499",
+        "context": "₹2,499 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-mr3-secretarial-audit.html",
+    "service_id": "V11-SVC-004",
+    "service_name": "Mandatory Form MR-3 Secretarial Audit Services",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹19,999",
+        "context": "₹19,999 / year",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-msc1-dormant.html",
+    "service_id": "V02-SVC-011",
+    "service_name": "Form MSC-1 Application to Obtain Dormant Company Status",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹7,999",
+        "context": "₹7,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-msme1.html",
+    "service_id": "V02-SVC-010",
+    "service_name": "Form MSME-1 Half-Yearly Return",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹1,999",
+        "context": "₹1,999 per filing",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-pas6.html",
+    "service_id": "V02-SVC-012",
+    "service_name": "Form PAS-6 Reconciliation of Share Capital Audit",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹3,999",
+        "context": "₹3,999 per half-year",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/form-stk2-strike-off.html",
+    "service_id": "V02-SVC-013",
+    "service_name": "Form STK-2 Fast-Track Company Strike-Off & Voluntary Closure",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹8,999",
+        "context": "₹8,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/founder-shareholder-agreements.html",
+    "service_id": "V05-SVC-001",
+    "service_name": "Founder Pacts, Shareholder Agreements (SHA) & Share Purchase Agreements (SPA)",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹14,999",
+        "context": "₹14,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/gst-annual.html",
+    "service_id": "V03-SVC-003",
+    "service_name": "GST Annual Return & Reconciliation (GSTR-9 & GSTR-9C)",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹5 Crores",
+        "context": "Complete annual GST audit and reconciliation for enterprises with turnover above ₹5 Crores.",
+        "tag": "P",
+        "className": "if-pricing-desc"
+      },
+      {
+        "rawAmount": "₹12,999",
+        "context": "₹12,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/ip-enforcement-cease-desist.html",
+    "service_id": "V06-SVC-001",
+    "service_name": "IP Enforcement & Cease and Desist Issuance",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹5,999",
+        "context": "₹5,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/itr7.html",
+    "service_id": "V03-SVC-004",
+    "service_name": "ITR-7 Filing for Companies, Trusts & Institutions",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹8,999",
+        "context": "₹8,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/labour-code-handbooks.html",
+    "service_id": "V07-SVC-001",
+    "service_name": "Labour Code Healthcheck & Comprehensive Employee Handbooks",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹14,999",
+        "context": "₹14,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/llp-compliance-forms.html",
+    "service_id": "V02-SVC-014",
+    "service_name": "LLP Annual Filings (Form 11 Annual Return & Form 8 Statement of Account)",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹4,999",
+        "context": "₹4,999 / year",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/llp-form24-strike-off.html",
+    "service_id": "V02-SVC-015",
+    "service_name": "LLP Form 24 Fast-Track Strike-Off & Closure",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹6,999",
+        "context": "₹6,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/llp-registration.html",
+    "service_id": "V01-SVC-002",
+    "service_name": "Limited Liability Partnership (LLP) Registration",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹5,999",
+        "context": "₹5,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/master-service-agreements.html",
+    "service_id": "V05-SVC-002",
+    "service_name": "Master Service Agreements (MSA), SOWs & Commercial Vendor Contracts",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹9,999",
+        "context": "₹9,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/mbp1-dir8.html",
+    "service_id": "V02-SVC-016",
+    "service_name": "Form MBP-1 & DIR-8 Director Disclosures",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹1,499",
+        "context": "₹1,499 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/msme-udyam.html",
+    "service_id": "V01-SVC-003",
+    "service_name": "MSME / Udyam Registration Online",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹999",
+        "context": "₹999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/opc-registration.html",
+    "service_id": "V01-SVC-004",
+    "service_name": "One Person Company (OPC) Registration",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹6,999",
+        "context": "₹6,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/partnership-registration.html",
+    "service_id": "V01-SVC-005",
+    "service_name": "Partnership Firm Registration",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹4,499",
+        "context": "₹4,499 + Stamp Duty",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/pf-esic-compliance.html",
+    "service_id": "V04-SVC-001",
+    "service_name": "PF / ESIC Statutory Registration & Monthly Return Filings",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹5,999",
+        "context": "₹5,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/posh-compliance.html",
+    "service_id": "V07-SVC-002",
+    "service_name": "Mandatory POSH Act Compliance & Internal Committee (IC) Setup",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹11,999",
+        "context": "₹11,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/proprietorship-registration.html",
+    "service_id": "V01-SVC-006",
+    "service_name": "Sole Proprietorship Registration",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹2,999",
+        "context": "₹2,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/proprietorship-tax.html",
+    "service_id": "V03-SVC-005",
+    "service_name": "Proprietorship & SME Income Tax Returns",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹3,499",
+        "context": "₹3,499 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/pvt-ltd-registration.html",
+    "service_id": "V01-SVC-007",
+    "service_name": "Private Limited Company Registration (SPICe+)",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹7,499",
+        "context": "₹7,499 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      },
+      {
+        "rawAmount": "₹11,999",
+        "context": "₹11,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/rbi-fla-return.html",
+    "service_id": "V13-SVC-003",
+    "service_name": "RBI Foreign Liabilities and Assets (FLA) Return Filing",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹4,999",
+        "context": "₹4,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/roc-annual-compliance.html",
+    "service_id": "V02-SVC-017",
+    "service_name": "RoC Annual Compliance & Secretarial Retainer",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹10 Lakhs",
+        "context": "For private limited companies with authorized capital up to ₹10 Lakhs.",
+        "tag": "P",
+        "className": "if-pricing-desc"
+      },
+      {
+        "rawAmount": "₹14,999",
+        "context": "₹14,999 / year",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      },
+      {
+        "rawAmount": "₹29,999",
+        "context": "₹29,999 / year",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/rof-maintenance.html",
+    "service_id": "V02-SVC-018",
+    "service_name": "Registrar of Firms (RoF) Maintenance & Amendments",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹3,499",
+        "context": "₹3,499 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/saas-terms-privacy-architecture.html",
+    "service_id": "V12-SVC-003",
+    "service_name": "SaaS Terms of Service, EULAs & Privacy Architecture",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹12,999",
+        "context": "₹12,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/section-8-registration.html",
+    "service_id": "V01-SVC-008",
+    "service_name": "Section 8 Company / Non-Profit Registration",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹11,999",
+        "context": "₹11,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/slump-sale-asset-purchase.html",
+    "service_id": "V09-SVC-002",
+    "service_name": "Corporate Slump Sale & Business Asset Purchase Governance",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹24,999",
+        "context": "₹24,999 All Inclusive",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/society-registration.html",
+    "service_id": "V01-SVC-009",
+    "service_name": "Society Registration",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹9,999",
+        "context": "₹9,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/software-copyright-patents.html",
+    "service_id": "V06-SVC-002",
+    "service_name": "Software Copyright, Source Code & Tech Patent Filings",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹6,999",
+        "context": "₹6,999 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/trademark-registration.html",
+    "service_id": "V06-SVC-003",
+    "service_name": "Brand Name, Logo & Slogan Trademark Registration (Form TM-A)",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹4,499",
+        "context": "₹4,499 + Govt. Fees",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  },
+  {
+    "canonical_route": "/services/trust-registration.html",
+    "service_id": "V01-SVC-010",
+    "service_name": "Charitable Trust Registration",
+    "status": "ACTIVE_SERVICE",
+    "prices": [
+      {
+        "rawAmount": "₹8,999",
+        "context": "₹8,999 + Stamp Duty",
+        "tag": "DIV",
+        "className": "if-pricing-price"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1137 @@
+[
+  {
+    "file": "aoc4-xbrl.html",
+    "route": "/services/aoc4-xbrl.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹7,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹7,999",
+        "snippet": "schema.</p> <div class=\"if-pricing-price\">₹7,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "board-governance-risk-assessment.html",
+    "route": "/services/board-governance-risk-assessment.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹12,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹12,999",
+        "snippet": "liance.</p> <div class=\"if-pricing-price\">₹12,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "board-minutes.html",
+    "route": "/services/board-minutes.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹6,999 / year"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹6,999",
+        "snippet": "nd AGM.</p> <div class=\"if-pricing-price\">₹6,999 <span>/ year</span></div> <ul class=\"if-f"
+      }
+    ]
+  },
+  {
+    "file": "cross-border-tech-transfer.html",
+    "route": "/services/cross-border-tech-transfer.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹18,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹18,999",
+        "snippet": "ements.</p> <div class=\"if-pricing-price\">₹18,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "cyber-incident-reporting.html",
+    "route": "/services/cyber-incident-reporting.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹14,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹14,999",
+        "snippet": "edures.</p> <div class=\"if-pricing-price\">₹14,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "dir3-kyc.html",
+    "route": "/services/dir3-kyc.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹999 per DIN"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹5,000 l",
+        "snippet": "ion Numbers (DIN) to prevent disqualification and ₹5,000 late penalties.</p> </div> <div class=\"if-p"
+      },
+      {
+        "match": "₹999",
+        "snippet": "cation.</p> <div class=\"if-pricing-price\">₹999 <span>per DIN</span></div> <ul class=\"if-"
+      }
+    ]
+  },
+  {
+    "file": "director-removal-board-disputes.html",
+    "route": "/services/director-removal-board-disputes.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [],
+    "rawMatches": []
+  },
+  {
+    "file": "dpdp-compliance-audit.html",
+    "route": "/services/dpdp-compliance-audit.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹16,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹16,999",
+        "snippet": "setup.</p> <div class=\"if-pricing-price\">₹16,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "dpiit-startup-india.html",
+    "route": "/services/dpiit-startup-india.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹4,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹4,999",
+        "snippet": "ission.</p> <div class=\"if-pricing-price\">₹4,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "fast-track-mergers.html",
+    "route": "/services/fast-track-mergers.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹29,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹29,999",
+        "snippet": "rovals.</p> <div class=\"if-pricing-price\">₹29,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-10b.html",
+    "route": "/services/form-10b.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹7,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹7,999",
+        "snippet": "ission.</p> <div class=\"if-pricing-price\">₹7,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "form-3ceb.html",
+    "route": "/services/form-3ceb.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹19,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹19,999",
+        "snippet": "cation.</p> <div class=\"if-pricing-price\">₹19,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-adt1.html",
+    "route": "/services/form-adt1.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹1,499 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹1,499",
+        "snippet": "e fees.</p> <div class=\"if-pricing-price\">₹1,499 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-aoc4.html",
+    "route": "/services/form-aoc4.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹3,499 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹3,499",
+        "snippet": "upload.</p> <div class=\"if-pricing-price\">₹3,499 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-ben2.html",
+    "route": "/services/form-ben2.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹4,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹4,999",
+        "snippet": "filing.</p> <div class=\"if-pricing-price\">₹4,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-csr2.html",
+    "route": "/services/form-csr2.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹4,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹4,999",
+        "snippet": "eturns.</p> <div class=\"if-pricing-price\">₹4,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-dpt3.html",
+    "route": "/services/form-dpt3.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹2,499 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹2,499",
+        "snippet": "vables.</p> <div class=\"if-pricing-price\">₹2,499 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-fc3-fc4.html",
+    "route": "/services/form-fc3-fc4.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹19,999 / year"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹19,999",
+        "snippet": "icates.</p> <div class=\"if-pricing-price\">₹19,999 <span>/ year</span></div> <ul class=\"if-f"
+      }
+    ]
+  },
+  {
+    "file": "form-mgt14.html",
+    "route": "/services/form-mgt14.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹1,999 + Govt. Fees"
+      },
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹4,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹1,999",
+        "snippet": "0 days.</p> <div class=\"if-pricing-price\">₹1,999 <span>+ Govt. Fees</span></div> <ul class"
+      },
+      {
+        "match": "₹4,999",
+        "snippet": "ilings.</p> <div class=\"if-pricing-price\">₹4,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-mgt7.html",
+    "route": "/services/form-mgt7.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹3,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹3,999",
+        "snippet": "cation.</p> <div class=\"if-pricing-price\">₹3,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-mr1.html",
+    "route": "/services/form-mr1.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹2,499 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹2,499",
+        "snippet": "terms.</p> <div class=\"if-pricing-price\">₹2,499 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-mr3-secretarial-audit.html",
+    "route": "/services/form-mr3-secretarial-audit.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹19,999 / year"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹19,999",
+        "snippet": "report.</p> <div class=\"if-pricing-price\">₹19,999 <span>/ year</span></div> <ul class=\"if-f"
+      }
+    ]
+  },
+  {
+    "file": "form-msc1-dormant.html",
+    "route": "/services/form-msc1-dormant.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹7,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹7,999",
+        "snippet": "status.</p> <div class=\"if-pricing-price\">₹7,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "form-msme1.html",
+    "route": "/services/form-msme1.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹1,999 per filing"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹1,999",
+        "snippet": "eriods.</p> <div class=\"if-pricing-price\">₹1,999 <span>per filing</span></div> <ul class=\""
+      }
+    ]
+  },
+  {
+    "file": "form-pas6.html",
+    "route": "/services/form-pas6.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹3,999 per half-year"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹3,999",
+        "snippet": "cation.</p> <div class=\"if-pricing-price\">₹3,999 <span>per half-year</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "form-stk2-strike-off.html",
+    "route": "/services/form-stk2-strike-off.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹8,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹8,999",
+        "snippet": "filing.</p> <div class=\"if-pricing-price\">₹8,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "founder-shareholder-agreements.html",
+    "route": "/services/founder-shareholder-agreements.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹14,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹14,999",
+        "snippet": "ations.</p> <div class=\"if-pricing-price\">₹14,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "gst-annual.html",
+    "route": "/services/gst-annual.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹12,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹5 Crores",
+        "snippet": "econciliation for enterprises with turnover above ₹5 Crores.</p> <div class=\"if-pricing-price\">₹12,99"
+      },
+      {
+        "match": "₹12,999",
+        "snippet": "Crores.</p> <div class=\"if-pricing-price\">₹12,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "ip-enforcement-cease-desist.html",
+    "route": "/services/ip-enforcement-cease-desist.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹5,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹5,999",
+        "snippet": "ingers.</p> <div class=\"if-pricing-price\">₹5,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "itr7.html",
+    "route": "/services/itr7.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹8,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹8,999",
+        "snippet": "filing.</p> <div class=\"if-pricing-price\">₹8,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "labour-code-handbooks.html",
+    "route": "/services/labour-code-handbooks.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹14,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹14,999",
+        "snippet": "afting.</p> <div class=\"if-pricing-price\">₹14,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "llp-compliance-forms.html",
+    "route": "/services/llp-compliance-forms.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹4,999 / year"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹4,999",
+        "snippet": "er 30).</p> <div class=\"if-pricing-price\">₹4,999 <span>/ year</span></div> <ul class=\"if-f"
+      }
+    ]
+  },
+  {
+    "file": "llp-form24-strike-off.html",
+    "route": "/services/llp-form24-strike-off.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹6,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹6,999",
+        "snippet": "filing.</p> <div class=\"if-pricing-price\">₹6,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "llp-registration.html",
+    "route": "/services/llp-registration.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹5,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹5,999",
+        "snippet": "ancies.</p> <div class=\"if-pricing-price\">₹5,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "master-service-agreements.html",
+    "route": "/services/master-service-agreements.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹9,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹9,999",
+        "snippet": "prises.</p> <div class=\"if-pricing-price\">₹9,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "mbp1-dir8.html",
+    "route": "/services/mbp1-dir8.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹1,499 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹1,499",
+        "snippet": "lation.</p> <div class=\"if-pricing-price\">₹1,499 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "msme-udyam.html",
+    "route": "/services/msme-udyam.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹999",
+        "snippet": "nesses.</p> <div class=\"if-pricing-price\">₹999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "nclt-insolvency-defense.html",
+    "route": "/services/nclt-insolvency-defense.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [],
+    "rawMatches": []
+  },
+  {
+    "file": "nclt-merger-petitions.html",
+    "route": "/services/nclt-merger-petitions.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [],
+    "rawMatches": []
+  },
+  {
+    "file": "opc-registration.html",
+    "route": "/services/opc-registration.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹6,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹6,999",
+        "snippet": "ndates.</p> <div class=\"if-pricing-price\">₹6,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "oppression-mismanagement-petitions.html",
+    "route": "/services/oppression-mismanagement-petitions.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [],
+    "rawMatches": []
+  },
+  {
+    "file": "partnership-registration.html",
+    "route": "/services/partnership-registration.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹4,499 + Stamp Duty"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹4,499",
+        "snippet": "prises.</p> <div class=\"if-pricing-price\">₹4,499 <span>+ Stamp Duty</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "pf-esic-compliance.html",
+    "route": "/services/pf-esic-compliance.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹5,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹5,999",
+        "snippet": "essing.</p> <div class=\"if-pricing-price\">₹5,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "posh-compliance.html",
+    "route": "/services/posh-compliance.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹11,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹11,999",
+        "snippet": "ilings.</p> <div class=\"if-pricing-price\">₹11,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "proprietorship-registration.html",
+    "route": "/services/proprietorship-registration.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹2,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹2,999",
+        "snippet": "owners.</p> <div class=\"if-pricing-price\">₹2,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "proprietorship-tax.html",
+    "route": "/services/proprietorship-tax.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹3,499 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹3,499",
+        "snippet": "ietors.</p> <div class=\"if-pricing-price\">₹3,499 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "pvt-ltd-registration.html",
+    "route": "/services/pvt-ltd-registration.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹7,499 + Govt. Fees"
+      },
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹11,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹7,499",
+        "snippet": "bution.</p> <div class=\"if-pricing-price\">₹7,499 <span>+ Govt. Fees</span></div> <ul class"
+      },
+      {
+        "match": "₹11,999",
+        "snippet": "ration.</p> <div class=\"if-pricing-price\">₹11,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "rbi-fla-return.html",
+    "route": "/services/rbi-fla-return.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹4,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹4,999",
+        "snippet": "adline.</p> <div class=\"if-pricing-price\">₹4,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "roc-annual-compliance.html",
+    "route": "/services/roc-annual-compliance.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹14,999 / year"
+      },
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹29,999 / year"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹10 Lakhs",
+        "snippet": "e limited companies with authorized capital up to ₹10 Lakhs.</p> <div class=\"if-pricing-price\">₹14,99"
+      },
+      {
+        "match": "₹14,999",
+        "snippet": "Lakhs.</p> <div class=\"if-pricing-price\">₹14,999 <span>/ year</span></div> <ul class=\"if-f"
+      },
+      {
+        "match": "₹29,999",
+        "snippet": "ilings.</p> <div class=\"if-pricing-price\">₹29,999 <span>/ year</span></div> <ul class=\"if-f"
+      }
+    ]
+  },
+  {
+    "file": "rof-maintenance.html",
+    "route": "/services/rof-maintenance.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹3,499 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹3,499",
+        "snippet": "cution.</p> <div class=\"if-pricing-price\">₹3,499 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "saas-terms-privacy-architecture.html",
+    "route": "/services/saas-terms-privacy-architecture.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹12,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹12,999",
+        "snippet": "prises.</p> <div class=\"if-pricing-price\">₹12,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "section-8-registration.html",
+    "route": "/services/section-8-registration.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹11,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹11,999",
+        "snippet": "afting.</p> <div class=\"if-pricing-price\">₹11,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "slump-sale-asset-purchase.html",
+    "route": "/services/slump-sale-asset-purchase.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹24,999 All Inclusive"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹24,999",
+        "snippet": "nsfers.</p> <div class=\"if-pricing-price\">₹24,999 <span>All Inclusive</span></div> <ul clas"
+      }
+    ]
+  },
+  {
+    "file": "society-registration.html",
+    "route": "/services/society-registration.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹9,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹9,999",
+        "snippet": "upport.</p> <div class=\"if-pricing-price\">₹9,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "software-copyright-patents.html",
+    "route": "/services/software-copyright-patents.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹6,999 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹6,999",
+        "snippet": "assets.</p> <div class=\"if-pricing-price\">₹6,999 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "trademark-registration.html",
+    "route": "/services/trademark-registration.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹4,499 + Govt. Fees"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹4,499",
+        "snippet": "filing.</p> <div class=\"if-pricing-price\">₹4,499 <span>+ Govt. Fees</span></div> <ul class"
+      }
+    ]
+  },
+  {
+    "file": "trust-registration.html",
+    "route": "/services/trust-registration.html",
+    "service_id": null,
+    "service_name": null,
+    "status": "UNREGISTERED",
+    "elementMatches": [
+      {
+        "type": "element",
+        "selector": "DIV.if-pricing-price",
+        "text": "₹8,999 + Stamp Duty"
+      }
+    ],
+    "rawMatches": [
+      {
+        "match": "₹8,999",
+        "snippet": "trusts.</p> <div class=\"if-pricing-price\">₹8,999 <span>+ Stamp Duty</span></div> <ul class"
+      }
+    ]
+  }
+]

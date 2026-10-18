@@ -1,0 +1,40 @@
+[
+  {
+    "pricing_id": "PRC-V01-SVC-001",
+    "service_id": "V01-SVC-001",
+    "service_name": "DPIIT Startup India Recognition & Section 56(2)(viib) Exemption",
+    "canonical_route": "/services/dpiit-startup-india.html",
+    "primary_vertical_id": "V01",
+    "currency": "INR",
+    "amount": 4999,
+    "pricing_basis": "STARTING_FROM",
+    "price_category": "PROFESSIONAL_FEE",
+    "jurisdiction": "IN-CENTRAL",
+    "website_displayed_price": "₹4,999 + Govt. Fees",
+    "package_title": "Startup India Recognition Package",
+    "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
+    "included_charges": [
+      "Startup India portal application",
+      "Pitch deck / business profile structuring",
+      "DPIIT certificate processing"
+    ],
+    "excluded_charges": [
+      "Government MCA statutory portal filing fees (payable at actuals on MCA V3)",
+      "State stamp duty on MoA/AoA/deeds (payable per state stamp act)",
+      "Goods and Services Tax (GST) at 18%"
+    ],
+    "additional_tiers": [],
+    "statutory_thresholds": [],
+    "statutory_penalties": [],
+    "effective_from": "2026-10-15",
+    "effective_to": null,
+    "source_id": "SRC-INT-PRC-001",
+    "evidence_source": "WEBSITE_PAGE_AUDIT",
+    "verification_status": "UNVERIFIED",
+    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
+    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "last_verified_at": null,
+    "checked_date": "2026-10-17",
+    "notes": "Captured website template baseline figure of ₹4,999 + Govt. Fees from /services/dpiit-startup-india.html. Preserved strictly as UNVERIFIED pending formal review and resolution by the Partner Pricing Committee."
+  }
+]

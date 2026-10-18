@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ccs.craftegon.com/schemas/sources.schema.json",
+  "title": "CraftEgon CCS Regulatory and Statutory Sources Registry Schema",
+  "description": "JSON Schema enforcing structural validity, authority metadata, and citation rules for statutory sources.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "source_id",
+      "source_title",
+      "issuing_authority",
+      "official_url",
+      "source_type",
+      "jurisdiction",
+      "reliability_classification"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "source_id": {
+        "type": "string",
+        "pattern": "^SRC-[A-Z0-9-]+$",
+        "description": "Stable unique identifier for the source (e.g. SRC-MCA-001)."
+      },
+      "source_title": {
+        "type": "string",
+        "minLength": 5,
+        "description": "Formal title of the statute, portal, or internal record."
+      },
+      "issuing_authority": {
+        "type": "string",
+        "minLength": 3,
+        "description": "Government ministry, statutory regulator, or governing authority."
+      },
+      "official_url": {
+        "type": "string",
+        "format": "uri",
+        "description": "Official portal URL or verified repository link."
+      },
+      "source_type": {
+        "type": "string",
+        "enum": [
+          "STATUTE",
+          "REGULATORY_NOTIFICATION",
+          "OFFICIAL_PORTAL",
+          "INTERNAL_APPROVAL_RECORD",
+          "INTERNAL_COMMERCIAL_RECORD",
+          "CASE_LAW"
+        ]
+      },
+      "jurisdiction": {
+        "type": "string",
+        "description": "Applicable jurisdiction (e.g. IN-CENTRAL or IN-STATE)."
+      },
+      "publication_date": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Official enactment, gazette, or record publication date (YYYY-MM-DD)."
+      },
+      "accessed_date": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Date when the official source was accessed or inspected (YYYY-MM-DD)."
+      },
+      "last_verified_at": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Date of latest verification review (YYYY-MM-DD)."
+      },
+      "next_review_at": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Scheduled date for next periodic review (YYYY-MM-DD)."
+      },
+      "reliability_classification": {
+        "type": "string",
+        "enum": [
+          "PRIMARY_STATUTORY",
+          "OFFICIAL_GAZETTE",
+          "REGULATORY_AGENCY",
+          "INTERNAL_EXECUTIVE_RECORD",
+          "INTERNAL_INDICATIVE_BASELINE"
+        ]
+      },
+      "access_restrictions_notes": {
+        "type": "string",
+        "description": "Permitted access modes, API availability, or scraping prohibitions."
+      }
+    }
+  }
+}

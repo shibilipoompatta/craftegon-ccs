@@ -1,0 +1,1328 @@
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = path.resolve(__dirname, '..');
+const DATA_DIR = path.join(ROOT, 'data');
+
+const eligibilityData = [
+  // ==========================================
+  // VERTICAL 1: Business Formation (10 services)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V01-SVC-001',
+    service_id: 'V01-SVC-001',
+    applicable_entity_types: ['PVT_LTD', 'LLP', 'PARTNERSHIP'],
+    prerequisites: [
+      'Entity incorporated as Private Limited Company, LLP, or registered Partnership Firm within the preceding 10 years',
+      'Turnover has not exceeded ₹100 crore in any preceding financial year since incorporation',
+      'Entity is working towards innovation, development, or improvement of products, processes, or services, or scalable business model with high employment/wealth potential',
+      'Entity was not formed by splitting up or reconstruction of a business already in existence'
+    ],
+    required_documents: [
+      'Certificate of Incorporation / Registration Certificate',
+      'Pitch deck and write-up on innovation/scalability with website or mobile application links',
+      'CA certified net worth certificate (mandatory for Section 56(2)(viib) angel tax exemption Form 2)'
+    ],
+    exceptions_and_limitations: [
+      'Sole proprietorships, public limited companies, and trusts are ineligible for DPIIT recognition',
+      'Entities formed by splitting up or reconstruction of an existing business are ineligible'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-DPIIT-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V01-SVC-002',
+    service_id: 'V01-SVC-002',
+    applicable_entity_types: ['LLP'],
+    prerequisites: [
+      'Minimum two designated partners who are natural persons, with at least one designated partner resident in India (Section 7 LLP Act, 2008)',
+      'Valid DPIN/DIN and Class 3 Digital Signature Certificate (DSC) for designated partners',
+      'Proposed LLP name complying with name reservation guidelines under Rule 18 of LLP Rules, 2009',
+      'Registered office premises located in India (Section 13)'
+    ],
+    required_documents: [
+      'PAN cards and identity proofs (Passport / Voter ID / DL) of all partners',
+      'Residential address proofs (< 2 months old: bank statement / utility bill) of all partners',
+      'Registered office utility bill (< 2 months old) and signed owner No Objection Certificate (NOC)',
+      'Executed LLP Agreement stamped per state stamp act and filed in Form 3 within 30 days of incorporation'
+    ],
+    exceptions_and_limitations: [
+      'Bodies corporate acting as partner must appoint an individual natural person as their designated partner nominee',
+      'Non-profit or charitable objects are prohibited; LLPs must be formed with a view to profit'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V01-SVC-003',
+    service_id: 'V01-SVC-003',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'LLP', 'PARTNERSHIP', 'PROPRIETORSHIP', 'TRUST', 'SOCIETY'],
+    prerequisites: [
+      'Enterprise falls within Micro, Small, or Medium classification thresholds based on composite investment and turnover criteria under MSMED Act, 2006',
+      'Valid Aadhaar number of proprietor (for proprietorship), managing partner (for partnership), or authorized signatory (for company/LLP)',
+      'PAN of the enterprise linked with Aadhaar, and GSTIN (where GST registration is legally mandatory)'
+    ],
+    required_documents: [
+      'Aadhaar number and PAN of the applicant / enterprise',
+      'Bank account number and IFSC code of the business entity',
+      'National Industry Classification (NIC) 2-digit, 4-digit, and 5-digit business activity codes',
+      'Investment and turnover figures matching Income Tax and GST returns'
+    ],
+    exceptions_and_limitations: [
+      'Enterprises engaged exclusively in speculative, gambling, or negative-list activities are ineligible',
+      'A single enterprise cannot obtain more than one Udyam registration; multiple units must be added under one Udyam number'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MSME-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V01-SVC-004',
+    service_id: 'V01-SVC-004',
+    applicable_entity_types: ['OPC'],
+    prerequisites: [
+      'Exactly one natural person who is an Indian citizen (resident or non-resident) as sole subscriber and director (Section 2(62) & 3(1)(c) Companies Act, 2013)',
+      'Nomination of another natural Indian citizen who gives prior written consent in Form INC-3 to act as nominee in the event of subscriber death or incapacity',
+      'The individual subscriber and nominee must not be a member or nominee of any other OPC'
+    ],
+    required_documents: [
+      'PAN card, identity proof, and residential address proof (< 2 months old) of subscriber and nominee',
+      'Written consent of nominee in Form INC-3',
+      'Digital Signature Certificate (DSC Class 3) of the subscriber',
+      'Proof of registered office premises (< 2 months old) with utility bill, rent agreement, and owner NOC'
+    ],
+    exceptions_and_limitations: [
+      'Minors cannot become member or nominee of an OPC, or hold share with beneficial interest',
+      'OPC cannot be incorporated or converted into a Section 8 non-profit company',
+      'OPC cannot carry out non-banking financial investment activities, including investment in securities of other corporate bodies'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V01-SVC-005',
+    service_id: 'V01-SVC-005',
+    applicable_entity_types: ['PARTNERSHIP'],
+    prerequisites: [
+      'Minimum 2 partners (maximum 50 partners under Section 464 Companies Act, 2013 read with Rule 10 Companies (Miscellaneous) Rules, 2014)',
+      'Competence to contract under Section 11 of the Indian Contract Act, 1872',
+      'Lawful business carried on by all or any of them acting for all to share the profits of a business (Section 4 Indian Partnership Act, 1932)'
+    ],
+    required_documents: [
+      'Duly executed Partnership Deed executed on appropriate state non-judicial stamp paper and notarized',
+      'Application for registration in Form A signed by all partners or their specially authorized agents',
+      'Identity proofs (PAN, Passport / Voter ID) and address proofs of all partners',
+      'Proof of principal place of business and all branch offices (utility bill, lease deed, NOC)'
+    ],
+    exceptions_and_limitations: [
+      'An unregistered firm cannot institute a suit in any court to enforce a right arising from a contract against third parties (Section 69 Indian Partnership Act, 1932)',
+      'Minors may only be admitted to the benefits of a partnership with the consent of all partners, but cannot be made personally liable'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-ACT-IPA-1932',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V01-SVC-006',
+    service_id: 'V01-SVC-006',
+    applicable_entity_types: ['PROPRIETORSHIP'],
+    prerequisites: [
+      'Single individual natural person who is an Indian citizen carrying on commercial, trading, manufacturing, or professional activity in personal capacity',
+      'Compliance with state Shops and Establishments Act, municipal trade licensing, and GST registration where turnover exceeds statutory thresholds'
+    ],
+    required_documents: [
+      'PAN card and Aadhaar card of the sole proprietor',
+      'Proof of principal place of business (Electricity bill / Property tax receipt / Rent agreement and owner NOC)',
+      'Bank current account opening proof / cancelled cheque in trade name',
+      'Udyam MSME registration certificate and GSTIN registration certificate (where applicable)'
+    ],
+    exceptions_and_limitations: [
+      'Sole proprietorship has no distinct legal personality separate from its proprietor; personal assets remain fully liable for business debts',
+      'Cannot raise equity capital from external investors or issue debentures'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MSME-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V01-SVC-007',
+    service_id: 'V01-SVC-007',
+    applicable_entity_types: ['PVT_LTD'],
+    prerequisites: [
+      'Minimum 2 subscribers/directors (maximum 200 members under Section 2(68) Companies Act, 2013)',
+      'At least one director must be resident in India (stayed in India for ≥ 182 days during the financial year per Section 149(3))',
+      'Director Identification Number (DIN) or allotment via SPICe+ Part B, and Class 3 Digital Signature Certificate (DSC)',
+      'Approved company name reservation via SPICe+ Part A (valid for 20 days per Rule 9A)',
+      'Registered office premises located in India'
+    ],
+    required_documents: [
+      'PAN cards and government identity proofs (Passport / Voter ID / DL) of all subscribers and directors',
+      'Residential address proofs (< 2 months old: bank statement / utility bill) of all subscribers and directors',
+      'Registered office utility bill (< 2 months old) and signed owner No Objection Certificate (NOC)',
+      'Electronic Memorandum of Association (e-MoA INC-33) and Articles of Association (e-AoA INC-34)',
+      'Declarations in Form INC-9 by subscribers/directors and Form DIR-2 consent'
+    ],
+    exceptions_and_limitations: [
+      'Foreign nationals acting as subscribers/directors must have identity and address documents apostilled or notarized in home jurisdiction',
+      'Cannot invite the public to subscribe for any securities of the company'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-RULE-SPICE-2020',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V01-SVC-008',
+    service_id: 'V01-SVC-008',
+    applicable_entity_types: ['SECTION_8'],
+    prerequisites: [
+      'Objects limited to promotion of commerce, art, science, sports, education, research, social welfare, religion, charity, protection of environment or any such other object (Section 8(1)(a) Companies Act, 2013)',
+      'Intends to apply its profits, if any, or other income in promoting its objects (Section 8(1)(b))',
+      'Intends to prohibit the payment of any dividend to its members (Section 8(1)(c))',
+      'Prior issuance of Section 8 license by Central Government / CRC via SPICe+ web form'
+    ],
+    required_documents: [
+      'Draft Memorandum of Association and Articles of Association in Form INC-13',
+      'Declaration by an advocate, chartered accountant, or company secretary in Form INC-14',
+      'Declaration by each applicant in Form INC-15',
+      'Estimate of the future annual income and expenditure of the company for the next three years',
+      'Identity and address proofs of promoters and proposed directors'
+    ],
+    exceptions_and_limitations: [
+      'Cannot alter provisions of its memorandum or articles without prior approval of Central Government / Regional Director',
+      'Cannot convert itself into a company of any other kind without complying with Rule 21 and 22 of Companies (Incorporation) Rules, 2014'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V01-SVC-009',
+    service_id: 'V01-SVC-009',
+    applicable_entity_types: ['SOCIETY'],
+    prerequisites: [
+      'Minimum 7 individuals (or bodies corporate where permitted by state amendment) associated for any literary, scientific, or charitable purpose under Section 20 of Societies Registration Act, 1860',
+      'Formation of governing body / managing committee to manage the affairs of the society',
+      'Written Memorandum of Association and certified Rules and Regulations (Bye-laws)'
+    ],
+    required_documents: [
+      'Memorandum of Association containing society name, objects, and names/addresses/occupations of governing council members',
+      'Rules and Regulations certified by not less than three members of the governing body',
+      'Affidavit on non-judicial stamp paper by president/secretary declaring society relationship',
+      'Proof of registered office address (utility bill / rent agreement with NOC)',
+      'Consent letters and identity/address proofs of all founder members'
+    ],
+    exceptions_and_limitations: [
+      'Commercial or profit-distributing activities are strictly prohibited',
+      'Society registration must be renewed periodically in states that have enacted state amendment renewal laws'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-ACT-SRA-1860',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V01-SVC-010',
+    service_id: 'V01-SVC-010',
+    applicable_entity_types: ['TRUST'],
+    prerequisites: [
+      'Author / Settlor with legal competence to transfer property into trust',
+      'Minimum 2 trustees to administer the trust property',
+      'Clear and lawful charitable, educational, religious, or social object',
+      'Identifiable trust property (movable or immovable) dedicated irrevocably to the trust',
+      'Execution of Trust Deed registered before the jurisdictional Sub-Registrar of Assurances under Section 17 of the Registration Act, 1908'
+    ],
+    required_documents: [
+      'Original Trust Deed executed on appropriate state stamp duty and duly signed by settlor and trustees',
+      'Identity proofs (PAN, Passport / Aadhaar) and address proofs of settlor and all trustees',
+      'Passport-size photographs of settlor and trustees',
+      'Proof of registered office premises and NOC from property owner',
+      'Identity proofs and physical presence of two independent witnesses before the Sub-Registrar'
+    ],
+    exceptions_and_limitations: [
+      'Private trusts are governed by the Indian Trusts Act, 1882; public religious and charitable trusts in states like Maharashtra and Gujarat require registration with Charity Commissioner',
+      'Revocable trusts cannot claim tax exemption under Section 11/12 of the Income-tax Act, 1961'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-ACT-ITA-1882',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+
+  // ==========================================
+  // VERTICAL 2: RoC Secretarial Filings (18 services)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V02-SVC-001',
+    service_id: 'V02-SVC-001',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED'],
+    prerequisites: [
+      'Company listed on stock exchange in India or subsidiary thereof, or paid up capital ≥ ₹5 crore, or turnover ≥ ₹100 crore, or covered under previous XBRL rules',
+      'Adoption of financial statements at Annual General Meeting (AGM) or Board approved accounts if AGM adjourned'
+    ],
+    required_documents: [
+      'Audited financial statements (Balance Sheet, P&L, Cash Flow Statement) mapped to MCA XBRL taxonomy',
+      'Statutory Auditor Report and Board Report with all statutory annexures',
+      'Error-free validation report generated from official MCA XBRL validation tool'
+    ],
+    exceptions_and_limitations: [
+      'Housing finance companies, insurance companies, banking companies, and non-banking financial companies (NBFCs) are exempt from MCA XBRL filing'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-002',
+    service_id: 'V02-SVC-002',
+    applicable_entity_types: ['INDIVIDUAL'],
+    prerequisites: [
+      'Natural person allotted a Director Identification Number (DIN) on or before 31st March of the preceding financial year',
+      'Active/approved DIN status on MCA portal (deactivated DIN requires ₹5,000 late fee for reactivation)'
+    ],
+    required_documents: [
+      'PAN card (for Indian nationals) or Passport (for foreign nationals)',
+      'Personal mobile number and personal email ID for OTP verification',
+      'Digital Signature Certificate (DSC Class 3) registered in individual director name (for e-Form DIR-3 KYC)',
+      'Current residential address proof (< 2 months old if address updated)'
+    ],
+    exceptions_and_limitations: [
+      'Disqualified directors under Section 164 are still required to file DIR-3 KYC to avoid deactivation',
+      'Web-based KYC permitted only if personal mobile and email remain unchanged from previous filing'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-003',
+    service_id: 'V02-SVC-003',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'SECTION_8'],
+    prerequisites: [
+      'Resolution appointing or re-appointing statutory auditor passed at Annual General Meeting (or Board meeting for first auditor / casual vacancy)',
+      'Written consent of the auditor and certificate under Section 139(1) that appointment conforms to Section 141 criteria',
+      'Filing within 15 days of the AGM or date of appointment'
+    ],
+    required_documents: [
+      'Copy of AGM ordinary resolution / Board resolution',
+      'Written consent letter and eligibility certificate issued by the Statutory Auditor',
+      'Intimation letter sent by the company to the Auditor'
+    ],
+    exceptions_and_limitations: [
+      'Appointment of first auditor within 30 days of incorporation by Board does not require Form ADT-1 filing on MCA portal (optional in practice; mandatory for subsequent appointments under s. 139(1))'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-004',
+    service_id: 'V02-SVC-004',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'SECTION_8'],
+    prerequisites: [
+      'Financial statements adopted at the Annual General Meeting of the company (or signed by at least 2 directors if AGM not held)',
+      'Filing within 30 days of the AGM (or 180 days from FY closure for OPC in Form AOC-4 OPC)'
+    ],
+    required_documents: [
+      'Audited Balance Sheet, Profit and Loss Account, Notes to Accounts, and Cash Flow Statement (where applicable)',
+      'Auditor Report and Board Report signed pursuant to Section 134',
+      'Form AOC-1 (statement containing salient features of financial statement of subsidiaries/associates) if applicable',
+      'CSR Report (Form CSR-2) as addendum if Section 135 applies'
+    ],
+    exceptions_and_limitations: [
+      'Small companies and OPCs are exempt from preparing Cash Flow Statements under Section 2(40)',
+      'Companies covered under XBRL mandate must file AOC-4 XBRL instead of standard AOC-4'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-005',
+    service_id: 'V02-SVC-005',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED'],
+    prerequisites: [
+      'Company has corporate shareholders / body corporate members holding shares',
+      'Receipt of declaration in Form BEN-1 from individual significant beneficial owner holding ≥ 10% ultimate beneficial interest',
+      'Filing within 30 days of receipt of BEN-1 declaration'
+    ],
+    required_documents: [
+      'Declaration received from SBO in Form BEN-1',
+      'Copy of corporate shareholding chart / organogram showing intermediate entities',
+      'Identity and address proof of the natural individual identified as SBO'
+    ],
+    exceptions_and_limitations: [
+      'Exempt if shares are held by Central Government, State Government, local authorities, or reporting entity regulated by SEBI'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-006',
+    service_id: 'V02-SVC-006',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC'],
+    prerequisites: [
+      'Active company holding deposits or outstanding receipts of money/loans not considered deposits as on 31st March of the FY',
+      'Mandatory annual filing on or before 30th June every year'
+    ],
+    required_documents: [
+      'Auditor certificate certifying deposit balances (mandatory when filing return of deposits)',
+      'List of depositors / outstanding loan schedules as of 31st March',
+      'Copy of trust deed if secured deposits are held'
+    ],
+    exceptions_and_limitations: [
+      'Government companies, banking companies, and housing finance companies are exempt from Form DPT-3'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-007',
+    service_id: 'V02-SVC-007',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'SECTION_8'],
+    prerequisites: [
+      'Passing of special resolution by shareholders (3/4th majority) or specified Board resolutions under Section 179(3)',
+      'Filing within 30 days of passing the resolution'
+    ],
+    required_documents: [
+      'Certified true copy of the resolution passed with explanatory statement under Section 102',
+      'Copy of notice convening general meeting with agenda',
+      'Altered Memorandum / Articles of Association where resolution alters constitutional documents'
+    ],
+    exceptions_and_limitations: [
+      'Private limited companies are specifically exempted from filing Board resolutions passed under Section 179(3) per MCA Notification G.S.R. 464(E) dated 5th June 2015'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-008',
+    service_id: 'V02-SVC-008',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'SECTION_8'],
+    prerequisites: [
+      'Conclusion of the Annual General Meeting (AGM) of the company',
+      'Filing within 60 days of the AGM (or within 60 days of the due date if AGM is not held)'
+    ],
+    required_documents: [
+      'List of shareholders and debenture-holders showing transfers during the financial year',
+      'Details of directors and key managerial personnel (KMP)',
+      'Secretarial audit / certification in Form MGT-8 for companies having paid-up capital ≥ ₹10 Cr or turnover ≥ ₹50 Cr'
+    ],
+    exceptions_and_limitations: [
+      'Small companies and One Person Companies file simplified Form MGT-7A without requirement of PCS certification'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-009',
+    service_id: 'V02-SVC-009',
+    applicable_entity_types: ['PUBLIC_UNLISTED'],
+    prerequisites: [
+      'Appointment of Managing Director, Whole-time Director, or Manager by the Board and approved at general meeting',
+      'Appointee satisfies conditions specified in Schedule V of Companies Act, 2013 (age between 21 and 70, not insolvent, not convicted)',
+      'Filing within 60 days of appointment'
+    ],
+    required_documents: [
+      'Certified true copy of Board resolution and general meeting resolution',
+      'Copy of agreement entered into with the MD/WTD or terms of appointment',
+      'Consent to act as director in Form DIR-2 and disclosure in Form DIR-8'
+    ],
+    exceptions_and_limitations: [
+      'Private limited companies are exempt from Section 196(4) and Section 203 managerial personnel filing requirements per MCA Notification G.S.R. 464(E)'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-010',
+    service_id: 'V02-SVC-010',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC'],
+    prerequisites: [
+      'Specified company getting supplies of goods or services from micro and small enterprises',
+      'Payments to such micro/small suppliers exceed 45 days from date of acceptance or deemed acceptance under Section 15 of MSMED Act, 2006',
+      'Filing half-yearly (by 30th April for Oct-March, and 31st October for April-Sept)'
+    ],
+    required_documents: [
+      'Detailed supplier ledger showing outstanding amounts due to micro and small enterprises exceeding 45 days',
+      'Udyam registration numbers of suppliers',
+      'Reasons for delay in payments'
+    ],
+    exceptions_and_limitations: [
+      'Companies having zero overdue payments to MSME suppliers exceeding 45 days are not required to file Form MSME-1 (nil return not mandatory)'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MSME-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-011',
+    service_id: 'V02-SVC-011',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC'],
+    prerequisites: [
+      'Company formed for a future project or to hold an asset/IP with no significant accounting transactions, or inactive for last 2 FYs',
+      'Passed special resolution with 3/4th majority or obtained consent of at least 3/4th shareholders in value',
+      'No inspection, inquiry, or investigation pending against the company'
+    ],
+    required_documents: [
+      'Certified copy of special resolution / consent letter',
+      'Auditor certificate confirming statement of affairs and no deposits outstanding',
+      'Statement of assets and liabilities not older than 30 days'
+    ],
+    exceptions_and_limitations: [
+      'Companies having public deposits, default in loan repayments, tax disputes, or listed shares cannot apply for dormant status'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-012',
+    service_id: 'V02-SVC-012',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED'],
+    prerequisites: [
+      'Unlisted public company or non-small private company covered under Rule 9B of PAS Rules, 2014 (MCA Notification G.S.R. 802(E) dated 27.10.2023)',
+      'Mandatory half-yearly filing within 60 days from conclusion of each half-year (due 30th May and 29th November)'
+    ],
+    required_documents: [
+      'Reconciliation audit certificate issued by a practicing Company Secretary or Chartered Accountant',
+      'ISIN details issued by NSDL and CDSL',
+      'Breakup of dematerialized vs physical share capital balances'
+    ],
+    exceptions_and_limitations: [
+      'Small private companies (paid up capital ≤ ₹4 Cr & turnover ≤ ₹40 Cr) and government companies are exempt from Rule 9B dematerialization and PAS-6 filing'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-NOTIF-PAS-2023',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-013',
+    service_id: 'V02-SVC-013',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC'],
+    prerequisites: [
+      'Extinguishment of all assets and liabilities (nil balance sheet)',
+      'Company not carrying on business operations for 2 immediately preceding financial years, or failed to commence business within 1 year of incorporation',
+      'Special resolution passed by 3/4th majority or consent of 75% members in terms of paid-up capital'
+    ],
+    required_documents: [
+      'Statement of Accounts in Form STK-8 certified by CA (not older than 30 days from application date)',
+      'Indemnity Bond in Form STK-3 by directors',
+      'Affidavits in Form STK-4 by directors',
+      'Bank closure certificate / proof of zero active bank accounts'
+    ],
+    exceptions_and_limitations: [
+      'Companies under Section 8, or having pending regulatory inquiries, court cases, or open tax liabilities cannot apply under STK-2'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-014',
+    service_id: 'V02-SVC-014',
+    applicable_entity_types: ['LLP'],
+    prerequisites: [
+      'Active Limited Liability Partnership incorporated on or before 30th September of the financial year',
+      'Form 11 due within 60 days of FY closure (30th May); Form 8 due within 30 days from end of 6 months of FY (30th October)'
+    ],
+    required_documents: [
+      'Statement of Account and Solvency signed by designated partners',
+      'Auditor report if LLP turnover exceeds ₹40 lakh or contribution exceeds ₹25 lakh',
+      'Details of partner contributions and penalties/offences in Form 11'
+    ],
+    exceptions_and_limitations: [
+      'LLPs incorporated after 30th September may choose to close their first FY on 31st March of the following year'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-015',
+    service_id: 'V02-SVC-015',
+    applicable_entity_types: ['LLP'],
+    prerequisites: [
+      'LLP inoperative since incorporation or not carrying on business for at least 1 year',
+      'Zero assets and zero liabilities as of filing date',
+      'Consent of all partners to strike off'
+    ],
+    required_documents: [
+      'Statement of Accounts certified by CA not older than 30 days',
+      'Indemnity Bond jointly given by designated partners',
+      'Affidavit declaring nil liabilities and indemnity against future claims',
+      'Proof of closure of all bank accounts'
+    ],
+    exceptions_and_limitations: [
+      'LLP having pending statutory filings for period when it was active must regularize returns or settle liabilities prior to closure'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-016',
+    service_id: 'V02-SVC-016',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'SECTION_8'],
+    prerequisites: [
+      'Every director must disclose interest in other entities (Form MBP-1) under Section 184(1)',
+      'Every director must certify non-disqualification (Form DIR-8) under Section 164(2)',
+      'Made at first meeting of the Board in which director participates, and at first meeting of the Board in every financial year'
+    ],
+    required_documents: [
+      'Form MBP-1 notice of interest specifying shareholding and directorships in other bodies corporate',
+      'Form DIR-8 declaration confirming no default under Section 164(2)(a) or (b)',
+      'Board resolution noting the disclosures entered in register under Section 189'
+    ],
+    exceptions_and_limitations: [
+      'Failure to disclose interest incurs criminal penalty under Section 184(4) and automatic vacation of office under Section 167'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-017',
+    service_id: 'V02-SVC-017',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'SECTION_8'],
+    prerequisites: [
+      'Active corporate entity registered under Companies Act, 2013',
+      'Holding mandatory minimum 4 Board meetings per year (with gap ≤ 120 days) and 1 Annual General Meeting per calendar year',
+      'Preparation of Board Report, statutory registers, and financial statements'
+    ],
+    required_documents: [
+      'Drafted board minutes, AGM notices, and chairman speech',
+      'Registers of members (MGT-1), directors (DIR-12 / s. 170), and contracts (MBP-4 / s. 189)',
+      'Filing acknowledgments of AOC-4, MGT-7, and statutory returns'
+    ],
+    exceptions_and_limitations: [
+      'Small companies and OPCs required to hold only 1 Board meeting in each half of a calendar year (minimum gap 90 days)'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V02-SVC-018',
+    service_id: 'V02-SVC-018',
+    applicable_entity_types: ['PARTNERSHIP'],
+    prerequisites: [
+      'Firm registered with Registrar of Firms under Indian Partnership Act, 1932',
+      'Alteration in firm name, principal place of business, partners names/addresses, or partnership constitution'
+    ],
+    required_documents: [
+      'Supplementary / amended partnership deed executed on requisite stamp duty',
+      'Notice of alteration (Form B/C/D/E as prescribed under State Partnership Rules)',
+      'Copy of original Form A / registration certificate',
+      'Identity proofs of incoming/outgoing partners'
+    ],
+    exceptions_and_limitations: [
+      'Alterations must be submitted to the specific District Registrar having territorial jurisdiction over the firm place of business'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-ACT-IPA-1932',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+
+  // ==========================================
+  // VERTICAL 3: Direct & Indirect Tax (5 services)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V03-SVC-001',
+    service_id: 'V03-SVC-001',
+    applicable_entity_types: ['TRUST', 'SOCIETY', 'SECTION_8'],
+    prerequisites: [
+      'Total income of trust or institution without giving effect to exemption under Section 11/12 exceeds maximum amount not chargeable to tax',
+      'Filing audit report in Form 10B (where total income exceeds ₹5 Cr or trust receives foreign contribution) or Form 10BB at least 1 month prior to return due date'
+    ],
+    required_documents: [
+      'Audited Balance Sheet, Income & Expenditure Account, and Notes to Accounts',
+      'Details of charitable contributions, corpus donations, and application of income',
+      'Registration order under Section 12AB / Section 10(23C)'
+    ],
+    exceptions_and_limitations: [
+      'Failure to furnish audit report in Form 10B/10BB before statutory due date forfeits tax exemption under Section 11 and 12'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-CBDT-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V03-SVC-002',
+    service_id: 'V03-SVC-002',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'FOREIGN_COMPANY', 'LLP'],
+    prerequisites: [
+      'Person entering into an international transaction or specified domestic transaction (SDT exceeding ₹20 crore under Section 92BA) during the previous year',
+      'Report in Form 3CEB certified by an accountant filed on or before 31st October of the assessment year'
+    ],
+    required_documents: [
+      'Accountant report in Form 3CEB with detailed annexures',
+      'Transfer pricing study report and economic benchmarking analysis',
+      'Agreements entered into with Associated Enterprises (AEs)'
+    ],
+    exceptions_and_limitations: [
+      'Failure to furnish report under Section 92E incurs mandatory penalty of ₹1,00,000 under Section 271BA'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-CBDT-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V03-SVC-003',
+    service_id: 'V03-SVC-003',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'LLP', 'PARTNERSHIP', 'PROPRIETORSHIP'],
+    prerequisites: [
+      'Registered person under Goods and Services Tax (GST)',
+      'GSTR-9 mandatory for taxpayers with aggregate annual turnover > ₹2 crore; GSTR-9C reconciliation statement mandatory for turnover > ₹5 crore'
+    ],
+    required_documents: [
+      'Audited financial statements for the financial year',
+      'Filed monthly/quarterly returns (GSTR-1, GSTR-3B) and electronic credit ledger extract',
+      'Self-certified reconciliation statement in Form GSTR-9C (for turnover > ₹5 Cr)'
+    ],
+    exceptions_and_limitations: [
+      'Composition taxpayers file GSTR-4; Input Service Distributors and non-resident taxable persons are exempt from GSTR-9'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-CBIC-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V03-SVC-004',
+    service_id: 'V03-SVC-004',
+    applicable_entity_types: ['TRUST', 'SOCIETY', 'SECTION_8'],
+    prerequisites: [
+      'Entities claiming exemption under Section 139(4A) (charitable/religious trusts), 139(4B) (political parties), 139(4C) (scientific research associations/universities), or 139(4D) (colleges/institutions)'
+    ],
+    required_documents: [
+      'Audited accounts, Form 10B/10BB audit report, and Form 10/9A accumulation notices',
+      'Details of corpus donations and application of funds',
+      'Registration order under Section 12AB, 80G, or 10(23C)'
+    ],
+    exceptions_and_limitations: [
+      'Failure to file return by due date invalidates application of income and exposes trust to tax at maximum marginal rate'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-CBDT-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V03-SVC-005',
+    service_id: 'V03-SVC-005',
+    applicable_entity_types: ['PROPRIETORSHIP', 'PARTNERSHIP', 'INDIVIDUAL'],
+    prerequisites: [
+      'Gross total income exceeds basic tax exemption limit, or business turnover exceeds mandatory tax audit threshold (Section 44AB: > ₹1 Cr / ₹10 Cr if cash transactions ≤ 5%)',
+      'Presumptive taxation eligible under Section 44AD (businesses ≤ ₹2 Cr / ₹3 Cr) or Section 44ADA (professionals ≤ ₹50 L / ₹75 L)'
+    ],
+    required_documents: [
+      'Form 26AS, Annual Information Statement (AIS), and Taxpayer Information Summary (TIS)',
+      'Bank account statements of all business and personal accounts',
+      'Tax Audit Report in Form 3CA/3CB and 3CD (where Section 44AB applies)'
+    ],
+    exceptions_and_limitations: [
+      'Professionals opting for presumptive scheme cannot claim deductions for business expenditures under Sections 30 to 38'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-CBDT-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+
+  // ==========================================
+  // VERTICAL 4: Payroll & Social Security (1 service)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V04-SVC-001',
+    service_id: 'V04-SVC-001',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'LLP', 'PARTNERSHIP', 'PROPRIETORSHIP'],
+    prerequisites: [
+      'EPF mandatory for establishments employing 20 or more persons (voluntary coverage under Section 1(4))',
+      'ESIC mandatory for non-seasonal factories and notified establishments employing 10 or more persons with employee monthly wages ≤ ₹21,000 (₹25,000 for employees with disability)',
+      'Monthly electronic returns (ECR) due on or before 15th of the following month'
+    ],
+    required_documents: [
+      'Establishment PAN, Certificate of Incorporation / Registration, and GSTIN',
+      'Employee master data with Aadhaar, PAN, Universal Account Number (UAN), and bank details',
+      'Monthly wage registers showing gross wages, basic, DA, and contribution deductions'
+    ],
+    exceptions_and_limitations: [
+      'Employees drawing basic wages + DA exceeding ₹15,000 at the time of joining are excluded from mandatory EPF coverage unless enrolled voluntarily'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-EPFO-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+
+  // ==========================================
+  // VERTICAL 5: Commercial Contracting (2 services)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V05-SVC-001',
+    service_id: 'V05-SVC-001',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC'],
+    prerequisites: [
+      'Capacity of participating parties to contract under Section 11 of the Indian Contract Act, 1872',
+      'Agreement covenants must be formally incorporated into Articles of Association (AoA) for enforceability against the company per Supreme Court doctrine (VB Rangaraj)',
+      'Board and shareholder approval for share issuance, reserved matter rights, or transfer restrictions'
+    ],
+    required_documents: [
+      'Current Certificate of Incorporation, Memorandum, and Articles of Association',
+      'Cap table / shareholding register showing existing equity distribution and vesting schedules',
+      'Term sheet or binding letter of intent (LOI)',
+      'Identity and address proofs of participating founders/investors'
+    ],
+    exceptions_and_limitations: [
+      'Unincorporated entities cannot execute an SHA as a corporate party prior to incorporation',
+      'Clauses imposing unreasonable absolute restraint of trade or profession are void under Section 27 of the Indian Contract Act, 1872'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V05-SVC-002',
+    service_id: 'V05-SVC-002',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'LLP', 'PARTNERSHIP', 'PROPRIETORSHIP', 'FOREIGN_COMPANY'],
+    prerequisites: [
+      'Mutually agreed scope of services, deliverables, service levels (SLA), and pricing terms',
+      'Capacity to contract under Section 11 of the Indian Contract Act, 1872',
+      'Lawful object and consideration under Section 23 of the Indian Contract Act, 1872'
+    ],
+    required_documents: [
+      'Vendor / Client corporate registration details (CIN/LLPIN/GSTIN)',
+      'Draft statement of work (SOW) or commercial specifications',
+      'Authorized signatory board resolution or power of attorney'
+    ],
+    exceptions_and_limitations: [
+      'Agreements containing illegal covenants or absolute liability exclusions may be unenforceable under the Indian Contract Act, 1872'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+
+  // ==========================================
+  // VERTICAL 6: Intellectual Property (3 services)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V06-SVC-001',
+    service_id: 'V06-SVC-001',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'LLP', 'PARTNERSHIP', 'PROPRIETORSHIP', 'INDIVIDUAL'],
+    prerequisites: [
+      'Proprietor or licensee of a registered trade mark, copyright, design, or patent facing commercial infringement or passing off',
+      'Pre-litigation formal legal notice asserting proprietary rights and demanding cessation of infringing activity'
+    ],
+    required_documents: [
+      'Registration certificates and legal use certificates issued by Trade Marks Registry / IP India',
+      'Documentary evidence of infringement (invoices, infringing product packaging, website screenshots)',
+      'Proof of commercial use and goodwill / sales turnover figures'
+    ],
+    exceptions_and_limitations: [
+      'Under the Advocates Act, 1961, court litigation and tribunal advocacy are restricted to enrolled advocates; corporate secretarial support is strictly non-litigation'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-CGPDTM-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V06-SVC-002',
+    service_id: 'V06-SVC-002',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'LLP', 'PARTNERSHIP', 'PROPRIETORSHIP', 'INDIVIDUAL'],
+    prerequisites: [
+      'Author / owner of original software code, literary, artistic work under Copyright Act, 1957, or inventor of a technical patentable invention under Patents Act, 1970',
+      'Software patents in India must demonstrate technical effect / technical contribution beyond computer programme per se (Section 3(k) Patents Act, 1970)'
+    ],
+    required_documents: [
+      'Form XIV application for copyright with source code / object code copies',
+      'Form 1 patent application with complete specification in Form 2 and drawings',
+      'No Objection Certificate (NOC) and assignment deed from developers/authors'
+    ],
+    exceptions_and_limitations: [
+      'Computer programmes per se or mathematical algorithms are excluded from patentability under Section 3(k) of the Patents Act, 1970'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-CGPDTM-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V06-SVC-003',
+    service_id: 'V06-SVC-003',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'LLP', 'PARTNERSHIP', 'PROPRIETORSHIP', 'INDIVIDUAL'],
+    prerequisites: [
+      'Distinctive brand name, logo, slogan, or mark used or proposed to be used in commerce in relation to goods or services',
+      'Mark is not devoid of distinctive character (Section 9 Trade Marks Act, 1999) and not deceptively similar to prior registered marks (Section 11)'
+    ],
+    required_documents: [
+      'Form TM-48 Power of Attorney authorizing Trademark Agent / Advocate',
+      'Logo / wordmark graphic representation in high-resolution format',
+      'User affidavit with documentary proof where prior use is claimed',
+      'Udyam registration or startup certificate for 50% government fee concession'
+    ],
+    exceptions_and_limitations: [
+      'Generic, descriptive, scandalous, or prohibited marks under the Emblems and Names Act cannot be registered'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-CGPDTM-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+
+  // ==========================================
+  // VERTICAL 7: Employment & Labour (2 services)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V07-SVC-001',
+    service_id: 'V07-SVC-001',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'LLP'],
+    prerequisites: [
+      'Commercial or industrial establishment employing workforce subject to central and state labour legislations',
+      'Compliance with Industrial Employment (Standing Orders) Act, 1946 (mandatory for establishments with 100/50+ workmen depending on state) and State Shops and Establishments Acts'
+    ],
+    required_documents: [
+      'Current employment contracts and appointment letters',
+      'Draft standing orders / comprehensive employee handbook',
+      'Leave policies, working hours, and wage registers'
+    ],
+    exceptions_and_limitations: [
+      'Managerial and administrative personnel are generally excluded from workman definitions under Section 2(s) of Industrial Disputes Act, 1947'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-ACT-IESO-1946',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V07-SVC-002',
+    service_id: 'V07-SVC-002',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'LLP'],
+    prerequisites: [
+      'Workplace or commercial establishment employing 10 or more workers (regular, temporary, contractual, or intern)',
+      'Mandatory constitution of Internal Committee (IC) under Section 4 of POSH Act, 2013 by written order',
+      'Annual report filed with District Officer under Section 21'
+    ],
+    required_documents: [
+      'Formal written office order constituting the Internal Committee',
+      'Profile and consent of Presiding Officer (senior woman employee), minimum 2 employee members, and 1 external member from NGO/association',
+      'POSH policy document and documentation of mandatory awareness workshops'
+    ],
+    exceptions_and_limitations: [
+      'Workplaces with fewer than 10 employees are exempt from setting up an internal committee; complaints in such establishments are remitted to the District Local Committee (LC)'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-ACT-POSH-2013',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+
+  // ==========================================
+  // VERTICAL 9: Restructuring & Mergers (3 services)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V09-SVC-001',
+    service_id: 'V09-SVC-001',
+    applicable_entity_types: ['PVT_LTD'],
+    prerequisites: [
+      'Merger between two or more small companies (capital ≤ ₹4 Cr & turnover ≤ ₹40 Cr) or between holding company and wholly-owned subsidiary (Section 233 Companies Act, 2013)',
+      'Approval of scheme by members holding at least 90% of total shares at general meeting',
+      'Approval of scheme by creditors holding at least 9/10th in value at separate meeting or in writing',
+      'Declaration of solvency filed in Form CAA-10 with RoC'
+    ],
+    required_documents: [
+      'Draft Scheme of Merger in Form CAA-9',
+      'Audited financial statements of both transferor and transferee companies for preceding FY',
+      'Declaration of Solvency (Form CAA-10) with statement of assets/liabilities and auditor report',
+      'Proof of dispatch of notice of scheme to RoC, Official Liquidator, and affected persons'
+    ],
+    exceptions_and_limitations: [
+      'Cannot be utilized if Regional Director or Official Liquidator files objection requiring NCLT adjudication under Section 232',
+      'Does not apply to mergers involving listed companies or companies exceeding small company thresholds (unless 100% parent-subsidiary)'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V09-SVC-002',
+    service_id: 'V09-SVC-002',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED'],
+    prerequisites: [
+      'Transfer of an entire business undertaking as a going concern for a lump sum consideration without values being assigned to individual assets and liabilities (Section 2(42C) Income-tax Act, 1961)',
+      'Special resolution passed by shareholders under Section 180(1)(a) of Companies Act, 2013 (mandatory for public companies; governance best practice for private companies)',
+      'Net worth computation and CA certification in Form 3CEA'
+    ],
+    required_documents: [
+      'Business Transfer Agreement (BTA) specifying lump-sum consideration and closing date',
+      'Audited balance sheet of the undertaking being transferred',
+      'Form 3CEA accountant certificate computing net worth under Section 50B',
+      'Board resolution and shareholder special resolution'
+    ],
+    exceptions_and_limitations: [
+      'Itemized sale of individual assets does not qualify as a slump sale and is taxed as individual asset transfers'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-CBDT-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V09-SVC-003',
+    service_id: 'V09-SVC-003',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED'],
+    prerequisites: [
+      'Scheme of Compromise, Arrangement or Amalgamation approved by respective Boards of Directors',
+      'Application to NCLT under Section 230(1) for directions to convene meetings of creditors and shareholders',
+      'Approval of scheme by majority in number representing 3/4th in value of creditors and shareholders present and voting',
+      'Statutory notices served to Central Government (RD), RoC, Income Tax authorities, RBI, CCI, and Official Liquidator'
+    ],
+    required_documents: [
+      'Scheme of Amalgamation / Arrangement',
+      'Valuation report by Registered Valuer',
+      'Audited financial statements (not older than 6 months prior to application)',
+      'Auditor certificate confirming accounting treatment conforms to Section 133',
+      'Board resolutions, list of creditors and shareholders certified by CA/CS'
+    ],
+    exceptions_and_limitations: [
+      'NCLT bench appearances and petition advocacy restricted to enrolled advocates or practicing CS under formal authorization per Advocates Act, 1961',
+      'Approval conditional on no objection from Competition Commission of India (CCI) for combinations exceeding merger thresholds'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-BAR-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+
+  // ==========================================
+  // VERTICAL 11: Corporate Governance & Audit (4 services)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V11-SVC-001',
+    service_id: 'V11-SVC-001',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'LLP', 'SECTION_8'],
+    prerequisites: [
+      'Active corporate existence registered with Ministry of Corporate Affairs',
+      'Mandatory compliance with ICSI Secretarial Standards (SS-1 on Board Meetings and SS-2 on General Meetings) under Section 118(10) of Companies Act, 2013'
+    ],
+    required_documents: [
+      'Existing Articles of Association (AoA) and Memorandum of Association (MoA)',
+      'Master data extract from MCA portal',
+      'Minutes of Board Meetings and General Meetings for the preceding 2 financial years',
+      'Statutory registers maintained under Companies Act, 2013'
+    ],
+    exceptions_and_limitations: [
+      'One Person Companies (OPC) having only one director are exempt from Board meeting requirements under Section 173(5)'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-ICSI-SS-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V11-SVC-002',
+    service_id: 'V11-SVC-002',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'SECTION_8'],
+    prerequisites: [
+      'Active company with appointed Board of Directors',
+      'Maintenance of minutes within 30 days of the conclusion of every meeting (Section 118)',
+      'Maintenance of mandatory registers under Section 88 (members), Section 170 (directors/KMP), Section 186 (loans/investments), Section 189 (related party contracts)'
+    ],
+    required_documents: [
+      'Notices and agenda of Board and Committee meetings along with notes on agenda',
+      'Attendance register and proof of dispatch of meeting notices (at least 7 days prior notice per s. 173(3))',
+      'Signed minutes books kept at registered office',
+      'Allotment registers, transfer deeds (SH-4), and member registers (MGT-1)'
+    ],
+    exceptions_and_limitations: [
+      'Minutes cannot be pasted or attached in loose-leaf binder without consecutive numbering and periodic binding'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-ICSI-SS-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V11-SVC-003',
+    service_id: 'V11-SVC-003',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED'],
+    prerequisites: [
+      'Company meeting any of the three thresholds during immediately preceding FY: (i) Net Worth ≥ ₹500 crore; (ii) Turnover ≥ ₹1,000 crore; (iii) Net Profit ≥ ₹5 crore (Section 135(1) Companies Act, 2013)',
+      'Mandatory constitution of CSR Committee of the Board (unless CSR obligation does not exceed ₹50 lakh under s. 135(9))',
+      'Mandatory spend of at least 2% of average net profits of preceding 3 financial years'
+    ],
+    required_documents: [
+      'CSR Policy approved by the Board',
+      'Audited financial statements and net profit calculation under Section 198',
+      'Annual Report on CSR activities in prescribed format',
+      'Proof of transfer of unspent CSR funds to designated fund / unspent CSR account within statutory timelines'
+    ],
+    exceptions_and_limitations: [
+      'Companies not meeting net worth, turnover, or profit criteria for 3 consecutive FYs cease to be covered under Section 135'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V11-SVC-004',
+    service_id: 'V11-SVC-004',
+    applicable_entity_types: ['PUBLIC_UNLISTED'],
+    prerequisites: [
+      'Every listed company, or every public company having paid-up share capital ≥ ₹50 crore or turnover ≥ ₹250 crore, or outstanding loans/borrowings ≥ ₹100 crore (Section 204(1) Companies Act & Rule 9 Managerial Personnel Rules, 2014)',
+      'Secretarial audit report must be prepared and signed exclusively by a Company Secretary in Practice (PCS)'
+    ],
+    required_documents: [
+      'Statutory registers, board minutes, general meeting minutes, and filing acknowledgments for the FY',
+      'Audited financial statements and Board Report',
+      'Proof of compliance with SEBI regulations, listing agreements, FEMA, and industry-specific statutes'
+    ],
+    exceptions_and_limitations: [
+      'Private limited companies not meeting the ₹100 crore debt threshold are exempt from mandatory secretarial audit',
+      'Report must be annexed to the Board Report in Form MR-3'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+
+  // ==========================================
+  // VERTICAL 12: Data Privacy & Tech Law (3 services)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V12-SVC-001',
+    service_id: 'V12-SVC-001',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'LLP', 'FOREIGN_COMPANY'],
+    prerequisites: [
+      'Service providers, intermediaries, data centres, body corporate and government organisations experiencing covered cybersecurity incident under Section 70B(6) IT Act, 2000',
+      'Mandatory reporting of 20 specified incident categories to CERT-In within 6 hours of noticing or being brought to notice'
+    ],
+    required_documents: [
+      'Incident reporting format to CERT-In with incident timeline and affected systems',
+      'System log extracts maintained for statutory minimum 180 days within Indian jurisdiction',
+      'Technical root cause analysis report and remediation measures'
+    ],
+    exceptions_and_limitations: [
+      'Mandatory 6-hour reporting window applies to all covered cyber security incidents without exception'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-CERTIN-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V12-SVC-002',
+    service_id: 'V12-SVC-002',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'FOREIGN_COMPANY'],
+    prerequisites: [
+      'Data Fiduciary processing digital personal data within the territory of India, or outside India if offering goods/services to data principals in India (DPDP Act, 2023)',
+      'Obligations to issue consent notice, implement reasonable security safeguards, and maintain grievance redressal mechanism'
+    ],
+    required_documents: [
+      'Data inventory and personal data mapping matrix',
+      'Consent notice templates in English and 22 Eighth Schedule languages',
+      'Data protection impact assessment (DPIA) report (mandatory for Significant Data Fiduciaries)',
+      'Details of appointed Data Protection Officer (DPO) and grievance redressal officer'
+    ],
+    exceptions_and_limitations: [
+      'Specified processing for state security or legal obligations subject to statutory exemptions under Section 17'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-DPDP-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V12-SVC-003',
+    service_id: 'V12-SVC-003',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'OPC', 'LLP', 'FOREIGN_COMPANY'],
+    prerequisites: [
+      'Entity operating SaaS application, digital platform, website, or mobile app collecting user data',
+      'Compliance with Intermediary Guidelines Rule 3 under IT Act, 2000 and Digital Personal Data Protection Act, 2023',
+      'Prominent publishing of Terms of Use, Privacy Policy, and user agreements'
+    ],
+    required_documents: [
+      'Terms of Service / End User License Agreement (EULA)',
+      'Comprehensive Privacy Policy with itemized personal data categories and processing purposes',
+      'Cookie and tracking disclosure matrix',
+      'Designated Grievance Officer details and contact coordinates'
+    ],
+    exceptions_and_limitations: [
+      'Cannot disclaim statutory liabilities or mandate arbitration in foreign seats where Indian public policy or consumer protection laws prohibit forum-selection'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-ACT-IT-2000',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+
+  // ==========================================
+  // VERTICAL 13: Cross-Border & FDI (3 services)
+  // ==========================================
+  {
+    eligibility_id: 'ELG-V13-SVC-001',
+    service_id: 'V13-SVC-001',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'LLP', 'FOREIGN_COMPANY'],
+    prerequisites: [
+      'Cross-border transfer or licensing of intellectual property, proprietary technology, software, or know-how',
+      'Compliance with Foreign Exchange Management (Current Account Transactions) Rules, 2000',
+      'Tax withholding clearance under Section 195 of Income-tax Act, 1961 (Form 15CA/15CB)'
+    ],
+    required_documents: [
+      'Technology Transfer Agreement / Intellectual Property License Agreement',
+      'Form 15CB certificate from Chartered Accountant and Form 15CA filing acknowledgment',
+      'Transfer pricing benchmarking documentation if transaction is with associated enterprise (Section 92E)'
+    ],
+    exceptions_and_limitations: [
+      'Remittances to countries subject to FATF restrictions or financial sanctions require special regulatory scrutiny'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-ACT-FEMA-1999',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V13-SVC-002',
+    service_id: 'V13-SVC-002',
+    applicable_entity_types: ['FOREIGN_COMPANY'],
+    prerequisites: [
+      'Foreign company established in India with RBI approval / Authorized Dealer Bank permission under FEMA Regulations, 2016',
+      'Mandatory registration with Registrar of Companies (CRC/RoC New Delhi) within 30 days of establishment under Section 380',
+      'Mandatory annual accounts filing in Form FC-3 and annual return in Form FC-4 within 60 days of FY close under Section 381'
+    ],
+    required_documents: [
+      'Annual audited accounts of Indian operations certified by practicing Indian Chartered Accountant',
+      'Copy of balance sheet and P&L account of parent foreign company',
+      'Annual Activity Certificate (AAC) from Statutory Auditors filed with RBI',
+      'Form FC-4 Annual Return with list of all places of business in India'
+    ],
+    exceptions_and_limitations: [
+      'Liaison Offices are strictly prohibited from undertaking any commercial, trading, or industrial activity directly or indirectly in India'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-MCA-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  },
+  {
+    eligibility_id: 'ELG-V13-SVC-003',
+    service_id: 'V13-SVC-003',
+    applicable_entity_types: ['PVT_LTD', 'PUBLIC_UNLISTED', 'LLP'],
+    prerequisites: [
+      'Indian company or LLP that has received Foreign Direct Investment (FDI) or made Overseas Direct Investment (ODI)',
+      'Entity holds foreign assets or liabilities in its balance sheet as of 31st March of the preceding financial year',
+      'Mandatory annual filing on RBI FLAIR portal on or before 15th July every year'
+    ],
+    required_documents: [
+      'Audited financial statements for the financial year (or unaudited accounts if audit not complete)',
+      'FLAIR portal user credentials and entity authorization form',
+      'Breakup of foreign equity participation, disinvestment, and retained earnings'
+    ],
+    exceptions_and_limitations: [
+      'Entities that have not received FDI or made ODI, or have zero foreign assets/liabilities as of 31st March, are exempt from annual FLA filing'
+    ],
+    jurisdiction: 'IN-CENTRAL',
+    source_id: 'SRC-RBI-001',
+    verification_status: 'SOURCE_IDENTIFIED',
+    last_verified_at: null,
+    next_review_at: '2027-04-01'
+  }
+];
+
+fs.writeFileSync(path.join(DATA_DIR, 'eligibility.json'), JSON.stringify(eligibilityData, null, 2) + '\n');
+console.log('Updated eligibility.json with', eligibilityData.length, 'records.');

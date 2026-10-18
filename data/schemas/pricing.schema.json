@@ -1,0 +1,267 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ccs.craftegon.com/schemas/pricing.schema.json",
+  "title": "CraftEgon CCS Pricing Dataset Schema",
+  "description": "JSON Schema Draft 2020-12 enforcing structural validity, pricing basis, included/excluded charges, statutory threshold separation, and evidence-gated verification rules.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "pricing_id",
+      "service_id",
+      "currency",
+      "pricing_basis",
+      "included_charges",
+      "excluded_charges",
+      "verification_status"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "pricing_id": {
+        "type": "string",
+        "pattern": "^PRC-V\\d{2}-SVC-\\d{3}$",
+        "description": "Unique pricing record identifier mapped to service ID."
+      },
+      "service_id": {
+        "type": "string",
+        "pattern": "^V\\d{2}-SVC-\\d{3}$",
+        "description": "Approved active service identifier reference."
+      },
+      "service_name": {
+        "type": "string",
+        "description": "Canonical service title."
+      },
+      "canonical_route": {
+        "type": "string",
+        "pattern": "^/services/[a-z0-9-]+\\.html$",
+        "description": "Canonical service page route."
+      },
+      "primary_vertical_id": {
+        "type": "string",
+        "pattern": "^V\\d{2}$",
+        "description": "Primary practice vertical identifier."
+      },
+      "currency": {
+        "type": "string",
+        "enum": ["INR"],
+        "description": "Approved statutory currency code."
+      },
+      "amount": {
+        "type": ["number", "null"],
+        "minimum": 0,
+        "description": "Professional fee amount in INR. Nullable for custom quotation scope."
+      },
+      "pricing_basis": {
+        "type": "string",
+        "enum": ["FIXED", "STARTING_FROM", "HOURLY", "MONTHLY", "ANNUAL", "PER_FILING", "CUSTOM_QUOTE"],
+        "description": "Commercial pricing model."
+      },
+      "price_category": {
+        "type": "string",
+        "enum": ["PROFESSIONAL_FEE", "GOVERNMENT_FEE", "STAMP_DUTY", "STATUTORY_PENALTY", "COMMERCIAL_RETAINER"],
+        "description": "Categorization of fee component to prevent conflation with statutory levies."
+      },
+      "jurisdiction": {
+        "type": "string",
+        "pattern": "^IN-[A-Z0-9-]+$",
+        "description": "Statutory jurisdiction code (e.g. IN-CENTRAL, IN-MH)."
+      },
+      "website_displayed_price": {
+        "type": "string",
+        "description": "Exact textual price expression captured from website service card."
+      },
+      "package_title": {
+        "type": ["string", "null"],
+        "description": "Title of the primary pricing tier or package displayed on page."
+      },
+      "website_price_type": {
+        "type": "string",
+        "enum": [
+          "STARTING_PRICE",
+          "STARTING_PRICE_PLUS_DISBURSEMENTS",
+          "FIXED_ALL_INCLUSIVE",
+          "ANNUAL_RETAINER",
+          "PER_FILING",
+          "PER_DIN_UNIT",
+          "CUSTOM_QUOTE",
+          "UNSPECIFIED"
+        ],
+        "description": "Commercial tier structure displayed on the website."
+      },
+      "included_charges": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Explicit professional deliverables included in the fee."
+      },
+      "excluded_charges": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Explicit disbursements, government statutory fees, and taxes excluded."
+      },
+      "additional_tiers": {
+        "type": "array",
+        "description": "Secondary or multi-package pricing tiers displayed on the same service page.",
+        "items": {
+          "type": "object",
+          "required": ["tier_index", "package_title", "website_displayed_price", "pricing_basis"],
+          "additionalProperties": false,
+          "properties": {
+            "tier_index": { "type": "integer", "minimum": 2 },
+            "package_title": { "type": "string" },
+            "website_displayed_price": { "type": "string" },
+            "amount": { "type": ["number", "null"], "minimum": 0 },
+            "pricing_basis": { "type": "string", "enum": ["FIXED", "STARTING_FROM", "HOURLY", "MONTHLY", "ANNUAL", "PER_FILING", "CUSTOM_QUOTE"] },
+            "description": { "type": "string" },
+            "features": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      },
+      "tax_inclusion_status": {
+        "type": "string",
+        "enum": ["UNCONFIRMED", "EXPLICITLY_INCLUDED", "EXPLICITLY_EXCLUDED"],
+        "description": "Tax (e.g. GST) inclusion status from website wording. Marked UNCONFIRMED if not explicitly specified on page."
+      },
+      "commercial_package_caps": {
+        "type": "array",
+        "description": "Commercial eligibility limits or scope ceilings set by CraftEgon for specific pricing tiers (e.g. authorized capital limit for startup package), distinct from statutory thresholds.",
+        "items": {
+          "type": "object",
+          "required": ["cap_type", "monetary_expression", "amount_inr", "description", "commercial_context"],
+          "additionalProperties": false,
+          "properties": {
+            "cap_type": {
+              "type": "string",
+              "enum": ["AUTHORIZED_CAPITAL_CAP", "TURNOVER_CAP", "TRANSACTION_VOLUME_CAP", "DIRECTOR_COUNT_CAP", "OTHER_COMMERCIAL_CAP"]
+            },
+            "monetary_expression": { "type": "string" },
+            "amount_inr": { "type": "number", "minimum": 0 },
+            "description": { "type": "string" },
+            "commercial_context": { "type": "string" }
+          }
+        }
+      },
+      "statutory_thresholds": {
+        "type": "array",
+        "description": "Monetary turnover, capital, or net-worth thresholds referenced on the service page, preserved separately from service prices.",
+        "items": {
+          "type": "object",
+          "required": ["threshold_type", "monetary_expression", "amount_inr", "description", "statutory_citation", "source_id"],
+          "additionalProperties": false,
+          "properties": {
+            "threshold_type": {
+              "type": "string",
+              "enum": ["TURNOVER_THRESHOLD", "AUTHORIZED_CAPITAL_THRESHOLD", "NET_WORTH_THRESHOLD", "CONTRIBUTION_THRESHOLD", "OTHER_STATUTORY_THRESHOLD"]
+            },
+            "monetary_expression": { "type": "string" },
+            "amount_inr": { "type": "number", "minimum": 0 },
+            "description": { "type": "string" },
+            "statutory_citation": { "type": "string" },
+            "source_id": { "type": "string", "pattern": "^SRC-[A-Z0-9-]+$" }
+          }
+        }
+      },
+      "statutory_penalties": {
+        "type": "array",
+        "description": "Government statutory late fees or penalties referenced on the page, preserved separately from professional service fees.",
+        "items": {
+          "type": "object",
+          "required": ["penalty_type", "monetary_expression", "amount_inr", "description", "statutory_citation", "source_id"],
+          "additionalProperties": false,
+          "properties": {
+            "penalty_type": {
+              "type": "string",
+              "enum": ["STATUTORY_LATE_FILING_FEE", "ADDITIONAL_FEE", "COMPOUNDING_PENALTY", "OTHER_STATUTORY_PENALTY"]
+            },
+            "monetary_expression": { "type": "string" },
+            "amount_inr": { "type": "number", "minimum": 0 },
+            "description": { "type": "string" },
+            "statutory_citation": { "type": "string" },
+            "source_id": { "type": "string", "pattern": "^SRC-[A-Z0-9-]+$" }
+          }
+        }
+      },
+      "effective_from": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Date from which this pricing model is effective."
+      },
+      "effective_to": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Expiration date of the pricing model, if applicable."
+      },
+      "source_id": {
+        "type": ["string", "null"],
+        "pattern": "^SRC-[A-Z0-9-]+$",
+        "description": "Reference to authoritative source or fee schedule record."
+      },
+      "evidence_source": {
+        "type": "string",
+        "enum": ["WEBSITE_PAGE_AUDIT", "OFFICIAL_PORTAL_SCHEDULE", "STATE_STAMP_ACT", "INTERNAL_PRICING_SCHEDULE", "OTHER"],
+        "description": "Type of evidence backing the pricing capture."
+      },
+      "verification_status": {
+        "type": "string",
+        "enum": ["UNVERIFIED", "WEBSITE_OBSERVED", "INTERNAL_RECORD_IDENTIFIED", "SOURCE_IDENTIFIED", "PENDING_PROFESSIONAL_REVIEW", "VERIFIED", "REJECTED"],
+        "description": "Review status. Captured baseline remains UNVERIFIED until fee-committee signoff."
+      },
+      "evidence_state": {
+        "type": "string",
+        "enum": [
+          "WEBSITE_OBSERVED_HISTORICAL",
+          "INTERNAL_RECORD_IDENTIFIED",
+          "SUPPORTING_EVIDENCE_PENDING",
+          "VERIFIED_AGAINST_EVIDENCE",
+          "APPROVED_FOR_PUBLICATION"
+        ],
+        "description": "Formal pricing evidence approval state."
+      },
+      "commercial_approval_state": {
+        "type": "string",
+        "enum": [
+          "PENDING_COMMERCIAL_APPROVAL",
+          "COMMERCIALLY_APPROVED",
+          "REJECTED_COMMERCIALLY"
+        ],
+        "description": "Partner pricing committee commercial sign-off state."
+      },
+      "last_verified_at": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Timestamp of formal verification."
+      },
+      "checked_date": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Date on which the price was audited from the live website or official source."
+      },
+      "next_review_at": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Scheduled periodic fee review date."
+      },
+      "notes": {
+        "type": "string",
+        "description": "Explanatory notes and commercial boundary disclosures."
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "verification_status": { "const": "VERIFIED" }
+          }
+        },
+        "then": {
+          "properties": {
+            "amount": { "type": "number", "minimum": 0 },
+            "source_id": { "type": "string", "pattern": "^SRC-[A-Z0-9-]+$" },
+            "last_verified_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+            "commercial_approval_state": { "const": "COMMERCIALLY_APPROVED" }
+          },
+          "required": ["amount", "source_id", "last_verified_at", "commercial_approval_state"]
+        }
+      }
+    ]
+  }
+}

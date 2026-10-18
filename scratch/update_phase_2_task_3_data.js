@@ -1,0 +1,288 @@
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = path.resolve(__dirname, '..');
+const DATA_DIR = path.join(ROOT, 'data');
+
+// ==========================================
+// 1. UPDATE SOURCES (data/sources.json)
+// ==========================================
+const existingSources = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'sources.json'), 'utf8'));
+
+const newSources = [
+  {
+    source_id: 'SRC-ACT-CA2013-S403',
+    source_title: 'Companies Act, 2013 (Section 403) & Companies (Registration Offices and Fees) Rules, 2014 (Table of Additional Fees)',
+    issuing_authority: 'Ministry of Corporate Affairs (MCA), Government of India',
+    official_url: 'https://www.mca.gov.in/content/mcafee/global/en/acts-rules/ebooks/rules.html',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '2014-03-31',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Official legislative enactment and fee schedules published under Companies Act, 2013. Defines ₹100/day late fee calculation under Section 403.'
+  },
+  {
+    source_id: 'SRC-RULE-SPICE-2020',
+    source_title: 'Companies (Incorporation) Rules, 2014 (Rule 38 — SPICe+ Integrated Electronic Incorporation Web Form)',
+    issuing_authority: 'Ministry of Corporate Affairs (MCA), Government of India',
+    official_url: 'https://www.mca.gov.in/MinistryV2/spiceplus.html',
+    source_type: 'REGULATORY_NOTIFICATION',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '2020-02-18',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'OFFICIAL_GAZETTE',
+    access_restrictions_notes: 'Government gazetted notification G.S.R. 128(E) integrating 10 statutory services into web form SPICe+ (Part A name reservation 20 days; Part B incorporation, PAN, TAN, EPFO, ESIC, PT, Bank Account).'
+  },
+  {
+    source_id: 'SRC-NOTIF-PAS-2023',
+    source_title: 'Companies (Prospectus and Allotment of Securities) Second Amendment Rules, 2023 (Rule 9B — Private Company Dematerialisation)',
+    issuing_authority: 'Ministry of Corporate Affairs (MCA), Government of India',
+    official_url: 'https://www.mca.gov.in/content/mcafee/global/en/acts-rules/notifications.html',
+    source_type: 'REGULATORY_NOTIFICATION',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '2023-10-27',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'OFFICIAL_GAZETTE',
+    access_restrictions_notes: 'Official Gazette Notification G.S.R. 802(E) dated 27.10.2023 mandating issue and transfer of securities only in dematerialised form for non-small private companies.'
+  },
+  {
+    source_id: 'SRC-STATE-MH-STAMP-1958',
+    source_title: 'Maharashtra Stamp Act, 1958 (Bombay Act LX of 1958, Schedule I Articles 10, 39 & 47 as amended by Act XX of 2015)',
+    issuing_authority: 'Inspector General of Registration and Controller of Stamps (IGR Maharashtra) / Government of Maharashtra',
+    official_url: 'https://igrmaharashtra.gov.in/',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-MH',
+    publication_date: '2015-04-24',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'OFFICIAL_GAZETTE',
+    access_restrictions_notes: 'Official state enactment governing stamp duty on MoA (Article 39: ₹200), AoA (Article 10: 0.2% on nominal share capital, max cap ₹50,00,000), and LLP agreements (Article 47: ₹500 to ₹5,000 tiered).'
+  },
+  {
+    source_id: 'SRC-STATE-DL-STAMP-1899',
+    source_title: 'Indian Stamp Act, 1899 (Schedule 1A Articles 10 & 39 as applicable to National Capital Territory of Delhi)',
+    issuing_authority: 'Revenue Department, Government of National Capital Territory of Delhi',
+    official_url: 'https://revenue.delhi.gov.in/',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-DL',
+    publication_date: '2010-06-01',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Delhi NCT statutory schedule prescribing stamp duties on e-MoA (Article 39: ₹200) and tiered duty on e-AoA (Article 10: ₹1,000 up to ₹1,00,000 capital, scaled upwards).'
+  },
+  {
+    source_id: 'SRC-STATE-KA-STAMP-1957',
+    source_title: 'Karnataka Stamp Act, 1957 (Karnataka Act No. 34 of 1957, Schedule Articles 10 & 33 as amended by Karnataka Act 19 of 2014)',
+    issuing_authority: 'Department of Stamps and Registration, Government of Karnataka',
+    official_url: 'https://kaverionline.karnataka.gov.in/',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-KA',
+    publication_date: '2014-03-01',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Karnataka state enactment prescribing stamp duties on e-MoA (Article 33: ₹1,000) and tiered duty on e-AoA (Article 10: ₹1,000 per ₹10,00,000 capital).'
+  },
+  {
+    source_id: 'SRC-STATE-MH-PT-1975',
+    source_title: 'Maharashtra State Tax on Professions, Trades, Callings and Employments Act, 1975 (Maharashtra Act No. XVI of 1975, Section 5)',
+    issuing_authority: 'Maharashtra Goods and Services Tax Department (MahaGST), Government of Maharashtra',
+    official_url: 'https://mahagst.gov.in/',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-MH',
+    publication_date: '1975-04-01',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Governing state statute for mandatory PTEC (business entities) and PTRC (employers) registration and periodic returns in Maharashtra.'
+  },
+  {
+    source_id: 'SRC-STATE-KA-PT-1976',
+    source_title: 'Karnataka Tax on Professions, Trades, Callings and Employments Act, 1976 (Karnataka Act No. 35 of 1976, Section 5)',
+    issuing_authority: 'Commercial Taxes Department, Government of Karnataka',
+    official_url: 'https://karnatakatax.gov.in/',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-KA',
+    publication_date: '1976-04-01',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Governing state statute for mandatory employer PT registration (Certificate of Registration) and entity enrolment (Certificate of Enrolment) in Karnataka within 30 days.'
+  },
+  {
+    source_id: 'SRC-STATE-DL-PT-CONST',
+    source_title: 'Constitution of India (Article 276) & GNCTD Trade and Taxes Position (Absence of Professional Tax Enactment in NCT of Delhi)',
+    issuing_authority: 'Department of Trade and Taxes, Government of National Capital Territory of Delhi',
+    official_url: 'https://dvat.gov.in/',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-DL',
+    publication_date: '1950-01-26',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Under Article 276, PT is a state legislative competence. Confirms that NCT of Delhi has no Professional Tax legislation; businesses in Delhi are exempt from PT registration.'
+  },
+  {
+    source_id: 'SRC-STATE-MH-ROF-1932',
+    source_title: 'Indian Partnership Act, 1932 (Maharashtra Amendment & Rules) & Directorate of Industries RoF Maharashtra Online Portal',
+    issuing_authority: 'Registrar of Firms, Directorate of Industries, Government of Maharashtra',
+    official_url: 'https://rof.mahaonline.gov.in/',
+    source_type: 'OFFICIAL_PORTAL',
+    jurisdiction: 'IN-MH',
+    publication_date: '2018-01-01',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'REGULATORY_AGENCY',
+    access_restrictions_notes: 'Official state e-Firms online filing portal for Form A firm registration and amendment submissions in Maharashtra.'
+  },
+  {
+    source_id: 'SRC-STATE-KA-ROF-1932',
+    source_title: 'Indian Partnership Act, 1932 (Karnataka Rules) & Department of Stamps and Registration',
+    issuing_authority: 'Department of Stamps and Registration, Government of Karnataka',
+    official_url: 'https://kaverionline.karnataka.gov.in/',
+    source_type: 'OFFICIAL_PORTAL',
+    jurisdiction: 'IN-KA',
+    publication_date: '2017-06-01',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'REGULATORY_AGENCY',
+    access_restrictions_notes: 'District Registrar of Societies and Firms jurisdiction for partnership deed verification and Form A registration in Karnataka.'
+  },
+  {
+    source_id: 'SRC-ACT-IPA-1932',
+    source_title: 'Indian Partnership Act, 1932 (Act No. IX of 1932)',
+    issuing_authority: 'Parliament of India / Ministry of Law and Justice',
+    official_url: 'https://www.indiacode.nic.in/handle/123456789/2393',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '1932-04-08',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Central statute governing creation, mutual rights, registration of firms (Chapter VII), and legal consequences of non-registration under Section 69.'
+  },
+  {
+    source_id: 'SRC-ACT-SRA-1860',
+    source_title: 'Societies Registration Act, 1860 (Act No. XXI of 1860)',
+    issuing_authority: 'Parliament of India / State Registrars of Societies',
+    official_url: 'https://www.indiacode.nic.in/handle/123456789/2275',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '1860-05-21',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Central statutory enactment governing formation and registration of literary, scientific, and charitable societies (minimum 7 members).'
+  },
+  {
+    source_id: 'SRC-ACT-ITA-1882',
+    source_title: 'Indian Trusts Act, 1882 (Act No. II of 1882) & Registration Act, 1908 (Section 17)',
+    issuing_authority: 'Parliament of India / State Registration Departments',
+    official_url: 'https://www.indiacode.nic.in/handle/123456789/2311',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '1882-01-13',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Statutory framework for trust creation, duties of trustees, and mandatory registration of non-testamentary instruments under Section 17 of the Registration Act, 1908.'
+  },
+  {
+    source_id: 'SRC-ACT-POSH-2013',
+    source_title: 'Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 (Act No. 14 of 2013) & Rules',
+    issuing_authority: 'Ministry of Women and Child Development, Government of India',
+    official_url: 'https://wcd.nic.in/',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '2013-04-22',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Statutory mandate requiring every employer of an establishment with 10 or more employees to constitute an Internal Committee (Section 4) and file annual reports (Section 21).'
+  },
+  {
+    source_id: 'SRC-ACT-IESO-1946',
+    source_title: 'Industrial Employment (Standing Orders) Act, 1946 & Emerging Labour Codes Framework',
+    issuing_authority: 'Ministry of Labour and Employment, Government of India',
+    official_url: 'https://labour.gov.in/',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '1946-04-23',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Central statutory enactment requiring employers in industrial establishments to formally define and certify conditions of employment and employee conduct rules.'
+  },
+  {
+    source_id: 'SRC-ACT-IT-2000',
+    source_title: 'Information Technology Act, 2000 (Act No. 21 of 2000, Section 43A & Section 79 Intermediary Guidelines Rules 2021)',
+    issuing_authority: 'Ministry of Electronics and Information Technology (MeitY), Government of India',
+    official_url: 'https://www.meity.gov.in/',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '2000-06-09',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Statutory foundation for digital contracts, reasonable security practices (Section 43A), and terms of service / privacy architecture under Intermediary Guidelines Rules 2021.'
+  },
+  {
+    source_id: 'SRC-ACT-FEMA-1999',
+    source_title: 'Foreign Exchange Management Act, 1999 (Act No. 42 of 1999) & Current Account Rules, 2000',
+    issuing_authority: 'Reserve Bank of India (RBI) / Ministry of Finance',
+    official_url: 'https://www.rbi.org.in/',
+    source_type: 'STATUTE',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '1999-12-29',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'PRIMARY_STATUTORY',
+    access_restrictions_notes: 'Statutory framework for cross-border transactions, technology transfer payments, and branch office / liaison office regulatory approvals.'
+  },
+  {
+    source_id: 'SRC-ICSI-SS-001',
+    source_title: 'Secretarial Standards on Meetings of the Board of Directors (SS-1) and General Meetings (SS-2)',
+    issuing_authority: 'Institute of Company Secretaries of India (ICSI) / Section 118(10) Companies Act, 2013',
+    official_url: 'https://www.icsi.edu/',
+    source_type: 'REGULATORY_NOTIFICATION',
+    jurisdiction: 'IN-CENTRAL',
+    publication_date: '2015-04-23',
+    accessed_date: '2026-10-17',
+    last_verified_at: '2026-10-17',
+    next_review_at: '2027-04-01',
+    reliability_classification: 'REGULATORY_AGENCY',
+    access_restrictions_notes: 'Statutory secretarial standards specified by ICSI and approved by Central Government, compliance with which is mandatory under Section 118(10) of Companies Act, 2013.'
+  }
+];
+
+// Combine unique sources
+const sourceMap = new Map();
+existingSources.forEach(s => sourceMap.set(s.source_id, s));
+newSources.forEach(s => sourceMap.set(s.source_id, s));
+const allSources = Array.from(sourceMap.values());
+
+fs.writeFileSync(path.join(DATA_DIR, 'sources.json'), JSON.stringify(allSources, null, 2) + '\n');
+console.log('Updated sources.json with', allSources.length, 'sources.');

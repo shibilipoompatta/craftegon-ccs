@@ -1,0 +1,215 @@
+[
+  {
+    "variation_id": "VAR-001",
+    "service_id": "V01-SVC-007",
+    "jurisdiction_id": "IN-DL",
+    "jurisdiction_type": "UNION_TERRITORY",
+    "variation_category": "STAMP_DUTY",
+    "rule_description": "Delhi e-Stamp Duty: ₹200 on e-MoA under Article 39 and tiered stamp duty on e-AoA under Article 10 of Schedule 1A of Indian Stamp Act, 1899 as applicable to Delhi (e-AoA is ₹1,000 for authorized capital up to ₹1,00,000, scaled upwards per statutory slabs).",
+    "effective_from": "2010-06-01",
+    "effective_to": null,
+    "source_id": "SRC-STATE-DL-STAMP-1899",
+    "verification_status": "SOURCE_IDENTIFIED",
+    "last_verified_at": null,
+    "next_review_at": "2027-04-01",
+    "statutory_provision": "Schedule 1A Article 39 (e-MoA: ₹200) and Article 10 (e-AoA: tiered from ₹1,000 for capital up to ₹1,00,000, scaled upwards per statutory slabs) of Indian Stamp Act, 1899 as applicable to Delhi.",
+    "checked_date": "2026-10-17",
+    "administrative_practice_notes": "MCA V3 portal automatically computes and collects Delhi stamp duty during SPICe+ submission via electronic integration with Stock Holding Corporation of India Ltd (SHCIL).",
+    "unresolved_questions": [
+      "Qualified legal review required to confirm whether recent state revenue notifications modified the e-AoA slab thresholds for authorized capital above ₹10 Lakhs."
+    ],
+    "notes": "Statutory source identified under SRC-STATE-DL-STAMP-1899. Preserved strictly as SOURCE_IDENTIFIED; not legally verified."
+  },
+  {
+    "variation_id": "VAR-002",
+    "service_id": "V01-SVC-007",
+    "jurisdiction_id": "IN-MH",
+    "jurisdiction_type": "STATE",
+    "variation_category": "STAMP_DUTY",
+    "rule_description": "Maharashtra e-Stamp Duty: ₹200 on e-MoA under Schedule I Article 39(a) and 0.2% on nominal share capital for e-AoA under Article 10 of Maharashtra Stamp Act, 1958 (as amended by Maharashtra Act XX of 2015), subject to statutory ceiling cap of ₹50,00,000.",
+    "effective_from": "2015-04-24",
+    "effective_to": null,
+    "source_id": "SRC-STATE-MH-STAMP-1958",
+    "verification_status": "SOURCE_IDENTIFIED",
+    "last_verified_at": null,
+    "next_review_at": "2027-04-01",
+    "statutory_provision": "Maharashtra Stamp Act, 1958, Schedule I Article 39(a) (₹200 on e-MoA) and Article 10 (0.2% on nominal share capital for e-AoA, capped at ₹50,00,000 per Maharashtra Act XX of 2015).",
+    "checked_date": "2026-10-17",
+    "administrative_practice_notes": "Integrated with MCA V3 portal via Government Receipt Accounting System (GRAS) for electronic challan generation.",
+    "unresolved_questions": [
+      "Qualified legal review required to confirm whether subsequent Maharashtra finance acts amended the statutory ₹50,00,000 ceiling cap."
+    ],
+    "notes": "Statutory source identified under SRC-STATE-MH-STAMP-1958. Preserved strictly as SOURCE_IDENTIFIED; not legally verified."
+  },
+  {
+    "variation_id": "VAR-003",
+    "service_id": "V01-SVC-007",
+    "jurisdiction_id": "IN-KA",
+    "jurisdiction_type": "STATE",
+    "variation_category": "STAMP_DUTY",
+    "rule_description": "Karnataka e-Stamp Duty: ₹1,000 on e-MoA under Schedule Article 33 and ₹1,000 for every ₹10,00,000 or part thereof on e-AoA under Article 10 of Karnataka Stamp Act, 1957 (as amended by Karnataka Act 19 of 2014).",
+    "effective_from": "2014-03-01",
+    "effective_to": null,
+    "source_id": "SRC-STATE-KA-STAMP-1957",
+    "verification_status": "SOURCE_IDENTIFIED",
+    "last_verified_at": null,
+    "next_review_at": "2027-04-01",
+    "statutory_provision": "Karnataka Stamp Act, 1957, Schedule Article 33 (₹1,000 on e-MoA) and Article 10 (₹1,000 per ₹10,00,000 or part thereof on e-AoA per Karnataka Act 19 of 2014).",
+    "checked_date": "2026-10-17",
+    "administrative_practice_notes": "Integrated with MCA V3 portal for electronic stamp duty remittance.",
+    "unresolved_questions": [
+      "Qualified legal review required to verify local infrastructure cess or municipal surcharge applicability on Karnataka stamp certificates."
+    ],
+    "notes": "Statutory source identified under SRC-STATE-KA-STAMP-1957. Preserved strictly as SOURCE_IDENTIFIED; not legally verified."
+  },
+  {
+    "variation_id": "VAR-004",
+    "service_id": "V01-SVC-002",
+    "jurisdiction_id": "IN-DL",
+    "jurisdiction_type": "UNION_TERRITORY",
+    "variation_category": "STAMP_DUTY",
+    "rule_description": "Delhi LLP Agreement Stamp Duty: Schedule 1A of Indian Stamp Act, 1899 as applicable to Delhi lacks an explicit entry for Limited Liability Partnership agreements; practitioners commonly execute deeds on ₹100 non-judicial e-stamp paper under general Article 5(c). This is an uncodified administrative convention requiring judicial or professional clarification.",
+    "effective_from": "2019-01-01",
+    "effective_to": null,
+    "source_id": null,
+    "verification_status": "UNREVIEWED",
+    "last_verified_at": null,
+    "next_review_at": "2027-04-01",
+    "statutory_provision": null,
+    "checked_date": "2026-10-17",
+    "administrative_practice_notes": "Practitioners widely execute Delhi LLP agreements on ₹100 non-judicial e-stamp paper under general residual Article 5(c) (Agreement or memorandum of agreement not otherwise provided for). This is an uncodified administrative convenience, not an express statutory provision for LLPs.",
+    "unresolved_questions": [
+      "Whether Delhi revenue authorities or MCA adjudicating officers may treat an LLP agreement as a partnership deed under Article 46 or require ad valorem stamping based on partner contribution.",
+      "Judicial or professional clarification is required before advising clients on stamping risks."
+    ],
+    "notes": "Preserved strictly as UNREVIEWED with source_id: null. Uncodified administrative practice requiring formal legal review."
+  },
+  {
+    "variation_id": "VAR-005",
+    "service_id": "V01-SVC-002",
+    "jurisdiction_id": "IN-MH",
+    "jurisdiction_type": "STATE",
+    "variation_category": "STAMP_DUTY",
+    "rule_description": "Maharashtra LLP Agreement Stamp Duty: Schedule I Article 47 Explanation of Maharashtra Stamp Act, 1958 explicitly governs LLPs; prescribed duty is ₹500 for contribution up to ₹50,000, with progressive slabs up to ₹5,000 for contribution exceeding ₹10,00,000.",
+    "effective_from": "2015-04-24",
+    "effective_to": null,
+    "source_id": "SRC-STATE-MH-STAMP-1958",
+    "verification_status": "SOURCE_IDENTIFIED",
+    "last_verified_at": null,
+    "next_review_at": "2027-04-01",
+    "statutory_provision": "Maharashtra Stamp Act, 1958, Schedule I Article 47 Explanation (explicitly governs LLP agreements; prescribed duty scaled from ₹500 for contribution up to ₹50,000, up to ₹5,000 for contribution exceeding ₹10,00,000).",
+    "checked_date": "2026-10-17",
+    "administrative_practice_notes": "Unlike Delhi, Maharashtra has codified an express statutory entry for LLP agreements under Article 47.",
+    "unresolved_questions": [
+      "Qualified legal review required to verify treatment of subsequent capital contribution increases after initial incorporation."
+    ],
+    "notes": "Statutory source identified under SRC-STATE-MH-STAMP-1958. Preserved strictly as SOURCE_IDENTIFIED; not legally verified."
+  },
+  {
+    "variation_id": "VAR-006",
+    "service_id": "V01-SVC-005",
+    "jurisdiction_id": "IN-MH",
+    "jurisdiction_type": "STATE",
+    "variation_category": "LOCAL_ROF_PROCEDURE",
+    "rule_description": "Maharashtra Registrar of Firms: Online registration via rof.mahaonline.gov.in portal administered by Directorate of Industries under Maharashtra Partnership Rules; submission of digital Form A accompanied by scanned notarized deed on ₹500 stamp paper under Article 47.",
+    "effective_from": "2018-01-01",
+    "effective_to": null,
+    "source_id": "SRC-STATE-MH-ROF-1932",
+    "verification_status": "SOURCE_IDENTIFIED",
+    "last_verified_at": null,
+    "next_review_at": "2027-04-01",
+    "statutory_provision": "Indian Partnership Act, 1932 Section 58 read with Maharashtra Partnership Rules, 1989 and Maharashtra Stamp Act, 1958 Schedule I Article 47.",
+    "checked_date": "2026-10-17",
+    "administrative_practice_notes": "Submission of digital Form A via rof.mahaonline.gov.in portal. Requires scanned notarized deed on ₹500 non-judicial stamp paper.",
+    "unresolved_questions": [
+      "Certain district RoF offices in Maharashtra occasionally request physical presentation of the notarized deed despite digital portal submission."
+    ],
+    "notes": "Statutory source identified under SRC-STATE-MH-ROF-1932. Preserved strictly as SOURCE_IDENTIFIED; not legally verified."
+  },
+  {
+    "variation_id": "VAR-007",
+    "service_id": "V01-SVC-005",
+    "jurisdiction_id": "IN-KA",
+    "jurisdiction_type": "STATE",
+    "variation_category": "LOCAL_ROF_PROCEDURE",
+    "rule_description": "Karnataka Registrar of Firms: Governed by District Registrar of Co-operative Societies & Firms under Karnataka Partnership Rules; electronic submission via Kaveri portal followed by mandatory physical verification of original stamped partnership deed at jurisdictional sub-registrar.",
+    "effective_from": "2017-06-01",
+    "effective_to": null,
+    "source_id": "SRC-STATE-KA-ROF-1932",
+    "verification_status": "SOURCE_IDENTIFIED",
+    "last_verified_at": null,
+    "next_review_at": "2027-04-01",
+    "statutory_provision": "Indian Partnership Act, 1932 Section 58 read with Karnataka Partnership (Registration of Firms) Rules, 1954.",
+    "checked_date": "2026-10-17",
+    "administrative_practice_notes": "Online application initiated via Kaveri portal, followed by mandatory in-person physical presentation of original partnership deed before the District Registrar of Firms.",
+    "unresolved_questions": [
+      "Operational turnaround times and physical appointment scheduling vary significantly between Bangalore Urban and district jurisdictions."
+    ],
+    "notes": "Statutory source identified under SRC-STATE-KA-ROF-1932. Preserved strictly as SOURCE_IDENTIFIED; not legally verified."
+  },
+  {
+    "variation_id": "VAR-008",
+    "service_id": "V04-SVC-001",
+    "jurisdiction_id": "IN-MH",
+    "jurisdiction_type": "STATE",
+    "variation_category": "PROFESSIONAL_TAX",
+    "rule_description": "Maharashtra Professional Tax: Section 5 of Maharashtra State Tax on Professions, Trades, Callings and Employments Act, 1975 mandates dual registration: PTRC for employers deducting tax from employees (slab up to ₹2,500/year) and PTEC for corporate entities/LLPs carrying on business.",
+    "effective_from": "1975-04-01",
+    "effective_to": null,
+    "source_id": "SRC-STATE-MH-PT-1975",
+    "verification_status": "SOURCE_IDENTIFIED",
+    "last_verified_at": null,
+    "next_review_at": "2027-04-01",
+    "statutory_provision": "Section 5 of Maharashtra State Tax on Professions, Trades, Callings and Employments Act, 1975 read with Schedule I.",
+    "checked_date": "2026-10-17",
+    "administrative_practice_notes": "Dual registration administered online via mahagst.gov.in: PTRC (employer tax deduction, monthly/annual return) and PTEC (entity annual tax of ₹2,500).",
+    "unresolved_questions": [
+      "Exemption applicability for women employees earning up to ₹25,000 per month under 2023 budget amendments requires operational tracking."
+    ],
+    "notes": "Statutory source identified under SRC-STATE-MH-PT-1975. Preserved strictly as SOURCE_IDENTIFIED; not legally verified."
+  },
+  {
+    "variation_id": "VAR-009",
+    "service_id": "V04-SVC-001",
+    "jurisdiction_id": "IN-KA",
+    "jurisdiction_type": "STATE",
+    "variation_category": "PROFESSIONAL_TAX",
+    "rule_description": "Karnataka Professional Tax: Section 5 of Karnataka Tax on Professions, Trades, Callings and Employments Act, 1976 mandates employer registration and employee tax deduction within 30 days of hiring or becoming liable, administered by Commercial Taxes Department.",
+    "effective_from": "1976-04-01",
+    "effective_to": null,
+    "source_id": "SRC-STATE-KA-PT-1976",
+    "verification_status": "SOURCE_IDENTIFIED",
+    "last_verified_at": null,
+    "next_review_at": "2027-04-01",
+    "statutory_provision": "Section 5 of Karnataka Tax on Professions, Trades, Callings and Employments Act, 1976 read with Schedule.",
+    "checked_date": "2026-10-17",
+    "administrative_practice_notes": "Administered via e-Prerana portal of Karnataka Commercial Taxes Department. Mandatory registration within 30 days of hiring employees.",
+    "unresolved_questions": [
+      "Threshold revision for salaried employees under Karnataka Act 14 of 2023 (salary up to ₹25,000 exempt from PT) requires operational verification."
+    ],
+    "notes": "Statutory source identified under SRC-STATE-KA-PT-1976. Preserved strictly as SOURCE_IDENTIFIED; not legally verified."
+  },
+  {
+    "variation_id": "VAR-010",
+    "service_id": "V04-SVC-001",
+    "jurisdiction_id": "IN-DL",
+    "jurisdiction_type": "UNION_TERRITORY",
+    "variation_category": "PROFESSIONAL_TAX",
+    "rule_description": "Delhi Professional Tax Applicability: Under Article 276 (Entry 60 of List II) of the Constitution of India, professional tax requires affirmative state/UT legislative enactment. No state-level Professional Tax statute enacted by the Legislative Assembly of NCT of Delhi has been identified in official gazettes, and the Delhi Department of Trade and Taxes does not currently administer a professional tax portal. However, an affirmative statutory exemption cannot be inferred solely from legislative silence; the applicability of municipal trade licensing or historical levies under the Delhi Municipal Corporation Act, 1957 requires qualified legal review.",
+    "effective_from": null,
+    "effective_to": null,
+    "source_id": null,
+    "verification_status": "PENDING_PROFESSIONAL_REVIEW",
+    "last_verified_at": null,
+    "next_review_at": "2027-04-01",
+    "statutory_provision": null,
+    "checked_date": "2026-10-17",
+    "administrative_practice_notes": "No Professional Tax portal or division is operated by the Delhi Department of Trade and Taxes.",
+    "unresolved_questions": [
+      "A definitive statutory exemption CANNOT be inferred solely from legislative silence.",
+      "Applicability of municipal trade licensing fees under Section 417 of the Delhi Municipal Corporation Act, 1957 requires qualified municipal law review.",
+      "Whether historical local levies apply to specific notified professions or trades."
+    ],
+    "notes": "Preserved strictly as PENDING_PROFESSIONAL_REVIEW with source_id: null. Qualified legal review required; definitive exemption must not be asserted to clients."
+  }
+]

@@ -6,3 +6,7 @@ node_modules/
 .vscode/
 *.log
 .cache/
+.env
+.env.local
+.env.*
+!.env.example

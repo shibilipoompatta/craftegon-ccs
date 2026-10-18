@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ccs.craftegon.com/schemas/regulatory-claims.schema.json",
+  "title": "CraftEgon CCS Regulatory Claims Schema",
+  "description": "JSON Schema Draft 2020-12 defining regulatory claims governance, risk priorities, review requirements, and strict evidence gating.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "claim_id",
+      "claim_text",
+      "category",
+      "risk_priority",
+      "jurisdiction",
+      "verification_status",
+      "requires_professional_review",
+      "professional_review_outcome",
+      "disposition"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "claim_id": {
+        "type": "string",
+        "pattern": "^CLM-\\d{3}$",
+        "description": "Unique claim identifier matching the Phase 1 claims registry (e.g. CLM-001)."
+      },
+      "claim_text": {
+        "type": "string",
+        "minLength": 5,
+        "description": "Controlled statement or candidate regulatory claim text."
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "GOVERNMENT_CONNECTIVITY",
+          "REAL_TIME_SYNC",
+          "REGULATORY_OS",
+          "COUNTDOWN_ACCURACY",
+          "TRADEMARK_AVAILABILITY",
+          "TRIBUNAL_ADVOCACY_SCOPE",
+          "STATUTORY_PROVISION",
+          "PRICING_AND_FEES",
+          "NOTIFICATION_GATEWAY",
+          "HOST_AND_SECURITY"
+        ],
+        "description": "Controlled classification of regulatory claim."
+      },
+      "risk_priority": {
+        "type": "string",
+        "enum": ["P1_CRITICAL", "P2_HIGH", "P3_MEDIUM", "P4_LOW"],
+        "description": "Risk ranking based on legal exposure and consumer protection severity."
+      },
+      "service_id": {
+        "type": ["string", "null"],
+        "pattern": "^V\\d{2}-SVC-\\d{3}$",
+        "description": "Reference to service ID if claim is service-specific."
+      },
+      "vertical_id": {
+        "type": ["string", "null"],
+        "pattern": "^V(0[1-9]|1[0-5])$",
+        "description": "Reference to vertical code if claim is vertical-wide."
+      },
+      "jurisdiction": {
+        "type": "string",
+        "description": "Applicable jurisdiction."
+      },
+      "source_id": {
+        "type": ["string", "null"],
+        "pattern": "^SRC-[A-Z0-9-]+$",
+        "description": "Authoritative source reference."
+      },
+      "verification_status": {
+        "type": "string",
+        "enum": [
+          "UNREVIEWED",
+          "SOURCE_NEEDED",
+          "SOURCE_IDENTIFIED",
+          "PENDING_PROFESSIONAL_REVIEW",
+          "VERIFIED",
+          "REJECTED_OR_OUTDATED"
+        ],
+        "description": "Controlled verification state. A claim cannot become VERIFIED without approved source and review."
+      },
+      "requires_professional_review": {
+        "type": "boolean",
+        "description": "True if claim requires practicing CS/advocate legal assessment."
+      },
+      "professional_review_outcome": {
+        "type": "string",
+        "enum": ["APPROVED", "REJECTED", "CONDITIONALLY_APPROVED", "PENDING"],
+        "description": "Formal outcome of professional review."
+      },
+      "last_reviewed_at": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Date when professional review was conducted."
+      },
+      "last_verified_at": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Date when legal verification was approved by qualified legal counsel."
+      },
+      "disposition": {
+        "type": "string",
+        "enum": ["CORRECTED", "ACCEPTABLE_WITH_EVIDENCE", "FALSE_POSITIVE", "NEEDS_EXTERNAL_VERIFICATION"],
+        "description": "Phase 1 / Phase 2 disposition action taken."
+      },
+      "statutory_provision": {
+        "type": ["string", "null"],
+        "description": "Specific statutory section, rule, or circular supporting or governing the claim."
+      },
+      "source_excerpt": {
+        "type": ["string", "null"],
+        "description": "Direct excerpt or quotation from the official statutory enactment or gazette direction."
+      },
+      "effective_from": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Statutory enactment or enforcement date."
+      },
+      "effective_to": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Expiry or repeal date if superseded."
+      },
+      "checked_date": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Date when official statutory text was directly inspected."
+      },
+      "unresolved_questions": {
+        "type": ["string", "null"],
+        "description": "Specific legal, judicial, or operational questions requiring formal professional review."
+      },
+      "notes": {
+        "type": ["string", "null"],
+        "description": "Audit notes, remediation details, or evidentiary findings."
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "verification_status": { "const": "VERIFIED" }
+          }
+        },
+        "then": {
+          "properties": {
+            "source_id": { "type": "string", "pattern": "^SRC-[A-Z0-9-]+$" },
+            "professional_review_outcome": { "const": "APPROVED" },
+            "last_verified_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+          },
+          "required": ["source_id", "professional_review_outcome", "last_verified_at"]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,651 @@
+[
+  {
+    "canonical_route": "/services/dpiit-startup-india.html",
+    "service_id": "V01-SVC-001",
+    "service_name": "DPIIT Startup India Recognition & Section 56(2)(viib) Exemption",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V01",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 2); docs/phase-1-route-register.csv; services/dpiit-startup-india.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/llp-registration.html",
+    "service_id": "V01-SVC-002",
+    "service_name": "Limited Liability Partnership (LLP) Registration",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V01",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 3); docs/phase-1-route-register.csv; services/llp-registration.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/msme-udyam.html",
+    "service_id": "V01-SVC-003",
+    "service_name": "MSME / Udyam Registration Online",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V01",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 4); docs/phase-1-route-register.csv; services/msme-udyam.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/opc-registration.html",
+    "service_id": "V01-SVC-004",
+    "service_name": "One Person Company (OPC) Registration",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V01",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 5); docs/phase-1-route-register.csv; services/opc-registration.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/partnership-registration.html",
+    "service_id": "V01-SVC-005",
+    "service_name": "Partnership Firm Registration",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V01",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 6); docs/phase-1-route-register.csv; services/partnership-registration.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/proprietorship-registration.html",
+    "service_id": "V01-SVC-006",
+    "service_name": "Sole Proprietorship Registration",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V01",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 7); docs/phase-1-route-register.csv; services/proprietorship-registration.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/pvt-ltd-registration.html",
+    "service_id": "V01-SVC-007",
+    "service_name": "Private Limited Company Registration (SPICe+)",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V01",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 8); docs/phase-1-route-register.csv; services/pvt-ltd-registration.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/section-8-registration.html",
+    "service_id": "V01-SVC-008",
+    "service_name": "Section 8 Company / Non-Profit Registration",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V01",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 9); docs/phase-1-route-register.csv; services/section-8-registration.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/society-registration.html",
+    "service_id": "V01-SVC-009",
+    "service_name": "Society Registration",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V01",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 10); docs/phase-1-route-register.csv; services/society-registration.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/trust-registration.html",
+    "service_id": "V01-SVC-010",
+    "service_name": "Charitable Trust Registration",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V01",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 11); docs/phase-1-route-register.csv; services/trust-registration.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/aoc4-xbrl.html",
+    "service_id": "V02-SVC-001",
+    "service_name": "AOC-4 XBRL Financial Tagging & Filing",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 12); docs/phase-1-route-register.csv; services/aoc4-xbrl.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/dir3-kyc.html",
+    "service_id": "V02-SVC-002",
+    "service_name": "DIR-3 KYC Annual Director Verification",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 13); docs/phase-1-route-register.csv; services/dir3-kyc.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-adt1.html",
+    "service_id": "V02-SVC-003",
+    "service_name": "Form ADT-1 Statutory Auditor Appointment",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 14); docs/phase-1-route-register.csv; services/form-adt1.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-aoc4.html",
+    "service_id": "V02-SVC-004",
+    "service_name": "Form AOC-4 Financial Statements Filing",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 15); docs/phase-1-route-register.csv; services/form-aoc4.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-ben2.html",
+    "service_id": "V02-SVC-005",
+    "service_name": "Form BEN-2 Significant Beneficial Ownership (SBO)",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [
+      "V11"
+    ],
+    "scope_boundary": "Retain V02 approved as canonical primary for MCA filing; link beneficial-ownership governance to V11 secondarily.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 16); docs/phase-1-route-register.csv; services/form-ben2.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-dpt3.html",
+    "service_id": "V02-SVC-006",
+    "service_name": "Form DPT-3 Return of Deposits & Loans",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 17); docs/phase-1-route-register.csv; services/form-dpt3.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-mgt14.html",
+    "service_id": "V02-SVC-007",
+    "service_name": "Form MGT-14 Resolution & Filing Solutions",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 18); docs/phase-1-route-register.csv; services/form-mgt14.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-mgt7.html",
+    "service_id": "V02-SVC-008",
+    "service_name": "Form MGT-7 Annual Return Filing",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 19); docs/phase-1-route-register.csv; services/form-mgt7.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-mr1.html",
+    "service_id": "V02-SVC-009",
+    "service_name": "Form MR-1 Appointment of Managing Director, WTD or Manager",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 20); docs/phase-1-route-register.csv; services/form-mr1.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-msme1.html",
+    "service_id": "V02-SVC-010",
+    "service_name": "Form MSME-1 Half-Yearly Return",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 21); docs/phase-1-route-register.csv; services/form-msme1.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-msc1-dormant.html",
+    "service_id": "V02-SVC-011",
+    "service_name": "Form MSC-1 Application to Obtain Dormant Company Status",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 22); docs/phase-1-route-register.csv; services/form-msc1-dormant.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-pas6.html",
+    "service_id": "V02-SVC-012",
+    "service_name": "Form PAS-6 Reconciliation of Share Capital Audit",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 23); docs/phase-1-route-register.csv; services/form-pas6.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-stk2-strike-off.html",
+    "service_id": "V02-SVC-013",
+    "service_name": "Form STK-2 Fast-Track Company Strike-Off & Voluntary Closure",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "Retain V02 approved for routine company/LLP closure per supplied source scope. Link from legacy Exit discovery as a secondary related-service link; do not duplicate or renumber.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 24); docs/phase-1-route-register.csv; services/form-stk2-strike-off.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/llp-compliance-forms.html",
+    "service_id": "V02-SVC-014",
+    "service_name": "LLP Annual Filings (Form 11 Annual Return & Form 8 Statement of Account)",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 25); docs/phase-1-route-register.csv; services/llp-compliance-forms.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/llp-form24-strike-off.html",
+    "service_id": "V02-SVC-015",
+    "service_name": "LLP Form 24 Fast-Track Strike-Off & Closure",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "Retain V02 approved for routine company/LLP closure per supplied source scope. Link from legacy Exit discovery as a secondary related-service link; do not duplicate or renumber.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 26); docs/phase-1-route-register.csv; services/llp-form24-strike-off.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/mbp1-dir8.html",
+    "service_id": "V02-SVC-016",
+    "service_name": "Form MBP-1 & DIR-8 Director Disclosures",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 27); docs/phase-1-route-register.csv; services/mbp1-dir8.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/roc-annual-compliance.html",
+    "service_id": "V02-SVC-017",
+    "service_name": "RoC Annual Compliance & Secretarial Retainer",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [
+      "V14"
+    ],
+    "scope_boundary": "Retain V02 approved for compliance deliverables. Retainer/ongoing legal-desk engagement is a secondary V14 relationship; split only if distinct deliverables are approved.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 28); docs/phase-1-route-register.csv; services/roc-annual-compliance.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/rof-maintenance.html",
+    "service_id": "V02-SVC-018",
+    "service_name": "Registrar of Firms (RoF) Maintenance & Amendments",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V02",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 29); docs/phase-1-route-register.csv; services/rof-maintenance.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-10b.html",
+    "service_id": "V03-SVC-001",
+    "service_name": "Form 10B / 10BB Trust Audit Report",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V03",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 30); docs/phase-1-route-register.csv; services/form-10b.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-3ceb.html",
+    "service_id": "V03-SVC-002",
+    "service_name": "Form 3CEB International Transfer Pricing Report",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V03",
+    "related_vertical_ids": [
+      "V13"
+    ],
+    "scope_boundary": "Retain V03 approved as canonical primary for tax reporting; link cross-border context to V13 secondarily.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 31); docs/phase-1-route-register.csv; services/form-3ceb.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/gst-annual.html",
+    "service_id": "V03-SVC-003",
+    "service_name": "GST Annual Return & Reconciliation (GSTR-9 & GSTR-9C)",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V03",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 32); docs/phase-1-route-register.csv; services/gst-annual.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/itr7.html",
+    "service_id": "V03-SVC-004",
+    "service_name": "ITR-7 Filing for Companies, Trusts & Institutions",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V03",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 33); docs/phase-1-route-register.csv; services/itr7.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/proprietorship-tax.html",
+    "service_id": "V03-SVC-005",
+    "service_name": "Proprietorship & SME Income Tax Returns",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V03",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 34); docs/phase-1-route-register.csv; services/proprietorship-tax.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/pf-esic-compliance.html",
+    "service_id": "V04-SVC-001",
+    "service_name": "PF / ESIC Statutory Registration & Monthly Return Filings",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V04",
+    "related_vertical_ids": [
+      "V07"
+    ],
+    "scope_boundary": "Retain V04 approved as canonical primary for registrations/authorizations; link recurring employment compliance to V07 secondarily.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 35); docs/phase-1-route-register.csv; services/pf-esic-compliance.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/founder-shareholder-agreements.html",
+    "service_id": "V05-SVC-001",
+    "service_name": "Founder Pacts, Shareholder Agreements (SHA) & Share Purchase Agreements (SPA)",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V05",
+    "related_vertical_ids": [
+      "V08"
+    ],
+    "scope_boundary": "Retain V05 approved as canonical primary for agreement drafting; link to V08 for fundraising/investment context. Do not duplicate ownership.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 36); docs/phase-1-route-register.csv; services/founder-shareholder-agreements.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/master-service-agreements.html",
+    "service_id": "V05-SVC-002",
+    "service_name": "Master Service Agreements (MSA), SOWs & Commercial Vendor Contracts",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V05",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 37); docs/phase-1-route-register.csv; services/master-service-agreements.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/ip-enforcement-cease-desist.html",
+    "service_id": "V06-SVC-001",
+    "service_name": "IP Enforcement & Cease and Desist Issuance",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V06",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 38); docs/phase-1-route-register.csv; services/ip-enforcement-cease-desist.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/software-copyright-patents.html",
+    "service_id": "V06-SVC-002",
+    "service_name": "Software Copyright, Source Code & Tech Patent Filings",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V06",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 39); docs/phase-1-route-register.csv; services/software-copyright-patents.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/trademark-registration.html",
+    "service_id": "V06-SVC-003",
+    "service_name": "Brand Name, Logo & Slogan Trademark Registration (Form TM-A)",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V06",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 40); docs/phase-1-route-register.csv; services/trademark-registration.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/labour-code-handbooks.html",
+    "service_id": "V07-SVC-001",
+    "service_name": "Labour Code Healthcheck & Comprehensive Employee Handbooks",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V07",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 41); docs/phase-1-route-register.csv; services/labour-code-handbooks.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/posh-compliance.html",
+    "service_id": "V07-SVC-002",
+    "service_name": "Mandatory POSH Act Compliance & Internal Committee (IC) Setup",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V07",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 42); docs/phase-1-route-register.csv; services/posh-compliance.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/fast-track-mergers.html",
+    "service_id": "V09-SVC-001",
+    "service_name": "Section 233 Fast-Track Parent-Subsidiary & Small Company Mergers",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V09",
+    "related_vertical_ids": [],
+    "scope_boundary": "Retain V09 approved as transactional merger work; any contentious representation is outside this assignment and requires separate review.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 43); docs/phase-1-route-register.csv; services/fast-track-mergers.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/slump-sale-asset-purchase.html",
+    "service_id": "V09-SVC-002",
+    "service_name": "Corporate Slump Sale & Business Asset Purchase Governance",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V09",
+    "related_vertical_ids": [
+      "V05"
+    ],
+    "scope_boundary": "Retain V09 approved as transactional work; related contract drafting may be linked secondarily to V05.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 44); docs/phase-1-route-register.csv; services/slump-sale-asset-purchase.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/director-removal-board-disputes.html",
+    "service_id": null,
+    "service_name": "Director Removal, Vacation of Office & Board Control Litigation",
+    "record_status": "REFERRAL_ONLY",
+    "primary_vertical_id": null,
+    "related_vertical_ids": [],
+    "scope_boundary": "Retain only clearly labelled external-referral information. No CCS representation/service offer; no canonical service ID or primary vertical.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 45); docs/phase-1-route-register.csv; services/director-removal-board-disputes.html",
+    "verification_status": "VERIFIED_REFERRAL_ONLY"
+  },
+  {
+    "canonical_route": "/services/nclt-insolvency-defense.html",
+    "service_id": null,
+    "service_name": "NCLT Corporate Insolvency Resolution Process (CIRP) Defense",
+    "record_status": "REFERRAL_ONLY",
+    "primary_vertical_id": null,
+    "related_vertical_ids": [],
+    "scope_boundary": "Retain only clearly labelled external-referral information. No CCS representation/service offer; no canonical service ID or primary vertical.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 46); docs/phase-1-route-register.csv; services/nclt-insolvency-defense.html",
+    "verification_status": "VERIFIED_REFERRAL_ONLY"
+  },
+  {
+    "canonical_route": "/services/nclt-merger-petitions.html",
+    "service_id": "V09-SVC-003",
+    "service_name": "NCLT Merger Petition & Complex Amalgamation Execution",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V09",
+    "related_vertical_ids": [],
+    "scope_boundary": "V09 transactional merger/amalgamation execution only. Contentious representation, litigation, and NCLT advocacy excluded; those matters are referral-only or require separate approved handling. This is a scope split of the existing archive route; no new page is asserted.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 47); docs/phase-1-route-register.csv; services/nclt-merger-petitions.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/oppression-mismanagement-petitions.html",
+    "service_id": null,
+    "service_name": "Section 241 & 242 Oppression and Mismanagement Petitions",
+    "record_status": "REFERRAL_ONLY",
+    "primary_vertical_id": null,
+    "related_vertical_ids": [],
+    "scope_boundary": "Retain only clearly labelled external-referral information. No CCS representation/service offer; no canonical service ID or primary vertical.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 48); docs/phase-1-route-register.csv; services/oppression-mismanagement-petitions.html",
+    "verification_status": "VERIFIED_REFERRAL_ONLY"
+  },
+  {
+    "canonical_route": "/services/board-governance-risk-assessment.html",
+    "service_id": "V11-SVC-001",
+    "service_name": "Internal Board Governance & Secretarial Health Check",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V11",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 49); docs/phase-1-route-register.csv; services/board-governance-risk-assessment.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/board-minutes.html",
+    "service_id": "V11-SVC-002",
+    "service_name": "Board Minutes & Statutory Registers Maintenance",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V11",
+    "related_vertical_ids": [
+      "V02"
+    ],
+    "scope_boundary": "Retain V11 approved as canonical primary for governance records; link statutory filing/compliance aspects to V02 secondarily.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 50); docs/phase-1-route-register.csv; services/board-minutes.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-csr2.html",
+    "service_id": "V11-SVC-003",
+    "service_name": "Form CSR-2 Annual Corporate Social Responsibility Report",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V11",
+    "related_vertical_ids": [
+      "V02"
+    ],
+    "scope_boundary": "Retain V11-SVC-003 approved as requested ESG/CSR destination. If filing mechanics are separately identified, keep one primary owner and link V02 secondarily; no split is asserted from title alone.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 51); docs/phase-1-route-register.csv; services/form-csr2.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-mr3-secretarial-audit.html",
+    "service_id": "V11-SVC-004",
+    "service_name": "Mandatory Form MR-3 Secretarial Audit Services",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V11",
+    "related_vertical_ids": [
+      "V02"
+    ],
+    "scope_boundary": "Retain V11 approved as canonical primary for audit/governance; link statutory filing mechanics to V02 secondarily.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 52); docs/phase-1-route-register.csv; services/form-mr3-secretarial-audit.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/cyber-incident-reporting.html",
+    "service_id": "V12-SVC-001",
+    "service_name": "Cyber Incident Reporting, CERT-In & IT Act Statutory Mandates",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V12",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 53); docs/phase-1-route-register.csv; services/cyber-incident-reporting.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/dpdp-compliance-audit.html",
+    "service_id": "V12-SVC-002",
+    "service_name": "DPDP Act Data Fiduciary Governance & Readiness Audit",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V12",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 54); docs/phase-1-route-register.csv; services/dpdp-compliance-audit.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/saas-terms-privacy-architecture.html",
+    "service_id": "V12-SVC-003",
+    "service_name": "SaaS Terms of Service, EULAs & Privacy Architecture",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V12",
+    "related_vertical_ids": [
+      "V05"
+    ],
+    "scope_boundary": "Retain V12 approved as the canonical primary for privacy architecture; SaaS contract drafting may link secondarily to V05. If archive content contains separable deliverables, propose a split for review; no extra page assumed.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 55); docs/phase-1-route-register.csv; services/saas-terms-privacy-architecture.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/cross-border-tech-transfer.html",
+    "service_id": "V13-SVC-001",
+    "service_name": "Cross-Border Technology Transfer & Licensing Agreements",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V13",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 56); docs/phase-1-route-register.csv; services/cross-border-tech-transfer.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/form-fc3-fc4.html",
+    "service_id": "V13-SVC-002",
+    "service_name": "Form FC-3 / FC-4 Foreign Branch Office (BO) & Liaison Office (LO) Compliance",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V13",
+    "related_vertical_ids": [
+      "V02"
+    ],
+    "scope_boundary": "Retain V13 approved as canonical primary for foreign-office/FEMA scope; link filing mechanics to V02 secondarily.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 57); docs/phase-1-route-register.csv; services/form-fc3-fc4.html",
+    "verification_status": "VERIFIED_APPROVED"
+  },
+  {
+    "canonical_route": "/services/rbi-fla-return.html",
+    "service_id": "V13-SVC-003",
+    "service_name": "RBI Foreign Liabilities and Assets (FLA) Return Filing",
+    "record_status": "ACTIVE_SERVICE",
+    "primary_vertical_id": "V13",
+    "related_vertical_ids": [],
+    "scope_boundary": "No checkpoint-driven ID change. Keep one canonical primary vertical; represent adjacent ownership only with secondary related-service links.",
+    "source_evidence": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 58); docs/phase-1-route-register.csv; services/rbi-fla-return.html",
+    "verification_status": "VERIFIED_APPROVED"
+  }
+]

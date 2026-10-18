@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ccs.craftegon.com/schemas/verticals.schema.json",
+  "title": "CraftEgon CCS 15-Vertical Taxonomy Schema",
+  "description": "JSON Schema enforcing structural validity and integrity of the 15 approved practice area verticals.",
+  "type": "array",
+  "minItems": 15,
+  "maxItems": 15,
+  "items": {
+    "type": "object",
+    "required": [
+      "vertical_id",
+      "vertical_name",
+      "description",
+      "approval_status",
+      "is_coverage_gap",
+      "active_service_count"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "vertical_id": {
+        "type": "string",
+        "pattern": "^V(0[1-9]|1[0-5])$",
+        "description": "Unique vertical code between V01 and V15."
+      },
+      "vertical_name": {
+        "type": "string",
+        "enum": [
+          "Business Formation & Structuring",
+          "Corporate Compliance & Secretarial",
+          "Tax & Regulatory Registrations",
+          "Licenses & Statutory Registrations",
+          "Contracts & Legal Architecture",
+          "Intellectual Property (IPR)",
+          "Employment & HR Compliance",
+          "Startup & Investment Advisory",
+          "Corporate Transactions & M&A",
+          "Dispute Avoidance (Non-Litigation)",
+          "Governance, Audit & Risk",
+          "Data Privacy & Tech Law",
+          "International Business & FEMA",
+          "Corporate Retainers & Legal Desk",
+          "IT & Digital Infrastructure"
+        ],
+        "description": "Approved vertical name strictly matching repository baseline."
+      },
+      "description": {
+        "type": "string",
+        "minLength": 10,
+        "description": "Scope and practice area summary for the vertical."
+      },
+      "approval_status": {
+        "type": "string",
+        "enum": ["APPROVED_ACTIVE", "APPROVED_COVERAGE_GAP"],
+        "description": "Approval status of the vertical."
+      },
+      "is_coverage_gap": {
+        "type": "boolean",
+        "description": "True if vertical is an approved coverage gap with zero active services (V08, V10, V14, V15)."
+      },
+      "active_service_count": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Number of active services mapped to this vertical."
+      }
+    }
+  }
+}

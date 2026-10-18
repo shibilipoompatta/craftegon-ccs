@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ccs.craftegon.com/schemas/service-registry.schema.json",
+  "title": "CraftEgon CCS Master Service Registry Schema",
+  "description": "JSON Schema Draft 2020-12 enforcing the 57-route inventory, 54 active IDs, and 3 referral-only boundaries.",
+  "type": "array",
+  "minItems": 57,
+  "maxItems": 57,
+  "items": {
+    "type": "object",
+    "required": [
+      "canonical_route",
+      "service_name",
+      "record_status",
+      "scope_boundary",
+      "source_evidence",
+      "verification_status"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "canonical_route": {
+        "type": "string",
+        "pattern": "^/services/[a-z0-9-]+\\.html$",
+        "description": "Unique canonical URL path of the service route."
+      },
+      "service_id": {
+        "type": ["string", "null"],
+        "pattern": "^V\\d{2}-SVC-\\d{3}$",
+        "description": "Approved canonical Service ID. Nullable strictly for referral-only routes."
+      },
+      "service_name": {
+        "type": "string",
+        "minLength": 5,
+        "description": "Approved descriptive service title."
+      },
+      "record_status": {
+        "type": "string",
+        "enum": ["ACTIVE_SERVICE", "REFERRAL_ONLY"],
+        "description": "Classification of the route."
+      },
+      "primary_vertical_id": {
+        "type": ["string", "null"],
+        "pattern": "^V(0[1-9]|1[0-5])$",
+        "description": "Reference to primary practice vertical (V01-V15). Nullable strictly for referral routes."
+      },
+      "related_vertical_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^V(0[1-9]|1[0-5])$"
+        },
+        "description": "Secondary vertical relationship codes where applicable."
+      },
+      "scope_boundary": {
+        "type": "string",
+        "minLength": 10,
+        "description": "Statutory and transactional boundary definition."
+      },
+      "source_evidence": {
+        "type": "string",
+        "description": "Authoritative Phase 1 and Task 1 reconciliation evidence citation."
+      },
+      "verification_status": {
+        "type": "string",
+        "enum": ["VERIFIED_APPROVED", "VERIFIED_REFERRAL_ONLY"],
+        "description": "Verification status of the registry record."
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "record_status": { "const": "ACTIVE_SERVICE" }
+          }
+        },
+        "then": {
+          "properties": {
+            "service_id": { "type": "string", "pattern": "^V\\d{2}-SVC-\\d{3}$" },
+            "primary_vertical_id": { "type": "string", "pattern": "^V(0[1-9]|1[0-5])$" },
+            "verification_status": { "const": "VERIFIED_APPROVED" }
+          },
+          "required": ["service_id", "primary_vertical_id"]
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "record_status": { "const": "REFERRAL_ONLY" }
+          }
+        },
+        "then": {
+          "properties": {
+            "service_id": { "type": "null" },
+            "primary_vertical_id": { "type": "null" },
+            "verification_status": { "const": "VERIFIED_REFERRAL_ONLY" }
+          }
+        }
+      }
+    ]
+  }
+}

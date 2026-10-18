@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ccs.craftegon.com/schemas/jurisdiction-variations.schema.json",
+  "title": "CraftEgon CCS Jurisdiction Variations Schema",
+  "description": "JSON Schema Draft 2020-12 defining state-level stamp duty, professional tax, and local regulatory procedure variations.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "variation_id",
+      "service_id",
+      "jurisdiction_id",
+      "jurisdiction_type",
+      "variation_category",
+      "rule_description",
+      "source_id",
+      "verification_status"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "variation_id": {
+        "type": "string",
+        "pattern": "^VAR-\\d{3}$",
+        "description": "Unique variation record identifier (e.g. VAR-001)."
+      },
+      "service_id": {
+        "type": "string",
+        "pattern": "^V\\d{2}-SVC-\\d{3}$",
+        "description": "Approved active service identifier reference."
+      },
+      "jurisdiction_id": {
+        "type": "string",
+        "pattern": "^IN-[A-Z]{2}$",
+        "description": "ISO 3166-2 sub-national code (e.g. IN-DL, IN-MH, IN-KA)."
+      },
+      "jurisdiction_type": {
+        "type": "string",
+        "enum": ["STATE", "UNION_TERRITORY", "CENTRAL"],
+        "description": "Classification of the jurisdiction."
+      },
+      "variation_category": {
+        "type": "string",
+        "enum": ["STAMP_DUTY", "SHOPS_AND_ESTABLISHMENTS", "PROFESSIONAL_TAX", "LOCAL_ROF_PROCEDURE", "STATE_FILING_FEE"],
+        "description": "Subject matter category of the local statutory rule."
+      },
+      "rule_description": {
+        "type": "string",
+        "minLength": 10,
+        "description": "Detailed statutory rule and computational formula."
+      },
+      "effective_from": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Effective start date of the state rule or gazetted notification."
+      },
+      "effective_to": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Sunset or revision date of the rule, if superseded."
+      },
+      "source_id": {
+        "type": ["string", "null"],
+        "pattern": "^SRC-[A-Z0-9-]+$",
+        "description": "Reference to official statute or government source."
+      },
+      "verification_status": {
+        "type": "string",
+        "enum": ["UNREVIEWED", "SOURCE_IDENTIFIED", "PENDING_PROFESSIONAL_REVIEW", "VERIFIED", "REJECTED"],
+        "description": "Verification status of the jurisdiction rule."
+      },
+      "last_verified_at": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Date of latest verification."
+      },
+      "statutory_provision": {
+        "type": ["string", "null"],
+        "description": "Exact statutory section, schedule, or article from relevant state or central act."
+      },
+      "checked_date": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Date of latest source verification audit."
+      },
+      "administrative_practice_notes": {
+        "type": ["string", "null"],
+        "description": "Distinction between uncodified administrative practice and statutory mandate."
+      },
+      "unresolved_questions": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Open statutory or procedural ambiguities requiring qualified legal review."
+      },
+      "notes": {
+        "type": "string",
+        "description": "Audit notes and evidence baseline documentation."
+      },
+      "next_review_at": {
+        "type": ["string", "null"],
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "description": "Scheduled periodic review date."
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "verification_status": { "const": "VERIFIED" }
+          }
+        },
+        "then": {
+          "properties": {
+            "source_id": { "type": "string", "pattern": "^SRC-[A-Z0-9-]+$" },
+            "last_verified_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+          },
+          "required": ["source_id", "last_verified_at"]
+        }
+      }
+    ]
+  }
+}
