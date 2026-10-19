@@ -1,0 +1,16 @@
+{
+  "template_id": "TMPL-MCA-DIR8-DISCLOSURE-001",
+  "name": "Form DIR-8: Intimation by Director of Non-Disqualification",
+  "statutory_authority": "Section 164(2) of Companies Act, 2013 & Rule 14(1) of Companies (Appointment and Qualification of Directors) Rules, 2014",
+  "jurisdiction": "IN-CENTRAL",
+  "category": "DIRECTOR_COMPLIANCE",
+  "required_variables": [
+    "director_name",
+    "din",
+    "father_name",
+    "residential_address",
+    "target_company_name",
+    "financial_year"
+  ],
+  "template_text": "FORM DIR-8\nIntimation by Director\n[Pursuant to Section 164(2) and Rule 14(1) of Companies (Appointment and Qualification of Directors) Rules, 2014]\n\nRegistration No. of Company / CIN: [As per Target Company]\nNominal Capital: [As per Capital Structure]\nPaid-up Capital: [As per Capital Structure]\n\nTo,\nThe Board of Directors,\n{{target_company_name}}\n\nI, {{director_name}}, son/daughter of {{father_name}}, resident of {{residential_address}}, having Director Identification Number (DIN) {{din}}, hereby give notice that I am/was a director in the companies listed in the Annexure.\n\nI hereby declare that:\n1. I have not been disqualified under sub-section (1) of Section 164 of the Companies Act, 2013;\n2. I have not incurred disqualification under sub-section (2) of Section 164 of the Companies Act, 2013 in respect of any company during the financial year {{financial_year}};\n3. No company in which I am or have been a director has failed to file financial statements or annual returns for any continuous period of three financial years, or failed to repay deposits or interest thereon.\n\n\nSignature: _________________________\nName: {{director_name}}\nDIN: {{din}}\nDate: [Date of Board Meeting]\nPlace: [Place of Signing]"
+}

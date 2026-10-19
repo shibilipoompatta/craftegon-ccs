@@ -1,0 +1,18 @@
+{
+  "template_id": "TMPL-COM-NDA-MUTUAL-001",
+  "name": "Standard Mutual Non-Disclosure Agreement (NDA)",
+  "statutory_authority": "Indian Contract Act, 1872 & Information Technology Act, 2000",
+  "jurisdiction": "IN-CENTRAL",
+  "category": "COMMERCIAL_CONTRACTS",
+  "required_variables": [
+    "effective_date",
+    "disclosing_party_name",
+    "disclosing_party_address",
+    "receiving_party_name",
+    "receiving_party_address",
+    "purpose",
+    "confidentiality_period_years",
+    "governing_law_city"
+  ],
+  "template_text": "MUTUAL NON-DISCLOSURE AGREEMENT\n\nThis Mutual Non-Disclosure Agreement (\"Agreement\") is entered into on this {{effective_date}} (\"Effective Date\") by and between:\n\n1. {{disclosing_party_name}}, having its principal place of business at {{disclosing_party_address}} (hereinafter referred to as \"Party A\"); and\n2. {{receiving_party_name}}, having its principal place of business at {{receiving_party_address}} (hereinafter referred to as \"Party B\").\n\nWHEREAS both Parties wish to explore a business relationship concerning {{purpose}} (\"Purpose\"), and in connection with this Purpose, may disclose Confidential Information to each other.\n\nNOW, THEREFORE, the Parties agree as follows:\n\n1. CONFIDENTIAL INFORMATION: \"Confidential Information\" means all non-public, confidential or proprietary information disclosed by either party to the other, whether orally or in writing, that is designated as confidential or reasonably should be understood to be confidential.\n\n2. OBLIGATIONS: Each party agrees to (a) protect the other party's Confidential Information with the same degree of care it uses for its own confidential information, but in no event less than reasonable care; and (b) not disclose Confidential Information to any third party except to its employees, officers, and professional advisors who need to know such information for the Purpose.\n\n3. EXCLUSIONS: Confidential Information does not include information that (a) is or becomes publicly known without breach of this Agreement; (b) was known prior to disclosure; (c) is independently developed without reference to the disclosing party's information; or (d) is required to be disclosed pursuant to applicable law or order of a competent court or regulatory authority.\n\n4. TERM: The confidentiality obligations shall survive for a period of {{confidentiality_period_years}} years from the Effective Date.\n\n5. GOVERNING LAW AND JURISDICTION: This Agreement shall be governed by and construed in accordance with the laws of India, and the courts in {{governing_law_city}} shall have exclusive jurisdiction.\n\nIN WITNESS WHEREOF, the Parties have executed this Mutual Non-Disclosure Agreement as of the Effective Date.\n\nFor {{disclosing_party_name}}:\nSignature: _________________________\nName: [Authorized Signatory]\nTitle: Director / Officer\n\nFor {{receiving_party_name}}:\nSignature: _________________________\nName: [Authorized Signatory]\nTitle: Director / Officer"
+}

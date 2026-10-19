@@ -6,6 +6,8 @@ node_modules/
 .vscode/
 *.log
 .cache/
+.vault/
+scratch/
 .env
 .env.local
 .env.*

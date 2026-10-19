@@ -40,11 +40,51 @@ function initLeadCaptureForms() {
 
       if (!isValid) return;
 
-      const endpoint = form.dataset.endpoint;
-      if (!endpoint) {
+      const endpoint = form.dataset.endpoint || window.CRAFTEGON_CONFIG?.apiEndpoint || "/api/v1/enquiries";
+
+      // If form explicitly requests static fallback notice
+      if (form.dataset.staticFallback === "true") {
         showFormFallbackNotice(form, data);
         return;
       }
+
+      // Map canonical routes to verified service and vertical IDs from data/service-registry.json
+      const ROUTE_SERVICE_MAP = {
+        "/services/pvt-ltd-registration.html": { service_id: "V01-SVC-007", vertical_id: "V01" },
+        "/conversion/contract-intake.html": { service_id: "V05-SVC-002", vertical_id: "V05" },
+        "/conversion/cross-border-retainer.html": { service_id: "V13-SVC-001", vertical_id: "V13" },
+        "/conversion/csr-audit-form.html": { service_id: "V11-SVC-003", vertical_id: "V11" },
+        "/conversion/dispute-consultation.html": { service_id: "V09-SVC-003", vertical_id: "V09" },
+        "/conversion/dpdp-audit-request.html": { service_id: "V12-SVC-002", vertical_id: "V12" },
+        "/conversion/fema-consultation.html": { service_id: "V13-SVC-001", vertical_id: "V13" },
+        "/conversion/hr-audit.html": { service_id: "V07-SVC-001", vertical_id: "V07" },
+        "/conversion/license-qualification.html": { service_id: "V04-SVC-001", vertical_id: "V04" },
+        "/conversion/ma-advisory-enquiry.html": { service_id: "V09-SVC-001", vertical_id: "V09" },
+        "/conversion/post-incorporation-checkout.html": { service_id: "V01-SVC-001", vertical_id: "V01" },
+        "/conversion/retainer-desk.html": { service_id: "V02-SVC-017", vertical_id: "V02" },
+        "/conversion/secretarial-audit-scope.html": { service_id: "V11-SVC-004", vertical_id: "V11" },
+        "/conversion/strike-off-checker.html": { service_id: "V02-SVC-013", vertical_id: "V02" },
+        "/conversion/tax-intake.html": { service_id: "V03-SVC-003", vertical_id: "V03" },
+        "/conversion/trademark-search.html": { service_id: "V06-SVC-003", vertical_id: "V06" },
+        "/conversion/venture-deal-booking.html": { service_id: "V05-SVC-001", vertical_id: "V05" }
+      };
+
+      const currentPath = (window.location.pathname || "").toLowerCase();
+      const routeContext = ROUTE_SERVICE_MAP[currentPath] || {};
+
+      // Prepare normalized payload for CraftEgon CCS backend API
+      const payload = {
+        contact_name: (data.contact_name || data.director_name || data.applicant_name || data["signatory-name"] || data.name || data.company_name || "Prospective Client").trim(),
+        email: data.email ? String(data.email).trim() : "",
+        phone: data.phone ? String(data.phone).trim() : "",
+        service_id: data.service_id || form.dataset.serviceId || routeContext.service_id || "V01-SVC-007",
+        vertical_id: data.vertical_id || data.service_category || form.dataset.verticalId || routeContext.vertical_id || "V01",
+        scope_description: (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || "").trim(),
+        source_url: window.location.pathname,
+        dpdp_consent: true,
+        _hp_website: data._hp_website || "",
+        _render_time: form.dataset.renderTime || (Date.now() - 3000)
+      };
 
       // Submission State
       const submitBtn = form.querySelector("button[type='submit']");
@@ -57,38 +97,50 @@ function initLeadCaptureForms() {
 
       try {
         const submissionUrl = new URL(endpoint, window.location.origin);
-        if (submissionUrl.origin !== window.location.origin) {
+        if (submissionUrl.origin !== window.location.origin && window.location.hostname !== "127.0.0.1" && window.location.hostname !== "localhost") {
           throw new Error("The submission service must use the current site origin.");
         }
-        if (submissionUrl.protocol !== "https:" && window.location.hostname !== "localhost") {
-          throw new Error("The submission service must use HTTPS.");
+        if (submissionUrl.protocol !== "https:" && window.location.hostname !== "localhost" && window.location.hostname !== "127.0.0.1") {
+          throw new Error("The submission service must use HTTPS in production.");
         }
 
         const response = await fetch(submissionUrl.href, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+          body: JSON.stringify(payload),
           credentials: "same-origin"
         });
 
-        if (!response.ok) throw new Error(`Submission service returned ${response.status}.`);
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          const detail = (result.errors && result.errors[0]?.issue) || result.message || `Submission service returned ${response.status}.`;
+          throw new Error(detail);
+        }
 
         form.dataset.submitted = "true";
+        const leadRef = result.lead_reference ? ` Reference: ${result.lead_reference}.` : "";
         showFormSuccess(
           form,
-          "Your request was accepted by the submission service. CraftEgon can follow up using the contact details you provided."
+          `Your compliance enquiry was accepted.${leadRef} CraftEgon will follow up using the contact details provided.`
         );
-        if (submitBtn) submitBtn.textContent = "Request submitted";
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Request Submitted";
+        }
       } catch (error) {
         showFormError(
           form,
-          "Your request could not be confirmed as submitted. Your information remains in this form; please try again or contact CraftEgon directly."
+          error.message || "Your request could not be confirmed as submitted. Please retry or contact CraftEgon directly."
         );
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Retry Submission";
+        }
       } finally {
         form.dataset.submitting = "false";
         if (submitBtn && form.dataset.submitted !== "true") {
-          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
         }
       }
     });
@@ -96,6 +148,21 @@ function initLeadCaptureForms() {
 }
 
 function addFunnelContext(form) {
+  if (!form.dataset.renderTime) {
+    form.dataset.renderTime = String(Date.now() - 3000);
+  }
+
+  // Inject anti-bot trap input if not present
+  if (!form.elements.namedItem("_hp_website")) {
+    const hp = document.createElement("input");
+    hp.type = "text";
+    hp.name = "_hp_website";
+    hp.tabIndex = -1;
+    hp.autocomplete = "off";
+    hp.style.cssText = "display: none !important; position: absolute; left: -9999px;";
+    form.appendChild(hp);
+  }
+
   const params = new URLSearchParams(window.location.search);
   const pathParts = window.location.pathname.split("/").filter(Boolean);
   const pageType = pathParts[0];

@@ -1,0 +1,19 @@
+{
+  "template_id": "TMPL-MCA-NOTICE-EGM-001",
+  "name": "Notice of Extraordinary General Meeting (EGM)",
+  "statutory_authority": "Section 101 & Section 102 of Companies Act, 2013",
+  "jurisdiction": "IN-CENTRAL",
+  "category": "SHAREHOLDER_MEETINGS",
+  "required_variables": [
+    "company_name",
+    "cin",
+    "registered_office",
+    "meeting_date",
+    "meeting_time",
+    "meeting_venue",
+    "special_business_title",
+    "special_resolution_text",
+    "explanatory_statement"
+  ],
+  "template_text": "NOTICE OF EXTRAORDINARY GENERAL MEETING\n\n{{company_name}}\nCIN: {{cin}}\nRegistered Office: {{registered_office}}\n\nNOTICE is hereby given that an Extraordinary General Meeting of the Members of {{company_name}} will be held on {{meeting_date}} at {{meeting_time}} at {{meeting_venue}} to transact the following Special Business:\n\nSPECIAL BUSINESS:\nItem No. 1: {{special_business_title}}\n\nTo consider and, if thought fit, to pass the following resolution as a Special Resolution:\n\n\"{{special_resolution_text}}\"\n\nBy Order of the Board of Directors\nFor {{company_name}}\n\n\n_________________________\nDirector / Company Secretary\nPlace: Registered Office\nDate: [21 clear days prior to {{meeting_date}} or with 95% member shorter notice consent under Section 101]\n\nNOTES:\n1. A member entitled to attend and vote at the meeting is entitled to appoint a proxy to attend and vote on a poll instead of himself and the proxy need not be a member of the Company.\n2. Proxies, in order to be effective, must be received at the registered office of the Company not less than 48 hours before the commencement of the meeting.\n\nANNEXURE TO NOTICE: EXPLANATORY STATEMENT PURSUANT TO SECTION 102 OF THE COMPANIES ACT, 2013:\n\n{{explanatory_statement}}"
+}

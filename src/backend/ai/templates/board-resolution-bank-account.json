@@ -1,0 +1,18 @@
+{
+  "template_id": "TMPL-MCA-BOARD-BANK-001",
+  "name": "Board Resolution for Opening and Operating Corporate Bank Account",
+  "statutory_authority": "Section 179(3) of Companies Act, 2013 & Companies (Meetings of Board and its Powers) Rules, 2014",
+  "jurisdiction": "IN-CENTRAL",
+  "category": "CORPORATE_GOVERNANCE",
+  "required_variables": [
+    "company_name",
+    "cin",
+    "registered_office",
+    "meeting_date",
+    "bank_name",
+    "branch_address",
+    "authorized_directors",
+    "operating_mode"
+  ],
+  "template_text": "CERTIFIED TRUE COPY OF THE RESOLUTION PASSED AT THE MEETING OF THE BOARD OF DIRECTORS OF {{company_name}} (CIN: {{cin}}) HELD ON {{meeting_date}} AT THE REGISTERED OFFICE AT {{registered_office}}.\n\nOPENING AND OPERATION OF CURRENT BANK ACCOUNT WITH {{bank_name}}:\n\n\"RESOLVED THAT a Current Account in the name and style of '{{company_name}}' be opened with {{bank_name}}, at their branch situated at {{branch_address}}.\n\nRESOLVED FURTHER THAT {{authorized_directors}} of the Company be and are hereby severally/jointly authorized in terms of operating mode: {{operating_mode}}, to sign, execute, and deliver all necessary account opening forms, declarations, specimen signature cards, and mandates required by the Bank.\n\nRESOLVED FURTHER THAT the Bank be and is hereby authorized to honor all cheques, bills of exchange, and promissory notes drawn, accepted, or made on behalf of the Company by the said authorized signatories.\n\nRESOLVED FURTHER THAT any Director of the Company be and is hereby authorized to furnish a certified true copy of this resolution to the Bank and to do all such acts, deeds, and things as may be necessary to give effect to this resolution.\"\n\nCertified True Copy\nFor {{company_name}}\n\n\n_________________________\nDirector / Authorised Signatory\nDIN: [To be appended]\nDate: {{meeting_date}}"
+}
