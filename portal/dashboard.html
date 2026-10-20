@@ -628,6 +628,16 @@
       }
     }
 
+    function escapeHtml(s) {
+      return String(s || '').replace(/[&<>"']/g, m => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[m]));
+    }
+
     // Load Cases with Loading, Empty, Unauthorized, and Error States
     async function loadServerCases() {
       const container = document.getElementById('portal-cases-container');
@@ -675,21 +685,30 @@
           if (c.status === 'AWAITING_CUSTOMER_ACTION') badgeClass = 'case-badge-action';
           if (c.status === 'COMPLETED' || c.status === 'CLOSED') badgeClass = 'case-badge-completed';
 
+          const safeTitle = escapeHtml(c.title);
+          const safeRef = escapeHtml(c.case_reference);
+          const safeService = escapeHtml(c.service_id);
+          const safeVertical = escapeHtml(c.vertical_id);
+          const safePriority = escapeHtml(c.priority || 'STANDARD');
+          const safeDeadline = escapeHtml(c.statutory_deadline || 'Scheduled Cycle');
+          const safeStatus = escapeHtml((c.status || '').replace(/_/g, ' '));
+          const safeId = encodeURIComponent(c.id || '');
+
           html += `
             <div class="portal-case-card">
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
-                <span class="${badgeClass}">${(c.status || '').replace(/_/g, ' ')}</span>
-                <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">${c.case_reference}</span>
+                <span class="${badgeClass}">${safeStatus}</span>
+                <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">${safeRef}</span>
               </div>
-              <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark); margin: 0 0 0.5rem 0;">${c.title}</h4>
+              <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-dark); margin: 0 0 0.5rem 0;">${safeTitle}</h4>
               <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem;">
-                Service: <strong>${c.service_id}</strong> &bull; Vertical: <strong>${c.vertical_id}</strong> &bull; Priority: <strong>${c.priority || 'STANDARD'}</strong>
+                Service: <strong>${safeService}</strong> &bull; Vertical: <strong>${safeVertical}</strong> &bull; Priority: <strong>${safePriority}</strong>
               </div>
               <div style="margin-top: auto; padding-top: 0.85rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
                 <span style="font-size: 0.78rem; color: var(--text-muted);">
-                  Deadline: ${c.statutory_deadline || 'Scheduled Cycle'}
+                  Deadline: ${safeDeadline}
                 </span>
-                <button type="button" class="if-btn-secondary" onclick="openDocsModal('${c.id}', '${c.case_reference}', '${(c.title || '').replace(/'/g, "\\'")}')" style="padding: 0.3rem 0.65rem; font-size: 0.78rem;">
+                <button type="button" class="if-btn-secondary" onclick="openDocsModal('${safeId}', '${safeRef}', '${safeTitle}')" style="padding: 0.3rem 0.65rem; font-size: 0.78rem;">
                   📎 Documents
                 </button>
               </div>
@@ -704,7 +723,7 @@
           <div class="portal-state-container">
             <div style="font-size: 2.25rem; color: #EF4444;">⚠️</div>
             <h4 class="portal-state-title">Unable to Connect to Cases Engine</h4>
-            <p class="portal-state-desc">${err.message || 'The server could not be reached. Check your network or local server status.'}</p>
+            <p class="portal-state-desc">${escapeHtml(err.message || 'The server could not be reached. Check your network or local server status.')}</p>
             <button type="button" class="if-btn-primary" onclick="loadServerCases()" style="display: inline-flex;">Retry Connection</button>
           </div>
         `;
@@ -925,8 +944,8 @@
     async function openDocsModal(caseId, caseRef, caseTitle) {
       activeCaseId = caseId;
       activeCaseRef = caseRef;
-      document.getElementById('docs-modal-title').innerText = `Documents: ${caseRef}`;
-      document.getElementById('docs-modal-sub').innerText = caseTitle;
+      document.getElementById('docs-modal-title').textContent = `Documents: ${caseRef}`;
+      document.getElementById('docs-modal-sub').textContent = caseTitle;
       document.getElementById('upload-target-case-id').value = caseId;
       document.getElementById('upload-target-case-ref').value = caseRef;
       document.getElementById('docs-feedback-box').style.display = 'none';
@@ -959,25 +978,32 @@
           const isClean = d.quarantine_status === 'CLEAN';
           const badgeClass = isClean ? 'doc-badge-clean' : (d.quarantine_status === 'INFECTED' ? 'doc-badge-infected' : 'doc-badge-quarantine');
           const sizeKb = Math.round((d.file_size_bytes || 0) / 1024);
+          const safeFilename = escapeHtml(d.original_filename);
+          const safeStatus = escapeHtml(d.quarantine_status);
+          const safeDocId = encodeURIComponent(d.id || '');
 
           html += `
             <div class="doc-item-row">
               <div class="doc-info-col">
                 <span style="font-size: 1.25rem;">📄</span>
                 <div style="min-width: 0;">
-                  <div class="doc-filename-text" title="${d.original_filename}">${d.original_filename}</div>
-                  <div class="doc-meta-sub">${sizeKb} KB &bull; <span class="${badgeClass}">${d.quarantine_status}</span></div>
+                  <div class="doc-filename-text" title="${safeFilename}">${safeFilename}</div>
+                  <div class="doc-meta-sub">${sizeKb} KB &bull; <span class="${badgeClass}">${safeStatus}</span></div>
                 </div>
               </div>
               <div>
-                ${isClean ? `<button type="button" class="if-btn-secondary" onclick="downloadDocument('${d.id}')" style="padding: 0.3rem 0.65rem; font-size: 0.75rem;">⬇ Download</button>` : `<span style="font-size: 0.72rem; color: var(--text-muted);">In Quarantine</span>`}
+                ${isClean ? `<button type="button" class="if-btn-secondary" onclick="downloadDocument('${safeDocId}')" style="padding: 0.3rem 0.65rem; font-size: 0.75rem;">⬇ Download</button>` : `<span style="font-size: 0.72rem; color: var(--text-muted);">In Quarantine</span>`}
               </div>
             </div>
           `;
         });
         listEl.innerHTML = html;
       } catch (err) {
-        listEl.innerHTML = `<div style="text-align: center; padding: 1rem; color: #DC2626; font-size: 0.85rem;">${err.message || 'Error loading documents'}</div>`;
+        listEl.textContent = '';
+        const errDiv = document.createElement('div');
+        errDiv.style.cssText = 'text-align: center; padding: 1rem; color: #DC2626; font-size: 0.85rem;';
+        errDiv.textContent = err.message || 'Error loading documents';
+        listEl.appendChild(errDiv);
       }
     }
 

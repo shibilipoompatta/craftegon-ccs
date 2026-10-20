@@ -175,7 +175,10 @@ b.scrollTop=b.scrollHeight;
 function appendBotMsg(h,acts=[]){
 const b=document.getElementById('cchat-messages-container');
 if(!b)return;
-let aHtml=acts&&acts.length?`<div class="cchat-actions-grid">${acts.map(([l,u])=>`<a href="${u}" class="cchat-action-btn"><span>${l}</span><span>&rarr;</span></a>`).join('')}</div>`:'';
+let aHtml=acts&&acts.length?`<div class="cchat-actions-grid">${acts.map(([l,u])=>{
+  const safeU = (typeof u === 'string' && (u.startsWith('/') || u.startsWith('https://'))) ? escapeHtml(u) : '#';
+  return `<a href="${safeU}" class="cchat-action-btn"><span>${escapeHtml(l)}</span><span>&rarr;</span></a>`;
+}).join('')}</div>`:'';
 const e=document.createElement('div');
 e.className='cchat-msg bot';
 e.innerHTML=`<div class="cchat-bubble">${h}${aHtml}</div><div class="cchat-timestamp">${getTime()} • CCS Assistant</div>`;

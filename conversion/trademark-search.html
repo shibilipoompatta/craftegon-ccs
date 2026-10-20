@@ -234,7 +234,32 @@
           const tbody = document.createElement('tbody');
           r.benchmark_records.forEach(bm => {
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 600;">${bm.wordmark}</td><td style="padding: 6px 10px; border: 1px solid #cbd5e1;">Class ${bm.class}</td><td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${bm.proprietor}</td><td style="padding: 6px 10px; border: 1px solid #cbd5e1; color: #166534; font-weight: 600;">${bm.status}</td><td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${bm.application_number}</td>`;
+
+            const tdMark = document.createElement('td');
+            tdMark.style.cssText = 'padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 600;';
+            tdMark.textContent = bm.wordmark;
+
+            const tdClass = document.createElement('td');
+            tdClass.style.cssText = 'padding: 6px 10px; border: 1px solid #cbd5e1;';
+            tdClass.textContent = `Class ${bm.class}`;
+
+            const tdProp = document.createElement('td');
+            tdProp.style.cssText = 'padding: 6px 10px; border: 1px solid #cbd5e1;';
+            tdProp.textContent = bm.proprietor;
+
+            const tdStatus = document.createElement('td');
+            tdStatus.style.cssText = 'padding: 6px 10px; border: 1px solid #cbd5e1; color: #166534; font-weight: 600;';
+            tdStatus.textContent = bm.status;
+
+            const tdApp = document.createElement('td');
+            tdApp.style.cssText = 'padding: 6px 10px; border: 1px solid #cbd5e1;';
+            tdApp.textContent = bm.application_number;
+
+            tr.appendChild(tdMark);
+            tr.appendChild(tdClass);
+            tr.appendChild(tdProp);
+            tr.appendChild(tdStatus);
+            tr.appendChild(tdApp);
             tbody.appendChild(tr);
           });
           table.appendChild(tbody);

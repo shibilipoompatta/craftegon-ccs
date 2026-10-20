@@ -92,35 +92,67 @@ function initCommandSearch() {
   if (!searchInput || !resultsContainer) return;
 
   function renderResults(query) {
-    const q = query.trim().toLowerCase();
+    const q = query.trim();
     if (!q) {
       resultsContainer.style.display = 'none';
       resultsContainer.innerHTML = '';
       return;
     }
 
-    const matches = SERVICES_DATA.filter(item => 
-      item.name.toLowerCase().includes(q) || 
-      item.code.toLowerCase().includes(q) || 
-      item.tags.toLowerCase().includes(q)
-    ).slice(0, 7);
+    let items = [];
+    if (window.CraftEgonSearch && window.CraftEgonSearch.engine) {
+      const searchResults = window.CraftEgonSearch.engine.search(q);
+      items = searchResults.slice(0, 8).map(r => ({
+        name: r.item.name,
+        code: r.item.id,
+        url: r.item.route,
+        vertical: r.item.vertical_name,
+        isReferral: r.item.is_referral
+      }));
+    } else {
+      const qLower = q.toLowerCase();
+      items = SERVICES_DATA.filter(item => 
+        item.name.toLowerCase().includes(qLower) || 
+        item.code.toLowerCase().includes(qLower) || 
+        item.tags.toLowerCase().includes(qLower)
+      ).slice(0, 8).map(item => ({
+        name: item.name,
+        code: item.code,
+        url: item.url,
+        vertical: 'Corporate Practice',
+        isReferral: false
+      }));
+    }
 
-    if (matches.length === 0) {
+    if (items.length === 0) {
       resultsContainer.innerHTML = `
-        <div style="padding: 1rem 1.25rem; color: #94A3B8; font-size: 0.88rem;">
-          No direct service matches found. Launch our <a href="/conversion/ai-document-generator.html" style="color: #D4AF37;">Autonomous Drafter</a> or explore <a href="/conversion/calculator.html" style="color: #D4AF37;">Fee Calculators</a>.
+        <div style="padding: 1.25rem; color: #94A3B8; font-size: 0.88rem; text-align: center;">
+          <p style="margin: 0 0 0.5rem; color: #E2E8F0;">Zero matches found for "${String(q).replace(/[&<>"']/g, '')}".</p>
+          <a href="/services.html" style="color: var(--brand-gold, #C59B27); font-weight: 700; text-decoration: none;">Browse Complete 57-Service Directory &rarr;</a>
         </div>
       `;
     } else {
-      resultsContainer.innerHTML = matches.map(m => `
-        <a href="${m.url}" class="gov-search-item">
+      let html = items.map(m => `
+        <a href="${m.url}" class="gov-search-item" style="display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.08); text-decoration: none; color: inherit;">
           <div>
-            <div class="item-title">${m.name}</div>
-            <div style="font-size: 0.75rem; color: #94A3B8; margin-top: 2px;">Official Canonical Route</div>
+            <div class="item-title" style="font-weight: 600; font-size: 0.88rem; color: #F8FAFC;">${m.name}</div>
+            <div style="font-size: 0.74rem; color: #94A3B8; margin-top: 2px;">
+              <span>${m.vertical}</span>
+              ${m.isReferral ? ' &bull; <span style="color: #F59E0B; font-weight: 600;">Referral Service</span>' : ' &bull; <span style="color: #10B981; font-weight: 600;">Direct Regulatory</span>'}
+            </div>
           </div>
-          <span class="item-code">${m.code}</span>
+          <span class="item-code" style="font-family: var(--font-mono, monospace); font-size: 0.72rem; color: var(--brand-gold, #C59B27); background: rgba(197, 155, 39, 0.1); padding: 2px 6px; border-radius: 4px; white-space: nowrap;">${m.code}</span>
         </a>
       `).join('');
+
+      html += `
+        <div style="padding: 0.6rem 1rem; background: rgba(15, 23, 42, 0.85); text-align: center; border-top: 1px solid rgba(226, 232, 240, 0.1);">
+          <a href="/services.html?q=${encodeURIComponent(q)}" style="color: var(--brand-gold, #C59B27); font-size: 0.8rem; font-weight: 700; text-decoration: none;">
+            View all results in 57-Service Directory &rarr;
+          </a>
+        </div>
+      `;
+      resultsContainer.innerHTML = html;
     }
     resultsContainer.style.display = 'block';
   }
@@ -205,7 +237,13 @@ function initLateFeeCalculator() {
 
     if (normalFeeDisplay) normalFeeDisplay.textContent = `₹${normalFee.toLocaleString('en-IN')}`;
     if (sec403FeeDisplay) sec403FeeDisplay.textContent = `₹${sec403LateFee.toLocaleString('en-IN')}`;
-    if (totalDisplay) totalDisplay.innerHTML = `<span>₹</span>${totalExposure.toLocaleString('en-IN')}`;
+    if (totalDisplay) {
+      totalDisplay.textContent = '';
+      const sym = document.createElement('span');
+      sym.textContent = '₹';
+      totalDisplay.appendChild(sym);
+      totalDisplay.appendChild(document.createTextNode(totalExposure.toLocaleString('en-IN')));
+    }
     if (directorRiskDisplay) directorRiskDisplay.textContent = substantiveRisk;
   }
 

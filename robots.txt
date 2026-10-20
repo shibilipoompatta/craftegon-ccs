@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /components/
+Disallow: /scripts/
+Disallow: /scratch/
+Disallow: /data/
+Disallow: /api/
 
 Sitemap: https://ccs.craftegon.com/sitemap.xml

@@ -12,3 +12,19 @@ scratch/
 .env.local
 .env.*
 !.env.example
+
+# Cryptographic Keys & Certificates
+*.pem
+*.key
+*.p12
+*.crt
+*.pfx
+
+# Local Databases & Vault Storage
+*.sqlite
+*.db
+
+# Test Coverage & IDE System Cache
+coverage/
+.nyc_output/
+.system_generated/

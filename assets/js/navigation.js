@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   preserveConversionContext();
+  injectServiceDiscoveryReciprocal();
 
   // 1. Load and inject Navbar with graceful fallback
   const navContainer = document.getElementById("global-navbar");
@@ -81,10 +82,16 @@ document.addEventListener("DOMContentLoaded", async function () {
           </div>
         </header>
       `;
-    }
     initDropdowns();
     initMobileNav();
     highlightActiveRoute();
+
+    // Initialize Universal Service Search
+    ensureSearchScriptsLoaded().then(() => {
+      if (window.CraftEgonSearch && typeof window.CraftEgonSearch.initHeaderSearch === 'function') {
+        window.CraftEgonSearch.initHeaderSearch();
+      }
+    });
   }
 
   // 2. Load and inject Footer with graceful fallback
@@ -271,3 +278,107 @@ function highlightActiveRoute() {
     }
   });
 }
+
+function ensureSearchScriptsLoaded() {
+  return new Promise((resolve) => {
+    if (window.CraftEgonSearch && window.CRAFTEGON_SERVICE_CATALOG) {
+      return resolve();
+    }
+    if (!document.getElementById("craftegon-search-index-script")) {
+      const s1 = document.createElement("script");
+      s1.id = "craftegon-search-index-script";
+      s1.src = "/assets/js/search-index.js";
+      s1.onload = () => {
+        if (!document.getElementById("craftegon-service-search-script")) {
+          const s2 = document.createElement("script");
+          s2.id = "craftegon-service-search-script";
+          s2.src = "/assets/js/service-search.js";
+          s2.onload = () => resolve();
+          s2.onerror = () => resolve();
+          document.body.appendChild(s2);
+        } else {
+          resolve();
+        }
+      };
+      s1.onerror = () => resolve();
+      document.body.appendChild(s1);
+    } else {
+      resolve();
+    }
+  });
+}
+
+function injectServiceDiscoveryReciprocal() {
+  const path = window.location.pathname;
+  if (!path.includes("/services/") || path.endsWith("/services.html") || path.endsWith("/services")) return;
+
+  // 1. Add back link to breadcrumb if present
+  const breadcrumb = document.querySelector(".if-breadcrumb");
+  if (breadcrumb && !breadcrumb.querySelector(".service-dir-backlink")) {
+    const backLink = document.createElement("a");
+    backLink.className = "service-dir-backlink";
+    backLink.href = "/services.html";
+    backLink.style.cssText = "margin-left:auto; font-size:0.8rem; color:var(--brand-gold, #C59B27); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px;";
+    backLink.innerHTML = "<span>← All 57 Services</span>";
+    breadcrumb.style.display = "flex";
+    breadcrumb.style.alignItems = "center";
+    breadcrumb.appendChild(backLink);
+  }
+
+  // 2. Add reciprocal related services widget at the bottom of <main>
+  const main = document.querySelector("main");
+  if (main && !document.getElementById("reciprocal-service-discovery")) {
+    ensureSearchScriptsLoaded().then(() => {
+      const catalog = window.CRAFTEGON_SERVICE_CATALOG;
+      if (!catalog) return;
+
+      const currentService = catalog.find(s => s.route === path || s.route.endsWith(path.split("/").pop()));
+      if (!currentService) return;
+
+      const related = catalog.filter(s => s.vertical_id === currentService.vertical_id && s.route !== currentService.route).slice(0, 3);
+      if (related.length === 0) return;
+
+      const widget = document.createElement("section");
+      widget.id = "reciprocal-service-discovery";
+      widget.style.cssText = "margin: 3.5rem auto 1.5rem; max-width: 800px; padding: 1.75rem; background: #FFFFFF; border: 1px solid var(--border-color, #E2E8F0); border-radius: 12px; box-shadow: 0 4px 16px rgba(15,23,42,0.04);";
+
+      let relatedHtml = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.5rem;">
+          <div>
+            <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-gold, #C59B27); font-weight: 700;">Adjacent Regulatory Filings</span>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-dark, #090D16); margin: 0.2rem 0 0;">Related Services in ${currentService.vertical_name}</h3>
+          </div>
+          <a href="/services.html?vertical=${encodeURIComponent(currentService.vertical_id)}" style="font-size: 0.82rem; font-weight: 700; color: var(--brand-gold, #C59B27); text-decoration: none;">View all in category &rarr;</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem;">
+      `;
+
+      related.forEach(item => {
+        const isRef = item.is_referral;
+        relatedHtml += `
+          <a href="${item.route}" style="display: block; padding: 0.85rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+            <div style="font-family: var(--font-mono, monospace); font-size: 0.68rem; color: var(--brand-gold, #C59B27); margin-bottom: 0.3rem;">${item.id}</div>
+            <div style="font-weight: 600; font-size: 0.85rem; color: #090D16; line-height: 1.35; margin-bottom: 0.4rem;">${item.name}</div>
+            <div style="font-size: 0.74rem; color: #64748B; display: flex; align-items: center; justify-content: space-between;">
+              <span>${isRef ? 'Referral Service' : 'Direct Service'}</span>
+              <span style="color: var(--brand-gold, #C59B27);">&rarr;</span>
+            </div>
+          </a>
+        `;
+      });
+
+      relatedHtml += `
+        </div>
+        <div style="margin-top: 1.25rem; text-align: center; border-top: 1px solid #E2E8F0; padding-top: 1rem;">
+          <a href="/services.html" style="font-size: 0.825rem; font-weight: 700; color: var(--text-dark, #090D16); text-decoration: none;">
+            🔍 Looking for a different compliance filing? Browse the complete 57-service directory &rarr;
+          </a>
+        </div>
+      `;
+
+      widget.innerHTML = relatedHtml;
+      main.appendChild(widget);
+    });
+  }
+}
+

@@ -9,19 +9,53 @@
       </div>
     </a>
 
+    <!-- Universal Canonical Service Search (Prominent Header Discovery Bar) -->
+    <div class="universal-search-container" id="universal-search-container">
+      <form class="universal-search-form" id="universal-search-form" action="/services.html" method="GET" role="search">
+        <span class="universal-search-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input 
+          type="text" 
+          id="universal-search-input" 
+          name="q" 
+          class="universal-search-input" 
+          placeholder="Search 57+ services, forms (e.g. SPICe+, GST, TM)..." 
+          autocomplete="off" 
+          spellcheck="false" 
+          aria-label="Universal Service Search"
+          aria-expanded="false" 
+          aria-haspopup="listbox" 
+          aria-controls="universal-search-results"
+          role="combobox"
+        >
+        <button type="button" class="universal-search-clear" id="universal-search-clear" aria-label="Clear Search Input">&times;</button>
+        <span class="universal-search-shortcut" aria-hidden="true" title="Press forward-slash to focus search">/</span>
+      </form>
+      
+      <div class="universal-search-dropdown" id="universal-search-dropdown" role="region" aria-label="Search Results">
+        <div id="universal-search-results">
+          <!-- Populated dynamically via assets/js/service-search.js -->
+        </div>
+      </div>
+    </div>
+
     <!-- Desktop Navigation -->
     <nav class="if-nav">
-      <a href="/index.html" class="if-nav-link">Home</a>
+      <!-- 1. Universal Service Directory Link (One-Click Full Access) -->
+      <a href="/services.html" class="if-nav-link" style="font-weight: 700; color: var(--gold-light);">
+        Services <span style="font-family: var(--font-mono); font-size: 0.65rem; background: rgba(197, 155, 39, 0.15); border: 1px solid rgba(197, 155, 39, 0.3); padding: 1px 5px; border-radius: 4px; vertical-align: 1px;">57</span>
+      </a>
       
-      <!-- Practice Areas Mega-Menu Dropdown -->
+      <!-- 2. Practice Areas Mega-Menu Dropdown -->
       <div class="if-dropdown">
-        <a href="#practice-areas" class="if-nav-link">
-          Practice Areas 
+        <a href="/services.html" class="if-nav-link">
+          Explore by Category 
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </a>
         
         <!-- Mega Menu Container -->
-        <div class="if-megamenu if-dropdown-content" style="left: -140px; width: 840px; padding: 1.75rem; display: none; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+        <div class="if-megamenu if-dropdown-content" style="left: -120px; width: 840px; padding: 1.75rem; display: none; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
           <div>
             <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.75rem; letter-spacing: 0.08em; font-weight: 700;">Entity Formation &amp; Compliance</h4>
             <ul style="display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.85rem; list-style: none; padding: 0; margin: 0;">
@@ -55,10 +89,36 @@
         </div>
       </div>
 
-      <!-- Conversion & Tools Dropdown -->
+      <!-- 3. By Business Stage Dropdown -->
+      <div class="if-dropdown">
+        <a href="/services.html" class="if-nav-link">
+          By Business Stage
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+        <div class="if-dropdown-content" style="left: -20px; width: 330px; padding: 1.25rem; display: none; flex-direction: column; gap: 0.75rem;">
+          <a href="/services.html?stage=formation" style="display: flex; flex-direction: column; text-decoration: none; padding: 0.35rem 0;">
+            <strong style="color: var(--text-dark, #090D16); font-size: 0.875rem;">1. Startup &amp; Formation</strong>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Pvt Ltd, LLP, OPC, Section 8, DPIIT, Udyam</span>
+          </a>
+          <a href="/services.html?stage=compliance" style="display: flex; flex-direction: column; text-decoration: none; padding: 0.35rem 0;">
+            <strong style="color: var(--text-dark, #090D16); font-size: 0.875rem;">2. Growth &amp; Operations</strong>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">RoC Annual, GST, PF/ESIC, Contracts, IPR</span>
+          </a>
+          <a href="/services.html?stage=governance" style="display: flex; flex-direction: column; text-decoration: none; padding: 0.35rem 0;">
+            <strong style="color: var(--text-dark, #090D16); font-size: 0.875rem;">3. Corporate Governance</strong>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Secretarial Audit, Board Minutes, CSR, DPDP</span>
+          </a>
+          <a href="/services.html?stage=restructuring" style="display: flex; flex-direction: column; text-decoration: none; padding: 0.35rem 0;">
+            <strong style="color: var(--text-dark, #090D16); font-size: 0.875rem;">4. Restructuring &amp; Exit</strong>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Fast-Track Mergers, Slump Sale, Strike-Off</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Conversion & Tools Dropdown -->
       <div class="if-dropdown">
         <a href="/conversion/index.html" class="if-nav-link">
-          Diagnostic Tools &amp; AI
+          Tools &amp; AI
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </a>
         <div class="if-dropdown-content" style="left: -40px; width: 360px; padding: 1.35rem; display: none; flex-direction: column; gap: 0.85rem;">
@@ -74,14 +134,14 @@
           <a href="/conversion/license-qualification.html" style="text-decoration: none; font-size: 0.85rem;">Enterprise License Qualifier</a>
           <a href="/conversion/retainer-desk.html" style="text-decoration: none; font-size: 0.85rem;">Annual Corporate Retainer Desk</a>
           <hr style="border: none; border-top: 1px solid rgba(212, 175, 55, 0.2); margin: 0.25rem 0;">
-          <a href="/conversion/index.html" style="text-decoration: none; color: var(--gold-light) !important; font-weight: 700; font-size: 0.85rem;">Explore Diagnostic Tools &amp; Advisory Desks &rarr;</a>
+          <a href="/conversion/index.html" style="text-decoration: none; color: var(--gold-light) !important; font-weight: 700; font-size: 0.85rem;">Explore All Diagnostic Desks &rarr;</a>
         </div>
       </div>
 
-      <!-- Knowledge Base Dropdown -->
+      <!-- 5. Knowledge Base Dropdown -->
       <div class="if-dropdown">
         <a href="/knowledge/index.html" class="if-nav-link">
-          Knowledge Base
+          Knowledge
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </a>
         <div class="if-dropdown-content" style="left: -40px; width: 360px; padding: 1.35rem; display: none; flex-direction: column; gap: 0.85rem;">
@@ -99,10 +159,10 @@
         </div>
       </div>
 
-      <!-- Client Portal Dropdown -->
+      <!-- 6. Client Portal Dropdown -->
       <div class="if-dropdown">
         <a href="/portal/dashboard.html" class="if-nav-link" style="color: var(--gold-light);">
-          Client Portal
+          Portal OS
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </a>
         <div class="if-dropdown-content" style="left: -40px; width: 350px; padding: 1.35rem; display: none; flex-direction: column; gap: 0.85rem;">
@@ -125,7 +185,6 @@
         WhatsApp
       </a>
       <a href="/portal/dashboard.html" class="if-btn-secondary" style="border-color: rgba(212, 175, 55, 0.4);"><span class="noble-badge-dot" style="margin-right: 4px;"></span>Portal OS</a>
-      <a href="/conversion/ai-document-generator.html" class="if-btn-secondary">AI Drafter</a>
       <a href="/conversion/calculator.html" class="if-btn-primary">Calculate Retainer</a>
       <button class="if-mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -156,9 +215,20 @@
       </button>
     </div>
     
+    <!-- Mobile Universal Search Input -->
+    <div class="if-mobile-search-box">
+      <form action="/services.html" method="GET" style="position:relative; width:100%;">
+        <span style="position:absolute; left:0.8rem; top:50%; transform:translateY(-50%); color:var(--text-muted); pointer-events:none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input type="text" name="q" class="if-mobile-search-input" placeholder="Search 57+ services or forms..." aria-label="Search services on mobile">
+      </form>
+    </div>
+
     <div class="if-mobile-drawer-body">
       <!-- Quick Conversion Actions -->
       <div class="if-mobile-actions">
+        <a href="/services.html" class="if-mobile-btn-ai" style="background: linear-gradient(135deg, #090D16, #1E293B); color: #C59B27; border: 1px solid rgba(197, 155, 39, 0.4);">🔍 Explore All 57 Services</a>
         <a href="/conversion/ai-document-generator.html" class="if-mobile-btn-ai">⚡ AI Legal Drafter</a>
         <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="display:block; text-align:center; margin-top:0.4rem; border-color: rgba(37, 211, 102, 0.4); color: #25D366;">
           💬 WhatsApp Desk: +91 86069 18247
@@ -171,6 +241,7 @@
       <div class="if-mobile-nav-group">
         <div class="if-mobile-nav-title">Main Menu</div>
         <a href="/index.html" class="if-mobile-nav-link">Home</a>
+        <a href="/services.html" class="if-mobile-nav-link" style="color: var(--gold-light); font-weight: 700;">Complete 57-Service Directory</a>
         <a href="/conversion/index.html" class="if-mobile-nav-link">Diagnostic &amp; Advisory Tools</a>
         <a href="/knowledge/index.html" class="if-mobile-nav-link">Regulatory Intelligence Hub</a>
       </div>
@@ -202,6 +273,17 @@
           <a href="/verticals/13-cross-border-fema.html">Cross-Border FDI &amp; FEMA Compliance</a>
           <a href="/verticals/14-exit-insolvency.html">Corporate Retainers &amp; Legal Desk</a>
           <a href="/verticals/15-it-digital.html">IT &amp; Digital Infrastructure</a>
+        </div>
+      </details>
+
+      <!-- By Business Stage Accordion -->
+      <details class="if-mobile-accordion">
+        <summary>By Business Stage <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="if-mobile-sublinks">
+          <a href="/services.html?stage=formation">1. Startup &amp; Entity Formation</a>
+          <a href="/services.html?stage=compliance">2. Growth &amp; Annual Operations</a>
+          <a href="/services.html?stage=governance">3. Corporate Governance &amp; Audits</a>
+          <a href="/services.html?stage=restructuring">4. Restructuring, M&amp;A &amp; Exit</a>
         </div>
       </details>
 
