@@ -364,7 +364,7 @@
     input.addEventListener('input', function (e) {
       const q = e.target.value.trim();
       if (clearBtn) {
-        clearBtn.style.display = q.length > 0 ? 'inline-flex' : 'none';
+        clearBtn.style.display = q.length > 0 ? 'flex' : 'none';
       }
 
       clearTimeout(debounceTimer);
@@ -380,6 +380,9 @@
 
     input.addEventListener('focus', function () {
       const q = input.value.trim();
+      if (clearBtn) {
+        clearBtn.style.display = q.length > 0 ? 'flex' : 'none';
+      }
       if (q.length === 0) {
         renderEmptySuggestions();
       } else {

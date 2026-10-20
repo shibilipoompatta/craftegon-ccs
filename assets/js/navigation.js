@@ -4,6 +4,48 @@
  * ==========================================================================
  */
 
+function ensureSearchScriptsLoaded() {
+  return new Promise((resolve) => {
+    let indexReady = typeof window.CRAFTEGON_SERVICE_CATALOG !== 'undefined';
+    let engineReady = typeof window.CraftEgonSearch !== 'undefined';
+
+    if (indexReady && engineReady) {
+      resolve();
+      return;
+    }
+
+    let loadedCount = 0;
+    const checkComplete = () => {
+      loadedCount++;
+      if (loadedCount >= 2 || (window.CraftEgonSearch && window.CRAFTEGON_SERVICE_CATALOG)) {
+        resolve();
+      }
+    };
+
+    if (!indexReady && !document.getElementById('craftegon-search-index-script')) {
+      const idxScript = document.createElement('script');
+      idxScript.id = 'craftegon-search-index-script';
+      idxScript.src = '/assets/js/search-index.js';
+      idxScript.onload = checkComplete;
+      idxScript.onerror = checkComplete;
+      document.head.appendChild(idxScript);
+    } else {
+      checkComplete();
+    }
+
+    if (!engineReady && !document.getElementById('craftegon-service-search-script')) {
+      const engineScript = document.createElement('script');
+      engineScript.id = 'craftegon-service-search-script';
+      engineScript.src = '/assets/js/service-search.js';
+      engineScript.onload = checkComplete;
+      engineScript.onerror = checkComplete;
+      document.head.appendChild(engineScript);
+    } else {
+      checkComplete();
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async function () {
   // 0. Ensure Central Configuration is loaded
   if (!window.CRAFTEGON_CONFIG && !document.getElementById("craftegon-config-script")) {
