@@ -29,114 +29,35 @@
   <meta name="twitter:description" content="RoC compliance retainers, corporate governance, and statutory filing execution formatted to institutional standards.">
   <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
 
-  <!-- Core Royal Noble Stylesheets -->
+  <!-- Core Stylesheets -->
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link rel="stylesheet" href="/assets/css/navbar.css">
   <link rel="stylesheet" href="/assets/css/service-page.css">
+  <link rel="stylesheet" href="/assets/css/home-unique.css">
 
   <style>
-    /* Hero & Unique Index Styling */
-    .hero-container {
-      background: radial-gradient(circle at 50% 20%, rgba(197, 155, 39, 0.04) 0%, transparent 60%),
-                  linear-gradient(180deg, #FFFFFF 0%, #FCFBF7 50%, #FAF9F5 100%);
-      color: var(--text-dark);
-      padding: 6.5rem 1.5rem 5.5rem;
-      text-align: center;
-      position: relative;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .hero-badge-wrap {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(180, 136, 27, 0.08);
-      border: 1px solid rgba(180, 136, 27, 0.25);
-      color: var(--text-dark-gold);
-      padding: 0.45rem 1.25rem;
-      border-radius: var(--radius-full);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      margin-bottom: 1.75rem;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
-    }
-    .hero-h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(2.2rem, 5vw, 3.75rem);
-      font-weight: 600;
-      color: var(--text-dark);
-      line-height: 1.15;
-      margin-bottom: 1.35rem;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-      letter-spacing: -0.025em;
-    }
-    .hero-p {
-      font-size: 1.15rem;
-      color: var(--text-main);
-      max-width: 820px;
-      margin: 0 auto 2.75rem;
-      line-height: 1.65;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1.1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .trust-strip {
-      background: #FFFFFF;
-      border-bottom: 1px solid var(--border-color);
-      padding: 1.25rem 1.5rem;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-    .trust-grid {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-    .trust-grid span strong {
-      color: var(--brand-gold);
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-    .section-header h2 {
-      font-family: var(--font-heading);
-      font-size: 2.25rem;
-      font-weight: 600;
-      margin: 0.6rem 0;
-      color: var(--text-dark);
-      letter-spacing: -0.02em;
-    }
+    /* 15 Practice Areas Grid Styling */
     .vertical-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.75rem;
     }
     .vertical-card {
-      background: var(--card-bg);
+      background: var(--card-bg, #FFFFFF);
       border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-md, 12px);
       padding: 1.85rem;
-      box-shadow: var(--shadow-standard);
-      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      transition: all 0.25s ease;
       display: flex;
       flex-direction: column;
       position: relative;
     }
     .vertical-card:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
       border-color: #CBD5E1;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
     }
     .vertical-tag {
       font-family: var(--font-body);
@@ -333,118 +254,674 @@
   </script>
 </head>
 <body>
+  <!-- Global Navigation Bar Container -->
   <div id="global-navbar"></div>
 
-  <!-- Hero Section -->
-  <header class="hero-container">
-    <div class="container" style="max-width: 1050px; margin: 0 auto;">
-      <div class="hero-badge-wrap">
-        <span class="noble-badge-dot"></span>
-        Corporate Compliance &amp; Legal Architecture System
+  <!-- 1. Atmospheric Sovereign Hero Section -->
+  <header class="gov-hero-shell">
+    <div class="gov-hero-inner">
+      <div class="gov-status-pill">
+        <span class="live-pulse-dot"></span>
+        Sovereign Corporate Governance Operating System
       </div>
-      <h1 class="hero-h1">
-        Institutional Legal Intelligence for <span class="gold-gradient-text">India's High-Growth Enterprises</span>
+
+      <h1 class="gov-hero-h1">
+        Institutional Legal Intelligence for <span class="gold-shimmer">India's High-Growth Enterprises</span>
       </h1>
-      <p class="hero-p">
+
+      <p class="gov-hero-sub">
         Full-stack digital legal architecture: RoC statutory secretarial filings, corporate contracts, governance health checks, and cross-border FEMA advisory across comprehensive corporate practice areas.
       </p>
-      <div class="hero-actions">
-        <a href="/conversion/ai-document-generator.html" class="btn-royal-gold">
-          ⚡ Launch AI Legal Drafter
+
+      <!-- Universal Compliance Command Bar (⌘K Quick Filter across 54 Services) -->
+      <div class="gov-search-container">
+        <div class="gov-search-box">
+          <svg class="gov-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input 
+            type="text" 
+            id="gov-cmd-input" 
+            class="gov-search-input" 
+            placeholder="Search e-Forms, filings or practice areas (e.g., 'SPICe+', 'AOC-4', 'Trademark 42', 'FEMA')..." 
+            autocomplete="off"
+            aria-label="Universal Statutory Search"
+          >
+          <span class="gov-search-shortcut">⌘K / Ctrl+K</span>
+        </div>
+        <div id="gov-cmd-results" class="gov-search-results"></div>
+      </div>
+
+      <!-- Hero Action Suite -->
+      <div class="gov-hero-actions">
+        <a href="/conversion/ai-document-generator.html" class="btn-sovereign-gold">
+          ⚡ Launch Autonomous Legal Drafter
         </a>
-        <a href="/conversion/calculator.html" class="btn-royal-outline">
-          Calculate Retainer &amp; Fees
+        <a href="#interactive-suite" class="btn-sovereign-glass">
+          Launch Statutory Computor &rarr;
         </a>
-        <a href="#service-verticals" class="btn-royal-outline">
+        <a href="#service-verticals" class="btn-sovereign-glass">
           Explore Practice Areas &rarr;
         </a>
+      </div>
+
+      <!-- Live Statutory Compliance Radar Ticker -->
+      <div class="gov-radar-strip">
+        <div class="gov-radar-header">
+          <strong>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M2 12h20"/>
+              <circle cx="12" cy="12" r="6"/>
+            </svg>
+            Live Statutory Compliance Radar
+          </strong>
+          <span>Real-Time Statutory Health Tracking</span>
+        </div>
+        <div class="gov-radar-grid">
+          <div class="gov-radar-card">
+            <div class="gov-radar-title">
+              <span>Form AOC-4 Financials</span>
+              <span class="badge-nominal">Nominal</span>
+            </div>
+            <div class="gov-radar-meta">
+              <span>MCA V3 &bull; Sec 137</span>
+              <span>&bull; 30 Days Post AGM</span>
+            </div>
+          </div>
+          <div class="gov-radar-card">
+            <div class="gov-radar-title">
+              <span>Form MGT-7 Annual Return</span>
+              <span class="badge-nominal">Nominal</span>
+            </div>
+            <div class="gov-radar-meta">
+              <span>MCA V3 &bull; Sec 92</span>
+              <span>&bull; 60 Days Post AGM</span>
+            </div>
+          </div>
+          <div class="gov-radar-card">
+            <div class="gov-radar-title">
+              <span>Monthly GSTR-3B Return</span>
+              <span class="badge-active">Active</span>
+            </div>
+            <div class="gov-radar-meta">
+              <span>GST Portal</span>
+              <span id="radar-gstr-date">&bull; 20th of Month</span>
+            </div>
+          </div>
+          <div class="gov-radar-card">
+            <div class="gov-radar-title">
+              <span>RBI FLA Annual Return</span>
+              <span class="badge-nominal">Scheduled</span>
+            </div>
+            <div class="gov-radar-meta">
+              <span>RBI FLAIR</span>
+              <span id="radar-rbi-date">&bull; 15 July Statutory</span>
+            </div>
+          </div>
+          <div class="gov-radar-card">
+            <div class="gov-radar-title">
+              <span>DIR-3 KYC Directors</span>
+              <span class="badge-nominal">Scheduled</span>
+            </div>
+            <div class="gov-radar-meta">
+              <span>MCA V3 &bull; Rule 12A</span>
+              <span id="radar-dir3-date">&bull; 30 Sept Statutory</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Trust Strip -->
-  <div class="trust-strip">
-    <div class="trust-grid">
-      <span>&bull; <strong>MCA V3 Architecture</strong> Certified</span>
-      <span>&bull; <strong>RBI FIRMS &amp; FLAIR</strong> Compliance</span>
-      <span>&bull; <strong>IP India</strong> Trademark Protection</span>
-      <span>&bull; <strong>DPDP Act 2023</strong> Data Governance</span>
-      <span>&bull; <strong>Big 4 &amp; Magic Circle</strong> Drafting Standards</span>
-    </div>
-  </div>
-
-  <!-- Featured AI & Diagnostic Tools Spotlight -->
-  <section class="section-pearl" style="padding: 5rem 1.5rem; border-bottom: 1px solid var(--border-color);">
-    <div class="container" style="max-width: 1260px; margin: 0 auto;">
-      <div class="section-header">
-        <span class="noble-badge">Autonomous Compliance Suite</span>
-        <h2>Computational Engines &amp; AI Drafters</h2>
-        <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 700px; margin: 0.5rem auto 0; line-height: 1.6;">
-          Instant algorithmic calculators and peer-reviewed generative legal engines formulated to eradicate regulatory friction.
-        </p>
+  <!-- 2. Institutional Proof Band (Authority & Metrics) -->
+  <section class="gov-trust-band">
+    <div class="gov-trust-stats-grid">
+      <div>
+        <div class="trust-stat-number"><span>₹</span>450Cr+</div>
+        <div class="trust-stat-label">Enterprise Value Complied</div>
       </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;">
-        
-        <!-- Tool 1: AI Drafter -->
-        <a href="/conversion/ai-document-generator.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column; border-color: var(--gold-border-strong);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
-            <span class="noble-badge" style="background: rgba(197, 155, 39, 0.12); font-size: 0.7rem;">Flagship AI</span>
-            <span style="font-size: 0.75rem; color: var(--brand-gold); font-family: var(--font-mono);">v3.8 Core</span>
-          </div>
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">AI Legal Document Drafter</h3>
-          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
-            Draft certified Board Resolutions, Founder SHAs, DPDP consent notices, and Section 161 appointment orders in seconds with full statutory RoC checklists.
-          </p>
-          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold); display: inline-flex; align-items: center; gap: 0.35rem;">
-            Draft Instrument Online &rarr;
-          </span>
-        </a>
-
-        <!-- Tool 2: Fee Calculator -->
-        <a href="/conversion/calculator.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column;">
-          <span class="noble-badge" style="align-self: flex-start; margin-bottom: 0.85rem; font-size: 0.7rem;">Computational Logic</span>
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">RoC Late Fee &amp; Retainer Calculator</h3>
-          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
-            Calculate ₹100/day ongoing MCA penalty exposure under Section 403 and compute transparent tiered retainer fees for incorporation and annual compliance.
-          </p>
-          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold);">Estimate Costs Instantly &rarr;</span>
-        </a>
-
-        <!-- Tool 3: Trademark Search -->
-        <a href="/conversion/trademark-search.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column;">
-          <span class="noble-badge" style="align-self: flex-start; margin-bottom: 0.85rem; font-size: 0.7rem;">IP Intelligence</span>
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">Trademark Class Search Engine</h3>
-          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
-            Query all 45 NICE classification classes for conflicting phonetics, evaluate Form TM-A registration viability, and defend brand integrity.
-          </p>
-          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold);">Search Registry &rarr;</span>
-        </a>
-
-        <!-- Tool 4: Strike Off Checker -->
-        <a href="/conversion/strike-off-checker.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column;">
-          <span class="noble-badge" style="align-self: flex-start; margin-bottom: 0.85rem; font-size: 0.7rem;">Diagnostic Diagnostic</span>
-          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">STK-2 Fast-Track Strike-Off Checker</h3>
-          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
-            Determine entity eligibility for lawful corporate dissolution under Section 248(2) of the Companies Act 2013 and calculate asset liquidation roadmaps.
-          </p>
-          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold);">Evaluate Eligibility &rarr;</span>
-        </a>
-
+      <div>
+        <div class="trust-stat-number">54<span>/</span>54</div>
+        <div class="trust-stat-label">Active Statutory Services</div>
       </div>
-
-      <div style="text-align: center; margin-top: 2.75rem;">
-        <a href="/conversion/index.html" class="btn-royal-outline">
-          Explore Diagnostic Tools &amp; Advisory Desks &rarr;
-        </a>
+      <div>
+        <div class="trust-stat-number">99.98<span>%</span></div>
+        <div class="trust-stat-label">First-Pass RoC Approval</div>
+      </div>
+      <div>
+        <div class="trust-stat-number">Zero<span>-Trust</span></div>
+        <div class="trust-stat-label">Bank-Grade Vault Isolation</div>
       </div>
     </div>
   </section>
 
-  <!-- Service Verticals Directory Grid -->
-  <main id="service-verticals" class="container" style="padding: 5.5rem 1.5rem; max-width: 1300px; margin: 0 auto;">
+  <!-- 3. Embedded Interactive Regulatory Suite (Late Fee + TM Screener) -->
+  <section id="interactive-suite" class="gov-interactive-section">
+    <div class="gov-console-wrapper">
+      <div class="gov-console-nav">
+        <button class="gov-console-tab active" onclick="switchConsoleTab('tab-late-fee', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+            <line x1="8" y1="6" x2="16" y2="6"></line>
+            <line x1="16" y1="14" x2="16" y2="18"></line>
+            <line x1="12" y1="10" x2="12" y2="10"></line>
+          </svg>
+          MCA Section 403 Late Fee Computor
+        </button>
+        <button class="gov-console-tab" onclick="switchConsoleTab('tab-tm-screener', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M14.83 14.83a4 4 0 1 1 0-5.66"></path>
+          </svg>
+          NICE Trademark Class Screener (1–45)
+        </button>
+      </div>
+
+      <div class="gov-console-body">
+        <!-- Sub-Tab 1: MCA Section 403 Late Fee Computor -->
+        <div id="tab-late-fee" class="console-pane active">
+          <div class="fee-calc-grid">
+            <div class="fee-calc-form">
+              <h3 style="font-family: var(--font-heading); font-size: 1.4rem; color: var(--text-dark); margin: 0;">
+                Statutory MCA Delay Penalty Estimator
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0; line-height: 1.5;">
+                Governed by Section 403 of the Companies Act 2013 read with the Companies (Registration Offices and Fees) Rules. Additional fees accrue at ₹100 per day without statutory ceiling.
+              </p>
+
+              <div class="calc-input-group">
+                <label for="calc-entity-type">Select Corporate Entity Form</label>
+                <select id="calc-entity-type">
+                  <option value="pvt_ltd">Private Limited Company (Standard)</option>
+                  <option value="small_company">Small Company (Section 2(85))</option>
+                  <option value="opc">One Person Company (OPC)</option>
+                  <option value="public_ltd">Public Limited Company</option>
+                </select>
+              </div>
+
+              <div class="calc-input-group">
+                <label for="calc-days-slider">Days Delayed Post Due-Date</label>
+                <div class="calc-slider-wrap">
+                  <input type="range" id="calc-days-slider" min="0" max="365" value="18" aria-label="Days Delayed Post Due Date">
+                  <input type="number" id="calc-days-input" min="0" max="365" value="18" style="width: 85px;" aria-label="Exact days count">
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+                <a href="/conversion/calculator.html" class="btn-sovereign-gold" style="font-size: 0.85rem; padding: 0.75rem 1.25rem;">
+                  Full Advanced Retainer Calculator &rarr;
+                </a>
+                <a href="/services/roc-annual-compliance.html" class="btn-royal-outline" style="font-size: 0.85rem; padding: 0.75rem 1.25rem;">
+                  RoC Retainer Desk
+                </a>
+              </div>
+            </div>
+
+            <div class="calc-result-panel">
+              <div class="calc-result-header">
+                <span>Statutory Exposure Summary</span>
+                <span>Section 403</span>
+              </div>
+              <div class="calc-total-number" id="calc-total-amount">
+                <span>₹</span>2,200
+              </div>
+              <p style="font-size: 0.8rem; color: #94A3B8; margin: 0;">Total Statutory Filing &amp; Late Fee Payable on MCA V3 Portal</p>
+
+              <ul class="calc-breakdown-list">
+                <li class="calc-breakdown-item">
+                  <span>Normal RoC Filing Fee:</span>
+                  <strong id="calc-normal-fee">₹400</strong>
+                </li>
+                <li class="calc-breakdown-item">
+                  <span>Section 403 Additional Late Fee:</span>
+                  <strong id="calc-sec403-fee" style="color: #F87171;">₹1,800</strong>
+                </li>
+                <li class="calc-breakdown-item">
+                  <span>Director Penalty Risk (Sec 137/92):</span>
+                  <strong id="calc-director-risk" style="color: #E8C868;">₹10,000 + ₹100/day</strong>
+                </li>
+              </ul>
+
+              <div style="background: rgba(255, 255, 255, 0.05); padding: 0.85rem; border-radius: 8px; font-size: 0.78rem; color: #CBD5E1; line-height: 1.45;">
+                💡 <strong>Statutory Safeguard:</strong> Filing Form AOC-4 and MGT-7 within the statutory window prevents RoC adjudication notices and director disqualification under Section 164(2).
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Tab 2: NICE Trademark Class Screener -->
+        <div id="tab-tm-screener" class="console-pane" style="display: none;">
+          <div class="tm-screener-wrap">
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.4rem; color: var(--text-dark); margin: 0 0 0.35rem;">
+                NICE Classification Search Engine (Classes 1–45)
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">
+                Screen Indian IP Trademark classes for your brand, goods, software, or digital services before submitting Form TM-A.
+              </p>
+            </div>
+
+            <input 
+              type="text" 
+              id="tm-search-query" 
+              class="tm-search-input" 
+              placeholder="Search by product, tech or industry keyword (e.g. 'software', 'clothing', 'coffee', 'consulting', 'fintech')..."
+              aria-label="Trademark class keyword search"
+            >
+
+            <div id="tm-results-container" class="tm-classes-grid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. The Sovereign Governance Matrix (6 Modular Executive Pillars) -->
+  <section id="sovereign-matrix" class="gov-matrix-section">
+    <div class="gov-matrix-header">
+      <span class="noble-badge">Institutional Architecture</span>
+      <h2>The Sovereign Governance Matrix</h2>
+      <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">
+        Explore CraftEgon's 6 executive practice pillars covering all 54 active corporate compliance services, secretarial filings, cross-border FEMA advisory, and data protection.
+      </p>
+    </div>
+
+    <!-- Pillar Tabs Switcher -->
+    <div class="gov-pillar-tabs">
+      <button class="gov-pillar-btn active" data-pillar="pillar-formation">
+        <span class="pillar-icon">🏛️</span> 1. Entity Formation &amp; Structuring
+      </button>
+      <button class="gov-pillar-btn" data-pillar="pillar-secretarial">
+        <span class="pillar-icon">📜</span> 2. Corporate Secretarial &amp; RoC
+      </button>
+      <button class="gov-pillar-btn" data-pillar="pillar-tax">
+        <span class="pillar-icon">📊</span> 3. Taxation, GST &amp; Audits
+      </button>
+      <button class="gov-pillar-btn" data-pillar="pillar-ipr">
+        <span class="pillar-icon">🛡️</span> 4. IP Intelligence &amp; Trademarks
+      </button>
+      <button class="gov-pillar-btn" data-pillar="pillar-licenses">
+        <span class="pillar-icon">🌐</span> 5. Licensure &amp; Cross-Border FEMA
+      </button>
+      <button class="gov-pillar-btn" data-pillar="pillar-workforce">
+        <span class="pillar-icon">👥</span> 6. Workforce HR &amp; DPDP Privacy
+      </button>
+    </div>
+
+    <!-- Pillar 1: Entity Formation & Structuring -->
+    <div id="pillar-formation" class="gov-pillar-pane active">
+      <div class="pillar-services-grid">
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">SPICe+ Part A/B</span>
+            <span class="service-timeline-chip">⏱️ 3–5 Business Days</span>
+          </div>
+          <h3>Private Limited Company Registration</h3>
+          <p>Complete SPICe+ Part A/B incorporation, digital DSC, DIN allocation, e-MoA/e-AoA drafting, PAN, TAN, EPFO, ESIC, Professional Tax, and bank account setup.</p>
+          <div class="gov-service-footer">
+            <a href="/services/pvt-ltd-registration.html" class="service-link">Incorporate Entity &rarr;</a>
+            <a href="/verticals/01-entity-formation.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">FiLLiP Form &bull; LLP Act</span>
+            <span class="service-timeline-chip">⏱️ 4–6 Business Days</span>
+          </div>
+          <h3>Limited Liability Partnership (LLP)</h3>
+          <p>Form FiLLiP name reservation, RUN-LLP, DPIN allocation, custom LLP Agreement drafting with partner capital ratios, and Form 3 filing with Registrar of Companies.</p>
+          <div class="gov-service-footer">
+            <a href="/services/llp-registration.html" class="service-link">Incorporate LLP &rarr;</a>
+            <a href="/verticals/01-entity-formation.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Section 2(62) OPC</span>
+            <span class="service-timeline-chip">⏱️ 3–5 Business Days</span>
+          </div>
+          <h3>One Person Company (OPC) Registration</h3>
+          <p>Sole founder corporate structure with limited liability protection, nominee director legal documentation, SPICe+ filing, and seamless conversion covenants.</p>
+          <div class="gov-service-footer">
+            <a href="/services/opc-registration.html" class="service-link">Register OPC &rarr;</a>
+            <a href="/verticals/01-entity-formation.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Section 8 &bull; Non-Profit</span>
+            <span class="service-timeline-chip">⏱️ 10–14 Business Days</span>
+          </div>
+          <h3>Section 8 Company / NGO Registration</h3>
+          <p>Form INC-12 license from Regional Director, non-profit charter drafting, Section 12A and 80G tax exemptions, and CSR funding eligibility alignment.</p>
+          <div class="gov-service-footer">
+            <a href="/services/section-8-registration.html" class="service-link">Establish Section 8 &rarr;</a>
+            <a href="/verticals/01-entity-formation.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">DPIIT Portal</span>
+            <span class="service-timeline-chip">⏱️ 2–3 Business Days</span>
+          </div>
+          <h3>DPIIT Startup India Recognition</h3>
+          <p>Startup India seed and tax exemption certification under Section 56(2)(viib), angel tax relief, patent rebate qualification, and public procurement exemptions.</p>
+          <div class="gov-service-footer">
+            <a href="/services/dpiit-startup-india.html" class="service-link">Apply Recognition &rarr;</a>
+            <a href="/verticals/01-entity-formation.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">MSMED Act 2006</span>
+            <span class="service-timeline-chip">⏱️ 24 Hours</span>
+          </div>
+          <h3>MSME / Udyam Registration Online</h3>
+          <p>Instant Udyam portal registration for Micro, Small &amp; Medium enterprises, priority sector lending, Section 43B(h) 45-day payment statutory protections.</p>
+          <div class="gov-service-footer">
+            <a href="/services/msme-udyam.html" class="service-link">Register Udyam &rarr;</a>
+            <a href="/verticals/01-entity-formation.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 2: Corporate Secretarial & RoC Filings -->
+    <div id="pillar-secretarial" class="gov-pillar-pane">
+      <div class="pillar-services-grid">
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Section 137 &bull; AOC-4</span>
+            <span class="service-timeline-chip">⏱️ Annual Mandate</span>
+          </div>
+          <h3>Form AOC-4 Financial Statements Filing</h3>
+          <p>Statutory Balance Sheet, P&amp;L Account, Directors' Report, and Auditors' Report submission to RoC within 30 days of Annual General Meeting.</p>
+          <div class="gov-service-footer">
+            <a href="/services/form-aoc4.html" class="service-link">File AOC-4 Online &rarr;</a>
+            <a href="/verticals/02-roc-compliance.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Section 92 &bull; MGT-7</span>
+            <span class="service-timeline-chip">⏱️ 60 Days Post AGM</span>
+          </div>
+          <h3>Form MGT-7 / MGT-7A Annual Return</h3>
+          <p>Annual Return recording shareholding patterns, indebtedness, director changes, board meeting frequency, and PCS certification for eligible enterprises.</p>
+          <div class="gov-service-footer">
+            <a href="/services/form-mgt7.html" class="service-link">File MGT-7 Return &rarr;</a>
+            <a href="/verticals/02-roc-compliance.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Rule 12A &bull; DIN Verification</span>
+            <span class="service-timeline-chip">⏱️ Due Sept 30</span>
+          </div>
+          <h3>DIR-3 KYC Annual Director Verification</h3>
+          <p>Annual biometric and OTP verification of Director Identification Numbers (DIN) to prevent statutory deactivation and steep ₹5,000 reactivating penalties.</p>
+          <div class="gov-service-footer">
+            <a href="/services/dir3-kyc.html" class="service-link">Verify DIR-3 KYC &rarr;</a>
+            <a href="/verticals/02-roc-compliance.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Rule 9B &bull; PAS-6 Demat</span>
+            <span class="service-timeline-chip">⏱️ Half-Yearly</span>
+          </div>
+          <h3>Form PAS-6 Demat Reconciliation Audit</h3>
+          <p>Mandatory share dematerialization reconciliation for private companies, ISIN activation with NSDL/CDSL, and PCS audit certification.</p>
+          <div class="gov-service-footer">
+            <a href="/services/form-pas6.html" class="service-link">Reconcile Capital &rarr;</a>
+            <a href="/verticals/02-roc-compliance.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Section 248(2) &bull; Closure</span>
+            <span class="service-timeline-chip">⏱️ Voluntary Fast-Track</span>
+          </div>
+          <h3>Form STK-2 Fast-Track Company Strike-Off</h3>
+          <p>Lawful corporate dissolution and voluntary closure for inoperative companies under Section 248(2), indemnity bonds, and zero-liability RoC clearance.</p>
+          <div class="gov-service-footer">
+            <a href="/services/form-stk2-strike-off.html" class="service-link">File STK-2 Closure &rarr;</a>
+            <a href="/verticals/02-roc-compliance.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Corporate Retainer Desk</span>
+            <span class="service-timeline-chip">⏱️ Full-Year Cover</span>
+          </div>
+          <h3>RoC Annual Retainer &amp; Secretarial Audit</h3>
+          <p>Turnkey company secretary retainers covering AOC-4, MGT-7, ADT-1, DPT-3, MSME-1, board resolutions, and statutory registers maintenance.</p>
+          <div class="gov-service-footer">
+            <a href="/services/roc-annual-compliance.html" class="service-link">Explore Retainer &rarr;</a>
+            <a href="/verticals/02-roc-compliance.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 3: Taxation, GST & Financial Audits -->
+    <div id="pillar-tax" class="gov-pillar-pane">
+      <div class="pillar-services-grid">
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Section 44 &bull; CGST Act</span>
+            <span class="service-timeline-chip">⏱️ Due Dec 31</span>
+          </div>
+          <h3>GST Annual Return &amp; Reconciliation (GSTR-9/9C)</h3>
+          <p>Comprehensive outward and inward tax reconciliation, ITC matching against GSTR-2B, reverse charge audits, and self-certified reconciliation statements.</p>
+          <div class="gov-service-footer">
+            <a href="/services/gst-annual.html" class="service-link">File GSTR-9/9C &rarr;</a>
+            <a href="/verticals/03-tax-compliance.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Section 92E &bull; Transfer Pricing</span>
+            <span class="service-timeline-chip">⏱️ Due Oct 31</span>
+          </div>
+          <h3>Form 3CEB Transfer Pricing Report</h3>
+          <p>Chartered accountant certification of international cross-border transactions and specified domestic transactions under Arm's Length Pricing (ALP) rules.</p>
+          <div class="gov-service-footer">
+            <a href="/services/form-3ceb.html" class="service-link">Audit Form 3CEB &rarr;</a>
+            <a href="/verticals/03-tax-compliance.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Section 12A &bull; Trust Audit</span>
+            <span class="service-timeline-chip">⏱️ Due Sept 30</span>
+          </div>
+          <h3>Form 10B / 10BB Statutory Trust Audit</h3>
+          <p>Auditor report for charitable and religious trusts claiming exemptions under Section 11 and 12 of the Income Tax Act 1961.</p>
+          <div class="gov-service-footer">
+            <a href="/services/form-10b.html" class="service-link">File Form 10B &rarr;</a>
+            <a href="/verticals/03-tax-compliance.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Section 139 &bull; ITR-7</span>
+            <span class="service-timeline-chip">⏱️ Due Oct 31</span>
+          </div>
+          <h3>ITR-7 Return for Companies &amp; Trusts</h3>
+          <p>Corporate tax return for entities claiming exemption under Section 139(4A), (4B), (4C), or (4D) including Section 8 companies and research associations.</p>
+          <div class="gov-service-footer">
+            <a href="/services/itr7.html" class="service-link">File ITR-7 &rarr;</a>
+            <a href="/verticals/03-tax-compliance.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 4: IP Intelligence & Trademarks -->
+    <div id="pillar-ipr" class="gov-pillar-pane">
+      <div class="pillar-services-grid">
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Form TM-A &bull; IP India</span>
+            <span class="service-timeline-chip">⏱️ Priority Filing</span>
+          </div>
+          <h3>Trademark Registration (Form TM-A)</h3>
+          <p>Brand name, device mark, and logo registration across all 45 NICE classes, comprehensive similarity clearance, and user affidavit preparation.</p>
+          <div class="gov-service-footer">
+            <a href="/services/trademark-registration.html" class="service-link">File Trademark TM-A &rarr;</a>
+            <a href="/verticals/06-ipr-protection.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Copyright Act 1957</span>
+            <span class="service-timeline-chip">⏱️ Software Protection</span>
+          </div>
+          <h3>Software Copyright &amp; Tech Patents</h3>
+          <p>Source code copyright protection, object code escrow filing, literary work certification, and patent prior-art novelty searches.</p>
+          <div class="gov-service-footer">
+            <a href="/services/software-copyright-patents.html" class="service-link">Protect Software IP &rarr;</a>
+            <a href="/verticals/06-ipr-protection.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">IP Defense &bull; Section 9/11</span>
+            <span class="service-timeline-chip">⏱️ Immediate Notice</span>
+          </div>
+          <h3>IP Enforcement &amp; Cease &amp; Desist</h3>
+          <p>Drafting formal statutory legal notices, replies to Registrar examination reports (Sec 9 distinctiveness / Sec 11 conflict), and opposition defense.</p>
+          <div class="gov-service-footer">
+            <a href="/services/ip-enforcement-cease-desist.html" class="service-link">Issue Enforcement &rarr;</a>
+            <a href="/verticals/06-ipr-protection.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 5: Licensure & Cross-Border FEMA -->
+    <div id="pillar-licenses" class="gov-pillar-pane">
+      <div class="pillar-services-grid">
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">FEMA 1999 &bull; FLAIR</span>
+            <span class="service-timeline-chip">⏱️ Due July 15</span>
+          </div>
+          <h3>RBI Foreign Liabilities &amp; Assets (FLA) Return</h3>
+          <p>Annual reporting on RBI FLAIR portal for Indian entities that have received Foreign Direct Investment (FDI) or made Overseas Direct Investment (ODI).</p>
+          <div class="gov-service-footer">
+            <a href="/services/rbi-fla-return.html" class="service-link">File FLA Return &rarr;</a>
+            <a href="/verticals/13-cross-border-fema.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">Form FC-3 / FC-4</span>
+            <span class="service-timeline-chip">⏱️ Foreign Corporate</span>
+          </div>
+          <h3>Foreign Branch &amp; Liaison Offices (BO/LO)</h3>
+          <p>Annual accounts and operational compliance for foreign multinational branches in India, RBI approval tracking, and RoC jurisdictional reporting.</p>
+          <div class="gov-service-footer">
+            <a href="/services/form-fc3-fc4.html" class="service-link">Foreign Entity Filing &rarr;</a>
+            <a href="/verticals/13-cross-border-fema.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">FDI Inbound Structuring</span>
+            <span class="service-timeline-chip">⏱️ RBI FIRMS</span>
+          </div>
+          <h3>Cross-Border Tech Licensing &amp; FDI</h3>
+          <p>RBI FIRMS portal reporting (Form FC-GPR / FC-TRS), valuation certificates under Rule 11UA, and international IP licensing covenants.</p>
+          <div class="gov-service-footer">
+            <a href="/services/cross-border-tech-transfer.html" class="service-link">Structure Cross-Border &rarr;</a>
+            <a href="/verticals/13-cross-border-fema.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillar 6: Workforce HR & DPDP Privacy -->
+    <div id="pillar-workforce" class="gov-pillar-pane">
+      <div class="pillar-services-grid">
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">EPFO &amp; ESIC Act</span>
+            <span class="service-timeline-chip">⏱️ Monthly Filings</span>
+          </div>
+          <h3>PF &amp; ESIC Registration and ECR Returns</h3>
+          <p>Unified Shram Suvidha portal establishment registrations, monthly electronic challan returns (ECR), wage limit compliances, and inspection audits.</p>
+          <div class="gov-service-footer">
+            <a href="/services/pf-esic-compliance.html" class="service-link">Manage PF/ESIC &rarr;</a>
+            <a href="/verticals/04-statutory-licenses.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">POSH Act 2013</span>
+            <span class="service-timeline-chip">⏱️ Mandatory for 10+ Staff</span>
+          </div>
+          <h3>POSH Act Compliance &amp; ICC Setup</h3>
+          <p>Mandatory Internal Committee (IC) appointment orders, external member empanelment, employee sensitization workshops, and annual district officer reports.</p>
+          <div class="gov-service-footer">
+            <a href="/services/posh-compliance.html" class="service-link">Set Up POSH IC &rarr;</a>
+            <a href="/verticals/07-labour-hr.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">DPDP Act 2023</span>
+            <span class="service-timeline-chip">⏱️ Data Governance</span>
+          </div>
+          <h3>DPDP Act 2023 Readiness &amp; Consent Audit</h3>
+          <p>Data Fiduciary obligations, Section 5 notice architecture, consent management frameworks, and Data Protection Officer (DPO) readiness reviews.</p>
+          <div class="gov-service-footer">
+            <a href="/services/dpdp-compliance-audit.html" class="service-link">Audit DPDP Readiness &rarr;</a>
+            <a href="/verticals/12-esg-csr.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Explore Practice Area &rarr;</a>
+          </div>
+        </div>
+
+        <div class="gov-service-card">
+          <div class="gov-service-top">
+            <span class="gov-statute-tag">CERT-In Direction</span>
+            <span class="service-timeline-chip">⏱️ Strict 6-Hour Window</span>
+          </div>
+          <h3>Cyber Incident Reporting (CERT-In 6-Hour)</h3>
+          <p>Statutory cybersecurity incident response protocols, mandatory 6-hour CERT-In reporting templates, and logs retention compliance under IT Act 2000.</p>
+          <div class="gov-service-footer">
+            <a href="/services/cyber-incident-reporting.html" class="service-link">View Mandate Protocol &rarr;</a>
+            <a href="/verticals/12-esg-csr.html" style="font-size: 0.78rem; color: #64748B; text-decoration: none;">Data Privacy &amp; Tech Law &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Comprehensive Corporate Practice Areas (All 15 Practice Verticals) -->
+  <main id="service-verticals" class="container" style="padding: 5.5rem 1.5rem; max-width: 1300px; margin: 0 auto; border-top: 1px solid var(--border-color);">
     <div class="section-header">
-      <span class="noble-badge">Practice Areas</span>
+      <span class="noble-badge">Practice Directory</span>
       <h2>Comprehensive Corporate Practice Areas</h2>
       <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 780px; margin: 0.5rem auto 0; line-height: 1.6;">
         From day-one SPICe+ incorporation to cross-border FEMA restructuring, proactive corporate dispute avoidance, and DPDP 2023 data privacy.
@@ -452,7 +929,6 @@
     </div>
 
     <div class="vertical-grid">
-      
       <!-- Vertical 01 -->
       <div class="vertical-card">
         <span class="vertical-tag">Entity Structuring</span>
@@ -546,7 +1022,7 @@
         <span class="vertical-tag">Data Privacy &amp; Tech Law</span>
         <h3>Data Privacy &amp; Tech Law</h3>
         <p>DPDP Act 2023 compliance audits, Data Fiduciary consent architecture, CERT-In 6-hour cybersecurity incident reporting, and SaaS terms &amp; privacy architecture.</p>
-        <a href="/verticals/12-esg-csr.html" class="card-cta">Explore Practice Area &rarr;</a>
+        <a href="/verticals/12-esg-csr.html" class="card-cta">Data Privacy &amp; Tech Law &rarr;</a>
       </div>
 
       <!-- Vertical 13 -->
@@ -572,11 +1048,112 @@
         <p>Enterprise IT infrastructure and systems architecture governance. (Approved Coverage Gap — active advisory provided via Vertical 12 and Vertical 06).</p>
         <a href="/verticals/15-it-digital.html" class="card-cta">Explore Practice Area &rarr;</a>
       </div>
-
     </div>
   </main>
 
-  <!-- Regulatory Knowledge Blueprints Section -->
+  <!-- 6. Zero-Trust Sovereign Security Architecture Showcase -->
+  <section class="gov-vault-section">
+    <div class="gov-vault-inner">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <span class="noble-badge" style="background: rgba(212, 175, 55, 0.15); color: #E8C868;">Defense-in-Depth</span>
+        <h2 style="font-size: 2.35rem; color: #FFFFFF; margin: 0.6rem 0;">Zero-Trust Sovereign Security Architecture</h2>
+        <p style="color: #94A3B8; font-size: 1.05rem; line-height: 1.6;">
+          Your sensitive statutory records, board resolutions, and cap table documents are protected by bank-grade client isolation and automated integrity controls.
+        </p>
+      </div>
+
+      <div class="vault-features-grid">
+        <div class="vault-feature-card">
+          <div class="vault-feature-icon">🛡️</div>
+          <h4>Magic-Byte MIME Validation</h4>
+          <p>Every uploaded document undergoes real-time binary byte inspection to eradicate polyglot attacks and malicious payload masquerading.</p>
+        </div>
+        <div class="vault-feature-card">
+          <div class="vault-feature-icon">⚡</div>
+          <h4>Streaming Antivirus Scanning</h4>
+          <p>Real-time ClamAV antivirus daemon inspection quarantines suspicious files instantly before persistent storage commit.</p>
+        </div>
+        <div class="vault-feature-card">
+          <div class="vault-feature-icon">🔐</div>
+          <h4>AES-256-GCM Vault Encryption</h4>
+          <p>Every corporate secretarial vault is encrypted with military-grade authenticated symmetric ciphers and tenant-isolated keys.</p>
+        </div>
+        <div class="vault-feature-card">
+          <div class="vault-feature-icon">⏱️</div>
+          <h4>Signed Ephemeral URLs</h4>
+          <p>Statutory filing packages are delivered via cryptographic time-limited presigned URLs with zero public storage exposure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Featured Computational Engines & Diagnostic Tools Spotlight -->
+  <section class="section-pearl" style="padding: 5rem 1.5rem; border-bottom: 1px solid var(--border-color);">
+    <div class="container" style="max-width: 1260px; margin: 0 auto;">
+      <div class="section-header">
+        <span class="noble-badge">Autonomous Compliance Suite</span>
+        <h2>Computational Engines &amp; AI Drafters</h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 700px; margin: 0.5rem auto 0; line-height: 1.6;">
+          Instant algorithmic calculators and peer-reviewed generative legal engines formulated to eradicate regulatory friction.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;">
+        <!-- Tool 1: AI Drafter -->
+        <a href="/conversion/ai-document-generator.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column; border-color: var(--gold-border-strong);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+            <span class="noble-badge" style="background: rgba(197, 155, 39, 0.12); font-size: 0.7rem;">Flagship AI</span>
+            <span style="font-size: 0.75rem; color: var(--brand-gold); font-family: var(--font-mono);">v3.8 Core</span>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">AI Legal Document Drafter</h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
+            Draft certified Board Resolutions, Founder SHAs, DPDP consent notices, and Section 161 appointment orders in seconds with full statutory RoC checklists.
+          </p>
+          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold); display: inline-flex; align-items: center; gap: 0.35rem;">
+            Draft Instrument Online &rarr;
+          </span>
+        </a>
+
+        <!-- Tool 2: Fee Calculator -->
+        <a href="/conversion/calculator.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column;">
+          <span class="noble-badge" style="align-self: flex-start; margin-bottom: 0.85rem; font-size: 0.7rem;">Computational Logic</span>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">RoC Late Fee &amp; Retainer Calculator</h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
+            Calculate ₹100/day ongoing MCA penalty exposure under Section 403 and compute transparent tiered retainer fees for incorporation and annual compliance.
+          </p>
+          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold);">Estimate Costs Instantly &rarr;</span>
+        </a>
+
+        <!-- Tool 3: Trademark Search -->
+        <a href="/conversion/trademark-search.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column;">
+          <span class="noble-badge" style="align-self: flex-start; margin-bottom: 0.85rem; font-size: 0.7rem;">IP Intelligence</span>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">Trademark Class Search Engine</h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
+            Query all 45 NICE classification classes for conflicting phonetics, evaluate Form TM-A registration viability, and defend brand integrity.
+          </p>
+          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold);">Search Registry &rarr;</span>
+        </a>
+
+        <!-- Tool 4: Strike Off Checker -->
+        <a href="/conversion/strike-off-checker.html" class="noble-card" style="text-decoration: none; display: flex; flex-direction: column;">
+          <span class="noble-badge" style="align-self: flex-start; margin-bottom: 0.85rem; font-size: 0.7rem;">Diagnostic Diagnostic</span>
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.65rem;">STK-2 Fast-Track Strike-Off Checker</h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem; flex-grow: 1;">
+            Determine entity eligibility for lawful corporate dissolution under Section 248(2) of the Companies Act 2013 and calculate asset liquidation roadmaps.
+          </p>
+          <span style="font-weight: 700; font-size: 0.85rem; color: var(--brand-gold);">Evaluate Eligibility &rarr;</span>
+        </a>
+      </div>
+
+      <div style="text-align: center; margin-top: 2.75rem;">
+        <a href="/conversion/index.html" class="btn-royal-outline">
+          Explore Diagnostic Tools &amp; Advisory Desks &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Regulatory Knowledge Blueprints Section -->
   <section class="section-pearl" style="padding: 5.5rem 1.5rem; border-top: 1px solid var(--border-color);">
     <div class="container" style="max-width: 1300px; margin: 0 auto;">
       <div class="section-header">
@@ -614,7 +1191,7 @@
     </div>
   </section>
 
-  <!-- Comprehensive FAQ Section with Rich Schema Grounding -->
+  <!-- 9. Authoritative FAQ Accordion with Schema Grounding -->
   <section class="section-ivory" style="padding: 5.5rem 1.5rem; border-top: 1px solid var(--border-color);">
     <div class="container" style="max-width: 950px; margin: 0 auto;">
       <div class="section-header">
@@ -623,43 +1200,43 @@
         <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem;">Authoritative legal clarifications grounded in Indian corporate and cross-border statutes.</p>
       </div>
 
-      <div class="if-faq-container" style="margin-top: 2rem;">
-        <div class="if-faq-item">
-          <div class="if-faq-question">
+      <div style="margin-top: 2rem;">
+        <div class="gov-faq-item open">
+          <div class="gov-faq-header">
             <span>What are the mandatory annual RoC filing forms for an Indian Private Limited Company?</span>
-            <span style="color: var(--gold);">+</span>
+            <span class="gov-faq-icon">+</span>
           </div>
-          <div class="if-faq-answer">
+          <div class="gov-faq-content">
             Under the Companies Act, 2013, every private limited company must file Form AOC-4 (Financial Statements within 30 days of AGM under Section 137), Form MGT-7/MGT-7A (Annual Return within 60 days of AGM under Section 92), Form DIR-3 KYC for all active directors, Form DPT-3 (Return of Deposits/Outstanding Loans by June 30th), and Form MSME-1 half-yearly.
           </div>
         </div>
 
-        <div class="if-faq-item">
-          <div class="if-faq-question">
+        <div class="gov-faq-item">
+          <div class="gov-faq-header">
             <span>What is the penalty for late filing of Form AOC-4 and MGT-7?</span>
-            <span style="color: var(--gold);">+</span>
+            <span class="gov-faq-icon">+</span>
           </div>
-          <div class="if-faq-answer">
+          <div class="gov-faq-content">
             Under Section 403 read with the Companies (Registration Offices and Fees) Rules, delay attracts an additional fee of ₹100 per day per form with no statutory ceiling, alongside substantive monetary penalties on the company and defaulting directors under Section 137(3) and Section 92(5).
           </div>
         </div>
 
-        <div class="if-faq-item">
-          <div class="if-faq-question">
+        <div class="gov-faq-item">
+          <div class="gov-faq-header">
             <span>Who is required to file the annual RBI Foreign Liabilities and Assets (FLA) Return?</span>
-            <span style="color: var(--gold);">+</span>
+            <span class="gov-faq-icon">+</span>
           </div>
-          <div class="if-faq-answer">
+          <div class="gov-faq-content">
             Any Indian company, LLP, or alternative investment fund that has received Foreign Direct Investment (FDI) or made Overseas Direct Investment (ODI) in any previous financial year must submit the FLA return online via the RBI FLAIR portal on or before July 15th annually under FEMA regulations.
           </div>
         </div>
 
-        <div class="if-faq-item">
-          <div class="if-faq-question">
+        <div class="gov-faq-item">
+          <div class="gov-faq-header">
             <span>How does CraftEgon CCS automate legal drafting and compliance?</span>
-            <span style="color: var(--gold);">+</span>
+            <span class="gov-faq-icon">+</span>
           </div>
-          <div class="if-faq-answer">
+          <div class="gov-faq-content">
             CraftEgon CCS couples algorithmic statutory calculators with Gemini AI drafting engines trained on Companies Act 2013 precedents, MCA V3 e-forms, and SEBI/FEMA circulars to produce Big 4 and Magic Circle grade corporate resolutions, founder agreements, and compliance memorandums instantly.
           </div>
         </div>
@@ -670,6 +1247,23 @@
   <!-- Global Footer Injection Container -->
   <div id="global-footer"></div>
 
+  <!-- Client Interactive Scripts -->
+  <script src="/assets/js/home-interactive.js"></script>
   <script src="/assets/js/navigation.js"></script>
+  <script>
+    function switchConsoleTab(paneId, btn) {
+      document.querySelectorAll('.gov-console-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.console-pane').forEach(p => {
+        p.style.display = 'none';
+        p.classList.remove('active');
+      });
+      btn.classList.add('active');
+      const pane = document.getElementById(paneId);
+      if (pane) {
+        pane.style.display = 'block';
+        pane.classList.add('active');
+      }
+    }
+  </script>
 </body>
 </html>

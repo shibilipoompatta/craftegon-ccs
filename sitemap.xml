@@ -73,6 +73,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ccs.craftegon.com/conversion/partner-ecosystems.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ccs.craftegon.com/conversion/post-incorporation-checkout.html</loc>
     <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -127,6 +133,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ccs.craftegon.com/knowledge/gst-einvoicing-compliance-mandate.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ccs.craftegon.com/knowledge/index.html</loc>
     <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -141,6 +153,12 @@
   <url>
     <loc>https://ccs.craftegon.com/knowledge/llp-compliance-solvency-guide.html</loc>
     <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/mca-adjudication-penalties.html</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -215,6 +233,12 @@
     <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/portal/entity-search.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ccs.craftegon.com/portal/index.html</loc>

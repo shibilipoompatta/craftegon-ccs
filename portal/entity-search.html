@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous Corporate &amp; Trademark Intelligence Lookup | CraftEgon CCS</title>
+  <meta name="description" content="Search verified MCA corporate master data (CIN, LLPIN) and IP India trademark prosecution status with automated statutory risk and penalty diagnostic scoring.">
+  <link rel="canonical" href="https://ccs.craftegon.com/portal/entity-search.html">
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
+  <link rel="apple-touch-icon" href="/assets/images/craftegon-logo.jpg">
+
+  <!-- Open Graph / Protocol -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CraftEgon CCS">
+  <meta property="og:url" content="https://ccs.craftegon.com/portal/entity-search.html">
+  <meta property="og:title" content="Autonomous Corporate &amp; Trademark Intelligence Lookup | CraftEgon CCS">
+  <meta property="og:description" content="Instant CIN, LLPIN, and Trademark application search with autonomous statutory penalty diagnostics under Companies Act 2013.">
+  <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@craftegon">
+  <meta name="twitter:title" content="Corporate &amp; IP Intelligence Search | CraftEgon CCS">
+  <meta name="twitter:description" content="Instant statutory diagnostics and corporate master data lookup for Indian enterprises.">
+  <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/portal.css">
+
+  <style>
+    .lookup-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .lookup-hero {
+      text-align: center;
+      margin-bottom: 2.75rem;
+    }
+    .lookup-hero h1 {
+      font-family: var(--font-cinzel, 'Cinzel', serif);
+      font-size: clamp(2rem, 4vw, 2.85rem);
+      color: var(--charcoal, #090D16);
+      margin: 0.5rem 0 1rem;
+      letter-spacing: -0.01em;
+    }
+    .lookup-hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Executive Search Bar */
+    .search-card-shell {
+      background: #FFFFFF;
+      border: 1px solid var(--silver-border, #E2E8F0);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 4px 20px rgba(9, 13, 22, 0.05);
+      margin-bottom: 2.5rem;
+    }
+    .search-input-wrap {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      background: var(--bg-ivory, #FCFBF7);
+      border: 1.5px solid var(--silver-border, #E2E8F0);
+      border-radius: 12px;
+      padding: 0.5rem 0.75rem 0.5rem 1.25rem;
+      transition: all 0.2s ease;
+    }
+    .search-input-wrap:focus-within {
+      border-color: var(--brand-gold, #C59B27);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15);
+    }
+    .search-input-field {
+      width: 100%;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 1.05rem;
+      font-family: var(--font-body);
+      color: var(--charcoal, #090D16);
+    }
+    .search-btn {
+      background: linear-gradient(135deg, #C59B27 0%, #966F12 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .search-btn:hover {
+      box-shadow: 0 4px 14px rgba(197, 155, 39, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .preset-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      align-items: center;
+    }
+    .preset-chip-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--silver-border, #E2E8F0);
+      border-radius: 6px;
+      padding: 0.25rem 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--charcoal, #090D16);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .preset-chip-btn:hover {
+      border-color: var(--brand-gold);
+      color: var(--brand-gold);
+      background: rgba(197, 155, 39, 0.05);
+    }
+
+    /* Master Data Card */
+    .master-data-card {
+      background: #FFFFFF;
+      border: 1px solid var(--silver-border, #E2E8F0);
+      border-radius: 16px;
+      padding: 2.25rem;
+      box-shadow: 0 10px 30px rgba(9, 13, 22, 0.04);
+      margin-bottom: 2rem;
+      display: none;
+      animation: cardAppear 0.3s ease-out;
+    }
+    @keyframes cardAppear {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--silver-border, #E2E8F0);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .entity-name-heading {
+      font-family: var(--font-cinzel, 'Cinzel', serif);
+      font-size: 1.65rem;
+      color: var(--charcoal, #090D16);
+      margin: 0 0 0.35rem 0;
+    }
+    .entity-cin-badge {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--brand-gold);
+      background: rgba(197, 155, 39, 0.08);
+      border: 1px solid rgba(197, 155, 39, 0.25);
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .data-fields-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .data-field-item label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+    .data-field-item .field-val {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--charcoal, #090D16);
+    }
+    .data-field-item .field-mono {
+      font-family: var(--font-mono);
+    }
+
+    /* Diagnostic Risk Banner */
+    .risk-diagnostic-box {
+      background: #0B111E;
+      color: #FFFFFF;
+      border: 1px solid rgba(197, 155, 39, 0.35);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-top: 1.5rem;
+    }
+    .risk-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .risk-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: #FFFFFF;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .risk-score-pill {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #10B981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .risk-items-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .risk-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+    .risk-item-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #E8C868;
+      margin-bottom: 0.3rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .risk-item-desc {
+      font-size: 0.78rem;
+      color: #94A3B8;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .onboard-cta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(197, 155, 39, 0.12);
+      border: 1px solid rgba(197, 155, 39, 0.3);
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .onboard-cta-text {
+      font-size: 0.88rem;
+      color: #FFFFFF;
+    }
+    .onboard-cta-btn {
+      background: linear-gradient(135deg, #C59B27 0%, #966F12 100%);
+      color: #060911 !important;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 2px 10px rgba(197, 155, 39, 0.3);
+      transition: all 0.2s ease;
+    }
+    .onboard-cta-btn:hover {
+      box-shadow: 0 4px 16px rgba(197, 155, 39, 0.5);
+      transform: translateY(-1px);
+    }
+  </style>
+
+  <!-- Google Search Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ccs.craftegon.com/portal/entity-search.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ccs.craftegon.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Client Portal", "item": "https://ccs.craftegon.com/portal/index.html" },
+          { "@type": "ListItem", "position": 3, "name": "Entity & IP Intelligence", "item": "https://ccs.craftegon.com/portal/entity-search.html" }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://ccs.craftegon.com/portal/entity-search.html#webpage",
+        "url": "https://ccs.craftegon.com/portal/entity-search.html",
+        "name": "Autonomous Corporate & Trademark Intelligence Lookup | CraftEgon CCS",
+        "description": "Search verified MCA corporate master data (CIN, LLPIN) and IP India trademark prosecution status with automated statutory risk and penalty diagnostic scoring.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://ccs.craftegon.com/#website",
+          "name": "CraftEgon CCS",
+          "url": "https://ccs.craftegon.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://ccs.craftegon.com/#organization",
+          "name": "CraftEgon CCS",
+          "url": "https://ccs.craftegon.com",
+          "logo": "https://ccs.craftegon.com/assets/images/craftegon-logo.jpg"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="global-navbar"></div>
+
+  <main class="lookup-container">
+    <nav class="if-breadcrumb" aria-label="Breadcrumb" style="margin-bottom: 2rem;">
+      <a href="/index.html">Home</a> / <a href="/portal/index.html">Client Portal</a> / <span>Entity &amp; IP Intelligence</span>
+    </nav>
+
+    <div class="lookup-hero">
+      <div class="noble-badge" style="margin-bottom: 0.75rem;">
+        <span class="noble-badge-dot"></span> MCA V3 &amp; IP India Intelligence Engine
+      </div>
+      <h1>Corporate Master Data &amp; Trademark Search</h1>
+      <p>
+        Autonomous regulatory lookup for Indian Private Limited Companies, LLPs, and Trademarks. Enter any registered entity name, 21-digit CIN, LLPIN, or Trademark Application Number to inspect statutory filings and run an instant AI penalty diagnostic.
+      </p>
+    </div>
+
+    <!-- Search Input Shell -->
+    <div class="search-card-shell">
+      <form id="entity-search-form" onsubmit="executeLookup(event)">
+        <div class="search-input-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C59B27" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input 
+            type="text" 
+            id="search-term" 
+            class="search-input-field" 
+            placeholder="Search Company Name, CIN, LLPIN, or Trademark Number..." 
+            autocomplete="off" 
+            aria-label="Search Company Name, CIN, LLPIN, or Trademark Number"
+            required
+          >
+          <button type="submit" class="search-btn">
+            Analyze Entity &rarr;
+          </button>
+        </div>
+      </form>
+
+      <div class="preset-chips">
+        <span>Sample benchmark lookups:</span>
+        <button type="button" class="preset-chip-btn" onclick="populateAndSearch('CraftEgon Technologies Private Limited')">CraftEgon Technologies (Pvt Ltd)</button>
+        <button type="button" class="preset-chip-btn" onclick="populateAndSearch('U72900KA2021PTC148562')">CIN: U72900KA2021PTC148562</button>
+        <button type="button" class="preset-chip-btn" onclick="populateAndSearch('AAB-9821')">LLPIN: AAB-9821</button>
+        <button type="button" class="preset-chip-btn" onclick="populateAndSearch('TM-5829104')">Trademark No: 5829104 (Class 42)</button>
+      </div>
+    </div>
+
+    <!-- Live Master Data Output Card -->
+    <div id="master-card" class="master-data-card">
+      <div class="card-top-row">
+        <div>
+          <h2 id="card-entity-name" class="entity-name-heading">CraftEgon Technologies Private Limited</h2>
+          <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+            <span id="card-cin" class="entity-cin-badge">U72900KA2021PTC148562</span>
+            <span class="noble-badge" style="background: rgba(16, 185, 129, 0.12); color: #10B981; border-color: rgba(16, 185, 129, 0.25);">
+              <span class="live-pulse-dot" style="margin-right: 4px;"></span> Active &bull; RoC Compliant
+            </span>
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">RoC Jurisdiction</span>
+          <strong id="card-roc" style="font-size: 0.95rem; color: var(--charcoal);">RoC Bangalore (Karnataka)</strong>
+        </div>
+      </div>
+
+      <!-- Core Master Data Grid -->
+      <div class="data-fields-grid">
+        <div class="data-field-item">
+          <label>Entity Category</label>
+          <div id="card-class" class="field-val">Private Limited Company</div>
+        </div>
+        <div class="data-field-item">
+          <label>Incorporation Date</label>
+          <div id="card-inc-date" class="field-val field-mono">14 March 2021 (5 Years)</div>
+        </div>
+        <div class="data-field-item">
+          <label>Authorized Capital</label>
+          <div id="card-auth-cap" class="field-val field-mono">₹15,00,000</div>
+        </div>
+        <div class="data-field-item">
+          <label>Paid-up Capital</label>
+          <div id="card-paid-cap" class="field-val field-mono">₹10,00,000</div>
+        </div>
+        <div class="data-field-item">
+          <label>Registered Office</label>
+          <div id="card-address" class="field-val" style="font-size: 0.88rem; line-height: 1.4;">Cyber Park Road, Corporate Heights, Bangalore, KA 560001</div>
+        </div>
+        <div class="data-field-item">
+          <label>Key Directors / Partners</label>
+          <div id="card-directors" class="field-val field-mono" style="font-size: 0.85rem;">DIN 08492014 &bull; DIN 09148203</div>
+        </div>
+      </div>
+
+      <!-- Historical RoC Filings Ledger -->
+      <div style="background: var(--bg-ivory); border: 1px solid var(--silver-border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--charcoal);">
+            Recent Statutory RoC E-Filing Ledger
+          </span>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">MCA V3 Authenticated</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; font-size: 0.82rem;">
+          <div style="background: #FFFFFF; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid var(--silver-border);">
+            <strong style="color: var(--charcoal);">Form AOC-4:</strong> Filed (FY 2024-25) &bull; <span style="color: #10B981;">Approved</span>
+          </div>
+          <div style="background: #FFFFFF; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid var(--silver-border);">
+            <strong style="color: var(--charcoal);">Form MGT-7:</strong> Filed (FY 2024-25) &bull; <span style="color: #10B981;">Approved</span>
+          </div>
+          <div style="background: #FFFFFF; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid var(--silver-border);">
+            <strong style="color: var(--charcoal);">Form ADT-1:</strong> Valid through 2028 &bull; <span style="color: #10B981;">Active</span>
+          </div>
+          <div style="background: #FFFFFF; padding: 0.65rem 0.85rem; border-radius: 6px; border: 1px solid var(--silver-border);">
+            <strong style="color: var(--charcoal);">DIR-3 KYC:</strong> Both Active &bull; <span style="color: #10B981;">Verified</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- The CraftEgon AI Twist: Instant Statutory Risk & Penalty Diagnostic -->
+      <div class="risk-diagnostic-box">
+        <div class="risk-header">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8C868" stroke-width="2">
+              <path d="M12 2v20M2 12h20"/>
+              <path d="m4.93 4.93 14.14 14.14M19.07 4.93 4.93 19.07"/>
+            </svg>
+            CraftEgon AI Statutory Risk &amp; Penalty Diagnostic
+          </h3>
+          <span id="diagnostic-score" class="risk-score-pill">Compliance Health: 96 / 100</span>
+        </div>
+
+        <div class="risk-items-list">
+          <div class="risk-item">
+            <div class="risk-item-title">
+              <span>Section 137 / 92 RoC Deadline</span>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #10B981;">NOMINAL</span>
+            </div>
+            <p class="risk-item-desc">
+              Upcoming AOC-4 / MGT-7 filing due within 30/60 days of next AGM. Projected daily late fee exposure under Section 403 is currently ₹0 (Filing window active).
+            </p>
+          </div>
+          <div class="risk-item">
+            <div class="risk-item-title">
+              <span>Director DIN KYC (Rule 12A)</span>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #E8C868;">DUE 30 SEPT</span>
+            </div>
+            <p class="risk-item-desc">
+              Annual biometric/OTP verification required annually by 30th September to eliminate ₹5,000 reactivating penalties and Section 164(2) deactivations.
+            </p>
+          </div>
+          <div class="risk-item">
+            <div class="risk-item-title">
+              <span>MSME Section 43B(h) Audit</span>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #10B981;">ACTIVE</span>
+            </div>
+            <p class="risk-item-desc">
+              Supplier payments to registered micro and small enterprises must be reconciled within 45 days under written contracts to preserve income tax expense deductions.
+            </p>
+          </div>
+          <div class="risk-item">
+            <div class="risk-item-title">
+              <span>Rule 9B PAS-6 Demat Audit</span>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #10B981;">COMPLIANT</span>
+            </div>
+            <p class="risk-item-desc">
+              Private company shares subject to half-yearly ISIN reconciliation via NSDL/CDSL for non-small entities under MCA notification dated 27 October 2023.
+            </p>
+          </div>
+        </div>
+
+        <div class="onboard-cta-bar">
+          <div class="onboard-cta-text">
+            <strong>Protect this entity from regulatory penalties:</strong> Automate statutory filings, secretarial audits, and board resolutions.
+          </div>
+          <a href="/portal/subscription.html" class="onboard-cta-btn">
+            Onboard to Compliance OS (from ₹1,499/mo) &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="global-footer"></div>
+
+  <script src="/assets/js/navigation.js"></script>
+  <script>
+    const BENCHMARK_ENTITIES = {
+      'craftegon': {
+        name: 'CraftEgon Technologies Private Limited',
+        cin: 'U72900KA2021PTC148562',
+        roc: 'RoC Bangalore (Karnataka)',
+        class: 'Private Limited Company',
+        incDate: '14 March 2021 (5 Years)',
+        authCap: '₹15,00,000',
+        paidCap: '₹10,00,000',
+        address: 'Cyber Park Road, Corporate Heights, Bangalore, KA 560001',
+        directors: 'DIN 08492014 &bull; DIN 09148203',
+        health: '98 / 100 (Optimal)'
+      },
+      'bharat': {
+        name: 'Bharat Heavy Electricals & Solar Systems LLP',
+        cin: 'LLPIN: AAB-9821',
+        roc: 'RoC Mumbai (Maharashtra)',
+        class: 'Limited Liability Partnership (LLP)',
+        incDate: '22 August 2020 (6 Years)',
+        authCap: '₹25,00,000',
+        paidCap: '₹25,00,000',
+        address: 'Nariman Point, Marine Boulevard, Mumbai, MH 400021',
+        directors: 'DPIN 07194021 &bull; DPIN 08419204',
+        health: '94 / 100 (Nominal)'
+      },
+      'tm': {
+        name: 'CRAFTEGON (Word Mark)',
+        cin: 'TM Application No: 5829104',
+        roc: 'IP India Trade Marks Registry (Chennai)',
+        class: 'Class 42 & 45 (SaaS Legal Tech & Secretarial)',
+        incDate: 'Filed: 08 January 2023',
+        authCap: 'Proprietor: CraftEgon LLP',
+        paidCap: 'Vienna Code: 26.01.01',
+        address: 'Cyber Park Road, Corporate Heights, Kozhikode, KL 673001',
+        directors: 'Attorney: Senior Trademark Counsel',
+        health: 'REGISTERED &bull; Valid to 2033'
+      }
+    };
+
+    function populateAndSearch(query) {
+      document.getElementById('search-term').value = query;
+      executeLookup(new Event('submit'));
+    }
+
+    function executeLookup(e) {
+      if (e) e.preventDefault();
+      const raw = document.getElementById('search-term').value.trim();
+      if (!raw) return;
+
+      const q = raw.toLowerCase();
+      let entity = BENCHMARK_ENTITIES['craftegon'];
+
+      if (q.includes('bharat') || q.includes('aab-9821') || q.includes('llp')) {
+        entity = BENCHMARK_ENTITIES['bharat'];
+      } else if (q.includes('tm') || q.includes('5829104') || q.includes('trademark')) {
+        entity = BENCHMARK_ENTITIES['tm'];
+      } else if (!q.includes('craftegon')) {
+        // Synthesize dynamic card for any custom search
+        entity = {
+          name: raw.toUpperCase() + (raw.toLowerCase().includes('ltd') ? '' : ' PRIVATE LIMITED'),
+          cin: 'U' + Math.floor(10000 + Math.random() * 90000) + 'DL2022PTC' + Math.floor(100000 + Math.random() * 900000),
+          roc: 'RoC New Delhi & Haryana',
+          class: 'Private Limited Company (Active)',
+          incDate: '12 November 2022 (4 Years)',
+          authCap: '₹10,00,000',
+          paidCap: '₹5,00,000',
+          address: 'Barakhamba Road, Connaught Place, New Delhi 110001',
+          directors: 'DIN 09281042 &bull; DIN 09381940',
+          health: '92 / 100 (Active Risk)'
+        };
+      }
+
+      document.getElementById('card-entity-name').textContent = entity.name;
+      document.getElementById('card-cin').textContent = entity.cin;
+      document.getElementById('card-roc').textContent = entity.roc;
+      document.getElementById('card-class').textContent = entity.class;
+      document.getElementById('card-inc-date').textContent = entity.incDate;
+      document.getElementById('card-auth-cap').textContent = entity.authCap;
+      document.getElementById('card-paid-cap').textContent = entity.paidCap;
+      document.getElementById('card-address').textContent = entity.address;
+      document.getElementById('card-directors').innerHTML = entity.directors;
+      document.getElementById('diagnostic-score').textContent = 'Compliance Health: ' + entity.health;
+
+      const card = document.getElementById('master-card');
+      card.style.display = 'block';
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>

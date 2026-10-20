@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GST E-Invoicing 30-Day Mandate & Biometric Scrutiny Protocol | CraftEgon CCS</title>
+  <meta name="description" content="Operational guide to Rule 48(4) 30-day e-invoicing limits, Rule 10B biometric verification, high-value UPI transaction notices, and Section 143(3) scrutiny defense.">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
+  <link rel="apple-touch-icon" href="/assets/images/craftegon-logo.jpg">
+  <link rel="canonical" href="https://ccs.craftegon.com/knowledge/gst-einvoicing-compliance-mandate.html">
+
+  <!-- Open Graph / Meta Protocol -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CraftEgon CCS">
+  <meta property="og:url" content="https://ccs.craftegon.com/knowledge/gst-einvoicing-compliance-mandate.html">
+  <meta property="og:title" content="GST E-Invoicing 30-Day Mandate & Biometric Scrutiny Protocol | CraftEgon CCS">
+  <meta property="og:description" content="Technical and statutory breakdown of Rule 48(4) e-invoice time limits, Rule 10B biometrics, and DGGI UPI scrutiny defense protocols.">
+  <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@craftegon">
+  <meta name="twitter:title" content="GST E-Invoicing 30-Day Mandate & Biometric Scrutiny Protocol | CraftEgon CCS">
+  <meta name="twitter:description" content="Technical and statutory breakdown of Rule 48(4) e-invoice time limits, Rule 10B biometrics, and DGGI UPI scrutiny defense protocols.">
+  <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ccs.craftegon.com/knowledge/gst-einvoicing-compliance-mandate.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ccs.craftegon.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Regulatory Intelligence",
+            "item": "https://ccs.craftegon.com/knowledge/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "GST E-Invoicing & Biometric Protocol",
+            "item": "https://ccs.craftegon.com/knowledge/gst-einvoicing-compliance-mandate.html"
+          }
+        ]
+      },
+      {
+        "@type": "TechArticle",
+        "@id": "https://ccs.craftegon.com/knowledge/gst-einvoicing-compliance-mandate.html#article",
+        "headline": "GST E-Invoicing 30-Day Mandate & Biometric Scrutiny Protocol",
+        "url": "https://ccs.craftegon.com/knowledge/gst-einvoicing-compliance-mandate.html",
+        "description": "Comprehensive analysis of CGST Rule 48(4) e-invoicing time bars, biometric Aadhaar registration protocols, and UPI scrutiny defense strategies under Section 143(3).",
+        "inLanguage": "en",
+        "author": {
+          "@type": "Organization",
+          "name": "CraftEgon Indirect Taxation & Digital Compliance Desk"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "CraftEgon CCS",
+          "logo": "https://ccs.craftegon.com/assets/images/craftegon-logo.jpg"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 999px;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #166534;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .citation-badge {
+      display: inline-block;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #1E293B;
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      border-radius: 4px;
+      padding: 0.15rem 0.5rem;
+      margin: 0 0.2rem;
+    }
+    .checklist-card {
+      background: #FFFFFF;
+      border: 1px solid var(--silver-border, #E2E8F0);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .checklist-item:last-child {
+      margin-bottom: 0;
+    }
+    .checklist-num {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--gold-primary, #C59B27);
+      color: #FFFFFF;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .callout-box {
+      background: #FAF9F5;
+      border-left: 4px solid var(--gold-primary, #C59B27);
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body style="background: var(--bg-ivory, #FCFBF7); color: var(--charcoal, #090D16); margin: 0; font-family: var(--font-primary, sans-serif);">
+  <div id="global-navbar"></div>
+
+  <main style="max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem;">
+    <!-- Breadcrumb -->
+    <nav class="if-breadcrumb" aria-label="Breadcrumb" style="margin-bottom: 1.5rem;">
+      <a href="/index.html">Home</a> / <a href="/knowledge/index.html">Regulatory Intelligence</a> / <span>GST E-Invoicing &amp; Scrutiny Protocol</span>
+    </nav>
+
+    <!-- Header Section -->
+    <header style="margin-bottom: 2.5rem;">
+      <div class="case-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Indirect Tax Compliance Blueprint • CGST Rules 2017 &amp; Income Tax Act
+      </div>
+      <h1 style="font-family: var(--font-cinzel, 'Cinzel', serif); font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 700; line-height: 1.25; margin: 0.5rem 0 1rem; color: var(--charcoal, #090D16);">
+        GST E-Invoicing 30-Day Hard Limit &amp; Biometric Scrutiny Protocols
+      </h1>
+      <p style="font-size: 1.1rem; color: #475569; line-height: 1.65; margin: 0;">
+        Navigating the strict 30-day time-bar under Rule 48(4), biometric Aadhaar verification rollouts, automated UPI high-value mismatch notices under Rule 88C/88D, and Section 143(3) scrutiny defense.
+      </p>
+    </header>
+
+    <article style="line-height: 1.85; font-size: 1.02rem; color: #1E293B;">
+      <!-- Layer 1: Statutory Foundations -->
+      <h2 style="font-family: var(--font-cinzel, 'Cinzel', serif); font-size: 1.45rem; margin-top: 2rem; margin-bottom: 0.85rem; color: var(--charcoal, #090D16);">
+        1. The 30-Day Reporting Rule: Statutory Anatomy of Rule 48(4)
+      </h2>
+      <p>
+        Under <span class="citation-badge">Rule 48(4) of the CGST Rules, 2017</span>, businesses with an aggregate annual turnover exceeding <strong>₹5 Crores</strong> (with strict enforcement applied to ₹10 Cr and ₹20 Cr slabs) are legally required to upload all B2B invoices, credit notes, and debit notes to an Invoice Registration Portal (IRP) such as NIC, Clear, or Cygnet to obtain a unique 64-character <strong>Invoice Reference Number (IRN)</strong> and QR code.
+      </p>
+      <p>
+        The GST Policy Wing introduced a stringent <strong>30-day hard validation lock</strong> for entities with aggregate turnover exceeding ₹100 Crores (progressively expanding across the ₹10 Cr and ₹5 Cr tiers). Under this rule:
+      </p>
+      <ul style="padding-left: 1.5rem; margin: 1rem 0;">
+        <li>Invoices older than 30 days from the invoice date cannot be uploaded to the IRP portal under any circumstances;</li>
+        <li>An un-reported invoice is statutorily treated as <strong>invalid and void</strong> under Rule 48(5);</li>
+        <li>The purchasing customer is barred from claiming Input Tax Credit (ITC) under <span class="citation-badge">Section 16(2)(aa)</span> because the invoice will not auto-populate into their GSTR-2B;</li>
+        <li>The issuing supplier remains subject to a penalty of <span class="citation-badge">₹10,000 or 100% of tax evaded</span> under Section 122(1)(i).</li>
+      </ul>
+
+      <!-- Biometric & UPI High-Value Scrutiny -->
+      <h2 style="font-family: var(--font-cinzel, 'Cinzel', serif); font-size: 1.45rem; margin-top: 2.5rem; margin-bottom: 0.85rem; color: var(--charcoal, #090D16);">
+        2. Biometric Aadhaar Authentication &amp; Automated UPI Scrutiny
+      </h2>
+      <p>
+        To eradicate fraudulent input tax credit syndicates and bogus shell billings, the GST Council instituted <span class="citation-badge">Rule 10B</span>. High-risk applicants flagged by the MCA-GST risk intelligence algorithm must physically attend designated GST Suvidha Kendras (GSK) for biometric fingerprint and facial authentication alongside original document verification.
+      </p>
+      <p>
+        Simultaneously, the Directorate General of GST Intelligence (DGGI) and the Central Board of Direct Taxes (CBDT) deploy automated data-matching models connecting:
+      </p>
+      <ol style="padding-left: 1.5rem; margin: 1rem 0;">
+        <li><strong>Unified Payments Interface (UPI) Merchant QR Collections:</strong> High-volume commercial collections exceeding personal banking thresholds cross-analyzed against declared GSTR-3B monthly turnover;</li>
+        <li><strong>Rule 88C Automated Notices (DRC-01B):</strong> Immediate electronic demands issued when outward tax liability declared in GSTR-1 exceeds GSTR-3B tax paid by more than 20% or ₹25 Lakhs;</li>
+        <li><strong>Rule 88D Automated Notices (DRC-01C):</strong> Intimations triggered when ITC availed in GSTR-3B exceeds eligible ITC reflected in GSTR-2B;</li>
+        <li><strong>Income Tax Section 143(3) Scrutiny:</strong> Tax authorities using GST turnover discrepancies to initiate regular assessment audits, disallowing purchases from non-compliant suppliers under Section 37(1).</li>
+      </ol>
+
+      <div class="callout-box">
+        <h3 style="font-family: var(--font-cinzel, 'Cinzel', serif); font-size: 1.15rem; margin: 0 0 0.5rem; color: var(--charcoal, #090D16);">
+          Statutory Consequence: Form DRC-01B &amp; DRC-01C Compliance Windows
+        </h3>
+        <p style="margin: 0; font-size: 0.92rem; color: #334155;">
+          Taxpayers receiving an automated intimation in <strong>Part A of Form GST DRC-01B or DRC-01C</strong> have exactly <strong>7 calendar days</strong> to either remit the differential tax with interest under <span class="citation-badge">Section 50</span> or submit an itemized justification. Failure to respond automatically blocks subsequent GSTR-1 e-filings under <span class="citation-badge">Rule 59(6)</span>.
+        </p>
+      </div>
+
+      <!-- Layer 2: Structured Operational Checklist -->
+      <h2 style="font-family: var(--font-cinzel, 'Cinzel', serif); font-size: 1.45rem; margin-top: 2.5rem; margin-bottom: 0.85rem; color: var(--charcoal, #090D16);">
+        3. Operational Defense Checklist: Preventing E-Invoice &amp; Scrutiny Lockouts
+      </h2>
+      <p>
+        To insulate enterprise balance sheets and ensure zero disruption to supply-chain cash flows, follow this 6-point indirect tax protocol:
+      </p>
+
+      <div class="checklist-card">
+        <div class="checklist-item">
+          <div class="checklist-num">1</div>
+          <div>
+            <strong>Enforce ERP Real-Time IRN Generation:</strong> Configure your accounting software (SAP, TallyPrime, Zoho Books) to generate IRN JSON payloads at the point of invoice generation, completely eliminating end-of-month batch delays.
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-num">2</div>
+          <div>
+            <strong>Perform Weekly 2B Reconciliations:</strong> Compare purchase registers against live GSTR-2B before approving vendor disbursements. Holdback payments for vendors failing to file GSTR-1 by the 11th of each month.
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-num">3</div>
+          <div>
+            <strong>Separate Personal UPI from Corporate Accounts:</strong> Transition all business receivables to dedicated corporate merchant virtual accounts (VPA) tied to your primary Current Account to prevent individual scrutiny under Section 68/69.
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-num">4</div>
+          <div>
+            <strong>Audit High-Risk HSN Classifications:</strong> Review 6-digit and 8-digit HSN codes on all outwards bills. Incorrect classification risks retrospective demand notices under Section 73/74 with 18% mandatory interest.
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-num">5</div>
+          <div>
+            <strong>Validate Biometric Verification Dossiers:</strong> For newly registered branch offices (PPoB / APoB), maintain physical lease deeds, electricity bills (≤2 months old), and geotagged photographs for prompt GSK physical verification.
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="checklist-num">6</div>
+          <div>
+            <strong>Automate DRC-01B/01C Response Drafting:</strong> Deploy standardized reconciliation templates that isolate timing differences, credit notes, and advance adjustments to respond within the statutory 7-day cutoff.
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 3: Embedded AI Diagnostic / SaaS Retainer CTA -->
+      <div style="background: #FFFFFF; border: 2px solid var(--gold-primary, #C59B27); border-radius: 12px; padding: 2.5rem; margin-top: 3rem; text-align: center; box-shadow: 0 4px 20px rgba(197, 155, 39, 0.08);">
+        <span class="citation-badge" style="background: #FFFDF5; border-color: #E6D29D; color: var(--gold-primary, #C59B27); font-size: 0.82rem; margin-bottom: 0.75rem;">
+          Indirect Tax Intelligence Desk
+        </span>
+        <h3 style="font-family: var(--font-cinzel, 'Cinzel', serif); font-size: 1.6rem; margin: 0.5rem 0 0.75rem; color: var(--charcoal, #090D16);">
+          Protect Your Input Tax Credit &amp; E-Invoicing Pipeline
+        </h3>
+        <p style="font-size: 0.95rem; color: #475569; max-width: 620px; margin: 0 auto 1.5rem; line-height: 1.6;">
+          Execute automated GSTR-2B reconciliations, identify non-compliant suppliers, and simulate net tax liabilities using the CraftEgon GST &amp; Tax Suite.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/conversion/calculator.html" class="if-btn-primary" style="padding: 0.85rem 1.75rem; font-weight: 700; text-decoration: none;">
+            Open GST &amp; ITC Calculator
+          </a>
+          <a href="/conversion/tax-intake.html" class="btn-royal-outline" style="padding: 0.85rem 1.75rem; font-weight: 700; text-decoration: none; border: 1px solid var(--charcoal, #090D16); color: var(--charcoal, #090D16); border-radius: 6px;">
+            Schedule Vendor Reconciliation Audit
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div id="global-footer"></div>
+  <script src="/assets/js/navigation.js"></script>
+</body>
+</html>
