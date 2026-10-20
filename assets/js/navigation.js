@@ -82,6 +82,8 @@ document.addEventListener("DOMContentLoaded", async function () {
           </div>
         </header>
       `;
+    }
+
     initDropdowns();
     initMobileNav();
     highlightActiveRoute();
