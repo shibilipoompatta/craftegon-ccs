@@ -468,19 +468,27 @@ function validateDataLayer(dataMap) {
       if (!s.primary_vertical_id || !verticalSet.has(s.primary_vertical_id)) {
         errors.push(`services[${idx}]: Active service '${s.service_id || s.canonical_route}' has unknown primary vertical '${s.primary_vertical_id}'.`);
       }
-    } else {
+    } else if (s.record_status === 'REFERRAL_ONLY') {
       if (s.service_id !== null) {
         errors.push(`services[${idx}]: Referral route '${s.canonical_route}' must not have service ID, but found '${s.service_id}'.`);
       }
       if (s.primary_vertical_id !== null) {
         errors.push(`services[${idx}]: Referral route '${s.canonical_route}' must not have primary vertical, but found '${s.primary_vertical_id}'.`);
       }
+    } else if (s.record_status === 'UTILITY_ROUTE') {
+      if (s.service_id !== null || s.primary_vertical_id !== null) {
+        errors.push(`services[${idx}]: Utility route '${s.canonical_route}' must not have a service ID or primary vertical.`);
+      }
+    } else {
+      errors.push(`services[${idx}]: Unknown record status '${s.record_status}'.`);
     }
   });
 
   // Invariants
-  if (services.length !== 57) {
-    errors.push(`Service registry total count mismatch: Expected 57, found ${services.length}.`);
+  const serviceRoutes = services.filter(s => s.record_status === 'ACTIVE_SERVICE' || s.record_status === 'REFERRAL_ONLY');
+  const utilityRoutes = services.filter(s => s.record_status === 'UTILITY_ROUTE');
+  if (serviceRoutes.length !== 57 || utilityRoutes.length !== 1 || utilityRoutes[0]?.canonical_route !== '/search/') {
+    errors.push(`Service registry route mismatch: Expected 57 service routes and registered /search/ utility route, found ${serviceRoutes.length} services and ${utilityRoutes.length} utility routes.`);
   }
   if (serviceMap.size !== 54) {
     errors.push(`Active service ID count mismatch: Expected 54, found ${serviceMap.size}.`);
@@ -911,8 +919,8 @@ function runTestSuite() {
   assertTest(dlResult.valid, 'Data layer satisfies 100% of referential integrity and verification state rules', dlResult.errors.join('; '));
 
   assertTest(
-    dataLayerMap.services.length === 57 && dataLayerMap.services.filter(s => s.record_status === 'ACTIVE_SERVICE').length === 54 && dataLayerMap.services.filter(s => s.record_status === 'REFERRAL_ONLY').length === 3,
-    'Service registry preserves exactly 57 routes (54 active, 3 referral-only)'
+    dataLayerMap.services.filter(s => s.record_status !== 'UTILITY_ROUTE').length === 57 && dataLayerMap.services.filter(s => s.record_status === 'ACTIVE_SERVICE').length === 54 && dataLayerMap.services.filter(s => s.record_status === 'REFERRAL_ONLY').length === 3 && dataLayerMap.services.some(s => s.record_status === 'UTILITY_ROUTE' && s.canonical_route === '/search/'),
+    'Service registry preserves 57 services (54 active, 3 referral-only) and registers /search/ as a utility route'
   );
 
   assertTest(
@@ -1021,7 +1029,7 @@ function runTestSuite() {
 
   // Neg D1: Dangling vertical ID in service registry
   const corruptedServicesD1 = JSON.parse(JSON.stringify(dataLayerMap.services));
-  corruptedServicesD1[0].primary_vertical_id = 'V99';
+  corruptedServicesD1.find(s => s.record_status === 'ACTIVE_SERVICE').primary_vertical_id = 'V99';
   const negD1 = validateDataLayer({ ...dataLayerMap, services: corruptedServicesD1 });
   assertTest(!negD1.valid && negD1.errors.some(e => e.includes('unknown primary vertical')), 'Fails when service registry references unknown / dangling vertical ID (V99)');
 

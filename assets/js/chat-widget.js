@@ -1,7 +1,6 @@
 /**
- * CraftEgon CCS - Autonomous AI Counsel Widget (<20KB)
- * Ivory/White/Gold Design System - Vanilla JS - RAG-Lite Statutory Engine
- * 2026 Rules: Companies Act 2013 (Sec 403, 43B(h), CCFS-2026), MCA V3, FEMA 1999, GST Act 2017, DPDP Act 2023, MSMED Act 2006
+ * CraftEgon CCS - Rules-Grounded AI Counsel Widget
+ * Local reference index; no live model, registry, or webhook connection.
  */
 (function(){'use strict';
 if(window.__CRAFTEGON_CHAT_INITIALIZED__)return;
@@ -14,7 +13,7 @@ const KB=[
   * <b>LLP:</b> Min. 2 Designated Partners under LLP Act 2008.<br>
   * <b>OPC:</b> Sec 2(62), single resident member with nominee director.<br>
   * <b>Section 8:</b> Non-profit INC-12 license with zero dividend distribution.<br>
-  * <b>CCFS-2026:</b> Amnesty scheme for overdue filings until <b>15 Sep 2026</b> (10% additional fee).`,
+  * <b>CCFS-2026:</b> The scheme deadline was <b>15 Sep 2026</b> and has passed. Historical concessions are not presented as available.`,
   a:[['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html'],['Post-Incorporation Portal','/conversion/post-incorporation-checkout.html'],['SPICe+ MCA V3 Blueprint','/knowledge/spice-plus-mca-v3-blueprint.html']]},
 
   {k:['aoc-4','aoc4','mgt-7','mgt7','mgt-14','mgt14','annual filing','roc compliance','agm','financial statement','annual return','dir-3 kyc','dir3 kyc','dpt-3','dpt3','msme-1','msme1','due date','deadline','ccfs','ccfs-2026'],
@@ -23,19 +22,19 @@ const KB=[
   * <b>Form MGT-7:</b> Annual return within 60 days of AGM (typically Nov 29) under Sec 92.<br>
   * <b>Form DIR-3 KYC:</b> Annual DIN KYC by Sept 30 (Delay fee: 5,000).<br>
   * <b>Form DPT-3:</b> Return of deposits/loans due annually by June 30.<br>
-  * <b>Form MSME-1:</b> Vendor dues >45 days (due April 30 & Oct 31).<br>
+  * <b>Form MSME-1:</b> Verify current form scope, supplier conditions, and filing dates against the latest MCA circulars.<br>
   * <b>Form MGT-14:</b> Special resolutions filed within 30 days.<br>
-  * <b>CCFS-2026 Amnesty:</b> 10% additional fee for overdue filings until <b>15 Sep 2026</b>.<br>
-  Late filing penalty: 100/day per form without monetary ceiling.`,
+  * <b>CCFS-2026:</b> Closed on <b>15 Sep 2026</b>; do not assume the historical fee concession applies to a current filing.<br>
+  Late fees depend on the form, entity, current MCA rules, and any later notification.`,
   a:[['Compliance Calendar','/portal/dashboard.html'],['RoC Annual Retainer Plan','/services/roc-annual-compliance.html'],['Calculate RoC Late Fees','/conversion/calculator.html']]},
 
   {k:['portal','client portal','dashboard','compliance calendar','subscription','pricing','retainer plan','starter','growth','enterprise','tier','plan','retainer plans'],
   r:`CraftEgon CCS Client Portal & Compliance Calendar:<br>
-  * <b>Regulatory Calendar:</b> Real-time countdown clocks calibrated for your CIN/LLPIN with automated WhatsApp/Email/SMS alerts.<br>
+  * <b>Calendar:</b> Rule-based estimates use local dates and sample or user-entered context; no registry sync is active.<br>
   * <b>Starter Plan (1,499/mo):</b> LLPs & micro-enterprises - deadline alerts & drafting credits.<br>
   * <b>Growth Plan (4,999/mo):</b> Pvt Ltd Startups - automated AOC-4/MGT-7 staging & priority CS review.<br>
   * <b>Enterprise Plan (14,999/mo):</b> Dedicated secretarial desk, Form MR-3 audit & cross-border FEMA advisory.<br>
-  Annual billing includes 2 Months Free (Save 17%).`,
+  Confirm prices, coverage, and availability with CCS before relying on them. Checkout is a sandbox, not a live payment flow.`,
   a:[['Launch Compliance Calendar','/portal/dashboard.html'],['View Subscription Tiers & Checkout','/portal/subscription.html'],['Client Portal Gateway','/portal/index.html']]},
 
   {k:['late fee','delay','penalty','calculate fee','fine','cost of filing','overdue','fees calculator','mca penalty','403','ccfs'],
@@ -43,7 +42,7 @@ const KB=[
   * <b>AOC-4 & MGT-7:</b> Flat 100/day per form from due date expiry without cap.<br>
   * <b>Normal Filings:</b> Additional fee multipliers from 2x (up to 30 days) to 12x/18x (>180 days).<br>
   * <b>DIR-3 KYC:</b> Direct statutory penalty of 5,000 post-Sept 30.<br>
-  * <b>CCFS-2026:</b> 10% additional fee for overdue filings until <b>15 Sep 2026</b>.<br>
+  * <b>CCFS-2026:</b> Closed on <b>15 Sep 2026</b>; the historical 10% concession is not available for current filings.<br>
   Compute your exact liabilities instantly:`,
   a:[['Open Fee & Late Fee Calculator','/conversion/calculator.html'],['Annual Retainer Desk','/conversion/retainer-desk.html']]},
 
@@ -69,7 +68,7 @@ const KB=[
   * <b>Form 3CEB:</b> Transfer Pricing report under Sec 92E due <b>Oct 31</b>.<br>
   * <b>GST Annual Return (GSTR-9/9C):</b> Annual return & reconciliation due by <b>Dec 31</b>.<br>
   * <b>Form 10B & ITR-7:</b> Statutory audit for Sec 8 entities & charitable trusts.<br>
-  * <b>GSTR-2B Reconciliation:</b> Auto-match purchase register before 11th monthly to secure valid ITC & avoid Rule 88C/88D notices.`,
+  * <b>GSTR-2B Reconciliation:</b> Compare your purchase register with the statement downloaded from GSTN; this site does not automatically match or fetch returns.`,
   a:[['Transfer Pricing Filing','/services/form-3ceb.html'],['Corporate Tax Intake Portal','/conversion/tax-intake.html'],['Transfer Pricing Blueprint','/knowledge/transfer-pricing-guide.html']]},
 
   {k:['nclt','dispute','litigation','oppression','mismanagement','insolvency','cirp','ibc','disqualif','din restoration','section 241','section 242','section 7','section 9','writ'],
@@ -95,10 +94,9 @@ const KB=[
 
   {k:['msme','43bh','45 day','vendor payment','msme-1','udyam','priority lending'],
   r:`MSME 43B(h) Payment Compliance:<br>
-  * <b>45-Day Rule:</b> Payment to MSME vendors within 45 days of written contract (Sec 43B(h) IT Act).<br>
-  * <b>Default Consequence:</b> 100% expense disallowance under Sec 43B read with Sec 40(a)(ia).<br>
-  * <b>Form MSME-1:</b> Half-yearly return due 31 Oct (Apr-Sep) & 30 Apr (Oct-Mar).<br>
-  * <b>Tracker:</b> Use Craftegon MSME 43B(h) Tracker to auto-sync vendor Udyam status & payment aging.`,
+  * <b>Payment period:</b> MSMED Act Section 15 generally sets a 15-day default without an agreement; agreed terms may not exceed 45 days, subject to acceptance/deemed-acceptance rules.<br>
+  * <b>Tax treatment:</b> Section 43B(h) timing depends on supplier classification, payment date, and applicable tax year; seek professional review.<br>
+  * <b>Tracker:</b> The calculator stores user-entered supplier data locally; it does not verify Udyam status or submit returns.`,
   a:[['MSME 43B(h) Tracker','/conversion/calculator.html'],['MSME Form MSME-1 Service','/services/form-msme1.html'],['Udyam Registration','/services/msme-udyam.html']]},
 
   {k:['contact','phone','whatsapp','email','call','office','address','location','reach out','support','admin@craftegon.com'],
@@ -152,7 +150,7 @@ function createWidget(){
     <img src="/assets/images/craftegon-logo.jpg" alt="Craftegon CCS Logo" class="cchat-avatar">
     <div class="cchat-brand-info">
       <h4>Craftegon AI Counsel</h4>
-      <span><span class="cchat-status-dot"></span> Autonomous Statutory Intelligence</span>
+      <span><span class="cchat-status-dot"></span> Rules-based local reference</span>
     </div>
   </div>
   <div class="cchat-header-actions">
@@ -169,7 +167,7 @@ function createWidget(){
     <input type="text" id="cchat-input-field" class="cchat-input" placeholder="Ask: 'AOC-4 due date', 'CCFS-2026 amnesty', 'MSME 45-day rule', 'RBI FLA filing'..." autocomplete="off">
     <button type="submit" id="cchat-send-btn" class="cchat-send-btn" aria-label="Send message"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>
   </form>
-  <div class="cchat-disclaimer">Autonomous informational guide for statutory reference. Not legal advice. <a href="/legal/disclaimer.html" target="_blank">Full Disclaimer</a></div>
+  <div class="cchat-disclaimer">Local reference guide only. No live registry, model, or alert connection. Not legal advice. <a href="/legal/disclaimer.html" target="_blank" rel="noopener noreferrer">Full Disclaimer</a></div>
   </div>`;
   document.body.appendChild(t);
   document.body.appendChild(b);
@@ -188,16 +186,17 @@ function appendUserMsg(t){
   b.scrollTop=b.scrollHeight;
 }
 
-function appendBotMsg(h,acts=[]){
+function appendBotMsg(h,acts=[],sources=[]){
   const b=document.getElementById('cchat-messages-container');
   if(!b)return;
   let aHtml=acts&&acts.length?`<div class="cchat-actions-grid">${acts.map(([l,u])=>{
     const safeU = (typeof u === 'string' && (u.startsWith('/') || u.startsWith('https://'))) ? escapeHtml(u) : '#';
     return `<a href="${safeU}" class="cchat-action-btn"><span>${escapeHtml(l)}</span><span>&rarr;</span></a>`;
   }).join('')}</div>`:'';
+  const sourceHtml=sources.length?`<div class="cchat-sources"><strong>CCS references</strong>${sources.map(([label,url])=>`<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`).join('')}</div>`:'';
   const e=document.createElement('div');
   e.className='cchat-msg bot';
-  e.innerHTML=`<div class="cchat-bubble">${h}${aHtml}</div><div class="cchat-timestamp">${getTime()} - Craftegon AI Counsel</div>`;
+  e.innerHTML=`<div class="cchat-bubble">${h}${sourceHtml}${aHtml}</div><div class="cchat-timestamp">${getTime()} - Craftegon AI Counsel</div>`;
   b.appendChild(e);
   b.scrollTop=b.scrollHeight;
 }
@@ -214,7 +213,21 @@ function showTyping(){
 }
 
 function hideTyping(){const e=document.getElementById('cchat-active-typing');if(e)e.remove();}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&','<':'<','>':'>','"':'"',"'":'}[m]));}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+
+function getReferenceLinks(query){
+  const references=[
+    {terms:['aoc','mgt','roc','dir-3','annual filing','mca'],link:['MCA V3 Filing Guide','/knowledge/mca-v3-filing-guide.html']},
+    {terms:['ccfs','late fee','section 403'],link:['MCA Late-Fee Guide','/knowledge/late-fee-calculator-guide.html']},
+    {terms:['gst','gstr','itc'],link:['GST Compliance Guide','/knowledge/gst-einvoicing-compliance-mandate.html']},
+    {terms:['fema','fla','rbi'],link:['RBI FLA Return Blueprint','/knowledge/rbi-fla-return-blueprint.html']},
+    {terms:['msme','43b','vendor payment'],link:['MSME Payment Tracker','/conversion/calculator.html#calc-tab-3']},
+    {terms:['dpdp','privacy'],link:['CCS Privacy Policy','/legal/privacy.html']},
+    {terms:['trademark','tm-a','nice class','ipr'],link:['Trademark Clearance Intake','/conversion/trademark-search.html']}
+  ];
+  const matches=references.filter(reference=>reference.terms.some(term=>query.includes(term))).map(reference=>reference.link);
+  return matches.length?matches.slice(0,3):[['CCS Knowledge Centre','/knowledge/index.html']];
+}
 
 function matchQuery(q){
   const n=q.toLowerCase().trim();
@@ -224,12 +237,13 @@ function matchQuery(q){
     for(const kw of item.k){if(n.includes(kw))score+=(kw.length>5?3:2);}
     if(score>maxScore){maxScore=score;best=item;}
   }
-  if(maxScore>=2&&best)return{r:best.r,a:best.a};
+  if(maxScore>=2&&best)return{r:best.r,a:best.a,s:getReferenceLinks(n)};
   return{
     r:`I have noted your inquiry regarding <em>"${escapeHtml(q)}"</em>.<br>
-    CraftEgon CCS provides autonomous corporate secretarial and statutory compliance intelligence under the <b>Companies Act, 2013</b>, <b>FEMA 1999</b>, <b>GST Act 2017</b>, <b>DPDP Act, 2023</b>, and <b>MSMED Act 2006</b>.<br>
+    This rules-based guide covers general topics under the <b>Companies Act, 2013</b>, <b>FEMA 1999</b>, <b>GST Act 2017</b>, <b>DPDP Act, 2023</b>, and <b>MSMED Act 2006</b> using local references. It does not query live registries or provide case-specific legal advice.<br>
     You can calculate statutory fees, review compliance requirements, or connect with our corporate advisory desk:`,
-    a:[['Fee & Late Fee Calculator','/conversion/calculator.html'],['Contact Compliance Desk','/conversion/retainer-desk.html'],['Explore Practice Areas','/index.html#practice-areas']]
+    a:[['Fee & Late Fee Calculator','/conversion/calculator.html'],['Contact Compliance Desk','/conversion/retainer-desk.html'],['Explore Practice Areas','/index.html#practice-areas']],
+    s:getReferenceLinks(n)
   };
 }
 
@@ -240,16 +254,16 @@ function handleQuery(q){
   setTimeout(()=>{
     hideTyping();
     const res=matchQuery(q);
-    appendBotMsg(res.r,res.a);
+    appendBotMsg(res.r,res.a,res.s||[]);
   },400);
 }
 
 function initGreeting(){
   const b=document.getElementById('cchat-messages-container');
   if(!b||b.children.length>0)return;
-  appendBotMsg(`Welcome to <b>Craftegon AI Counsel</b> - Autonomous Statutory Intelligence for Indian Corporate Compliance.<br>
-  I provide real-time guidance on <b>Companies Act 2013</b> (Sec 403, 43B(h), CCFS-2026), <b>MCA V3</b>, <b>FEMA 1999</b>, <b>GST Act 2017</b>, <b>DPDP Act 2023</b>, and <b>MSMED Act 2006</b>.<br>
-  <i>Note: This assistant provides procedural information only and does not constitute formal legal advice or representation.</i><br>
+  appendBotMsg(`Welcome to <b>Craftegon CCS AI Counsel</b>, a local rules-based reference guide for Indian corporate compliance.<br>
+  Topics include <b>Companies Act 2013</b>, <b>MCA V3</b>, <b>FEMA 1999</b>, <b>GST Act 2017</b>, <b>DPDP Act 2023</b>, and <b>MSMED Act 2006</b>. It does not access live registries or send queries to a language model.<br>
+  <i>Verify current rules, notifications, and entity facts with official sources and a qualified professional.</i><br>
   Select a prompt below or type your inquiry (e.g., "CCFS-2026 deadline", "MSME 45-day payment rule", "GSTR-2B reconciliation").`);
 }
 

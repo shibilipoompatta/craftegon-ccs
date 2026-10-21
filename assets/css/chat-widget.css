@@ -13,9 +13,9 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #0F172A;
-  border: 1.5px solid rgba(180, 136, 27, 0.45);
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.22), 0 0 10px rgba(180, 136, 27, 0.15);
+  background: var(--bg-ivory, #FCFBF7);
+  border: 1.5px solid var(--brand-gold, #C59B27);
+  box-shadow: 0 4px 14px rgba(9, 13, 22, 0.16), 0 0 10px rgba(197, 155, 39, 0.15);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@
 
 #craftegon-chat-trigger:hover {
   transform: translateY(-2px);
-  background: #1E293B;
+  background: #FFFFFF;
   border-color: var(--brand-gold, #B4881B);
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.32), 0 0 14px rgba(180, 136, 27, 0.25);
 }
@@ -51,7 +51,7 @@
   display: none;
   width: 20px;
   height: 20px;
-  stroke: #CBD5E1;
+  stroke: var(--charcoal, #090D16);
   stroke-width: 2.2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -303,6 +303,21 @@
   margin-top: 0.75rem;
   border-top: 1px solid var(--border-color);
   padding-top: 0.6rem;
+}
+
+.cchat-sources {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 0.7rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.72rem;
+}
+
+.cchat-sources a {
+  color: var(--text-dark-gold, #785B0D);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .cchat-action-btn {

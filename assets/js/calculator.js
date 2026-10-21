@@ -5,11 +5,13 @@
  */
 
 // Module 1: Corporate Retainer & RoC Late Fee Calculations
+const CCFS_2026_DEADLINE = new Date('2026-09-15T23:59:59+05:30');
+
 function calculateCost() {
   const service = document.getElementById('service-type')?.value || 'roc-retainer';
   const tier = document.getElementById('capital-tier')?.value || 'tier-1';
   const delayDays = parseInt(document.getElementById('roc-delay-days')?.value) || 0;
-  const ccfsMode = document.getElementById('ccfs-mode')?.checked || false;
+  const ccfsMode = Boolean(document.getElementById('ccfs-mode')?.checked) && Date.now() <= CCFS_2026_DEADLINE.getTime();
 
   let baseProf = 14999;
   let baseGovt = 1200;
@@ -70,7 +72,8 @@ function calculateCost() {
   if (govtEl) govtEl.innerText = '₹' + baseGovt.toLocaleString('en-IN');
   if (lateEl) lateEl.innerText = '₹' + rocLateFee.toLocaleString('en-IN');
   if (ccfsEl) {
-    ccfsEl.innerText = ccfsMode ? '₹' + ccfsFee.toLocaleString('en-IN') + ' saved' : '₹0';
+    const closed = Date.now() > CCFS_2026_DEADLINE.getTime();
+    ccfsEl.textContent = ccfsMode ? '₹' + ccfsFee.toLocaleString('en-IN') + ' saved' : (closed ? 'Closed 15 Sep 2026' : 'Not applied');
     ccfsEl.style.color = ccfsMode ? '#059669' : '#64748B';
   }
   if (addonEl) addonEl.innerText = '₹' + addonTotal.toLocaleString('en-IN');
@@ -82,7 +85,8 @@ function calculateGst() {
   const turnover = parseFloat(document.getElementById('gst-turnover')?.value) || 0;
   const procurement = parseFloat(document.getElementById('gst-procurement')?.value) || 0;
   const slab = parseFloat(document.getElementById('gst-slab')?.value) || 0.18;
-  const blockedPct = (parseFloat(document.getElementById('gst-blocked-itc')?.value) || 10) / 100;
+  const blockedInput = parseFloat(document.getElementById('gst-blocked-itc')?.value);
+  const blockedPct = (Number.isFinite(blockedInput) ? blockedInput : 10) / 100;
 
   const turnoverEl = document.getElementById('gst-turnover-val');
   const procEl = document.getElementById('gst-procurement-val');
@@ -109,6 +113,20 @@ function calculateGst() {
   if (blkEl) blkEl.innerText = '-₹' + Math.round(blockedTax).toLocaleString('en-IN');
   if (eligEl) eligEl.innerText = '₹' + Math.round(eligibleItc).toLocaleString('en-IN');
   if (netEl) netEl.innerText = '₹' + Math.round(netPayable).toLocaleString('en-IN');
+  calculateGst2bReconciliation();
+}
+
+function calculateGst2bReconciliation() {
+  const purchaseLedger = Number(document.getElementById('gst-2b-ledger')?.value) || 0;
+  const gstr2bAvailable = Number(document.getElementById('gst-2b-available')?.value) || 0;
+  const delta = purchaseLedger - gstr2bAvailable;
+  const deltaEl = document.getElementById('gst-2b-difference');
+  const statusEl = document.getElementById('gst-2b-status');
+  if (deltaEl) deltaEl.textContent = '₹' + Math.abs(delta).toLocaleString('en-IN');
+  if (statusEl) {
+    statusEl.textContent = delta === 0 ? 'Matched' : delta > 0 ? 'Ledger exceeds GSTR-2B' : 'GSTR-2B exceeds ledger';
+    statusEl.dataset.state = delta === 0 ? 'matched' : 'review';
+  }
 }
 
 // Module 3: Income Tax Regime & Section 44AD/ADA + MSME 43B(h)
@@ -172,32 +190,41 @@ const MSME_VENDORS_KEY = 'ccs_msme_vendors';
 function loadMsmVendors() {
   try {
     const data = localStorage.getItem(MSME_VENDORS_KEY);
-    return data ? JSON.parse(data) : [];
+    const vendors = data ? JSON.parse(data) : [];
+    return Array.isArray(vendors) ? vendors.filter(vendor => vendor && typeof vendor.name === 'string' && Number.isFinite(Number(vendor.amount))) : [];
   } catch { return []; }
 }
 
 function saveMsmVendors(vendors) {
-  localStorage.setItem(MSME_VENDORS_KEY, JSON.stringify(vendors));
+  try {
+    localStorage.setItem(MSME_VENDORS_KEY, JSON.stringify(vendors));
+  } catch (error) {
+    console.warn('MSME tracker could not save to local storage.', error);
+  }
 }
 
-function addMsmVendor() {
-  const name = prompt('Vendor Name:');
-  if (!name) return;
-  const amount = parseFloat(prompt('Outstanding Amount (₹):') || '0');
-  const invoiceDate = prompt('Invoice Date (YYYY-MM-DD):', new Date().toISOString().split('T')[0]);
-  const contractDate = prompt('Contract Date (YYYY-MM-DD):', new Date().toISOString().split('T')[0]);
-  const isMsm = confirm('Is this vendor registered on Udyam/MSME portal?');
+function addMsmVendor(event) {
+  event?.preventDefault();
+  const form = document.getElementById('msme-vendor-form');
+  if (!form || !form.reportValidity()) return;
+  const formData = new FormData(form);
+  const name = String(formData.get('vendorName') || '').trim();
+  const amount = Number(formData.get('vendorAmount'));
+  const acceptanceDate = String(formData.get('acceptanceDate') || '');
+  if (!name || !Number.isFinite(amount) || amount <= 0 || !/^\d{4}-\d{2}-\d{2}$/.test(acceptanceDate)) return;
 
   const vendors = loadMsmVendors();
   vendors.push({
-    id: Date.now(),
+    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     name,
     amount,
-    invoiceDate,
-    contractDate,
-    isMsm
+    acceptanceDate,
+    hasWrittenAgreement: formData.get('writtenAgreement') === 'on',
+    isMsm: formData.get('isMsm') === 'on'
   });
   saveMsmVendors(vendors);
+  form.reset();
+  form.querySelector('[name="acceptanceDate"]').value = getLocalDateString();
   renderMsmVendors();
 }
 
@@ -208,9 +235,73 @@ function removeMsmVendor(id) {
 }
 
 function getDaysBetween(start, end) {
-  const d1 = new Date(start);
-  const d2 = new Date(end);
+  const d1 = new Date(`${start}T00:00:00Z`);
+  const d2 = new Date(`${end}T00:00:00Z`);
   return Math.floor((d2 - d1) / (1000 * 60 * 60 * 24));
+}
+
+function getLocalDateString(date = new Date()) {
+  const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+  return local.toISOString().slice(0, 10);
+}
+
+function getMsmPaymentDeadline(vendor) {
+  const daysAllowed = vendor.hasWrittenAgreement ? 45 : 15;
+  const deadline = new Date(`${vendor.acceptanceDate}T00:00:00Z`);
+  deadline.setUTCDate(deadline.getUTCDate() + daysAllowed);
+  return { daysAllowed, date: deadline.toISOString().slice(0, 10) };
+}
+
+function buildMsmVendorForm() {
+  const container = document.getElementById('msme-vendor-list');
+  if (!container || document.getElementById('msme-vendor-form')) return;
+  const form = document.createElement('form');
+  form.id = 'msme-vendor-form';
+  form.className = 'msme-vendor-form';
+
+  const fields = [
+    ['Vendor / supplier name', 'vendorName', 'text'],
+    ['Outstanding amount (INR)', 'vendorAmount', 'number'],
+    ['Invoice acceptance date', 'acceptanceDate', 'date']
+  ];
+  fields.forEach(([labelText, name, type]) => {
+    const field = document.createElement('div');
+    field.className = 'form-group';
+    const label = document.createElement('label');
+    label.htmlFor = `msme-${name}`;
+    label.textContent = labelText;
+    const input = document.createElement('input');
+    input.id = `msme-${name}`;
+    input.name = name;
+    input.type = type;
+    input.required = true;
+    if (type === 'number') {
+      input.min = '0.01';
+      input.step = '0.01';
+      input.inputMode = 'decimal';
+    }
+    if (type === 'date') input.value = getLocalDateString();
+    field.append(label, input);
+    form.appendChild(field);
+  });
+
+  [['Written payment agreement (up to 45 days)', 'writtenAgreement'], ['Supplier is a registered micro or small enterprise', 'isMsm']].forEach(([labelText, name]) => {
+    const label = document.createElement('label');
+    label.className = 'msme-check-label';
+    const input = document.createElement('input');
+    input.type = 'checkbox';
+    input.name = name;
+    label.append(input, document.createTextNode(labelText));
+    form.appendChild(label);
+  });
+
+  const submit = document.createElement('button');
+  submit.type = 'submit';
+  submit.className = 'if-btn-secondary';
+  submit.textContent = 'Add supplier to tracker';
+  form.appendChild(submit);
+  form.addEventListener('submit', addMsmVendor);
+  container.parentNode.insertBefore(form, container);
 }
 
 function renderMsmVendors() {
@@ -219,60 +310,67 @@ function renderMsmVendors() {
   if (!container) return;
 
   const vendors = loadMsmVendors();
-  const today = new Date().toISOString().split('T')[0];
+  const today = getLocalDateString();
 
   if (vendors.length === 0) {
-    container.innerHTML = '<p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 2rem;">No vendors added. Click "Add MSME Vendor" to start tracking.</p>';
+    const empty = document.createElement('p');
+    empty.className = 'msme-empty-state';
+    empty.textContent = 'No suppliers added. Enter a supplier and acceptance date to start tracking.';
+    container.replaceChildren(empty);
     if (summaryEl) summaryEl.innerText = 'Add vendors to track payment deadlines';
     return;
   }
 
-  let overdueCount = 0, dueSoonCount = 0, compliantCount = 0;
-
-  container.innerHTML = vendors.map(v => {
-    const invoiceDate = v.invoiceDate || today;
-    const contractDate = v.contractDate || today;
-    const daysSinceInvoice = getDaysBetween(invoiceDate, today);
-    const daysSinceContract = getDaysBetween(contractDate, today);
-
-    // 45-day rule from contract date for MSME vendors
-    const deadline = new Date(contractDate);
-    deadline.setDate(deadline.getDate() + 45);
-    const daysToDeadline = getDaysBetween(today, deadline.toISOString().split('T')[0]);
+  let overdueCount = 0, dueSoonCount = 0, compliantCount = 0, notApplicableCount = 0;
+  const rows = vendors.map(v => {
+    const accepted = v.acceptanceDate || today;
+    const { daysAllowed, date: deadline } = getMsmPaymentDeadline({ ...v, acceptanceDate: accepted });
+    const daysToDeadline = getDaysBetween(today, deadline);
+    const inScope = Boolean(v.isMsm);
     const isOverdue = daysToDeadline < 0;
     const isDueSoon = daysToDeadline >= 0 && daysToDeadline <= 7;
 
-    if (isOverdue) overdueCount++;
+    if (!inScope) notApplicableCount++;
+    else if (isOverdue) overdueCount++;
     else if (isDueSoon) dueSoonCount++;
     else compliantCount++;
 
-    const statusClass = isOverdue ? 'overdue' : isDueSoon ? 'due-soon' : 'compliant';
-    const statusText = isOverdue ? `OVERDUE by ${Math.abs(daysToDeadline)} days` : isDueSoon ? `DUE in ${daysToDeadline} days` : 'COMPLIANT';
-    const statusBadgeClass = isOverdue ? 'status-overdue' : isDueSoon ? 'status-due-soon' : 'status-compliant';
+    const statusClass = !inScope ? '' : isOverdue ? 'overdue' : isDueSoon ? 'due-soon' : 'compliant';
+    const statusText = !inScope ? 'Not marked as MSME' : isOverdue ? `OVERDUE by ${Math.abs(daysToDeadline)} days` : isDueSoon ? `DUE in ${daysToDeadline} days` : 'Within payment period';
+    const statusBadgeClass = !inScope ? 'status-not-applicable' : isOverdue ? 'status-overdue' : isDueSoon ? 'status-due-soon' : 'status-compliant';
 
-    return `
-      <div class="tracker-row ${statusClass}" data-id="${v.id}">
-        <div class="tracker-info">
-          <span class="tracker-label">${v.name}</span>
-          <span class="tracker-value">${v.isMsm ? '<span class="vendor-chip msme">MSME</span> ' : ''}₹${v.amount.toLocaleString('en-IN')} &bull; Invoice: ${invoiceDate} &bull; Contract: ${contractDate}</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 0.75rem;">
-          <span class="tracker-status ${statusBadgeClass}">${statusText}</span>
-          <button type="button" onclick="removeMsmVendor(${v.id})" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.1rem; padding: 0.25rem;" title="Remove vendor">×</button>
-        </div>
-      </div>
-    `;
-  }).join('');
+    const row = document.createElement('div');
+    row.className = `tracker-row ${statusClass}`.trim();
+    row.dataset.id = String(v.id);
+    const info = document.createElement('div');
+    info.className = 'tracker-info';
+    const name = document.createElement('span');
+    name.className = 'tracker-label';
+    name.textContent = v.name;
+    const details = document.createElement('span');
+    details.className = 'tracker-value';
+    details.textContent = `₹${Number(v.amount).toLocaleString('en-IN')} · Accepted ${accepted} · Due ${deadline} (${daysAllowed} days)`;
+    info.append(name, details);
+    const actions = document.createElement('div');
+    actions.className = 'msme-vendor-actions';
+    const status = document.createElement('span');
+    status.className = `tracker-status ${statusBadgeClass}`;
+    status.textContent = statusText;
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'msme-remove-vendor';
+    remove.textContent = 'Remove';
+    remove.addEventListener('click', () => removeMsmVendor(v.id));
+    actions.append(status, remove);
+    row.append(info, actions);
+    return row;
+  });
+  container.replaceChildren(...rows);
 
   if (summaryEl) {
-    summaryEl.innerHTML = `
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <span class="tracker-status status-overdue">${overdueCount} Overdue</span>
-        <span class="tracker-status status-due-soon">${dueSoonCount} Due Soon</span>
-        <span class="tracker-status status-compliant">${compliantCount} Compliant</span>
-      </div>
-      <p style="margin-top: 0.5rem; font-size: 0.75rem;">Total Vendors: ${vendors.length} &bull; Section 43B(h): 45-day payment window from written contract date</p>
-    `;
+    const total = document.createElement('p');
+    total.textContent = `${vendors.length} suppliers tracked · ${overdueCount} overdue · ${dueSoonCount} due in 7 days · ${compliantCount} within period · ${notApplicableCount} not marked MSME`;
+    summaryEl.replaceChildren(total);
   }
 }
 
@@ -296,23 +394,131 @@ function calculateCapTable() {
   const postMoney = preMoney + raise;
   const investorPct = (raise / postMoney) * 100;
   const founderPct = Math.max(0, 100 - investorPct - esopTarget);
-  const treasuryYield = treasuryCash * 0.072;
+  const treasuryRate = (Number(document.getElementById('treasury-rate')?.value) || 0) / 100;
+  const treasuryYield = treasuryCash * treasuryRate;
 
   const pmEl = document.getElementById('cap-post-money');
   const invEl = document.getElementById('cap-investor-pct');
   const esopPctEl = document.getElementById('cap-esop-pct');
   const fndEl = document.getElementById('cap-founder-pct');
   const tyEl = document.getElementById('treasury-annual-yield');
+  const treasuryRateLabel = document.querySelector('#calc-tab-4 .total-banner > div:first-child');
 
   if (pmEl) pmEl.innerText = '₹' + (postMoney / 10000000).toFixed(2) + ' Cr';
   if (invEl) invEl.innerText = investorPct.toFixed(2) + '%';
   if (esopPctEl) esopPctEl.innerText = esopTarget.toFixed(2) + '%';
   if (fndEl) fndEl.innerText = founderPct.toFixed(2) + '%';
   if (tyEl) tyEl.innerText = '₹' + Math.round(treasuryYield).toLocaleString('en-IN');
+  if (treasuryRateLabel) treasuryRateLabel.textContent = `Annual forecast at assumed yield (${(treasuryRate * 100).toFixed(2)}%)`;
+  calculateEmi();
+}
+
+function calculateEmi() {
+  const principal = Number(document.getElementById('startup-loan-principal')?.value) || 0;
+  const annualRate = (Number(document.getElementById('startup-loan-rate')?.value) || 0) / 100;
+  const months = Math.max(1, Number(document.getElementById('startup-loan-tenure')?.value) || 1);
+  const monthlyRate = annualRate / 12;
+  const emi = monthlyRate === 0
+    ? principal / months
+    : principal * monthlyRate * Math.pow(1 + monthlyRate, months) / (Math.pow(1 + monthlyRate, months) - 1);
+  const output = document.getElementById('startup-loan-emi');
+  if (output) output.textContent = '₹' + Math.round(emi).toLocaleString('en-IN');
+}
+
+function mountGst2bReconciliation() {
+  const card = document.querySelector('#calc-tab-2 .calc-card');
+  if (!card || document.getElementById('gst-2b-reconciliation')) return;
+  const section = document.createElement('section');
+  section.id = 'gst-2b-reconciliation';
+  section.className = 'form-group';
+  const heading = document.createElement('h3');
+  heading.textContent = 'GSTR-2B ITC comparison';
+  const note = document.createElement('p');
+  note.textContent = 'Compare your purchase-ledger ITC with the value shown in GSTR-2B. This is a manual comparison and does not fetch GSTN data.';
+  section.append(heading, note);
+  [['Purchase ledger ITC (INR)', 'gst-2b-ledger'], ['GSTR-2B available ITC (INR)', 'gst-2b-available']].forEach(([labelText, id]) => {
+    const label = document.createElement('label');
+    label.htmlFor = id;
+    label.textContent = labelText;
+    const input = document.createElement('input');
+    input.id = id;
+    input.type = 'number';
+    input.min = '0';
+    input.step = '0.01';
+    input.value = '0';
+    input.addEventListener('input', calculateGst2bReconciliation);
+    section.append(label, input);
+  });
+  const status = document.createElement('p');
+  status.innerHTML = 'Difference: <strong id="gst-2b-difference">0</strong> · <span id="gst-2b-status" data-state="matched">Matched</span>';
+  section.appendChild(status);
+  card.appendChild(section);
+}
+
+function mountStartupForecastControls() {
+  const card = document.querySelector('#calc-tab-4 .calc-card');
+  if (!card || document.getElementById('startup-finance-forecast')) return;
+  const section = document.createElement('section');
+  section.id = 'startup-finance-forecast';
+  section.className = 'form-group';
+  const heading = document.createElement('h3');
+  heading.textContent = 'Startup loan and treasury assumptions';
+  section.appendChild(heading);
+  const controls = [
+    ['Loan principal (INR)', 'startup-loan-principal', 'number', '1000000'],
+    ['Annual interest rate (%)', 'startup-loan-rate', 'number', '12'],
+    ['Loan tenure (months)', 'startup-loan-tenure', 'number', '36'],
+    ['Assumed annual treasury yield (%)', 'treasury-rate', 'number', '7.2']
+  ];
+  controls.forEach(([labelText, id, type, value]) => {
+    const label = document.createElement('label');
+    label.htmlFor = id;
+    label.textContent = labelText;
+    const input = document.createElement('input');
+    input.id = id;
+    input.type = type;
+    input.min = id === 'startup-loan-tenure' ? '1' : '0';
+    input.step = id === 'startup-loan-tenure' ? '1' : '0.01';
+    input.value = value;
+    input.addEventListener('input', () => {
+      calculateEmi();
+      calculateCapTable();
+    });
+    section.append(label, input);
+  });
+  const emi = document.createElement('p');
+  emi.textContent = 'Estimated monthly EMI: ';
+  const output = document.createElement('strong');
+  output.id = 'startup-loan-emi';
+  output.textContent = '₹0';
+  emi.appendChild(output);
+  section.appendChild(emi);
+  card.appendChild(section);
+}
+
+function disableExpiredCcfsControl() {
+  const checkbox = document.getElementById('ccfs-mode');
+  if (!checkbox) return;
+  const closed = Date.now() > CCFS_2026_DEADLINE.getTime();
+  checkbox.disabled = closed;
+  if (closed) checkbox.checked = false;
+  const label = checkbox.closest('label');
+  if (label && closed) {
+    Array.from(label.childNodes).filter(node => node.nodeType === Node.TEXT_NODE).forEach(node => node.remove());
+    label.appendChild(document.createTextNode(' CCFS-2026 closed 15 September 2026; historical relief is not applied.'));
+  }
+  const note = document.querySelector('#calc-tab-1 .ai-optimization-note');
+  if (note && closed) {
+    note.textContent = 'CCFS-2026 closed on 15 September 2026. This estimator does not apply the historical fee concession. Government fees vary by filing and current rules; verify the current MCA fee schedule before filing.';
+  }
 }
 
 // Initialize calculators on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
+  disableExpiredCcfsControl();
+  mountGst2bReconciliation();
+  mountStartupForecastControls();
+  buildMsmVendorForm();
   calculateCost();
   calculateGst();
   calculateTaxRegime();
@@ -326,6 +532,8 @@ window.CraftegonCalculator = {
   calculateGst,
   calculateTaxRegime,
   calculateCapTable,
+  calculateEmi,
+  calculateGst2bReconciliation,
   loadMsmVendors,
   saveMsmVendors,
   addMsmVendor,

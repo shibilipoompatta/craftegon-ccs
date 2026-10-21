@@ -2028,5 +2028,35 @@
     ],
     "description": "Mandatory annual statutory filing for all Indian companies that have received Foreign Direct Investment (FDI) or made Overseas Direct Investment (ODI).",
     "search_tokens": "rbi foreign liabilities and assets (fla) return filing v13-svc-003 international business & fema international business & fema rbi fla return foreign liabilities & assets annual return flair portal return annual fema reporting fla return (flairs) fla flair rbi fdi odi foreign liabilities july 15 indian companies with fdi or odi"
+  },
+  {
+    "id": "TOOL-SEARCH",
+    "name": "Corporate & IP Search Directory",
+    "route": "/search/",
+    "h1": "Business Search Directory",
+    "vertical_id": "TOOLS",
+    "vertical_name": "Search Tools",
+    "status": "DISCOVERY_TOOL",
+    "display_status": "Business Search Tool",
+    "is_referral": false,
+    "is_directory": true,
+    "business_stage": "Research & Lookup",
+    "entity_types": [],
+    "forms": [],
+    "aliases": [
+      "Company search",
+      "LLP search",
+      "Trademark lookup",
+      "GSTIN validation"
+    ],
+    "keywords": [
+      "company lookup",
+      "corporate search",
+      "business search",
+      "trademark",
+      "gstin"
+    ],
+    "description": "Search company and LLP master data, trademarks, and GSTIN records.",
+    "search_tokens": "corporate ip business search directory company lookup llp trademark gstin validation"
   }
 ]

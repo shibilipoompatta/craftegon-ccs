@@ -257,12 +257,12 @@
     <!-- Hero Section -->
     <div style="margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem;">
       <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;">
-        <span style="background: linear-gradient(135deg, #c5a059, #dfba73); color: #0f172a; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">AI Core v3.8</span>
-        <span style="color: var(--text-muted); font-size: 0.85rem;">Indian Corporate Law &amp; MCA V3 Compliance Engine</span>
+        <span style="background: linear-gradient(135deg, #C59B27, #E2C46D); color: #090D16; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em;">Rules-Based Template Builder</span>
+        <span style="color: var(--text-muted); font-size: 0.85rem;">Local draft generator · professional review required</span>
       </div>
-      <h1 style="font-size: 2.25rem; font-weight: 700; color: #0f172a; margin: 0 0 0.5rem;">AI Institutional Legal Document &amp; Resolution Drafter</h1>
+      <h1 style="font-size: 2.25rem; font-weight: 700; color: #090D16; margin: 0 0 0.5rem;">Legal Document &amp; Board Resolution Draft Generator</h1>
       <p style="font-size: 1.05rem; color: #64748b; margin: 0; max-width: 900px; line-height: 1.5;">
-        Generate peer-reviewed, court-tested corporate resolutions, founder agreements, and statutory compliance memos formatted to Big 4 and Magic Circle institutional standards.
+        Generate editable local templates for review. This tool does not use an AI model, certify legal content, verify current law, or submit documents to any authority.
       </p>
     </div>
 
@@ -297,17 +297,17 @@
 
           <div class="form-group">
             <label class="form-label" for="entity-name">Corporate Entity Name</label>
-            <input type="text" id="entity-name" class="form-control" required placeholder="e.g. CraftEgon Technologies Private Limited" value="CraftEgon Technologies Private Limited">
+            <input type="text" id="entity-name" class="form-control" required placeholder="Company legal name">
           </div>
 
           <div class="form-group">
             <label class="form-label" for="entity-cin">Corporate Identity Number (CIN / LLPIN)</label>
-            <input type="text" id="entity-cin" class="form-control" placeholder="e.g. U72900KA2026PTC123456" value="U72900KA2026PTC189421">
+            <input type="text" id="entity-cin" class="form-control" placeholder="CIN / LLPIN (optional)">
           </div>
 
           <div class="form-group">
             <label class="form-label" for="signatory-name">Authorized Director / Signatory</label>
-            <input type="text" id="signatory-name" class="form-control" placeholder="e.g. Rajesh Kumar (DIN: 08921456)" value="Vikramaditya Rao (DIN: 08945123)">
+            <input type="text" id="signatory-name" class="form-control" placeholder="Authorized director / signatory">
           </div>
 
           <div class="form-group">
@@ -322,7 +322,7 @@
 
           <button type="submit" class="btn-ai-generate" id="generate-submit-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-            Generate Institutional Draft
+            Generate Draft Template
           </button>
         </form>
       </div>
@@ -335,7 +335,7 @@
             <button class="tab-btn" id="tab-checklist" onclick="switchView('checklist')">Statutory RoC Checklist</button>
           </div>
           <div style="font-size: 0.8rem; color: var(--text-muted); font-family: monospace;">
-            FORMAT: MCA-V3 COMPLIANT
+            TEMPLATE · NOT CERTIFIED
           </div>
         </div>
 
@@ -393,10 +393,10 @@
 
     function executeDocumentGeneration() {
       const template = document.getElementById("doc-template").value;
-      const entity = document.getElementById("entity-name").value.trim() || "COMPANY PRIVATE LIMITED";
-      const cin = document.getElementById("entity-cin").value.trim() || "U72900KA2026PTC000000";
-      const signatory = document.getElementById("signatory-name").value.trim() || "Director (DIN: 00000000)";
-      const jurisdiction = document.getElementById("jurisdiction-city").value.trim() || "Bengaluru, India";
+      const entity = document.getElementById("entity-name").value.trim() || "[COMPANY LEGAL NAME]";
+      const cin = document.getElementById("entity-cin").value.trim() || "[CIN / LLPIN]";
+      const signatory = document.getElementById("signatory-name").value.trim() || "[AUTHORIZED DIRECTOR / SIGNATORY]";
+      const jurisdiction = document.getElementById("jurisdiction-city").value.trim() || "[REGISTERED OFFICE CITY, STATE]";
       const custom = document.getElementById("custom-clauses").value.trim();
 
       const outputBox = document.getElementById("output-box");
@@ -407,14 +407,15 @@
       statusBadge.className = "badge-status badge-generating";
       statusBadge.textContent = "Synthesizing...";
       submitBtn.disabled = true;
-      outputBox.textContent = `[PROCESS START]\nParsing Indian Corporate Law precedents...\nVerifying statutory clauses under Companies Act 2013...\nFormatting institutional certified draft for ${entity}...\n\nPlease stand by.`;
+      outputBox.textContent = `Preparing a local draft template for ${entity}. No legal or registry verification is performed.`;
 
       setTimeout(() => {
         generateDocumentOutputs(template, entity, cin, signatory, jurisdiction, custom);
+        currentDraftText = `DRAFT TEMPLATE — REVIEW REQUIRED\n\n${currentDraftText}\n\nThis unverified template requires professional review. Confirm authority, current law, company facts, and provider requirements before use.`;
         renderCurrentView();
         
         statusBadge.className = "badge-status badge-ready";
-        statusBadge.textContent = "Draft Compiled";
+        statusBadge.textContent = "Unverified Draft";
         submitBtn.disabled = false;
         actions.style.display = "flex";
       }, 900);
@@ -598,6 +599,30 @@ Director / Authorized Representative`;
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
+
+    function applyDocumentRequest() {
+      const params = new URLSearchParams(window.location.search);
+      const requestedTemplate = params.get("type") || params.get("doc_type");
+      if (!requestedTemplate) return;
+
+      const aliases = { board_resolution: "board-resolution-bank" };
+      const template = aliases[requestedTemplate] || requestedTemplate;
+      const select = document.getElementById("doc-template");
+      if (!Array.from(select.options).some(option => option.value === template)) return;
+
+      select.value = template;
+      document.getElementById("entity-name").value = params.get("company") || "";
+      document.getElementById("entity-cin").value = params.get("cin") || "";
+      document.getElementById("signatory-name").value = params.get("signatory") || "";
+      document.getElementById("jurisdiction-city").value = params.get("jurisdiction") || "";
+      const details = [params.get("bank") && `Bank: ${params.get("bank")}`, params.get("purpose") && `Purpose: ${params.get("purpose")}`, params.get("custom")].filter(Boolean);
+      document.getElementById("custom-clauses").value = details.join("\n");
+      handleTemplateChange();
+
+      if (params.get("auto_generate") === "true") executeDocumentGeneration();
+    }
+
+    document.addEventListener("DOMContentLoaded", applyDocumentRequest);
   </script>
 </body>
 </html>

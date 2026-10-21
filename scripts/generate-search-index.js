@@ -700,7 +700,7 @@ const coverageCsvRows = [
   ['Service ID', 'Route', 'Canonical Service Name', 'Primary Vertical', 'Status', 'Search Aliases', 'Statutory Forms', 'Route Verified']
 ];
 
-registry.forEach(entry => {
+registry.filter(entry => entry.record_status !== 'UTILITY_ROUTE').forEach(entry => {
   const filePath = path.join(ROOT, entry.canonical_route);
   const exists = fs.existsSync(filePath);
 
@@ -775,6 +775,26 @@ registry.forEach(entry => {
     `"${record.forms.join(', ').replace(/"/g, '""')}"`,
     exists ? 'YES' : 'NO'
   ]);
+});
+
+searchRecords.push({
+  id: 'TOOL-SEARCH',
+  name: 'Corporate & IP Search Directory',
+  route: '/search/',
+  h1: 'Business Search Directory',
+  vertical_id: 'TOOLS',
+  vertical_name: 'Search Tools',
+  status: 'DISCOVERY_TOOL',
+  display_status: 'Business Search Tool',
+  is_referral: false,
+  is_directory: true,
+  business_stage: 'Research & Lookup',
+  entity_types: [],
+  forms: [],
+  aliases: ['Company search', 'LLP search', 'Trademark lookup', 'GSTIN validation'],
+  keywords: ['company lookup', 'corporate search', 'business search', 'trademark', 'gstin'],
+  description: 'Search company and LLP master data, trademarks, and GSTIN records.',
+  search_tokens: 'corporate ip business search directory company lookup llp trademark gstin validation'
 });
 
 // Write canonical JSON index

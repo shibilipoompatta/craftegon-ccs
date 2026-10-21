@@ -30,6 +30,18 @@
     ]
   }
   </script>
+  <style>
+    .intelligence-panel { margin: 2rem 0; padding: 1.5rem; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-md); }
+    .intelligence-panel form { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .intelligence-panel input { flex: 1 1 260px; min-width: 0; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font: inherit; }
+    .intelligence-results .master-data-card { margin-top: 1rem; padding: 1.25rem; background: var(--bg-ivory); border: 1px solid var(--border-color); border-radius: var(--radius-md); }
+    .intelligence-results .entity-name-heading { font-family: var(--font-heading); color: var(--charcoal); }
+    .intelligence-results .data-fields-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+    .intelligence-results .field-val { overflow-wrap: anywhere; }
+    .intelligence-results .risk-diagnostic-box { margin-top: 1rem; padding: 1rem; color: var(--text-main); background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-sm); }
+    .intelligence-results .risk-item { margin-top: 0.75rem; padding: 0.75rem; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-sm); }
+    @media (max-width: 600px) { .intelligence-panel form { flex-direction: column; } }
+  </style>
 </head>
 <body>
   <div id="global-navbar"></div>
@@ -41,6 +53,21 @@
       <h1>Trademark Classification & Preliminary Clearance Intake</h1>
       <p>Format validation, Nice classification selection, and professional clearance intake for Indian trademark applicants under the Trade Marks Act, 1999.</p>
     </div>
+    <section class="intelligence-panel" aria-labelledby="entity-intelligence-title">
+      <h2 id="entity-intelligence-title" style="font-family: var(--font-heading); color: var(--charcoal);">CIN, LLPIN &amp; Trademark Intelligence Lookup</h2>
+      <p>Search by company name, CIN, LLPIN, or trademark application number. Benchmark examples are not live registry results.</p>
+      <form data-entity-lookup data-results-target="trademark-intelligence-results" data-feedback-target="trademark-intelligence-feedback">
+        <label for="entity-intelligence-query" class="visually-hidden">Company, LLP, or trademark lookup</label>
+        <select data-lookup-kind aria-label="Lookup category" style="padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font: inherit;">
+          <option value="company">Company / LLP</option>
+          <option value="trademark">Trademark</option>
+        </select>
+        <input id="entity-intelligence-query" data-lookup-query type="search" placeholder="Company name, CIN, LLPIN, or TM application number" required>
+        <button type="submit" class="if-btn-primary">Search lookup</button>
+      </form>
+      <div id="trademark-intelligence-feedback" data-lookup-feedback role="status" aria-live="polite" style="margin-top: 0.75rem; color: var(--text-muted);">No live registry connector is configured.</div>
+      <div id="trademark-intelligence-results" class="intelligence-results" hidden></div>
+    </section>
     <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
       <div style="display: flex; flex-direction: column; gap: 1.25rem;">
         <div>
@@ -80,6 +107,8 @@
   </main>
   <div id="global-footer"></div>
   <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/search-engine.js"></script>
+  <script src="/assets/js/entity-intelligence.js"></script>
   <script src="/assets/js/forms.js"></script>
   <script>
     async function executeTrademarkSearch() {

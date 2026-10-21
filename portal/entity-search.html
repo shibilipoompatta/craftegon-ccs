@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Autonomous Corporate & Trademark Intelligence Lookup | Craftegon Corporate Services (CCS)</title>
-  <meta name="description" content="Search verified MCA corporate master data (CIN, LLPIN) and IP India trademark prosecution status with automated statutory risk and penalty diagnostic scoring.">
+  <title>Corporate & Trademark Lookup | Craftegon CCS</title>
+  <meta name="description" content="Look up company, LLP, and trademark sample records with clear source labels, official registry links, and a preliminary compliance checklist.">
   <link rel="canonical" href="https://ccs.craftegon.com/portal/entity-search.html">
   <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
   <link rel="apple-touch-icon" href="/assets/images/craftegon-logo.jpg">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Craftegon Corporate Services (CCS)">
   <meta property="og:url" content="https://ccs.craftegon.com/portal/entity-search.html">
-  <meta property="og:title" content="Autonomous Corporate & Trademark Intelligence Lookup | Craftegon Corporate Services (CCS)">
-  <meta property="og:description" content="Instant CIN, LLPIN, and Trademark application search with autonomous statutory penalty diagnostics under Companies Act 2013.">
+  <meta property="og:title" content="Corporate & Trademark Lookup | Craftegon CCS">
+  <meta property="og:description" content="Benchmark and live-source labels for company, LLP, and trademark lookup, with an informational statutory checklist.">
   <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@craftegon">
-  <meta name="twitter:title" content="Corporate & IP Intelligence Search | Craftegon Corporate Services (CCS)">
-  <meta name="twitter:description" content="Instant statutory diagnostics and corporate master data lookup for Indian enterprises.">
+  <meta name="twitter:title" content="Corporate & Trademark Lookup | Craftegon CCS">
+  <meta name="twitter:description" content="Source-labeled company, LLP, and trademark lookup with an informational compliance checklist.">
   <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
@@ -72,7 +72,7 @@
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "BreadcrumbList", "@id": "https://ccs.craftegon.com/portal/entity-search.html#breadcrumb", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ccs.craftegon.com/" }, { "@type": "ListItem", "position": 2, "name": "Client Portal", "item": "https://ccs.craftegon.com/portal/index.html" }, { "@type": "ListItem", "position": 3, "name": "Entity & IP Intelligence", "item": "https://ccs.craftegon.com/portal/entity-search.html" } ] },
-      { "@type": "WebPage", "@id": "https://ccs.craftegon.com/portal/entity-search.html#webpage", "url": "https://ccs.craftegon.com/portal/entity-search.html", "name": "Autonomous Corporate & Trademark Intelligence Lookup | Craftegon Corporate Services (CCS)", "description": "Search verified MCA corporate master data (CIN, LLPIN) and IP India trademark prosecution status with automated statutory risk and penalty diagnostic scoring.", "isPartOf": { "@type": "WebSite", "@id": "https://ccs.craftegon.com/#website", "name": "Craftegon Corporate Services (CCS)", "url": "https://ccs.craftegon.com" }, "publisher": { "@type": "Organization", "@id": "https://ccs.craftegon.com/#organization", "name": "Craftegon Corporate Services (CCS)", "url": "https://ccs.craftegon.com", "logo": "https://ccs.craftegon.com/assets/images/craftegon-logo.jpg" } }
+      { "@type": "WebPage", "@id": "https://ccs.craftegon.com/portal/entity-search.html#webpage", "url": "https://ccs.craftegon.com/portal/entity-search.html", "name": "Corporate & Trademark Lookup | Craftegon CCS", "description": "Source-labeled company, LLP, and trademark lookup with benchmark examples and an informational statutory checklist. Official verification is required.", "isPartOf": { "@type": "WebSite", "@id": "https://ccs.craftegon.com/#website", "name": "Craftegon Corporate Services (CCS)", "url": "https://ccs.craftegon.com" }, "publisher": { "@type": "Organization", "@id": "https://ccs.craftegon.com/#organization", "name": "Craftegon Corporate Services (CCS)", "url": "https://ccs.craftegon.com", "logo": "https://ccs.craftegon.com/assets/images/craftegon-logo.jpg" } }
     ]
   }
   </script>
@@ -84,69 +84,63 @@
       <a href="/index.html">Home</a> / <a href="/portal/index.html">Client Portal</a> / <span>Entity & IP Intelligence</span>
     </nav>
     <div class="lookup-hero">
-      <div class="noble-badge" style="margin-bottom: 0.75rem;"><span class="noble-badge-dot"></span> MCA V3 & IP India Intelligence Engine</div>
+      <div class="noble-badge" style="margin-bottom: 0.75rem;"><span class="noble-badge-dot"></span> Corporate &amp; IP Lookup</div>
       <h1>Corporate Master Data & Trademark Search</h1>
-      <p>Autonomous regulatory lookup for Indian Private Limited Companies, LLPs, and Trademarks. Enter any registered entity name, 21-digit CIN, LLPIN, or Trademark Application Number to inspect statutory filings and run an instant AI penalty diagnostic.</p>
+      <p>Search a company name, CIN, LLPIN, or trademark application number. Live registry results require an available registry connector; benchmark examples are labeled and are not current official records.</p>
     </div>
     <div class="search-card-shell">
-      <form id="entity-search-form" onsubmit="executeLookup(event)">
+      <form id="entity-search-form" data-entity-lookup data-results-target="master-card" data-feedback-target="lookup-feedback">
         <div class="search-input-wrap">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C59B27" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
-          <input type="text" id="search-term" class="search-input-field" placeholder="Search Company Name, CIN, LLPIN, or Trademark Number..." autocomplete="off" aria-label="Search Company Name, CIN, LLPIN, or Trademark Number" required>
+          <input type="text" id="search-term" data-lookup-query class="search-input-field" placeholder="Search Company Name, CIN, LLPIN, or Trademark Number..." autocomplete="off" aria-label="Search Company Name, CIN, LLPIN, or Trademark Number" required>
           <button type="submit" class="search-btn">Analyze Entity &rarr;</button>
         </div>
         <div class="preset-chips">
           <span>Sample benchmark lookups:</span>
           <button type="button" class="preset-chip-btn" onclick="populateAndSearch('Craftegon Technologies Private Limited')">Craftegon Technologies (Pvt Ltd)</button>
           <button type="button" class="preset-chip-btn" onclick="populateAndSearch('U72900KA2021PTC148562')">CIN: U72900KA2021PTC148562</button>
-          <button type="button" class="preset-chip-btn" onclick="populateAndSearch('AAB-9821')">LLPIN: AAB-9821</button>
-          <button type="button" class="preset-chip-btn" onclick="populateAndSearch('TM-5829104')">Trademark No: 5829104 (Class 42)</button>
+          <button type="button" class="preset-chip-btn" onclick="populateAndSearch('AAB-9821')">LLPIN: AAB-9821 (sample format)</button>
+          <button type="button" class="preset-chip-btn" onclick="populateAndSearch('TM-5829104')">Trademark No: 5829104 (sample)</button>
         </div>
       </form>
     </div>
-    <div id="master-card" class="master-data-card">
+    <div id="lookup-feedback" data-lookup-feedback role="status" aria-live="polite" style="margin-bottom: 1.5rem; padding: 0.9rem 1rem; border-left: 3px solid var(--brand-gold); background: var(--brand-gold-subtle); color: var(--text-main);">
+      No live registry connection is configured. Results, when available, will be identified as live or benchmark previews; verify records with the official registry.
+    </div>
+    <div id="master-card" data-lookup-results class="master-data-card">
       <div class="card-top-row">
         <div>
           <h2 id="card-entity-name" class="entity-name-heading">Craftegon Technologies Private Limited</h2>
           <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-            <span id="card-cin" class="entity-cin-badge">U72900KA2021PTC148562</span>
-            <span class="noble-badge" style="background: rgba(16, 185, 129, 0.12); color: #10B981; border-color: rgba(16, 185, 129, 0.25);"><span class="live-pulse-dot" style="margin-right: 4px;"></span> Active &bull; RoC Compliant</span>
+            <span id="card-cin" class="entity-cin-badge"></span>
+            <span id="card-status" class="noble-badge"></span>
+            <span id="card-data-source" class="tier-badge tier-full"></span>
           </div>
         </div>
         <div style="text-align: right;">
           <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">RoC Jurisdiction</span>
-          <strong id="card-roc" style="font-size: 0.95rem; color: var(--charcoal);">RoC Bangalore (Karnataka)</strong>
+          <strong id="card-roc" style="font-size: 0.95rem; color: var(--charcoal);"></strong>
         </div>
       </div>
       <div class="data-fields-grid">
-        <div class="data-field-item"><label>Entity Category</label><div id="card-class" class="field-val">Private Limited Company</div></div>
-        <div class="data-field-item"><label>Incorporation Date</label><div id="card-inc-date" class="field-val field-mono">14 March 2021 (5 Years)</div></div>
-        <div class="data-field-item"><label>Authorized Capital</label><div id="card-auth-cap" class="field-val field-mono">₹15,00,000</div></div>
-        <div class="data-field-item"><label>Paid-up Capital</label><div id="card-paid-cap" class="field-val field-mono">₹10,00,000</div></div>
-        <div class="data-field-item"><label>Registered Office</label><div id="card-address" class="field-val" style="font-size: 0.88rem; line-height: 1.4;">Cyber Park Road, Corporate Heights, Bangalore, KA 560001</div></div>
-        <div class="data-field-item"><label>Key Directors / Partners</label><div id="card-directors" class="field-val field-mono" style="font-size: 0.85rem;">DIN 08492014 &bull; DIN 09148203</div></div>
+        <div class="data-field-item"><label>Entity Category / Trademark Class</label><div id="card-class" class="field-val"></div></div>
+        <div class="data-field-item"><label>Incorporation / Filing Date</label><div id="card-inc-date" class="field-val field-mono"></div></div>
+        <div class="data-field-item"><label>Authorized Capital / Proprietor</label><div id="card-auth-cap" class="field-val field-mono"></div></div>
+        <div class="data-field-item"><label>Paid-up Capital / Trademark Status</label><div id="card-paid-cap" class="field-val field-mono"></div></div>
+        <div class="data-field-item"><label>Registered Office / Address</label><div id="card-address" class="field-val" style="font-size: 0.88rem; line-height: 1.4;"></div></div>
+        <div class="data-field-item"><label>Directors / Trademark Agent</label><div id="card-directors" class="field-val field-mono" style="font-size: 0.85rem;"></div></div>
       </div>
-      <div class="filings-ledger">
-        <div class="filings-header"><span>Recent Statutory RoC E-Filing Ledger</span><span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">MCA V3 Authenticated</span></div>
-        <div class="filings-grid">
-          <div class="filing-item"><strong style="color: var(--charcoal);">Form AOC-4:</strong> Filed (FY 2024-25) &bull; <span style="color: #10B981;">Approved</span></div>
-          <div class="filing-item"><strong style="color: var(--charcoal);">Form MGT-7:</strong> Filed (FY 2024-25) &bull; <span style="color: #10B981;">Approved</span></div>
-          <div class="filing-item"><strong style="color: var(--charcoal);">Form ADT-1:</strong> Valid through 2028 &bull; <span style="color: #10B981;">Active</span></div>
-          <div class="filing-item"><strong style="color: var(--charcoal);">DIR-3 KYC:</strong> Both Active &bull; <span style="color: #10B981;">Verified</span></div>
-        </div>
+      <div id="card-filings-ledger" class="filings-ledger" hidden>
+        <div class="filings-header"><span>Sample Filing Summary</span><span id="card-filings-source" style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);"></span></div>
+        <div id="card-filings" class="filings-grid"></div>
       </div>
       <div class="risk-diagnostic-box">
-        <div class="risk-header"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8C868" stroke-width="2"><path d="M12 2v20M2 12h20"/><path d="m4.93 4.93 14.14 14.14M19.07 4.93 4.93 19.07"/></svg> Craftegon AI Statutory Risk & Penalty Diagnostic</h3><span id="diagnostic-score" class="risk-score-pill">Compliance Health: 96 / 100</span></div>
-        <div class="risk-items-list">
-          <div class="risk-item"><div class="risk-item-title"><span>Section 137 / 92 RoC Deadline</span><span style="font-family: var(--font-mono); font-size: 0.72rem; color: #10B981;">NOMINAL</span></div><p class="risk-item-desc">Upcoming AOC-4 / MGT-7 filing due within 30/60 days of next AGM. Projected daily late fee exposure under Section 403 is currently ₹0 (Filing window active).</p></div>
-          <div class="risk-item"><div class="risk-item-title"><span>Director DIN KYC (Rule 12A)</span><span style="font-family: var(--font-mono); font-size: 0.72rem; color: #E8C868;">DUE 30 SEPT</span></div><p class="risk-item-desc">Annual biometric/OTP verification required annually by 30th September to eliminate ₹5,000 reactivating penalties and Section 164(2) deactivations.</p></div>
-          <div class="risk-item"><div class="risk-item-title"><span>MSME Section 43B(h) Audit</span><span style="font-family: var(--font-mono); font-size: 0.72rem; color: #10B981;">ACTIVE</span></div><p class="risk-item-desc">Supplier payments to registered micro and small enterprises must be reconciled within 45 days under written contracts to preserve income tax expense deductions.</p></div>
-          <div class="risk-item"><div class="risk-item-title"><span>Rule 9B PAS-6 Demat Audit</span><span style="font-family: var(--font-mono); font-size: 0.72rem; color: #10B981;">COMPLIANT</span></div><p class="risk-item-desc">Private company shares subject to half-yearly ISIN reconciliation via NSDL/CDSL for non-small entities under MCA notification dated 27 October 2023.</p></div>
-          <div class="risk-item"><div class="risk-item-title"><span>CCFS-2026 Amnesty Window</span><span style="font-family: var(--font-mono); font-size: 0.72rem; color: #E8C868;">OPEN</span></div><p class="risk-item-desc">Companies Compliance Facilitation Scheme 2026 active until 15 Sep 2026. Overdue filings eligible for 10% additional fee benefit. Check eligibility &rarr;</p></div>
-        </div>
+        <div class="risk-header"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8C868" stroke-width="2"><path d="M12 2v20M2 12h20"/><path d="m4.93 4.93 14.14 14.14M19.07 4.93 4.93 19.07"/></svg> Preliminary Statutory Checklist</h3><span id="diagnostic-score" class="risk-score-pill">No live risk score</span></div>
+        <div id="risk-items-list" class="risk-items-list"></div>
+        <p class="risk-item-desc">This rules-based preview is not an AI opinion or certified registry extract. Verify current filings and entity-specific obligations with the official registry and a qualified professional.</p>
         <div class="onboard-cta-bar">
-          <div class="onboard-cta-text"><strong>Recommended Compliance OS Tiers:</strong> <span class="tier-badge tier-roc">RoC OS ₹1,499/mo</span><span class="tier-badge tier-gst">GST OS ₹1,499/mo</span><span class="tier-badge tier-full">Full Retainer ₹4,999/mo</span></div>
-          <a href="/portal/subscription.html" class="onboard-cta-btn">Select Tier & Onboard &rarr;</a>
+          <div class="onboard-cta-text"><strong>Compare available retainer options</strong><br>Plan prices shown on the subscription page are indicative and subject to commercial approval.</div>
+          <a href="/portal/subscription.html" class="onboard-cta-btn">Compare Retainer Tiers &rarr;</a>
         </div>
       </div>
     </div>
@@ -154,14 +148,6 @@
   <div id="global-footer"></div>
   <script src="/assets/js/navigation.js"></script>
   <script src="/assets/js/search-engine.js"></script>
-  <script>
-    const BENCHMARK_ENTITIES = {
-      'craftegon': { name: 'Craftegon Technologies Private Limited', cin: 'U72900KA2021PTC148562', roc: 'RoC Bangalore (Karnataka)', class: 'Private Limited Company', incDate: '14 March 2021 (5 Years)', authCap: '₹15,00,000', paidCap: '₹10,00,000', address: 'Cyber Park Road, Corporate Heights, Bangalore, KA 560001', directors: 'DIN 08492014 &bull; DIN 09148203', health: '98 / 100 (Optimal)' },
-      'bharat': { name: 'Bharat Heavy Electricals & Solar Systems LLP', cin: 'LLPIN: AAB-9821', roc: 'RoC Mumbai (Maharashtra)', class: 'Limited Liability Partnership (LLP)', incDate: '22 August 2020 (6 Years)', authCap: '₹25,00,000', paidCap: '₹25,00,000', address: 'Nariman Point, Marine Boulevard, Mumbai, MH 400021', directors: 'DPIN 07194021 &bull; DPIN 08419204', health: '94 / 100 (Nominal)' },
-      'tm': { name: 'CRAFTEGON (Word Mark)', cin: 'TM Application No: 5829104', roc: 'IP India Trade Marks Registry (Chennai)', class: 'Class 42 & 45 (SaaS Legal Tech & Secretarial)', incDate: 'Filed: 08 January 2023', authCap: 'Proprietor: Craftegon LLP', paidCap: 'Vienna Code: 26.01.01', address: 'Cyber Park Road, Corporate Heights, Kozhikode, KL 673001', directors: 'Attorney: Senior Trademark Counsel', health: 'REGISTERED &bull; Valid to 2033' }
-    };
-    function populateAndSearch(query) { document.getElementById('search-term').value = query; executeLookup(new Event('submit')); }
-    function executeLookup(e) { if (e) e.preventDefault(); const raw = document.getElementById('search-term').value.trim(); if (!raw) return; const q = raw.toLowerCase(); let entity = BENCHMARK_ENTITIES['craftegon']; if (q.includes('bharat') || q.includes('aab-9821') || q.includes('llp')) { entity = BENCHMARK_ENTITIES['bharat']; } else if (q.includes('tm') || q.includes('5829104') || q.includes('trademark')) { entity = BENCHMARK_ENTITIES['tm']; } else if (!q.includes('craftegon')) { entity = { name: raw.toUpperCase() + (raw.toLowerCase().includes('ltd') ? '' : ' PRIVATE LIMITED'), cin: 'U' + Math.floor(10000 + Math.random() * 90000) + 'DL2022PTC' + Math.floor(100000 + Math.random() * 900000), roc: 'RoC New Delhi & Haryana', class: 'Private Limited Company (Active)', incDate: '12 November 2022 (4 Years)', authCap: '₹10,00,000', paidCap: '₹5,00,000', address: 'Barakhamba Road, Connaught Place, New Delhi 110001', directors: 'DIN 09281042 &bull; DIN 09381940', health: '92 / 100 (Active Risk)' }; } document.getElementById('card-entity-name').textContent = entity.name; document.getElementById('card-cin').textContent = entity.cin; document.getElementById('card-roc').textContent = entity.roc; document.getElementById('card-class').textContent = entity.class; document.getElementById('card-inc-date').textContent = entity.incDate; document.getElementById('card-auth-cap').textContent = entity.authCap; document.getElementById('card-paid-cap').textContent = entity.paidCap; document.getElementById('card-address').textContent = entity.address; document.getElementById('card-directors').innerHTML = entity.directors; document.getElementById('diagnostic-score').textContent = 'Compliance Health: ' + entity.health; const card = document.getElementById('master-card'); card.style.display = 'block'; card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
-  </script>
+  <script src="/assets/js/entity-intelligence.js"></script>
 </body>
 </html>

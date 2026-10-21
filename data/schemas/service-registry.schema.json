@@ -2,10 +2,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ccs.craftegon.com/schemas/service-registry.schema.json",
   "title": "CraftEgon CCS Master Service Registry Schema",
-  "description": "JSON Schema Draft 2020-12 enforcing the 57-route inventory, 54 active IDs, and 3 referral-only boundaries.",
+  "description": "JSON Schema Draft 2020-12 enforcing 57 canonical services, one utility route, 54 active IDs, and 3 referral-only boundaries.",
   "type": "array",
-  "minItems": 57,
-  "maxItems": 57,
+  "minItems": 58,
+  "maxItems": 58,
   "items": {
     "type": "object",
     "required": [
@@ -20,8 +20,8 @@
     "properties": {
       "canonical_route": {
         "type": "string",
-        "pattern": "^/services/[a-z0-9-]+\\.html$",
-        "description": "Unique canonical URL path of the service route."
+        "pattern": "^(/services/[a-z0-9-]+\\.html|/search/)$",
+        "description": "Unique canonical URL path of a service or registered utility route."
       },
       "service_id": {
         "type": ["string", "null"],
@@ -35,8 +35,8 @@
       },
       "record_status": {
         "type": "string",
-        "enum": ["ACTIVE_SERVICE", "REFERRAL_ONLY"],
-        "description": "Classification of the route."
+        "enum": ["ACTIVE_SERVICE", "REFERRAL_ONLY", "UTILITY_ROUTE"],
+        "description": "Classification of the service or utility route."
       },
       "primary_vertical_id": {
         "type": ["string", "null"],
@@ -62,7 +62,7 @@
       },
       "verification_status": {
         "type": "string",
-        "enum": ["VERIFIED_APPROVED", "VERIFIED_REFERRAL_ONLY"],
+        "enum": ["VERIFIED_APPROVED", "VERIFIED_REFERRAL_ONLY", "VERIFIED_UTILITY"],
         "description": "Verification status of the registry record."
       }
     },
@@ -94,6 +94,22 @@
             "primary_vertical_id": { "type": "null" },
             "verification_status": { "const": "VERIFIED_REFERRAL_ONLY" }
           }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "record_status": { "const": "UTILITY_ROUTE" }
+          }
+        },
+        "then": {
+          "properties": {
+            "canonical_route": { "const": "/search/" },
+            "service_id": { "type": "null" },
+            "primary_vertical_id": { "type": "null" },
+            "verification_status": { "const": "VERIFIED_UTILITY" }
+          },
+          "required": ["service_id", "primary_vertical_id"]
         }
       }
     ]

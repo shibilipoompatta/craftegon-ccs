@@ -1,5 +1,16 @@
 [
   {
+    "canonical_route": "/search/",
+    "service_id": null,
+    "service_name": "Corporate & IP Search Directory",
+    "record_status": "UTILITY_ROUTE",
+    "primary_vertical_id": null,
+    "related_vertical_ids": [],
+    "scope_boundary": "Public registry lookup utility; not a priced service and excluded from the approved 57-service inventory.",
+    "source_evidence": "Round 2 directory foundation: search/index.html and sitemap.xml.",
+    "verification_status": "VERIFIED_UTILITY"
+  },
+  {
     "canonical_route": "/services/dpiit-startup-india.html",
     "service_id": "V01-SVC-001",
     "service_name": "DPIIT Startup India Recognition & Section 56(2)(viib) Exemption",

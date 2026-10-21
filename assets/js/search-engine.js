@@ -61,6 +61,19 @@ const BENCHMARK_ENTITIES = {
         { title: 'Rule 9B PAS-6 Demat Audit', level: 'COMPLIANT', color: '#10B981', desc: 'Private company shares subject to half-yearly ISIN reconciliation via NSDL/CDSL for non-small entities under MCA notification dated 27 October 2023.' }
       ]
     },
+    'aab-9821': {
+      name: 'Illustrative LLP Benchmark Sample',
+      cin: '',
+      llpin: 'AAB-9821',
+      roc: 'Sample jurisdiction not provided',
+      class: 'Limited Liability Partnership (sample)',
+      incDate: 'Sample date not provided',
+      authCap: 'Not provided',
+      paidCap: 'Not provided',
+      address: 'Not provided',
+      directors: 'Not provided',
+      status: 'Sample only'
+    },
     'reliance industries limited': {
       name: 'Reliance Industries Limited',
       cin: 'L17110MH1973PLC019786',
@@ -155,6 +168,31 @@ const BENCHMARK_ENTITIES = {
 
 // Current active search tab
 let activeTab = 'company';
+
+function escapeHtml(value) {
+  const entities = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+  return String(value ?? '').replace(/[&<>"']/g, character => entities[character]);
+}
+
+function escapeSearchData(value) {
+  if (Array.isArray(value)) return value.map(escapeSearchData);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, escapeSearchData(item)]));
+  }
+  return typeof value === 'string' ? escapeHtml(value) : value;
+}
+
+function safeCssColor(value) {
+  return typeof value === 'string' && /^#[0-9a-f]{3,8}$/i.test(value) ? value : '#64748B';
+}
+
+function renderPreviewNotice(source) {
+  if (source === 'live') return '';
+  const message = source === 'benchmark'
+    ? 'Curated benchmark sample; this is not a live registry response.'
+    : 'Synthetic demonstration data; no official registry record was retrieved.';
+  return `<p class="search-preview-notice" role="status"><strong>Demo/Benchmark Preview</strong> ${message}</p>`;
+}
 
 // DOM Elements
 const companyForm = document.getElementById('company-search-form');
@@ -411,7 +449,7 @@ function showError(containerId, message) {
   container.style.display = 'block';
   container.innerHTML = `
     <div class="error-msg">
-      <strong>Search Unavailable:</strong> ${message}
+      <strong>Search Unavailable:</strong> ${escapeHtml(message)}
       <br><br>
       <a href="/search/" class="btn-royal-outline" style="margin-top: 0.5rem; display: inline-block;">Try Again &rarr;</a>
     </div>
@@ -420,6 +458,8 @@ function showError(containerId, message) {
 
 function renderCompanyResult(entity) {
   const container = document.getElementById('company-results');
+  entity = escapeSearchData(entity);
+  entity.risks = entity.risks.map(risk => ({ ...risk, color: safeCssColor(risk.color) }));
   const statusColors = {
     'Active': 'status-active',
     'Inactive': 'status-inactive',
@@ -468,6 +508,7 @@ function renderCompanyResult(entity) {
 
   container.innerHTML = `
     <div class="result-card" style="animation: cardAppear 0.3s ease-out;">
+      ${renderPreviewNotice(entity.source)}
       <div class="result-header">
         <div>
           <h2 class="entity-name">${entity.name}</h2>
@@ -548,6 +589,7 @@ function renderCompanyResult(entity) {
 
 function renderTrademarkResult(tm) {
   const container = document.getElementById('tm-results');
+  tm = escapeSearchData(tm);
   const statusColors = {
     'REGISTERED': 'status-active',
     'OBJECTED': 'status-pending',
@@ -560,6 +602,7 @@ function renderTrademarkResult(tm) {
 
   container.innerHTML = `
     <div class="result-card" style="animation: cardAppear 0.3s ease-out;">
+      ${renderPreviewNotice(tm.source)}
       <div class="result-header">
         <div>
           <h2 class="entity-name">${tm.name}</h2>
@@ -700,6 +743,7 @@ function renderTrademarkResult(tm) {
 
 function renderGstinResult(gstin) {
   const container = document.getElementById('gstin-results');
+  gstin = escapeSearchData(gstin);
   const statusColors = {
     'Active': 'status-active',
     'Cancelled': 'status-inactive',
@@ -794,6 +838,7 @@ function renderGstinResult(gstin) {
 
   container.innerHTML = `
     <div class="result-card" style="animation: cardAppear 0.3s ease-out;">
+      ${renderPreviewNotice(gstin.source)}
       <div class="result-header">
         <div>
           <h2 class="entity-name">${gstin.legalName}</h2>

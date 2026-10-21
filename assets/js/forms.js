@@ -11,6 +11,7 @@ const VALIDATORS = {
   pan: /^[A-Z]{5}[0-9]{4}[A-Z]$/i,
   gstin: /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/i,
   cin: /^[UL]{1}[0-9]{5}[A-Z]{2}[0-9]{4}[A-Z]{3}[0-9]{6}$/i,
+  llpin: /^[A-Z]{3}-?[0-9]{4}$/i,
   din: /^[0-9]{8}$/,
   tan: /^[A-Z]{4}[0-9]{5}[A-Z]$/i,
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -52,7 +53,7 @@ function initRealtimeValidation() {
 }
 
 function validateField(input) {
-  const name = input.name || input.id;
+  const name = String(input.dataset.validate || input.name || input.id).toLowerCase().replace(/[\s_-]/g, "");
   const value = input.value.trim();
   
   if (!value && !input.required) return true;
@@ -62,16 +63,22 @@ function validateField(input) {
   
   switch (name) {
     case "pan":
+    case "companypan":
       isValid = VALIDATORS.pan.test(value);
       message = isValid ? "" : "Invalid PAN format. Expected: AAAAA0000A";
       break;
     case "gstin":
+    case "gstinnumber":
       isValid = VALIDATORS.gstin.test(value.toUpperCase());
       message = isValid ? "" : "Invalid GSTIN format. Expected: 29AAACA1234A1Z5";
       break;
     case "cin":
       isValid = VALIDATORS.cin.test(value.toUpperCase());
       message = isValid ? "" : "Invalid CIN format. Expected: U72900KA2021PTC148562";
+      break;
+    case "llpin":
+      isValid = VALIDATORS.llpin.test(value.toUpperCase());
+      message = isValid ? "" : "Invalid LLPIN format. Expected 3 letters followed by 4 digits (hyphen optional).";
       break;
     case "din":
       isValid = VALIDATORS.din.test(value);
@@ -148,196 +155,99 @@ function clearFormErrors(form) {
   if (alertBox) alertBox.remove();
 }
 
-/**
- * Instant AI Preliminary Audit - generates compliance checklist on form submission
- */
-function generateAIPreliminaryAudit(form, data) {
-  const auditItems = [];
-  const currentPath = window.location.pathname;
-  
-  // Route-specific audit checks
-  if (currentPath.includes("trademark-search")) {
-    auditItems.push({
-      check: "Trademark Class Selection",
-      status: data.trademark_class && data.trademark_class !== "all" ? "complete" : "pending",
-      detail: "NICE class selected for clearance search"
+function preliminaryAuditItems(form) {
+  const items = [];
+  const identifierFields = [
+    { label: 'PAN', regex: VALIDATORS.pan, name: /pan/i },
+    { label: 'GSTIN', regex: VALIDATORS.gstin, name: /gstin/i },
+    { label: 'CIN', regex: VALIDATORS.cin, name: /cin/i },
+    { label: 'LLPIN', regex: VALIDATORS.llpin, name: /llpin/i },
+    { label: 'DIN', regex: VALIDATORS.din, name: /din/i }
+  ];
+
+  identifierFields.forEach(field => {
+    const input = Array.from(form.querySelectorAll('input')).find(candidate => field.name.test(`${candidate.name} ${candidate.id}`));
+    if (!input || !input.value.trim()) return;
+    const valid = field.regex.test(input.value.trim().toUpperCase());
+    items.push({
+      check: `${field.label} format`,
+      status: valid ? 'passed' : 'review',
+      detail: valid ? 'Matches the expected character pattern.' : 'Does not match the expected character pattern; verify before submitting.'
     });
-    auditItems.push({
-      check: "Wordmark Format Validation",
-      status: data.brand_query && data.brand_query.length >= 2 ? "complete" : "pending",
-      detail: "Brand name meets minimum 2-character requirement"
-    });
-    auditItems.push({
-      check: "Official Registry Verification",
-      status: "manual_required",
-      detail: "Manual IP India registry search required for certified clearance"
-    });
-  }
-  
-  else if (currentPath.includes("calculator")) {
-    auditItems.push({
-      check: "Section 403 Late Fee Calculation",
-      status: "complete",
-      detail: "CCFS-2026 amnesty mode available until 15 Sep 2026"
-    });
-    auditItems.push({
-      check: "GST ITC Reconciliation Readiness",
-      status: "complete",
-      detail: "GSTR-2B auto-match configured for blocked credit detection"
-    });
-    auditItems.push({
-      check: "MSME 43B(h) Payment Tracker",
-      status: "active",
-      detail: "45-day payment compliance monitoring enabled"
-    });
-  }
-  
-  else if (currentPath.includes("partner-ecosystems")) {
-    auditItems.push({
-      check: "Bank Board Resolution",
-      status: "auto_generated",
-      detail: "AI-generated resolution ready for bank submission"
-    });
-    auditItems.push({
-      check: "Marketplace Seller Compliance",
-      status: "pack_ready",
-      detail: "GST, FSSAI, Brand Registry docs packaged"
-    });
-  }
-  
-  else if (currentPath.includes("contract-intake") || currentPath.includes("venture-deal") || currentPath.includes("ma-advisory")) {
-    auditItems.push({
-      check: "Statutory Clause Coverage",
-      status: "ai_reviewed",
-      detail: "SHA/SPA/NDA clauses checked against Companies Act 2013"
-    });
-    auditItems.push({
-      check: "Stamp Duty & Registration",
-      status: "jurisdiction_dependent",
-      detail: "State-specific stamp duty calculated"
-    });
-  }
-  
-  else if (currentPath.includes("tax-intake") || currentPath.includes("gst-annual")) {
-    auditItems.push({
-      check: "GSTR-2B vs Purchase Register Match",
-      status: "auto_matched",
-      detail: "Rule 88C/88D notice risk assessed"
-    });
-    auditItems.push({
-      check: "Section 17(5) Blocked ITC Review",
-      status: "flagged_items",
-      detail: "Ineligible credits identified for reversal"
-    });
-  }
-  
-  else if (currentPath.includes("dpdp-audit") || currentPath.includes("cyber-incident")) {
-    auditItems.push({
-      check: "DPDP Consent Architecture",
-      status: "gap_analysis",
-      detail: "Section 5 notice & withdrawal mechanism reviewed"
-    });
-    auditItems.push({
-      check: "CERT-In 6-Hour Reporting",
-      status: "template_ready",
-      detail: "Incident response playbook generated"
-    });
-  }
-  
-  else if (currentPath.includes("post-incorporation")) {
-    auditItems.push({
-      check: "INC-20A Commencement Certificate",
-      status: "drafted",
-      detail: "Form INC-20A ready for filing within 180 days"
-    });
-    auditItems.push({
-      check: "First Board Meeting & Statutory Registers",
-      status: "template_generated",
-      detail: "Minutes, MBP-1, DIR-8, Register of Members prepared"
-    });
-  }
-  
-  else if (currentPath.includes("strike-off")) {
-    auditItems.push({
-      check: "Section 248 Eligibility",
-      status: "validated",
-      detail: "Inactive 2+ years, zero assets/liabilities confirmed"
-    });
-    auditItems.push({
-      check: "Indemnity Bond & Affidavit",
-      status: "drafted",
-      detail: "STK-2/STK-3/STK-4 documents ready"
-    });
-  }
-  
-  else {
-    // Generic audit for other forms
-    auditItems.push({
-      check: "Contact Information Completeness",
-      status: data.email && data.phone ? "complete" : "pending",
-      detail: "Email and phone provided for follow-up"
-    });
-    auditItems.push({
-      check: "Service Scope Definition",
-      status: data.scope_description ? "complete" : "pending",
-      detail: "Scope of work described for accurate quoting"
-    });
-  }
-  
-  // Generate HTML for audit checklist
-  let auditHtml = `
-    <div style="background: var(--bg-ivory); border: 1px solid var(--brand-gold-border); border-radius: var(--radius-md); padding: 1.5rem; margin-top: 1rem;">
-      <h4 style="font-family: var(--font-heading); font-size: 1rem; color: var(--charcoal); margin: 0 0 1rem; display: flex; align-items: center; gap: 0.5rem;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C59B27" stroke-width="2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-        Craftegon AI Preliminary Compliance Audit
-      </h4>
-      <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0 0 1rem;">Automated checklist generated from form data. Not a substitute for professional review.</p>
-      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-  `;
-  
-  auditItems.forEach(item => {
-    const statusColors = {
-      complete: { bg: "#D1FAE5", color: "#065F46", icon: "✓" },
-      pending: { bg: "#FEF3C7", color: "#92400E", icon: "⏳" },
-      manual_required: { bg: "#FEE2E2", color: "#991B1B", icon: "⚠" },
-      auto_generated: { bg: "#DBEAFE", color: "#1E40AF", icon: "🤖" },
-      pack_ready: { bg: "#F3E8FF", color: "#6B21A8", icon: "📦" },
-      ai_reviewed: { bg: "#E0E7FF", color: "#3730A3", icon: "🔍" },
-      jurisdiction_dependent: { bg: "#FEF3C7", color: "#92400E", icon: "📍" },
-      auto_matched: { bg: "#D1FAE5", color: "#065F46", icon: "🔄" },
-      flagged_items: { bg: "#FEF3C7", color: "#92400E", icon: "🚩" },
-      gap_analysis: { bg: "#E0E7FF", color: "#3730A3", icon: "📊" },
-      template_ready: { bg: "#DBEAFE", color: "#1E40AF", icon: "📄" },
-      drafted: { bg: "#F3E8FF", color: "#6B21A8", icon: "✍️" },
-      template_generated: { bg: "#DBEAFE", color: "#1E40AF", icon: "📝" },
-      validated: { bg: "#D1FAE5", color: "#065F46", icon: "✅" },
-      active: { bg: "#D1FAE5", color: "#065F46", icon: "🟢" }
-    };
-    
-    const status = statusColors[item.status] || { bg: "#F1F5F9", color: "#475569", icon: "?" };
-    
-    auditHtml += `
-      <div style="background: ${status.bg}; border: 1px solid ${status.color}33; border-radius: 6px; padding: 0.75rem;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
-          <span style="font-weight: 600; color: var(--charcoal);">${item.check}</span>
-          <span style="font-family: var(--font-mono); font-size: 0.7rem; color: ${status.color}; background: ${status.color}15; padding: 2px 8px; border-radius: 4px;">${item.status.toUpperCase().replace('_', ' ')}</span>
-        </div>
-        <div style="font-size: 0.75rem; color: ${status.color};">${item.icon} ${item.detail}</div>
-      </div>
-    `;
   });
-  
-  auditHtml += `
-      </div>
-      <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--brand-gold-border); display: flex; gap: 0.75rem; flex-wrap: wrap;">
-        <a href="/conversion/ai-document-generator.html" class="if-btn-secondary" style="font-size: 0.8rem; padding: 0.5rem 1rem;">🤖 Generate Full Compliance Pack</a>
-        <a href="/conversion/retainer-desk.html" class="if-btn-primary" style="font-size: 0.8rem; padding: 0.5rem 1rem;">👥 Connect with Compliance Desk</a>
-        <a href="https://wa.me/918606918247?text=${encodeURIComponent('Request professional review of AI audit for ' + window.location.pathname)}" target="_blank" rel="noopener" class="if-btn-secondary" style="border-color: rgba(37,211,102,0.6); color: #15803d; background: #f0fdf4; font-size: 0.8rem; padding: 0.5rem 1rem;">💬 WhatsApp Review</a>
-      </div>
+
+  const invalidFields = form.querySelectorAll('[aria-invalid="true"]').length;
+  items.push({
+    check: 'Required form fields',
+    status: invalidFields ? 'review' : 'passed',
+    detail: invalidFields ? `${invalidFields} field(s) need correction.` : 'Required fields passed browser-side validation.'
+  });
+  items.push({
+    check: 'Official records and legal applicability',
+    status: 'manual',
+    detail: 'No registry, tax record, document, or legal position was independently verified by this checklist.'
+  });
+  return items;
+}
+
+function generateAIPreliminaryAudit(form) {
+  const items = preliminaryAuditItems(form);
+  const statusPresentation = {
+    passed: { label: 'FORMAT CHECK PASSED', color: '#065F46', background: '#D1FAE5' },
+    review: { label: 'REVIEW INPUT', color: '#92400E', background: '#FEF3C7' },
+    manual: { label: 'HUMAN REVIEW', color: '#991B1B', background: '#FEE2E2' }
+  };
+  const rows = items.map(item => {
+    const status = statusPresentation[item.status];
+    return `<div style="background:${status.background};border:1px solid ${status.color}33;border-radius:6px;padding:.75rem">
+      <div style="display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;margin-bottom:.25rem">
+        <strong>${escapeHtml(item.check)}</strong><span style="font-family:var(--font-mono);font-size:.7rem;color:${status.color}">${status.label}</span>
+      </div><div style="font-size:.78rem;color:${status.color}">${escapeHtml(item.detail)}</div>
+    </div>`;
+  }).join('');
+
+  return `<section class="preliminary-audit" aria-live="polite" style="background:var(--bg-ivory);border:1px solid var(--brand-gold-border);border-radius:var(--radius-md);padding:1.25rem;margin-top:1rem">
+    <h4 style="font-family:var(--font-heading);font-size:1rem;color:var(--charcoal);margin:0 0 .5rem">Instant preliminary intake checklist</h4>
+    <p style="font-size:.8rem;color:var(--text-muted);margin:0 0 1rem">Rules-based format checks only. This is not AI analysis, legal advice, or confirmation that a filing is compliant.</p>
+    <div style="display:flex;flex-direction:column;gap:.5rem">${rows}</div>
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem">
+      <button type="button" class="if-btn-secondary" data-download-checklist>Download checklist</button>
+      <a href="/conversion/retainer-desk.html" class="if-btn-primary">Request human review</a>
     </div>
-  `;
-  
-  return auditHtml;
+  </section>`;
+}
+
+function renderPreliminaryAudit(form, data) {
+  let container = form.querySelector('.ai-audit-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.className = 'ai-audit-container';
+    form.appendChild(container);
+  }
+  container.innerHTML = generateAIPreliminaryAudit(form, data);
+  container.style.display = 'block';
+  container.querySelector('[data-download-checklist]')?.addEventListener('click', () => downloadPreliminaryChecklist(form));
+  return container;
+}
+
+function downloadPreliminaryChecklist(form) {
+  const lines = [
+    'Craftegon CCS - Preliminary Intake Checklist',
+    `Generated: ${new Date().toISOString()}`,
+    `Page: ${window.location.pathname}`,
+    '',
+    'Rules-based format checks only. No registry, tax record, or legal position was independently verified.'
+  ];
+  preliminaryAuditItems(form).forEach(item => lines.push(`- ${item.check}: ${item.status.toUpperCase()} - ${item.detail}`));
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'craftegon-preliminary-intake-checklist.txt';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
 }
 
 /**
@@ -351,7 +261,7 @@ function initLeadCaptureForms() {
     
     // Add AI Audit container placeholder
     const auditContainer = document.createElement("div");
-    auditContainer.id = "ai-audit-container";
+    auditContainer.className = "ai-audit-container";
     auditContainer.style.display = "none";
     form.appendChild(auditContainer);
 
@@ -368,6 +278,7 @@ function initLeadCaptureForms() {
       });
 
       if (!isValid) {
+        renderPreliminaryAudit(form, Object.fromEntries(new FormData(form).entries()));
         // Focus first invalid field
         const firstInvalid = form.querySelector("[aria-invalid='true']");
         if (firstInvalid) firstInvalid.focus();
@@ -377,20 +288,14 @@ function initLeadCaptureForms() {
       clearFormErrors(form);
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
+      const auditContainer = renderPreliminaryAudit(form, data);
+      auditContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
 
       const endpoint = form.dataset.endpoint || window.CRAFTEGON_CONFIG?.apiEndpoint || "/api/v1/enquiries";
 
       // If form explicitly requests static fallback notice
       if (form.dataset.staticFallback === "true") {
         showFormFallbackNotice(form, data);
-        // Still generate AI audit for user value
-        const auditHtml = generateAIPreliminaryAudit(form, data);
-        const container = document.getElementById("ai-audit-container");
-        if (container) {
-          container.innerHTML = auditHtml;
-          container.style.display = "block";
-          container.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }
         return;
       }
 
@@ -465,20 +370,10 @@ function initLeadCaptureForms() {
         form.dataset.submitted = "true";
         const leadRef = result.lead_reference ? ` Reference: ${result.lead_reference}.` : "";
         
-        // Show success with AI Audit
         showFormSuccess(
           form,
           `Your compliance enquiry was accepted.${leadRef} CraftEgon will follow up using the contact details provided.`
         );
-        
-        // Generate and display AI Preliminary Audit
-        const auditHtml = generateAIPreliminaryAudit(form, data);
-        const container = document.getElementById("ai-audit-container");
-        if (container) {
-          container.innerHTML = auditHtml;
-          container.style.display = "block";
-          container.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }
         
         if (submitBtn) {
           submitBtn.disabled = true;
@@ -508,63 +403,39 @@ function initLeadCaptureForms() {
  * When a bank is selected on partner-ecosystems.html, auto-generate Board Resolution
  */
 function initBankingDeskIntegration() {
-  // Listen for bank selection events
-  document.addEventListener("click", (e) => {
-    const bankBtn = e.target.closest("[data-bank-onboard]");
-    if (bankBtn) {
-      e.preventDefault();
-      const bank = bankBtn.getAttribute("data-bank-onboard");
-      const companyName = prompt("Enter Company Legal Name for Board Resolution:") || "Your Company Private Limited";
-      const cin = prompt("Enter CIN:") || "U72900KA2021PTC148562";
-      const authorized = prompt("Authorized Signatories (comma-separated):") || "Director 1 (DIN: 00000001), Director 2 (DIN: 00000002)";
-      const purpose = "Current Account Opening";
-      
-      // Generate resolution and navigate to AI Document Generator with pre-filled params
-      const params = new URLSearchParams({
-        type: "bank-account",
-        company: companyName,
-        cin: cin,
-        authorized: authorized,
-        bank: bankBtn.getAttribute("data-bank-name") || bank,
-        purpose: purpose,
-        auto_generate: "true"
-      });
-      
-      window.open(`/conversion/ai-document-generator.html?${params.toString()}`, "_blank");
-    }
-  });
-  
-  // Also handle marketplace onboarding buttons
-  document.addEventListener("click", (e) => {
-    const mpBtn = e.target.closest("[data-marketplace-onboard]");
-    if (mpBtn) {
-      e.preventDefault();
-      const platform = mpBtn.getAttribute("data-marketplace-onboard");
-      const companyName = prompt("Enter Company Legal Name for Marketplace Authorization:") || "Your Company Private Limited";
-      const cin = prompt("Enter CIN:") || "U72900KA2021PTC148562";
-      const authorized = prompt("Authorized Signatories (comma-separated):") || "Director 1 (DIN: 00000001), Director 2 (DIN: 00000002)";
-      
-      const resolutionTypes = {
-        amazon: "marketplace-amazon",
-        flipkart: "marketplace-flipkart",
-        swiggy: "marketplace-swiggy",
-        blinkit: "marketplace-blinkit",
-        zepto: "marketplace-zepto",
-        bigbasket: "marketplace-bigbasket"
-      };
-      
-      const params = new URLSearchParams({
-        type: resolutionTypes[platform] || "marketplace-amazon",
-        company: companyName,
-        cin: cin,
-        authorized: authorized,
-        bank: platform,
-        purpose: "Seller Onboarding Authorization",
-        auto_generate: "true"
-      });
-      
-      window.open(`/conversion/ai-document-generator.html?${params.toString()}`, "_blank");
-    }
+  const marketplaceTypes = {
+    amazon: "marketplace-amazon",
+    flipkart: "marketplace-flipkart",
+    swiggy: "marketplace-swiggy",
+    blinkit: "marketplace-blinkit",
+    zepto: "marketplace-zepto",
+    bigbasket: "marketplace-bigbasket"
+  };
+
+  document.addEventListener("click", event => {
+    const bankButton = event.target.closest("[data-bank-onboard]");
+    const marketplaceButton = event.target.closest("[data-marketplace-onboard]");
+    if (!bankButton && !marketplaceButton) return;
+    event.preventDefault();
+
+    const isBank = Boolean(bankButton);
+    const provider = isBank
+      ? bankButton.dataset.bankName || bankButton.dataset.bankOnboard
+      : marketplaceButton.dataset.marketplaceName || marketplaceButton.dataset.marketplaceOnboard;
+    const type = isBank ? "board-resolution-bank" : marketplaceTypes[marketplaceButton.dataset.marketplaceOnboard];
+    if (!provider || !type) return;
+
+    const params = new URLSearchParams({
+      type,
+      bank: provider,
+      purpose: isBank ? "Corporate current account opening" : "Marketplace seller onboarding",
+      auto_generate: "true"
+    });
+    const company = localStorage.getItem("craftegon_client_company");
+    const cin = localStorage.getItem("craftegon_client_cin");
+    if (company) params.set("company", company);
+    if (cin) params.set("cin", cin);
+    window.location.assign(`/conversion/ai-document-generator.html?${params.toString()}`);
   });
 }
 
@@ -651,11 +522,11 @@ function showFormError(form, message) {
 function escapeHtml(str) {
   if (!str) return "";
   return String(str).replace(/[&<>"']/g, m => ({
-    "&": "&",
-    "<": "<",
-    ">": ">",
-    '"': """,
-    "'": "'"
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
   }[m]));
 }
 
@@ -699,13 +570,6 @@ function showFormFallbackNotice(form, data) {
   `;
   form.prepend(alertBox);
   
-  // Still show AI audit for user value
-  const auditHtml = generateAIPreliminaryAudit(form, data);
-  const container = document.getElementById("ai-audit-container");
-  if (container) {
-    container.innerHTML = auditHtml;
-    container.style.display = "block";
-  }
 }
 
 function addFunnelContext(form) {

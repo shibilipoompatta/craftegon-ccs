@@ -74,7 +74,7 @@
       <div class="portal-badge"><span class="cchat-status-dot"></span> Rules-Based Regulatory System</div>
       <h1 class="portal-title">Corporate Compliance Calendar &amp; Statutory Command Center</h1>
       <p class="portal-subtitle">
-        Statutory filing calendar, deterministic deadline calculation engines, and compliance countdown clocks calibrated for Indian Private Limited Companies, LLPs, and Cross-Border FDI Entities.
+        Rule-based deadline estimates with live browser countdowns. Relative deadlines require user-entered event dates; this page does not connect to MCA, GSTN, Income Tax, or RBI systems.
       </p>
       <div style="margin-top: 1.5rem; display: flex; gap: 0.85rem; flex-wrap: wrap;">
         <a href="/portal/subscription.html" class="btn-royal-gold" style="font-size: 0.88rem; padding: 0.65rem 1.35rem;">Manage SaaS Subscription &rarr;</a>
@@ -106,7 +106,7 @@
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
         <div>
           <h3 style="margin: 0 0 0.25rem 0; font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-dark);">Entity Profile &amp; Statutory Calibration</h3>
-          <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Enter your 21-digit Corporate Identity Number (CIN) or LLPIN to calibrate statutory countdown clocks based on verified statutory formulas.</p>
+          <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Choose a sample profile or enter an entity ID. Add known event dates below to estimate relative filing deadlines.</p>
         </div>
         <span class="noble-badge"><span class="noble-badge-dot"></span> Rules-Based Engine</span>
       </div>
@@ -117,7 +117,13 @@
 
       <form id="cin-lookup-form" class="lookup-form" onsubmit="handleCinLookup(event)">
         <div class="lookup-input-wrap">
-          <input type="text" id="cin-input" class="lookup-input" placeholder="e.g. U72900KL2023PTC078912 or AAB-8910" value="U72900KL2023PTC078912" required>
+          <input type="text" id="cin-input" class="lookup-input" placeholder="CIN or LLPIN (sample / local lookup only)" value="U72900KL2023PTC078912" required>
+        </div>
+        <div class="calendar-reference-dates">
+          <label for="agm-date">Annual General Meeting date <input type="date" id="agm-date"></label>
+          <label for="allotment-date">Equity allotment date <input type="date" id="allotment-date"></label>
+          <label for="share-transfer-date">Share transfer date <input type="date" id="share-transfer-date"></label>
+          <label for="resolution-date">Relevant resolution date <input type="date" id="resolution-date"></label>
         </div>
         <button type="submit" id="sync-btn" class="if-btn-primary" style="padding: 0.85rem 1.6rem; font-size: 0.92rem;">
           <span id="sync-btn-text">Calibrate Deadlines</span>
@@ -211,15 +217,15 @@
         <p style="margin: 0.25rem 0 0; font-size: 0.85rem; color: var(--text-muted);">Real-time statutory filing deadlines computed in accordance with the Companies Act 2013, FEMA, and CBDT.</p>
       </div>
       <div class="calendar-tabs">
-        <button class="calendar-tab active" onclick="filterMilestones('all', this)">All Milestones (8)</button>
-        <button class="calendar-tab" onclick="filterMilestones('mca', this)">MCA V3 RoC (5)</button>
-        <button class="calendar-tab" onclick="filterMilestones('tax', this)">Corporate Tax &amp; GST (2)</button>
-        <button class="calendar-tab" onclick="filterMilestones('fema', this)">RBI &amp; FEMA (1)</button>
+        <button class="calendar-tab active" onclick="filterMilestones('all', this)">All Deadlines</button>
+        <button class="calendar-tab" onclick="filterMilestones('mca', this)">MCA / RoC</button>
+        <button class="calendar-tab" onclick="filterMilestones('tax', this)">Tax &amp; GST</button>
+        <button class="calendar-tab" onclick="filterMilestones('fema', this)">RBI &amp; FEMA</button>
       </div>
     </div>
 
     <!-- Milestones Countdown Grid -->
-    <div class="milestones-grid" id="milestones-container">
+    <div class="milestones-grid" id="milestones-container" hidden style="display: none;">
       
       <!-- 1. Form AOC-4 -->
       <div class="milestone-card" data-category="mca">
@@ -570,145 +576,120 @@
     // Dynamic deadline mapping, live countdowns, webhook alert toggles, SaaS tiers
     // ==========================================================================
     
-    // 1. Dynamic Statutory Deadline Mapping (Computed from Entity Data)
-    const STATUTORY_DEADLINES = {
-      mca: [
-        { form: 'AOC-4', section: 'Sec 137', baseDays: 30, desc: 'Financial statements within 30 days of AGM', category: 'mca' },
-        { form: 'MGT-7', section: 'Sec 92', baseDays: 60, desc: 'Annual return within 60 days of AGM', category: 'mca' },
-        { form: 'DIR-3 KYC', section: 'Rule 12A', fixedDate: '09-30', desc: 'Annual DIN KYC by Sept 30', category: 'mca' },
-        { form: 'MSME-1', section: 'Sec 405', fixedDates: ['04-30', '10-31'], desc: 'Half-yearly MSME vendor dues disclosure', category: 'mca' },
-        { form: 'DPT-3', section: 'Rule 16', fixedDate: '06-30', desc: 'Return of deposits & loans by June 30', category: 'mca' },
-        { form: 'PAS-6', section: 'Rule 9B', fixedDates: ['05-30', '11-30'], desc: 'Half-yearly demat reconciliation', category: 'mca' },
-        { form: 'ADT-1', section: 'Sec 139', relativeDays: 15, desc: 'Auditor appointment within 15 days of AGM', category: 'mca' },
-        { form: 'MGT-14', section: 'Sec 117', relativeDays: 30, desc: 'Special resolution filing within 30 days', category: 'mca' }
-      ],
-      tax: [
-        { form: 'GSTR-1', section: 'Sec 37', monthly: true, dayOfMonth: 11, desc: 'Monthly outward supplies by 11th', category: 'tax' },
-        { form: 'GSTR-3B', section: 'Sec 39', monthly: true, dayOfMonth: 20, desc: 'Monthly summary return by 20th', category: 'tax' },
-        { form: 'GSTR-9', section: 'Sec 44', fixedDate: '12-31', desc: 'Annual return & reconciliation by Dec 31', category: 'tax' },
-        { form: 'GSTR-9C', section: 'Sec 44', fixedDate: '12-31', desc: 'Self-certified reconciliation by Dec 31', category: 'tax' },
-        { form: 'Form 3CEB', section: 'Sec 92E', fixedDate: '10-31', desc: 'Transfer pricing report by Oct 31', category: 'tax' },
-        { form: 'Form 10B', section: 'Sec 12A', fixedDate: '09-30', desc: 'Trust audit by Sept 30', category: 'tax' },
-        { form: 'ITR-7', section: 'Sec 139', fixedDate: '10-31', desc: 'Corporate/Trust return by Oct 31', category: 'tax' }
-      ],
-      fema: [
-        { form: 'FLA Return', section: 'FEMA', fixedDate: '07-15', desc: 'RBI Foreign Liabilities & Assets by July 15', category: 'fema' },
-        { form: 'FC-GPR', section: 'FDI', relativeDays: 30, desc: 'Equity allotment reporting within 30 days', category: 'fema' },
-        { form: 'FC-TRS', section: 'FDI', relativeDays: 60, desc: 'Share transfer reporting within 60 days', category: 'fema' },
-        { form: 'FC-3/FC-4', section: 'FEMA', fixedDate: '07-31', desc: 'Foreign branch/LO annual compliance', category: 'fema' }
-      ],
-      dpdp: [
-        { form: 'DPDP Audit', section: 'DPDP Act', frequency: 'annual', desc: 'Data Fiduciary governance audit', category: 'dpdp' },
-        { form: 'CERT-In Report', section: 'IT Act', fixedWindow: '6h', desc: 'Cyber incident reporting within 6 hours', category: 'dpdp' }
-      ]
-    };
-    
-    // 2. Compute Next Deadline for Each Form
-    function computeNextDeadline(form) {
-      const now = new Date();
-      const currentYear = now.getFullYear();
-      
-      // Fixed date deadlines (e.g., Sept 30, July 15)
-      if (form.fixedDate) {
-        const [month, day] = form.fixedDate.split('-').map(Number);
-        let deadline = new Date(currentYear, month - 1, day, 23, 59, 59);
-        if (deadline < now) {
-          deadline = new Date(currentYear + 1, month - 1, day, 23, 59, 59);
-        }
+    // Reference dates are planning aids, not confirmed extensions or registry data.
+    const STATUTORY_DEADLINES = [
+      { form: 'AOC-4', section: 'Companies Act, 2013 · Section 137', category: 'mca', inputId: 'agm-date', offsetDays: 30, description: 'Generally due within 30 days after the AGM. Confirm the applicable form and current rules.' },
+      { form: 'MGT-7 / MGT-7A', section: 'Companies Act, 2013 · Section 92', category: 'mca', inputId: 'agm-date', offsetDays: 60, description: 'Generally due within 60 days after the AGM. Confirm entity-specific applicability.' },
+      { form: 'ADT-1', section: 'Companies Act, 2013 · Section 139', category: 'mca', inputId: 'agm-date', offsetDays: 15, description: 'Auditor appointment filing date depends on the relevant appointment and current rules.' },
+      { form: 'MGT-14', section: 'Companies Act, 2013 · Section 117', category: 'mca', inputId: 'resolution-date', offsetDays: 30, description: 'Generally due within 30 days after the relevant resolution, where filing applies.' },
+      { form: 'DIR-3 KYC', section: 'Companies Act Rules · Rule 12A', category: 'mca', fixedDate: '09-30', description: 'Annual DIN KYC reference date; verify current MCA notifications and applicability.' },
+      { form: 'MSME-1', section: 'Companies Act, 2013 · Section 405', category: 'mca', fixedDates: ['10-31', '04-30'], description: 'Reference half-yearly cycle only; confirm the current MCA form due date and reporting criteria.' },
+      { form: 'DPT-3', section: 'Companies (Acceptance of Deposits) Rules', category: 'mca', fixedDate: '06-30', description: 'Annual reference date; confirm current rules and any MCA extension.' },
+      { form: 'PAS-6', section: 'Companies Act Rules · Rule 9B', category: 'mca', fixedDates: ['05-30', '11-30'], description: 'Half-yearly reference cycle; confirm applicability and current filing window.' },
+      { form: 'GSTR-1', section: 'GST · Section 37', category: 'tax', monthlyDay: 11, description: 'Illustrative monthly date only. Filing frequency and due dates vary by taxpayer and notification.' },
+      { form: 'GSTR-3B', section: 'GST · Section 39', category: 'tax', monthlyDay: 20, description: 'Illustrative monthly date only. State, scheme, and filing frequency may change the due date.' },
+      { form: 'GSTR-9', section: 'GST · Section 44', category: 'tax', fixedDate: '12-31', description: 'Annual reference date; verify exemptions, applicability, and extensions.' },
+      { form: 'Form 3CEB', section: 'Income-tax Act · Section 92E', category: 'tax', fixedDate: '10-31', description: 'Reference date for applicable transfer-pricing cases; extensions and facts can change timing.' },
+      { form: 'RBI FLA Return', section: 'FEMA · RBI FLAIR', category: 'fema', fixedDate: '07-15', description: 'Annual reference date; check RBI FLAIR for current-year deadlines or extensions.' },
+      { form: 'FC-GPR', section: 'FEMA · FDI reporting', category: 'fema', inputId: 'allotment-date', offsetDays: 30, description: 'Reference period after equity allotment; verify current RBI reporting rules.' },
+      { form: 'FC-TRS', section: 'FEMA · FDI reporting', category: 'fema', inputId: 'share-transfer-date', offsetDays: 60, description: 'Reference period after share transfer; verify current RBI reporting rules.' }
+    ];
+
+    function nextAnnualDeadline(mmdd, now = new Date()) {
+      const [month, day] = mmdd.split('-').map(Number);
+      let deadline = new Date(now.getFullYear(), month - 1, day, 23, 59, 59);
+      if (deadline < now) deadline = new Date(now.getFullYear() + 1, month - 1, day, 23, 59, 59);
+      return deadline;
+    }
+
+    function computeNextDeadline(item, now = new Date()) {
+      if (item.inputId) {
+        const value = document.getElementById(item.inputId)?.value;
+        if (!value) return null;
+        const eventDate = new Date(`${value}T00:00:00`);
+        if (Number.isNaN(eventDate.getTime())) return null;
+        eventDate.setDate(eventDate.getDate() + item.offsetDays);
+        eventDate.setHours(23, 59, 59, 999);
+        return eventDate;
+      }
+      if (item.fixedDates) {
+        return item.fixedDates.map(date => nextAnnualDeadline(date, now)).sort((a, b) => a - b)[0];
+      }
+      if (item.fixedDate) return nextAnnualDeadline(item.fixedDate, now);
+      if (item.monthlyDay) {
+        let deadline = new Date(now.getFullYear(), now.getMonth(), item.monthlyDay, 23, 59, 59);
+        if (deadline < now) deadline = new Date(now.getFullYear(), now.getMonth() + 1, item.monthlyDay, 23, 59, 59);
         return deadline;
       }
-      
-      // Fixed dates array (e.g., MSME-1 Apr 30 & Oct 31)
-      if (form.fixedDates) {
-        for (const fd of form.fixedDates) {
-          const [month, day] = fd.split('-').map(Number);
-          let deadline = new Date(currentYear, month - 1, day, 23, 59, 59);
-          if (deadline >= now) return deadline;
-        }
-        // All passed this year, return first of next year
-        const [month, day] = form.fixedDates[0].split('-').map(Number);
-        return new Date(currentYear + 1, month - 1, day, 23, 59, 59);
-      }
-      
-      // Monthly deadlines (GSTR-1, GSTR-3B)
-      if (form.monthly && form.dayOfMonth) {
-        let deadline = new Date(currentYear, now.getMonth(), form.dayOfMonth, 23, 59, 59);
-        if (deadline < now) {
-          deadline = new Date(currentYear, now.getMonth() + 1, form.dayOfMonth, 23, 59, 59);
-        }
-        return deadline;
-      }
-      
-      // Relative days from AGM (simulated - using current date + relative days)
-      if (form.relativeDays) {
-        return new Date(now.getTime() + form.relativeDays * 86400000);
-      }
-      
-      // Annual (next year)
-      return new Date(currentYear + 1, now.getMonth(), now.getDate(), 23, 59, 59);
+      return null;
     }
-    
-    // 3. Generate All Deadlines with Countdown Data
-    function generateAllDeadlines() {
-      const allForms = [...STATUTORY_DEADLINES.mca, ...STATUTORY_DEADLINES.tax, ...STATUTORY_DEADLINES.fema, ...STATUTORY_DEADLINES.dpdp];
-      return allForms.map(form => ({
-        ...form,
-        deadline: computeNextDeadline(form),
-        daysRemaining: Math.ceil((computeNextDeadline(form) - new Date()) / 86400000),
-        urgency: (form) => {
-          const days = Math.ceil((computeNextDeadline(form) - new Date()) / 86400000);
-          if (days < 0) return 'overdue';
-          if (days <= 7) return 'critical';
-          if (days <= 30) return 'urgent';
-          if (days <= 90) return 'upcoming';
-          return 'planned';
-        }(form)
-      })).sort((a, b) => a.daysRemaining - b.daysRemaining);
+
+    function generateAllDeadlines(now = new Date()) {
+      return STATUTORY_DEADLINES.map(item => {
+        const deadline = computeNextDeadline(item, now);
+        return { ...item, deadline, daysRemaining: deadline ? Math.ceil((deadline - now) / 86400000) : null };
+      }).sort((a, b) => (a.daysRemaining ?? Infinity) - (b.daysRemaining ?? Infinity));
     }
-    
-    // 4. Live Countdown Engine (Every Second)
+
+    function renderDeadlineCards() {
+      const container = document.getElementById('milestones-container');
+      if (!container) return;
+      container.replaceChildren();
+
+      generateAllDeadlines().forEach(item => {
+        const card = document.createElement('article');
+        card.className = 'milestone-card';
+        card.dataset.category = item.category;
+        const heading = document.createElement('h4');
+        heading.className = 'milestone-title';
+        heading.textContent = item.form;
+        const section = document.createElement('div');
+        section.className = 'milestone-section';
+        section.textContent = item.section;
+        const description = document.createElement('p');
+        description.className = 'milestone-desc';
+        description.textContent = item.description;
+        const countdown = document.createElement('div');
+        countdown.className = 'countdown-box';
+        countdown.dataset.deadline = item.deadline ? item.deadline.toISOString() : '';
+        if (!item.deadline) {
+          countdown.textContent = `Enter ${item.inputId === 'agm-date' ? 'AGM date' : item.inputId === 'allotment-date' ? 'allotment date' : 'share-transfer date'} above to estimate this relative deadline.`;
+        } else {
+          countdown.innerHTML = '<span class="countdown-result"></span>';
+        }
+        card.append(heading, section, description, countdown);
+        container.appendChild(card);
+      });
+      container.hidden = false;
+      container.style.display = 'grid';
+      updateDeadlineCountdowns();
+    }
+
+    function updateDeadlineCountdowns() {
+      const now = Date.now();
+      document.querySelectorAll('.countdown-box[data-deadline]').forEach(countdown => {
+        const target = Date.parse(countdown.dataset.deadline);
+        const output = countdown.querySelector('.countdown-result');
+        if (!output || !Number.isFinite(target)) return;
+        const remaining = target - now;
+        if (remaining <= 0) {
+          output.textContent = 'Estimated date passed · check current filing status';
+          return;
+        }
+        const days = Math.floor(remaining / 86400000);
+        const hours = Math.floor((remaining % 86400000) / 3600000);
+        const minutes = Math.floor((remaining % 3600000) / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+        output.textContent = `${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+      });
+    }
+
     function startLiveCountdowns() {
-      const deadlines = generateAllDeadlines();
-      
-      function updateAllCountdowns() {
-        const now = new Date().getTime();
-        
-        deadlines.forEach(form => {
-          const targetTime = form.deadline.getTime();
-          const diff = Math.max(0, targetTime - now);
-          
-          const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-          const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-          const s = Math.floor((diff % (1000 * 60)) / 1000);
-          
-          const containerId = `countdown-${form.form.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
-          const container = document.getElementById(containerId);
-          if (container) {
-            const dEl = container.querySelector('.cd-d');
-            const hEl = container.querySelector('.cd-h');
-            const mEl = container.querySelector('.cd-m');
-            const sEl = container.querySelector('.cd-s');
-            if (dEl) dEl.innerText = String(d).padStart(2, '0');
-            if (hEl) hEl.innerText = String(h).padStart(2, '0');
-            if (mEl) mEl.innerText = String(m).padStart(2, '0');
-            if (sEl) sEl.innerText = String(s).padStart(2, '0');
-          }
-          
-          // Update urgency badge
-          const badge = document.getElementById(`badge-${form.form.toLowerCase().replace(/[^a-z0-9]/g, '-')}`);
-          if (badge) {
-            const days = Math.ceil((targetTime - now) / 86400000);
-            if (days < 0) { badge.textContent = 'OVERDUE'; badge.className = 'milestone-badge badge-overdue'; }
-            else if (days <= 7) { badge.textContent = `${days} DAYS`; badge.className = 'milestone-badge badge-critical'; }
-            else if (days <= 30) { badge.textContent = `${days} DAYS`; badge.className = 'milestone-badge badge-urgent'; }
-            else { badge.textContent = `${days} DAYS`; badge.className = 'milestone-badge badge-upcoming'; }
-          }
-        });
-      }
-      
-      updateAllCountdowns();
-      setInterval(updateAllCountdowns, 1000);
+      renderDeadlineCards();
+      ['agm-date', 'resolution-date', 'allotment-date', 'share-transfer-date'].forEach(id => {
+        document.getElementById(id)?.addEventListener('change', renderDeadlineCards);
+      });
+      window.setInterval(updateDeadlineCountdowns, 1000);
     }
     
     // 5. Webhook Alert Preferences (Persisted in localStorage + API sync)

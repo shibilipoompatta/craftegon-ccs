@@ -21,10 +21,12 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const SEARCH_INDEX_JSON = path.join(ROOT, 'data', 'search-index.json');
+const SERVICE_REGISTRY_JSON = path.join(ROOT, 'data', 'service-registry.json');
 const SEARCH_INDEX_JS = path.join(ROOT, 'assets', 'js', 'search-index.js');
 const COVERAGE_CSV = path.join(ROOT, 'review-output', 'universal-service-search', 'service-discovery-coverage.csv');
 const SEARCH_ENGINE_JS = path.join(ROOT, 'assets', 'js', 'service-search.js');
 const NAVBAR_HTML = path.join(ROOT, 'components', 'navbar.html');
+const FOOTER_HTML = path.join(ROOT, 'components', 'footer.html');
 const SERVICES_HTML = path.join(ROOT, 'services.html');
 
 let passed = 0;
@@ -53,10 +55,15 @@ assert(fs.existsSync(SEARCH_INDEX_JS), 'assets/js/search-index.js exists');
 assert(fs.existsSync(COVERAGE_CSV), 'service-discovery-coverage.csv exists');
 
 const catalog = JSON.parse(fs.readFileSync(SEARCH_INDEX_JSON, 'utf8'));
-assert(catalog.length === 57, `Search index contains exactly 57 canonical services (found ${catalog.length})`);
+const serviceCatalog = catalog.filter(item => !item.is_directory);
+const directoryRoutes = catalog.filter(item => item.is_directory);
+assert(serviceCatalog.length === 57, `Search index contains exactly 57 canonical services (found ${serviceCatalog.length})`);
+assert(directoryRoutes.length === 1 && directoryRoutes[0].route === '/search/', 'Search index includes /search/ as a directory route');
+const serviceRegistry = JSON.parse(fs.readFileSync(SERVICE_REGISTRY_JSON, 'utf8'));
+assert(serviceRegistry.some(item => item.record_status === 'UTILITY_ROUTE' && item.canonical_route === '/search/'), 'Service registry includes /search/ as a utility route');
 
-const directServices = catalog.filter(s => !s.is_referral);
-const referralServices = catalog.filter(s => s.is_referral);
+const directServices = serviceCatalog.filter(s => !s.is_referral);
+const referralServices = serviceCatalog.filter(s => s.is_referral);
 assert(directServices.length === 54, `Search index contains exactly 54 direct regulatory services (found ${directServices.length})`);
 assert(referralServices.length === 3, `Search index contains exactly 3 referral services (found ${referralServices.length})`);
 
@@ -73,14 +80,14 @@ assert(allReferralsGated, 'All 3 referral services have referral identifiers and
 // ----------------------------------------------------
 console.log('\n--- Test Suite 2: Physical Route Verification on Disk ---');
 let diskMissing = 0;
-catalog.forEach(item => {
+serviceCatalog.concat(directoryRoutes).forEach(item => {
   const filePath = path.join(ROOT, item.route.replace(/^\//, ''));
   if (!fs.existsSync(filePath)) {
     diskMissing++;
     console.error(`Missing file on disk: ${filePath}`);
   }
 });
-assert(diskMissing === 0, '100% of 57 canonical routes resolve to physical files on disk');
+assert(diskMissing === 0, 'All 57 service routes and the /search/ utility route resolve on disk');
 
 // ----------------------------------------------------
 // Test Suite 3: Search Engine Ranking & Matching Logic
@@ -153,6 +160,7 @@ assert(litigationResults.length > 0 && litigationResults.some(r => r.item.is_ref
 // ----------------------------------------------------
 console.log('\n--- Test Suite 4: Navbar Search & Navigation Integrity ---');
 const navbarHtml = fs.readFileSync(NAVBAR_HTML, 'utf8');
+const footerHtml = fs.readFileSync(FOOTER_HTML, 'utf8');
 
 assert(navbarHtml.includes('id="universal-search-input"'), 'Navbar includes #universal-search-input');
 assert(navbarHtml.includes('id="universal-search-dropdown"'), 'Navbar includes #universal-search-dropdown');
@@ -163,6 +171,8 @@ assert(navbarHtml.includes('href="/services.html"'), 'Navbar links directly to /
 assert(navbarHtml.includes('Services <span'), 'Navbar displays prominent Services link with count badge');
 assert(navbarHtml.includes('Explore by Category'), 'Navbar includes "Explore by Category" mega-menu');
 assert(navbarHtml.includes('By Business Stage'), 'Navbar includes "By Business Stage" menu');
+assert(navbarHtml.includes('href="/search/"') && navbarHtml.includes('href="/portal/entity-search.html"'), 'Navbar links to both the site search and entity intelligence lookup');
+assert(footerHtml.includes('href="/search/"') && footerHtml.includes('href="/portal/entity-search.html"'), 'Footer links to both the site search and entity intelligence lookup');
 
 // ----------------------------------------------------
 // Test Suite 5: Unified Service Discovery Page (services.html)
