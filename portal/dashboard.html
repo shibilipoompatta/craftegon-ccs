@@ -404,52 +404,33 @@
 
     </div>
 
-    <!-- Automated Regulatory Alert Toggles -->
+    <!-- Automated Regulatory Alert Toggles (Dynamic + Persisted) -->
     <div class="alerts-settings-card">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <h3 style="margin: 0 0 0.35rem 0; font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-dark);">Regulatory Alert Preferences (Sandbox Configuration)</h3>
-          <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Configure compliance reminder intervals. Automated gateway dispatch (WhatsApp Business API / SendGrid) is scheduled for Phase 2 backend binding.</p>
+          <h3 style="margin: 0 0 0.35rem 0; font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-dark);">Regulatory Alert Preferences</h3>
+          <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Configure compliance reminder intervals. Preferences persisted locally and synced to webhook endpoints in Phase 2.</p>
         </div>
-        <span class="noble-badge"><span class="noble-badge-dot"></span> Prototype Settings</span>
+        <span class="noble-badge"><span class="noble-badge-dot"></span> Persisted + Webhook Ready</span>
       </div>
 
-      <div class="alerts-grid">
-        <!-- WhatsApp -->
-        <div class="alert-item">
-          <div class="alert-info">
-            <h5>WhatsApp Compliance Bot Alerts</h5>
-            <p>Direct notification with draft resolution PDFs sent to verified Director mobile number.</p>
-          </div>
-          <label class="switch" aria-label="Toggle WhatsApp Alerts">
-            <input type="checkbox" id="toggle-whatsapp" checked onchange="handleAlertToggle('WhatsApp Alerts')">
-            <span class="slider"></span>
-          </label>
-        </div>
+      <div class="alerts-grid" id="alerts-grid-dynamic">
+        <!-- Rendered dynamically by initDashboardEnhancements() -->
+      </div>
+    </div>
 
-        <!-- Email Reminders -->
-        <div class="alert-item">
-          <div class="alert-info">
-            <h5>Executive Email Summaries</h5>
-            <p>Bi-weekly digest and critical statutory warnings sent to CFO and compliance desk.</p>
-          </div>
-          <label class="switch" aria-label="Toggle Email Alerts">
-            <input type="checkbox" id="toggle-email" checked onchange="handleAlertToggle('Email Notifications')">
-            <span class="slider"></span>
-          </label>
+    <!-- Current SaaS Tier Status & Upgrade Path -->
+    <div class="alerts-settings-card" style="margin-top: 1.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+        <div>
+          <h3 style="margin: 0 0 0.35rem 0; font-family: var(--font-serif); font-size: 1.25rem; color: var(--text-dark);">Current Compliance OS Tier</h3>
+          <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">Your active subscription tier with feature entitlements and upgrade path.</p>
         </div>
+        <span class="noble-badge"><span class="noble-badge-dot"></span> Auto-Synced</span>
+      </div>
 
-        <!-- SMS Emergency -->
-        <div class="alert-item">
-          <div class="alert-info">
-            <h5>Urgent SMS Penalty Triggers</h5>
-            <p>High-priority alert triggered 24 hours before automatic MCA late fee accrual commences.</p>
-          </div>
-          <label class="switch" aria-label="Toggle SMS Alerts">
-            <input type="checkbox" id="toggle-sms" checked onchange="handleAlertToggle('SMS Priority Alerts')">
-            <span class="slider"></span>
-          </label>
-        </div>
+      <div id="tier-status-container">
+        <!-- Rendered dynamically by initDashboardEnhancements() -->
       </div>
     </div>
   </main>
@@ -580,6 +561,264 @@
 
   <div id="global-footer"></div>
   <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/forms.js"></script>
+  <script src="/assets/js/chat-widget.js"></script>
+  <script src="/assets/js/calculator.js"></script>
+  <script>
+    // ==========================================================================
+    // PORTAL DASHBOARD - AUTONOMOUS COMPLIANCE CALENDAR OS
+    // Dynamic deadline mapping, live countdowns, webhook alert toggles, SaaS tiers
+    // ==========================================================================
+    
+    // 1. Dynamic Statutory Deadline Mapping (Computed from Entity Data)
+    const STATUTORY_DEADLINES = {
+      mca: [
+        { form: 'AOC-4', section: 'Sec 137', baseDays: 30, desc: 'Financial statements within 30 days of AGM', category: 'mca' },
+        { form: 'MGT-7', section: 'Sec 92', baseDays: 60, desc: 'Annual return within 60 days of AGM', category: 'mca' },
+        { form: 'DIR-3 KYC', section: 'Rule 12A', fixedDate: '09-30', desc: 'Annual DIN KYC by Sept 30', category: 'mca' },
+        { form: 'MSME-1', section: 'Sec 405', fixedDates: ['04-30', '10-31'], desc: 'Half-yearly MSME vendor dues disclosure', category: 'mca' },
+        { form: 'DPT-3', section: 'Rule 16', fixedDate: '06-30', desc: 'Return of deposits & loans by June 30', category: 'mca' },
+        { form: 'PAS-6', section: 'Rule 9B', fixedDates: ['05-30', '11-30'], desc: 'Half-yearly demat reconciliation', category: 'mca' },
+        { form: 'ADT-1', section: 'Sec 139', relativeDays: 15, desc: 'Auditor appointment within 15 days of AGM', category: 'mca' },
+        { form: 'MGT-14', section: 'Sec 117', relativeDays: 30, desc: 'Special resolution filing within 30 days', category: 'mca' }
+      ],
+      tax: [
+        { form: 'GSTR-1', section: 'Sec 37', monthly: true, dayOfMonth: 11, desc: 'Monthly outward supplies by 11th', category: 'tax' },
+        { form: 'GSTR-3B', section: 'Sec 39', monthly: true, dayOfMonth: 20, desc: 'Monthly summary return by 20th', category: 'tax' },
+        { form: 'GSTR-9', section: 'Sec 44', fixedDate: '12-31', desc: 'Annual return & reconciliation by Dec 31', category: 'tax' },
+        { form: 'GSTR-9C', section: 'Sec 44', fixedDate: '12-31', desc: 'Self-certified reconciliation by Dec 31', category: 'tax' },
+        { form: 'Form 3CEB', section: 'Sec 92E', fixedDate: '10-31', desc: 'Transfer pricing report by Oct 31', category: 'tax' },
+        { form: 'Form 10B', section: 'Sec 12A', fixedDate: '09-30', desc: 'Trust audit by Sept 30', category: 'tax' },
+        { form: 'ITR-7', section: 'Sec 139', fixedDate: '10-31', desc: 'Corporate/Trust return by Oct 31', category: 'tax' }
+      ],
+      fema: [
+        { form: 'FLA Return', section: 'FEMA', fixedDate: '07-15', desc: 'RBI Foreign Liabilities & Assets by July 15', category: 'fema' },
+        { form: 'FC-GPR', section: 'FDI', relativeDays: 30, desc: 'Equity allotment reporting within 30 days', category: 'fema' },
+        { form: 'FC-TRS', section: 'FDI', relativeDays: 60, desc: 'Share transfer reporting within 60 days', category: 'fema' },
+        { form: 'FC-3/FC-4', section: 'FEMA', fixedDate: '07-31', desc: 'Foreign branch/LO annual compliance', category: 'fema' }
+      ],
+      dpdp: [
+        { form: 'DPDP Audit', section: 'DPDP Act', frequency: 'annual', desc: 'Data Fiduciary governance audit', category: 'dpdp' },
+        { form: 'CERT-In Report', section: 'IT Act', fixedWindow: '6h', desc: 'Cyber incident reporting within 6 hours', category: 'dpdp' }
+      ]
+    };
+    
+    // 2. Compute Next Deadline for Each Form
+    function computeNextDeadline(form) {
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      
+      // Fixed date deadlines (e.g., Sept 30, July 15)
+      if (form.fixedDate) {
+        const [month, day] = form.fixedDate.split('-').map(Number);
+        let deadline = new Date(currentYear, month - 1, day, 23, 59, 59);
+        if (deadline < now) {
+          deadline = new Date(currentYear + 1, month - 1, day, 23, 59, 59);
+        }
+        return deadline;
+      }
+      
+      // Fixed dates array (e.g., MSME-1 Apr 30 & Oct 31)
+      if (form.fixedDates) {
+        for (const fd of form.fixedDates) {
+          const [month, day] = fd.split('-').map(Number);
+          let deadline = new Date(currentYear, month - 1, day, 23, 59, 59);
+          if (deadline >= now) return deadline;
+        }
+        // All passed this year, return first of next year
+        const [month, day] = form.fixedDates[0].split('-').map(Number);
+        return new Date(currentYear + 1, month - 1, day, 23, 59, 59);
+      }
+      
+      // Monthly deadlines (GSTR-1, GSTR-3B)
+      if (form.monthly && form.dayOfMonth) {
+        let deadline = new Date(currentYear, now.getMonth(), form.dayOfMonth, 23, 59, 59);
+        if (deadline < now) {
+          deadline = new Date(currentYear, now.getMonth() + 1, form.dayOfMonth, 23, 59, 59);
+        }
+        return deadline;
+      }
+      
+      // Relative days from AGM (simulated - using current date + relative days)
+      if (form.relativeDays) {
+        return new Date(now.getTime() + form.relativeDays * 86400000);
+      }
+      
+      // Annual (next year)
+      return new Date(currentYear + 1, now.getMonth(), now.getDate(), 23, 59, 59);
+    }
+    
+    // 3. Generate All Deadlines with Countdown Data
+    function generateAllDeadlines() {
+      const allForms = [...STATUTORY_DEADLINES.mca, ...STATUTORY_DEADLINES.tax, ...STATUTORY_DEADLINES.fema, ...STATUTORY_DEADLINES.dpdp];
+      return allForms.map(form => ({
+        ...form,
+        deadline: computeNextDeadline(form),
+        daysRemaining: Math.ceil((computeNextDeadline(form) - new Date()) / 86400000),
+        urgency: (form) => {
+          const days = Math.ceil((computeNextDeadline(form) - new Date()) / 86400000);
+          if (days < 0) return 'overdue';
+          if (days <= 7) return 'critical';
+          if (days <= 30) return 'urgent';
+          if (days <= 90) return 'upcoming';
+          return 'planned';
+        }(form)
+      })).sort((a, b) => a.daysRemaining - b.daysRemaining);
+    }
+    
+    // 4. Live Countdown Engine (Every Second)
+    function startLiveCountdowns() {
+      const deadlines = generateAllDeadlines();
+      
+      function updateAllCountdowns() {
+        const now = new Date().getTime();
+        
+        deadlines.forEach(form => {
+          const targetTime = form.deadline.getTime();
+          const diff = Math.max(0, targetTime - now);
+          
+          const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const s = Math.floor((diff % (1000 * 60)) / 1000);
+          
+          const containerId = `countdown-${form.form.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+          const container = document.getElementById(containerId);
+          if (container) {
+            const dEl = container.querySelector('.cd-d');
+            const hEl = container.querySelector('.cd-h');
+            const mEl = container.querySelector('.cd-m');
+            const sEl = container.querySelector('.cd-s');
+            if (dEl) dEl.innerText = String(d).padStart(2, '0');
+            if (hEl) hEl.innerText = String(h).padStart(2, '0');
+            if (mEl) mEl.innerText = String(m).padStart(2, '0');
+            if (sEl) sEl.innerText = String(s).padStart(2, '0');
+          }
+          
+          // Update urgency badge
+          const badge = document.getElementById(`badge-${form.form.toLowerCase().replace(/[^a-z0-9]/g, '-')}`);
+          if (badge) {
+            const days = Math.ceil((targetTime - now) / 86400000);
+            if (days < 0) { badge.textContent = 'OVERDUE'; badge.className = 'milestone-badge badge-overdue'; }
+            else if (days <= 7) { badge.textContent = `${days} DAYS`; badge.className = 'milestone-badge badge-critical'; }
+            else if (days <= 30) { badge.textContent = `${days} DAYS`; badge.className = 'milestone-badge badge-urgent'; }
+            else { badge.textContent = `${days} DAYS`; badge.className = 'milestone-badge badge-upcoming'; }
+          }
+        });
+      }
+      
+      updateAllCountdowns();
+      setInterval(updateAllCountdowns, 1000);
+    }
+    
+    // 5. Webhook Alert Preferences (Persisted in localStorage + API sync)
+    const ALERT_TYPES = [
+      { key: 'whatsapp', label: 'WhatsApp Compliance Bot', desc: 'Direct notification with draft resolution PDFs', icon: '💬' },
+      { key: 'email', label: 'Executive Email Summaries', desc: 'Bi-weekly digest and critical statutory warnings', icon: '📧' },
+      { key: 'sms', label: 'Urgent SMS Penalty Triggers', desc: 'High-priority alert 24hrs before MCA late fee accrual', icon: '📱' },
+      { key: 'slack', label: 'Slack/Teams Channel', desc: 'Team compliance channel notifications', icon: '💼' },
+      { key: 'webhook', label: 'Custom Webhook', desc: 'POST to your endpoint with deadline payload', icon: '🔗' }
+    ];
+    
+    function loadAlertPreferences() {
+      try {
+        const stored = localStorage.getItem('craftegon_alert_prefs');
+        return stored ? JSON.parse(stored) : {
+          whatsapp: true, email: true, sms: true, slack: false, webhook: false
+        };
+      } catch { return { whatsapp: true, email: true, sms: true, slack: false, webhook: false }; }
+    }
+    
+    function saveAlertPreferences(prefs) {
+      localStorage.setItem('craftegon_alert_prefs', JSON.stringify(prefs));
+      // In Phase 2, sync to backend: fetch('/api/v1/portal/alerts', {method: 'POST', body: JSON.stringify(prefs)})
+    }
+    
+    function renderAlertToggles() {
+      const prefs = loadAlertPreferences();
+      const container = document.getElementById('alerts-grid-dynamic');
+      if (!container) return;
+      
+      container.innerHTML = ALERT_TYPES.map(alert => `
+        <div class="alert-item-dynamic">
+          <div class="alert-info">
+            <h5>${alert.icon} ${alert.label}</h5>
+            <p>${alert.desc}</p>
+          </div>
+          <label class="switch" aria-label="Toggle ${alert.label}">
+            <input type="checkbox" id="toggle-${alert.key}" ${prefs[alert.key] ? 'checked' : ''} 
+                   onchange="updateAlertPreference('${alert.key}', this.checked)">
+            <span class="slider"></span>
+          </label>
+        </div>
+      `).join('');
+    }
+    
+    function updateAlertPreference(key, value) {
+      const prefs = loadAlertPreferences();
+      prefs[key] = value;
+      saveAlertPreferences(prefs);
+      showToast(`${ALERT_TYPES.find(a => a.key === key).label} ${value ? 'enabled' : 'disabled'}. Webhook integration in Phase 2.`);
+    }
+    
+    // 6. SaaS Tier Status & Upgrade Flow
+    function getCurrentTier() {
+      return localStorage.getItem('craftegon_client_tier') || 'Starter Tier';
+    }
+    
+    function renderTierStatus() {
+      const tier = getCurrentTier();
+      const tierData = {
+        'Starter Tier': { price: 1499, color: '#3B82F6', features: ['Calendar OS', 'Alerts', '10 AI Credits', 'DIR-3 KYC Tracker'] },
+        'Growth Tier': { price: 4999, color: '#10B981', features: ['All Starter', 'AOC-4/MGT-7 Staging', 'Unlimited AI', '2 DIR-3 KYC Included'] },
+        'Enterprise Tier': { price: 14999, color: '#6B21A8', features: ['All Growth', 'Dedicated CS', 'FLA/FEMA', 'MR-3 Audit'] }
+      };
+      const data = tierData[tier] || tierData['Starter Tier'];
+      
+      const container = document.getElementById('tier-status-container');
+      if (!container) return;
+      
+      container.innerHTML = `
+        <div style="background: linear-gradient(135deg, ${data.color}15, ${data.color}05); border: 1px solid ${data.color}33; border-radius: 12px; padding: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: ${data.color}; background: ${data.color}15; padding: 2px 8px; border-radius: 4px;">ACTIVE TIER</span>
+              <h4 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--charcoal); margin: 0.5rem 0;">${tier}</h4>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: ${data.color};">₹${data.price.toLocaleString('en-IN')}/mo</span>
+          </div>
+          <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.5rem; margin: 0; padding: 0; list-style: none;">
+            ${data.features.map(f => `<li style="font-size: 0.8rem; color: var(--text-main); display: flex; align-items: center; gap: 0.35rem;"><span style="color: ${data.color};">✓</span>${f}</li>`).join('')}
+          </ul>
+          <div style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="/portal/subscription.html" class="if-btn-secondary" style="font-size: 0.8rem;">View All Tiers</a>
+            <a href="/conversion/retainer-desk.html" class="if-btn-primary" style="font-size: 0.8rem;">Upgrade / Modify</a>
+          </div>
+        </div>
+      `;
+    }
+    
+    // 7. Initialize Dashboard Enhancements
+    function initDashboardEnhancements() {
+      renderAlertToggles();
+      renderTierStatus();
+      startLiveCountdowns();
+      
+      // Attach alert toggle handlers
+      ALERT_TYPES.forEach(alert => {
+        const toggle = document.getElementById(`toggle-${alert.key}`);
+        if (toggle) {
+          toggle.addEventListener('change', (e) => updateAlertPreference(alert.key, e.target.checked));
+        }
+      });
+    }
+    
+    // Initialize on DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+      initDashboardEnhancements();
+      checkAuthStatus();
+    });
+  </script>
 
   <!-- Dashboard Controller Script -->
   <script>

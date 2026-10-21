@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CraftEgon CCS — Master Premium Corporate Theme & Framework Stylesheet
+   Craftegon Corporate Services (CCS) — Master Premium Corporate Theme
    Ivory, Gold, Silver & Charcoal Visual Identity
    Path: assets/css/theme.css
    ========================================================================== */
@@ -21,8 +21,8 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-main);
-  font-family: var(--font-sans);
-  line-height: 1.6;
+  font-family: var(--font-body);
+  line-height: var(--lh-relaxed);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: 
@@ -57,23 +57,29 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-/* --------------------------------------------------------------------------
-   2. Typography System: Manrope & Inter
+   2. Typography System: Cinzel (Display), Manrope (Body), DM Mono (Technical)
    -------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, .noble-heading {
   font-family: var(--font-heading);
   color: var(--text-dark);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: var(--lh-tight, 1.25);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: var(--lh-tight);
 }
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl); }
+h6 { font-size: var(--text-lg); }
 
 p, li, span, input, select, textarea, button, a {
   font-family: var(--font-body);
 }
 
 p {
-  line-height: var(--lh-relaxed, 1.65);
+  line-height: var(--lh-relaxed);
   color: var(--text-main);
 }
 
@@ -104,7 +110,10 @@ p {
 .statutory-ref, 
 .code-snippet,
 .if-pricing-price,
-.countdown-box-num {
+.countdown-box-num,
+.cin-display,
+.llpin-display,
+.gstin-display {
   font-family: var(--font-mono);
 }
 
@@ -177,14 +186,14 @@ p {
    4. Buttons & Interactive Elements
    -------------------------------------------------------------------------- */
 .btn-royal-gold, .btn-primary, .if-btn-primary {
-  background: var(--text-dark);
+  background: var(--cta-gradient);
   color: #FFFFFF !important;
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600;
   font-size: var(--text-sm);
-  padding: 0.65rem 1.35rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--text-dark);
+  border: none;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -192,23 +201,22 @@ p {
   gap: 0.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
 }
 
 .btn-royal-gold:hover, .btn-primary:hover, .if-btn-primary:hover {
-  background: #1E293B;
-  border-color: #1E293B;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
 }
 
 .btn-royal-outline, .btn-secondary, .if-btn-secondary {
   background: #FFFFFF;
   color: var(--text-dark) !important;
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600;
   font-size: var(--text-sm);
-  padding: 0.65rem 1.35rem;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-color);
   text-decoration: none;
@@ -223,9 +231,10 @@ p {
 
 .btn-royal-outline:hover, .btn-secondary:hover, .if-btn-secondary:hover {
   background: var(--surface-light);
-  border-color: #CBD5E1;
-  color: var(--text-dark) !important;
+  border-color: var(--brand-gold);
+  color: var(--brand-gold) !important;
   transform: translateY(-1px);
+  box-shadow: var(--shadow-gold);
 }
 
 /* --------------------------------------------------------------------------
@@ -264,6 +273,7 @@ p {
 
 /* --------------------------------------------------------------------------
    6. Global Brand Insignia & Stacked Typography Lockup
+   CRAFTEGON (Cinzel) / Corporate Services (Manrope uppercase)
    -------------------------------------------------------------------------- */
 .if-brand-logo {
   display: flex;
@@ -293,13 +303,13 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 1.15;
+  line-height: 1.1;
   text-align: left;
 }
 
 .brand-title {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: 0.04em;
@@ -310,17 +320,26 @@ p {
 
 .brand-subtitle {
   font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-size: 0.68rem;
+  font-weight: 600;
   color: var(--brand-gold);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.15;
   display: block;
   margin-top: 1px;
 }
 
-/* Responsive foundations: shared across home, vertical, service, legal, knowledge, portal, and conversion pages. */
+/* Footer Brand Lockup (White on Charcoal) */
+.if-footer .brand-title {
+  color: #F8FAFC;
+}
+
+.if-footer .brand-subtitle {
+  color: var(--brand-gold);
+}
+
+/* Responsive foundations */
 body { overflow-x: clip; }
 
 img, video, canvas, iframe { max-inline-size: 100%; }
@@ -336,7 +355,6 @@ img, video { block-size: auto; }
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18.75rem), 1fr));
 }
 
-/* Several page-level grids are inline styled; keep their existing layout intent while allowing one narrow column. */
 [style*="minmax(280px"],
 [style*="minmax(300px"],
 [style*="minmax(320px"],
@@ -348,7 +366,6 @@ img, video { block-size: auto; }
 .portal-container > *,
 .container > * { min-width: 0; }
 
-/* Tables retain their native semantics and scroll within the viewport when their columns need more room. */
 table {
   display: block;
   max-inline-size: 100%;

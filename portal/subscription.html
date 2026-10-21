@@ -318,115 +318,110 @@
 
   <div id="global-footer"></div>
   <script src="/assets/js/navigation.js"></script>
-
-  <!-- Subscription Pricing Script -->
+  <script src="/assets/js/forms.js"></script>
+  <script src="/assets/js/chat-widget.js"></script>
+  <script src="/assets/js/calculator.js"></script>
   <script>
-    let currentCycle = 'annual';
-    let selectedTierName = 'Growth Tier';
-    let selectedBasePrice = 49990;
-
-    const PRICING_DATA = {
-      starter: { monthly: 1499, annual: 14990 },
-      growth: { monthly: 4999, annual: 49990 },
-      enterprise: { monthly: 14999, annual: 149990 }
+    // ==========================================================================
+    // SUBSCRIPTION PAGE - TIERED SAAS CHECKOUT + WEBHOOK INTEGRATION
+    // ==========================================================================
+    
+    // Webhook endpoints for alert notifications (Phase 2: production URLs)
+    const WEBHOOK_ENDPOINTS = {
+      slack: '/api/v1/webhooks/slack',
+      teams: '/api/v1/webhooks/teams',
+      custom: '/api/v1/webhooks/custom'
     };
-
-    function setBillingCycle(cycle) {
-      currentCycle = cycle;
-      const isAnnual = cycle === 'annual';
-      document.getElementById('billing-switch').checked = isAnnual;
-      
-      document.getElementById('lbl-monthly').classList.toggle('active', !isAnnual);
-      document.getElementById('lbl-annual').classList.toggle('active', isAnnual);
-
-      updatePriceLabels();
+    
+    // Test webhook endpoint
+    async function testWebhook(endpoint) {
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            test: true, 
+            message: 'Craftegon CCS webhook test - Compliance alert integration active',
+            timestamp: new Date().toISOString()
+          })
+        });
+        return response.ok;
+      } catch (e) {
+        return false;
+      }
     }
-
-    function toggleBillingSwitch(el) {
-      setBillingCycle(el.checked ? 'annual' : 'monthly');
-    }
-
-    function updatePriceLabels() {
-      const isAnnual = currentCycle === 'annual';
-
-      // Starter
-      document.getElementById('price-starter').innerText = isAnnual ? '₹14,990' : '₹1,499';
-      document.getElementById('cycle-starter').innerText = isAnnual ? '/ year + GST' : '/ month + GST';
-
-      // Growth
-      document.getElementById('price-growth').innerText = isAnnual ? '₹49,990' : '₹4,999';
-      document.getElementById('cycle-growth').innerText = isAnnual ? '/ year + GST' : '/ month + GST';
-
-      // Enterprise
-      document.getElementById('price-enterprise').innerText = isAnnual ? '₹1,49,990' : '₹14,999';
-      document.getElementById('cycle-enterprise').innerText = isAnnual ? '/ year + GST' : '/ month + GST';
-    }
-
-    // Modal Control
-    function openCheckoutModal(tier, annualPrice, monthlyPrice) {
-      selectedTierName = tier;
-      selectedBasePrice = currentCycle === 'annual' ? annualPrice : monthlyPrice;
-
-      const gst = Math.round(selectedBasePrice * 0.18);
-      const total = selectedBasePrice + gst;
-
-      document.getElementById('modal-tier-title').innerText = `Activate ${tier}`;
-      document.getElementById('summary-plan-name').innerText = `${tier} (${currentCycle === 'annual' ? 'Annual Retainer' : 'Monthly Retainer'})`;
-      document.getElementById('summary-billing-cycle').innerText = currentCycle === 'annual' ? '12 Months (2 Months Free Applied)' : 'Monthly Auto-Renewal';
-      document.getElementById('summary-base-price').innerText = '₹' + selectedBasePrice.toLocaleString('en-IN');
-      document.getElementById('summary-gst-amount').innerText = '₹' + gst.toLocaleString('en-IN');
-      document.getElementById('summary-total-price').innerText = '₹' + total.toLocaleString('en-IN');
-
-      document.getElementById('checkout-modal-backdrop').classList.add('open');
-    }
-
-    function closeCheckoutModal() {
-      document.getElementById('checkout-modal-backdrop').classList.remove('open');
-    }
-
-    function setPayMethod(method, el) {
-      document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
-      el.classList.add('active');
-    }
-
-    function handleCheckoutSubmit(e) {
+    
+    // Enhanced checkout with webhook subscription
+    async function handleCheckoutSubmit(e) {
       e.preventDefault();
       const company = document.getElementById('co-company').value.trim();
+      const cin = document.getElementById('co-cin').value.trim();
+      const phone = document.getElementById('co-phone').value.trim();
+      const email = document.getElementById('co-email').value.trim();
+      
+      const activeTabs = document.querySelectorAll('.payment-tab.active');
+      const paymentMethod = activeTabs[0]?.textContent?.toLowerCase() || 'upi';
+      
+      // Get alert preferences to include in subscription
+      let alertPrefs = { whatsapp: true, email: true, sms: true, slack: false, webhook: false };
+      try {
+        alertPrefs = JSON.parse(localStorage.getItem('craftegon_alert_prefs') || '{}');
+      } catch {}
+      
       const btnText = document.getElementById('activate-btn-text');
       const btn = document.getElementById('activate-btn');
-
+      
       btnText.innerText = 'Staging Retainer Parameters...';
       btn.style.opacity = '0.7';
-
+      
       setTimeout(() => {
-        btnText.innerText = 'Retainer Staged! Launching Dashboard...';
-        btn.style.opacity = '1';
-
-        // Save active state to localStorage
-        localStorage.setItem('craftegon_client_tier', selectedTierName);
-        localStorage.setItem('craftegon_client_company', company);
-
-        closeCheckoutModal();
-        showToast(`Sandbox Active: ${selectedTierName} staged for ${company}. Redirecting...`);
-
+        btnText.innerText = 'Registering Webhook Alert Channels...';
+        
+        // Simulate webhook registration
+        if (alertPrefs.slack) testWebhook(WEBHOOK_ENDPOINTS.slack);
+        if (alertPrefs.webhook) testWebhook(WEBHOOK_ENDPOINTS.custom);
+        
         setTimeout(() => {
-          window.location.href = '/portal/dashboard.html';
-        }, 1200);
+          btnText.innerText = 'Retainer Staged! Launching Dashboard...';
+          btn.style.opacity = '1';
+          
+          // Save active state to localStorage
+          localStorage.setItem('craftegon_client_tier', selectedTierName);
+          localStorage.setItem('craftegon_client_company', company);
+          localStorage.setItem('craftegon_client_cin', cin);
+          localStorage.setItem('craftegon_client_email', email);
+          localStorage.setItem('craftegon_client_phone', phone);
+          localStorage.setItem('craftegon_payment_method', paymentMethod);
+          localStorage.setItem('craftegon_alert_prefs', JSON.stringify(alertPrefs));
+          localStorage.setItem('craftegon_subscription_active', 'true');
+          localStorage.setItem('craftegon_subscription_start', new Date().toISOString());
+          
+          closeCheckoutModal();
+          showToast(`Sandbox Active: ${selectedTierName} staged for ${company}. Webhook alerts configured. Redirecting...`);
+          
+          setTimeout(() => {
+            window.location.href = '/portal/dashboard.html';
+          }, 1200);
+        }, 800);
       }, 950);
     }
-
-    function showToast(msg) {
-      const toast = document.getElementById('portal-toast');
-      const text = document.getElementById('toast-message');
-      text.innerText = msg;
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3500);
+    
+    // Sync alert preferences from dashboard
+    function syncAlertPreferences() {
+      try {
+        const prefs = JSON.parse(localStorage.getItem('craftegon_alert_prefs') || '{}');
+        // Update checkboxes on subscription page if they exist
+        Object.keys(prefs).forEach(key => {
+          const checkbox = document.getElementById(`sub-toggle-${key}`);
+          if (checkbox) checkbox.checked = prefs[key];
+        });
+      } catch {}
     }
-
-    // Default initialization
-    setBillingCycle('annual');
-  </script>
+    
+    // Initialize on DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+      setBillingCycle('annual');
+      syncAlertPreferences();
+    });
 </body>
 </html>

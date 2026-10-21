@@ -1,0 +1,24 @@
+{
+  "ruleId": "MSME-43BH",
+  "section": "Section 43B(h) Income Tax Act 1961",
+  "paymentPeriodDays": 45,
+  "contractRequirement": true,
+  "consequences": {
+    "disallowanceSection": "Section 43B(h) read with Section 43B - 100% disallowance of expenditure if payment not made within 45 days of written agreement",
+    "interestRate": "No separate interest; disallowance results in higher taxable income taxed at applicable slab rates",
+    "penaltyProvisions": "Section 271(1)(c) penalty up to 300% of tax evaded if concealment established; Section 270A penalty 50-200% for under-reporting/misreporting"
+  },
+  "formMsme1": {
+    "frequency": "Half-yearly",
+    "dueDates": [
+      "31 October (for April-September half-year)",
+      "30 April (for October-March half-year)"
+    ],
+    "applicableTo": "All companies (except micro/small) receiving goods/services from MSME suppliers"
+  },
+  "udyamVerification": {
+    "apiEndpoint": "https://udyamregistration.gov.in/api/verify",
+    "fieldsRequired": ["Udyam Registration Number", "PAN of Supplier"],
+    "cacheStrategy": "24-hour TTL for supplier status; real-time verification before Form MSME-1 filing"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "articles": [
+    {
+      "slug": "aoc-4-filing-guide-2026",
+      "title": "Form AOC-4 Filing Guide 2026: XBRL Requirements, Fee Slabs & Penalty Matrix",
+      "category": "mca",
+      "verticalIds": ["V02"],
+      "tags": ["AOC-4", "XBRL", "Section 137", "Financial Statements", "MCA V3", "2026"],
+      "statutoryRefs": ["Section 137 Companies Act 2013", "Companies (Accounts) Rules 2014", "Companies (Filing of Documents in XBRL) Rules 2015", "General Circular 04/2026 (CCFS-2026)"],
+      "keyDates": {
+        "filingWindow": "Within 30 days of AGM",
+        "opcDeadline": "Within 180 days of FY closure (no AGM required)",
+        "ccfs2026Deadline": "2026-09-15"
+      },
+      "feeBenefit": "Under CCFS-2026: 10% of applicable additional fee for overdue filings until 15 Sep 2026",
+      "eligibleForms": ["AOC-4", "AOC-4 XBRL", "AOC-4 CFS"],
+      "author": { "name": "Priya Sharma", "role": "Senior Compliance Manager", "expertise": ["MCA Filings", "XBRL Tagging", "Secretarial Audit"] },
+      "publishDate": "2026-08-11",
+      "lastUpdated": "2026-09-25",
+      "pdfs": [
+        { "title": "Form AOC-4 (PDF)", "url": "https://www.mca.gov.in/bin/MinistryV2/Form_AOC-4.pdf" },
+        { "title": "XBRL Taxonomy 2026", "url": "https://www.mca.gov.in/bin/MinistryV2/XBRL_Taxonomy_2026.zip" },
+        { "title": "General Circular 04/2026 (CCFS-2026 Extension)", "url": "https://www.mca.gov.in/bin/MinistryV2/CCFS_2026_Circular_04_2026.pdf" }
+      ],
+      "relatedServices": ["aoc4-xbrl", "form-aoc4", "roc-annual-compliance", "ccfs-2026-eligibility"],
+      "relatedBlueprints": ["late-fee-calculator-guide", "mca-adjudication-penalties", "spice-plus-mca-v3-blueprint"],
+      "faqSchema": [
+        { "q": "What is the due date for filing Form AOC-4?", "a": "Form AOC-4 must be filed within 30 days of the Annual General Meeting (AGM). For One Person Companies (OPC), which do not hold an AGM, the due date is within 180 days of the financial year closure." },
+        { "q": "Which companies must file AOC-4 in XBRL format?", "a": "Companies listed on any stock exchange in India, companies with paid-up capital of ₹5 crore or above, companies with turnover of ₹100 crore or above, and companies previously covered under the 2011 XBRL Rules." },
+        { "q": "What is the government fee for filing AOC-4?", "a": "The fee ranges from ₹200 (capital up to ₹1 lakh) to ₹600 (capital ₹1 crore and above). For companies without share capital, the fee is ₹200." },
+        { "q": "What are the penalties for late filing of AOC-4?", "a": "₹100 per day of delay (Section 403) with no upper ceiling. Additional fee multipliers apply: 2× (up to 30 days), 4× (31-60 days), 6× (61-90 days), 10× (91-180 days), 12× (181-270 days). Directors may face imprisonment up to 6 months or fine ₹1-5 lakh. Under CCFS-2026 (until 15 Sep 2026), only 10% of additional fee is payable." },
+        { "q": "Can AOC-4 be filed without holding an AGM?", "a": "Yes, if AGM is not held, AOC-4 can be filed within 30 days of the last date by which AGM should have been held, along with a statement of reasons for not holding the AGM." }
+      ]
+    },
+    {
+      "slug": "dir-3-kyc-annual-2026",
+      "title": "DIR-3 KYC Annual Compliance 2026: Biometric Verification, Deadlines & Reactivation",
+      "category": "mca",
+      "verticalIds": ["V02"],
+      "tags": ["DIR-3 KYC", "DIN", "Biometric", "Rule 12A", "Section 164", "2026"],
+      "statutoryRefs": ["Rule 12A Companies (Appointment & Qualification of Directors) Rules 2014", "Section 164(2) Companies Act 2013", "General Circular 11/2020 (Fee Waiver)", "General Circular 04/2026 (CCFS-2026)"],
+      "keyDates": {
+        "annualDueDate": "30 September every year",
+        "webFormWindow": "Available for previous year filers with no changes",
+        "ccfs2026Deadline": "2026-09-15"
+      },
+      "feeBenefit": "Under CCFS-2026: 10% of applicable additional fee for overdue DIR-3 KYC until 15 Sep 2026. Note: 2020 COVID waiver (Circular 11/2020) has expired.",
+      "eligibleForms": ["DIR-3 KYC", "DIR-3 KYC Web Form"],
+      "author": { "name": "Rajesh Menon", "role": "Director Compliance Lead", "expertise": ["DIN Management", "Director Disqualification", "MCA V3 Portal"] },
+      "publishDate": "2026-08-11",
+      "lastUpdated": "2026-09-25",
+      "pdfs": [
+        { "title": "DIR-3 KYC Form (PDF)", "url": "https://www.mca.gov.in/bin/MinistryV2/Form_DIR-3_KYC.pdf" },
+        { "title": "Companies (Appointment & Qualification of Directors) Fourth Amendment Rules 2019", "url": "https://www.mca.gov.in/bin/MinistryV2/DIR3_KYC_Amendment_2019.pdf" },
+        { "title": "General Circular 11/2020 (COVID Fee Waiver - Expired)", "url": "https://www.mca.gov.in/bin/MinistryV2/Circular_11_2020.pdf" }
+      ],
+      "relatedServices": ["dir3-kyc", "roc-annual-compliance", "director-disqualification-guide", "ccfs-2026-eligibility"],
+      "relatedBlueprints": ["director-disqualification-guide", "late-fee-calculator-guide", "mca-v3-filing-guide"],
+      "faqSchema": [
+        { "q": "What is the due date for DIR-3 KYC filing?", "a": "The annual due date is 30 September every year. Directors who filed in the previous year with no changes can use the simplified web form DIR-3 KYC Web." },
+        { "q": "What happens if DIR-3 KYC is not filed on time?", "a": "The DIN is marked 'Deactivated due to non-filing of DIR-3 KYC'. Reactivation requires filing DIR-3 KYC with a penalty of ₹5,000. Prolonged non-compliance leads to disqualification under Section 164(2) for all directorships." },
+        { "q": "Is biometric verification mandatory for DIR-3 KYC?", "a": "Yes, from 2024 onwards, DSC-based biometric/OTP verification is mandatory. The director's unique mobile number and email must be verified via OTP annually." },
+        { "q": "Can disqualified directors file DIR-3 KYC?", "a": "Yes, disqualified directors must still file DIR-3 KYC to update their contact details. Failure to do so attracts an additional penalty of ₹5,000." },
+        { "q": "Does CCFS-2026 cover DIR-3 KYC?", "a": "Yes, DIR-3 KYC is an eligible form under CCFS-2026. Overdue filings can be completed with only 10% of the additional fee until 15 September 2026." }
+      ]
+    },
+    {
+      "slug": "ccfs-2026-amnesty-scheme-2026",
+      "title": "CCFS-2026: Companies Compliance Facilitation Scheme 2026 — Extended to 15 September 2026",
+      "category": "mca",
+      "verticalIds": ["V02"],
+      "tags": ["CCFS-2026", "MCA Amnesty", "Section 403", "AOC-4", "MGT-7", "DIR-3 KYC", "2026"],
+      "statutoryRefs": ["General Circular 01/2026 dated 24 February 2026", "General Circular 04/2026 dated 31 August 2026", "Section 403 Companies Act 2013", "Section 454 Companies Act 2013"],
+      "keyDates": {
+        "schemeAnnounced": "2026-02-24",
+        "schemeCommenced": "2026-04-15",
+        "originalEnd": "2026-07-15",
+        "firstExtension": "2026-08-31",
+        "finalDeadline": "2026-09-15"
+      },
+      "feeBenefit": "Only 10% of the applicable additional fee payable for all eligible overdue filings completed by 15 September 2026",
+      "eligibleForms": ["AOC-4", "AOC-4 XBRL", "AOC-4 CFS", "MGT-7", "MGT-7A", "ADT-1", "DIR-3 KYC", "INC-20A", "PAS-6", "MSME-1", "BEN-2", "CSR-2", "MR-3", "MGT-14", "DPT-3", "ADT-1", "CHG-1", "CHG-4", "CHG-9"],
+      "author": { "name": "Jasmine Kaur Huda", "role": "Assistant General Manager", "expertise": ["MCA Compliance", "Secretarial Audit", "Corporate Amnesty Schemes"] },
+      "publishDate": "2026-09-25",
+      "lastUpdated": "2026-09-25",
+      "pdfs": [
+        { "title": "General Circular 01/2026 (CCFS-2026 Launch)", "url": "https://www.mca.gov.in/bin/MinistryV2/CCFS_2026_Circular_01_2026.pdf" },
+        { "title": "General Circular 04/2026 (Extension to 15 Sep 2026)", "url": "https://www.mca.gov.in/bin/MinistryV2/CCFS_2026_Circular_04_2026.pdf" },
+        { "title": "CCFS-2026 FAQ by MCA", "url": "https://www.mca.gov.in/bin/MinistryV2/CCFS_2026_FAQ.pdf" }
+      ],
+      "relatedServices": ["roc-annual-compliance", "form-aoc4", "form-mgt7", "form-adt1", "dir3-kyc", "form-pas6", "form-msme1", "form-ben2", "form-csr2", "form-mr3-secretarial-audit", "ccfs-2026-eligibility"],
+      "relatedBlueprints": ["late-fee-calculator-guide", "mca-adjudication-penalties", "director-disqualification-guide"],
+      "faqSchema": [
+        { "q": "What is CCFS-2026?", "a": "The Companies Compliance Facilitation Scheme 2026 (CCFS-2026) is an MCA amnesty scheme allowing companies to complete overdue statutory filings with significantly reduced additional fees — only 10% of the normal additional fee." },
+        { "q": "What is the current deadline for CCFS-2026?", "a": "The scheme has been extended to 15 September 2026 via General Circular 04/2026 dated 31 August 2026. This should be treated as the final deadline." },
+        { "q": "Which forms are eligible under CCFS-2026?", "a": "Major eligible forms include: AOC-4, MGT-7, ADT-1, DIR-3 KYC, INC-20A, PAS-6, MSME-1, BEN-2, CSR-2, MR-3, MGT-14, DPT-3, CHG-1/4/9, and others. Full list in the circular." },
+        { "q": "How much fee do I pay under CCFS-2026?", "a": "Only 10% of the applicable additional fee (Section 403 late fees). Normal government filing fees still apply. For example, if normal additional fee is ₹50,000, under CCFS-2026 you pay ₹5,000." },
+        { "q": "Can companies with multiple years of defaults use CCFS-2026?", "a": "Yes, companies with multiple years of pending filings can regularize all eligible overdue forms under the scheme." },
+        { "q": "What happens after 15 September 2026?", "a": "The scheme ends. Normal Section 403 additional fees (2× to 18× multipliers) and Section 454 adjudication penalties resume. No further extensions have been indicated." }
+      ]
+    },
+    {
+      "slug": "gst-einvoicing-30-day-mandate-2026",
+      "title": "GST E-Invoicing 30-Day Mandate & Biometric Scrutiny Protocol 2026",
+      "category": "gst",
+      "verticalIds": ["V03"],
+      "tags": ["E-Invoicing", "Rule 48(4)", "Rule 10B", "Biometric", "GSTR-2B", "Section 143(3)", "2026"],
+      "statutoryRefs": ["Rule 48(4) CGST Rules 2017", "Rule 10B CGST Rules 2017", "Rule 88C/88D CGST Rules 2017", "Section 16/17(5) CGST Act 2017", "Section 143(3) Income Tax Act 1961"],
+      "keyDates": {
+        "einvoicingThreshold": "₹5 crore turnover (phased rollout)",
+        "biometricDeadline": "Mandatory for all GST registrations from 2025",
+        "thirtyDayWindow": "E-invoice must be generated within 30 days of invoice date"
+      },
+      "feeBenefit": "No amnesty scheme currently; timely compliance avoids 24% p.a. interest under Section 50 and scrutiny under Section 143(3) IT Act",
+      "eligibleForms": ["GSTR-1", "GSTR-3B", "GSTR-9", "GSTR-9C", "E-Invoice (IRN)"],
+      "author": { "name": "Anita Desai", "role": "GST Compliance Head", "expertise": ["E-Invoicing", "GSTR-2B Reconciliation", "Input Tax Credit", "Scrutiny Defense"] },
+      "publishDate": "2026-08-15",
+      "lastUpdated": "2026-09-20",
+      "pdfs": [
+        { "title": "Notification 17/2024 - E-Invoicing Threshold", "url": "https://www.cbic.gov.in/resources/htdocs-cbec/gst/notfctn-17-2024.pdf" },
+        { "title": "Rule 10B Biometric Authentication Guidelines", "url": "https://www.gst.gov.in/downloads/Rule_10B_Biometric_Guidelines.pdf" },
+        { "title": "Circular 170/2024 - Rule 88C/88D Implementation", "url": "https://www.cbic.gov.in/resources/htdocs-cbec/gst/circular-170-2024.pdf" }
+      ],
+      "relatedServices": ["gst-annual", "conversion/calculator.html#gst", "conversion/tax-intake.html"],
+      "relatedBlueprints": ["gst-einvoicing-compliance-mandate", "transfer-pricing-guide"],
+      "faqSchema": [
+        { "q": "What is the 30-day e-invoicing mandate under Rule 48(4)?", "a": "Taxpayers with aggregate turnover above ₹5 crore must generate e-invoices (IRN) within 30 days of the invoice date. Beyond 30 days, the e-invoice cannot be generated on the IRP portal." },
+        { "q": "What is biometric authentication under Rule 10B?", "a": "All new GST registrations and core field amendments now require Aadhaar-based biometric authentication of the authorized signatory at designated facilitation centres." },
+        { "q": "What are Rule 88C and 88D notices?", "a": "Rule 88C: Automated intimation for ITC mismatch between GSTR-2B and GSTR-3B. Rule 88D: Follow-up for non-response to 88C, leading to recovery proceedings. Both are system-generated with no manual intervention." },
+        { "q": "How does e-invoicing affect Income Tax scrutiny under Section 143(3)?", "a": "E-invoice data flows to the Income Tax Department. Discrepancies between GSTR-1, e-invoices, and ITR trigger automated scrutiny selection. Real-time reconciliation is now critical." },
+        { "q": "What is the penalty for non-generation of e-invoice?", "a": "₹10,000 per invoice or 100% of tax due, whichever is higher. Additionally, ITC is blocked for the recipient if supplier fails to generate e-invoice." }
+      ]
+    }
+  ]
+}

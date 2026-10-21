@@ -35,7 +35,7 @@
 .if-brand-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   transition: opacity 0.2s ease;
   flex-shrink: 0;
@@ -90,7 +90,7 @@
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--brand-gold);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.15;
   display: block;
@@ -98,28 +98,13 @@
   white-space: nowrap !important;
 }
 
-.brand-text {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  letter-spacing: -0.01em;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+/* Footer Brand Lockup (White on Charcoal) */
+.if-footer .brand-title {
+  color: #F8FAFC;
 }
 
-.brand-suffix {
+.if-footer .brand-subtitle {
   color: var(--brand-gold);
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 2px 7px;
-  background: rgba(197, 155, 39, 0.08);
-  border: 1px solid rgba(197, 155, 39, 0.25);
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 /* --- Navigation Links & Mega Menu --- */
@@ -147,7 +132,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   white-space: nowrap !important;
   flex-shrink: 0;
 }
@@ -157,10 +142,10 @@
 }
 
 .nav-count-badge {
-  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-family: var(--font-mono);
   font-size: 0.65rem;
   font-weight: 700;
-  color: var(--brand-gold, #C59B27);
+  color: var(--brand-gold);
   background: rgba(197, 155, 39, 0.12);
   border: 1px solid rgba(197, 155, 39, 0.3);
   padding: 1px 6px;
@@ -191,7 +176,7 @@
 .if-dropdown-content a, .if-megamenu a {
   color: var(--text-main) !important;
   transition: all 0.2s ease;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
 }
 
 .if-dropdown-content a:hover, .if-megamenu a:hover {
@@ -201,7 +186,7 @@
 
 .if-megamenu h4 {
   color: var(--brand-gold) !important;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
 }
 
 /* --- Header Actions --- */
@@ -221,7 +206,7 @@
   font-size: 0.82rem;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.25);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
   border: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: inline-flex;
@@ -233,7 +218,7 @@
 
 .if-btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.38);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.35);
 }
 
 .if-btn-secondary {
@@ -382,7 +367,7 @@
 }
 
 .if-contact-item a:hover {
-  color: var(--gold-light, #FBBF24);
+  color: var(--brand-gold);
 }
 
 .if-footer-list {
@@ -402,19 +387,15 @@
 }
 
 .if-footer-list a:hover {
-  color: var(--gold-light, #FBBF24);
+  color: var(--brand-gold);
   transform: translateX(2px);
 }
 
 .if-footer-all-link a {
-  color: var(--gold-light, #FBBF24);
+  color: var(--brand-gold);
   font-weight: 600;
   margin-top: 0.35rem;
   display: inline-block;
-}
-
-.if-footer .brand-title {
-  color: #F8FAFC;
 }
 
 /* Legal Policy Links Row */
@@ -477,12 +458,12 @@
 }
 
 .if-footer-disclaimer a {
-  color: var(--brand-gold, #B4881B);
+  color: var(--brand-gold);
   text-decoration: underline;
 }
 
 .if-footer-disclaimer a:hover {
-  color: var(--gold-light, #FBBF24);
+  color: var(--brand-gold);
 }
 
 .if-footer-copy {
@@ -611,13 +592,13 @@
   font-size: 0.85rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
   transition: all 0.2s ease;
 }
 
 .if-mobile-btn-ai:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(217, 119, 6, 0.35);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.35);
 }
 
 .if-mobile-nav-group {
@@ -734,7 +715,6 @@
   .if-mobile-toggle { display: flex; }
 }
 
-
 /* ==========================================================================
    UNIVERSAL SERVICE SEARCH & NAVIGATION STYLES
    ========================================================================== */
@@ -764,11 +744,11 @@
   line-height: 36px !important;
   padding: 0 2.4rem 0 2.2rem !important;
   background: #F8FAFC !important;
-  border: 1px solid var(--silver-border, #E2E8F0) !important;
+  border: 1px solid var(--silver-border) !important;
   border-radius: 9999px !important;
-  font-family: var(--font-body, 'Manrope', sans-serif) !important;
+  font-family: var(--font-body) !important;
   font-size: 0.8rem !important;
-  color: var(--charcoal, #090D16) !important;
+  color: var(--charcoal) !important;
   box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04) !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
   outline: none !important;
@@ -778,7 +758,7 @@
 
 .universal-search-input:focus {
   background: #FFFFFF !important;
-  border-color: var(--brand-gold, #C59B27) !important;
+  border-color: var(--brand-gold) !important;
   box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15), 0 4px 14px rgba(15, 23, 42, 0.06) !important;
 }
 
@@ -800,7 +780,7 @@
 }
 
 .universal-search-input:focus ~ .universal-search-icon {
-  color: var(--brand-gold, #C59B27) !important;
+  color: var(--brand-gold) !important;
 }
 
 .universal-search-shortcut {
@@ -808,7 +788,7 @@
   right: 0.6rem !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  font-family: var(--font-mono, 'DM Mono', monospace) !important;
+  font-family: var(--font-mono) !important;
   font-size: 0.65rem !important;
   font-weight: 700 !important;
   color: #64748B !important;
@@ -864,7 +844,7 @@
   min-width: 460px;
   max-width: 540px;
   background: #FFFFFF;
-  border: 1px solid var(--silver-border, #E2E8F0);
+  border: 1px solid var(--silver-border);
   border-radius: 12px;
   box-shadow: 0 12px 32px rgba(9, 13, 22, 0.12), 0 4px 12px rgba(9, 13, 22, 0.05);
   overflow: hidden;
@@ -887,9 +867,9 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-muted, #64748B);
+  color: var(--text-muted);
   background: #F8FAFC;
-  border-bottom: 1px solid var(--silver-border, #E2E8F0);
+  border-bottom: 1px solid var(--silver-border);
 }
 
 .search-suggestions-list {
@@ -912,7 +892,7 @@
 .search-result-item:hover,
 .search-result-item.active {
   background: rgba(197, 155, 39, 0.07);
-  border-left-color: var(--brand-gold, #C59B27);
+  border-left-color: var(--brand-gold);
 }
 
 .search-result-main {
@@ -926,13 +906,13 @@
 .search-result-title {
   font-weight: 600;
   font-size: 0.88rem;
-  color: var(--charcoal, #090D16);
+  color: var(--charcoal);
   line-height: 1.3;
 }
 
 .search-result-meta {
   font-size: 0.76rem;
-  color: var(--text-muted, #64748B);
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -940,9 +920,9 @@
 }
 
 .search-result-id {
-  font-family: var(--font-mono, 'DM Mono', monospace);
+  font-family: var(--font-mono);
   font-weight: 600;
-  color: var(--brand-gold, #C59B27);
+  color: var(--brand-gold);
   background: rgba(197, 155, 39, 0.08);
   padding: 1px 4px;
   border-radius: 3px;
@@ -972,7 +952,7 @@
 }
 
 .search-result-arrow {
-  color: var(--brand-gold, #C59B27);
+  color: var(--brand-gold);
   font-size: 0.95rem;
   opacity: 0.7;
   transition: transform 0.2s ease, opacity 0.2s ease;
@@ -988,14 +968,14 @@
 .search-footer-action {
   padding: 0.65rem 1rem;
   background: #F8FAFC;
-  border-top: 1px solid var(--silver-border, #E2E8F0);
+  border-top: 1px solid var(--silver-border);
   text-align: center;
 }
 
 .search-all-link {
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--brand-gold, #C59B27);
+  color: var(--brand-gold);
   text-decoration: none;
   display: inline-block;
   transition: opacity 0.2s ease;

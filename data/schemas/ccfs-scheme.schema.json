@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["schemeId", "name", "circularRefs", "keyDates", "feeBenefit", "eligibleForms", "eligibilityCriteria"],
+  "properties": {
+    "schemeId": { "type": "string" },
+    "name": { "type": "string" },
+    "circularRefs": { "type": "array", "items": { "type": "string" } },
+    "keyDates": {
+      "type": "object",
+      "required": ["schemeStart", "originalEnd", "currentDeadline"],
+      "properties": {
+        "schemeStart": { "type": "string", "format": "date" },
+        "originalEnd": { "type": "string", "format": "date" },
+        "firstExtension": { "type": "string", "format": "date" },
+        "currentDeadline": { "type": "string", "format": "date" }
+      }
+    },
+    "feeBenefit": { "type": "string" },
+    "eligibleForms": { "type": "array", "items": { "type": "string" } },
+    "eligibilityCriteria": { "type": "array", "items": { "type": "string" } },
+    "excludedEntities": { "type": "array", "items": { "type": "string" } },
+    "additionalFeeMatrix": { "type": "object" }
+  }
+}

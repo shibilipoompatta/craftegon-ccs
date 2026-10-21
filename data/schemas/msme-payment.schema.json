@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["ruleId", "section", "paymentPeriodDays", "contractRequirement", "consequences"],
+  "properties": {
+    "ruleId": { "type": "string" },
+    "section": { "type": "string" },
+    "paymentPeriodDays": { "type": "integer" },
+    "contractRequirement": { "type": "boolean" },
+    "consequences": {
+      "type": "object",
+      "properties": {
+        "disallowanceSection": { "type": "string" },
+        "interestRate": { "type": "string" },
+        "penaltyProvisions": { "type": "string" }
+      }
+    },
+    "formMsme1": {
+      "type": "object",
+      "properties": {
+        "frequency": { "type": "string" },
+        "dueDates": { "type": "array", "items": { "type": "string" } },
+        "applicableTo": { "type": "string" }
+      }
+    },
+    "udyamVerification": { "type": "object" }
+  }
+}

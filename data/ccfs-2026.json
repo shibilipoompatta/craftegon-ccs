@@ -1,0 +1,54 @@
+{
+  "schemeId": "CCFS-2026",
+  "name": "Companies Compliance Facilitation Scheme 2026",
+  "circularRefs": [
+    "General Circular 01/2026 dated 24 February 2026",
+    "General Circular 04/2026 dated 31 August 2026"
+  ],
+  "keyDates": {
+    "schemeStart": "2026-02-24",
+    "schemeCommenced": "2026-04-15",
+    "originalEnd": "2026-07-15",
+    "firstExtension": "2026-08-31",
+    "currentDeadline": "2026-09-15"
+  },
+  "feeBenefit": "Only 10% of applicable additional fee payable for eligible overdue filings",
+  "eligibleForms": [
+    "AOC-4", "AOC-4 XBRL", "AOC-4 CFS",
+    "MGT-7", "MGT-7A",
+    "ADT-1",
+    "DIR-3 KYC", "DIR-3 KYC Web",
+    "INC-20A",
+    "PAS-6",
+    "MSME-1",
+    "BEN-2",
+    "CSR-2",
+    "MR-3",
+    "MGT-14",
+    "DPT-3",
+    "CHG-1", "CHG-4", "CHG-9"
+  ],
+  "eligibilityCriteria": [
+    "Company must be registered under Companies Act 2013 or previous Companies Act 1956",
+    "Filings must be overdue as on scheme commencement date (15 April 2026)",
+    "Company must not be under liquidation, strike-off, or dissolution proceedings",
+    "All pending filings must be completed within the scheme period",
+    "Professional certification required where mandated by respective forms"
+  ],
+  "excludedEntities": [
+    "Companies under CIRP (Corporate Insolvency Resolution Process)",
+    "Companies struck off under Section 248",
+    "Companies with pending prosecution under Companies Act"
+  ],
+  "additionalFeeMatrix": {
+    "normalMultipliers": {
+      "upto30days": 2,
+      "31to60days": 4,
+      "61to90days": 6,
+      "91to180days": 10,
+      "181to270days": 12,
+      "271to365days": 18
+    },
+    "ccfsMultiplier": 0.1
+  }
+}
