@@ -1,26 +1,29 @@
 <header class="if-header">
   <div class="if-header-inner">
-    <!-- Brand Logo with Noble Gold Ring -->
-    <a href="/index.html" class="if-brand-logo" aria-label="Craftegon Corporate Services (CCS) Home">
-      <img src="/assets/images/craftegon-logo.jpg" alt="Craftegon Corporate Services (CCS) Official Insignia" class="brand-logo-img">
+    <!-- Brand Logo and Descriptor -->
+    <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services (CCS) Home">
+      <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
       <div class="brand-text-block">
-        <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #0F172A);">CRAFTEGON</span>
-        <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--brand-gold, #B4881B); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
+        <span class="brand-title">CRAFTEGON</span>
+        <span class="brand-subtitle">Corporate Services</span>
       </div>
     </a>
 
-    <!-- Universal Canonical Service Search (Prominent Header Discovery Bar) -->
+    <!-- Compact Universal Service Search -->
     <div class="universal-search-container" id="universal-search-container">
       <form class="universal-search-form" id="universal-search-form" action="/services.html" method="GET" role="search">
         <span class="universal-search-icon" aria-hidden="true">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
         </span>
         <input 
           type="text" 
           id="universal-search-input" 
           name="q" 
           class="universal-search-input" 
-          placeholder="Search 57+ services, forms (e.g. SPICe+, GST, TM)..." 
+          placeholder="Search services or forms..." 
           autocomplete="off" 
           spellcheck="false" 
           aria-label="Universal Service Search"
@@ -30,7 +33,7 @@
           role="combobox"
         >
         <button type="button" class="universal-search-clear" id="universal-search-clear" aria-label="Clear Search Input">&times;</button>
-        <span class="universal-search-shortcut" aria-hidden="true" title="Press forward-slash to focus search">/</span>
+        <span class="universal-search-shortcut" aria-hidden="true" title="Press forward slash to focus search">/</span>
       </form>
       
       <div class="universal-search-dropdown" id="universal-search-dropdown" role="region" aria-label="Search Results">
@@ -40,135 +43,86 @@
       </div>
     </div>
 
-    <!-- Desktop Navigation -->
-    <nav class="if-nav">
-      <!-- 1. Universal Service Directory Link (One-Click Full Access) -->
-      <a href="/services.html" class="if-nav-link" style="font-weight: 700; color: var(--gold-light);">
-        Services <span class="nav-count-badge">57</span>
-      </a>
-      
-      <!-- 2. Practice Areas Mega-Menu Dropdown -->
+    <!-- Desktop Primary Navigation -->
+    <nav class="if-nav" aria-label="Main Navigation">
+      <!-- 1. Home -->
+      <a href="/index.html" class="if-nav-link">Home</a>
+
+      <!-- 2. Services Dropdown -->
       <div class="if-dropdown">
         <a href="/services.html" class="if-nav-link">
-          Explore by Category 
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          Services <span class="nav-count-badge">57</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </a>
         
-        <!-- Mega Menu Container -->
-        <div class="if-megamenu if-dropdown-content" style="left: -120px; width: 840px; padding: 1.75rem; display: none; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+        <div class="if-dropdown-content if-megamenu" id="services-megamenu">
           <div>
-            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.75rem; letter-spacing: 0.08em; font-weight: 700;">Entity Formation &amp; Compliance</h4>
-            <ul style="display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.85rem; list-style: none; padding: 0; margin: 0;">
-              <li><a href="/verticals/01-entity-formation.html" style="text-decoration: none;">Entity Formation &amp; Structuring</a></li>
-              <li><a href="/verticals/02-roc-compliance.html" style="text-decoration: none;">RoC Annual Compliance</a></li>
-              <li><a href="/verticals/03-tax-compliance.html" style="text-decoration: none;">Corporate Tax &amp; GST Compliance</a></li>
-              <li><a href="/verticals/04-statutory-licenses.html" style="text-decoration: none;">Statutory &amp; Sectoral Licenses</a></li>
-              <li><a href="/verticals/05-contracts-legal.html" style="text-decoration: none;">Contracts &amp; Commercial Drafting</a></li>
+            <h4 class="dropdown-heading">Key Categories</h4>
+            <ul class="dropdown-list">
+              <li><a href="/verticals/01-entity-formation.html"><strong>1. Business Registration</strong><span>Company, LLP &amp; Entity Structuring</span></a></li>
+              <li><a href="/verticals/02-roc-compliance.html"><strong>2. Corporate Compliance</strong><span>ROC Annual Filings &amp; Secretarial</span></a></li>
+              <li><a href="/verticals/03-tax-compliance.html"><strong>3. Tax &amp; GST</strong><span>GST Returns &amp; Corporate Taxation</span></a></li>
+              <li><a href="/verticals/04-statutory-licenses.html"><strong>4. Licences &amp; IPR</strong><span>Trademarks, MSME &amp; Licences</span></a></li>
             </ul>
           </div>
           <div>
-            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.75rem; letter-spacing: 0.08em; font-weight: 700;">IPR, Labour &amp; Growth</h4>
-            <ul style="display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.85rem; list-style: none; padding: 0; margin: 0;">
-              <li><a href="/verticals/06-ipr-protection.html" style="text-decoration: none;">IPR &amp; Trademark Prosecution</a></li>
-              <li><a href="/verticals/07-labour-hr.html" style="text-decoration: none;">Labour Codes &amp; Workforce HR</a></li>
-              <li><a href="/verticals/08-fundraising-investment.html" style="text-decoration: none;">Fundraising &amp; Cap Table</a></li>
-              <li><a href="/verticals/09-ma-restructuring.html" style="text-decoration: none;">M&amp;A, Demergers &amp; Slump Sales</a></li>
-              <li><a href="/verticals/10-litigation-dispute.html" style="text-decoration: none;">Dispute Avoidance (Non-Litigation)</a></li>
+            <h4 class="dropdown-heading">Explore by Category</h4>
+            <ul class="dropdown-list">
+              <li><a href="/verticals/05-contracts-legal.html">Commercial Contracts &amp; Drafting</a></li>
+              <li><a href="/verticals/06-ipr-protection.html">IPR &amp; Trademark Protection</a></li>
+              <li><a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a></li>
+              <li><a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law</a></li>
+              <li><a href="/verticals/13-cross-border-fema.html">Cross-Border FDI &amp; FEMA</a></li>
+              <li><a href="/verticals/15-it-digital.html">IT &amp; Digital Infrastructure</a></li>
             </ul>
           </div>
           <div>
-            <h4 style="font-size: 0.75rem; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.75rem; letter-spacing: 0.08em; font-weight: 700;">Governance &amp; Digital</h4>
-            <ul style="display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.85rem; list-style: none; padding: 0; margin: 0;">
-              <li><a href="/verticals/11-governance-audit.html" style="text-decoration: none;">Governance, Audit &amp; Risk</a></li>
-              <li><a href="/verticals/12-esg-csr.html" style="text-decoration: none;">Data Privacy &amp; Tech Law</a></li>
-              <li><a href="/verticals/13-cross-border-fema.html" style="text-decoration: none;">Cross-Border FDI &amp; FEMA</a></li>
-              <li><a href="/verticals/14-exit-insolvency.html" style="text-decoration: none;">Corporate Retainers &amp; Legal Desk</a></li>
-              <li><a href="/verticals/15-it-digital.html" style="text-decoration: none;">IT &amp; Digital Infrastructure</a></li>
+            <h4 class="dropdown-heading">By Business Stage</h4>
+            <ul class="dropdown-list">
+              <li><a href="/services.html?stage=formation">Early Stage &amp; Incorporation</a></li>
+              <li><a href="/services.html?stage=compliance">Growth &amp; Annual Compliance</a></li>
+              <li><a href="/services.html?stage=governance">Governance, Audits &amp; Risk</a></li>
+              <li><a href="/services.html?stage=restructuring">Restructuring &amp; Entity Exit</a></li>
+              <li style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border-color);">
+                <a href="/services.html" style="color: var(--navy-800); font-weight: 700;">View Complete 57-Service Directory &rarr;</a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- 3. By Business Stage Dropdown -->
-      <div class="if-dropdown">
-        <a href="/services.html" class="if-nav-link">
-          By Business Stage
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-        </a>
-        <div class="if-dropdown-content" style="left: -20px; width: 330px; padding: 1.25rem; display: none; flex-direction: column; gap: 0.75rem;">
-          <a href="/services.html?stage=formation" style="display: flex; flex-direction: column; text-decoration: none; padding: 0.35rem 0;">
-            <strong style="color: var(--text-dark, #090D16); font-size: 0.875rem;">1. Startup &amp; Formation</strong>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">Pvt Ltd, LLP, OPC, Section 8, DPIIT, Udyam</span>
-          </a>
-          <a href="/services.html?stage=compliance" style="display: flex; flex-direction: column; text-decoration: none; padding: 0.35rem 0;">
-            <strong style="color: var(--text-dark, #090D16); font-size: 0.875rem;">2. Growth &amp; Operations</strong>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">RoC Annual, GST, PF/ESIC, Contracts, IPR</span>
-          </a>
-          <a href="/services.html?stage=governance" style="display: flex; flex-direction: column; text-decoration: none; padding: 0.35rem 0;">
-            <strong style="color: var(--text-dark, #090D16); font-size: 0.875rem;">3. Corporate Governance</strong>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">Secretarial Audit, Board Minutes, CSR, DPDP</span>
-          </a>
-          <a href="/services.html?stage=restructuring" style="display: flex; flex-direction: column; text-decoration: none; padding: 0.35rem 0;">
-            <strong style="color: var(--text-dark, #090D16); font-size: 0.875rem;">4. Restructuring &amp; Exit</strong>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">Fast-Track Mergers, Slump Sale, Strike-Off</span>
-          </a>
-        </div>
-      </div>
+      <!-- 3. About -->
+      <a href="/index.html#about" class="if-nav-link">About</a>
 
-      <!-- 4. Conversion & Tools Dropdown -->
-      <div class="if-dropdown">
-        <a href="/conversion/index.html" class="if-nav-link">
-          Tools &amp; AI
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-        </a>
-        <div class="if-dropdown-content" style="left: -40px; width: 360px; padding: 1.35rem; display: none; flex-direction: column; gap: 0.85rem;">
-          <a href="/conversion/ai-document-generator.html" style="display: flex; align-items: center; justify-content: space-between; text-decoration: none; padding: 0.4rem 0; font-weight: 700; font-size: 0.875rem;">
-            <span style="color: var(--text-dark, #090D16);">AI Legal Document Drafter</span>
-            <span class="noble-badge" style="font-size: 0.65rem; padding: 2px 7px;">AI Core</span>
-          </a>
-          <a href="/search/" style="text-decoration: none; font-size: 0.85rem; font-weight: 600; color: var(--gold-light);">Corporate &amp; IP Search Directory</a>
-          <a href="/portal/entity-search.html" style="text-decoration: none; font-size: 0.85rem;">CIN, LLPIN &amp; Trademark Lookup</a>
-          <a href="/conversion/partner-ecosystems.html" style="text-decoration: none; font-size: 0.85rem;">Banking &amp; Marketplace Hub</a>
-          <a href="/conversion/calculator.html" style="text-decoration: none; font-size: 0.85rem;">Statutory Calculator Suite</a>
-          <a href="/conversion/trademark-search.html" style="text-decoration: none; font-size: 0.85rem;">IP India Trademark Class Engine</a>
-          <a href="/conversion/strike-off-checker.html" style="text-decoration: none; font-size: 0.85rem;">STK-2 Fast-Track Strike-Off Checker</a>
-          <a href="/conversion/license-qualification.html" style="text-decoration: none; font-size: 0.85rem;">Enterprise License Qualifier</a>
-          <a href="/conversion/retainer-desk.html" style="text-decoration: none; font-size: 0.85rem;">Annual Corporate Retainer Desk</a>
-          <hr style="border: none; border-top: 1px solid rgba(212, 175, 55, 0.2); margin: 0.25rem 0;">
-          <a href="/conversion/index.html" style="text-decoration: none; color: var(--gold-light) !important; font-weight: 700; font-size: 0.85rem;">Explore All Diagnostic Desks &rarr;</a>
-        </div>
-      </div>
-
-      <!-- 5. Knowledge Base Dropdown -->
+      <!-- 4. Resources Dropdown -->
       <div class="if-dropdown">
         <a href="/knowledge/index.html" class="if-nav-link">
-          Knowledge
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          Resources
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </a>
-        <div class="if-dropdown-content" style="left: -40px; width: 360px; padding: 1.35rem; display: none; flex-direction: column; gap: 0.85rem;">
-          <a href="/knowledge/index.html" style="text-decoration: none; color: var(--gold-light) !important; font-weight: 700; font-size: 0.875rem;">Regulatory Intelligence Hub</a>
-          <a href="/knowledge/mca-adjudication-penalties.html" style="text-decoration: none; font-size: 0.85rem; font-weight: 600; color: #DC2626;">MCA Sec 454 Adjudication (MGT-14)</a>
-          <a href="/knowledge/gst-einvoicing-compliance-mandate.html" style="text-decoration: none; font-size: 0.85rem; font-weight: 600; color: #059669;">GST 30-Day E-Invoicing &amp; Biometrics</a>
-          <a href="/knowledge/spice-plus-mca-v3-blueprint.html" style="text-decoration: none; font-size: 0.85rem;">SPICe+ MCA V3 Incorporation Blueprint</a>
-          <a href="/knowledge/sbo-ben2-guide.html" style="text-decoration: none; font-size: 0.85rem;">Significant Beneficial Ownership (BEN-2)</a>
-          <a href="/knowledge/pas6-demat-audit-guide.html" style="text-decoration: none; font-size: 0.85rem;">Rule 9B PAS-6 Demat Audit Blueprint</a>
-          <a href="/knowledge/rbi-fla-return-blueprint.html" style="text-decoration: none; font-size: 0.85rem;">RBI Foreign Liabilities &amp; Assets (FLA)</a>
-          <a href="/knowledge/transfer-pricing-guide.html" style="text-decoration: none; font-size: 0.85rem;">Transfer Pricing &amp; Form 3CEB Guide</a>
-          <a href="/knowledge/late-fee-calculator-guide.html" style="text-decoration: none; font-size: 0.85rem;">MCA Late Fee Computational Logic</a>
-          <hr style="border: none; border-top: 1px solid rgba(212, 175, 55, 0.2); margin: 0.25rem 0;">
-          <a href="/knowledge/index.html" style="text-decoration: none; color: var(--gold-light) !important; font-weight: 700; font-size: 0.85rem;">All Technical Blueprints &rarr;</a>
+        <div class="if-dropdown-content" style="left: -40px; width: 300px; padding: 1.25rem; flex-direction: column; gap: 0.75rem;">
+          <a href="/knowledge/index.html" style="font-weight: 600;">Compliance Knowledge Centre</a>
+          <a href="/conversion/calculator.html">RoC Late Fee Calculator</a>
+          <a href="/conversion/trademark-search.html">NICE Trademark Screener</a>
+          <a href="/conversion/index.html">Diagnostic Tools &amp; Checkers</a>
+          <hr style="border: none; border-top: 1px solid var(--border-color); margin: 0.25rem 0;">
+          <a href="/search/" style="font-size: 0.85rem;">Corporate &amp; IP Registry Search</a>
+          <a href="/portal/entity-search.html" style="font-size: 0.85rem;">CIN &amp; LLPIN Master Lookup</a>
         </div>
       </div>
+
+      <!-- 5. Contact -->
+      <a href="/index.html#contact" class="if-nav-link">Contact</a>
     </nav>
 
     <!-- Header Actions -->
     <div class="if-header-actions">
-      <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-secondary if-btn-whatsapp" style="border-color: rgba(37, 211, 102, 0.4); color: #25D366; padding: 0.48rem 0.85rem;" aria-label="Chat with Compliance Desk on WhatsApp">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.995.544 1.772.813 2.796.813 3.179 0 5.767-2.587 5.767-5.766.001-3.187-2.575-5.77-5.767-5.77zm0-2.172c4.383 0 7.938 3.555 7.938 7.938 0 1.545-.445 2.991-1.218 4.22l1.249 4.561-4.667-1.225c-1.196.702-2.577 1.107-4.053 1.107-4.383 0-7.938-3.555-7.938-7.938 0-4.383 3.555-7.938 7.938-7.938z"/></svg>
-        <span class="btn-text">WhatsApp</span>
+      <a href="/portal/dashboard.html" class="if-btn-secondary portal-nav-link" title="Client Compliance Portal">
+        Portal
       </a>
-      <a href="/portal/dashboard.html" class="if-btn-secondary" style="border-color: rgba(212, 175, 55, 0.4);"><span class="noble-badge-dot" style="margin-right: 4px;"></span>Portal OS</a>
-      <a href="/conversion/calculator.html" class="if-btn-primary">Calculate Retainer</a>
+      <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-primary btn-talk-expert">
+        Talk to an Expert
+      </a>
       <button class="if-mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -183,11 +137,11 @@
   <div class="if-mobile-backdrop" id="mobile-drawer-backdrop"></div>
   <div class="if-mobile-drawer" id="mobile-drawer" aria-hidden="true">
     <div class="if-mobile-drawer-header">
-      <a href="/index.html" class="if-brand-logo" aria-label="Craftegon Corporate Services (CCS) Home">
-        <img src="/assets/images/craftegon-logo.jpg" alt="Craftegon Corporate Services (CCS) Insignia" class="brand-logo-img">
+      <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services (CCS) Home">
+        <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
         <div class="brand-text-block">
-          <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #0F172A);">CRAFTEGON</span>
-          <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--brand-gold, #B4881B); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
+          <span class="brand-title">CRAFTEGON</span>
+          <span class="brand-subtitle">Corporate Services</span>
         </div>
       </a>
       <button class="if-mobile-drawer-close" id="mobile-drawer-close" aria-label="Close Navigation Menu">
@@ -198,7 +152,7 @@
       </button>
     </div>
     
-    <!-- Mobile Universal Search Input -->
+    <!-- Mobile Search Form -->
     <div class="if-mobile-search-box">
       <form action="/services.html" method="GET" style="position:relative; width:100%;">
         <span style="position:absolute; left:0.8rem; top:50%; transform:translateY(-50%); color:var(--text-muted); pointer-events:none;">
@@ -209,112 +163,22 @@
     </div>
 
     <div class="if-mobile-drawer-body">
-      <!-- Quick Conversion Actions -->
-      <div class="if-mobile-actions">
-        <a href="/services.html" class="if-mobile-btn-ai" style="background: linear-gradient(135deg, #090D16, #1E293B); color: #C59B27; border: 1px solid rgba(197, 155, 39, 0.4);">🔍 Explore All 57 Services</a>
-        <a href="/conversion/ai-document-generator.html" class="if-mobile-btn-ai">⚡ AI Legal Drafter</a>
-        <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="display:block; text-align:center; margin-top:0.4rem; border-color: rgba(37, 211, 102, 0.4); color: #25D366;">
-          💬 WhatsApp Desk: +91 86069 18247
+      <a href="/index.html" class="if-mobile-nav-link">Home</a>
+      <a href="/services.html" class="if-mobile-nav-link">Services Directory (57 Services)</a>
+      <a href="/index.html#key-services" class="if-mobile-nav-link">&bull; 4 Key Services</a>
+      <a href="/index.html#about" class="if-mobile-nav-link">About CraftEgon</a>
+      <a href="/knowledge/index.html" class="if-mobile-nav-link">Resources &amp; Knowledge</a>
+      <a href="/conversion/calculator.html" class="if-mobile-nav-link">&bull; RoC Late Fee Calculator</a>
+      <a href="/index.html#contact" class="if-mobile-nav-link">Contact</a>
+      <a href="/portal/dashboard.html" class="if-mobile-nav-link">Client Portal</a>
+      
+      <div style="margin-top: 1.5rem;">
+        <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; margin-bottom: 0.5rem;">
+          Talk to an Expert
         </a>
-        <a href="/portal/dashboard.html" class="if-btn-secondary" style="display:block; text-align:center; margin-top:0.4rem; border-color: rgba(212, 175, 55, 0.4);"><span class="noble-badge-dot" style="margin-right: 4px;"></span>Compliance Calendar OS</a>
-        <a href="/conversion/calculator.html" class="if-btn-primary" style="display:block; text-align:center; margin-top:0.4rem;">Calculate Retainer</a>
-      </div>
-
-      <!-- Mobile Navigation Links -->
-      <div class="if-mobile-nav-group">
-        <div class="if-mobile-nav-title">Main Menu</div>
-        <a href="/index.html" class="if-mobile-nav-link">Home</a>
-        <a href="/services.html" class="if-mobile-nav-link" style="color: var(--gold-light); font-weight: 700;">Complete 57-Service Directory</a>
-        <a href="/conversion/index.html" class="if-mobile-nav-link">Diagnostic &amp; Advisory Tools</a>
-        <a href="/knowledge/index.html" class="if-mobile-nav-link">Regulatory Intelligence Hub</a>
-      </div>
-
-      <!-- Client Portal & SaaS Group -->
-      <div class="if-mobile-nav-group">
-        <div class="if-mobile-nav-title">Client Portal &amp; SaaS OS</div>
-        <a href="/portal/dashboard.html" class="if-mobile-nav-link" style="color: var(--gold-light); font-weight: 700;">⚡ Compliance Calendar OS</a>
-        <a href="/portal/subscription.html" class="if-mobile-nav-link">SaaS Retainer Plans &amp; Pricing</a>
-        <a href="/portal/index.html" class="if-mobile-nav-link">Client Portal Gateway</a>
-      </div>
-
-      <!-- Practice Areas Accordion -->
-      <details class="if-mobile-accordion">
-        <summary>Practice Areas <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="if-mobile-sublinks">
-          <a href="/verticals/01-entity-formation.html">Entity Formation &amp; Structuring</a>
-          <a href="/verticals/02-roc-compliance.html">RoC Annual Compliance</a>
-          <a href="/verticals/03-tax-compliance.html">Corporate Tax &amp; GST Compliance</a>
-          <a href="/verticals/04-statutory-licenses.html">Statutory &amp; Sectoral Licenses</a>
-          <a href="/verticals/05-contracts-legal.html">Contracts &amp; Commercial Drafting</a>
-          <a href="/verticals/06-ipr-protection.html">IPR &amp; Trademark Prosecution</a>
-          <a href="/verticals/07-labour-hr.html">Labour Codes &amp; Workforce HR</a>
-          <a href="/verticals/08-fundraising-investment.html">Fundraising &amp; Cap Table Advisory</a>
-          <a href="/verticals/09-ma-restructuring.html">M&amp;A, Demergers &amp; Slump Sales</a>
-          <a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a>
-          <a href="/verticals/11-governance-audit.html">Governance, Audit &amp; Risk</a>
-          <a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law</a>
-          <a href="/verticals/13-cross-border-fema.html">Cross-Border FDI &amp; FEMA Compliance</a>
-          <a href="/verticals/14-exit-insolvency.html">Corporate Retainers &amp; Legal Desk</a>
-          <a href="/verticals/15-it-digital.html">IT &amp; Digital Infrastructure</a>
-        </div>
-      </details>
-
-      <!-- By Business Stage Accordion -->
-      <details class="if-mobile-accordion">
-        <summary>By Business Stage <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="if-mobile-sublinks">
-          <a href="/services.html?stage=formation">1. Startup &amp; Entity Formation</a>
-          <a href="/services.html?stage=compliance">2. Growth &amp; Annual Operations</a>
-          <a href="/services.html?stage=governance">3. Corporate Governance &amp; Audits</a>
-          <a href="/services.html?stage=restructuring">4. Restructuring, M&amp;A &amp; Exit</a>
-        </div>
-      </details>
-
-      <!-- Key Diagnostic Tools Accordion -->
-      <details class="if-mobile-accordion">
-        <summary>Interactive Diagnostic Tools <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="if-mobile-sublinks">
-          <a href="/search/" style="font-weight: 600; color: var(--gold-light);">Corporate &amp; IP Search Directory</a>
-          <a href="/portal/entity-search.html">CIN, LLPIN &amp; Trademark Lookup</a>
-          <a href="/conversion/partner-ecosystems.html">Corporate Banking &amp; Marketplace Hub</a>
-          <a href="/conversion/ai-document-generator.html">AI Legal Document Generator</a>
-          <a href="/conversion/calculator.html">Statutory Calculator Suite</a>
-          <a href="/conversion/trademark-search.html">IP India Trademark Class Engine</a>
-          <a href="/conversion/strike-off-checker.html">STK-2 Fast-Track Strike-Off Checker</a>
-          <a href="/conversion/license-qualification.html">Enterprise License Qualifier</a>
-          <a href="/conversion/retainer-desk.html">Annual Corporate Retainer Desk</a>
-          <a href="/conversion/index.html">View All Diagnostic Tools &rarr;</a>
-        </div>
-      </details>
-
-      <!-- Knowledge Base Accordion -->
-      <details class="if-mobile-accordion">
-        <summary>Knowledge Blueprints <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <div class="if-mobile-sublinks">
-          <a href="/knowledge/index.html">Regulatory Intelligence Hub</a>
-          <a href="/knowledge/mca-adjudication-penalties.html" style="color: #DC2626; font-weight: 600;">MCA Sec 454 Adjudication (MGT-14)</a>
-          <a href="/knowledge/gst-einvoicing-compliance-mandate.html" style="color: #059669; font-weight: 600;">GST E-Invoicing &amp; Biometrics</a>
-          <a href="/knowledge/spice-plus-mca-v3-blueprint.html">SPICe+ MCA V3 Blueprint</a>
-          <a href="/knowledge/sbo-ben2-guide.html">Significant Beneficial Ownership (BEN-2)</a>
-          <a href="/knowledge/pas6-demat-audit-guide.html">PAS-6 Demat Audit Blueprint</a>
-          <a href="/knowledge/rbi-fla-return-blueprint.html">RBI FLA Annual Return</a>
-          <a href="/knowledge/transfer-pricing-guide.html">Transfer Pricing &amp; Form 3CEB</a>
-          <a href="/knowledge/late-fee-calculator-guide.html">MCA Late Fee Computational Logic</a>
-          <a href="/knowledge/index.html">View All Technical Blueprints &rarr;</a>
-        </div>
-      </details>
-
-      <div class="if-mobile-nav-group" style="margin-top: 1.5rem;">
-        <div class="if-mobile-nav-title">Legal &amp; Trust</div>
-        <a href="/legal/terms.html" class="if-mobile-nav-link">Terms of Service</a>
-        <a href="/legal/privacy.html" class="if-mobile-nav-link">Privacy Policy</a>
-      </div>
-
-      <div class="if-mobile-nav-group" style="margin-top: 1.5rem;">
-        <div class="if-mobile-nav-title">Direct Corporate Support</div>
-        <a href="tel:+918606918247" class="if-mobile-nav-link">📞 Call: +91 86069 18247</a>
-        <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-mobile-nav-link" style="color: #25D366; font-weight: 600;">💬 WhatsApp: +91 86069 18247 &bull; Live &rarr;</a>
-        <a href="mailto:admin@craftegon.com" class="if-mobile-nav-link" style="color: var(--gold-light);">✉️ Email: admin@craftegon.com</a>
+        <a href="tel:+918606918247" class="btn btn-secondary" style="width: 100%; text-align: center;">
+          Call: +91 86069 18247
+        </a>
       </div>
     </div>
   </div>

@@ -467,6 +467,24 @@
     const BANK_NAMES = { hdfc: 'HDFC Bank', icici: 'ICICI Bank', axis: 'Axis Bank', kotak: 'Kotak Mahindra Bank', yes: 'Yes Bank', indusind: 'IndusInd Bank', au: 'AU Small Finance Bank', sib: 'South Indian Bank', dbs: 'DBS Bank' };
     const MARKETPLACE_TYPES = { amazon: 'marketplace-amazon', flipkart: 'marketplace-flipkart', swiggy: 'marketplace-swiggy', blinkit: 'marketplace-blinkit', zepto: 'marketplace-zepto', bigbasket: 'marketplace-bigbasket' };
 
+    function openBankOnboarding(bank) {
+      switchPartnerTab('resolutions');
+      const bankNameInput = document.getElementById('bank-name');
+      if (bankNameInput && BANK_NAMES[bank]) {
+        bankNameInput.value = BANK_NAMES[bank];
+      }
+      const resType = document.getElementById('resolution-type');
+      if (resType) resType.value = 'bank-account';
+    }
+
+    function openMarketplaceOnboarding(platform) {
+      switchPartnerTab('resolutions');
+      const resType = document.getElementById('resolution-type');
+      if (resType && MARKETPLACE_TYPES[platform]) {
+        resType.value = MARKETPLACE_TYPES[platform];
+      }
+    }
+
     function generateResolution(e) {
       e.preventDefault();
       const type = document.getElementById('resolution-type').value;

@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   injectServiceDiscoveryReciprocal();
 
   // 1. Load and inject Navbar with graceful fallback
-  const navContainer = document.getElementById("global-navbar");
+  const navContainer = document.getElementById("global-navbar") || document.getElementById("global-header");
   if (navContainer) {
     try {
       const navResponse = await fetch("/components/navbar.html");

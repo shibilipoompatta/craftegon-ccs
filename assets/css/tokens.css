@@ -1,34 +1,69 @@
 /**
  * ==========================================================================
  * CRAFTEGON CORPORATE SERVICES (CCS) - GLOBAL DESIGN TOKENS
- * Premium Corporate Ivory, Gold, Silver & Charcoal Design Specification
+ * Professional Corporate Navy, White & Slate Specification
  * ==========================================================================
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
 
 :root {
-  /* --- Color Palette Variables (Noble Ivory, Gold, Silver & Charcoal) --- */
-  --bg-primary: #FCFBF7;            /* Noble Warm White / Ivory */
-  --bg-ivory: #FCFBF7;              /* Sovereign Ivory Canvas */
-  --bg-secondary: #F4F5F7;          /* Alternate Section Background (Neutral Pearl) */
-  --surface-light: #ECEEF2;         /* Light UI Surfaces (Clean Slate Surface) */
-  --border-color: #E2E8F0;          /* Silver Platinum Borders */
-  --silver-border: #E2E8F0;         /* Platinum / Silver Edge */
-  --text-secondary: #64748B;        /* Secondary UI Elements (Slate Muted) */
-  --text-main: #334155;             /* Main Paragraph Text (Charcoal Slate) */
-  --text-muted: #64748B;            /* Secondary Text & Labels (Slate Muted) */
-  --brand-gold: #C59B27;            /* Noble Gold Accent */
-  --gold-primary: #C59B27;          /* Primary Noble Gold */
-  --brand-gold-hover: #966F12;      /* Deep Gold Hover */
+  /* --- Primary Brand Palette: Corporate Navy --- */
+  --navy-900: #071527;              /* Deepest Corporate Navy */
+  --navy-800: #0B2545;              /* Master Corporate Navy */
+  --navy-700: #133965;              /* Mid Navy */
+  --navy-600: #1C4D82;              /* Active Blue / Navy Accent */
+  --navy-100: #E6EEF7;              /* Light Navy Tint */
+  --navy-50:  #F0F5FA;              /* Very Subtle Navy Tint */
+
+  /* --- Neutral Background & Grey Scale --- */
+  --bg-primary: #FFFFFF;            /* Clean White Canvas */
+  --bg-white: #FFFFFF;              /* Pure White */
+  --bg-secondary: #F8FAFC;          /* Clean Neutral Grey for Section Alternation */
+  --bg-ivory: #FFFFFF;
+  --surface-light: #F1F5F9;         /* Light Surface Background */
+  --card-bg: #FFFFFF;               /* White Cards */
+
+  /* --- Muted Gold / Brass Accent --- */
+  --brand-gold: #C59B27;            /* Restrained Muted Gold */
+  --gold-primary: #C59B27;          /* Primary Accent Gold */
+  --brand-gold-hover: #A37F1D;      /* Deep Gold Hover */
   --brand-gold-subtle: rgba(197, 155, 39, 0.08); /* Subtle Gold Tint */
-  --brand-gold-border: rgba(197, 155, 39, 0.24); /* Subtle Gold Border */
-  --text-dark: #090D16;             /* Charcoal Headings & High Emphasis */
-  --charcoal: #090D16;              /* Sovereign Charcoal */
-  --text-dark-gold: #785B0D;        /* Headings Accent (Deep Antique Gold) */
-  --card-bg: #FFFFFF;               /* Pure White Cards */
+  --brand-gold-border: rgba(197, 155, 39, 0.25); /* Subtle Gold Border */
+  --text-dark-gold: #8C6D14;
+
+  /* --- Typography Colors --- */
+  --text-dark: #0A192F;             /* Deep Navy / Charcoal Headings */
+  --charcoal: #0A192F;              /* Sovereign Dark */
+  --text-main: #334155;             /* High-legibility Slate Body Text */
+  --text-secondary: #64748B;        /* Muted Text / Sub-labels */
+  --text-muted: #64748B;            /* Muted Labels & Captions */
+  --text-light: #94A3B8;            /* Placeholder / Light Slate */
+
+  /* --- Structural Borders & Dividers --- */
+  --border-color: #E2E8F0;          /* Clean Light Border */
+  --border-subtle: #E2E8F0;
+  --border-hover: #CBD5E1;          /* Medium Grey on Hover */
+  --silver-border: #E2E8F0;
+
+  /* --- Status Indicators --- */
+  --success: #059669;               /* Forest Emerald */
+  --success-light: #ECFDF5;
+  --warning: #D97706;               /* Amber */
+  --warning-light: #FFFBEB;
+  --danger: #DC2626;                /* Crimson */
+  --danger-light: #FEF2F2;
 
   /* --- Backward-Compatible Aliases --- */
+  --primary: var(--navy-800);
+  --primary-hover: var(--navy-900);
+  --primary-light: var(--navy-50);
+  --accent: var(--brand-gold);
+  --accent-gradient: linear-gradient(135deg, #0B2545 0%, #133965 100%);
+  --cta-gradient: linear-gradient(135deg, #0B2545 0%, #071527 100%);
+  --royal-gradient: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  --card-gradient: #FFFFFF;
+
   --bg-main: var(--bg-primary);
   --bg-canvas: var(--bg-primary);
   --bg-surface: var(--surface-light);
@@ -39,37 +74,19 @@
 
   --gold: var(--brand-gold);
   --gold-light: #C59B27;
-  --gold-dark: #785B0D;
+  --gold-dark: #8C6D14;
   --gold-hover: var(--brand-gold-hover);
   --gold-subtle: var(--brand-gold-subtle);
   --gold-border: var(--brand-gold-border);
-  --gold-border-strong: rgba(180, 136, 27, 0.45);
-  --gold-glow: 0 0 16px rgba(180, 136, 27, 0.12);
-
-  --primary: var(--brand-gold);
-  --primary-hover: var(--brand-gold-hover);
-  --primary-light: var(--brand-gold-subtle);
-  --accent: var(--brand-gold);
-  --accent-gradient: linear-gradient(135deg, #785B0D 0%, #B4881B 100%);
-  --cta-gradient: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-  --royal-gradient: linear-gradient(180deg, #FFFFFF 0%, #FAF9F5 50%, #F4F5F7 100%);
-  --card-gradient: #FFFFFF;
+  --gold-border-strong: rgba(197, 155, 39, 0.4);
 
   --text-primary: var(--text-dark);
-  --text-light: #64748B;
   --text-gold: var(--brand-gold);
-  --border-subtle: #E2E8F0;
-  --border-hover: #CBD5E1;
-
-  --success: #10B981;
-  --success-glow: rgba(16, 185, 129, 0.15);
-  --warning: #F59E0B;
-  --danger: #EF4444;
 
   /* --- Typography Scale & Font Families --- */
-  --font-heading: 'Cinzel', Georgia, serif;        /* Noble display headings & brand wordmark */
-  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Clean corporate body */
-  --font-mono: 'DM Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace; /* Statutory tags, CIN, pricing */
+  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'DM Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --font-sans: var(--font-body);
   --font-serif: var(--font-heading);
@@ -100,23 +117,29 @@
   --space-8: 2rem;     /* 32px */
   --space-12: 3rem;    /* 48px */
   --space-16: 4rem;    /* 64px */
+  --space-20: 5rem;    /* 80px */
   --space-24: 6rem;    /* 96px */
 
-  /* --- Border Radius --- */
-  --radius-sm: 6px;
-  --radius-md: 10px;   /* Clean modern card radius */
-  --radius-lg: 14px;
-  --radius-xl: 20px;
+  /* Predictable Content Width */
+  --container-max: 1200px;
+  --container-narrow: 900px;
+
+  /* --- Border Radius (Simple, Professional, Restrained) --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;    /* Clean professional card radius */
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
 
-  /* --- Elevation & Refined Box Shadows --- */
-  --shadow-standard: 0 1px 3px rgba(15, 23, 42, 0.05), 0 4px 12px rgba(15, 23, 42, 0.03);
+  /* --- Subtle Corporate Shadows (No Glows) --- */
+  --shadow-standard: 0 1px 3px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(15, 23, 42, 0.03);
   --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.07);
-  --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.08);
   --shadow-noble: var(--shadow-standard);
-  --shadow-gold: 0 4px 16px rgba(180, 136, 27, 0.12);
-  --shadow-gold-card: var(--shadow-gold);
-  --shadow-glow: 0 0 16px rgba(180, 136, 27, 0.12);
-  --focus-gold: 0 0 0 3px rgba(180, 136, 27, 0.25);
+  --shadow-gold: 0 2px 8px rgba(197, 155, 39, 0.12);
+  --shadow-gold-card: var(--shadow-standard);
+  --shadow-glow: none;
+  --focus-ring: 0 0 0 3px rgba(11, 37, 69, 0.2);
+  --focus-gold: 0 0 0 3px rgba(197, 155, 39, 0.25);
 }
