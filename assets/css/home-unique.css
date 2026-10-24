@@ -739,3 +739,35 @@
   margin-top: 0.75rem;
   text-align: center;
 }
+
+/* --- Mobile App Polish & Responsive Fine-Tuning (< 640px) --- */
+@media (max-width: 640px) {
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.8rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  .practice-verticals-hub {
+    padding: 1.5rem 1rem;
+  }
+  .contact-form-card {
+    padding: 1.5rem 1.15rem;
+  }
+  .contact-details-box {
+    padding: 1.25rem 1rem;
+  }
+  .form-input-home {
+    min-height: 44px;
+  }
+  .form-submit-home {
+    min-height: 44px;
+  }
+}

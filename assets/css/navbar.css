@@ -625,6 +625,31 @@
   border-color: var(--brand-gold);
 }
 
+.if-mobile-search-box {
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--navy-50, #F0F4F8);
+}
+
+.if-mobile-search-input {
+  width: 100%;
+  padding: 0.55rem 0.85rem 0.55rem 2.25rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--navy-800, #0B2545);
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm, 6px);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.if-mobile-search-input:focus {
+  border-color: var(--navy-800, #0B2545);
+  box-shadow: 0 0 0 2px rgba(11, 37, 69, 0.12);
+}
+
 .if-mobile-drawer-body {
   padding: 1.5rem;
   overflow-y: auto;
@@ -739,21 +764,33 @@
   color: var(--brand-gold);
 }
 
-/* Keep the full navigation and its four action links on screens wide enough to fit them. */
-@media (min-width: 1024px) and (max-width: 1359px) {
-  .if-nav { display: none; }
-  .if-header-actions > a { display: none; }
-  .if-mobile-toggle { display: flex; }
+/* Responsive Header Behavior across Devices (Laptop, Tablet, Mobile) */
+@media (min-width: 1024px) {
+  .if-nav { display: flex; }
+  .if-mobile-toggle { display: none; }
 }
 
 @media (max-width: 1023px) {
-  .if-header-inner { padding: 0.75rem 1rem; }
+  .if-header-inner { padding: 0.65rem 1rem; }
   .if-header-actions { gap: 0.5rem; }
+  .if-nav { display: none; }
+  .if-mobile-toggle { display: flex; }
+}
+
+@media (max-width: 640px) {
+  .portal-nav-link { display: none; }
+  .btn-talk-expert {
+    padding: 0.42rem 0.75rem;
+    font-size: 0.76rem;
+  }
+  .brand-title { font-size: 1.05rem; }
+  .brand-subtitle { font-size: 0.64rem; }
 }
 
 @media (max-width: 380px) {
-  .brand-title { font-size: 1rem; }
-  .brand-subtitle { font-size: 0.65rem; }
+  .btn-talk-expert { display: none; }
+  .brand-title { font-size: 0.98rem; }
+  .brand-subtitle { font-size: 0.62rem; }
   .if-mobile-drawer { max-width: none; }
   .if-mobile-drawer-header,
   .if-mobile-drawer-body { padding-inline: 1rem; }
