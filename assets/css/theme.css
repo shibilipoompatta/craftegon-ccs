@@ -318,3 +318,13 @@ label {
   margin-bottom: 0.4rem;
   display: block;
 }
+
+/* --------------------------------------------------------------------------
+   8. Responsive Form Layouts & Touch Ergonomics
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .if-lead-form div[style*="grid-template-columns"],
+  form div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -18,7 +18,7 @@
     .v01-card h3 { margin: 0; color: var(--primary); font-size: 1.05rem; }
     .v01-card p { margin: 0; color: var(--text-muted); font-size: .9rem; }
     .v01-links { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-top: auto; padding-top: .35rem; }
-    .v01-note { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 4px solid var(--primary); background: var(--card-gradient); border: 1px solid rgba(212, 175, 55, 0.22); color: var(--text-main); color: var(--text-muted); }
+    .v01-note { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 4px solid var(--primary); background: var(--card-gradient); border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--text-main); }
     @media (max-width: 600px) { .v01-main { padding: 2rem 1rem; } }
   </style>
 
@@ -119,8 +119,8 @@
 <body>
   <div id="global-navbar"></div>
   <main class="container v01-main">
-    <nav class="v01-breadcrumb" aria-label="Breadcrumb">
-      <a href="/index.html">Home</a> / <a href="/index.html#service-verticals">Practice Areas</a> / <span aria-current="page">Business Formation &amp; Structuring</span>
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <a href="/index.html#practice-areas">Practice Areas</a> / <span aria-current="page">Business Formation &amp; Structuring</span>
     </nav>
 
     <header>

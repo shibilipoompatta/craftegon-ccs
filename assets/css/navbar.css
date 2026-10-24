@@ -809,7 +809,7 @@
 }
 
 @media (max-width: 1023px) {
-  .if-header-actions > a { display: none; }
+  .portal-nav-link { display: none; }
   .if-mobile-toggle { display: flex; }
 }
 

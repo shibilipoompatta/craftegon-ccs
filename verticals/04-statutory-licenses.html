@@ -19,7 +19,7 @@
     .v04-card p { margin: 0; color: var(--text-muted); font-size: .9rem; }
     .v04-card .v04-deliverables { color: var(--text-color); }
     .v04-status { margin-top: auto; padding-top: .35rem; font-size: .8rem; font-weight: 600; }
-    .v04-notice { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 4px solid var(--primary); background: var(--card-gradient); border: 1px solid rgba(212, 175, 55, 0.22); color: var(--text-main); color: var(--text-muted); }
+    .v04-notice { margin-top: 2rem; padding: 1rem 1.25rem; border-left: 4px solid var(--primary); background: var(--card-gradient); border-top: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--text-main); }
     .v04-cta { margin-top: 1.5rem; }
     @media (max-width: 600px) { .v04-main { padding: 2rem 1rem; } }
   </style>
@@ -121,8 +121,8 @@
 <body>
   <div id="global-navbar"></div>
   <main class="container v04-main">
-    <nav class="v04-breadcrumb" aria-label="Breadcrumb">
-      <a href="/index.html">Home</a> / <a href="/index.html#service-verticals">Practice Areas</a> / <span aria-current="page">Licenses &amp; Statutory Registrations</span>
+    <nav class="if-breadcrumb" aria-label="Breadcrumb">
+      <a href="/index.html">Home</a> / <a href="/index.html#practice-areas">Practice Areas</a> / <span aria-current="page">Licenses &amp; Statutory Registrations</span>
     </nav>
 
     <header>
