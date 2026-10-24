@@ -14,6 +14,7 @@
 /portal/*      /portal/:splat          200
 /verticals/*   /verticals/:splat       200
 /services        /services.html          200
+/services/       /services.html          200
 /services/*      /services/:splat        200
 /knowledge/*   /knowledge/:splat       200
 /conversion/*  /conversion/:splat      200

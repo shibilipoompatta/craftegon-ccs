@@ -237,26 +237,118 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 function initDropdowns() {
-  document.querySelectorAll(".if-dropdown").forEach((dropdown) => {
-    const menu = dropdown.querySelector(".if-dropdown-content, .if-megamenu");
-    if (!menu) return;
+  const dropdowns = Array.from(document.querySelectorAll(".if-dropdown"));
+  if (!dropdowns.length) return;
 
-    dropdown.addEventListener("mouseenter", () => {
-      menu.style.display = menu.classList.contains("if-megamenu") ? "grid" : "flex";
+  let activeDropdown = null;
+  let closeTimer = null;
+
+  function closeAllDropdowns() {
+    dropdowns.forEach((dd) => {
+      dd.classList.remove("is-open");
+      dd.classList.add("is-closed");
+      const trigger = dd.querySelector(".if-nav-link");
+      if (trigger) trigger.setAttribute("aria-expanded", "false");
     });
-    dropdown.addEventListener("mouseleave", () => {
-      menu.style.display = "none";
+    activeDropdown = null;
+  }
+
+  function openDropdown(dd) {
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+    // Close other dropdowns immediately
+    dropdowns.forEach((other) => {
+      if (other !== dd) {
+        other.classList.remove("is-open");
+        other.classList.add("is-closed");
+        const trigger = other.querySelector(".if-nav-link");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+      }
     });
 
+    dd.classList.remove("is-closed");
+    dd.classList.add("is-open");
+    const trigger = dd.querySelector(".if-nav-link");
+    if (trigger) trigger.setAttribute("aria-expanded", "true");
+    activeDropdown = dd;
+  }
+
+  dropdowns.forEach((dropdown) => {
     const trigger = dropdown.querySelector(".if-nav-link");
-    if (trigger) {
-      trigger.addEventListener("click", (e) => {
-        if (window.innerWidth < 1024) {
-          e.preventDefault();
-          const isShown = menu.style.display === "grid" || menu.style.display === "flex";
-          menu.style.display = isShown ? "none" : (menu.classList.contains("if-megamenu") ? "grid" : "flex");
+    const menu = dropdown.querySelector(".if-dropdown-content, .if-megamenu");
+    if (!trigger || !menu) return;
+
+    // Hover management on desktop
+    dropdown.addEventListener("mouseenter", () => {
+      if (window.innerWidth >= 1024) {
+        openDropdown(dropdown);
+      }
+    });
+
+    dropdown.addEventListener("mouseleave", () => {
+      if (window.innerWidth >= 1024) {
+        closeTimer = setTimeout(() => {
+          if (activeDropdown === dropdown) {
+            dropdown.classList.remove("is-open");
+            dropdown.classList.add("is-closed");
+            trigger.setAttribute("aria-expanded", "false");
+            activeDropdown = null;
+          }
+        }, 160);
+      }
+    });
+
+    // Keyboard focus management
+    dropdown.addEventListener("focusin", () => {
+      if (window.innerWidth >= 1024) {
+        openDropdown(dropdown);
+      }
+    });
+
+    dropdown.addEventListener("focusout", (e) => {
+      if (window.innerWidth >= 1024) {
+        setTimeout(() => {
+          if (!dropdown.contains(document.activeElement)) {
+            dropdown.classList.remove("is-open");
+            dropdown.classList.add("is-closed");
+            trigger.setAttribute("aria-expanded", "false");
+            if (activeDropdown === dropdown) activeDropdown = null;
+          }
+        }, 10);
+      }
+    });
+
+    // Mobile click toggle
+    trigger.addEventListener("click", (e) => {
+      if (window.innerWidth < 1024) {
+        e.preventDefault();
+        const isOpen = dropdown.classList.contains("is-open");
+        if (isOpen) {
+          dropdown.classList.remove("is-open");
+          dropdown.classList.add("is-closed");
+          trigger.setAttribute("aria-expanded", "false");
+        } else {
+          openDropdown(dropdown);
         }
-      });
+      }
+    });
+  });
+
+  // Global dismiss on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && activeDropdown) {
+      const trigger = activeDropdown.querySelector(".if-nav-link");
+      closeAllDropdowns();
+      if (trigger) trigger.focus();
+    }
+  });
+
+  // Global dismiss on click outside
+  document.addEventListener("click", (e) => {
+    if (activeDropdown && !activeDropdown.contains(e.target)) {
+      closeAllDropdowns();
     }
   });
 }

@@ -49,44 +49,61 @@
       <a href="/index.html" class="if-nav-link">Home</a>
 
       <!-- 2. Services Dropdown -->
-      <div class="if-dropdown">
-        <a href="/services.html" class="if-nav-link">
+      <div class="if-dropdown" id="services-dropdown-container">
+        <a href="/services.html" class="if-nav-link" id="services-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="services-megamenu">
           Services <span class="nav-count-badge">57</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </a>
         
-        <div class="if-dropdown-content if-megamenu" id="services-megamenu">
-          <div>
-            <h4 class="dropdown-heading">Key Categories</h4>
-            <ul class="dropdown-list">
-              <li><a href="/verticals/01-entity-formation.html"><strong>1. Business Registration</strong><span>Company, LLP &amp; Entity Structuring</span></a></li>
-              <li><a href="/verticals/02-roc-compliance.html"><strong>2. Corporate Compliance</strong><span>ROC Annual Filings &amp; Secretarial</span></a></li>
-              <li><a href="/verticals/03-tax-compliance.html"><strong>3. Tax &amp; GST</strong><span>GST Returns &amp; Corporate Taxation</span></a></li>
-              <li><a href="/verticals/04-statutory-licenses.html"><strong>4. Licences &amp; IPR</strong><span>Trademarks, MSME &amp; Licences</span></a></li>
+        <div class="if-dropdown-content if-megamenu" id="services-megamenu" role="menu" aria-label="Services Directory Menu">
+          <!-- Column 1: Core Categories -->
+          <div class="megamenu-col">
+            <div class="dropdown-heading">
+              <span>Key Categories</span>
+              <span class="heading-tag">Primary</span>
+            </div>
+            <ul class="dropdown-list" role="none">
+              <li role="none"><a href="/verticals/01-entity-formation.html" class="menu-item-card" role="menuitem"><strong class="item-title">1. Business Registration</strong><span class="item-desc">Company, LLP &amp; Entity Structuring</span></a></li>
+              <li role="none"><a href="/verticals/02-roc-compliance.html" class="menu-item-card" role="menuitem"><strong class="item-title">2. Corporate Compliance</strong><span class="item-desc">ROC Annual Filings &amp; Secretarial</span></a></li>
+              <li role="none"><a href="/verticals/03-tax-compliance.html" class="menu-item-card" role="menuitem"><strong class="item-title">3. Tax &amp; GST</strong><span class="item-desc">GST Returns &amp; Corporate Taxation</span></a></li>
+              <li role="none"><a href="/verticals/04-statutory-licenses.html" class="menu-item-card" role="menuitem"><strong class="item-title">4. Licences &amp; IPR</strong><span class="item-desc">Trademarks, MSME &amp; Licences</span></a></li>
             </ul>
           </div>
-          <div>
-            <h4 class="dropdown-heading">Explore by Category</h4>
-            <ul class="dropdown-list">
-              <li><a href="/verticals/05-contracts-legal.html">Commercial Contracts &amp; Drafting</a></li>
-              <li><a href="/verticals/06-ipr-protection.html">IPR &amp; Trademark Protection</a></li>
-              <li><a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a></li>
-              <li><a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law</a></li>
-              <li><a href="/verticals/13-cross-border-fema.html">Cross-Border FDI &amp; FEMA</a></li>
-              <li><a href="/verticals/15-it-digital.html">IT &amp; Digital Infrastructure</a></li>
+
+          <!-- Column 2: Explore by Category -->
+          <div class="megamenu-col">
+            <div class="dropdown-heading">
+              <span>Explore by Category</span>
+              <span class="heading-tag">Verticals</span>
+            </div>
+            <ul class="dropdown-list" role="none">
+              <li role="none"><a href="/verticals/05-contracts-legal.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Commercial Contracts &amp; Drafting</a></li>
+              <li role="none"><a href="/verticals/06-ipr-protection.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> IPR &amp; Trademark Protection</a></li>
+              <li role="none"><a href="/verticals/10-litigation-dispute.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Dispute Avoidance (Non-Litigation)</a></li>
+              <li role="none"><a href="/verticals/12-esg-csr.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Data Privacy &amp; Tech Law</a></li>
+              <li role="none"><a href="/verticals/13-cross-border-fema.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Cross-Border FDI &amp; FEMA</a></li>
+              <li role="none"><a href="/verticals/15-it-digital.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> IT &amp; Digital Infrastructure</a></li>
             </ul>
           </div>
-          <div>
-            <h4 class="dropdown-heading">By Business Stage</h4>
-            <ul class="dropdown-list">
-              <li><a href="/services.html?stage=formation">Early Stage &amp; Incorporation</a></li>
-              <li><a href="/services.html?stage=compliance">Growth &amp; Annual Compliance</a></li>
-              <li><a href="/services.html?stage=governance">Governance, Audits &amp; Risk</a></li>
-              <li><a href="/services.html?stage=restructuring">Restructuring &amp; Entity Exit</a></li>
-              <li style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border-color);">
-                <a href="/services.html" style="color: var(--navy-800); font-weight: 700;">View Complete 57-Service Directory &rarr;</a>
-              </li>
+
+          <!-- Column 3: By Business Stage & Directory Callout -->
+          <div class="megamenu-col megamenu-col-stage">
+            <div class="dropdown-heading">
+              <span>By Business Stage</span>
+              <span class="heading-tag">Lifecycle</span>
+            </div>
+            <ul class="dropdown-list" role="none">
+              <li role="none"><a href="/services.html?stage=formation" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Early Stage &amp; Incorporation</a></li>
+              <li role="none"><a href="/services.html?stage=compliance" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Growth &amp; Annual Compliance</a></li>
+              <li role="none"><a href="/services.html?stage=governance" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Governance, Audits &amp; Risk</a></li>
+              <li role="none"><a href="/services.html?stage=restructuring" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Restructuring &amp; Entity Exit</a></li>
             </ul>
+            <div class="megamenu-directory-callout">
+              <a href="/services.html" class="megamenu-directory-btn" role="menuitem">
+                <span>Complete 57-Service Directory</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -95,19 +112,25 @@
       <a href="/index.html#about" class="if-nav-link">About</a>
 
       <!-- 4. Resources Dropdown -->
-      <div class="if-dropdown">
-        <a href="/knowledge/index.html" class="if-nav-link">
+      <div class="if-dropdown" id="resources-dropdown-container">
+        <a href="/knowledge/index.html" class="if-nav-link" id="resources-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="resources-dropdown-menu">
           Resources
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </a>
-        <div class="if-dropdown-content" style="left: -40px; width: 300px; padding: 1.25rem; flex-direction: column; gap: 0.75rem;">
-          <a href="/knowledge/index.html" style="font-weight: 600;">Compliance Knowledge Centre</a>
-          <a href="/conversion/calculator.html">RoC Late Fee Calculator</a>
-          <a href="/conversion/trademark-search.html">NICE Trademark Screener</a>
-          <a href="/conversion/index.html">Diagnostic Tools &amp; Checkers</a>
-          <hr style="border: none; border-top: 1px solid var(--border-color); margin: 0.25rem 0;">
-          <a href="/search/" style="font-size: 0.85rem;">Corporate &amp; IP Registry Search</a>
-          <a href="/portal/entity-search.html" style="font-size: 0.85rem;">CIN &amp; LLPIN Master Lookup</a>
+        <div class="if-dropdown-content resources-dropdown-menu" id="resources-dropdown-menu" role="menu" aria-label="Resources &amp; Diagnostic Tools Menu">
+          <div class="dropdown-heading">
+            <span>Tools &amp; Intelligence</span>
+            <span class="heading-tag">Portal</span>
+          </div>
+          <ul class="dropdown-list" role="none">
+            <li role="none"><a href="/knowledge/index.html" class="menu-item-card" role="menuitem"><strong class="item-title">Compliance Knowledge Centre</strong><span class="item-desc">Regulatory circulars &amp; filing guides</span></a></li>
+            <li role="none"><a href="/conversion/calculator.html" class="menu-item-card" role="menuitem"><strong class="item-title">RoC Late Fee Calculator</strong><span class="item-desc">Statutory penalty &amp; additional fee calculator</span></a></li>
+            <li role="none"><a href="/conversion/trademark-search.html" class="menu-item-card" role="menuitem"><strong class="item-title">NICE Trademark Screener</strong><span class="item-desc">Class 1-45 search &amp; clearance tool</span></a></li>
+            <li role="none"><a href="/conversion/index.html" class="menu-item-card" role="menuitem"><strong class="item-title">Diagnostic Tools &amp; Checkers</strong><span class="item-desc">Entity health &amp; compliance assessments</span></a></li>
+            <li role="none" class="dropdown-divider-item" aria-hidden="true"><hr class="dropdown-divider"></li>
+            <li role="none"><a href="/search/" class="menu-item-link" role="menuitem" style="font-size: 0.82rem;"><span class="item-bullet">🔍</span> Corporate &amp; IP Registry Search</a></li>
+            <li role="none"><a href="/portal/entity-search.html" class="menu-item-link" role="menuitem" style="font-size: 0.82rem;"><span class="item-bullet">🏛️</span> CIN &amp; LLPIN Master Lookup</a></li>
+          </ul>
         </div>
       </div>
 

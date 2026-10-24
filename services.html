@@ -208,6 +208,72 @@
       border-color: var(--gold-primary);
     }
 
+    /* Active Filter Pills Bar */
+    .active-filters-bar {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem 0.25rem;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .active-filters-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .active-filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #F0F4F8;
+      border: 1px solid rgba(11, 37, 69, 0.15);
+      color: var(--navy-900, #0B2545);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .active-filter-pill:hover {
+      background: #E2E8F0;
+      border-color: rgba(11, 37, 69, 0.3);
+    }
+
+    .active-filter-pill-remove {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #94A3B8;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .active-filter-pill:hover .active-filter-pill-remove {
+      color: #DC2626;
+    }
+
+    .clear-all-pill {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #DC2626;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0.2rem 0.4rem;
+    }
+
+    .clear-all-pill:hover {
+      color: #B91C1C;
+    }
+
     /* Results Header */
     .results-meta-bar {
       max-width: 1400px;
@@ -549,6 +615,13 @@
         </div>
       </div>
     </section>
+ 
+    <!-- Active Filter Chips Display -->
+    <div class="active-filters-bar" id="active-filters-bar" aria-label="Active Filters">
+      <span class="active-filters-label">Active:</span>
+      <div id="active-filter-pills-list" style="display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center;"></div>
+      <button type="button" class="clear-all-pill" id="clear-all-active-filters-btn">Clear all</button>
+    </div>
 
     <!-- Results Meta Bar -->
     <div class="results-meta-bar">
@@ -580,6 +653,16 @@
         <p class="empty-desc" id="empty-state-message">
           No canonical regulatory services matched your search and filter criteria. Try searching with a broader term, or reset your filters to browse the complete 57-service catalog.
         </p>
+        <div style="margin-bottom: 1.5rem;">
+          <div style="font-size: 0.76rem; font-weight: 700; color: var(--navy-800, #0B2545); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">Suggested Searches:</div>
+          <div style="display: flex; gap: 0.45rem; justify-content: center; flex-wrap: wrap;" id="empty-suggestions-list">
+            <button type="button" class="filter-chip" onclick="applySuggestion('Private Limited')">Private Limited</button>
+            <button type="button" class="filter-chip" onclick="applySuggestion('GST')">GST Returns</button>
+            <button type="button" class="filter-chip" onclick="applySuggestion('Trademark')">Trademark</button>
+            <button type="button" class="filter-chip" onclick="applySuggestion('DIR-3 KYC')">DIR-3 KYC</button>
+            <button type="button" class="filter-chip" onclick="applySuggestion('LLP')">LLP Formation</button>
+          </div>
+        </div>
         <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
           <button id="empty-reset-btn" class="hero-search-btn" style="padding: 0.65rem 1.4rem;">Reset All Filters</button>
           <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="padding: 0.65rem 1.4rem; border-color: rgba(37, 211, 102, 0.4); color: #25D366; text-decoration: none; border-radius: 9999px; font-weight: 700; display: inline-flex; align-items: center; gap: 0.4rem;">
@@ -646,11 +729,133 @@
         verticalSelect.value = currentFilters.vertical_id;
       }
 
+      const activeFiltersBar = document.getElementById('active-filters-bar');
+      const activePillsList = document.getElementById('active-filter-pills-list');
+      const clearAllActiveBtn = document.getElementById('clear-all-active-filters-btn');
+      const searchForm = document.getElementById('directory-search-form');
+
+      // Also read entity and status from url if present
+      if (urlParams.has('entity')) {
+        currentFilters.entity_type = urlParams.get('entity');
+        entitySelect.value = currentFilters.entity_type;
+      }
+      if (urlParams.has('status')) {
+        currentFilters.status = urlParams.get('status');
+        statusSelect.value = currentFilters.status;
+      }
+
       function escapeHtml(s) {
         return String(s || '').replace(/[&<>"']/g, m => ({
           '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
         }[m]));
       }
+
+      function syncUrlParams() {
+        const params = new URLSearchParams();
+        if (currentFilters.query) params.set('q', currentFilters.query);
+        if (currentFilters.stage && currentFilters.stage !== 'ALL') params.set('stage', currentFilters.stage.toLowerCase());
+        if (currentFilters.vertical_id && currentFilters.vertical_id !== 'ALL') params.set('vertical', currentFilters.vertical_id);
+        if (currentFilters.entity_type && currentFilters.entity_type !== 'ALL') params.set('entity', currentFilters.entity_type);
+        if (currentFilters.status && currentFilters.status !== 'ALL') params.set('status', currentFilters.status);
+
+        const newSearch = params.toString();
+        const newUrl = window.location.pathname + (newSearch ? '?' + newSearch : '') + window.location.hash;
+        window.history.replaceState(null, '', newUrl);
+      }
+
+      function renderActiveFilters() {
+        if (!activeFiltersBar || !activePillsList) return;
+        const pills = [];
+
+        if (currentFilters.query) {
+          pills.push({
+            label: `Search: "${currentFilters.query}"`,
+            type: 'query',
+            action: () => {
+              currentFilters.query = '';
+              searchInput.value = '';
+              clearBtn.style.display = 'none';
+            }
+          });
+        }
+        if (currentFilters.stage && currentFilters.stage !== 'ALL') {
+          pills.push({
+            label: `Stage: ${currentFilters.stage}`,
+            type: 'stage',
+            action: () => {
+              currentFilters.stage = 'ALL';
+              stageChips.forEach(c => {
+                const isAll = c.getAttribute('data-stage') === 'ALL';
+                c.classList.toggle('active', isAll);
+                c.setAttribute('aria-selected', isAll ? 'true' : 'false');
+              });
+            }
+          });
+        }
+        if (currentFilters.vertical_id && currentFilters.vertical_id !== 'ALL') {
+          const selectedOpt = verticalSelect.options[verticalSelect.selectedIndex];
+          pills.push({
+            label: selectedOpt ? selectedOpt.text.split(':')[0] : currentFilters.vertical_id,
+            type: 'vertical',
+            action: () => {
+              currentFilters.vertical_id = 'ALL';
+              verticalSelect.value = 'ALL';
+            }
+          });
+        }
+        if (currentFilters.entity_type && currentFilters.entity_type !== 'ALL') {
+          pills.push({
+            label: `Entity: ${currentFilters.entity_type}`,
+            type: 'entity',
+            action: () => {
+              currentFilters.entity_type = 'ALL';
+              entitySelect.value = 'ALL';
+            }
+          });
+        }
+        if (currentFilters.status && currentFilters.status !== 'ALL') {
+          pills.push({
+            label: currentFilters.status === 'DIRECT' ? 'Direct Services' : 'Referral Services',
+            type: 'status',
+            action: () => {
+              currentFilters.status = 'ALL';
+              statusSelect.value = 'ALL';
+            }
+          });
+        }
+
+        if (pills.length === 0) {
+          activeFiltersBar.style.display = 'none';
+          activePillsList.innerHTML = '';
+          return;
+        }
+
+        activeFiltersBar.style.display = 'flex';
+        activePillsList.innerHTML = pills.map((p, idx) => `
+          <button type="button" class="active-filter-pill" data-index="${idx}" title="Remove filter: ${escapeHtml(p.label)}">
+            <span>${escapeHtml(p.label)}</span>
+            <span class="active-filter-pill-remove" aria-hidden="true">&times;</span>
+          </button>
+        `).join('');
+
+        activePillsList.querySelectorAll('.active-filter-pill').forEach(btn => {
+          btn.addEventListener('click', function () {
+            const idx = parseInt(this.getAttribute('data-index'), 10);
+            if (pills[idx]) {
+              pills[idx].action();
+              renderCatalog();
+            }
+          });
+        });
+      }
+
+      window.applySuggestion = function (val) {
+        searchInput.value = val;
+        currentFilters.query = val;
+        clearBtn.style.display = 'inline-block';
+        renderCatalog();
+        searchInput.focus();
+      };
 
       function renderCatalog() {
         if (!container) return;
@@ -678,8 +883,17 @@
 
         counterEl.innerHTML = `Showing <strong>${results.length}</strong> of <strong>${catalog.length}</strong> canonical services`;
 
+        renderActiveFilters();
+        syncUrlParams();
+
         if (results.length === 0) {
           container.innerHTML = '';
+          const msgEl = document.getElementById('empty-state-message');
+          if (msgEl) {
+            msgEl.textContent = currentFilters.query 
+              ? `No canonical regulatory services matched "${currentFilters.query}". Try one of the suggested searches below or reset all filters to browse the complete 57-service directory.`
+              : 'No canonical regulatory services matched your filter combination. Reset filters to browse all 57 services.';
+          }
           emptyState.style.display = 'block';
           return;
         }
@@ -764,6 +978,16 @@
         renderCatalog();
       });
 
+      if (searchForm) {
+        searchForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const target = document.getElementById('directory-counter') || container;
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
+
       // Select dropdown filters
       verticalSelect.addEventListener('change', function (e) {
         currentFilters.vertical_id = e.target.value;
@@ -818,6 +1042,7 @@
 
       resetBtn.addEventListener('click', resetAll);
       emptyResetBtn.addEventListener('click', resetAll);
+      if (clearAllActiveBtn) clearAllActiveBtn.addEventListener('click', resetAll);
 
       // Initial render
       renderCatalog();

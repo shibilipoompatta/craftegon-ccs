@@ -156,53 +156,102 @@
   vertical-align: middle;
 }
 
-/* Mega-Menu & Dropdown Styling (Corporate White Surface) */
+/* Mega-Menu & Dropdown Styling (Corporate Navy & Ivory Specification) */
 .if-dropdown {
   position: relative;
 }
 
-.if-dropdown-content, .if-megamenu {
+.if-dropdown-content {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 6px);
   background: #FFFFFF;
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  box-shadow: 0 12px 28px -4px rgba(11, 37, 69, 0.12), 0 4px 10px -2px rgba(11, 37, 69, 0.05);
-  z-index: 130;
+  border-radius: 10px;
+  box-shadow: 0 16px 36px -4px rgba(11, 37, 69, 0.14), 0 4px 12px -2px rgba(11, 37, 69, 0.05);
+  z-index: 150;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(4px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  transform: translateY(6px);
+  transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
 
-.if-megamenu {
-  left: -120px;
-  width: 780px;
-  max-width: 90vw;
-  padding: 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+/* JavaScript coordinates active state (.is-open) with mutual exclusion */
+.if-dropdown.is-open > .if-dropdown-content {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
 }
 
-.if-dropdown:hover > .if-dropdown-content,
-.if-dropdown:focus-within > .if-dropdown-content {
+/* Hover fallback when not closed by coordinator */
+.if-dropdown:hover:not(.is-closed) > .if-dropdown-content {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
 }
 
+.dropdown-chevron {
+  transition: transform 0.2s ease;
+  margin-left: 2px;
+}
+
+.if-dropdown.is-open .dropdown-chevron,
+.if-dropdown:hover .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+/* Services Mega-Menu Layout & Viewport Bounding */
+.if-megamenu {
+  left: 0;
+  width: 740px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 85px);
+  overflow-y: auto;
+  padding: 1.25rem 1.35rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* Resources Dropdown Layout - Anchored to right edge to prevent collision */
+.resources-dropdown-menu {
+  right: 0 !important;
+  left: auto !important;
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 85px);
+  overflow-y: auto;
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .dropdown-heading {
-  font-size: 0.78rem;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--navy-800);
-  margin-bottom: 0.85rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--border-color);
+  letter-spacing: 0.07em;
+  color: var(--navy-800, #0B2545);
+  margin: 0 0 0.65rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1.5px solid var(--border-color);
+}
+
+.heading-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--brand-gold, #C59B27);
+  background: rgba(197, 155, 39, 0.1);
+  border: 1px solid rgba(197, 155, 39, 0.25);
+  padding: 1px 5px;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
 
 .dropdown-list {
@@ -219,29 +268,111 @@
   padding: 0;
 }
 
-.dropdown-list a {
+/* Compact, Scannable Category Card */
+.menu-item-card {
   display: flex;
   flex-direction: column;
-  padding: 0.35rem 0.5rem;
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  padding: 0.48rem 0.65rem;
+  border-radius: 6px;
+  text-decoration: none !important;
+  transition: all 0.16s ease;
+  border: 1px solid transparent;
 }
 
-.dropdown-list a:hover {
+.menu-item-card:hover,
+.menu-item-card:focus {
   background-color: var(--navy-50, #F0F4F8);
+  border-color: rgba(11, 37, 69, 0.08);
+  text-decoration: none !important;
 }
 
-.dropdown-list a strong {
+.item-title {
   font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--navy-800);
+  font-weight: 700;
+  color: var(--navy-900, #0B2545);
+  line-height: 1.3;
 }
 
-.dropdown-list a span {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  margin-top: 1px;
+.item-desc {
+  font-size: 0.71rem;
+  color: #64748B;
+  font-weight: 400;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+/* Secondary Navigation Link in Menu */
+.menu-item-link {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 5px;
+  font-size: 0.81rem;
+  font-weight: 600;
+  color: var(--text-dark, #0F172A);
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+
+.menu-item-link:hover,
+.menu-item-link:focus {
+  background-color: var(--navy-50, #F0F4F8);
+  color: var(--navy-900, #0B2545);
+  text-decoration: none !important;
+  transform: translateX(2px);
+}
+
+.item-bullet {
+  color: var(--brand-gold, #C59B27);
+  font-size: 0.68rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Directory Callout Card at bottom of column 3 */
+.megamenu-directory-callout {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.megamenu-directory-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.75rem;
+  background: var(--navy-800, #0B2545);
+  color: #FFFFFF !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none !important;
+  transition: all 0.18s ease;
+  box-shadow: 0 2px 6px rgba(11, 37, 69, 0.15);
+}
+
+.megamenu-directory-btn:hover,
+.megamenu-directory-btn:focus {
+  background: var(--navy-900, #061528);
+  color: var(--brand-gold, #C59B27) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(11, 37, 69, 0.25);
+  text-decoration: none !important;
+}
+
+.megamenu-directory-btn .btn-arrow {
+  transition: transform 0.18s ease;
+}
+
+.megamenu-directory-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+.dropdown-divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 0.4rem 0;
 }
 
 /* --- Header Actions --- */
