@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Admin Console | CraftEgon CCS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
+  
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body class="admin-body">
+  <!-- Top Navigation Bar -->
+  <header class="admin-topbar">
+    <div class="admin-brand-lockup">
+      <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Insignia" class="admin-brand-logo">
+      <div class="admin-brand-text">
+        <h2>CRAFTEGON CCS</h2>
+        <span>Executive Management Console</span>
+      </div>
+    </div>
+
+    <div class="admin-topbar-actions">
+      <div class="env-indicator">
+        <span class="env-dot"></span>
+        <span>ACID STORAGE SECURE</span>
+      </div>
+      <div class="user-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span id="admin-user-email">admin@craftegon.com</span>
+      </div>
+      <a href="/admin/login.html" id="btn-admin-relogin" class="admin-btn admin-btn-secondary admin-btn-sm" style="text-decoration: none; display: inline-flex; align-items: center;">
+        Switch User
+      </a>
+      <button type="button" id="btn-admin-logout" class="admin-btn admin-btn-secondary admin-btn-sm">
+        Log Out
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="admin-container">
+    <div class="admin-header-row">
+      <div>
+        <h1 class="admin-page-title">Services &amp; Pricing Directory</h1>
+        <p class="admin-page-desc">
+          Manage canonical corporate services, pricing structures, deliverables, and publishing pipelines without touching website source code.
+        </p>
+      </div>
+      <div class="admin-header-buttons">
+        <button type="button" id="btn-view-backups" class="admin-btn admin-btn-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+          Version History
+        </button>
+        <button type="button" id="btn-add-service" class="admin-btn admin-btn-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Service
+        </button>
+        <button type="button" id="btn-publish-catalog" class="admin-btn admin-btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Publish to Website
+        </button>
+      </div>
+    </div>
+
+    <!-- Executive Metrics Grid -->
+    <div class="admin-stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Total Services</span>
+        <span class="stat-value" id="stat-total-services">--</span>
+        <span class="stat-subtext">Across canonical catalog</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Direct Statutory Filings</span>
+        <span class="stat-value" id="stat-active-services" style="color: #34D399;">--</span>
+        <span class="stat-subtext">Active corporate services</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Referral Counsel Only</span>
+        <span class="stat-value" id="stat-referral-services" style="color: #60A5FA;">--</span>
+        <span class="stat-subtext">Advocates Act 1961 non-advocacy</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Practice Verticals</span>
+        <span class="stat-value" id="stat-verticals-count" style="color: var(--admin-gold);">15</span>
+        <span class="stat-subtext">Comprehensive legal coverage</span>
+      </div>
+    </div>
+
+    <!-- Data Table & Toolbar -->
+    <div class="admin-card-container">
+      <div class="admin-toolbar">
+        <div class="toolbar-filters">
+          <div class="search-input-wrap">
+            <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="search-services" class="form-control" placeholder="Search by name, ID, form, or alias...">
+          </div>
+
+          <select id="filter-vertical" class="select-filter">
+            <option value="">All Practice Verticals (15)</option>
+          </select>
+
+          <select id="filter-status" class="select-filter">
+            <option value="">All Statuses</option>
+            <option value="ACTIVE_SERVICE">Active Direct</option>
+            <option value="REFERRAL_ONLY">Referral Only</option>
+            <option value="INACTIVE">Inactive</option>
+          </select>
+
+          <select id="filter-stage" class="select-filter">
+            <option value="">All Lifecycle Stages</option>
+            <option value="formation">Formation &amp; Startup</option>
+            <option value="compliance">Growth &amp; Annual Compliance</option>
+            <option value="governance">Governance &amp; Risk</option>
+            <option value="restructuring">Restructuring &amp; Exit</option>
+            <option value="dispute">Dispute Triage</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="admin-table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th style="width: 120px;">Service ID</th>
+              <th>Service Title &amp; Scope</th>
+              <th style="width: 220px;">Practice Vertical</th>
+              <th style="width: 180px;">Pricing &amp; Package</th>
+              <th style="width: 140px;">Status</th>
+              <th style="width: 160px; text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="services-table-body">
+            <tr>
+              <td colspan="6" style="text-align: center; padding: 3rem; color: var(--admin-text-muted);">
+                Loading service records...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       SERVICE EDITOR MODAL
+       ====================================================================== -->
+  <div class="admin-modal-backdrop" id="modal-service-editor">
+    <div class="admin-modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-editor-title">Edit Service</h3>
+        <button type="button" class="modal-close" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <div class="modal-tabs">
+        <button type="button" class="tab-btn active" data-tab="tab-general">General Info</button>
+        <button type="button" class="tab-btn" data-tab="tab-pricing">Pricing &amp; Package</button>
+        <button type="button" class="tab-btn" data-tab="tab-features">Features &amp; Scope</button>
+        <button type="button" class="tab-btn" data-tab="tab-metadata">Forms &amp; Metadata</button>
+      </div>
+
+      <form id="service-editor-form">
+        <div class="modal-body">
+          <!-- Tab 1: General Info -->
+          <div class="tab-pane active" id="tab-general">
+            <div class="form-grid-2">
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="field-service-id" class="form-label">Service Canonical ID</label>
+                <input type="text" id="field-service-id" class="form-control" placeholder="e.g. V01-SVC-011">
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="field-vertical-id" class="form-label">Primary Practice Vertical *</label>
+                <select id="field-vertical-id" class="form-control" required></select>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label for="field-service-name" class="form-label">Canonical Service Title *</label>
+              <input type="text" id="field-service-name" class="form-control" required placeholder="e.g. Private Limited Company Registration">
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="field-service-route" class="form-label">Canonical Route</label>
+                <input type="text" id="field-service-route" class="form-control" placeholder="/services/my-service.html">
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="field-business-stage" class="form-label">Lifecycle Stage</label>
+                <select id="field-business-stage" class="form-control">
+                  <option value="Formation &amp; Startup">Formation &amp; Startup</option>
+                  <option value="Growth &amp; Annual Compliance">Growth &amp; Annual Compliance</option>
+                  <option value="Governance &amp; Risk">Governance &amp; Risk</option>
+                  <option value="Restructuring &amp; Exit">Restructuring &amp; Exit</option>
+                  <option value="Dispute Triage &amp; Advisory">Dispute Triage &amp; Advisory</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="field-service-status" class="form-label">Status State</label>
+                <select id="field-service-status" class="form-control">
+                  <option value="ACTIVE_SERVICE">ACTIVE_SERVICE (Direct Statutory Filing)</option>
+                  <option value="REFERRAL_ONLY">REFERRAL_ONLY (Independent Counsel)</option>
+                  <option value="INACTIVE">INACTIVE (Hidden from Search)</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; padding-top: 1.5rem;">
+                <input type="checkbox" id="field-is-referral" style="width: 18px; height: 18px; accent-color: var(--admin-gold);">
+                <label for="field-is-referral" style="font-size: 0.82rem; color: #CBD5E1; cursor: pointer;">
+                  Advocates Act 1961 Referral Service
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="field-description" class="form-label">Service Summary &amp; Scope Boundary</label>
+              <textarea id="field-description" class="form-control" rows="3" placeholder="Provide factual summary of procedural filing scope..."></textarea>
+            </div>
+          </div>
+
+          <!-- Tab 2: Pricing & Package -->
+          <div class="tab-pane" id="tab-pricing">
+            <div class="form-grid-2">
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="field-price-amount" class="form-label">Professional Fee (INR) *</label>
+                <input type="number" id="field-price-amount" class="form-control" required min="0" step="100">
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="field-pricing-basis" class="form-label">Pricing Basis</label>
+                <select id="field-pricing-basis" class="form-control">
+                  <option value="STARTING_FROM">Starting From (+ Disbursements)</option>
+                  <option value="FIXED_FEE">Fixed Professional Fee</option>
+                  <option value="SLAB_BASED">Capital Slab-Based</option>
+                  <option value="BESPOKE_QUOTE">Bespoke Commercial Quote</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="field-displayed-price" class="form-label">Client Display Price Text</label>
+                <input type="text" id="field-displayed-price" class="form-control" placeholder="e.g. ₹4,999 + Govt. Fees">
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="field-package-title" class="form-label">Package Name</label>
+                <input type="text" id="field-package-title" class="form-control" placeholder="e.g. Incorporation Comprehensive Package">
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 3: Features & Scope -->
+          <div class="tab-pane" id="tab-features">
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label for="field-inclusions" class="form-label">Included Deliverables (One per line)</label>
+              <textarea id="field-inclusions" class="form-control" rows="4" placeholder="Name Reservation (RUN/SPICe+ Part A)&#10;MOA and AOA Drafting&#10;PAN and TAN Allocation"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="field-exclusions" class="form-label">Excluded Scope / Disbursements (One per line)</label>
+              <textarea id="field-exclusions" class="form-control" rows="3" placeholder="Government statutory portal filing fees&#10;State stamp duty payable on authorized share capital"></textarea>
+            </div>
+          </div>
+
+          <!-- Tab 4: Forms & Metadata -->
+          <div class="tab-pane" id="tab-metadata">
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label for="field-forms" class="form-label">Regulatory Forms (Comma-separated)</label>
+              <input type="text" id="field-forms" class="form-control" placeholder="e.g. SPICe+ Part A, SPICe+ Part B, AGILE-PRO-S">
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label for="field-entity-types" class="form-label">Applicable Entity Types (Comma-separated)</label>
+              <input type="text" id="field-entity-types" class="form-control" placeholder="e.g. Private Limited, LLP, One Person Company">
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label for="field-aliases" class="form-label">Search Aliases &amp; Intent Phrases (Comma-separated)</label>
+              <input type="text" id="field-aliases" class="form-control" placeholder="e.g. Register Company, Form Pvt Ltd, Start a Startup">
+            </div>
+            <div class="form-group">
+              <label for="field-keywords" class="form-label">Search Keywords (Comma-separated)</label>
+              <input type="text" id="field-keywords" class="form-control" placeholder="e.g. mca, roc, pvt ltd, registration, incorporation">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="admin-btn admin-btn-secondary modal-cancel">Cancel</button>
+          <button type="submit" class="admin-btn admin-btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       CONFIRMATION-GATED DELETION MODAL
+       ====================================================================== -->
+  <div class="admin-modal-backdrop" id="modal-delete-confirm">
+    <div class="admin-modal" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3 class="modal-title" style="color: #F87171;">Confirm Destructive Action</h3>
+        <button type="button" class="modal-close" aria-label="Close Modal">&times;</button>
+      </div>
+      <form id="delete-confirm-form">
+        <div class="modal-body">
+          <input type="hidden" id="delete-service-id-hidden">
+          
+          <div style="margin-bottom: 1rem; color: #CBD5E1; font-size: 0.88rem;">
+            You are about to modify the publication status of:
+            <div style="margin: 0.65rem 0; padding: 0.65rem; background: #090D16; border: 1px solid var(--admin-border); border-radius: 6px;">
+              <strong style="color: var(--admin-gold);" id="delete-target-id"></strong>:
+              <span id="delete-target-name"></span>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label class="form-label">Select Action</label>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.35rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: #CBD5E1;">
+                <input type="radio" name="delete_action_type" value="deactivate" checked style="accent-color: var(--admin-gold);">
+                <span><strong>Deactivate Service (Recommended):</strong> Keeps record intact, marks inactive, hides from search.</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: #FCA5A5;">
+                <input type="radio" name="delete_action_type" value="hard_delete" style="accent-color: #EF4444;">
+                <span><strong>Permanent Deletion:</strong> Irreversibly deletes from service registry and pricing.</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="delete-confirm-input" class="form-label">
+              Type <code style="color:var(--admin-gold);">CONFIRM</code> or the Service ID to confirm:
+            </label>
+            <input type="text" id="delete-confirm-input" class="form-control" placeholder="Type CONFIRM to proceed" required autocomplete="off">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="admin-btn admin-btn-secondary modal-cancel">Cancel</button>
+          <button type="submit" class="admin-btn admin-btn-danger">Confirm &amp; Execute</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       VERSION HISTORY / BACKUPS MODAL
+       ====================================================================== -->
+  <div class="admin-modal-backdrop" id="modal-backups">
+    <div class="admin-modal" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Catalog Version History &amp; Backups</h3>
+        <button type="button" class="modal-close" aria-label="Close Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color: var(--admin-text-muted); font-size: 0.82rem; margin-bottom: 1rem;">
+          Prior to every publish operation, an immutable snapshot is cryptographically stored in the local repository. You may restore any historical state with 1 click.
+        </p>
+        <div id="backups-list-container">
+          <!-- Populated dynamically via admin.js -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="admin-btn admin-btn-secondary modal-cancel">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="admin-toast-container" id="toast-container"></div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

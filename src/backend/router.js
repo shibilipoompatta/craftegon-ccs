@@ -50,6 +50,17 @@ const {
   handleAiTemplates,
   handleAiEvaluate
 } = require('./controllers/ai.controller');
+const {
+  handleAdminMe,
+  handleListServices,
+  handleGetService,
+  handleCreateService,
+  handleUpdateService,
+  handleDeleteService,
+  handlePublishChanges,
+  handleListBackups,
+  handleRestoreBackup
+} = require('./controllers/admin.controller');
 const { parseJsonBody, parseRawBody } = require('./middleware/body-parser');
 
 async function routeRequest(req, res, config) {
@@ -396,7 +407,72 @@ async function routeRequest(req, res, config) {
     return await handleAiEvaluate(req, res, config);
   }
 
-  // 11. 404 Route Not Found
+  // 11. Admin Services Management Routes
+  if (pathname === '/api/v1/admin/me') {
+    if (method !== 'GET') {
+      res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET' });
+      return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+    }
+    return await handleAdminMe(req, res, config);
+  }
+
+  if (pathname === '/api/v1/admin/services') {
+    if (method === 'GET') {
+      const queryParams = Object.fromEntries(parsedUrl.searchParams.entries());
+      return await handleListServices(req, res, config, queryParams);
+    }
+    if (method === 'POST') {
+      const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
+      return await handleCreateService(req, res, config, body);
+    }
+    res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET, POST' });
+    return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+  }
+
+  const adminServiceMatch = pathname.match(/^\/api\/v1\/admin\/services\/([A-Za-z0-9\-]+)$/);
+  if (adminServiceMatch) {
+    const serviceId = adminServiceMatch[1];
+    if (method === 'GET') {
+      return await handleGetService(req, res, serviceId, config);
+    }
+    if (method === 'PUT') {
+      const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
+      return await handleUpdateService(req, res, serviceId, config, body);
+    }
+    if (method === 'DELETE') {
+      const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes).catch(() => ({}));
+      return await handleDeleteService(req, res, serviceId, config, body);
+    }
+    res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET, PUT, DELETE' });
+    return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+  }
+
+  if (pathname === '/api/v1/admin/publish') {
+    if (method !== 'POST') {
+      res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'POST' });
+      return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+    }
+    return await handlePublishChanges(req, res, config);
+  }
+
+  if (pathname === '/api/v1/admin/backups') {
+    if (method !== 'GET') {
+      res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET' });
+      return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+    }
+    return await handleListBackups(req, res, config);
+  }
+
+  if (pathname === '/api/v1/admin/restore') {
+    if (method !== 'POST') {
+      res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'POST' });
+      return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+    }
+    const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
+    return await handleRestoreBackup(req, res, config, body);
+  }
+
+  // 12. 404 Route Not Found
   res.writeHead(404, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify({
     error: 'Not Found',

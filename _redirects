@@ -8,6 +8,9 @@
 /data/*.schema.json /404.html             404
 
 # --- Clean URL Rewrites (Status 200 for internal mapping) ---
+/admin         /admin/index.html       200
+/admin/        /admin/index.html       200
+/admin/*       /admin/:splat           200
 /portal        /portal/index.html      200
 /knowledge     /knowledge/index.html   200
 /conversion    /conversion/index.html  200

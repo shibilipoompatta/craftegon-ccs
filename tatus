@@ -1,0 +1,18 @@
+warning: in the working copy of 'assets/js/search-index.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/navbar.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/pricing.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/search-index.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/service-registry.json', LF will be replaced by CRLF the next time Git touches it
+ _redirects                       |    3 [32m+[m
+ assets/css/navbar.css            |  234 [32m+++[m[31m--[m
+ assets/js/navigation.js          |   73 [32m+[m[31m-[m
+ assets/js/search-index.js        | 2073 [32m+++++++++++++++++++++++++++++++++++++[m[31m-[m
+ components/navbar.html           |  142 [32m++[m[31m-[m
+ data/pricing.json                |    2 [32m+[m[31m-[m
+ package.json                     |    5 [32m+[m[31m-[m
+ robots.txt                       |    1 [32m+[m
+ scripts/audit-seo.js             |    4 [32m+[m[31m-[m
+ scripts/test-phase-6-seo-a11y.js |    2 [32m+[m[31m-[m
+ src/backend/router.js            |   78 [32m+[m[31m-[m
+ src/backend/server.js            |   21 [32m+[m
+ 12 files changed, 2476 insertions(+), 162 deletions(-)

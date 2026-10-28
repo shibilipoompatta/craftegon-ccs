@@ -4,7 +4,7 @@
   "description": "CraftEgon Corporate Services (CCS) - Enterprise Corporate Governance & Legal Compliance Operating System",
   "private": true,
   "scripts": {
-    "test": "node scripts/verify-links.js && node scripts/check-orphans.js && node scripts/audit-seo.js && npm run test:schemas && node scripts/test-search-engine.js && node scripts/test-round-3-utilities.js && node scripts/test-chat-engine.js && node scripts/test-trademark-search.js && node scripts/test-phase-1-remediation.js && node scripts/test-phase-1-form-fallback.js && node scripts/test-phase-1-routing.js && node scripts/validate-phase-2-registry.js && node scripts/test-service-search.js && node -c assets/js/config.js assets/js/navigation.js assets/js/forms.js assets/js/calculator.js assets/js/chat-widget.js assets/js/search-index.js assets/js/service-search.js && node -c assets/js/chat-widget.js && node -c assets/js/search-engine.js && node -c assets/js/entity-intelligence.js",
+    "test": "node scripts/verify-links.js && node scripts/check-orphans.js && node scripts/audit-seo.js && npm run test:schemas && node scripts/test-search-engine.js && node scripts/test-round-3-utilities.js && node scripts/test-chat-engine.js && node scripts/test-trademark-search.js && node scripts/test-phase-1-remediation.js && node scripts/test-phase-1-form-fallback.js && node scripts/test-phase-1-routing.js && node scripts/validate-phase-2-registry.js && node scripts/test-service-search.js && node -c assets/js/config.js assets/js/navigation.js assets/js/forms.js assets/js/calculator.js assets/js/chat-widget.js assets/js/search-index.js assets/js/service-search.js admin/admin.js && node -c assets/js/chat-widget.js && node -c assets/js/search-engine.js && node -c assets/js/entity-intelligence.js",
     "test:links": "node scripts/verify-links.js",
     "test:orphans": "node scripts/check-orphans.js",
     "test:seo": "node scripts/audit-seo.js",
@@ -31,7 +31,8 @@
     "test:monitor": "node scripts/synthetic-monitor.js",
     "test:smoke": "node scripts/production-smoke-test.js",
     "test:phase-6": "node scripts/test-phase-6-browser.js && node scripts/test-phase-6-schemas.js && node scripts/test-phase-6-regulatory-accuracy.js && node scripts/test-phase-6-seo-a11y.js && node scripts/synthetic-monitor.js && node scripts/production-smoke-test.js",
-    "test:all": "npm test && npm run test:backend && npm run test:task-d && npm run test:task-e && npm run test:task-f && npm run test:e2e && npm run test:phase-4 && npm run test:phase-5 && npm run test:phase-6"
+    "test:admin": "node scripts/test-admin-console.js",
+    "test:all": "npm test && npm run test:backend && npm run test:task-d && npm run test:task-e && npm run test:task-f && npm run test:e2e && npm run test:phase-4 && npm run test:phase-5 && npm run test:phase-6 && npm run test:admin"
   },
   "keywords": [
     "craftegon",

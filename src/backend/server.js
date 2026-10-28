@@ -30,9 +30,30 @@ function configureStorageAdapters(config) {
   }
 }
 
+async function seedInitialAdmin(config) {
+  const adminEmail = (config.adminEmail || process.env.ADMIN_EMAIL || 'admin@craftegon.com').toLowerCase().trim();
+  const adminPassword = config.adminPassword || process.env.ADMIN_PASSWORD || 'CraftEgonAdmin2026!';
+  try {
+    const existing = await accountRepository.findByEmail(adminEmail);
+    if (!existing) {
+      await accountRepository.createAccount({
+        primary_email: adminEmail,
+        legal_entity_name: 'CraftEgon LLP Administration',
+        cin_llpin: 'AAA-1234',
+        primary_phone: '+91 86069 18247',
+        account_role: 'managing_partner',
+        password: adminPassword
+      });
+    }
+  } catch (err) {
+    // Safe pass if exists
+  }
+}
+
 function createServer(configOverrides = {}) {
   const config = loadConfig(configOverrides);
   configureStorageAdapters(config);
+  seedInitialAdmin(config).catch(() => {});
 
   const server = http.createServer(async (req, res) => {
     // 1. Apply global security headers & CORS

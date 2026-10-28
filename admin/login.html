@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Authentication | CraftEgon CCS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
+  
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body class="admin-login-body">
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="login-brand">
+        <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Insignia" class="login-logo">
+        <h1 class="login-title">CRAFTEGON CCS</h1>
+        <p class="login-subtitle">Executive Service &amp; Catalog Management</p>
+      </div>
+
+      <div class="security-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>Server-Verified Administrative Boundary</span>
+      </div>
+
+      <form id="admin-login-form" class="login-form" novalidate>
+        <div id="login-alert" class="admin-alert admin-alert-danger" style="display: none;" role="alert"></div>
+
+        <div class="form-group">
+          <label for="admin-email" class="form-label">Administrator Email</label>
+          <input 
+            type="email" 
+            id="admin-email" 
+            name="email" 
+            class="form-control" 
+            placeholder="admin@craftegon.com" 
+            required 
+            autocomplete="username"
+            autofocus
+          >
+        </div>
+
+        <div class="form-group">
+          <div class="label-row">
+            <label for="admin-password" class="form-label">Master Passphrase</label>
+          </div>
+          <input 
+            type="password" 
+            id="admin-password" 
+            name="password" 
+            class="form-control" 
+            placeholder="••••••••••••" 
+            required 
+            autocomplete="current-password"
+          >
+        </div>
+
+        <button type="submit" id="btn-login-submit" class="admin-btn admin-btn-primary admin-btn-block">
+          <span class="btn-text">Authenticate &amp; Open Console</span>
+          <span class="btn-spinner" style="display: none;">Authenticating...</span>
+        </button>
+      </form>
+
+      <div class="login-footer">
+        <p>Restricted access. All actions cryptographically logged with IP hash attribution.</p>
+        <a href="/index.html" class="back-link">&larr; Return to Public Showcase</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // If already authenticated as admin, redirect to dashboard
+      try {
+        const res = await fetch('/api/v1/admin/me');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.authenticated) {
+            window.location.href = '/admin/index.html';
+            return;
+          }
+        }
+      } catch (e) {}
+
+      const form = document.getElementById('admin-login-form');
+      const alertBox = document.getElementById('login-alert');
+      const submitBtn = document.getElementById('btn-login-submit');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnSpinner = submitBtn.querySelector('.btn-spinner');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        alertBox.style.display = 'none';
+
+        const email = document.getElementById('admin-email').value.trim();
+        const password = document.getElementById('admin-password').value;
+
+        if (!email || !password) {
+          alertBox.textContent = 'Please enter both administrator email and passphrase.';
+          alertBox.style.display = 'block';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnSpinner.style.display = 'inline';
+
+        try {
+          const loginRes = await fetch('/api/v1/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+          });
+
+          const loginData = await loginRes.json();
+
+          if (!loginRes.ok || !loginData.success) {
+            throw new Error(loginData.message || 'Authentication rejected. Verify credentials.');
+          }
+
+          // Check role permissions
+          if (!['managing_partner', 'admin'].includes(loginData.user?.role)) {
+            // Log out user if not authorized
+            await fetch('/api/v1/auth/logout', { method: 'POST' });
+            throw new Error('Access Denied: Your account role does not hold administrator privileges.');
+          }
+
+          // Save token to localStorage as backup bearer authorization
+          if (loginData.token) {
+            localStorage.setItem('craftegon_admin_token', loginData.token);
+          }
+
+          window.location.href = '/admin/index.html';
+        } catch (err) {
+          alertBox.textContent = err.message || 'An error occurred during authentication.';
+          alertBox.style.display = 'block';
+          submitBtn.disabled = false;
+          btnText.style.display = 'inline';
+          btnSpinner.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

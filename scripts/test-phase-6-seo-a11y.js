@@ -41,7 +41,7 @@ function runSeoAndA11yTestSuite() {
     const list = fs.readdirSync(dir, { withFileTypes: true });
     for (const item of list) {
       if (item.isDirectory()) {
-        if (!['node_modules', '.git', 'review-output', 'scratch', 'components'].includes(item.name)) {
+        if (!['node_modules', '.git', 'review-output', 'scratch', 'components', 'admin'].includes(item.name)) {
           scan(path.join(dir, item.name));
         }
       } else if (item.isFile() && item.name.endsWith('.html')) {

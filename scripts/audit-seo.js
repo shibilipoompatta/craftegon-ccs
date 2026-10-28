@@ -40,7 +40,7 @@ let invalidOrigins = [];
 
 htmlFiles.forEach(f => {
   const rel = path.relative(rootDir, f).replace(/\\/g, '/');
-  if (rel.startsWith('components/')) return;
+  if (rel.startsWith('components/') || rel.startsWith('admin/')) return;
 
   const content = fs.readFileSync(f, 'utf8');
 
@@ -79,7 +79,7 @@ htmlFiles.forEach(f => {
 });
 
 console.log(`\n=== TECHNICAL SEO AUDIT REPORT ===`);
-console.log(`Total content HTML files evaluated: ${htmlFiles.length - 2}`);
+console.log(`Total content HTML files evaluated: ${Object.values(canonicals).reduce((a, b) => a + b, 0)}`);
 console.log(`Approved Canonical Target: ${APPROVED_CANONICAL_HOST}`);
 console.log(`Canonical Origins Detected:`, canonicals);
 console.log(`Invalid Canonical Origins: ${invalidOrigins.length}`);

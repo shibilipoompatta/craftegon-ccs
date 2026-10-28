@@ -247,7 +247,6 @@ function initDropdowns() {
   if (!dropdowns.length) return;
 
   let activeDropdown = null;
-  let closeTimer = null;
 
   function closeAllDropdowns() {
     dropdowns.forEach((dd) => {
@@ -260,10 +259,6 @@ function initDropdowns() {
   }
 
   function openDropdown(dd) {
-    if (closeTimer) {
-      clearTimeout(closeTimer);
-      closeTimer = null;
-    }
     // Close other dropdowns immediately
     dropdowns.forEach((other) => {
       if (other !== dd) {
@@ -281,64 +276,48 @@ function initDropdowns() {
     activeDropdown = dd;
   }
 
+  // Ensure all dropdowns start strictly closed on page load
+  closeAllDropdowns();
+
   dropdowns.forEach((dropdown) => {
     const trigger = dropdown.querySelector(".if-nav-link");
     const menu = dropdown.querySelector(".if-dropdown-content, .if-megamenu");
     if (!trigger || !menu) return;
 
-    // Hover management on desktop
-    dropdown.addEventListener("mouseenter", () => {
-      if (window.innerWidth >= 1024) {
-        openDropdown(dropdown);
-      }
-    });
-
-    dropdown.addEventListener("mouseleave", () => {
-      if (window.innerWidth >= 1024) {
-        closeTimer = setTimeout(() => {
-          if (activeDropdown === dropdown) {
-            dropdown.classList.remove("is-open");
-            dropdown.classList.add("is-closed");
-            trigger.setAttribute("aria-expanded", "false");
-            activeDropdown = null;
-          }
-        }, 160);
-      }
-    });
-
-    // Keyboard focus management
-    dropdown.addEventListener("focusin", () => {
-      if (window.innerWidth >= 1024) {
-        openDropdown(dropdown);
-      }
-    });
-
-    dropdown.addEventListener("focusout", (e) => {
-      if (window.innerWidth >= 1024) {
-        setTimeout(() => {
-          if (!dropdown.contains(document.activeElement)) {
-            dropdown.classList.remove("is-open");
-            dropdown.classList.add("is-closed");
-            trigger.setAttribute("aria-expanded", "false");
-            if (activeDropdown === dropdown) activeDropdown = null;
-          }
-        }, 10);
-      }
-    });
-
-    // Mobile click toggle
+    // Click toggle on ALL devices (desktop, tablet, mobile)
     trigger.addEventListener("click", (e) => {
-      if (window.innerWidth < 1024) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains("is-open");
+      if (isOpen) {
+        closeAllDropdowns();
+      } else {
+        openDropdown(dropdown);
+      }
+    });
+
+    // Keyboard support: Enter / Space triggers toggle
+    trigger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         const isOpen = dropdown.classList.contains("is-open");
         if (isOpen) {
-          dropdown.classList.remove("is-open");
-          dropdown.classList.add("is-closed");
-          trigger.setAttribute("aria-expanded", "false");
+          closeAllDropdowns();
         } else {
           openDropdown(dropdown);
+          const firstItem = menu.querySelector('a, button');
+          if (firstItem) firstItem.focus();
         }
       }
+    });
+
+    // Close when tabbing outside the dropdown
+    dropdown.addEventListener("focusout", () => {
+      setTimeout(() => {
+        if (activeDropdown === dropdown && !dropdown.contains(document.activeElement)) {
+          closeAllDropdowns();
+        }
+      }, 50);
     });
   });
 
