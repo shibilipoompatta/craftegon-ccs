@@ -638,10 +638,11 @@ async function handleRestoreBackup(req, res, config, body = {}) {
   if (!user) return;
 
   const filename = body.backup_file;
-  if (!filename || !filename.startsWith('services-snapshot-') || !filename.endsWith('.json')) {
+  const safeName = filename ? path.basename(filename) : null;
+  if (!filename || safeName !== filename || !filename.startsWith('services-snapshot-') || !filename.endsWith('.json')) {
     return sendJson(res, 400, {
       error: 'Bad Request',
-      message: 'Valid backup_file name required'
+      message: 'Valid backup_file name required (path traversal sequences rejected)'
     });
   }
 

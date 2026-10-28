@@ -28,3 +28,7 @@ scratch/
 coverage/
 .nyc_output/
 .system_generated/
+
+# Catalog Backups & Snapshots
+data/backups/*.json
+!data/backups/.gitkeep
