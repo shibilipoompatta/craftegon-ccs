@@ -132,17 +132,23 @@ function validateField(input) {
 function showFieldError(input, message) {
   clearFieldError(input);
   input.style.borderColor = "var(--danger)";
+  input.setAttribute("aria-invalid", "true");
+  const errId = (input.id || input.name || 'field') + '-error-msg';
   const errorDiv = document.createElement("div");
+  errorDiv.id = errId;
   errorDiv.className = "if-field-error";
+  errorDiv.setAttribute("role", "alert");
   errorDiv.style.cssText = "color: var(--danger); font-size: var(--text-xs); margin-top: 4px; display: flex; align-items: center; gap: 4px;";
-  errorDiv.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>${message}`;
+  errorDiv.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>${message}`;
   input.parentNode.appendChild(errorDiv);
+  input.setAttribute("aria-describedby", errId);
 }
 
 function clearFieldError(input) {
   const errorDiv = input.parentNode.querySelector(".if-field-error");
   if (errorDiv) errorDiv.remove();
   input.style.borderColor = "var(--border-color)";
+  input.removeAttribute("aria-describedby");
 }
 
 function clearFormErrors(form) {
@@ -151,8 +157,7 @@ function clearFormErrors(form) {
     el.style.borderColor = "var(--border-color)";
     el.removeAttribute("aria-invalid");
   });
-  const alertBox = form.querySelector(".if-form-alert");
-  if (alertBox) alertBox.remove();
+  form.querySelectorAll(".if-form-alert").forEach(el => el.remove());
 }
 
 function preliminaryAuditItems(form) {
@@ -289,13 +294,20 @@ function initLeadCaptureForms() {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
       const auditContainer = renderPreliminaryAudit(form, data);
-      auditContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      if (typeof auditContainer.scrollIntoView === "function") {
+        auditContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
 
       const endpoint = form.dataset.endpoint || window.CRAFTEGON_CONFIG?.apiEndpoint || "/api/v1/enquiries";
 
-      // If form explicitly requests static fallback notice
-      if (form.dataset.staticFallback === "true") {
+      // If form explicitly requests static fallback notice OR static environment configured
+      if (form.dataset.staticFallback === "true" || window.CRAFTEGON_CONFIG?.isStatic === true) {
         showFormFallbackNotice(form, data);
+        const submitBtn = form.querySelector("button[type='submit']");
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Retry Submission";
+        }
         return;
       }
 
@@ -360,33 +372,85 @@ function initLeadCaptureForms() {
           credentials: "same-origin"
         });
 
-        const result = await response.json().catch(() => ({}));
-
         if (!response.ok) {
+          // If endpoint is not found (404 on static hosting)
+          if (response.status === 404) {
+            showFormFallbackNotice(form, data, { reason: "static" });
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = "Retry Submission";
+            }
+            return;
+          }
+          // If server error or ambiguous gateway error (500, 502, 503, 504)
+          if (response.status >= 500) {
+            showFormFallbackNotice(form, data, {
+              reason: "unconfirmed",
+              detail: `Server status ${response.status} - receipt could not be confirmed`
+            });
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = "Retry Submission";
+            }
+            return;
+          }
+          const result = await response.json().catch(() => ({}));
           const detail = (result.errors && result.errors[0]?.issue) || result.message || `Submission service returned ${response.status}.`;
           throw new Error(detail);
         }
 
+        const result = await response.json().catch(() => null);
+
+        // Strict validation against verified backend contract
+        const hasValidRef = result &&
+          result.success === true &&
+          typeof result.lead_reference === "string" &&
+          result.lead_reference.trim().length > 0;
+
+        if (!hasValidRef) {
+          showFormFallbackNotice(form, data, {
+            reason: "unconfirmed",
+            detail: "Server returned success status but response lacked a verified lead reference"
+          });
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Retry Submission";
+          }
+          return;
+        }
+
         form.dataset.submitted = "true";
-        const leadRef = result.lead_reference ? ` Reference: ${result.lead_reference}.` : "";
-        
+        const cleanRef = result.lead_reference.trim();
+
         showFormSuccess(
           form,
-          `Your compliance enquiry was accepted.${leadRef} CraftEgon will follow up using the contact details provided.`
+          `Your compliance enquiry was accepted. Reference: ${cleanRef}. CraftEgon will follow up using the contact details provided.`
         );
-        
+
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.textContent = "Request Submitted";
         }
       } catch (error) {
-        showFormError(
-          form,
-          error.message || "Your request could not be confirmed as submitted. Please retry or contact CraftEgon directly."
-        );
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = "Retry Submission";
+        // If network error (offline, connection dropped, or ambiguous transmission)
+        if (error.name === "TypeError" || /failed to fetch|networkerror|abort/i.test(error.message)) {
+          showFormFallbackNotice(form, data, {
+            reason: "unconfirmed",
+            detail: "Network connection disrupted - receipt could not be confirmed"
+          });
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Retry Submission";
+          }
+        } else {
+          showFormError(
+            form,
+            error.message || "Your request could not be confirmed as submitted. Please retry or contact CraftEgon directly."
+          );
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Retry Submission";
+          }
         }
       } finally {
         form.dataset.submitting = "false";
@@ -500,6 +564,8 @@ function validatePhone(phone) {
 }
 
 function showFormSuccess(form, message) {
+  form.querySelectorAll(".if-form-alert").forEach(el => el.remove());
+
   const alertBox = document.createElement("div");
   alertBox.className = "if-form-alert";
   alertBox.setAttribute("role", "status");
@@ -510,6 +576,8 @@ function showFormSuccess(form, message) {
 }
 
 function showFormError(form, message) {
+  form.querySelectorAll(".if-form-alert").forEach(el => el.remove());
+
   const alertBox = document.createElement("div");
   alertBox.className = "if-form-alert";
   alertBox.setAttribute("role", "alert");
@@ -530,7 +598,10 @@ function escapeHtml(str) {
   }[m]));
 }
 
-function showFormFallbackNotice(form, data) {
+function showFormFallbackNotice(form, data, options = {}) {
+  // Remove existing alert if present to prevent stacking
+  form.querySelectorAll(".if-form-alert").forEach(el => el.remove());
+
   const alertBox = document.createElement("div");
   alertBox.className = "if-form-alert";
   alertBox.setAttribute("role", "alert");
@@ -539,25 +610,56 @@ function showFormFallbackNotice(form, data) {
 
   const cfg = window.CRAFTEGON_CONFIG || {};
   const serviceName = (data && (data.service_id || data.service_category || data.service)) || "Corporate Compliance";
-  const prefill = encodeURIComponent(`Hello CraftEgon Compliance Desk, I would like to consult on: ${serviceName}.`);
+  const contactName = (data && (data.contact_name || data.director_name || data.applicant_name || data["signatory-name"] || data.name || data.company_name)) || "";
+  const phone = (data && (data.phone || data.mobile)) || "";
+  const email = (data && data.email) || "";
+  const scope = (data && (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || data.notes)) || "";
+
+  let waText = `Hello CraftEgon Compliance Desk, I would like to consult on: ${serviceName}.`;
+  if (contactName) waText += `\nName: ${contactName}`;
+  if (phone) waText += `\nPhone: ${phone}`;
+  if (email) waText += `\nEmail: ${email}`;
+  if (scope) waText += `\nRequirement: ${scope}`;
+
+  const prefill = encodeURIComponent(waText);
   const waUrl = (typeof cfg.getWhatsAppUrl === "function") 
     ? cfg.getWhatsAppUrl(serviceName) 
     : `https://wa.me/918606918247?text=${prefill}`;
+
+  let mailBody = `Hello CraftEgon Compliance Desk,\n\nI would like to consult on: ${serviceName}.\n\n`;
+  if (contactName) mailBody += `Name: ${contactName}\n`;
+  if (phone) mailBody += `Phone: ${phone}\n`;
+  if (email) mailBody += `Email: ${email}\n`;
+  if (scope) mailBody += `Requirement: ${scope}\n`;
+
   const mailUrl = (typeof cfg.getEmailUrl === "function") 
     ? cfg.getEmailUrl("Compliance Inquiry: " + serviceName) 
-    : `mailto:admin@craftegon.com?subject=${encodeURIComponent("Compliance Inquiry: " + serviceName)}`;
+    : `mailto:admin@craftegon.com?subject=${encodeURIComponent("Compliance Inquiry: " + serviceName)}&body=${encodeURIComponent(mailBody)}`;
+
   const phoneDisplay = cfg.phoneDisplay || "+91 86069 18247";
   const emailDisplay = cfg.email || "admin@craftegon.com";
 
+  const isUnconfirmed = options.reason === "unconfirmed";
+  const noticeTitle = isUnconfirmed ? "Submission Unconfirmed — Direct Engagement" : "Notice: Direct Engagement Channel";
+  const noticeBody = isUnconfirmed
+    ? `<strong>Submission Status:</strong> Online transmission could not be confirmed by the server (${escapeHtml(options.detail || "Connection disrupted")}). To prevent delayed compliance or duplicate submissions, please connect directly with our compliance desk:`
+    : `<strong>Submission Notice:</strong> Online form transmission to a backend server is not active in this static environment. Details entered in this form are not stored or transmitted to CraftEgon CCS.`;
+
   alertBox.innerHTML = `
     <div style="font-weight: 700; color: var(--text-dark, #090D16); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-cinzel, 'Cinzel', serif);">
-      <span style="color: var(--text-dark-gold, #785B0D);">Notice: Direct Engagement Channel</span>
+      <span style="color: var(--text-dark-gold, #785B0D);">${noticeTitle}</span>
     </div>
     <div style="background: rgba(245, 158, 11, 0.1); border-left: 3px solid #F59E0B; padding: 0.6rem 0.8rem; border-radius: 4px; margin-bottom: 0.85rem; font-size: 0.8rem; color: var(--text-dark, #090D16); line-height: 1.45;">
-      <strong>Submission Notice:</strong> Online form transmission to a backend server is not active in this static environment. Details entered in this form are not stored or transmitted to CraftEgon CCS.
+      ${noticeBody}
     </div>
-    <p style="font-size: 0.85rem; color: var(--text-main, #334155); margin: 0 0 1rem 0; line-height: 1.5; font-family: var(--font-body, 'Manrope', sans-serif);">
+    <p style="font-size: 0.85rem; color: var(--text-main, #334155); margin: 0 0 0.5rem 0; line-height: 1.5; font-family: var(--font-body, 'Manrope', sans-serif);">
       To consult with our corporate compliance desk regarding <strong>${escapeHtml(serviceName)}</strong>, please connect directly using our verified WhatsApp or Email channels:
+    </p>
+    <p style="font-size: 0.8rem; color: #475569; margin: 0 0 0.5rem 0; line-height: 1.45; font-family: var(--font-body, 'Manrope', sans-serif);">
+      <strong>Review &amp; Response Expectation:</strong> Our corporate compliance desk reviews enquiries during regular business hours (Monday – Saturday, 9:00 AM – 7:00 PM IST) to understand statutory scope, jurisdiction, and filing timeline.
+    </p>
+    <p style="font-size: 0.78rem; color: var(--text-muted, #64748B); margin: 0 0 1rem 0; line-height: 1.45; font-family: var(--font-body, 'Manrope', sans-serif);">
+      <em>Privacy note:</em> Selecting an alternative channel opens your external WhatsApp application or default email composer with your pre-filled inquiry. Your details are only sent when you choose to transmit the message.
     </p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
       <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
@@ -569,7 +671,6 @@ function showFormFallbackNotice(form, data) {
     </div>
   `;
   form.prepend(alertBox);
-  
 }
 
 function addFunnelContext(form) {
@@ -622,5 +723,6 @@ window.CraftegonForms = {
   validateField,
   VALIDATORS,
   generateAIPreliminaryAudit,
-  initRealtimeValidation
+  initRealtimeValidation,
+  showFormFallbackNotice
 };

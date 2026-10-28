@@ -55,6 +55,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.head.appendChild(configScript);
   }
 
+  // Ensure main landmark has id="main-content" for accessibility skip link
+  const mainEl = document.querySelector("main");
+  if (mainEl && !mainEl.id) {
+    mainEl.id = "main-content";
+  }
+
   preserveConversionContext();
   injectServiceDiscoveryReciprocal();
 
@@ -367,6 +373,9 @@ function initMobileNav() {
     drawer.setAttribute("aria-hidden", "false");
     toggleBtn.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
+    setTimeout(() => {
+      if (closeBtn) closeBtn.focus();
+    }, 50);
   }
 
   function closeDrawer() {
@@ -375,11 +384,34 @@ function initMobileNav() {
     drawer.setAttribute("aria-hidden", "true");
     toggleBtn.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
+    toggleBtn.focus();
   }
 
   toggleBtn.addEventListener("click", openDrawer);
   if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
   if (backdrop) backdrop.addEventListener("click", closeDrawer);
+
+  // Focus trap inside drawer while active
+  drawer.addEventListener("keydown", (e) => {
+    if (e.key === "Tab") {
+      const focusables = drawer.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (!focusables.length) return;
+      const firstFocusable = focusables[0];
+      const lastFocusable = focusables[focusables.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        }
+      } else {
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
+      }
+    }
+  });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && drawer.classList.contains("active")) {

@@ -65,10 +65,54 @@
   const POPULAR_SUGGESTIONS = [
     { label: 'Private Limited Company (SPICe+)', route: '/services/pvt-ltd-registration.html', category: 'Entity Formation' },
     { label: 'Limited Liability Partnership (LLP)', route: '/services/llp-registration.html', category: 'Entity Formation' },
-    { label: 'Trademark Search & Registration', route: '/services/trademark-registration.html', category: 'IPR' },
+    { label: 'RoC Annual Compliance Retainer', route: '/services/roc-annual-compliance.html', category: 'RoC Compliance' },
+    { label: 'Trademark Search & Registration (TM-A)', route: '/services/trademark-registration.html', category: 'IPR' },
     { label: 'GST Annual Return (GSTR-9/9C)', route: '/services/gst-annual.html', category: 'Tax & Compliance' },
-    { label: 'DPIIT Startup India Recognition', route: '/services/dpiit-startup-india.html', category: 'Startup Advisory' },
-    { label: 'DIR-3 KYC Director KYC Online', route: '/services/dir3-kyc.html', category: 'RoC Compliance' }
+    { label: 'Fast-Track Strike-Off & Closure (STK-2)', route: '/services/form-stk2-strike-off.html', category: 'Closure & Exit' }
+  ];
+
+  // Problem-oriented business intent mappings (synonym clusters)
+  const PROBLEM_QUERY_BOOSTS = [
+    {
+      pattern: /(company|llp|pvt ltd|startup|business)?\s*(incorporation|registration|formation|setup|start\s*a\s*company)/i,
+      targetIds: ['V01-SVC-007', 'V01-SVC-002', 'V01-SVC-004', 'V01-SVC-001'],
+      boost: 55
+    },
+    {
+      pattern: /(overdue|late|penalty|penalties|delay|default|section\s*403)\s*(return|filing|compliance|annual|fees|fee)?/i,
+      targetIds: ['V02-SVC-017', 'V02-SVC-004', 'V02-SVC-008', 'V02-SVC-002', 'V02-SVC-014', 'V02-SVC-010'],
+      boost: 65
+    },
+    {
+      pattern: /(gst|gstr|indirect\s*tax)\s*(filing|return|annual|reconciliation|itc|audit)?/i,
+      targetIds: ['V03-SVC-003', 'V03-SVC-005'],
+      boost: 60
+    },
+    {
+      pattern: /(trademark|brand|logo|slogan|tm|tm-a|nice|ipr)\s*(registration|filing|protection|search)?/i,
+      targetIds: ['V06-SVC-003', 'V06-SVC-001', 'V06-SVC-002'],
+      boost: 65
+    },
+    {
+      pattern: /(company|llp|firm|entity)?\s*(closure|shut\s*down|close|strike\s*off|defunct|winding\s*up|stk-2|form\s*24)/i,
+      targetIds: ['V02-SVC-013', 'V02-SVC-015', 'V02-SVC-011'],
+      boost: 70
+    },
+    {
+      pattern: /(board|director|shareholder|promoter|partner)\s*(dispute|removal|oppression|mismanagement|deadlock|conflict)/i,
+      targetIds: ['REF-V10-001', 'REF-V10-002', 'REF-V10-003'],
+      boost: 75
+    },
+    {
+      pattern: /(msme|udyam|small\s*business|micro\s*enterprise)/i,
+      targetIds: ['V01-SVC-003', 'V02-SVC-010'],
+      boost: 65
+    },
+    {
+      pattern: /(contract|agreement|sha|msa|sow|founders\s*agreement|nda)/i,
+      targetIds: ['V05-SVC-001', 'V05-SVC-002'],
+      boost: 60
+    }
   ];
 
   class ServiceSearchEngine {
@@ -171,6 +215,16 @@
           score += 35;
         }
 
+        // 8. Business problem intent boost: match common business needs
+        for (let b = 0; b < PROBLEM_QUERY_BOOSTS.length; b++) {
+          const pb = PROBLEM_QUERY_BOOSTS[b];
+          if (pb.pattern.test(qRaw) && pb.targetIds.includes(item.id)) {
+            score += pb.boost;
+            if (matchType === 'BROAD') matchType = 'PROBLEM_INTENT_MATCH';
+            break;
+          }
+        }
+
         // Token-level matching
         let matchedTokensCount = 0;
         queryTokens.forEach(token => {
@@ -212,7 +266,7 @@
         });
 
         // Penalize items that don't match all tokens if query has multiple words
-        if (queryTokens.length > 1) {
+        if (queryTokens.length > 1 && matchType !== 'PROBLEM_INTENT_MATCH' && matchType !== 'EXACT_NAME' && matchType !== 'EXACT_ALIAS') {
           const matchRatio = matchedTokensCount / queryTokens.length;
           score = score * matchRatio;
         }

@@ -1,4 +1,5 @@
 <header class="if-header">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="if-header-inner">
     <!-- Brand Logo and Descriptor -->
     <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services (CCS) Home">
@@ -66,7 +67,8 @@
               <li role="none"><a href="/verticals/01-entity-formation.html" class="menu-item-card" role="menuitem"><strong class="item-title">1. Business Registration</strong><span class="item-desc">Company, LLP &amp; Entity Structuring</span></a></li>
               <li role="none"><a href="/verticals/02-roc-compliance.html" class="menu-item-card" role="menuitem"><strong class="item-title">2. Corporate Compliance</strong><span class="item-desc">ROC Annual Filings &amp; Secretarial</span></a></li>
               <li role="none"><a href="/verticals/03-tax-compliance.html" class="menu-item-card" role="menuitem"><strong class="item-title">3. Tax &amp; GST</strong><span class="item-desc">GST Returns &amp; Corporate Taxation</span></a></li>
-              <li role="none"><a href="/verticals/04-statutory-licenses.html" class="menu-item-card" role="menuitem"><strong class="item-title">4. Licences &amp; IPR</strong><span class="item-desc">Trademarks, MSME &amp; Licences</span></a></li>
+              <li role="none"><a href="/verticals/04-statutory-licenses.html" class="menu-item-card" role="menuitem"><strong class="item-title">4. Licences &amp; Statutory</strong><span class="item-desc">FSSAI, Shop Act &amp; Registrations</span></a></li>
+              <li role="none"><a href="/verticals/06-ipr-protection.html" class="menu-item-card" role="menuitem"><strong class="item-title">5. Trademarks &amp; IPR</strong><span class="item-desc">Brand Protection &amp; Form TM-A</span></a></li>
             </ul>
           </div>
 
@@ -74,14 +76,18 @@
           <div class="megamenu-col">
             <div class="dropdown-heading">
               <span>Explore by Category</span>
-              <span class="heading-tag">Verticals</span>
+              <span class="heading-tag">All Verticals</span>
             </div>
             <ul class="dropdown-list" role="none">
               <li role="none"><a href="/verticals/05-contracts-legal.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Commercial Contracts &amp; Drafting</a></li>
-              <li role="none"><a href="/verticals/06-ipr-protection.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> IPR &amp; Trademark Protection</a></li>
+              <li role="none"><a href="/verticals/07-labour-hr.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Employment &amp; HR Compliance</a></li>
+              <li role="none"><a href="/verticals/08-fundraising-investment.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Banking &amp; Fundraising Support</a></li>
+              <li role="none"><a href="/verticals/09-ma-restructuring.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Corporate Transactions &amp; M&amp;A</a></li>
               <li role="none"><a href="/verticals/10-litigation-dispute.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Dispute Avoidance (Non-Litigation)</a></li>
+              <li role="none"><a href="/verticals/11-governance-audit.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Governance, Audit &amp; Risk</a></li>
               <li role="none"><a href="/verticals/12-esg-csr.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Data Privacy &amp; Tech Law</a></li>
               <li role="none"><a href="/verticals/13-cross-border-fema.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Cross-Border FDI &amp; FEMA</a></li>
+              <li role="none"><a href="/verticals/14-exit-insolvency.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Restructuring, Insolvency &amp; Exit</a></li>
               <li role="none"><a href="/verticals/15-it-digital.html" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> IT &amp; Digital Infrastructure</a></li>
             </ul>
           </div>
@@ -97,6 +103,7 @@
               <li role="none"><a href="/services.html?stage=compliance" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Growth &amp; Annual Compliance</a></li>
               <li role="none"><a href="/services.html?stage=governance" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Governance, Audits &amp; Risk</a></li>
               <li role="none"><a href="/services.html?stage=restructuring" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Restructuring &amp; Entity Exit</a></li>
+              <li role="none"><a href="/services.html?stage=dispute" class="menu-item-link" role="menuitem"><span class="item-bullet">▪</span> Dispute Triage &amp; Advisory</a></li>
             </ul>
             <div class="megamenu-directory-callout">
               <a href="/services.html" class="megamenu-directory-btn" role="menuitem">
@@ -146,7 +153,7 @@
       <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-primary btn-talk-expert">
         Talk to an Expert
       </a>
-      <button class="if-mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
+      <button class="if-mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -158,7 +165,7 @@
 
   <!-- Mobile Drawer Overlay & Backdrop -->
   <div class="if-mobile-backdrop" id="mobile-drawer-backdrop"></div>
-  <div class="if-mobile-drawer" id="mobile-drawer" aria-hidden="true">
+  <div class="if-mobile-drawer" id="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
     <div class="if-mobile-drawer-header">
       <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services (CCS) Home">
         <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
@@ -186,21 +193,72 @@
     </div>
 
     <div class="if-mobile-drawer-body">
-      <a href="/index.html" class="if-mobile-nav-link">Home</a>
-      <a href="/services.html" class="if-mobile-nav-link">Services Directory (57 Services)</a>
-      <a href="/index.html#key-services" class="if-mobile-nav-link">&bull; 4 Key Services</a>
-      <a href="/index.html#about" class="if-mobile-nav-link">About CraftEgon</a>
-      <a href="/knowledge/index.html" class="if-mobile-nav-link">Resources &amp; Knowledge</a>
-      <a href="/conversion/calculator.html" class="if-mobile-nav-link">&bull; RoC Late Fee Calculator</a>
+      <div class="if-mobile-nav-group">
+        <a href="/index.html" class="if-mobile-nav-link">Home</a>
+        <a href="/services.html" class="if-mobile-nav-link" style="font-weight: 700; color: var(--navy-800, #0B2545);">Services Directory (57 Services)</a>
+        <a href="/portal/dashboard.html" class="if-mobile-nav-link" style="color: var(--brand-gold);">Client Portal &amp; Compliance Desk</a>
+        <a href="/index.html#about" class="if-mobile-nav-link">About CraftEgon</a>
+      </div>
+
+      <!-- Practice Areas Accordion: All 15 Verticals grouped by Business Objective -->
+      <details class="if-mobile-accordion" id="mobile-verticals-accordion">
+        <summary>
+          <span>Practice Areas by Objective (15)</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <strong style="font-size: 0.72rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Start &amp; Register</strong>
+          <a href="/verticals/01-entity-formation.html">1. Business Formation &amp; Structuring</a>
+          <a href="/verticals/04-statutory-licenses.html">4. Statutory Licences &amp; Registrations</a>
+          <a href="/verticals/06-ipr-protection.html">6. IPR &amp; Trademark Protection</a>
+
+          <strong style="font-size: 0.72rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 8px;">Operate &amp; Comply</strong>
+          <a href="/verticals/02-roc-compliance.html">2. RoC Compliance &amp; Secretarial</a>
+          <a href="/verticals/03-tax-compliance.html">3. Corporate Tax &amp; GST Compliance</a>
+          <a href="/verticals/07-labour-hr.html">7. Employment &amp; HR Compliance</a>
+          <a href="/verticals/15-it-digital.html">15. IT &amp; Digital Infrastructure</a>
+
+          <strong style="font-size: 0.72rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 8px;">Protect &amp; Scale</strong>
+          <a href="/verticals/05-contracts-legal.html">5. Commercial Contracts &amp; Drafting</a>
+          <a href="/verticals/08-fundraising-investment.html">8. Banking &amp; Fundraising Support</a>
+          <a href="/verticals/11-governance-audit.html">11. Governance, Audit &amp; Risk</a>
+          <a href="/verticals/12-esg-csr.html">12. Data Privacy &amp; Tech Law</a>
+          <a href="/verticals/13-cross-border-fema.html">13. Cross-Border FDI &amp; FEMA</a>
+
+          <strong style="font-size: 0.72rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 8px;">Restructure &amp; Advisory</strong>
+          <a href="/verticals/09-ma-restructuring.html">9. Corporate Transactions &amp; M&amp;A</a>
+          <a href="/verticals/10-litigation-dispute.html">10. Dispute Avoidance (Non-Litigation)</a>
+          <a href="/verticals/14-exit-insolvency.html">14. Restructuring, Insolvency &amp; Exit</a>
+        </div>
+      </details>
+
+      <!-- Diagnostic Tools & Resources Accordion -->
+      <details class="if-mobile-accordion" id="mobile-tools-accordion">
+        <summary>
+          <span>Tools &amp; Resources</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <a href="/knowledge/index.html">Compliance Knowledge Centre</a>
+          <a href="/conversion/calculator.html">RoC Late Fee Calculator</a>
+          <a href="/conversion/trademark-search.html">NICE Trademark Screener</a>
+          <a href="/conversion/index.html">Diagnostic Tools &amp; Checkers</a>
+          <a href="/search/">Corporate &amp; IP Registry Search</a>
+          <a href="/portal/entity-search.html">CIN &amp; LLPIN Master Lookup</a>
+        </div>
+      </details>
+
       <a href="/index.html#contact" class="if-mobile-nav-link">Contact</a>
-      <a href="/portal/dashboard.html" class="if-mobile-nav-link">Client Portal</a>
-      
-      <div style="margin-top: 1.5rem;">
-        <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; margin-bottom: 0.5rem;">
-          Talk to an Expert
+
+      <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem;">
+        <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center;">
+          💬 WhatsApp Live Desk
         </a>
         <a href="tel:+918606918247" class="btn btn-secondary" style="width: 100%; text-align: center;">
-          Call: +91 86069 18247
+          📞 Call: +91 86069 18247
+        </a>
+        <a href="mailto:admin@craftegon.com" class="btn btn-secondary" style="width: 100%; text-align: center; font-size: 0.85rem;">
+          ✉️ admin@craftegon.com
         </a>
       </div>
     </div>

@@ -781,8 +781,8 @@ function runTestSuite() {
 
   // Check disk services
   console.log('\n--- Test Suite 3: Service Pages Disk Alignment ---');
-  const diskFiles = fs.readdirSync(SERVICES_DIR).filter(f => f.endsWith('.html'));
-  assertTest(diskFiles.length === 57, `Disk services/ directory contains exactly 57 HTML pages (found ${diskFiles.length})`);
+  const diskFiles = fs.readdirSync(SERVICES_DIR).filter(f => f.endsWith('.html') && f !== 'index.html');
+  assertTest(diskFiles.length === 57, `Disk services/ directory contains exactly 57 canonical service HTML pages (found ${diskFiles.length})`);
 
   let diskMismatches = 0;
   p2Rows.forEach(r => {

@@ -26,6 +26,9 @@
     domain: "https://craftegon.com",
     liveUrl: "https://ccs.craftegon.com",
     
+    // Deployment Architecture: Static Showcase (Option A Selected)
+    isStatic: true,
+
     // Quick-action prefilled inquiry generator
     getWhatsAppUrl: function (topic) {
       const text = topic 

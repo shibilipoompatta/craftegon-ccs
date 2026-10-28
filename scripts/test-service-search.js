@@ -155,6 +155,25 @@ assert(typo2.length > 0 && typo2.some(r => r.item.vertical_id === 'V06'), 'Typo 
 const litigationResults = engine.search('commercial dispute litigation');
 assert(litigationResults.length > 0 && litigationResults.some(r => r.item.is_referral), 'Litigation query surfaces referral advisory service with is_referral flag');
 
+// 3.6 Common Business Needs Intent Queries (P1/Priority 2)
+const incResults = engine.search('company incorporation');
+assert(incResults.length > 0 && incResults.some(r => r.item.id === 'V01-SVC-007'), 'Common need "company incorporation" finds Pvt Ltd Registration at top rank');
+
+const overdueResults = engine.search('overdue returns');
+assert(overdueResults.length > 0 && overdueResults.some(r => r.item.id === 'V02-SVC-017'), 'Common need "overdue returns" finds RoC Overdue Filings at top rank');
+
+const lateFeesResults = engine.search('late fees');
+assert(lateFeesResults.length > 0 && lateFeesResults.some(r => r.item.id === 'V02-SVC-017'), 'Common need "late fees" finds RoC Overdue Filings & Late Fees at top rank');
+
+const gstFilingResults = engine.search('GST filing');
+assert(gstFilingResults.length > 0 && gstFilingResults.some(r => r.item.id === 'V03-SVC-003'), 'Common need "GST filing" finds GST Annual Return (V03-SVC-003)');
+
+const tmRegResults = engine.search('trademark registration');
+assert(tmRegResults.length > 0 && tmRegResults.some(r => r.item.id === 'V06-SVC-001'), 'Common need "trademark registration" finds Trademark Registration (V06-SVC-001)');
+
+const closureResults = engine.search('company closure');
+assert(closureResults.length > 0 && closureResults.some(r => r.item.id === 'V02-SVC-013'), 'Common need "company closure" finds Strike-Off STK-2 (V02-SVC-013)');
+
 // ----------------------------------------------------
 // Test Suite 4: Navbar Search & Accessibility Verification
 // ----------------------------------------------------
@@ -184,6 +203,7 @@ const servicesContent = fs.readFileSync(SERVICES_HTML, 'utf8');
 assert(servicesContent.includes('<link rel="canonical" href="https://ccs.craftegon.com/services.html">'), 'services.html has correct canonical URL');
 assert(servicesContent.includes('<title>Universal Corporate Services Directory | CraftEgon CCS</title>'), 'services.html has accurate corporate title');
 assert(servicesContent.includes('id="directory-search-input"'), 'services.html has #directory-search-input');
+assert(servicesContent.includes('id="quick-needs-bar"'), 'services.html has quick-needs-bar shortcuts');
 assert(servicesContent.includes('id="stage-filter-group"'), 'services.html has stage filter group');
 assert(servicesContent.includes('id="vertical-filter-select"'), 'services.html has practice vertical filter select');
 assert(servicesContent.includes('id="entity-filter-select"'), 'services.html has entity type filter select');
@@ -196,7 +216,9 @@ assert(servicesContent.includes('window.CRAFTEGON_SERVICE_CATALOG'), 'services.h
 // ----------------------------------------------------
 console.log('\n--- Test Suite 6: Routing, Redirects & Sitemap Verification ---');
 const redirectsContent = fs.readFileSync(path.join(ROOT, '_redirects'), 'utf8');
-assert(redirectsContent.includes('/services        /services.html          200'), '_redirects includes /services clean rewrite');
+assert(redirectsContent.includes('/services        /services/index.html    200'), '_redirects strictly includes /services clean rewrite to /services/index.html');
+assert(redirectsContent.includes('/services/       /services/index.html    200'), '_redirects strictly includes /services/ clean rewrite to /services/index.html');
+assert(!redirectsContent.includes('/services        /services.html          200'), '_redirects does not use deprecated /services.html rewrite target');
 
 const sitemapContent = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
 assert(sitemapContent.includes('https://ccs.craftegon.com/services.html'), 'sitemap.xml includes https://ccs.craftegon.com/services.html');
@@ -209,6 +231,41 @@ const navigationJs = fs.readFileSync(path.join(ROOT, 'assets', 'js', 'navigation
 assert(navigationJs.includes('injectServiceDiscoveryReciprocal'), 'navigation.js defines injectServiceDiscoveryReciprocal');
 assert(navigationJs.includes('service-dir-backlink'), 'navigation.js adds backlink to all 57 services in breadcrumb');
 assert(navigationJs.includes('reciprocal-service-discovery'), 'navigation.js renders adjacent services widget in practice vertical');
+
+// ----------------------------------------------------
+// Test Suite 8: Directory Index Consistency (services.html vs services/index.html)
+// ----------------------------------------------------
+console.log('\n--- Test Suite 8: Directory Index Consistency (services.html vs services/index.html) ---');
+const SERVICES_INDEX_HTML = path.join(ROOT, 'services', 'index.html');
+assert(fs.existsSync(SERVICES_INDEX_HTML), 'services/index.html exists on disk');
+
+const indexContent = fs.readFileSync(SERVICES_INDEX_HTML, 'utf8');
+
+// Core UI & Search Controls Consistency
+assert(indexContent.includes('id="directory-search-input"'), 'services/index.html contains #directory-search-input');
+assert(indexContent.includes('id="quick-needs-bar"'), 'services/index.html contains #quick-needs-bar');
+assert(indexContent.includes('id="stage-filter-group"'), 'services/index.html contains #stage-filter-group');
+assert(indexContent.includes('id="vertical-filter-select"'), 'services/index.html contains #vertical-filter-select');
+assert(indexContent.includes('id="entity-filter-select"'), 'services/index.html contains #entity-filter-select');
+assert(indexContent.includes('id="status-filter-select"'), 'services/index.html contains #status-filter-select');
+assert(indexContent.includes('id="directory-empty-state"'), 'services/index.html contains #directory-empty-state');
+assert(indexContent.includes('id="service-cards-container"'), 'services/index.html contains #service-cards-container');
+
+// Script and Service Catalog Binding
+assert(indexContent.includes('search-index.js'), 'services/index.html loads search-index.js');
+assert(indexContent.includes('service-search.js'), 'services/index.html loads service-search.js');
+assert(indexContent.includes('window.CRAFTEGON_SERVICE_CATALOG'), 'services/index.html binds window.CRAFTEGON_SERVICE_CATALOG');
+
+// Service Counts & Referral Distinctions
+assert(indexContent.includes('57') && indexContent.includes('54 Direct Services') && indexContent.includes('3 Referral Services'), 'services/index.html preserves exact 54 direct / 3 referral catalog breakdown');
+
+// Practice Verticals Coverage
+const expectedVerticals = ['V01', 'V02', 'V03', 'V04', 'V05', 'V06', 'V07', 'V09', 'V10', 'V11', 'V12', 'V13'];
+const allVerticalsPresent = expectedVerticals.every(v => indexContent.includes(`value="${v}"`));
+assert(allVerticalsPresent, 'services/index.html contains all practice vertical filter options matching services.html');
+
+// Canonical Link Integrity
+assert(indexContent.includes('<link rel="canonical" href="https://ccs.craftegon.com/services.html">'), 'services/index.html maintains canonical link to services.html');
 
 console.log('\n============================================================');
 console.log(`TOTAL SUITES EXECUTED: ${passed + failed} | PASSED: ${passed} | FAILED: ${failed}`);

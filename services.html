@@ -498,7 +498,16 @@
       .directory-title { font-size: 2rem; }
       .service-cards-grid { grid-template-columns: 1fr; }
       .filter-toolbar-section { top: 60px; }
-      .filter-chips-group { overflow-x: auto; padding-bottom: 0.25rem; }
+      .filter-chips-group { overflow-x: auto; padding-bottom: 0.25rem; -webkit-overflow-scrolling: touch; }
+    }
+
+    @media (max-width: 520px) {
+      .hero-search-box { padding: 0.35rem 0.45rem 0.35rem 0.85rem; }
+      .hero-search-input { font-size: 0.9rem; }
+      .hero-search-btn { padding: 0.65rem 1rem; font-size: 0.82rem; }
+      .quick-needs-bar { gap: 0.35rem; }
+      .filter-toolbar-inner { padding: 0.75rem 1rem; }
+      .directory-content-wrapper { padding: 1rem 1rem 4rem; }
     }
   </style>
 
@@ -562,6 +571,19 @@
     <!-- Filter & Facet Toolbar -->
     <section class="filter-toolbar-section" aria-label="Catalog Filters">
       <div class="filter-toolbar-inner">
+        <!-- Quick Business Needs Shortcuts -->
+        <div class="quick-needs-bar" id="quick-needs-bar" aria-label="Common Business Needs Quick Filters" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; align-items: center; padding-bottom: 0.85rem; border-bottom: 1px solid rgba(197, 155, 39, 0.2);">
+          <span style="font-size: 0.72rem; font-weight: 700; color: var(--gold-light, #B4881B); text-transform: uppercase; letter-spacing: 0.06em; margin-right: 0.25rem;">
+            Common Business Needs:
+          </span>
+          <button type="button" class="filter-chip quick-need-btn" data-query="company incorporation" style="font-size: 0.78rem;">🚀 Start Company / LLP</button>
+          <button type="button" class="filter-chip quick-need-btn" data-query="overdue returns" style="font-size: 0.78rem;">📋 Overdue RoC Filings &amp; Late Fees</button>
+          <button type="button" class="filter-chip quick-need-btn" data-query="GST filing" style="font-size: 0.78rem;">📊 GST &amp; Corporate Tax</button>
+          <button type="button" class="filter-chip quick-need-btn" data-query="trademark registration" style="font-size: 0.78rem;">🛡️ Trademark &amp; Brand IP</button>
+          <button type="button" class="filter-chip quick-need-btn" data-query="company closure" style="font-size: 0.78rem;">🚪 Company Strike-Off &amp; Closure</button>
+          <button type="button" class="filter-chip quick-need-btn" data-status="REFERRAL" style="font-size: 0.78rem;">⚖️ Board Disputes &amp; Triage</button>
+        </div>
+
         <!-- Stage Filter Chips -->
         <div class="filter-chips-group" id="stage-filter-group" role="tablist" aria-label="Business Stage Filters">
           <button class="filter-chip active" data-stage="ALL" role="tab" aria-selected="true">All Stages</button>
@@ -920,7 +942,7 @@
           if (isReferral) {
             referralBanner = `
               <div class="referral-disclaimer-card">
-                <strong>Independent Counsel Boundary:</strong> All contentious litigation, tribunal disputes, and courtroom advocacy are referred to our panel of independent advocates under the Advocates Act, 1961.
+                <strong>Advocates Act Boundary:</strong> Contentious litigation, tribunal disputes, and courtroom advocacy must be handled by independent legal counsel. Direct secretarial advisory and documentation assistance is provided by CCS.
               </div>
             `;
           }
@@ -975,6 +997,7 @@
         currentFilters.query = '';
         clearBtn.style.display = 'none';
         searchInput.focus();
+        document.querySelectorAll('.quick-need-btn').forEach(b => b.classList.remove('active'));
         renderCatalog();
       });
 
@@ -1015,9 +1038,33 @@
         });
       });
 
+      // Quick Needs Buttons
+      document.querySelectorAll('.quick-need-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const q = this.getAttribute('data-query');
+          const st = this.getAttribute('data-status');
+          document.querySelectorAll('.quick-need-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          if (q) {
+            searchInput.value = q;
+            currentFilters.query = q;
+            clearBtn.style.display = 'inline-block';
+            if (st) {
+              currentFilters.status = st;
+              statusSelect.value = st;
+            }
+          } else if (st) {
+            currentFilters.status = st;
+            statusSelect.value = st;
+          }
+          renderCatalog();
+        });
+      });
+
       function resetAll() {
         searchInput.value = '';
         clearBtn.style.display = 'none';
+        document.querySelectorAll('.quick-need-btn').forEach(b => b.classList.remove('active'));
         currentFilters = {
           query: '',
           vertical_id: 'ALL',

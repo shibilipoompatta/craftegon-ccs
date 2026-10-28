@@ -3,132 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore CraftEgon CCS Diagnostic Engines & Conversion Suite: AI Legal Document Drafter, RoC Late Fee Calculator, Trademark Class Checker, STK-2 Strike-Off Analyzer, and Compliance Desks.">
-  <title>Diagnostic Engines &amp; Conversion Tools Suite | CraftEgon CCS</title>
+  <meta name="description" content="Explore CraftEgon CCS Diagnostic Engines & Conversion Suite: RoC Late Fee Calculator, STK-2 Strike-Off Analyzer, Trademark NICE Checker, and Compliance Desks.">
+  <title>Diagnostic Tools, Statutory Calculators &amp; Compliance Engines | CraftEgon CCS</title>
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link rel="stylesheet" href="/assets/css/navbar.css">
   <link rel="stylesheet" href="/assets/css/service-page.css">
+
   <style>
     .conv-hero {
-      background: radial-gradient(circle at 50% 20%, rgba(197, 155, 39, 0.08) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 80%, rgba(241, 245, 249, 0.7) 0%, transparent 50%),
-                  var(--royal-gradient);
-      color: var(--text-dark);
-      padding: 5.5rem 1.5rem 4rem;
-      border-bottom: 1px solid var(--border-color);
+      background: linear-gradient(180deg, var(--bg-secondary, #F8FAFC) 0%, #FFFFFF 100%);
+      color: var(--text-dark, #0A192F);
+      padding: 4.5rem 1.5rem 3rem;
+      border-bottom: 1px solid var(--border-color, #E2E8F0);
       text-align: center;
       position: relative;
     }
     .conv-badge {
-      display: inline-block;
-      background: rgba(197, 155, 39, 0.12);
-      border: 1px solid rgba(197, 155, 39, 0.35);
-      color: var(--brand-gold);
-      padding: 0.4rem 1.1rem;
-      border-radius: var(--radius-full);
-      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(197, 155, 39, 0.08);
+      border: 1px solid rgba(197, 155, 39, 0.25);
+      color: var(--brand-gold-hover, #A37F1D);
+      padding: 0.35rem 0.95rem;
+      border-radius: var(--radius-full, 9999px);
+      font-size: 0.76rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 0 20px rgba(197, 155, 39, 0.15);
+      margin-bottom: 1rem;
     }
-    .conv-filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin: 2rem 0;
-      justify-content: center;
+    .conv-search-box {
+      max-width: 600px;
+      margin: 1.5rem auto 0;
+      position: relative;
     }
-    .conv-filter-btn {
+    .conv-search-input {
+      width: 100%;
+      padding: 0.85rem 1.25rem 0.85rem 2.75rem;
+      border-radius: var(--radius-md, 8px);
+      border: 1.5px solid var(--border-color, #E2E8F0);
       background: #FFFFFF;
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 0.55rem 1.25rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
+      color: var(--text-dark, #0A192F);
+      font-size: 0.95rem;
+      box-shadow: 0 1px 3px rgba(11, 37, 69, 0.04);
       transition: all 0.2s ease;
     }
-    .conv-filter-btn.active, .conv-filter-btn:hover {
-      background: var(--cta-gradient);
-      color: #FFFFFF;
-      border-color: var(--brand-gold);
-      box-shadow: var(--shadow-gold);
+    .conv-search-input:focus {
+      outline: none;
+      border-color: var(--navy-800, #0B2545);
+      box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.12);
     }
-    .conv-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.75rem;
-      margin-bottom: 4rem;
-    }
-    .conv-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 1.85rem;
-      display: flex;
-      flex-direction: column;
-      box-shadow: var(--shadow-standard);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      overflow: hidden;
-    }
-    .conv-card::before {
-      content: '';
+    .conv-search-icon {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent 0%, var(--brand-gold) 50%, transparent 100%);
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted, #64748B);
+      pointer-events: none;
     }
-    .conv-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-gold);
-      border-color: var(--brand-gold);
-    }
-    .conv-card.featured {
-      border: 1.5px solid var(--brand-gold);
+    .conv-empty-state {
+      display: none;
+      text-align: center;
+      padding: 3.5rem 1.5rem;
       background: #FFFFFF;
-      box-shadow: var(--shadow-gold);
+      border: 1px dashed var(--border-color, #E2E8F0);
+      border-radius: var(--radius-md, 8px);
+      margin: 2rem 0;
     }
-    .conv-tag {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--brand-gold);
-      margin-bottom: 0.6rem;
-      letter-spacing: 0.06em;
-    }
-    .conv-title {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 0.75rem;
-      line-height: 1.35;
-    }
-    .conv-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 1.35rem;
-      flex-grow: 1;
-    }
-    .conv-action {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--border-color);
-      padding-top: 0.85rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--brand-gold);
+    @media (max-width: 600px) {
+      .conv-hero {
+        padding: 3.5rem 1rem 2rem;
+      }
+      .conv-filter-bar {
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+      }
+      .conv-search-box {
+        margin: 1.25rem 0 0;
+      }
+      .conv-search-input {
+        font-size: 16px;
+        padding-left: 2.5rem;
+      }
     }
   </style>
 
@@ -138,18 +97,18 @@
   <link rel="canonical" href="https://ccs.craftegon.com/conversion/index.html">
 
   <!-- Open Graph / Meta Protocol -->
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="website">
   <meta property="og:site_name" content="CraftEgon CCS">
   <meta property="og:url" content="https://ccs.craftegon.com/conversion/index.html">
-  <meta property="og:title" content="Diagnostic Engines &amp; Conversion Tools Suite | CraftEgon CCS">
-  <meta property="og:description" content="Explore CraftEgon CCS Diagnostic Engines & Conversion Suite: AI Legal Document Drafter, RoC Late Fee Calculator, Trademark Class Checker, STK-2 Strike-Off Analyzer, and Compliance Desks.">
+  <meta property="og:title" content="Diagnostic Tools, Statutory Calculators &amp; Compliance Engines | CraftEgon CCS">
+  <meta property="og:description" content="Explore CraftEgon CCS Diagnostic Engines & Conversion Suite: RoC Late Fee Calculator, STK-2 Strike-Off Analyzer, Trademark NICE Checker, and Compliance Desks.">
   <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@craftegon">
-  <meta name="twitter:title" content="Diagnostic Engines &amp; Conversion Tools Suite | CraftEgon CCS">
-  <meta name="twitter:description" content="Explore CraftEgon CCS Diagnostic Engines & Conversion Suite: AI Legal Document Drafter, RoC Late Fee Calculator, Trademark Class Checker, STK-2 Strike-Off Analyzer, and Compliance Desks.">
+  <meta name="twitter:title" content="Diagnostic Tools, Statutory Calculators &amp; Compliance Engines | CraftEgon CCS">
+  <meta name="twitter:description" content="Explore CraftEgon CCS Diagnostic Engines & Conversion Suite: RoC Late Fee Calculator, STK-2 Strike-Off Analyzer, Trademark NICE Checker, and Compliance Desks.">
   <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
 
   <!-- Structured Schema Data (JSON-LD) -->
@@ -209,311 +168,527 @@
 
   <!-- Hero Section -->
   <header class="conv-hero">
-    <div class="container" style="max-width: 900px; margin: 0 auto;">
-      <span class="conv-badge">Autonomous Diagnostic &amp; Conversion Infrastructure</span>
-      <h1 style="font-size: 2.75rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">
-        Interactive Legal Tech &amp; Compliance Engines
+    <div class="container" style="max-width: 960px; margin: 0 auto;">
+      <span class="conv-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        Regulatory Diagnostics &amp; Computational Utilities
+      </span>
+      <h1 style="font-size: clamp(2rem, 3.8vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem; color: var(--navy-800, #0B2545);">
+        Diagnostic Tools &amp; Compliance Engines
       </h1>
-      <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 1.5rem; line-height: 1.6;">
-        Execute instant cost simulations, AI legal drafting, statutory eligibility checks, and secure multi-vertical client intake flows with algorithmic precision.
+      <p style="font-size: 1.05rem; color: var(--text-muted, #64748B); max-width: 780px; margin: 0 auto 1.25rem; line-height: 1.6;">
+        Evaluate statutory late fee exposures, calculate state-specific stamp duty, verify company strike-off eligibility, look up trademark classes, and configure corporate retainers with procedural precision.
       </p>
-      <div style="max-width: 500px; margin: 0 auto;">
-        <input type="text" id="conv-search-input" placeholder="Search tools (e.g. AI generator, calculator, trademark, STK-2, FEMA)..." 
-               onkeyup="filterConvCards()" 
-               style="width: 100%; padding: 0.85rem 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); font-size: 0.95rem; box-shadow: var(--shadow-standard);">
+
+      <div class="conv-search-box">
+        <svg class="conv-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="conv-search-input" class="conv-search-input" placeholder="Search tools by need (e.g. late fees, stamp duty, STK-2, trademark, CSR, FEMA)..."
+               onkeyup="filterConvCards()" aria-label="Search diagnostic tools">
       </div>
     </div>
   </header>
 
-  <main class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem;">
+  <main id="main-content" class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem;">
     <!-- Breadcrumb -->
-    <nav class="if-breadcrumb" aria-label="Breadcrumb">
-      <a href="/index.html">Home</a> / <span aria-current="page">Conversion Tools</span>
+    <nav class="if-breadcrumb" aria-label="Breadcrumb" style="margin-bottom: 1.5rem;">
+      <a href="/index.html">Home</a> / <span aria-current="page">Diagnostic Tools Hub</span>
     </nav>
 
-    <!-- Filters -->
-    <div class="conv-filter-bar">
-      <button class="conv-filter-btn active" onclick="filterCategory('all', this)">All Engines (20)</button>
-      <button class="conv-filter-btn" onclick="filterCategory('ai-calc', this)">AI &amp; Computational Estimators</button>
-      <button class="conv-filter-btn" onclick="filterCategory('eligibility', this)">Diagnostic &amp; Search Checkers</button>
-      <button class="conv-filter-btn" onclick="filterCategory('intake', this)">Corporate Advisory Intake Desks</button>
+    <!-- Statutory Notice & Limitations Panel -->
+    <div class="statutory-notice-box" style="margin-bottom: 2rem;">
+      <strong>Important Statutory Notice:</strong> All diagnostic tools, calculators, and checklists provide preliminary informational estimates and scoping under Indian Corporate and Taxation Laws (Companies Act 2013, GST Act 2017, Income Tax Act 1961, MSMED Act 2006). They do not constitute official Registrar of Companies (RoC), GSTN, or Trade Marks Registry orders. Official filings and certifications are prepared, verified, and executed directly by qualified Company Secretaries, Chartered Accountants, and legal professionals.
     </div>
 
-    <!-- Tools Grid -->
-    <div class="conv-grid" id="conv-grid-container">
+    <!-- User-Intent Category Filter Bar -->
+    <div class="filter-chips-group conv-filter-bar" style="margin-bottom: 2rem; justify-content: center;">
+      <button class="filter-chip conv-filter-btn active" onclick="filterCategory('all', this)">All Tools &amp; Engines (22)</button>
+      <button class="filter-chip conv-filter-btn" onclick="filterCategory('calc', this)">Calculate Fees &amp; Costs</button>
+      <button class="filter-chip conv-filter-btn" onclick="filterCategory('eligibility', this)">Check Eligibility &amp; Compliance</button>
+      <button class="filter-chip conv-filter-btn" onclick="filterCategory('search', this)">Search Companies &amp; Trademarks</button>
+      <button class="filter-chip conv-filter-btn" onclick="filterCategory('drafting', this)">Legal Document Drafting</button>
+      <button class="filter-chip conv-filter-btn" onclick="filterCategory('setup', this)">Start &amp; Setup Planners</button>
+      <button class="filter-chip conv-filter-btn" onclick="filterCategory('intake', this)">Advisory &amp; Retainer Desks</button>
+    </div>
 
-      <!-- Tool 1: AI Document Generator -->
-      <a href="/conversion/ai-document-generator.html" class="conv-card featured" data-category="ai-calc">
-        <span class="conv-tag" style="color: #ff4ed0;">Flagship AI Engine</span>
-        <h2 class="conv-title">AI Legal Document &amp; Board Resolution Generator</h2>
-        <p class="conv-desc">
-          Automated legal drafting assistant generating certified board resolutions, founder agreements, and compliance memorandums conforming to Big 4 corporate standards.
-        </p>
-        <div class="conv-action">
-          <span>Real-Time Generation</span>
-          <span>Launch AI Drafter &rarr;</span>
+    <!-- Empty State Container -->
+    <div class="conv-empty-state" id="conv-empty-state">
+      <div style="font-size: 2rem; margin-bottom: 0.5rem;" aria-hidden="true">🔍</div>
+      <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0 0 0.5rem;">No Diagnostic Tools Match Your Query</h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted, #64748B); max-width: 480px; margin: 0 auto 1.25rem;">
+        Try refining your search terms or browse our complete directory of 57 compliance services.
+      </p>
+      <button type="button" class="btn btn-secondary" onclick="resetFilters()" style="font-size: 0.85rem; padding: 0.5rem 1.15rem;">
+        Reset Search Filters
+      </button>
+    </div>
+
+    <!-- Unified Diagnostic Tools Grid -->
+    <div class="tools-hub-grid" id="conv-grid-container">
+
+      <!-- TOOL 1: Financial & Statutory Calculator Suite -->
+      <article class="tools-hub-card featured" data-category="calc">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Multi-Module Engine</span>
+          <span class="tool-category-label">Fee Estimation</span>
         </div>
-      </a>
-
-      <!-- Tool 2: Fee Calculator -->
-      <a href="/conversion/calculator.html" class="conv-card featured" data-category="ai-calc">
-        <span class="conv-tag">Interactive Calculator</span>
-        <h2 class="conv-title">Financial &amp; Statutory Calculator Suite</h2>
-        <p class="conv-desc">
-          Model RoC fee exposure, compare manually entered GSTR-2B ITC, estimate MSME payment deadlines and startup EMI, and explore cap-table dilution with user-supplied assumptions.
+        <h2 class="tool-title">Financial &amp; Statutory Calculator Suite</h2>
+        <p class="tool-desc">
+          Estimate Section 403 MCA daily late fees, calculate state-specific stamp duty on share capital, evaluate GSTR-2B ITC variance, and model MSME 43B(h) payment deadlines.
         </p>
-        <div class="conv-action">
-          <span>Four interactive modules</span>
-          <span>Open Calculator &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Founders, CFOs &amp; Finance teams with pending filings or incorporation plans.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Share capital, state of incorporation, filing delay in days, ledger values.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Itemized penalty figures, state stamp duty, and statutory payment deadlines.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Interactive Calculator</span>
+          <a href="/conversion/calculator.html" class="tool-btn-action">Open Calculator &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool: Universal 57-Service Directory -->
-      <a href="/services.html" class="conv-card featured" data-category="eligibility">
-        <span class="conv-tag" style="color: var(--brand-gold, #C59B27);">Canonical Directory</span>
-        <h2 class="conv-title">Universal 57-Service Discovery Catalog</h2>
-        <p class="conv-desc">
-          Unified regulatory directory indexing all 57 statutory corporate secretarial, tax, IPR, and RoC compliance services with instant multi-facet filtering and search.
+      <!-- TOOL 2: CSR Applicability & Audit Form -->
+      <article class="tools-hub-card" data-category="calc">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Statutory Matrix</span>
+          <span class="tool-category-label">Corporate CSR</span>
+        </div>
+        <h2 class="tool-title">Corporate CSR Applicability &amp; Audit Form</h2>
+        <p class="tool-desc">
+          Evaluate corporate net worth, turnover, and net profit against Section 135 thresholds to calculate mandatory 2% average CSR obligations and Form CSR-2 reporting rules.
         </p>
-        <div class="conv-action">
-          <span>57 Canonical Services</span>
-          <span>Explore Directory &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Indian companies evaluating annual CSR committee constitution.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Preceding 3 financial years' net profit and balance sheet metrics.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Statutory applicability status, required 2% budget allocation, and filing scope.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Threshold Calculator</span>
+          <a href="/conversion/csr-audit-form.html" class="tool-btn-action">Assess CSR Obligation &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 3: Trademark Search Engine -->
-      <a href="/conversion/trademark-search.html" class="conv-card" data-category="eligibility">
-        <span class="conv-tag">IP Intelligence</span>
-        <h2 class="conv-title">CIN, LLPIN &amp; Trademark Lookup</h2>
-        <p class="conv-desc">
-          Search sample company, LLP, and trademark records with explicit source labels, a preliminary checklist, and links to official registry verification.
+      <!-- TOOL 3: STK-2 Strike-Off Checker -->
+      <article class="tools-hub-card featured" data-category="eligibility">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Exit Diagnostic</span>
+          <span class="tool-category-label">Company Closure</span>
+        </div>
+        <h2 class="tool-title">Form STK-2 Strike-Off Eligibility Checker</h2>
+        <p class="tool-desc">
+          Multi-point statutory validator assessing bank account closure, assets/liabilities, pending litigation, and RoC conditions under Section 248 for lawful fast-track closure.
         </p>
-        <div class="conv-action">
-          <span>Benchmark / live source labels</span>
-          <span>Open Lookup &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Directors of inactive or defunct Private Limited companies seeking closure.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Incorporation date, bank closure proof, asset/liability zeroing status.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Eligibility determination (Eligible/Conditional/Ineligible) and action checklist.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Section 248 Validator</span>
+          <a href="/conversion/strike-off-checker.html" class="tool-btn-action">Check Eligibility &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 4: STK-2 Strike-Off Checker -->
-      <a href="/conversion/strike-off-checker.html" class="conv-card" data-category="eligibility">
-        <span class="conv-tag">Exit Diagnostic</span>
-        <h2 class="conv-title">Form STK-2 Strike-Off Eligibility Checker</h2>
-        <p class="conv-desc">
-          Multi-point statutory validator assessing bank account closure, assets/liabilities, pending litigation, and RoC conditions for lawful fast-track corporate closure.
+      <!-- TOOL 4: License Qualification Engine -->
+      <article class="tools-hub-card" data-category="eligibility">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Sectoral Assessment</span>
+          <span class="tool-category-label">Business Licensing</span>
+        </div>
+        <h2 class="tool-title">Enterprise License Qualification Engine</h2>
+        <p class="tool-desc">
+          Maps operational nature of business to statutory mandatory registrations and sector-specific licenses (MSME Udyam, Shop &amp; Establishment, FSSAI, IEC, Factory).
         </p>
-        <div class="conv-action">
-          <span>Section 248 Validator</span>
-          <span>Check Eligibility &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>New founders and expanding enterprises setting up physical premises or trade.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Sector/industry, employee headcount, annual turnover, premises location.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Custom statutory license matrix with mandatory vs optional designations.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Regulatory Diagnostic</span>
+          <a href="/conversion/license-qualification.html" class="tool-btn-action">Run Diagnosis &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 5: License Qualification Engine -->
-      <a href="/conversion/license-qualification.html" class="conv-card" data-category="eligibility">
-        <span class="conv-tag">Statutory Licensing</span>
-        <h2 class="conv-title">Enterprise License Qualification Engine</h2>
-        <p class="conv-desc">
-          Automated multi-criteria evaluation mapping company operations to required statutory licenses including FSSAI, Shops Act, Factory, Pollution, and IEC registrations.
+      <!-- TOOL 5: Secretarial Audit Scope Configurator -->
+      <article class="tools-hub-card" data-category="eligibility">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Governance Audit</span>
+          <span class="tool-category-label">Section 204 Scope</span>
+        </div>
+        <h2 class="tool-title">Secretarial Audit (MR-3) Scope Configurator</h2>
+        <p class="tool-desc">
+          Evaluates corporate paid-up capital, turnover, and outstanding borrowings against Section 204 thresholds for mandatory Company Secretary Secretarial Audit.
         </p>
-        <div class="conv-action">
-          <span>Sectoral Assessment</span>
-          <span>Run Diagnosis &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Public companies, large private entities, and high-borrowing firms.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Paid-up share capital, annual turnover, and outstanding loans/borrowings.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Form MR-3 applicability determination and secretarial audit governance scope.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Statutory Audit Diagnostic</span>
+          <a href="/conversion/secretarial-audit-scope.html" class="tool-btn-action">Configure Scope &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 6: Annual Retainer Desk -->
-      <a href="/conversion/retainer-desk.html" class="conv-card" data-category="intake">
-        <span class="conv-tag">Corporate Retainers</span>
-        <h2 class="conv-title">Annual Corporate Retainer Desk</h2>
-        <p class="conv-desc">
-          Dedicated corporate client onboarding desk for continuous RoC annual filings, statutory board minutes, and quarterly governance compliance retainers.
+      <!-- TOOL 6: Workforce & HR Statutory Compliance Diagnostic -->
+      <article class="tools-hub-card" data-category="eligibility">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Workforce Review</span>
+          <span class="tool-category-label">Labor Laws</span>
+        </div>
+        <h2 class="tool-title">Workforce &amp; HR Statutory Compliance Diagnostic</h2>
+        <p class="tool-desc">
+          Evaluates employee headcount against EPF (≥20), ESIC (≥10/20), Professional Tax, POSH Internal Committee (≥10), and Gratuity Act statutory triggers.
         </p>
-        <div class="conv-action">
-          <span>Dedicated CS Retainer</span>
-          <span>Access Retainer Desk &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Growing startups, SMEs, and HR teams scaling headcount across Indian states.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Employee headcount, contractor numbers, office locations, salary slabs.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Labor law applicability checklist, committee deadlines, and filing calendar.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Compliance Scorecard</span>
+          <a href="/conversion/hr-audit.html" class="tool-btn-action">Start HR Audit &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 7: Post-Incorporation Checkout -->
-      <a href="/conversion/post-incorporation-checkout.html" class="conv-card" data-category="ai-calc">
-        <span class="conv-tag">Entity Formation</span>
-        <h2 class="conv-title">Post-Incorporation Compliance Bundle Checkout</h2>
-        <p class="conv-desc">
-          Bundled setup suite covering Form INC-20A commencement of business, auditor appointment (ADT-1), share certificate stamping, and first board meeting documentation.
+      <!-- TOOL 7: DPDP Privacy Audit Request -->
+      <article class="tools-hub-card" data-category="eligibility">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Data Protection</span>
+          <span class="tool-category-label">Privacy &amp; IT Law</span>
+        </div>
+        <h2 class="tool-title">DPDP Act 2023 Readiness &amp; Privacy Audit</h2>
+        <p class="tool-desc">
+          Diagnostic scoping for Digital Personal Data Protection Act compliance, examining Data Fiduciary duties, notice architecture, consent managers, and CERT-In reporting.
         </p>
-        <div class="conv-action">
-          <span>First 180 Days Setup</span>
-          <span>View Packages &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Tech startups, SaaS companies, and digital platforms processing Indian user data.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>User volume, personal data categories, cross-border transfer involvement.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Data fiduciary compliance audit roadmap and privacy notice framework.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Privacy Diagnostic</span>
+          <a href="/conversion/dpdp-audit-request.html" class="tool-btn-action">Request Privacy Audit &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 8: Contract Intake Desk -->
-      <a href="/conversion/contract-intake.html" class="conv-card" data-category="intake">
-        <span class="conv-tag">Legal Drafting</span>
-        <h2 class="conv-title">Commercial Contract &amp; SHA Intake Desk</h2>
-        <p class="conv-desc">
-          Secure drafting intake portal for Founder Agreements, Master Service Agreements (MSAs), SaaS terms, and customized commercial contracts.
+      <!-- TOOL 8: CIN, LLPIN & Trademark Benchmark Lookup -->
+      <article class="tools-hub-card featured" data-category="search">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">IP Intelligence</span>
+          <span class="tool-category-label">Brand &amp; NICE Screener</span>
+        </div>
+        <h2 class="tool-title">CIN, LLPIN &amp; Trademark Benchmark Lookup</h2>
+        <p class="tool-desc">
+          Search sample company, LLP, and trademark records across Nice Classes 1-45 with explicit benchmark source labels and links to official IP India &amp; MCA registries.
         </p>
-        <div class="conv-action">
-          <span>NDA Protected</span>
-          <span>Submit Request &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Founders reserving entity names or protecting logos/brand identities in India.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Brand wordmark or proposed company name, business description.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Nice class classification, sample benchmark similarity, and registry link.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Static Benchmark Screener</span>
+          <a href="/conversion/trademark-search.html" class="tool-btn-action">Open Lookup Engine &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 9: Tax Intake Portal -->
-      <a href="/conversion/tax-intake.html" class="conv-card" data-category="intake">
-        <span class="conv-tag">Tax Compliance</span>
-        <h2 class="conv-title">Corporate Tax &amp; GST Audit Intake Portal</h2>
-        <p class="conv-desc">
-          Secure document repository and intake portal for GSTR-9/9C reconciliations, Form 3CEB transfer pricing, and trust Form 10B/ITR-7 documentation.
+      <!-- TOOL 9: Corporate & IP Master Data Diagnostic Engine -->
+      <article class="tools-hub-card" data-category="search">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Lookup Preview</span>
+          <span class="tool-category-label">Entity Standing</span>
+        </div>
+        <h2 class="tool-title">Corporate &amp; IP Master Data Diagnostic Engine</h2>
+        <p class="tool-desc">
+          Look up benchmark records for MCA CIN, LLPIN, and trademark numbers with clear benchmark provenance and registry due diligence parameters.
         </p>
-        <div class="conv-action">
-          <span>CA Certified Review</span>
-          <span>Upload Files &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Compliance officers verifying sample corporate entity standing formats.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Sample CIN, LLPIN, or company keyword.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Benchmark director status, incorporation date, and authorized capital format.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Benchmark Data Engine</span>
+          <a href="/portal/entity-search.html" class="tool-btn-action">Execute Lookup &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 10: Venture Deal Booking -->
-      <a href="/conversion/venture-deal-booking.html" class="conv-card" data-category="intake">
-        <span class="conv-tag">Venture Capital</span>
-        <h2 class="conv-title">Venture Deal, PAS-3 &amp; Term Sheet Strategy Desk</h2>
-        <p class="conv-desc">
-          Direct advisory intake for startup founders raising institutional capital: term sheet validation, valuation reports, and Form PAS-3 allotment filings.
+      <!-- TOOL 10: Universal 57-Service Discovery Catalog -->
+      <article class="tools-hub-card" data-category="search">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Directory Engine</span>
+          <span class="tool-category-label">Full Catalog</span>
+        </div>
+        <h2 class="tool-title">Universal 57-Service Discovery Catalog</h2>
+        <p class="tool-desc">
+          Unified directory indexing all 57 corporate secretarial, tax, IPR, and RoC compliance services with instant multi-facet stage and vertical filtering.
         </p>
-        <div class="conv-action">
-          <span>Capital Raise Advisory</span>
-          <span>Book Session &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Businesses identifying exact regulatory deliverables across 15 verticals.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Business requirement keyword, lifecycle stage, or entity type.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Canonical service scope, prerequisites, and transparent fee structures.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">57 Services Directory</span>
+          <a href="/services.html" class="tool-btn-action">Explore Directory &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 11: Secretarial Audit Scope -->
-      <a href="/conversion/secretarial-audit-scope.html" class="conv-card" data-category="eligibility">
-        <span class="conv-tag">Governance &amp; Audit</span>
-        <h2 class="conv-title">Secretarial Audit (MR-3) Scope Configurator</h2>
-        <p class="conv-desc">
-          Interactive applicability checker for Section 204 secretarial audits evaluating turnover and paid-up capital thresholds with custom audit scope generation.
+      <!-- TOOL 11: AI Legal Document & Board Resolution Generator -->
+      <article class="tools-hub-card featured" data-category="drafting">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Drafting Assistant</span>
+          <span class="tool-category-label">Secretarial Standards</span>
+        </div>
+        <h2 class="tool-title">AI Legal Document &amp; Board Resolution Drafter</h2>
+        <p class="tool-desc">
+          Automated legal drafting engine generating certified board resolutions, INC-20A declarations, ADT-1 auditor notices, and NDAs conforming to ICSI standards.
         </p>
-        <div class="conv-action">
-          <span>Section 204 Audit</span>
-          <span>Configure Scope &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Founders and secretarial teams needing instant standard secretarial resolutions.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Company name, CIN, meeting date, director names, registered address.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Structured legal resolution draft for professional CS review and signature.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Template Drafting Engine</span>
+          <a href="/conversion/ai-document-generator.html" class="tool-btn-action">Launch Drafter &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 12: CSR Audit & Spend Form -->
-      <a href="/conversion/csr-audit-form.html" class="conv-card" data-category="eligibility">
-        <span class="conv-tag">ESG &amp; CSR</span>
-        <h2 class="conv-title">Corporate CSR Applicability &amp; Audit Form</h2>
-        <p class="conv-desc">
-          Assess corporate net worth, turnover, and net profit against Section 135 thresholds to calculate mandatory 2% CSR obligations and Form CSR-2 reporting requirements.
+      <!-- TOOL 12: Commercial Contract & SHA Intake Desk -->
+      <article class="tools-hub-card" data-category="drafting">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Contract Review</span>
+          <span class="tool-category-label">Legal Drafting</span>
+        </div>
+        <h2 class="tool-title">Commercial Contract &amp; SHA Intake Desk</h2>
+        <p class="tool-desc">
+          Structured intake for drafting and reviewing commercial agreements: Founder Agreements, Shareholder Agreements (SHAs), Master Service Agreements, and SaaS terms.
         </p>
-        <div class="conv-action">
-          <span>Section 135 Matrix</span>
-          <span>Assess Obligation &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Founders and enterprises executing customized commercial transactions.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Deal structure, governing law preferences, commercial milestones.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Scoping checklist and lawyer-reviewed contract drafting schedule.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Confidential Intake Desk</span>
+          <a href="/conversion/contract-intake.html" class="tool-btn-action">Submit Request &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 13: HR & Labour Audit -->
-      <a href="/conversion/hr-audit.html" class="conv-card" data-category="eligibility">
-        <span class="conv-tag">Workforce Compliance</span>
-        <h2 class="conv-title">Workforce &amp; HR Statutory Compliance Diagnostic</h2>
-        <p class="conv-desc">
-          Complete statutory audit checklist reviewing EPF, ESIC, Professional Tax, POSH Internal Committee constitution, and New Labour Code contract alignments.
+      <!-- TOOL 13: Post-Incorporation Compliance Bundle Checkout -->
+      <article class="tools-hub-card" data-category="setup">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">First 180 Days</span>
+          <span class="tool-category-label">Entity Setup</span>
+        </div>
+        <h2 class="tool-title">Post-Incorporation Compliance Bundle Checkout</h2>
+        <p class="tool-desc">
+          Milestone planner and bundle checkout for the first 180 days of company incorporation (INC-20A, ADT-1, share certificate stamping, and first board minutes).
         </p>
-        <div class="conv-action">
-          <span>Workforce Review</span>
-          <span>Start Audit &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Newly incorporated Pvt Ltd and OPCs avoiding Section 10A penalties.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Incorporation date, certificate of incorporation (CoI), bank account details.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Step-by-step 180-day compliance roadmap and bundled filing intake.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Setup Milestone Planner</span>
+          <a href="/conversion/post-incorporation-checkout.html" class="tool-btn-action">View Setup Packages &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 14: FEMA Consultation Desk -->
-      <a href="/conversion/fema-consultation.html" class="conv-card" data-category="intake">
-        <span class="conv-tag">Cross-Border Law</span>
-        <h2 class="conv-title">FEMA &amp; Inbound FDI Advisory Consultation Desk</h2>
-        <p class="conv-desc">
+      <!-- TOOL 14: Corporate Banking & Marketplace Compliance Desk -->
+      <article class="tools-hub-card" data-category="setup">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Onboarding Desk</span>
+          <span class="tool-category-label">Banking &amp; Merchants</span>
+        </div>
+        <h2 class="tool-title">Corporate Banking &amp; Marketplace Compliance Desk</h2>
+        <p class="tool-desc">
+          Review onboarding checklists for major partner banks and marketplaces, and generate a certified board-resolution draft for current account opening.
+        </p>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Newly registered companies opening their first corporate current accounts.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Company CoI, PAN, Board of Directors list, operational jurisdiction.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Customized banking resolution draft and partner bank checklist.</span></div>
+        </div>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Commercial Onboarding Desk</span>
+          <a href="/conversion/partner-ecosystems.html" class="tool-btn-action">Open Partner Desk &rarr;</a>
+        </div>
+      </article>
+
+      <!-- TOOL 15: Annual Corporate Retainer Desk -->
+      <article class="tools-hub-card" data-category="intake">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Corporate Retainers</span>
+          <span class="tool-category-label">Secretarial Support</span>
+        </div>
+        <h2 class="tool-title">Annual Corporate Retainer Desk</h2>
+        <p class="tool-desc">
+          Dedicated corporate client onboarding desk for continuous RoC annual filings, statutory board minutes, statutory register maintenance, and compliance monitoring.
+        </p>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Operating companies requiring dedicated year-round secretarial governance.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Entity type, turnover bracket, expected board meetings per year.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Custom retainer proposal with dedicated CS allocation and calendar tracking.</span></div>
+        </div>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Retainer Onboarding Desk</span>
+          <a href="/conversion/retainer-desk.html" class="tool-btn-action">Access Retainer Desk &rarr;</a>
+        </div>
+      </article>
+
+      <!-- TOOL 16: Retainer Tiers & Compliance Calendar -->
+      <article class="tools-hub-card" data-category="intake">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Subscription Plans</span>
+          <span class="tool-category-label">Retainer Tiers</span>
+        </div>
+        <h2 class="tool-title">Retainer Tiers &amp; Compliance Calendar</h2>
+        <p class="tool-desc">
+          Compare structured corporate retainer plans (Starter, Growth, Enterprise) with automated compliance due date tracking and dedicated CS review.
+        </p>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Businesses budgeting for predictable compliance fees and automated alerts.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Business scale and desired level of secretarial review.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Transparent tier comparison and compliance calendar demonstration.</span></div>
+        </div>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Governance Plans Portal</span>
+          <a href="/portal/subscription.html" class="tool-btn-action">Explore Retainers &rarr;</a>
+        </div>
+      </article>
+
+      <!-- TOOL 17: FEMA & Inbound FDI Advisory Consultation Desk -->
+      <article class="tools-hub-card" data-category="intake">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Cross-Border FDI</span>
+          <span class="tool-category-label">RBI Regulatory</span>
+        </div>
+        <h2 class="tool-title">FEMA &amp; Inbound FDI Advisory Consultation Desk</h2>
+        <p class="tool-desc">
           Direct consultation booking for foreign investors, cross-border acquisitions, FIRMS portal reporting (Form FC-GPR), and annual FLA return submissions.
         </p>
-        <div class="conv-action">
-          <span>RBI Advisory</span>
-          <span>Consult Desk &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Foreign investors and Indian startups raising cross-border equity capital.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Investment tranche amount, investor jurisdiction, share allotment date.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>RBI compliance roadmap and FIRMS filing procedural checklist.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">FDI Advisory Intake</span>
+          <a href="/conversion/fema-consultation.html" class="tool-btn-action">Consult Desk &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 15: Cross-Border Retainer Desk -->
-      <a href="/conversion/cross-border-retainer.html" class="conv-card" data-category="intake">
-        <span class="conv-tag">Cross-Border Law</span>
-        <h2 class="conv-title">Cross-Border Retainer Desk (FC-3/FC-4 &amp; FLA)</h2>
-        <p class="conv-desc">
-          Specialized ongoing compliance retainer for foreign subsidiaries, liaison offices, branch offices, and multinational enterprises operating in India.
+      <!-- TOOL 18: Cross-Border Retainer Desk (FC-3/FC-4 & FLA) -->
+      <article class="tools-hub-card" data-category="intake">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Foreign Entities</span>
+          <span class="tool-category-label">Multinational Retainer</span>
+        </div>
+        <h2 class="tool-title">Cross-Border Retainer Desk (FC-3/FC-4 &amp; FLA)</h2>
+        <p class="tool-desc">
+          Specialized ongoing compliance retainer for foreign subsidiaries, liaison offices, branch offices, and multinational enterprises operating in India under Section 380.
         </p>
-        <div class="conv-action">
-          <span>International Entities</span>
-          <span>Access Retainer &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Overseas entities maintaining active branch or project presence in India.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Parent company details, RBI approval date, Indian operational scope.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Foreign company annual filing schedule and dedicated CS retainer.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">International Retainer</span>
+          <a href="/conversion/cross-border-retainer.html" class="tool-btn-action">Access Retainer &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 16: Dispute Consultation Portal -->
-      <a href="/conversion/dispute-consultation.html" class="conv-card" data-category="intake">
-        <span class="conv-tag">Litigation &amp; NCLT</span>
-        <h2 class="conv-title">Confidential Corporate Dispute &amp; NCLT Intake</h2>
-        <p class="conv-desc">
-          Priority intake for oppression/mismanagement claims under Section 241/242, board deadlocks, director disqualifications, and IBC insolvency defense.
+      <!-- TOOL 19: Venture Deal, PAS-3 & Term Sheet Strategy Desk -->
+      <article class="tools-hub-card" data-category="intake">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Capital Raise</span>
+          <span class="tool-category-label">Venture Finance</span>
+        </div>
+        <h2 class="tool-title">Venture Deal, PAS-3 &amp; Term Sheet Strategy Desk</h2>
+        <p class="tool-desc">
+          Direct advisory intake for startup founders raising institutional capital: term sheet validation, valuation reports, and Form PAS-3 allotment filings.
         </p>
-        <div class="conv-action">
-          <span>Litigation Support</span>
-          <span>Submit Incident &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Seed to Series B startups issuing equity, CCPS, or convertible notes.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Term sheet summary, pre-money valuation, investor details.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Capitalization secretarial schedule and statutory allotment checklist.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Venture Advisory Desk</span>
+          <a href="/conversion/venture-deal-booking.html" class="tool-btn-action">Book Session &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 17: M&A Advisory Enquiry -->
-      <a href="/conversion/ma-advisory-enquiry.html" class="conv-card" data-category="intake">
-        <span class="conv-tag">M&amp;A Restructuring</span>
-        <h2 class="conv-title">M&amp;A, Fast-Track Merger &amp; Slump Sale Advisory</h2>
-        <p class="conv-desc">
+      <!-- TOOL 20: Confidential Corporate Dispute & Secretarial Records Intake -->
+      <article class="tools-hub-card" data-category="intake">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Dispute Triage</span>
+          <span class="tool-category-label">Non-Litigation Scoping</span>
+        </div>
+        <h2 class="tool-title">Confidential Corporate Dispute &amp; Secretarial Intake</h2>
+        <p class="tool-desc">
+          Scoping internal shareholder deadlocks, director disqualifications under Section 164(2), and secretarial records inspection under Section 241/242.
+        </p>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Directors and shareholders navigating internal governance conflicts.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Summary of dispute, entity structure, current shareholding ratio.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Secretarial options roadmap with strict non-litigation boundaries.</span></div>
+        </div>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Dispute Scoping Desk</span>
+          <a href="/conversion/dispute-consultation.html" class="tool-btn-action">Submit Incident &rarr;</a>
+        </div>
+      </article>
+
+      <!-- TOOL 21: M&A, Fast-Track Merger & Slump Sale Advisory -->
+      <article class="tools-hub-card" data-category="intake">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Restructuring</span>
+          <span class="tool-category-label">Section 233 Schemes</span>
+        </div>
+        <h2 class="tool-title">M&amp;A, Fast-Track Merger &amp; Slump Sale Advisory</h2>
+        <p class="tool-desc">
           Confidential enquiry desk for corporate mergers under Section 233, asset purchases, business restructuring, and due diligence execution.
         </p>
-        <div class="conv-action">
-          <span>Deal Structuring</span>
-          <span>Initiate Enquiry &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Companies consolidating group entities or executing business transfers.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>Transferor and Transferee financials, scheme structure, RoC jurisdiction.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Fast-track merger timeline and statutory documentation checklist.</span></div>
         </div>
-      </a>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Deal Structuring Desk</span>
+          <a href="/conversion/ma-advisory-enquiry.html" class="tool-btn-action">Initiate Enquiry &rarr;</a>
+        </div>
+      </article>
 
-      <!-- Tool 18: DPDP Audit Request -->
-      <a href="/conversion/dpdp-audit-request.html" class="conv-card" data-category="intake">
-        <span class="conv-tag">Data Protection</span>
-        <h2 class="conv-title">DPDP Act 2023 Readiness &amp; Privacy Audit Booking</h2>
-        <p class="conv-desc">
-          Institutional data protection compliance audit examining data fiduciary obligations, consent architecture, privacy notices, and CERT-In cyber compliance.
-        </p>
-        <div class="conv-action">
-          <span>Privacy &amp; IT Law</span>
-          <span>Request Audit &rarr;</span>
+      <!-- TOOL 22: Corporate Tax & GST Audit Intake Portal -->
+      <article class="tools-hub-card" data-category="intake">
+        <div class="tools-hub-card-header">
+          <span class="tool-badge">Tax Compliance</span>
+          <span class="tool-category-label">CA Audit Filing</span>
         </div>
-      </a>
-
-      <!-- Tool 19: Corporate & IP Intelligence Lookup -->
-      <a href="/portal/entity-search.html" class="conv-card featured" data-category="eligibility">
-        <span class="conv-tag" style="color: var(--brand-gold);">Lookup Preview</span>
-        <h2 class="conv-title">Corporate &amp; IP Master Data Diagnostic Engine</h2>
-        <p class="conv-desc">
-          Look up benchmark records for MCA CIN, LLPIN, and trademark numbers. No authenticated registry connector is configured; verify results through official sources.
+        <h2 class="tool-title">Corporate Tax &amp; GST Audit Intake Portal</h2>
+        <p class="tool-desc">
+          Secure document repository and intake portal for GSTR-9/9C reconciliations, Form 3CEB transfer pricing, and corporate ITR-6 documentation.
         </p>
-        <div class="conv-action">
-          <span>Source-labeled examples</span>
-          <span>Execute Lookup &rarr;</span>
+        <div class="tool-specs-list">
+          <div class="tool-spec-item"><strong>Who It Helps:</strong> <span>Operating companies requiring Chartered Accountant tax audits and filing.</span></div>
+          <div class="tool-spec-item"><strong>What You Need:</strong> <span>PAN, GSTIN, annual turnover, audited financial statements.</span></div>
+          <div class="tool-spec-item"><strong>What You Receive:</strong> <span>Tax compliance checklist and statutory audit execution schedule.</span></div>
         </div>
-      </a>
-
-      <!-- Tool 20: Corporate Banking & Marketplace Desk -->
-      <a href="/conversion/partner-ecosystems.html" class="conv-card" data-category="intake">
-        <span class="conv-tag">Provider Options</span>
-        <h2 class="conv-title">Corporate Banking &amp; Marketplace Compliance Desk</h2>
-        <p class="conv-desc">
-          Review options for the named banks and marketplaces, prepare onboarding checklists, and generate a local board-resolution draft for professional review. Provider terms and eligibility apply.
-        </p>
-        <div class="conv-action">
-          <span>Banking &amp; E-Commerce</span>
-          <span>Open Partner Desk &rarr;</span>
+        <div class="tool-action-bar">
+          <span class="tool-type-indicator">Tax Audit Intake Desk</span>
+          <a href="/conversion/tax-intake.html" class="tool-btn-action">Upload Files &rarr;</a>
         </div>
-      </a>
+      </article>
 
     </div>
   </main>
@@ -521,33 +696,54 @@
   <div id="global-footer"></div>
   <script src="/assets/js/navigation.js"></script>
   <script>
+    let currentCategory = 'all';
+
     function filterCategory(category, button) {
+      currentCategory = category;
       document.querySelectorAll('.conv-filter-btn').forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
-
-      const cards = document.querySelectorAll('.conv-card');
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      applyFilters();
     }
 
     function filterConvCards() {
-      const query = document.getElementById('conv-search-input').value.toLowerCase();
-      const cards = document.querySelectorAll('.conv-card');
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const searchInput = document.getElementById('conv-search-input');
+      const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+      const cards = document.querySelectorAll('.tools-hub-card');
+      const emptyState = document.getElementById('conv-empty-state');
+      let visibleCount = 0;
+
       cards.forEach(card => {
-        const title = card.querySelector('.conv-title').innerText.toLowerCase();
-        const desc = card.querySelector('.conv-desc').innerText.toLowerCase();
-        const tag = card.querySelector('.conv-tag').innerText.toLowerCase();
-        if (title.includes(query) || desc.includes(query) || tag.includes(query)) {
+        const categoryMatch = (currentCategory === 'all' || card.getAttribute('data-category') === currentCategory);
+        const cardText = card.innerText.toLowerCase();
+        const searchMatch = !query || cardText.includes(query);
+
+        if (categoryMatch && searchMatch) {
           card.style.display = 'flex';
+          visibleCount++;
         } else {
           card.style.display = 'none';
         }
       });
+
+      if (emptyState) {
+        emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
+      }
+    }
+
+    function resetFilters() {
+      const searchInput = document.getElementById('conv-search-input');
+      if (searchInput) searchInput.value = '';
+      currentCategory = 'all';
+      const allBtn = document.querySelector('.conv-filter-btn');
+      if (allBtn) {
+        document.querySelectorAll('.conv-filter-btn').forEach(btn => btn.classList.remove('active'));
+        allBtn.classList.add('active');
+      }
+      applyFilters();
     }
   </script>
 </body>

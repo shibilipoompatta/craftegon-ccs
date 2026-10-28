@@ -99,8 +99,8 @@ assert(registerRows.length === 57, `CSV contains exactly 57 service routes (foun
 console.log('\n--- Test Suite 2: Service ID Coverage, Uniqueness & Referral Verification ---');
 
 const servicePagesDir = path.join(ROOT, 'services');
-const serviceFiles = fs.readdirSync(servicePagesDir).filter(f => f.endsWith('.html'));
-assert(serviceFiles.length === 57, `services/ directory contains exactly 57 HTML pages (found ${serviceFiles.length})`);
+const serviceFiles = fs.readdirSync(servicePagesDir).filter(f => f.endsWith('.html') && f !== 'index.html');
+assert(serviceFiles.length === 57, `services/ directory contains exactly 57 canonical service pages (found ${serviceFiles.length})`);
 
 const foundServiceIds = new Map();
 const referralPages = [];
@@ -367,6 +367,71 @@ locMatches.forEach(tag => {
 if (allCanonicalsValid) {
   assert(true, `All ${locMatches.length} sitemap URLs use the approved canonical host https://ccs.craftegon.com`);
 }
+
+// ----------------------------------------------------
+// TEST SUITE 8: Route-Aware Orphan Detection & Directory Index Negative Fixtures
+// ----------------------------------------------------
+console.log('\n--- Test Suite 8: Route-Aware Orphan Detection & Directory Index Negative Fixtures ---');
+const { extractHrefs, normalizeHref, findOrphans, loadRedirectRewrites } = require('./check-orphans');
+
+// Fixture 1 (Positive): Genuine link to /services/ makes directory index reachable
+const files1 = new Map([
+  ['index.html', '<a href="/services/">Services Directory</a>'],
+  ['services/index.html', '<h1>Services</h1>'],
+  ['services/pvt-ltd-registration.html', '<a href="/">Home</a>']
+]);
+const orphans1 = findOrphans(files1, new Map());
+assert(!orphans1.includes('services/index.html'), 'A genuine link to /services/ makes directory index reachable');
+
+// Fixture 2 (Positive): Genuine link to /services makes directory index reachable
+const files2 = new Map([
+  ['index.html', '<a href="/services">Services Directory</a>'],
+  ['services/index.html', '<h1>Services</h1>']
+]);
+const orphans2 = findOrphans(files2, new Map());
+assert(!orphans2.includes('services/index.html'), 'A genuine link to /services makes directory index reachable');
+
+// Fixture 3 (Positive): Link to /services.html with _redirects rewrite makes directory index reachable
+const files3 = new Map([
+  ['index.html', '<a href="/services.html">Services Directory</a>'],
+  ['services/index.html', '<h1>Services</h1>']
+]);
+const rewrites = new Map([['services.html', 'services/index.html']]);
+const orphans3 = findOrphans(files3, rewrites);
+assert(!orphans3.includes('services/index.html'), 'A link to /services.html with configured rewrite reaches services/index.html');
+
+// Fixture 4 (Negative Defect A): Link only to sibling service page (/services/pvt-ltd-registration.html) does NOT make services/index.html reachable
+const files4 = new Map([
+  ['index.html', '<a href="/services/pvt-ltd-registration.html">Private Limited</a>'],
+  ['services/index.html', '<h1>Services</h1>'],
+  ['services/pvt-ltd-registration.html', '<h1>Pvt Ltd</h1>']
+]);
+const orphans4 = findOrphans(files4, new Map());
+assert(orphans4.includes('services/index.html'), 'Link only to /services/pvt-ltd-registration.html does NOT make services/index.html reachable (Defect A prevented)');
+
+// Fixture 5 (Negative Defect A): Mere text occurrence of /services/ does NOT make services/index.html reachable
+const files5 = new Map([
+  ['index.html', '<p>Visit /services/ for all compliance needs. const path = "/services/";</p>'],
+  ['services/index.html', '<h1>Services</h1>']
+]);
+const orphans5 = findOrphans(files5, new Map());
+assert(orphans5.includes('services/index.html'), 'Mere text occurrence of /services/ does not make directory index reachable');
+
+// Fixture 6 (Positive): Query strings and fragments do not change route identity
+const files6 = new Map([
+  ['index.html', '<a href="/services?stage=compliance&ref=nav#pricing">Services</a>'],
+  ['services/index.html', '<h1>Services</h1>']
+]);
+const orphans6 = findOrphans(files6, new Map());
+assert(!orphans6.includes('services/index.html'), 'Query strings and fragments do not prevent directory index match');
+
+// Fixture 7 (Positive): Relative internal links from subdirectories
+const files7 = new Map([
+  ['verticals/01-formation.html', '<a href="../services/">Directory</a>'],
+  ['services/index.html', '<h1>Services</h1>']
+]);
+const orphans7 = findOrphans(files7, new Map());
+assert(!orphans7.includes('services/index.html'), 'Relative internal link (../services/) correctly resolves and reaches directory index');
 
 // ----------------------------------------------------
 // SUMMARY
