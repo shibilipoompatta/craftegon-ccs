@@ -137,14 +137,15 @@ class MemoryStore {
   // --------------------------------------------------------------------------
   createCase(data, context = {}) {
     const isStaff = ['compliance_operator', 'managing_partner'].includes(context.role);
-    if (!isStaff) {
-      const err = new Error('FORBIDDEN: Only authorized compliance staff may create cases');
+    const isOwnerClient = context.role === 'client' && context.userId && context.userId === data.client_id;
+    if (!isStaff && !isOwnerClient) {
+      const err = new Error('FORBIDDEN: Insufficient privileges to create case');
       err.statusCode = 403;
       throw err;
     }
 
     const id = data.id || crypto.randomUUID();
-    const case_reference = data.case_reference;
+    const case_reference = data.case_reference || `CASE-${new Date().getFullYear()}-${crypto.randomBytes(3).toString('hex').toUpperCase()}`;
     const caseItem = {
       id,
       case_reference,
@@ -203,26 +204,44 @@ class MemoryStore {
     return all.filter(c => c.client_id === context.userId);
   }
 
-  updateCaseStatus(ref, newStatus, context = {}) {
+  updateCase(ref, updates = {}, context = {}) {
     const isStaff = ['compliance_operator', 'managing_partner'].includes(context.role);
     if (!isStaff) {
-      const err = new Error('FORBIDDEN: Only compliance staff can update case lifecycle status');
+      const err = new Error('FORBIDDEN: Only compliance staff can update case lifecycle status or assignment');
       err.statusCode = 403;
       throw err;
     }
 
-    const caseItem = this.cases.get(ref);
+    let caseItem = this.cases.get(ref);
+    if (!caseItem) {
+      for (const item of this.cases.values()) {
+        if (item.id === ref) {
+          caseItem = item;
+          break;
+        }
+      }
+    }
     if (!caseItem) return null;
 
-    if (!canTransition('case', caseItem.status, newStatus)) {
-      const err = new Error(`INVALID_TRANSITION: Cannot transition case from ${caseItem.status} to ${newStatus}`);
-      err.statusCode = 422;
-      throw err;
+    if (updates.status) {
+      if (!canTransition('case', caseItem.status, updates.status)) {
+        const err = new Error(`INVALID_TRANSITION: Cannot transition case from ${caseItem.status} to ${updates.status}`);
+        err.statusCode = 422;
+        throw err;
+      }
+      caseItem.status = updates.status;
     }
 
-    caseItem.status = newStatus;
+    if (updates.assigned_officer_id !== undefined) {
+      caseItem.assigned_officer_id = updates.assigned_officer_id;
+    }
+
     caseItem.updated_at = new Date().toISOString();
     return caseItem;
+  }
+
+  updateCaseStatus(ref, newStatus, context = {}) {
+    return this.updateCase(ref, { status: newStatus }, context);
   }
 
   // --------------------------------------------------------------------------

@@ -116,7 +116,9 @@ async function runTaskDTests() {
     PORT: testPort,
     NODE_ENV: 'test',
     DATABASE_PROVIDER: 'local_in_memory',
-    SESSION_DURATION_SECONDS: 3600
+    SESSION_DURATION_SECONDS: 3600,
+    BOOTSTRAP_ADMIN_EMAIL: 'admin@craftegon.local',
+    BOOTSTRAP_ADMIN_PASSWORD: 'CraftegonAdmin2026!'
   });
 
   await testInstance.start();
@@ -159,13 +161,43 @@ async function runTaskDTests() {
     assert(regResB.statusCode === 201, 'Customer B registers successfully (HTTP 201)');
     const customerB = regResB.body.account;
 
-    // 3. Register Compliance Operator (Staff)
-    const regResStaff = await request({
+    // 3. Provision Compliance Operator via Managing Partner HTTP route (No direct in-memory mutation)
+    const adminLoginRes = await request({
       hostname: '127.0.0.1',
       port: testPort,
-      path: '/api/v1/auth/register',
+      path: '/api/v1/auth/login',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
+    }, {
+      email: 'admin@craftegon.local',
+      password: 'CraftegonAdmin2026!'
+    });
+    assert(adminLoginRes.statusCode === 200, 'Bootstrapped Managing Partner logs in successfully');
+    const adminToken = adminLoginRes.body.token;
+
+    const unauthProv = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/admin/staff/provision',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, {
+      legal_entity_name: 'CraftEgon Compliance Desk',
+      primary_email: 'operator@craftegon.com',
+      account_role: 'compliance_operator',
+      password: 'StaffPassword2026!'
+    });
+    assert(unauthProv.statusCode === 401, 'Unauthenticated staff provisioning rejected (HTTP 401)');
+
+    const provResStaff = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/admin/staff/provision',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + adminToken
+      }
     }, {
       legal_entity_name: 'CraftEgon Compliance Desk',
       primary_email: 'operator@craftegon.com',
@@ -173,8 +205,9 @@ async function runTaskDTests() {
       account_role: 'compliance_operator',
       password: 'StaffPassword2026!'
     });
-    assert(regResStaff.statusCode === 201, 'Compliance Operator account created (HTTP 201)');
-    const staff = regResStaff.body.account;
+    assert(provResStaff.statusCode === 201, 'Compliance Operator provisioned via HTTP endpoint (HTTP 201)');
+    assert(provResStaff.body.account.account_role === 'compliance_operator', 'Provisioned staff account has compliance_operator role');
+    const staff = provResStaff.body.account;
 
     // 4. Duplicate registration conflict
     const dupRes = await request({
@@ -338,7 +371,10 @@ async function runTaskDTests() {
     // ------------------------------------------------------------------------
     console.log('\n--- Suite 4: Password Recovery Flow ---');
 
-    // 1. Forgot password for existing user
+    // 1. Forgot password for existing user (Public Endpoint Hardening - No Token Generation, No Leak)
+    const preCredA = accountRepository.adapter.credentials ? accountRepository.adapter.credentials.get('customer_a@acmealpha.in') : null;
+    const preHashA = preCredA ? preCredA.recovery_token_hash : null;
+
     const forgotRes = await request({
       hostname: '127.0.0.1',
       port: testPort,
@@ -347,8 +383,13 @@ async function runTaskDTests() {
       headers: { 'Content-Type': 'application/json' }
     }, { email: 'customer_a@acmealpha.in' });
     assert(forgotRes.statusCode === 200, 'POST /api/v1/auth/forgot-password returns HTTP 200');
-    assert(Boolean(forgotRes.body._test_reset_token), 'Single-use reset token generated securely');
-    const resetToken = forgotRes.body._test_reset_token;
+    assert(forgotRes.body._test_reset_token === undefined, 'Public forgot-password endpoint never exposes _test_reset_token');
+    assert(!JSON.stringify(forgotRes.body).includes('rst_'), 'Response body contains zero raw reset tokens');
+    assert(forgotRes.body.message === 'If an account matches that email address, recovery options will be provided when available.', 'Truthful generic message returned without claiming instructions dispatched');
+    assert(!forgotRes.body.message.includes('dispatched'), 'Response does not claim that instructions or email were dispatched');
+
+    const postCredA = accountRepository.adapter.credentials ? accountRepository.adapter.credentials.get('customer_a@acmealpha.in') : null;
+    assert(postCredA && postCredA.recovery_token_hash === preHashA, 'No recovery-token hash is created or changed by public forgot-password request');
 
     // 2. Forgot password for non-existent user (Zero enumeration)
     const nonExistentForgot = await request({
@@ -358,7 +399,14 @@ async function runTaskDTests() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     }, { email: 'ghost@nonexistent-domain.in' });
-    assert(nonExistentForgot.statusCode === 200, 'Non-existent email returns identical success message (No email enumeration)');
+    assert(nonExistentForgot.statusCode === 200, 'Non-existent email returns HTTP 200');
+    assert(nonExistentForgot.body.message === forgotRes.body.message, 'Existing and nonexistent email addresses receive identical generic response');
+    assert(nonExistentForgot.body._test_reset_token === undefined, 'Non-existent email response contains no _test_reset_token');
+
+    // 2b. Obtain a valid reset token directly via direct repository test fixture for downstream reset-password testing
+    const tokenFixture = await accountRepository.createPasswordResetToken('customer_a@acmealpha.in');
+    assert(Boolean(tokenFixture.token), 'Direct repository test fixture generates valid reset token for reset-password tests');
+    const resetToken = tokenFixture.token;
 
     // 3. Reset password with invalid token
     const badResetRes = await request({

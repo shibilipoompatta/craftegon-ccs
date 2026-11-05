@@ -52,7 +52,7 @@ function sendJson(res, statusCode, data) {
  * Verifies admin authentication session and returns current operator profile
  */
 async function handleAdminMe(req, res, config) {
-  const user = await requireAuth(req, res, ['managing_partner', 'admin']);
+  const user = await requireAuth(req, res, ['managing_partner', 'admin', 'compliance_operator']);
   if (!user) return; // Response sent by requireAuth
 
   return sendJson(res, 200, {
@@ -71,7 +71,7 @@ async function handleAdminMe(req, res, config) {
  * Lists all services merged with pricing and status, supporting search and filtering
  */
 async function handleListServices(req, res, config, queryParams = {}) {
-  const user = await requireAuth(req, res, ['managing_partner', 'admin']);
+  const user = await requireAuth(req, res, ['managing_partner', 'admin', 'compliance_operator']);
   if (!user) return;
 
   const registry = readJsonFile(SERVICE_REGISTRY_FILE, []);

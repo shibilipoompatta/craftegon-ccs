@@ -30,6 +30,7 @@
       <div class="user-badge">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         <span id="admin-user-email">admin@craftegon.com</span>
+        <span id="admin-role-badge" class="badge" style="display: none; font-size: 0.72rem; padding: 2px 8px; margin-left: 0.5rem;"></span>
       </div>
       <a href="/admin/login.html" id="btn-admin-relogin" class="admin-btn admin-btn-secondary admin-btn-sm" style="text-decoration: none; display: inline-flex; align-items: center;">
         Switch User
@@ -42,7 +43,106 @@
 
   <!-- Main Container -->
   <main class="admin-container">
-    <div class="admin-header-row">
+    <!-- Top Section Navigation Tabs -->
+    <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--admin-border, #334155); padding-bottom: 0.75rem;">
+      <button type="button" id="tab-nav-cases" class="admin-btn admin-btn-primary admin-btn-sm" onclick="switchAdminSection('cases')">
+        📁 Corporate Cases &amp; Filings
+      </button>
+      <button type="button" id="tab-nav-services" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="switchAdminSection('services')">
+        📋 Services Directory
+      </button>
+      <button type="button" id="tab-nav-leads" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="switchAdminSection('leads')">
+        📥 Incoming Leads
+      </button>
+    </div>
+
+    <!-- Section 1: Cases Management (Default Active) -->
+    <div id="section-cases" style="display: block;">
+      <div class="admin-header-row">
+        <div>
+          <h1 class="admin-page-title">Corporate Cases &amp; Filing Management</h1>
+          <p class="admin-page-desc">
+            Triage incoming corporate engagements, assign cases to compliance operators, and execute statutory lifecycle transitions.
+          </p>
+        </div>
+        <div class="admin-header-buttons">
+          <button type="button" id="btn-refresh-cases" class="admin-btn admin-btn-secondary" onclick="loadAdminCases()">
+            ↻ Refresh Cases
+          </button>
+        </div>
+      </div>
+
+      <!-- Executive Case Metrics Grid -->
+      <div class="admin-stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">Total Cases</span>
+          <span class="stat-value" id="stat-cases-total">--</span>
+          <span class="stat-subtext">Active and completed</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">In Progress</span>
+          <span class="stat-value" id="stat-cases-progress" style="color: #60A5FA;">--</span>
+          <span class="stat-subtext">Under active review</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Awaiting Customer</span>
+          <span class="stat-value" id="stat-cases-awaiting" style="color: #F59E0B;">--</span>
+          <span class="stat-subtext">Pending documents / KYC</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Completed / Closed</span>
+          <span class="stat-value" id="stat-cases-completed" style="color: #34D399;">--</span>
+          <span class="stat-subtext">Statutory filings filed</span>
+        </div>
+      </div>
+
+      <!-- Case Toolbar & Table -->
+      <div class="admin-card-container">
+        <div class="admin-toolbar">
+          <div class="toolbar-filters">
+            <div class="search-input-wrap">
+              <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="search-cases" class="form-control" placeholder="Search cases by reference or title..." oninput="filterAdminCases()">
+            </div>
+            <select id="filter-case-status" class="select-filter" onchange="filterAdminCases()">
+              <option value="">All Statuses</option>
+              <option value="IN_PROGRESS">IN_PROGRESS</option>
+              <option value="AWAITING_CUSTOMER_ACTION">AWAITING_CUSTOMER_ACTION</option>
+              <option value="STATUTORY_FILING_STAGED">STATUTORY_FILING_STAGED</option>
+              <option value="COMPLETED">COMPLETED</option>
+              <option value="CLOSED">CLOSED</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 140px;">Case Reference</th>
+                <th>Service &amp; Title</th>
+                <th style="width: 130px;">Vertical</th>
+                <th style="width: 160px;">Status</th>
+                <th style="width: 160px;">Assigned Operator</th>
+                <th style="width: 140px;">Created</th>
+                <th style="width: 130px; text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="cases-table-body">
+              <tr>
+                <td colspan="7" style="text-align: center; padding: 3rem; color: var(--admin-text-muted);">
+                  Loading case records...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Services & Pricing Directory -->
+    <div id="section-services" style="display: none;">
+      <div class="admin-header-row">
       <div>
         <h1 class="admin-page-title">Services &amp; Pricing Directory</h1>
         <p class="admin-page-desc">
@@ -142,7 +242,96 @@
         </table>
       </div>
     </div>
+    </div>
+
+    <!-- Section 3: Incoming Lead Enquiries -->
+    <div id="section-leads" style="display: none;">
+      <div class="admin-header-row">
+        <div>
+          <h1 class="admin-page-title">Incoming Lead Enquiries</h1>
+          <p class="admin-page-desc">
+            Public enquiries submitted through canonical service pages and practice vertical forms.
+          </p>
+        </div>
+        <div class="admin-header-buttons">
+          <button type="button" id="btn-refresh-leads" class="admin-btn admin-btn-secondary" onclick="loadAdminLeads()">
+            ↻ Refresh Leads
+          </button>
+        </div>
+      </div>
+
+      <div class="admin-card-container">
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 160px;">Lead Reference</th>
+                <th>Contact Name</th>
+                <th style="width: 140px;">Service ID</th>
+                <th style="width: 110px;">Vertical</th>
+                <th style="width: 140px;">Status</th>
+                <th style="width: 140px;">Received At</th>
+              </tr>
+            </thead>
+            <tbody id="leads-table-body">
+              <tr>
+                <td colspan="6" style="text-align: center; padding: 3rem; color: var(--admin-text-muted);">
+                  Loading lead records...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <!-- ======================================================================
+       CASE MANAGEMENT & OPERATOR ASSIGNMENT MODAL
+       ====================================================================== -->
+  <div class="admin-modal-backdrop" id="modal-case-manage">
+    <div class="admin-modal" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-case-title">Manage Case</h3>
+        <button type="button" class="modal-close" onclick="closeCaseModal()" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <form id="case-manage-form" onsubmit="handleCaseUpdateSubmit(event)">
+        <div class="modal-body">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Case Reference</label>
+            <input type="text" id="manage-case-ref" class="form-control" readonly style="background: rgba(255,255,255,0.05); cursor: not-allowed;">
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Service &amp; Title</label>
+            <input type="text" id="manage-case-title-display" class="form-control" readonly style="background: rgba(255,255,255,0.05); cursor: not-allowed;">
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="manage-case-status" class="form-label">Update Lifecycle Status</label>
+            <select id="manage-case-status" class="form-control">
+              <option value="">-- Keep Current Status --</option>
+              <option value="IN_PROGRESS">IN_PROGRESS (Active Review)</option>
+              <option value="AWAITING_CUSTOMER_ACTION">AWAITING_CUSTOMER_ACTION (Awaiting Docs/KYC)</option>
+              <option value="STATUTORY_FILING_STAGED">STATUTORY_FILING_STAGED (Filing Staged)</option>
+              <option value="COMPLETED">COMPLETED (Statutory Filing Confirmed)</option>
+              <option value="CLOSED">CLOSED (Matter Concluded)</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="manage-case-operator" class="form-label">Assign Compliance Operator</label>
+            <select id="manage-case-operator" class="form-control">
+              <option value="">-- Unassigned --</option>
+            </select>
+          </div>
+          <div id="case-manage-feedback" style="display: none; padding: 0.65rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-size: 0.8rem;"></div>
+        </div>
+        <div class="modal-footer" style="padding: 1rem 1.5rem; display: flex; justify-content: flex-end; gap: 0.75rem; border-top: 1px solid var(--admin-border, #334155);">
+          <button type="button" class="admin-btn admin-btn-secondary" onclick="closeCaseModal()">Cancel</button>
+          <button type="submit" id="btn-save-case" class="admin-btn admin-btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- ======================================================================
        SERVICE EDITOR MODAL

@@ -32,6 +32,10 @@ class InMemoryCaseStorage {
     return memoryStore.updateCaseStatus(ref, newStatus, context);
   }
 
+  async updateCase(ref, updates = {}, context = {}) {
+    return memoryStore.updateCase(ref, updates, context);
+  }
+
   async listCaseDocuments(caseId, context = {}) {
     return memoryStore.listCaseDocuments(caseId, context);
   }
@@ -227,6 +231,13 @@ class CaseRepository {
 
   updateCaseStatus(ref, newStatus, context) {
     return this.adapter.updateCaseStatus(ref, newStatus, context);
+  }
+
+  updateCase(ref, updates = {}, context = {}) {
+    if (this.adapter.updateCase) {
+      return this.adapter.updateCase(ref, updates, context);
+    }
+    return this.adapter.updateCaseStatus(ref, updates.status, context);
   }
 
   listCaseDocuments(caseId, context) {

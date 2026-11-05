@@ -30,23 +30,46 @@ function configureStorageAdapters(config) {
   }
 }
 
-async function seedInitialAdmin(config) {
-  const adminEmail = (config.adminEmail || process.env.ADMIN_EMAIL || 'admin@craftegon.com').toLowerCase().trim();
-  const adminPassword = config.adminPassword || process.env.ADMIN_PASSWORD || 'CraftEgonAdmin2026!';
+async function seedInitialAdmin(config, targetStorage = null) {
+  // DEF-003: Fail closed in production. Never auto-bootstrap privileged accounts in production.
+  if (config.isProd) {
+    return;
+  }
+
+  // Only bootstrap in local development/test if BOTH email and password are explicitly supplied via environment
+  const adminEmail = config.bootstrapAdminEmail;
+  const adminPassword = config.bootstrapAdminPassword;
+
+  if (!adminEmail || !adminPassword) {
+    // Fail closed: Do NOT silently create a privileged account when required configuration is absent
+    return;
+  }
+
+  const email = String(adminEmail).toLowerCase().trim();
+  const password = String(adminPassword);
+
   try {
-    const existing = await accountRepository.findByEmail(adminEmail);
+    const repo = targetStorage || accountRepository;
+    const existing = await repo.findByEmail(email);
     if (!existing) {
-      await accountRepository.createAccount({
-        primary_email: adminEmail,
+      const { validatePassword } = require('./models/account.model');
+      const val = validatePassword(password);
+      if (!val.valid) {
+        console.warn('[CCS Bootstrap] Configured bootstrap admin password does not satisfy security policy. Skipping bootstrap.');
+        return;
+      }
+
+      await repo.createAccount({
+        primary_email: email,
         legal_entity_name: 'CraftEgon LLP Administration',
         cin_llpin: 'AAA-1234',
         primary_phone: '+91 86069 18247',
         account_role: 'managing_partner',
-        password: adminPassword
-      });
+        password: password
+      }, { isInternalBootstrap: true });
     }
   } catch (err) {
-    // Safe pass if exists
+    // Safe idempotent pass if exists
   }
 }
 
@@ -102,5 +125,6 @@ if (require.main === module) {
 
 module.exports = {
   createServer,
-  configureStorageAdapters
+  configureStorageAdapters,
+  seedInitialAdmin
 };

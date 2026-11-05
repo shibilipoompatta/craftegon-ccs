@@ -201,7 +201,30 @@ async function handleGetEnquiry(req, res, ref, config) {
   res.end(JSON.stringify({ success: true, enquiry }));
 }
 
+async function handleListEnquiries(req, res, config) {
+  const user = await requireAuth(req, res, ['compliance_operator', 'managing_partner']);
+  if (!user) return;
+
+  const enquiries = await enquiryRepository.listEnquiries({ userId: user.user_id, role: user.role });
+  const sanitized = (enquiries || []).map(e => ({
+    lead_reference: e.lead_reference,
+    service_id: e.service_id,
+    vertical_id: e.vertical_id,
+    status: e.status,
+    contact_name: e.contact_name,
+    created_at: e.created_at
+  }));
+
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({
+    success: true,
+    total: sanitized.length,
+    enquiries: sanitized
+  }));
+}
+
 module.exports = {
   handleCreateEnquiry,
-  handleGetEnquiry
+  handleGetEnquiry,
+  handleListEnquiries
 };

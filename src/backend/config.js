@@ -65,6 +65,8 @@ function loadConfig(overrides = {}) {
     // Auth & Session
     jwtSecret: overrides.JWT_SECRET || process.env.JWT_SECRET || 'craftegon-local-test-jwt-secret-do-not-use-in-prod',
     sessionDurationSeconds: parseInt(overrides.SESSION_DURATION_SECONDS || process.env.SESSION_DURATION_SECONDS || '86400', 10),
+    bootstrapAdminEmail: overrides.BOOTSTRAP_ADMIN_EMAIL || overrides.bootstrapAdminEmail || overrides.adminEmail || process.env.BOOTSTRAP_ADMIN_EMAIL || null,
+    bootstrapAdminPassword: overrides.BOOTSTRAP_ADMIN_PASSWORD || overrides.bootstrapAdminPassword || overrides.adminPassword || process.env.BOOTSTRAP_ADMIN_PASSWORD || null,
 
     // DPDP Act 2023 Statutory Retention
     leadRetentionDays: parseInt(overrides.LEAD_RETENTION_DAYS || process.env.LEAD_RETENTION_DAYS || '180', 10),

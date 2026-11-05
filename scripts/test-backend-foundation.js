@@ -15,6 +15,7 @@ const { clearIdempotencyStore } = require('../src/backend/middleware/idempotency
 const { clearSessionTokens } = require('../src/backend/middleware/auth-guard');
 const { clearAuditLogs, getAuditLogs } = require('../src/backend/middleware/audit-logger');
 const { memoryStore } = require('../src/backend/storage/memory-store');
+const { accountRepository, InMemoryAccountStorage, PostgresAccountStorage } = require('../src/backend/storage/account-repository');
 const { enquiryRepository, InMemoryEnquiryStorage } = require('../src/backend/storage/enquiry-repository');
 const { canTransition, LEAD_STATES, CASE_STATES, DOCUMENT_STATES, PAYMENT_STATES } = require('../src/backend/models/state-machines');
 
@@ -109,6 +110,12 @@ async function runSuite() {
     });
     assert(healthRes.statusCode === 200, 'GET /api/v1/health returns HTTP 200');
     assert(healthRes.body.status === 'ok', 'Health endpoint reports status: ok');
+    assert(Object.keys(healthRes.body).length === 1, 'PHASE1-HEALTH-1: Health endpoint returns exactly {"status":"ok"} with no extra fields');
+    assert(healthRes.body.environment === undefined, 'PHASE1-HEALTH-2: Health endpoint exposes no environment details');
+    assert(healthRes.body.database_provider === undefined, 'PHASE1-HEALTH-3: Health endpoint exposes no database provider details');
+    assert(healthRes.body.data_residency === undefined, 'PHASE1-HEALTH-4: Health endpoint exposes no data residency information');
+    assert(healthRes.body.version === undefined, 'PHASE1-HEALTH-5: Health endpoint exposes no version details');
+    assert(healthRes.body.timestamp === undefined, 'PHASE1-HEALTH-6: Health endpoint exposes no timestamp');
     assert(healthRes.headers['x-content-type-options'] === 'nosniff', 'Includes X-Content-Type-Options: nosniff header');
     assert(healthRes.headers['x-frame-options'] === 'DENY', 'Includes X-Frame-Options: DENY header');
     assert(healthRes.headers['content-security-policy'] === "default-src 'self'", 'Includes Content-Security-Policy header');
@@ -259,7 +266,16 @@ async function runSuite() {
     const unauthRes = await request({ hostname: '127.0.0.1', port: testPort, path: '/api/v1/portal/cases', method: 'GET' });
     assert(unauthRes.statusCode === 401, 'Unauthenticated request to portal cases returns HTTP 401 Unauthorized');
 
-    // 1b. Synthetic Login Guard: blocked in production
+    // 1b. Passwordless Login Strict Rejection (Development & Production)
+    const noPassDevRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'hacker@adversary.com' });
+    assert(noPassDevRes.statusCode === 400 && noPassDevRes.body.message === 'Password is required', 'DEV BOUNDARY: Passwordless login rejected with HTTP 400 Bad Request');
+
     const prodServer = createServer({ PORT: 3198, NODE_ENV: 'production', DATABASE_PROVIDER: 'local_in_memory' });
     await prodServer.start();
     try {
@@ -270,44 +286,62 @@ async function runSuite() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       }, { email: 'hacker@adversary.com', role: 'managing_partner' });
-      assert(prodLoginRes.statusCode === 403, 'PRODUCTION AUTH BOUNDARY: Synthetic login is strictly blocked with HTTP 403 in production environment');
+      assert(prodLoginRes.statusCode === 400 && prodLoginRes.body.message === 'Password is required', 'PRODUCTION BOUNDARY: Passwordless login rejected with HTTP 400 in production environment');
     } finally {
       await prodServer.stop();
       configureStorageAdapters(testInstance.config);
     }
 
-    // 2. Setup synthetic Customer A
+    // 2. Setup verified Customer A with explicit strong password
+    await accountRepository.createAccount({
+      primary_email: 'client_a@acme.com',
+      legal_entity_name: 'Acme Alpha Pvt Ltd',
+      account_role: 'client',
+      password: 'CorporatePassword2026!'
+    });
     const loginA = await request({
       hostname: '127.0.0.1',
       port: testPort,
       path: '/api/v1/auth/login',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
-    }, { email: 'client_a@acme.com', legal_entity_name: 'Acme Alpha Pvt Ltd', role: 'client' });
+    }, { email: 'client_a@acme.com', password: 'CorporatePassword2026!' });
     const tokenA = loginA.body.token;
     const userA = loginA.body.user;
-    assert(Boolean(tokenA) && userA.role === 'client', 'Synthetic Customer A logs in successfully');
+    assert(Boolean(tokenA) && userA.role === 'client', 'Customer A logs in successfully with valid credentials');
 
-    // 3. Setup synthetic Customer B
+    // 3. Setup verified Customer B with explicit strong password
+    await accountRepository.createAccount({
+      primary_email: 'client_b@beta.com',
+      legal_entity_name: 'Beta Biotech LLP',
+      account_role: 'client',
+      password: 'CorporatePassword2026!'
+    });
     const loginB = await request({
       hostname: '127.0.0.1',
       port: testPort,
       path: '/api/v1/auth/login',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
-    }, { email: 'client_b@beta.com', legal_entity_name: 'Beta Biotech LLP', role: 'client' });
+    }, { email: 'client_b@beta.com', password: 'CorporatePassword2026!' });
     const tokenB = loginB.body.token;
     const userB = loginB.body.user;
-    assert(Boolean(tokenB) && userB.role === 'client', 'Synthetic Customer B logs in successfully');
+    assert(Boolean(tokenB) && userB.role === 'client', 'Customer B logs in successfully with valid credentials');
 
-    // 4. Staff logs in and creates a case for Customer A
+    // 4. Staff logs in with explicit strong password (authorized context)
+    await accountRepository.createAccount({
+      primary_email: 'officer@craftegon.com',
+      legal_entity_name: 'CraftEgon Compliance Directorate',
+      account_role: 'compliance_operator',
+      password: 'StaffCorporatePassword2026!'
+    }, { role: 'managing_partner' });
     const loginStaff = await request({
       hostname: '127.0.0.1',
       port: testPort,
       path: '/api/v1/auth/login',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
-    }, { email: 'officer@craftegon.com', role: 'compliance_operator' });
+    }, { email: 'officer@craftegon.com', password: 'StaffCorporatePassword2026!' });
     const tokenStaff = loginStaff.body.token;
 
     const caseA = memoryStore.createCase({
@@ -358,6 +392,531 @@ async function runSuite() {
       headers: { 'Authorization': `Bearer ${tokenStaff}` }
     });
     assert(listCasesStaff.body.total >= 1, 'Compliance staff can view cases across tenants');
+
+    // ------------------------------------------------------------------------
+    // Test Suite 7b: Core Authentication & Disabled-Credential Regression (Task 004E)
+    // ------------------------------------------------------------------------
+    console.log('\n--- Test Suite 7b: Core Authentication & Disabled-Credential Regression (Task 004E) ---');
+
+    // 1. Passwordless login to an existing account returns rejection
+    const pwLessExisting = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'client_a@acme.com' });
+    assert(pwLessExisting.statusCode === 400 && pwLessExisting.body.message === 'Password is required', 'REG-1: Passwordless login to an existing account rejected with HTTP 400');
+
+    // 2. Passwordless login cannot create a new account
+    const pwLessNew = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'never_existed@acme.com', legal_entity_name: 'Ghost Corp' });
+    assert(pwLessNew.statusCode === 400 && pwLessNew.body.message === 'Password is required', 'REG-2a: Passwordless login attempt rejected with HTTP 400');
+    const ghostAcc = await accountRepository.findByEmail('never_existed@acme.com');
+    assert(ghostAcc === null, 'REG-2b: Passwordless login does NOT create a new account in storage');
+
+    // 3. Empty password is rejected
+    const emptyPwRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'client_a@acme.com', password: '' });
+    assert(emptyPwRes.statusCode === 400 && emptyPwRes.body.message === 'Password is required', 'REG-3: Empty string password rejected with HTTP 400');
+
+    // 4. Non-string password is rejected
+    const nonStrPwRes1 = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'client_a@acme.com', password: 12345678 });
+    assert(nonStrPwRes1.statusCode === 400 && nonStrPwRes1.body.message === 'Password is required', 'REG-4a: Integer password rejected with HTTP 400');
+
+    const nonStrPwRes2 = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'client_a@acme.com', password: null });
+    assert(nonStrPwRes2.statusCode === 400 && nonStrPwRes2.body.message === 'Password is required', 'REG-4b: Null password rejected with HTTP 400');
+
+    // 4c. Whitespace-only passwords are rejected with HTTP 400
+    const whitespacePwRes1 = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'client_a@acme.com', password: '   ' });
+    assert(whitespacePwRes1.statusCode === 400 && whitespacePwRes1.body.message === 'Password is required', 'REG-4c: Whitespace-only password (spaces) rejected with HTTP 400');
+
+    const whitespacePwRes2 = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'client_a@acme.com', password: '\t \n \r ' });
+    assert(whitespacePwRes2.statusCode === 400 && whitespacePwRes2.body.message === 'Password is required', 'REG-4d: Whitespace-only password (tabs/newlines) rejected with HTTP 400');
+
+    // 5. Normal valid login still succeeds
+    const validLoginRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'client_a@acme.com', password: 'CorporatePassword2026!' });
+    assert(validLoginRes.statusCode === 200 && Boolean(validLoginRes.body.token), 'REG-5: Normal valid login succeeds with session token');
+
+    // 6. Invalid password still fails
+    const invalidPwRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'client_a@acme.com', password: 'WrongPassword999!' });
+    assert(invalidPwRes.statusCode === 401 && invalidPwRes.body.message === 'Invalid email or password', 'REG-6: Invalid password returns HTTP 401 with generic safe message');
+
+    // 6b. Non-empty password with leading/trailing whitespace is verified untrimmed
+    await accountRepository.createAccount({
+      primary_email: 'spaced_pass@acme.com',
+      legal_entity_name: 'Spaced Password Corp',
+      password: '  SecretPass2026!  '
+    });
+    const exactSpacedRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'spaced_pass@acme.com', password: '  SecretPass2026!  ' });
+    assert(exactSpacedRes.statusCode === 200 && Boolean(exactSpacedRes.body.token), 'REG-6b: Exact password with leading/trailing spaces authenticates untrimmed');
+
+    const trimmedAttemptRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'spaced_pass@acme.com', password: 'SecretPass2026!' });
+    assert(trimmedAttemptRes.statusCode === 401, 'REG-6c: Trimmed password attempt fails (passwords are preserved untrimmed before auth)');
+
+    // 7. Account creation without a password produces disabled local authentication
+    const disabledAcc = await accountRepository.createAccount({
+      primary_email: 'disabled_client@acme.com',
+      legal_entity_name: 'Disabled Corp LLC'
+    });
+    const disabledCred = accountRepository.adapter.credentials.get('disabled_client@acme.com');
+    assert(disabledCred.password_hash === '!DISABLED:NO_LOCAL_PASSWORD', 'REG-7a: Account without password stores !DISABLED:NO_LOCAL_PASSWORD');
+    assert(disabledCred.password_salt === 'disabled', 'REG-7b: Account without password stores disabled salt');
+
+    // 8. TempPass123! cannot authenticate an account with disabled local authentication
+    const tempPassAttempt = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'disabled_client@acme.com', password: 'TempPass123!' });
+    assert(tempPassAttempt.statusCode === 401 && tempPassAttempt.body.message === 'Invalid email or password', 'REG-8: TempPass123! rejected with HTTP 401 on disabled account');
+
+    // 9. SyntheticTestPass123! cannot authenticate an account with disabled local authentication
+    const synthPassAttempt = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'disabled_client@acme.com', password: 'SyntheticTestPass123!' });
+    assert(synthPassAttempt.statusCode === 401 && synthPassAttempt.body.message === 'Invalid email or password', 'REG-9: SyntheticTestPass123! rejected with HTTP 401 on disabled account');
+
+    // 10. Malformed credential records fail safely
+    accountRepository.adapter.credentials.set('malformed@acme.com', {
+      account_id: 'dummy-id-1234',
+      password_hash: 'not_a_valid_scrypt_hash_or_disabled_tag',
+      password_salt: 'dummy',
+      failed_attempts: 0,
+      locked_until: null
+    });
+    const malformedAttempt = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'malformed@acme.com', password: 'AnyPassword2026!' });
+    assert(malformedAttempt.statusCode === 401, 'REG-10: Malformed credential record fails safely with HTTP 401');
+
+    // 11. Existing lockout behavior still works
+    const lockoutEmail = 'lockout_test@acme.com';
+    await accountRepository.createAccount({
+      primary_email: lockoutEmail,
+      legal_entity_name: 'Lockout Target Ltd',
+      password: 'TargetPassword2026!'
+    });
+    for (let i = 0; i < 5; i++) {
+      await request({
+        hostname: '127.0.0.1',
+        port: testPort,
+        path: '/api/v1/auth/login',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      }, { email: lockoutEmail, password: 'WrongPassword!' });
+    }
+    const lockedRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: lockoutEmail, password: 'TargetPassword2026!' });
+    assert(lockedRes.statusCode === 429, 'REG-11: 5 failed attempts trigger account lockout (HTTP 429 Too Many Requests)');
+
+    // 12. Existing password-reset behavior still works
+    const resetEmail = 'reset_user@acme.com';
+    await accountRepository.createAccount({
+      primary_email: resetEmail,
+      legal_entity_name: 'Reset Testing Corp',
+      password: 'InitialPassword2026!'
+    });
+    const resetTokenRes = await accountRepository.createPasswordResetToken(resetEmail);
+    assert(Boolean(resetTokenRes.token), 'REG-12a: Password reset token generated');
+    const pwResetResult = await accountRepository.resetPassword(resetTokenRes.token, 'UpdatedPassword2026!');
+    assert(pwResetResult.success, 'REG-12b: Password reset succeeds with valid token');
+
+    // 13. Password-reset activation changes disabled credentials to valid scrypt credentials
+    const actEmail = 'activate_me@acme.com';
+    await accountRepository.createAccount({
+      primary_email: actEmail,
+      legal_entity_name: 'Activation Pending Inc'
+    });
+    const preActCred = accountRepository.adapter.credentials.get(actEmail);
+    assert(preActCred.password_hash === '!DISABLED:NO_LOCAL_PASSWORD', 'REG-13a: Initial state is disabled');
+    const actTokenRes = await accountRepository.createPasswordResetToken(actEmail);
+    await accountRepository.resetPassword(actTokenRes.token, 'ActivatedCorporatePass2026!');
+    const postActCred = accountRepository.adapter.credentials.get(actEmail);
+    assert(postActCred.password_hash.startsWith('scrypt:'), 'REG-13b: Password reset transitions disabled hash to valid scrypt hash');
+    const actLoginRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: actEmail, password: 'ActivatedCorporatePass2026!' });
+    assert(actLoginRes.statusCode === 200 && Boolean(actLoginRes.body.token), 'REG-13c: Newly activated account logs in successfully via public login API');
+
+    // 14. Existing internal fixtures using direct session creation still work
+    const fixtureAcc = await accountRepository.createAccount({
+      primary_email: 'fixture_internal@acme.com',
+      legal_entity_name: 'Internal Fixture Entity'
+    });
+    const fixtureSession = await accountRepository.createSession(fixtureAcc);
+    assert(Boolean(fixtureSession.token), 'REG-14a: Direct session creation succeeds for passwordless fixture');
+    const verifiedSession = await accountRepository.verifySession(fixtureSession.token);
+    assert(verifiedSession && verifiedSession.account_id === fixtureAcc.id, 'REG-14b: Directly issued fixture session verifies successfully');
+
+    // 15. Public Forgot-Password Endpoint Hardening (Phase 1)
+    const fpTestEmail = 'forgot_client@acme.com';
+    await accountRepository.createAccount({
+      primary_email: fpTestEmail,
+      legal_entity_name: 'Forgot Client Corp',
+      password: 'InitialPassword2026!'
+    });
+    const preCred = accountRepository.adapter.credentials.get(fpTestEmail);
+    const preRecoveryHash = preCred.recovery_token_hash;
+
+    // 15a. Forgot-password request for existing user
+    const fpExistingRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/forgot-password',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: fpTestEmail });
+    assert(fpExistingRes.statusCode === 200, 'PHASE1-1: POST /api/v1/auth/forgot-password returns HTTP 200');
+    assert(fpExistingRes.body._test_reset_token === undefined, 'PHASE1-2: Forgot-password endpoint never returns _test_reset_token in HTTP response');
+    assert(!JSON.stringify(fpExistingRes.body).includes('rst_'), 'PHASE1-3: Response body contains zero reset tokens');
+    assert(fpExistingRes.body.message === 'If an account matches that email address, recovery options will be provided when available.', 'PHASE1-4: Response uses truthful message without claiming dispatch');
+    assert(!fpExistingRes.body.message.includes('dispatched'), 'PHASE1-5: Response does not claim instructions were dispatched');
+
+    // 15b. Verify NO reset token was generated in storage for this account
+    const postCred = accountRepository.adapter.credentials.get(fpTestEmail);
+    assert(postCred.recovery_token_hash === preRecoveryHash, 'PHASE1-6: Forgot-password endpoint does not generate or persist a reset token');
+
+    // 15c. Forgot-password request for non-existent user receives identical generic response
+    const fpNonExistentRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/forgot-password',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'ghost_nonexistent@acme.com' });
+    assert(fpNonExistentRes.statusCode === 200, 'PHASE1-7: Non-existent email returns HTTP 200');
+    assert(fpNonExistentRes.body.message === fpExistingRes.body.message, 'PHASE1-8: Existing and non-existent email addresses receive identical generic response (zero enumeration)');
+    assert(fpNonExistentRes.body._test_reset_token === undefined, 'PHASE1-9: Non-existent email response contains no _test_reset_token');
+
+    // 15d. Empty or whitespace-only email validation
+    const fpEmptyRes = await request({
+      hostname: '127.0.0.1',
+      port: testPort,
+      path: '/api/v1/auth/forgot-password',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: '   ' });
+    assert(fpEmptyRes.statusCode === 400 && fpEmptyRes.body.message === 'Email address is required', 'PHASE1-10: Empty/whitespace email rejected with HTTP 400');
+
+    // ------------------------------------------------------------------------
+    // Test Suite 7c: Phase 2 Repository Credential & Reset-Token Lifecycle Hardening
+    // ------------------------------------------------------------------------
+    console.log('\n--- Test Suite 7c: Phase 2 Repository Credential & Lifecycle Hardening ---');
+
+    // 1. Storage adapter has no persistent raw reset-token property
+    assert(accountRepository.adapter.lastResetToken === undefined, 'PHASE2-1: Storage adapter exports no lastResetToken property');
+    assert(accountRepository.lastResetToken === undefined, 'PHASE2-2: AccountRepository exports no lastResetToken property');
+
+    // 2. Hash-only storage: verify storage persists only the SHA-256 hash, not raw token
+    const hashAuditEmail = 'hash_audit@acme.com';
+    await accountRepository.createAccount({
+      primary_email: hashAuditEmail,
+      legal_entity_name: 'Hash Audit Corp',
+      password: 'InitialPassword2026!'
+    });
+    const tokenResult = await accountRepository.createPasswordResetToken(hashAuditEmail);
+    assert(Boolean(tokenResult.token), 'PHASE2-3: createPasswordResetToken returns raw token in-memory to caller');
+    assert(Boolean(tokenResult.tokenHash), 'PHASE2-4: createPasswordResetToken returns tokenHash in-memory to caller');
+    assert(accountRepository.adapter.lastResetToken === undefined, 'PHASE2-5: Storage adapter does not retain raw token after generation');
+
+    const storedCred = accountRepository.adapter.credentials.get(hashAuditEmail);
+    assert(storedCred.recovery_token_hash === tokenResult.tokenHash, 'PHASE2-6: Stored recovery_token_hash matches SHA-256 hash');
+    assert(!JSON.stringify(storedCred).includes(tokenResult.token), 'PHASE2-7: Stored credential record contains zero plaintext token bytes');
+
+    // 3. Exact-token invalidation (concurrency safety)
+    const tokenAObj = await accountRepository.createPasswordResetToken(hashAuditEmail);
+    const tokenBObj = await accountRepository.createPasswordResetToken(hashAuditEmail);
+    assert(tokenAObj.tokenHash !== tokenBObj.tokenHash, 'PHASE2-8: Successive reset requests produce distinct token hashes');
+
+    // Attempting to invalidate Token A (which is no longer the active token) must NOT invalidate Token B
+    const staleInvalidateRes = await accountRepository.invalidatePasswordResetTokenByHash(hashAuditEmail, tokenAObj.tokenHash);
+    assert(staleInvalidateRes.invalidated === false, 'PHASE2-9: Invalidation with stale token hash affects 0 records');
+    const stillActiveCred = accountRepository.adapter.credentials.get(hashAuditEmail);
+    assert(stillActiveCred.recovery_token_hash === tokenBObj.tokenHash, 'PHASE2-10: Token B remains active and untouched after stale invalidation');
+
+    // Invalidation with matching Token B hash succeeds
+    const validInvalidateRes = await accountRepository.invalidatePasswordResetTokenByHash(hashAuditEmail, tokenBObj.tokenHash);
+    assert(validInvalidateRes.invalidated === true, 'PHASE2-11: Invalidation with matching token hash succeeds');
+    const clearedCred = accountRepository.adapter.credentials.get(hashAuditEmail);
+    assert(clearedCred.recovery_token_hash === null && clearedCred.recovery_token_expires_at === null, 'PHASE2-12: Recovery token hash and expiry cleared from storage');
+
+    // 4. rotatePassword contract
+    const rotAccount = await accountRepository.createAccount({
+      primary_email: 'rotate_me@acme.com',
+      legal_entity_name: 'Rotation Corp',
+      password: 'PreRotationPassword2026!'
+    });
+    // Create an active session
+    const rotSession = await accountRepository.createSession(rotAccount);
+    const preRotVerify = await accountRepository.verifySession(rotSession.token);
+    assert(Boolean(preRotVerify), 'PHASE2-13: Active session verified before rotation');
+
+    // Execute rotatePassword
+    const rotRes = await accountRepository.rotatePassword(rotAccount.id, 'PostRotationPassword2026!');
+    assert(rotRes.success === true, 'PHASE2-14: rotatePassword succeeds with valid new password');
+
+    // Old password fails
+    const oldRotAuth = await accountRepository.authenticate('rotate_me@acme.com', 'PreRotationPassword2026!');
+    assert(oldRotAuth.authenticated === false, 'PHASE2-15: Old password rejected after rotation');
+
+    // New password succeeds
+    const newRotAuth = await accountRepository.authenticate('rotate_me@acme.com', 'PostRotationPassword2026!');
+    assert(newRotAuth.authenticated === true, 'PHASE2-16: New password authenticates successfully after rotation');
+
+    // Prior session revoked
+    const postRotVerify = await accountRepository.verifySession(rotSession.token);
+    assert(postRotVerify === null, 'PHASE2-17: Prior session revoked upon password rotation');
+
+    // rotatePassword validation: weak password rejected
+    let weakRotFailed = false;
+    try {
+      await accountRepository.rotatePassword(rotAccount.id, 'short');
+    } catch (err) {
+      weakRotFailed = (err.statusCode === 400);
+    }
+    assert(weakRotFailed, 'PHASE2-18: rotatePassword rejects weak password with HTTP 400');
+
+    // 5. Parity check on in-memory and PostgreSQL method interfaces
+    const inMemMethods = ['rotatePassword', 'invalidatePasswordResetTokenByHash', 'resetPassword', 'revokeAllUserSessions'];
+    for (const m of inMemMethods) {
+      assert(typeof accountRepository.adapter[m] === 'function', `PHASE2-19: InMemoryAccountStorage implements ${m}`);
+      assert(typeof PostgresAccountStorage.prototype[m] === 'function', `PHASE2-20: PostgresAccountStorage implements ${m}`);
+      assert(typeof accountRepository[m] === 'function', `PHASE2-21: AccountRepository implements ${m}`);
+    }
+
+    // ------------------------------------------------------------------------
+    // Test Suite 7d: Task 004F-02B Atomic Reset-Token Redemption & Concurrency
+    // ------------------------------------------------------------------------
+    console.log('\n--- Test Suite 7d: Task 004F-02B Atomic Reset-Token Redemption & Concurrency ---');
+
+    // 1. Valid token redemption succeeds
+    const atomicEmail = 'atomic_user@acme.com';
+    const atomicAcc = await accountRepository.createAccount({
+      primary_email: atomicEmail,
+      legal_entity_name: 'Atomic Redemption Corp',
+      password: 'PreResetPass2026!'
+    });
+    const atomicSession = await accountRepository.createSession(atomicAcc);
+    const preResetVerify = await accountRepository.verifySession(atomicSession.token);
+    assert(Boolean(preResetVerify), 'TASK004F-02B-1: Active session verified before reset');
+
+    const validTokenObj = await accountRepository.createPasswordResetToken(atomicEmail);
+    const resetResult = await accountRepository.resetPassword(validTokenObj.token, 'PostResetPass2026!');
+    assert(resetResult.success === true, 'TASK004F-02B-2: Valid token reset succeeds');
+
+    const oldAuthCheck = await accountRepository.authenticate(atomicEmail, 'PreResetPass2026!');
+    assert(oldAuthCheck.authenticated === false, 'TASK004F-02B-3: Old password rejected after reset');
+
+    const newAuthCheck = await accountRepository.authenticate(atomicEmail, 'PostResetPass2026!');
+    assert(newAuthCheck.authenticated === true, 'TASK004F-02B-4: New password authenticates successfully after reset');
+
+    const postResetVerify = await accountRepository.verifySession(atomicSession.token);
+    assert(postResetVerify === null, 'TASK004F-02B-5: Prior active session revoked upon password reset');
+
+    const atomicCredRecord = accountRepository.adapter.credentials.get(atomicEmail);
+    assert(atomicCredRecord.recovery_token_hash === null && atomicCredRecord.recovery_token_expires_at === null, 'TASK004F-02B-6: Reset-token hash and expiry cleared from storage after success');
+
+    // 2. Invalid token fails safely
+    let invalidTokenFailed = false;
+    try {
+      await accountRepository.resetPassword('completely_bogus_token_xyz', 'PostResetPass2026!');
+    } catch (err) {
+      invalidTokenFailed = (err.statusCode === 400 && err.message.includes('Invalid or expired'));
+    }
+    assert(invalidTokenFailed, 'TASK004F-02B-7: Invalid token fails with HTTP 400');
+
+    // 3. Expired token fails safely
+    const expiredTokenObj = await accountRepository.createPasswordResetToken(atomicEmail);
+    const expiredCred = accountRepository.adapter.credentials.get(atomicEmail);
+    expiredCred.recovery_token_expires_at = new Date(Date.now() - 60000).toISOString(); // 1 minute in past
+    let expiredTokenFailed = false;
+    try {
+      await accountRepository.resetPassword(expiredTokenObj.token, 'PostResetPass2026!');
+    } catch (err) {
+      expiredTokenFailed = (err.statusCode === 400);
+    }
+    assert(expiredTokenFailed, 'TASK004F-02B-8: Expired token fails with HTTP 400');
+
+    // 4. Replayed token fails (single-use guarantee)
+    const replayTokenObj = await accountRepository.createPasswordResetToken(atomicEmail);
+    await accountRepository.resetPassword(replayTokenObj.token, 'ReplayFirstPass2026!');
+    let replayFailed = false;
+    try {
+      await accountRepository.resetPassword(replayTokenObj.token, 'ReplaySecondPass2026!');
+    } catch (err) {
+      replayFailed = (err.statusCode === 400);
+    }
+    assert(replayFailed, 'TASK004F-02B-9: Replay of consumed token is strictly rejected');
+
+    const replayAuthFirst = await accountRepository.authenticate(atomicEmail, 'ReplayFirstPass2026!');
+    assert(replayAuthFirst.authenticated === true, 'TASK004F-02B-10: First redemption password remains active');
+    const replayAuthSecond = await accountRepository.authenticate(atomicEmail, 'ReplaySecondPass2026!');
+    assert(replayAuthSecond.authenticated === false, 'TASK004F-02B-11: Replayed attempt did not overwrite established password');
+
+    // 5. Two concurrent redemption attempts result in exactly one success
+    const concurrentEmail = 'concurrent_mem@acme.com';
+    const concurrentAcc = await accountRepository.createAccount({
+      primary_email: concurrentEmail,
+      legal_entity_name: 'Concurrent Test Corp',
+      password: 'InitialConcurrentPass2026!'
+    });
+    const concurrentSession = await accountRepository.createSession(concurrentAcc);
+    const concurrentTokenObj = await accountRepository.createPasswordResetToken(concurrentEmail);
+
+    const [memRes1, memRes2] = await Promise.allSettled([
+      accountRepository.resetPassword(concurrentTokenObj.token, 'ConcurrentPassAlpha1!'),
+      accountRepository.resetPassword(concurrentTokenObj.token, 'ConcurrentPassBeta2!')
+    ]);
+
+    const memSuccesses = [memRes1, memRes2].filter(r => r.status === 'fulfilled');
+    const memFailures = [memRes1, memRes2].filter(r => r.status === 'rejected');
+    assert(memSuccesses.length === 1, 'TASK004F-02B-12: Exactly one concurrent redemption succeeds');
+    assert(memFailures.length === 1, 'TASK004F-02B-13: Exactly one concurrent redemption fails');
+    assert(memFailures[0].reason.statusCode === 400, 'TASK004F-02B-14: Failed concurrent attempt receives HTTP 400');
+
+    // Confirm which password won and that the loser password was not applied
+    const alphaAuth = await accountRepository.authenticate(concurrentEmail, 'ConcurrentPassAlpha1!');
+    const betaAuth = await accountRepository.authenticate(concurrentEmail, 'ConcurrentPassBeta2!');
+    assert(alphaAuth.authenticated !== betaAuth.authenticated, 'TASK004F-02B-15: Password changes only once to the winning attempt');
+    const sessionPostConcurrent = await accountRepository.verifySession(concurrentSession.token);
+    assert(sessionPostConcurrent === null, 'TASK004F-02B-16: Prior session revoked upon concurrent password reset');
+
+    // 6. PostgreSQL adapter single-statement atomic CTE verification
+    let executedPgSql = '';
+    const mockPgClient = {
+      query: (sql) => {
+        executedPgSql = sql;
+        return JSON.stringify([{ account_id: 'mock-account-uuid' }]);
+      }
+    };
+    const mockPgStorage = new PostgresAccountStorage(mockPgClient);
+    const pgResetRes = await mockPgStorage.resetPassword('sample_raw_token_123', 'PgNewPassword2026!');
+    assert(pgResetRes.success === true, 'TASK004F-02B-17: PostgresAccountStorage.resetPassword succeeds when CTE returns account_id');
+
+    // Verify CTE structure in generated SQL
+    assert(executedPgSql.includes('WITH updated_cred AS ('), 'TASK004F-02B-18: Postgres resetPassword uses data-modifying CTE');
+    assert(executedPgSql.includes('UPDATE auth_credentials'), 'TASK004F-02B-19: CTE updates auth_credentials');
+    assert(executedPgSql.includes('recovery_token_hash = \'') && executedPgSql.includes('WHERE recovery_token_hash ='), 'TASK004F-02B-20: CTE conditionally matches recovery_token_hash');
+    assert(executedPgSql.includes('recovery_token_expires_at > CURRENT_TIMESTAMP'), 'TASK004F-02B-21: CTE enforces strictly non-expired token');
+    assert(executedPgSql.includes('recovery_token_hash = NULL'), 'TASK004F-02B-22: CTE clears recovery_token_hash upon redemption');
+    assert(executedPgSql.includes('recovery_token_expires_at = NULL'), 'TASK004F-02B-23: CTE clears recovery_token_expires_at upon redemption');
+    assert(executedPgSql.includes('revoked_sessions AS ('), 'TASK004F-02B-24: CTE binds session revocation to successful credential update');
+    assert(executedPgSql.includes('SELECT account_id FROM updated_cred'), 'TASK004F-02B-25: CTE selects account_id from updated_cred');
+
+    // 7. PostgreSQL adapter: 0 rows returned triggers HTTP 400 safely
+    const emptyPgClient = {
+      query: () => JSON.stringify([])
+    };
+    const emptyPgStorage = new PostgresAccountStorage(emptyPgClient);
+    let emptyPgFailed = false;
+    try {
+      await emptyPgStorage.resetPassword('unmatched_token_xyz', 'PgNewPassword2026!');
+    } catch (err) {
+      emptyPgFailed = (err.statusCode === 400 && err.message === 'Invalid or expired password reset token');
+    }
+    assert(emptyPgFailed, 'TASK004F-02B-26: PostgresAccountStorage rejects when 0 rows updated (invalid/expired/consumed token)');
+
+    // 8. PostgreSQL adapter concurrent redemption simulation (row lock / single-use)
+    let pgCallCount = 0;
+    const concurrentPgClient = {
+      query: () => {
+        pgCallCount++;
+        // Request 1 matches row; Request 2 matches 0 rows (already consumed)
+        if (pgCallCount === 1) {
+          return JSON.stringify([{ account_id: 'mock-account-uuid' }]);
+        }
+        return JSON.stringify([]);
+      }
+    };
+    const concurrentPgStorage = new PostgresAccountStorage(concurrentPgClient);
+    const [pgRes1, pgRes2] = await Promise.allSettled([
+      concurrentPgStorage.resetPassword('simulated_concurrent_token', 'PgPassAlpha1!'),
+      concurrentPgStorage.resetPassword('simulated_concurrent_token', 'PgPassBeta2!')
+    ]);
+    const pgSuccesses = [pgRes1, pgRes2].filter(r => r.status === 'fulfilled');
+    const pgFailures = [pgRes1, pgRes2].filter(r => r.status === 'rejected');
+    assert(pgSuccesses.length === 1, 'TASK004F-02B-27: PostgreSQL concurrent simulation results in exactly one success');
+    assert(pgFailures.length === 1, 'TASK004F-02B-28: PostgreSQL concurrent simulation results in exactly one failure');
+    assert(pgFailures[0].reason.statusCode === 400, 'TASK004F-02B-29: PostgreSQL loser receives HTTP 400');
+    assert(pgCallCount === 2, 'TASK004F-02B-30: Exactly two atomic single-statement queries executed across both concurrent requests');
 
     // ------------------------------------------------------------------------
     // Test Suite 8: Document Intake Quarantine Gating

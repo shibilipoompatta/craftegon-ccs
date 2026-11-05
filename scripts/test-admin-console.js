@@ -129,6 +129,13 @@ async function runAdminTests() {
     console.log('\n--- Test Suite 3: Client Role Rejection on Admin APIs ---');
 
     // Authenticate a standard client
+    const { accountRepository } = require('../src/backend/storage/account-repository');
+    await accountRepository.createAccount({
+      primary_email: 'client-user@example.com',
+      legal_entity_name: 'Regular Client Ltd',
+      account_role: 'client',
+      password: 'ClientPassword2026!'
+    });
     const clientLogin = await makeRequest({
       hostname: '127.0.0.1',
       port: TEST_PORT,
@@ -137,8 +144,7 @@ async function runAdminTests() {
       headers: { 'Content-Type': 'application/json' }
     }, {
       email: 'client-user@example.com',
-      legal_entity_name: 'Regular Client Ltd',
-      role: 'client'
+      password: 'ClientPassword2026!'
     });
     clientToken = clientLogin.body.token;
 

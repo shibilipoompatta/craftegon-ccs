@@ -4,16 +4,17 @@
  */
 
 const { handleHealth } = require('./controllers/health.controller');
-const { handleCreateEnquiry, handleGetEnquiry } = require('./controllers/enquiry.controller');
+const { handleCreateEnquiry, handleGetEnquiry, handleListEnquiries } = require('./controllers/enquiry.controller');
 const {
   handleLogin,
   handleLogout,
   handleMe,
   handleForgotPassword,
   handleResetPassword,
-  handleRegister
+  handleRegister,
+  handleProvisionStaff
 } = require('./controllers/auth.controller');
-const { handleListCases, handleGetCase, handleUpdateCaseStatus } = require('./controllers/portal.controller');
+const { handleListCases, handleGetCase, handleCreateCase, handleUpdateCase, handleUpdateCaseStatus, handleListStaff } = require('./controllers/portal.controller');
 const {
   handleUploadDocument,
   handleGetDocumentDownloadUrl,
@@ -85,12 +86,15 @@ async function routeRequest(req, res, config) {
 
   // 3. Enquiry Routes
   if (pathname === '/api/v1/enquiries') {
-    if (method !== 'POST') {
-      res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'POST' });
-      return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+    if (method === 'POST') {
+      const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
+      return await handleCreateEnquiry(req, res, config, body);
     }
-    const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
-    return await handleCreateEnquiry(req, res, config, body);
+    if (method === 'GET') {
+      return await handleListEnquiries(req, res, config);
+    }
+    res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET, POST' });
+    return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
   }
 
   const enquiryMatch = pathname.match(/^\/api\/v1\/enquiries\/([A-Za-z0-9\-]+)$/);
@@ -158,11 +162,15 @@ async function routeRequest(req, res, config) {
 
   // 5. Portal & Case Routes
   if (pathname === '/api/v1/portal/cases') {
-    if (method !== 'GET') {
-      res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET' });
-      return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+    if (method === 'GET') {
+      return await handleListCases(req, res, config);
     }
-    return await handleListCases(req, res, config);
+    if (method === 'POST') {
+      const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
+      return await handleCreateCase(req, res, config, body);
+    }
+    res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET, POST' });
+    return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
   }
 
   const caseMatch = pathname.match(/^\/api\/v1\/portal\/cases\/([A-Za-z0-9\-]+)$/);
@@ -173,7 +181,7 @@ async function routeRequest(req, res, config) {
     }
     if (method === 'PATCH') {
       const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
-      return await handleUpdateCaseStatus(req, res, ref, config, body);
+      return await handleUpdateCase(req, res, ref, config, body);
     }
     res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET, PATCH' });
     return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
@@ -408,6 +416,18 @@ async function routeRequest(req, res, config) {
   }
 
   // 11. Admin Services Management Routes
+  if (pathname === '/api/v1/admin/staff' || pathname === '/api/v1/admin/staff/provision' || pathname === '/api/v1/admin/operators') {
+    if (method === 'GET') {
+      return await handleListStaff(req, res, config);
+    }
+    if (method === 'POST') {
+      const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
+      return await handleProvisionStaff(req, res, config, body);
+    }
+    res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET, POST' });
+    return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+  }
+
   if (pathname === '/api/v1/admin/me') {
     if (method !== 'GET') {
       res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET' });

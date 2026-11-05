@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="/assets/css/navbar.css">
   <link rel="stylesheet" href="/assets/css/portal.css">
 
+  <!-- Central Configuration (Canonical Source of Truth) -->
+  <script id="craftegon-config-script" src="/assets/js/config.js"></script>
+
   <!-- Favicon & Brand Icons -->
   <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
   <link rel="apple-touch-icon" href="/assets/images/craftegon-logo.jpg">
@@ -200,9 +203,14 @@
             Durable records managed by CraftEgon CCS backend with engine-level Row-Level Security tenant isolation.
           </p>
         </div>
-        <button type="button" class="if-btn-secondary" onclick="loadServerCases()" style="padding: 0.5rem 1rem; font-size: 0.82rem;">
-          ↻ Refresh Server Records
-        </button>
+        <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+          <button type="button" class="if-btn-primary" id="btn-open-new-case" onclick="openNewCaseModal()" style="padding: 0.5rem 1rem; font-size: 0.82rem;">
+            + Request Filing Service
+          </button>
+          <button type="button" class="if-btn-secondary" onclick="loadServerCases()" style="padding: 0.5rem 1rem; font-size: 0.82rem;">
+            ↻ Refresh Server Records
+          </button>
+        </div>
       </div>
 
       <div id="portal-cases-container">
@@ -226,7 +234,7 @@
 
     <!-- Milestones Countdown Grid -->
     <div class="milestones-grid" id="milestones-container" hidden style="display: none;">
-      
+
       <!-- 1. Form AOC-4 -->
       <div class="milestone-card" data-category="mca">
         <div class="milestone-header">
@@ -236,7 +244,7 @@
         <h4 class="milestone-title">Form AOC-4 (Financial Statements)</h4>
         <div class="milestone-section">Section 137, Companies Act 2013</div>
         <p class="milestone-desc">Mandatory e-filing of audited balance sheet, P&amp;L statement, and Director's Report within 30 days of Annual General Meeting.</p>
-        
+
         <div class="countdown-box" id="timer-aoc4">
           <div class="countdown-unit"><span class="countdown-num" id="aoc4-d">14</span><span class="countdown-lbl">Days</span></div>
           <div class="countdown-unit"><span class="countdown-num" id="aoc4-h">08</span><span class="countdown-lbl">Hours</span></div>
@@ -259,7 +267,7 @@
         <h4 class="milestone-title">Form MGT-7 / 7A (Annual Return)</h4>
         <div class="milestone-section">Section 92, Companies Act 2013</div>
         <p class="milestone-desc">Annual return disclosing shareholder register, board meetings, director remuneration, and cap table breakdown within 60 days of AGM.</p>
-        
+
         <div class="countdown-box" id="timer-mgt7">
           <div class="countdown-unit"><span class="countdown-num" id="mgt7-d">44</span><span class="countdown-lbl">Days</span></div>
           <div class="countdown-unit"><span class="countdown-num" id="mgt7-h">14</span><span class="countdown-lbl">Hours</span></div>
@@ -282,7 +290,7 @@
         <h4 class="milestone-title">Form DIR-3 KYC (Director Verification)</h4>
         <div class="milestone-section">Rule 12A, Companies (Appointment) Rules</div>
         <p class="milestone-desc">Annual digital identity verification for all active DIN holders. Status marked compliant for current financial year cycle.</p>
-        
+
         <div class="countdown-box" style="border-color: rgba(59, 130, 246, 0.4);">
           <div style="font-family: var(--font-mono); font-size: 0.95rem; color: #60A5FA; font-weight: 700; padding: 0.35rem 0;">
             ✓ KYC Verified &bull; Next Cycle Opens April 2027
@@ -304,7 +312,7 @@
         <h4 class="milestone-title">Form MSME-1 (Outstanding Vendor Dues)</h4>
         <div class="milestone-section">Section 405, Companies Act 2013</div>
         <p class="milestone-desc">Half-yearly disclosure of outstanding payments to MSME registered suppliers exceeding 45 days. Strict compliance mandate.</p>
-        
+
         <div class="countdown-box" id="timer-msme1">
           <div class="countdown-unit"><span class="countdown-num" id="msme-d">15</span><span class="countdown-lbl">Days</span></div>
           <div class="countdown-unit"><span class="countdown-num" id="msme-h">11</span><span class="countdown-lbl">Hours</span></div>
@@ -327,7 +335,7 @@
         <h4 class="milestone-title">Form DPT-3 (Return of Deposits &amp; Loans)</h4>
         <div class="milestone-section">Rule 16, Companies (Acceptance of Deposits)</div>
         <p class="milestone-desc">Mandatory annual return disclosing outstanding loans, advances, or receipts not treated as deposits as of March 31.</p>
-        
+
         <div class="countdown-box">
           <div style="font-family: var(--font-mono); font-size: 0.88rem; color: #34D399; font-weight: 600; padding: 0.35rem 0;">
             Scheduled Due Date: June 30 &bull; Automated Staging Ready
@@ -349,7 +357,7 @@
         <h4 class="milestone-title">Form 3CEB (Transfer Pricing Report)</h4>
         <div class="milestone-section">Section 92E, Income-tax Act 1961</div>
         <p class="milestone-desc">Mandatory statutory accountant certificate for corporate entities undertaking international or specified domestic cross-border transactions.</p>
-        
+
         <div class="countdown-box" id="timer-3ceb">
           <div class="countdown-unit"><span class="countdown-num" id="tceb-d">15</span><span class="countdown-lbl">Days</span></div>
           <div class="countdown-unit"><span class="countdown-num" id="tceb-h">11</span><span class="countdown-lbl">Hours</span></div>
@@ -372,7 +380,7 @@
         <h4 class="milestone-title">GSTR-9 &amp; 9C (GST Annual Return)</h4>
         <div class="milestone-section">Section 44, Central Goods &amp; Services Tax Act</div>
         <p class="milestone-desc">Annual return and self-certified reconciliation statement for registered regular taxpayers for financial year turnover reconciliation.</p>
-        
+
         <div class="countdown-box">
           <div class="countdown-unit"><span class="countdown-num">76</span><span class="countdown-lbl">Days</span></div>
           <div class="countdown-unit"><span class="countdown-num">18</span><span class="countdown-lbl">Hours</span></div>
@@ -395,7 +403,7 @@
         <h4 class="milestone-title">RBI FLA Return (Foreign Liabilities &amp; Assets)</h4>
         <div class="milestone-section">Foreign Exchange Management Act, 1999</div>
         <p class="milestone-desc">Annual online reporting on the RBI FLAIR portal for Indian entities having foreign direct investment (FDI) or overseas investment (ODI).</p>
-        
+
         <div class="countdown-box">
           <div style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--gold-light); font-weight: 600; padding: 0.35rem 0;">
             Annual Window: Due July 15 &bull; Monitored on FLAIRS
@@ -447,82 +455,55 @@
     <span id="toast-message">Regulatory settings updated successfully.</span>
   </div>
 
-  <!-- Server Authentication & Password Recovery Modal -->
-  <div id="portal-auth-modal" class="checkout-modal-backdrop">
-    <div class="checkout-modal" style="max-width: 480px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
-        <div>
-          <h3 id="auth-modal-title" style="margin: 0; font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-dark);">Client Portal Sign In</h3>
-          <p id="auth-modal-sub" style="margin: 0.25rem 0 0; font-size: 0.8rem; color: var(--text-muted);">Access your company's live compliance cases and filings.</p>
-        </div>
-        <button type="button" onclick="closeAuthModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+  <!-- Client Portal Onboarding & Access Notice Modal (Option A Safeguard) -->
+  <div id="portal-auth-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+    <div class="checkout-modal" style="max-width: 500px;">
+      <button type="button" class="modal-close" onclick="closeAuthModal()" aria-label="Close dialog">&times;</button>
+
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+        <span class="noble-badge"><span class="noble-badge-dot"></span> Onboarding Notice</span>
+        <span style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--gold-primary);">Client Access Framework</span>
       </div>
 
-      <!-- Tabs -->
-      <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
-        <button type="button" id="tab-btn-login" class="payment-tab active" onclick="switchAuthTab('login')">Sign In</button>
-        <button type="button" id="tab-btn-register" class="payment-tab" onclick="switchAuthTab('register')">New Account</button>
-        <button type="button" id="tab-btn-recovery" class="payment-tab" onclick="switchAuthTab('recovery')">Forgot Password</button>
+      <h3 id="auth-modal-title" style="margin: 0 0 0.75rem 0; font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-dark);">
+        Client Portal Access Notice
+      </h3>
+
+      <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 1.25rem 0;">
+        Client portal access is currently available only to formally onboarded clients through an activated account. Please contact CraftEgon CCS to enquire about client onboarding.
+      </p>
+
+      <div style="background: var(--bg-ivory); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1rem; margin-bottom: 1.5rem;">
+        <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-dark); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">
+          Direct Onboarding Channels
+        </div>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+          Connect directly with our corporate secretarial desk to initiate entity onboarding or discuss compliance retainer activation.
+        </p>
       </div>
 
-      <div id="auth-error-box" style="display: none; background: rgba(239, 68, 68, 0.1); border-left: 3px solid #EF4444; padding: 0.75rem; border-radius: 4px; font-size: 0.82rem; color: #B91C1C; margin-bottom: 1rem;"></div>
+      <div style="background: var(--surface-light); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.65rem 0.85rem; font-size: 0.74rem; color: var(--text-muted); line-height: 1.45; text-align: left; margin-bottom: 1rem;">
+        <strong>External Application Notice:</strong> Selecting WhatsApp or Email opens an external application on your device. You control what information you send once the application opens. No information is stored on or submitted directly to CraftEgon's website.
+      </div>
 
-      <!-- Tab 1: Sign In -->
-      <form id="form-login" onsubmit="handleLoginSubmit(event)">
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Primary Email</label>
-          <input type="email" id="login-email" class="lookup-input" placeholder="e.g. director@company.in" required style="width: 100%;">
-        </div>
-        <div style="margin-bottom: 1.25rem;">
-          <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Password</label>
-          <input type="password" id="login-password" class="lookup-input" placeholder="••••••••" required style="width: 100%;">
-        </div>
-        <button type="submit" id="login-submit-btn" class="if-btn-primary" style="width: 100%; justify-content: center; padding: 0.75rem;">
-          Sign In
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <a href="https://wa.me/918606918247?text=Hello%20CraftEgon%20Compliance%20Desk%2C%20I%20would%20like%20to%20enquire%20about%20corporate%20client%20onboarding%20and%20portal%20access."
+           class="if-btn-primary"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="width: 100%; justify-content: center; padding: 0.75rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.4rem;" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          Enquire on WhatsApp
+        </a>
+        <a href="mailto:admin@craftegon.com?subject=Corporate%20Client%20Onboarding%20Enquiry&body=Hello%20CraftEgon%20Compliance%20Desk%2C%0A%0AI%20would%20like%20to%20enquire%20about%20corporate%20client%20onboarding%20and%20client%20portal%20access.%0A%0ACompany%20Name%3A%20%0AContact%20Name%3A%20%0APhone%3A%20%0A"
+           class="if-btn-secondary"
+           style="width: 100%; justify-content: center; padding: 0.75rem;">
+          Send Email Enquiry
+        </a>
+        <button type="button" class="if-btn-secondary" onclick="closeAuthModal()" style="width: 100%; justify-content: center; padding: 0.65rem; border: none; color: var(--text-muted); background: transparent;">
+          Close
         </button>
-      </form>
-
-      <!-- Tab 2: New Account -->
-      <form id="form-register" onsubmit="handleRegisterSubmit(event)" style="display: none;">
-        <div style="margin-bottom: 0.85rem;">
-          <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Legal Entity Name</label>
-          <input type="text" id="reg-entity" class="lookup-input" placeholder="e.g. Acme Innovations Pvt Ltd" required style="width: 100%;">
-        </div>
-        <div style="margin-bottom: 0.85rem;">
-          <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">CIN / LLPIN (Optional)</label>
-          <input type="text" id="reg-cin" class="lookup-input" placeholder="e.g. U72900KA2023PTC123456" style="width: 100%;">
-        </div>
-        <div style="margin-bottom: 0.85rem;">
-          <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Primary Email</label>
-          <input type="email" id="reg-email" class="lookup-input" placeholder="director@company.in" required style="width: 100%;">
-        </div>
-        <div style="margin-bottom: 1.25rem;">
-          <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Password (Min. 8 characters)</label>
-          <input type="password" id="reg-password" class="lookup-input" placeholder="••••••••" required style="width: 100%;">
-        </div>
-        <button type="submit" id="reg-submit-btn" class="if-btn-primary" style="width: 100%; justify-content: center; padding: 0.75rem;">
-          Create Corporate Account
-        </button>
-      </form>
-
-      <!-- Tab 3: Password Recovery -->
-      <form id="form-recovery" onsubmit="handleRecoverySubmit(event)" style="display: none;">
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Account Email</label>
-          <input type="email" id="recovery-email" class="lookup-input" placeholder="director@company.in" required style="width: 100%;">
-        </div>
-        <div id="recovery-token-group" style="display: none; margin-bottom: 1rem;">
-          <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Recovery Token</label>
-          <input type="text" id="recovery-token" class="lookup-input" placeholder="e.g. rst_..." style="width: 100%;">
-          <div style="margin-top: 0.85rem;">
-            <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">New Password</label>
-            <input type="password" id="recovery-new-password" class="lookup-input" placeholder="••••••••" style="width: 100%;">
-          </div>
-        </div>
-        <button type="submit" id="recovery-submit-btn" class="if-btn-primary" style="width: 100%; justify-content: center; padding: 0.75rem;">
-          Send Reset Instructions
-        </button>
-      </form>
+      </div>
     </div>
   </div>
 
@@ -565,6 +546,122 @@
     </div>
   </div>
 
+    <!-- ======================================================================
+       NEW CASE SERVICE REQUEST MODAL
+       ====================================================================== -->
+  <div id="portal-new-case-modal" class="portal-modal-backdrop" onclick="if(event.target===this) closeNewCaseModal()" role="dialog" aria-modal="true" aria-labelledby="new-case-modal-title">
+    <div class="portal-modal-card" style="max-width: 600px;">
+      <div class="portal-modal-header">
+        <div>
+          <span class="noble-badge" style="font-size: 0.7rem; margin-bottom: 0.25rem;"><span class="noble-badge-dot"></span> Corporate Engagement</span>
+          <h3 id="new-case-modal-title" style="margin: 0; font-family: var(--font-heading); font-size: 1.25rem; color: var(--text-dark);">Request Filing Service</h3>
+          <p style="margin: 0.25rem 0 0; font-size: 0.8rem; color: var(--text-muted);">
+            Submit a corporate compliance or secretarial filing service request.
+          </p>
+        </div>
+        <button type="button" class="portal-modal-close" onclick="closeNewCaseModal()" aria-label="Close modal">&times;</button>
+      </div>
+
+      <!-- Feedback Alert Box -->
+      <div id="new-case-feedback" style="display: none; padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.82rem; margin-bottom: 1rem;" role="alert"></div>
+
+      <form id="new-case-form" onsubmit="handleNewCaseSubmit(event)">
+        <div style="margin-bottom: 1rem;">
+          <label for="new-case-service" style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">
+            Select Canonical Service <span style="color: #EF4444;">*</span>
+          </label>
+          <select id="new-case-service" class="lookup-input" required style="width: 100%; font-size: 0.85rem; padding: 0.6rem 0.85rem;" onchange="handleServiceSelectionChange(this.value)">
+            <option value="">-- Choose Corporate Filing or Statutory Service --</option>
+            <optgroup label="Business Formation &amp; Structuring (V01)">
+              <option value="V01-SVC-007">V01-SVC-007: Private Limited Company Registration (SPICe+)</option>
+              <option value="V01-SVC-006">V01-SVC-006: Limited Liability Partnership (LLP) Registration</option>
+              <option value="V01-SVC-005">V01-SVC-005: One Person Company (OPC) Registration</option>
+              <option value="V01-SVC-009">V01-SVC-009: Section 8 Non-Profit Company Incorporation</option>
+              <option value="V01-SVC-003">V01-SVC-003: MSME / Udyam Registration</option>
+              <option value="V01-SVC-002">V01-SVC-002: Startup India DPIIT Recognition</option>
+            </optgroup>
+            <optgroup label="Corporate Secretarial &amp; RoC Compliance (V02)">
+              <option value="V02-SVC-004">V02-SVC-004: Form AOC-4 Financial Statements Filing</option>
+              <option value="V02-SVC-008">V02-SVC-008: Form MGT-7 Annual Return Filing</option>
+              <option value="V02-SVC-002">V02-SVC-002: Form DIR-3 KYC Director Identity Verification</option>
+              <option value="V02-SVC-001">V02-SVC-001: Form ADT-1 Statutory Auditor Appointment</option>
+              <option value="V02-SVC-006">V02-SVC-006: Form DPT-3 Return of Deposits</option>
+              <option value="V02-SVC-007">V02-SVC-007: Form MSME-1 Outstanding Vendor Dues Return</option>
+              <option value="V02-SVC-012">V02-SVC-012: Form PAS-6 Demat Reconciliation</option>
+              <option value="V02-SVC-013">V02-SVC-013: Fast-Track Company Closure &amp; Strike-Off (Form STK-2)</option>
+              <option value="V02-SVC-017">V02-SVC-017: Annual Corporate Secretarial &amp; RoC Retainer</option>
+            </optgroup>
+            <optgroup label="Corporate Tax, GST &amp; Transfer Pricing (V03)">
+              <option value="V03-SVC-001">V03-SVC-001: Goods and Services Tax (GST) Registration</option>
+              <option value="V03-SVC-003">V03-SVC-003: GST Annual Return (Form GSTR-9 / 9C)</option>
+              <option value="V03-SVC-006">V03-SVC-006: Form 3CEB Transfer Pricing Certification</option>
+            </optgroup>
+            <optgroup label="Intellectual Property Rights &amp; Trademark (V06)">
+              <option value="V06-SVC-001">V06-SVC-001: Trademark Registration (TM-A)</option>
+              <option value="V06-SVC-002">V06-SVC-002: Trademark Objection &amp; Hearing Representation</option>
+            </optgroup>
+            <optgroup label="FEMA, RBI &amp; Cross-Border Governance (V13)">
+              <option value="V13-SVC-003">V13-SVC-003: RBI Foreign Liabilities &amp; Assets (FLA) Return</option>
+              <option value="V13-SVC-001">V13-SVC-001: Foreign Direct Investment Reporting (Form FC-GPR)</option>
+            </optgroup>
+            <optgroup label="Dispute Resolution &amp; Litigation (Referral Only)">
+              <option value="director-removal">Director Removal &amp; Board Control Litigation (External Referral Only)</option>
+              <option value="nclt-insolvency">NCLT Corporate Insolvency Resolution CIRP Defense (External Referral Only)</option>
+              <option value="oppression-mismanagement">Section 241 Oppression &amp; Mismanagement Petitions (External Referral Only)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Advocates Act 1961 Statutory Warning Notice -->
+        <div id="referral-warning-box" style="display: none; background: rgba(245, 158, 11, 0.12); border-left: 3px solid #F59E0B; padding: 0.75rem; border-radius: 4px; margin-bottom: 1rem; font-size: 0.8rem; color: var(--text-dark); line-height: 1.45;">
+          <strong>Advocates Act 1961 Statutory Notice:</strong> Contentious tribunal proceedings and courtroom litigation matters cannot be accepted as direct self-serve cases. Please contact our managing partner desk for external neutral advocate referral coordination.
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label for="new-case-title" style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">
+            Case Title / Engagement Description <span style="color: #EF4444;">*</span>
+          </label>
+          <input type="text" id="new-case-title" class="lookup-input" placeholder="e.g. Acme Alpha Private Limited SPICe+ Incorporation" required style="width: 100%; font-size: 0.85rem; padding: 0.6rem 0.85rem;">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <label for="new-case-priority" style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">
+              Filing Priority
+            </label>
+            <select id="new-case-priority" class="lookup-input" style="width: 100%; font-size: 0.85rem; padding: 0.6rem 0.85rem;">
+              <option value="STANDARD">Standard Review Cycle</option>
+              <option value="PRIORITY">Priority Staging</option>
+              <option value="EXPEDITED">Expedited Urgent Filing</option>
+            </select>
+          </div>
+          <div>
+            <label for="new-case-deadline" style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">
+              Target Filing Date (Optional)
+            </label>
+            <input type="date" id="new-case-deadline" class="lookup-input" style="width: 100%; font-size: 0.85rem; padding: 0.6rem 0.85rem;">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label for="new-case-notes" style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">
+            Filing Notes / Special Instructions
+          </label>
+          <textarea id="new-case-notes" rows="3" class="lookup-input" placeholder="Enter CIN/LLPIN, registered office state, director count, or relevant background..." style="width: 100%; font-size: 0.85rem; padding: 0.6rem 0.85rem; resize: vertical;"></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+          <button type="button" class="if-btn-secondary" onclick="closeNewCaseModal()" style="padding: 0.55rem 1.15rem; font-size: 0.85rem;">
+            Cancel
+          </button>
+          <button type="submit" id="btn-submit-case" class="if-btn-primary" style="padding: 0.55rem 1.35rem; font-size: 0.85rem;">
+            Submit Service Request
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div id="global-footer"></div>
   <script src="/assets/js/navigation.js"></script>
   <script src="/assets/js/forms.js"></script>
@@ -575,7 +672,7 @@
     // PORTAL DASHBOARD - AUTONOMOUS COMPLIANCE CALENDAR OS
     // Dynamic deadline mapping, live countdowns, webhook alert toggles, SaaS tiers
     // ==========================================================================
-    
+
     // Reference dates are planning aids, not confirmed extensions or registry data.
     const STATUTORY_DEADLINES = [
       { form: 'AOC-4', section: 'Companies Act, 2013 · Section 137', category: 'mca', inputId: 'agm-date', offsetDays: 30, description: 'Generally due within 30 days after the AGM. Confirm the applicable form and current rules.' },
@@ -691,7 +788,7 @@
       });
       window.setInterval(updateDeadlineCountdowns, 1000);
     }
-    
+
     // 5. Webhook Alert Preferences (Persisted in localStorage + API sync)
     const ALERT_TYPES = [
       { key: 'whatsapp', label: 'WhatsApp Compliance Bot', desc: 'Direct notification with draft resolution PDFs', icon: '💬' },
@@ -700,7 +797,7 @@
       { key: 'slack', label: 'Slack/Teams Channel', desc: 'Team compliance channel notifications', icon: '💼' },
       { key: 'webhook', label: 'Custom Webhook', desc: 'POST to your endpoint with deadline payload', icon: '🔗' }
     ];
-    
+
     function loadAlertPreferences() {
       try {
         const stored = localStorage.getItem('craftegon_alert_prefs');
@@ -709,17 +806,17 @@
         };
       } catch { return { whatsapp: true, email: true, sms: true, slack: false, webhook: false }; }
     }
-    
+
     function saveAlertPreferences(prefs) {
       localStorage.setItem('craftegon_alert_prefs', JSON.stringify(prefs));
       // In Phase 2, sync to backend: fetch('/api/v1/portal/alerts', {method: 'POST', body: JSON.stringify(prefs)})
     }
-    
+
     function renderAlertToggles() {
       const prefs = loadAlertPreferences();
       const container = document.getElementById('alerts-grid-dynamic');
       if (!container) return;
-      
+
       container.innerHTML = ALERT_TYPES.map(alert => `
         <div class="alert-item-dynamic">
           <div class="alert-info">
@@ -727,26 +824,26 @@
             <p>${alert.desc}</p>
           </div>
           <label class="switch" aria-label="Toggle ${alert.label}">
-            <input type="checkbox" id="toggle-${alert.key}" ${prefs[alert.key] ? 'checked' : ''} 
+            <input type="checkbox" id="toggle-${alert.key}" ${prefs[alert.key] ? 'checked' : ''}
                    onchange="updateAlertPreference('${alert.key}', this.checked)">
             <span class="slider"></span>
           </label>
         </div>
       `).join('');
     }
-    
+
     function updateAlertPreference(key, value) {
       const prefs = loadAlertPreferences();
       prefs[key] = value;
       saveAlertPreferences(prefs);
       showToast(`${ALERT_TYPES.find(a => a.key === key).label} ${value ? 'enabled' : 'disabled'}. Webhook integration in Phase 2.`);
     }
-    
+
     // 6. SaaS Tier Status & Upgrade Flow
     function getCurrentTier() {
       return localStorage.getItem('craftegon_client_tier') || 'Starter Tier';
     }
-    
+
     function renderTierStatus() {
       const tier = getCurrentTier();
       const tierData = {
@@ -755,10 +852,10 @@
         'Enterprise Tier': { price: 14999, color: '#6B21A8', features: ['All Growth', 'Dedicated CS', 'FLA/FEMA', 'MR-3 Audit'] }
       };
       const data = tierData[tier] || tierData['Starter Tier'];
-      
+
       const container = document.getElementById('tier-status-container');
       if (!container) return;
-      
+
       container.innerHTML = `
         <div style="background: linear-gradient(135deg, ${data.color}15, ${data.color}05); border: 1px solid ${data.color}33; border-radius: 12px; padding: 1.5rem;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
@@ -778,13 +875,13 @@
         </div>
       `;
     }
-    
+
     // 7. Initialize Dashboard Enhancements
     function initDashboardEnhancements() {
       renderAlertToggles();
       renderTierStatus();
       startLiveCountdowns();
-      
+
       // Attach alert toggle handlers
       ALERT_TYPES.forEach(alert => {
         const toggle = document.getElementById(`toggle-${alert.key}`);
@@ -793,7 +890,7 @@
         }
       });
     }
-    
+
     // Initialize on DOM ready
     document.addEventListener('DOMContentLoaded', () => {
       initDashboardEnhancements();
@@ -807,6 +904,13 @@
 
     // 0. Check Authenticated Session on Page Load
     async function checkAuthStatus() {
+      // In static showcase mode (Option A), suppress unnecessary network calls to offline backend
+      if (window.CRAFTEGON_CONFIG && window.CRAFTEGON_CONFIG.isStatic) {
+        currentUser = null;
+        renderAuthStatus(false);
+        renderCasesUnauthorized();
+        return;
+      }
       try {
         const res = await fetch('/api/v1/auth/me', { credentials: 'same-origin' });
         if (res.ok) {
@@ -956,22 +1060,259 @@
       container.innerHTML = `
         <div class="portal-state-container">
           <div style="font-size: 2.25rem; color: var(--brand-gold);">🔒</div>
-          <h4 class="portal-state-title">Authentication Required</h4>
-          <p class="portal-state-desc">You are viewing the public regulatory countdown demonstration. Sign in with your corporate account to view and track your company's actual statutory filings.</p>
-          <button type="button" class="if-btn-primary" onclick="openAuthModal('login')" style="display: inline-flex;">Sign In to Client Portal</button>
+          <h4 class="portal-state-title">Client Onboarding Required</h4>
+          <p class="portal-state-desc">You are viewing the public regulatory countdown demonstration. Client portal access is available only to formally onboarded clients through an activated account.</p>
+          <button type="button" class="if-btn-primary" onclick="openAuthModal()" style="display: inline-flex;">Client Onboarding Enquiry</button>
         </div>
       `;
     }
 
-    // Modal & Form Handlers
-    function openAuthModal(tab = 'login') {
-      document.getElementById('portal-auth-modal').classList.add('open');
-      document.getElementById('auth-error-box').style.display = 'none';
-      switchAuthTab(tab);
+    // Modal & Access Notice Handlers (Accessible)
+    let authModalTrigger = null;
+
+    function getAuthModalFocusableElements(modal) {
+      if (!modal) return [];
+      return Array.from(modal.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )).filter(el => el.getAttribute('aria-hidden') !== 'true' && el.type !== 'hidden');
+    }
+
+    
+    // ========================================================================
+    // NEW CASE SERVICE REQUEST MODAL HANDLERS
+    // ========================================================================
+    let newCaseModalTrigger = null;
+
+    function openNewCaseModal() {
+      const activeUser = window.currentUser || currentUser;
+      if (!activeUser) {
+        openAuthModal();
+        return;
+      }
+      newCaseModalTrigger = document.activeElement;
+      const modal = document.getElementById('portal-new-case-modal');
+      if (!modal) return;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      const fb = document.getElementById('new-case-feedback');
+      if (fb) fb.style.display = 'none';
+
+      const warn = document.getElementById('referral-warning-box');
+      if (warn) warn.style.display = 'none';
+
+      const btn = document.getElementById('btn-submit-case');
+      if (btn) btn.disabled = false;
+
+      const firstInput = document.getElementById('new-case-service');
+      if (firstInput) firstInput.focus();
+    }
+
+    function closeNewCaseModal() {
+      const modal = document.getElementById('portal-new-case-modal');
+      if (!modal) return;
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      if (newCaseModalTrigger && typeof newCaseModalTrigger.focus === 'function') {
+        newCaseModalTrigger.focus();
+      }
+      newCaseModalTrigger = null;
+    }
+
+    function handleServiceSelectionChange(serviceId) {
+      const warn = document.getElementById('referral-warning-box');
+      const btn = document.getElementById('btn-submit-case');
+      const titleInput = document.getElementById('new-case-title');
+      const isReferral = serviceId && (serviceId.includes('nclt') || serviceId.includes('director') || serviceId.includes('oppression'));
+
+      if (isReferral) {
+        if (warn) warn.style.display = 'block';
+        if (btn) btn.disabled = true;
+      } else {
+        if (warn) warn.style.display = 'none';
+        if (btn) btn.disabled = false;
+        if (titleInput && !titleInput.value.trim() && serviceId) {
+          const sel = document.getElementById('new-case-service');
+          const text = sel.options[sel.selectedIndex]?.text || '';
+          const cleanedText = text.replace(/^[A-Z0-9\-]+:\s*/, '');
+          if (cleanedText) titleInput.value = cleanedText;
+        }
+      }
+    }
+
+    async function handleNewCaseSubmit(e) {
+      e.preventDefault();
+      const serviceId = document.getElementById('new-case-service').value.trim();
+      const title = document.getElementById('new-case-title').value.trim();
+      const priority = document.getElementById('new-case-priority').value;
+      const deadline = document.getElementById('new-case-deadline').value;
+      const notes = document.getElementById('new-case-notes').value.trim();
+      const btn = document.getElementById('btn-submit-case');
+      const fb = document.getElementById('new-case-feedback');
+
+      if (!serviceId) {
+        if (fb) {
+          fb.style.display = 'block';
+          fb.style.background = 'rgba(239, 68, 68, 0.12)';
+          fb.style.color = '#991B1B';
+          fb.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+          fb.textContent = 'Please select a canonical compliance service.';
+        }
+        return;
+      }
+
+      if (!title) {
+        if (fb) {
+          fb.style.display = 'block';
+          fb.style.background = 'rgba(239, 68, 68, 0.12)';
+          fb.style.color = '#991B1B';
+          fb.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+          fb.textContent = 'Please enter a case title or description.';
+        }
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerText = 'Submitting Request...';
+
+      try {
+        const payload = {
+          service_id: serviceId,
+          title: title,
+          priority: priority || 'STANDARD'
+        };
+        if (deadline) payload.statutory_deadline = deadline;
+        if (notes) payload.notes = notes;
+
+        const res = await fetch('/api/v1/portal/cases', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          credentials: 'same-origin'
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.message || data.error || 'Failed to submit service request');
+        }
+
+        closeNewCaseModal();
+        document.getElementById('new-case-form').reset();
+        showToast(`Case ${data.case.case_reference} created successfully! Staged for compliance review.`);
+        await loadServerCases();
+      } catch (err) {
+        if (fb) {
+          fb.style.display = 'block';
+          fb.style.background = 'rgba(239, 68, 68, 0.12)';
+          fb.style.color = '#991B1B';
+          fb.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+          fb.textContent = err.message;
+        }
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Submit Service Request';
+      }
+    }
+
+    // Modal Escape Key Listener for New Case Modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const newCaseModal = document.getElementById('portal-new-case-modal');
+        if (newCaseModal && newCaseModal.classList.contains('open')) {
+          e.preventDefault();
+          closeNewCaseModal();
+        }
+      }
+    });
+
+    function openAuthModal() {
+      authModalTrigger = document.activeElement;
+      const modal = document.getElementById('portal-auth-modal');
+      if (!modal) return;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      // Accessibility: isolate background content
+      const mainEl = document.querySelector('main');
+      const navEl = document.querySelector('.portal-nav') || document.querySelector('header');
+      if (mainEl) mainEl.setAttribute('aria-hidden', 'true');
+      if (navEl) navEl.setAttribute('aria-hidden', 'true');
+
+      // Move focus into modal: focus the close button or first interactive element
+      const closeBtn = modal.querySelector('.modal-close');
+      if (closeBtn) {
+        closeBtn.focus();
+      } else {
+        const primaryBtn = modal.querySelector('.if-btn-primary');
+        if (primaryBtn) primaryBtn.focus();
+      }
     }
 
     function closeAuthModal() {
-      document.getElementById('portal-auth-modal').classList.remove('open');
+      const modal = document.getElementById('portal-auth-modal');
+      if (!modal) return;
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+
+      // Restore background content
+      const mainEl = document.querySelector('main');
+      const navEl = document.querySelector('.portal-nav') || document.querySelector('header');
+      if (mainEl) mainEl.removeAttribute('aria-hidden');
+      if (navEl) navEl.removeAttribute('aria-hidden');
+
+      // Return focus to exact triggering element
+      if (authModalTrigger && typeof authModalTrigger.focus === 'function') {
+        authModalTrigger.focus();
+      } else {
+        const fallback = document.getElementById('btn-open-login');
+        if (fallback) fallback.focus();
+      }
+      authModalTrigger = null;
+    }
+
+    // Accessible keyboard handling (Escape closes modal & Focus Trap)
+    document.addEventListener('keydown', (e) => {
+      const authModal = document.getElementById('portal-auth-modal');
+      if (!authModal || !authModal.classList.contains('open')) return;
+
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeAuthModal();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        const focusables = getAuthModalFocusableElements(authModal);
+        if (focusables.length === 0) {
+          e.preventDefault();
+          return;
+        }
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first || !authModal.contains(document.activeElement)) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last || !authModal.contains(document.activeElement)) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    });
+
+    // Backdrop click dismiss for portal auth modal
+    const authBackdropEl = document.getElementById('portal-auth-modal');
+    if (authBackdropEl) {
+      authBackdropEl.addEventListener('click', (e) => {
+        if (e.target === authBackdropEl) {
+          closeAuthModal();
+        }
+      });
     }
 
     function switchAuthTab(tab) {

@@ -10,8 +10,61 @@
   let currentAdmin = null;
   let allServices = [];
   let allVerticals = [];
+  let allCases = [];
+  let allStaff = [];
+  let allLeads = [];
+  let activeSection = 'cases';
   let activeEditingService = null;
   let activeTab = 'tab-general';
+
+  /**
+   * Authenticated Fetch Wrapper
+   * Injects Bearer token and credentials, handles 401 redirects to login
+   */
+  async function authFetch(url, options = {}) {
+    const token = localStorage.getItem('craftegon_admin_token');
+    const headers = Object.assign({}, options.headers || {});
+    if (token && !headers['Authorization']) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+    const fetchOptions = Object.assign({}, options, {
+      headers,
+      credentials: 'same-origin'
+    });
+
+    try {
+      const res = await fetch(url, fetchOptions);
+      if (res.status === 401) {
+        localStorage.removeItem('craftegon_admin_token');
+        window.location.href = '/admin/login.html';
+        return res;
+      }
+      return res;
+    } catch (err) {
+      console.warn('[Admin API Network Warning]', err.message);
+      throw err;
+    }
+  }
+
+  function updateRoleAwareUI() {
+    const admin = currentAdmin || (typeof window !== 'undefined' ? window.adminUser : null);
+    const isManagingPartner = ['managing_partner', 'admin'].includes(admin?.role);
+    const roleBadgeEl = document.getElementById('admin-role-badge');
+    if (roleBadgeEl) {
+      roleBadgeEl.textContent = isManagingPartner ? 'Managing Partner' : 'Compliance Operator';
+      roleBadgeEl.style.display = 'inline-block';
+      roleBadgeEl.style.background = isManagingPartner ? 'rgba(197, 155, 39, 0.2)' : 'rgba(59, 130, 246, 0.2)';
+      roleBadgeEl.style.color = isManagingPartner ? '#F59E0B' : '#60A5FA';
+      roleBadgeEl.style.border = isManagingPartner ? '1px solid rgba(197, 155, 39, 0.4)' : '1px solid rgba(59, 130, 246, 0.4)';
+    }
+
+    if (!isManagingPartner) {
+      if (btnPublish) btnPublish.style.display = 'none';
+      if (btnAddService) btnAddService.style.display = 'none';
+      if (btnViewBackups) btnViewBackups.style.display = 'none';
+    }
+  }
+
 
   // Elements
   const statsTotalServices = document.getElementById('stat-total-services');
@@ -40,6 +93,8 @@
   // Initialize
   document.addEventListener('DOMContentLoaded', async () => {
     await verifyAdminAuth();
+    await loadStaffOperators();
+    await loadAdminCases();
     await loadServices();
     setupEventListeners();
   });
@@ -77,23 +132,21 @@
    */
   async function verifyAdminAuth() {
     try {
-      const token = localStorage.getItem('craftegon_admin_token');
-      const headers = {};
-      if (token) headers['Authorization'] = `Bearer ${token}`;
-
-      const res = await fetch('/api/v1/admin/me', { headers });
+      const res = await authFetch('/api/v1/admin/me');
       if (!res.ok) {
         throw new Error('Not authenticated');
       }
 
       const data = await res.json();
-      if (!data.authenticated || !['managing_partner', 'admin'].includes(data.user.role)) {
+      if (!data.authenticated || !['managing_partner', 'admin', 'compliance_operator'].includes(data.user.role)) {
         throw new Error('Unauthorized role');
       }
 
       currentAdmin = data.user;
       const userEmailEl = document.getElementById('admin-user-email');
       if (userEmailEl) userEmailEl.textContent = currentAdmin.email;
+
+      updateRoleAwareUI();
     } catch (err) {
       window.location.href = '/admin/login.html';
     }
@@ -104,11 +157,7 @@
    */
   async function loadServices() {
     try {
-      const token = localStorage.getItem('craftegon_admin_token');
-      const headers = {};
-      if (token) headers['Authorization'] = `Bearer ${token}`;
-
-      const res = await fetch('/api/v1/admin/services', { headers });
+      const res = await authFetch('/api/v1/admin/services');
       if (!res.ok) throw new Error('Failed to fetch services');
 
       const data = await res.json();
@@ -549,6 +598,276 @@
   }
 
   /**
+   * 7b. Corporate Cases & Filings Management
+   */
+  async function loadStaffOperators() {
+    try {
+      const res = await authFetch('/api/v1/admin/staff');
+      if (res.ok) {
+        const data = await res.json();
+        allStaff = data.staff || [];
+        populateOperatorDropdown();
+      }
+    } catch (e) {
+      console.warn('Could not load staff operators:', e.message);
+    }
+  }
+
+  function populateOperatorDropdown() {
+    const sel = document.getElementById('manage-case-operator');
+    if (!sel) return;
+    sel.innerHTML = '<option value="">-- Unassigned --</option>';
+    allStaff.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s.id;
+      opt.textContent = `${s.legal_entity_name || s.primary_email} (${s.account_role})`;
+      sel.appendChild(opt);
+    });
+  }
+
+  async function loadAdminCases() {
+    const tbody = document.getElementById('cases-table-body');
+    if (tbody) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--admin-text-muted);">Retrieving corporate cases...</td></tr>';
+    }
+
+    try {
+      const res = await authFetch('/api/v1/portal/cases');
+      if (!res.ok) throw new Error('Failed to retrieve cases');
+      const data = await res.json();
+      allCases = data.cases || [];
+      updateCaseStats(allCases);
+      renderCasesTable(allCases);
+    } catch (err) {
+      if (tbody) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 2rem; color: #F87171;">Error loading cases: ${escapeHtml(err.message)}</td></tr>`;
+      }
+    }
+  }
+
+  function updateCaseStats(cases) {
+    const totalEl = document.getElementById('stat-cases-total');
+    const progEl = document.getElementById('stat-cases-progress');
+    const awaitEl = document.getElementById('stat-cases-awaiting');
+    const compEl = document.getElementById('stat-cases-completed');
+
+    if (totalEl) totalEl.textContent = cases.length;
+    if (progEl) progEl.textContent = cases.filter(c => c.status === 'IN_PROGRESS').length;
+    if (awaitEl) awaitEl.textContent = cases.filter(c => c.status === 'AWAITING_CUSTOMER_ACTION').length;
+    if (compEl) compEl.textContent = cases.filter(c => ['STATUTORY_FILING_STAGED', 'COMPLETED', 'CLOSED'].includes(c.status)).length;
+  }
+
+  function renderCasesTable(cases) {
+    const tbody = document.getElementById('cases-table-body');
+    if (!tbody) return;
+
+    if (cases.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 3rem; color: var(--admin-text-muted);">Zero active corporate filings or cases registered.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = '';
+    cases.forEach(c => {
+      const tr = document.createElement('tr');
+      let badgeColor = '#60A5FA';
+      if (c.status === 'AWAITING_CUSTOMER_ACTION') badgeColor = '#F59E0B';
+      if (c.status === 'STATUTORY_FILING_STAGED') badgeColor = '#A78BFA';
+      if (c.status === 'COMPLETED' || c.status === 'CLOSED') badgeColor = '#34D399';
+
+      const op = allStaff.find(s => s.id === c.assigned_officer_id);
+      const opName = op ? (op.legal_entity_name || op.primary_email) : (c.assigned_officer_id ? 'Assigned' : 'Unassigned');
+
+      const dateStr = c.created_at ? new Date(c.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '--';
+
+      tr.innerHTML = `
+        <td><strong style="font-family: var(--font-mono, monospace); color: var(--admin-gold, #C59B27);">${escapeHtml(c.case_reference)}</strong></td>
+        <td>
+          <div style="font-weight: 600; color: #FFF;">${escapeHtml(c.title)}</div>
+          <div style="font-size: 0.75rem; color: var(--admin-text-muted);">Service: ${escapeHtml(c.service_id)}</div>
+        </td>
+        <td><span class="badge" style="background: rgba(255,255,255,0.06);">${escapeHtml(c.vertical_id)}</span></td>
+        <td><span class="badge" style="background: ${badgeColor}22; color: ${badgeColor}; border: 1px solid ${badgeColor}44;">${escapeHtml((c.status || '').replace(/_/g, ' '))}</span></td>
+        <td style="font-size: 0.85rem; color: ${c.assigned_officer_id ? '#34D399' : 'var(--admin-text-muted)'};">${escapeHtml(opName)}</td>
+        <td style="font-size: 0.82rem; color: var(--admin-text-muted);">${dateStr}</td>
+        <td style="text-align: right;">
+          <button type="button" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="window.openCaseManageModal('${escapeHtml(c.case_reference)}')">
+            Manage
+          </button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function filterAdminCases() {
+    const searchVal = (document.getElementById('search-cases')?.value || '').toLowerCase().trim();
+    const statusVal = document.getElementById('filter-case-status')?.value || '';
+
+    const filtered = allCases.filter(c => {
+      const matchSearch = !searchVal ||
+        (c.case_reference && c.case_reference.toLowerCase().includes(searchVal)) ||
+        (c.title && c.title.toLowerCase().includes(searchVal)) ||
+        (c.service_id && c.service_id.toLowerCase().includes(searchVal));
+
+      const matchStatus = !statusVal || c.status === statusVal;
+      return matchSearch && matchStatus;
+    });
+
+    renderCasesTable(filtered);
+  }
+
+  window.switchAdminSection = function (section) {
+    activeSection = section;
+    const secCases = document.getElementById('section-cases');
+    const secServices = document.getElementById('section-services');
+    const secLeads = document.getElementById('section-leads');
+
+    const tabCases = document.getElementById('tab-nav-cases');
+    const tabServices = document.getElementById('tab-nav-services');
+    const tabLeads = document.getElementById('tab-nav-leads');
+
+    [secCases, secServices, secLeads].forEach(s => { if (s) s.style.display = 'none'; });
+    [tabCases, tabServices, tabLeads].forEach(t => {
+      if (t) {
+        t.classList.remove('admin-btn-primary');
+        t.classList.add('admin-btn-secondary');
+      }
+    });
+
+    if (section === 'cases') {
+      if (secCases) secCases.style.display = 'block';
+      if (tabCases) { tabCases.classList.remove('admin-btn-secondary'); tabCases.classList.add('admin-btn-primary'); }
+      loadAdminCases();
+    } else if (section === 'services') {
+      if (secServices) secServices.style.display = 'block';
+      if (tabServices) { tabServices.classList.remove('admin-btn-secondary'); tabServices.classList.add('admin-btn-primary'); }
+    } else if (section === 'leads') {
+      if (secLeads) secLeads.style.display = 'block';
+      if (tabLeads) { tabLeads.classList.remove('admin-btn-secondary'); tabLeads.classList.add('admin-btn-primary'); }
+      loadAdminLeads();
+    }
+  };
+
+  window.loadAdminCases = loadAdminCases;
+  window.filterAdminCases = filterAdminCases;
+
+  window.openCaseManageModal = function (caseRef) {
+    const caseItem = allCases.find(c => c.case_reference === caseRef);
+    if (!caseItem) return;
+
+    document.getElementById('manage-case-ref').value = caseItem.case_reference;
+    document.getElementById('manage-case-title-display').value = `${caseItem.service_id} - ${caseItem.title}`;
+    document.getElementById('manage-case-status').value = caseItem.status;
+
+    populateOperatorDropdown();
+    if (caseItem.assigned_officer_id) {
+      document.getElementById('manage-case-operator').value = caseItem.assigned_officer_id;
+    } else {
+      document.getElementById('manage-case-operator').value = '';
+    }
+
+    const fb = document.getElementById('case-manage-feedback');
+    if (fb) fb.style.display = 'none';
+
+    const modal = document.getElementById('modal-case-manage');
+    if (modal) modal.classList.add('active');
+  };
+
+  window.closeCaseModal = function () {
+    const modal = document.getElementById('modal-case-manage');
+    if (modal) modal.classList.remove('active');
+  };
+
+  window.handleCaseUpdateSubmit = async function (e) {
+    e.preventDefault();
+    const caseRef = document.getElementById('manage-case-ref').value;
+    const newStatus = document.getElementById('manage-case-status').value;
+    const operatorId = document.getElementById('manage-case-operator').value;
+    const btn = document.getElementById('btn-save-case');
+    const fb = document.getElementById('case-manage-feedback');
+
+    btn.disabled = true;
+    btn.innerText = 'Saving Changes...';
+
+    const payload = {};
+    if (newStatus) payload.status = newStatus;
+    if (operatorId) payload.assigned_officer_id = operatorId;
+
+    try {
+      const res = await authFetch(`/api/v1/portal/cases/${caseRef}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || data.error || 'Failed to update case');
+      }
+
+      showToast(`Case ${caseRef} updated successfully!`);
+      window.closeCaseModal();
+      await loadAdminCases();
+    } catch (err) {
+      if (fb) {
+        fb.style.display = 'block';
+        fb.style.background = 'rgba(239, 68, 68, 0.15)';
+        fb.style.color = '#F87171';
+        fb.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+        fb.textContent = err.message;
+      }
+    } finally {
+      btn.disabled = false;
+      btn.innerText = 'Save Changes';
+    }
+  };
+
+  window.loadAdminLeads = async function () {
+    const tbody = document.getElementById('leads-table-body');
+    if (tbody) {
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 2rem; color: var(--admin-text-muted);">Retrieving lead records...</td></tr>';
+    }
+
+    try {
+      const res = await authFetch('/api/v1/enquiries');
+      if (!res.ok) throw new Error('Failed to retrieve lead enquiries');
+      const data = await res.json();
+      allLeads = data.enquiries || [];
+      renderLeadsTable(allLeads);
+    } catch (err) {
+      if (tbody) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 2rem; color: #F87171;">Error loading leads: ${escapeHtml(err.message)}</td></tr>`;
+      }
+    }
+  };
+
+  function renderLeadsTable(leads) {
+    const tbody = document.getElementById('leads-table-body');
+    if (!tbody) return;
+
+    if (leads.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 3rem; color: var(--admin-text-muted);">Zero incoming enquiries registered.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = '';
+    leads.forEach(l => {
+      const tr = document.createElement('tr');
+      const dateStr = l.created_at ? new Date(l.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '--';
+
+      tr.innerHTML = `
+        <td><strong style="font-family: var(--font-mono, monospace); color: var(--admin-gold, #C59B27);">${escapeHtml(l.lead_reference)}</strong></td>
+        <td style="color: #FFF; font-weight: 500;">${escapeHtml(l.contact_name || '--')}</td>
+        <td><span class="badge" style="background: rgba(255,255,255,0.06);">${escapeHtml(l.service_id || 'GENERAL')}</span></td>
+        <td><span class="badge" style="background: rgba(255,255,255,0.06);">${escapeHtml(l.vertical_id || 'V01')}</span></td>
+        <td><span class="badge" style="background: #3B82F622; color: #60A5FA; border: 1px solid #3B82F644;">${escapeHtml(l.status)}</span></td>
+        <td style="font-size: 0.82rem; color: var(--admin-text-muted);">${dateStr}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  /**
    * 8. Event Listeners
    */
   function setupEventListeners() {
@@ -563,13 +882,16 @@
     btnPublish.addEventListener('click', handlePublishCatalog);
     btnViewBackups.addEventListener('click', openBackupsModal);
 
-    // Logout
+    // Logout - DEF-009: Revoke Bearer session on server via authFetch before clearing local state
     btnLogout.addEventListener('click', async () => {
       try {
-        await fetch('/api/v1/auth/logout', { method: 'POST' });
-      } catch (e) {}
-      localStorage.removeItem('craftegon_admin_token');
-      window.location.href = '/admin/login.html';
+        await authFetch('/api/v1/auth/logout', { method: 'POST' });
+      } catch (e) {
+        console.warn('[Logout Warning]', e.message);
+      } finally {
+        localStorage.removeItem('craftegon_admin_token');
+        window.location.href = '/admin/login.html';
+      }
     });
 
     // Form Submissions
@@ -596,6 +918,20 @@
         if (e.target === modal) modal.classList.remove('active');
       });
     });
+  }
+
+  // Expose admin console interface on window for testability and runtime verification
+  if (typeof window !== 'undefined') {
+    window.authFetch = authFetch;
+    window.updateRoleAwareUI = updateRoleAwareUI;
+    window.loadAdminCases = loadAdminCases;
+    window.loadCases = loadAdminCases;
+    window.loadStaffOperators = loadStaffOperators;
+    window.loadAllStaff = loadStaffOperators;
+    window.getAllStaff = () => allStaff;
+    window.getAllCases = () => allCases;
+    window.getCurrentAdmin = () => currentAdmin;
+    window.setCurrentAdmin = (admin) => { currentAdmin = admin; };
   }
 
 })();

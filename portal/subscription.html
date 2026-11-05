@@ -105,7 +105,7 @@
       <div class="tier-card" id="tier-starter">
         <h3 class="tier-name">Starter Tier</h3>
         <p class="tier-desc">Designed for Limited Liability Partnerships (LLPs), micro-enterprises, and early ideation founders.</p>
-        
+
         <div class="tier-price-wrap">
           <span class="tier-price" id="price-starter">₹14,990</span>
           <span class="tier-cycle" id="cycle-starter">/ year + GST</span>
@@ -121,7 +121,7 @@
         </ul>
 
         <button type="button" class="if-btn-secondary" style="width:100%; justify-content:center; padding:0.85rem;" onclick="openCheckoutModal('Starter Tier', 14990, 1499)">
-          Select Starter Tier
+          Enquire on Starter Tier
         </button>
       </div>
 
@@ -130,7 +130,7 @@
         <div class="if-badge-featured">Most Popular &bull; Startups</div>
         <h3 class="tier-name">Growth Tier</h3>
         <p class="tier-desc">Comprehensive statutory secretarial OS for scaling Private Limited Companies and funded startups.</p>
-        
+
         <div class="tier-price-wrap">
           <span class="tier-price" id="price-growth">₹49,990</span>
           <span class="tier-cycle" id="cycle-growth">/ year + GST</span>
@@ -147,7 +147,7 @@
         </ul>
 
         <button type="button" class="if-btn-primary" style="width:100%; justify-content:center; padding:0.85rem;" onclick="openCheckoutModal('Growth Tier', 49990, 4999)">
-          Select Growth Tier
+          Enquire on Growth Tier
         </button>
       </div>
 
@@ -155,7 +155,7 @@
       <div class="tier-card" id="tier-enterprise">
         <h3 class="tier-name">Enterprise Tier</h3>
         <p class="tier-desc">White-glove governance for VC-backed entities, unlisted public companies, and cross-border businesses.</p>
-        
+
         <div class="tier-price-wrap">
           <span class="tier-price" id="price-enterprise">₹1,49,990</span>
           <span class="tier-cycle" id="cycle-enterprise">/ year + GST</span>
@@ -172,7 +172,7 @@
         </ul>
 
         <button type="button" class="if-btn-secondary" style="width:100%; justify-content:center; padding:0.85rem;" onclick="openCheckoutModal('Enterprise Tier', 149990, 14999)">
-          Select Enterprise Tier
+          Enquire on Enterprise Tier
         </button>
       </div>
 
@@ -248,79 +248,87 @@
     </div>
   </main>
 
-  <!-- Interactive Simulated Checkout Modal -->
-  <div id="checkout-modal-backdrop" class="modal-backdrop">
+  <!-- Retainer Scope & WhatsApp Enquiry Modal -->
+  <div id="checkout-modal-backdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-tier-title" aria-describedby="modal-notice-text">
     <div class="checkout-modal">
-      <button class="modal-close" onclick="closeCheckoutModal()" aria-label="Close Checkout">&times;</button>
-      
+      <button class="modal-close" onclick="closeCheckoutModal()" aria-label="Close Enquiry Modal">&times;</button>
+
       <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;">
-        <span class="noble-badge"><span class="noble-badge-dot"></span> Prototype Sandbox</span>
-        <span style="font-size: 0.8rem; color: var(--gold-light); font-weight: 600;">Interactive Retainer Staging</span>
+        <span class="noble-badge"><span class="noble-badge-dot"></span> Institutional Retainer</span>
+        <span style="font-size: 0.8rem; color: var(--gold-light); font-weight: 600;">Scope Confirmation</span>
       </div>
 
       <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-dark); margin: 0 0 0.5rem 0;" id="modal-tier-title">
-        Stage Retainer Tier
+        Enquire on Retainer Scope
       </h3>
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
-        Prototype simulation: Configure and stage your retainer tier in local session storage. Live payment gateway integration (Razorpay / Cashfree) is scheduled for Phase 2.
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0 0 1rem 0;">
+        Submit your entity details to receive a customized retainer scope proposal and onboarding advisory from our secretarial team.
       </p>
 
       <!-- Order Summary Box -->
       <div class="order-summary-box">
         <div class="summary-row">
-          <span>Subscription Plan:</span>
-          <strong id="summary-plan-name" style="color: var(--text-dark);">Growth Tier (Annual)</strong>
+          <span>Selected Tier:</span>
+          <strong id="summary-plan-name" style="color: var(--text-dark);">Growth Tier</strong>
         </div>
         <div class="summary-row">
-          <span>Billing Period:</span>
-          <span id="summary-billing-cycle">12 Months (2 Months Free Applied)</span>
+          <span>Billing Cycle:</span>
+          <span id="summary-billing-cycle">Annual (12 Months, 2 Months Free)</span>
         </div>
         <div class="summary-row">
-          <span>Base Retainer Amount:</span>
-          <span id="summary-base-price">₹49,990</span>
-        </div>
-        <div class="summary-row">
-          <span>GST (18% Statutory):</span>
-          <span id="summary-gst-amount">₹8,998</span>
+          <span>Indicative Base Retainer:</span>
+          <span id="summary-base-price">₹49,990 / year</span>
         </div>
         <div class="summary-row total">
-          <span>Total Payable:</span>
+          <span>Benchmark Fee (+ 18% GST):</span>
           <span id="summary-total-price">₹58,988</span>
         </div>
       </div>
 
-      <!-- Checkout Form -->
-      <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)">
-        <input type="text" class="checkout-input" id="co-company" placeholder="Company Legal Name (e.g. CraftEgon Tech Pvt Ltd)" required>
-        <div style="display: flex; gap: 0.75rem;">
-          <input type="text" class="checkout-input" id="co-cin" placeholder="CIN / LLPIN (Optional)" style="flex:1;">
-          <input type="text" class="checkout-input" id="co-phone" placeholder="WhatsApp Number" style="flex:1;" required>
-        </div>
-        <input type="email" class="checkout-input" id="co-email" placeholder="Billing Email Address" required>
+      <!-- Statutory & Commercial Notice -->
+      <div style="background: rgba(197, 155, 39, 0.08); border-left: 3px solid var(--brand-gold); padding: 0.75rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+        <p id="modal-notice-text" style="font-size: 0.76rem; color: var(--text-main); line-height: 1.5; margin: 0;">
+          <strong>Commercial Notice:</strong> Published retainer fees and service scope are indicative benchmarks. Final commercial terms, statutory filing scope, and entity eligibility require formal review and confirmation by CraftEgon CCS before engagement. Statutory government filing fees and stamp duties are payable at actuals.
+        </p>
+      </div>
 
-        <!-- Payment Method Tabs -->
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Select Payment Method (Simulation Mode):</div>
-        <div class="payment-tabs">
-          <div class="payment-tab active" onclick="setPayMethod('upi', this)">UPI / QR Instant</div>
-          <div class="payment-tab" onclick="setPayMethod('card', this)">Credit / Debit Card</div>
-          <div class="payment-tab" onclick="setPayMethod('net', this)">NetBanking / NEFT</div>
+      <!-- Enquiry Details Form -->
+      <form id="checkout-form" onsubmit="handleEnquiryDispatch(event)">
+        <div style="margin-bottom: 0.75rem;">
+          <label for="co-company" style="display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem;">Entity Legal Name (Optional for Email)</label>
+          <input type="text" class="checkout-input" id="co-company" placeholder="e.g. CraftEgon Technologies Pvt Ltd" style="margin-bottom: 0;">
         </div>
 
-        <button type="submit" id="activate-btn" class="if-btn-primary" style="width: 100%; justify-content: center; padding: 0.9rem; font-size: 0.95rem; margin-top: 0.75rem;">
-          <span id="activate-btn-text">Stage Retainer &amp; Launch Sandbox &rarr;</span>
+        <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem;">
+          <div style="flex: 1;">
+            <label for="co-name" style="display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem;">Contact Name (Optional)</label>
+            <input type="text" class="checkout-input" id="co-name" placeholder="Director / Founder Name" style="margin-bottom: 0;">
+          </div>
+          <div style="flex: 1;">
+            <label for="co-phone" style="display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem;">WhatsApp / Mobile (Optional)</label>
+            <input type="tel" class="checkout-input" id="co-phone" placeholder="+91 98765 43210" style="margin-bottom: 0;">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 0.85rem;">
+          <label for="co-email" style="display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem;">Official Email (Optional)</label>
+          <input type="email" class="checkout-input" id="co-email" placeholder="director@company.com" style="margin-bottom: 0;">
+        </div>
+
+        <!-- External Application & Privacy Notice -->
+        <div style="background: var(--surface-light); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.65rem 0.85rem; margin-bottom: 1rem; font-size: 0.74rem; color: var(--text-muted); line-height: 1.45; text-align: left;">
+          <strong>External Application Notice:</strong> Selecting WhatsApp or Email opens an external application on your device. No information entered here is stored on or submitted directly to CraftEgon's website or backend servers. You control what information you send once the application opens.
+        </div>
+
+        <button type="submit" id="whatsapp-dispatch-btn" class="if-btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 0.92rem; margin-bottom: 0.6rem;">
+          Connect on WhatsApp to Confirm Scope &rarr;
+        </button>
+
+        <button type="button" id="email-dispatch-btn" onclick="handleEmailDispatch()" class="if-btn-secondary" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 0.85rem;">
+          Send Email Enquiry &rarr;
         </button>
       </form>
-
-      <div style="text-align: center; margin-top: 0.75rem; font-size: 0.72rem; color: var(--text-muted);">
-        Sandbox demonstration: No card or bank account will be charged. Payment gateway integration is staged for Phase 2.
-      </div>
     </div>
-  </div>
-
-  <!-- Interactive Feedback Toast -->
-  <div id="portal-toast" class="portal-toast">
-    <span style="color: #10B981;">✓</span>
-    <span id="toast-message">Subscription activated! Redirecting to Compliance OS...</span>
   </div>
 
   <div id="global-footer"></div>
@@ -330,105 +338,269 @@
   <script src="/assets/js/calculator.js"></script>
   <script>
     // ==========================================================================
-    // SUBSCRIPTION PAGE - TIERED SAAS CHECKOUT + WEBHOOK INTEGRATION
+    // SUBSCRIPTION PAGE - RETAINER SCOPE & DIRECT ENQUIRY CONTROLLER
     // ==========================================================================
-    
-    // Webhook endpoints for alert notifications (Phase 2: production URLs)
-    const WEBHOOK_ENDPOINTS = {
-      slack: '/api/v1/webhooks/slack',
-      teams: '/api/v1/webhooks/teams',
-      custom: '/api/v1/webhooks/custom'
+
+    const TIER_PRICING = {
+      'Starter Tier': {
+        name: 'Starter Tier',
+        annual: { base: 14990, label: '₹14,990 / year', cycleText: 'Annual (12 Months)' },
+        monthly: { base: 1499, label: '₹1,499 / month', cycleText: 'Monthly' }
+      },
+      'Growth Tier': {
+        name: 'Growth Tier',
+        annual: { base: 49990, label: '₹49,990 / year', cycleText: 'Annual (12 Months, 2 Months Free)' },
+        monthly: { base: 4999, label: '₹4,999 / month', cycleText: 'Monthly' }
+      },
+      'Enterprise Tier': {
+        name: 'Enterprise Tier',
+        annual: { base: 149990, label: '₹1,49,990 / year', cycleText: 'Annual (12 Months)' },
+        monthly: { base: 14999, label: '₹14,999 / month', cycleText: 'Monthly' }
+      }
     };
-    
-    // Test webhook endpoint
-    async function testWebhook(endpoint) {
-      try {
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            test: true, 
-            message: 'Craftegon CCS webhook test - Compliance alert integration active',
-            timestamp: new Date().toISOString()
-          })
-        });
-        return response.ok;
-      } catch (e) {
-        return false;
+
+    let currentCycle = 'annual';
+    let selectedTierName = 'Growth Tier';
+
+    function setBillingCycle(cycle) {
+      currentCycle = (cycle === 'monthly') ? 'monthly' : 'annual';
+
+      const switchEl = document.getElementById('billing-switch');
+      const lblMonthly = document.getElementById('lbl-monthly');
+      const lblAnnual = document.getElementById('lbl-annual');
+
+      if (switchEl) {
+        switchEl.checked = (currentCycle === 'annual');
+      }
+
+      if (lblMonthly && lblAnnual) {
+        if (currentCycle === 'annual') {
+          lblAnnual.classList.add('active');
+          lblMonthly.classList.remove('active');
+        } else {
+          lblMonthly.classList.add('active');
+          lblAnnual.classList.remove('active');
+        }
+      }
+
+      // Update card pricing elements
+      const starterPrice = document.getElementById('price-starter');
+      const starterCycle = document.getElementById('cycle-starter');
+      const growthPrice = document.getElementById('price-growth');
+      const growthCycle = document.getElementById('cycle-growth');
+      const enterprisePrice = document.getElementById('price-enterprise');
+      const enterpriseCycle = document.getElementById('cycle-enterprise');
+
+      if (currentCycle === 'annual') {
+        if (starterPrice) starterPrice.textContent = '₹14,990';
+        if (starterCycle) starterCycle.textContent = '/ year + GST';
+        if (growthPrice) growthPrice.textContent = '₹49,990';
+        if (growthCycle) growthCycle.textContent = '/ year + GST';
+        if (enterprisePrice) enterprisePrice.textContent = '₹1,49,990';
+        if (enterpriseCycle) enterpriseCycle.textContent = '/ year + GST';
+      } else {
+        if (starterPrice) starterPrice.textContent = '₹1,499';
+        if (starterCycle) starterCycle.textContent = '/ month + GST';
+        if (growthPrice) growthPrice.textContent = '₹4,999';
+        if (growthCycle) growthCycle.textContent = '/ month + GST';
+        if (enterprisePrice) enterprisePrice.textContent = '₹14,999';
+        if (enterpriseCycle) enterpriseCycle.textContent = '/ month + GST';
+      }
+
+      // Refresh modal details if modal is open
+      const modal = document.getElementById('checkout-modal-backdrop');
+      if (modal && modal.classList.contains('open')) {
+        updateModalSummary();
       }
     }
-    
-    // Enhanced checkout with webhook subscription
-    async function handleCheckoutSubmit(e) {
-      e.preventDefault();
-      const company = document.getElementById('co-company').value.trim();
-      const cin = document.getElementById('co-cin').value.trim();
-      const phone = document.getElementById('co-phone').value.trim();
-      const email = document.getElementById('co-email').value.trim();
-      
-      const activeTabs = document.querySelectorAll('.payment-tab.active');
-      const paymentMethod = activeTabs[0]?.textContent?.toLowerCase() || 'upi';
-      
-      // Get alert preferences to include in subscription
-      let alertPrefs = { whatsapp: true, email: true, sms: true, slack: false, webhook: false };
-      try {
-        alertPrefs = JSON.parse(localStorage.getItem('craftegon_alert_prefs') || '{}');
-      } catch {}
-      
-      const btnText = document.getElementById('activate-btn-text');
-      const btn = document.getElementById('activate-btn');
-      
-      btnText.innerText = 'Staging Retainer Parameters...';
-      btn.style.opacity = '0.7';
-      
-      setTimeout(() => {
-        btnText.innerText = 'Registering Webhook Alert Channels...';
-        
-        // Simulate webhook registration
-        if (alertPrefs.slack) testWebhook(WEBHOOK_ENDPOINTS.slack);
-        if (alertPrefs.webhook) testWebhook(WEBHOOK_ENDPOINTS.custom);
-        
-        setTimeout(() => {
-          btnText.innerText = 'Retainer Staged! Launching Dashboard...';
-          btn.style.opacity = '1';
-          
-          // Save active state to localStorage
-          localStorage.setItem('craftegon_client_tier', selectedTierName);
-          localStorage.setItem('craftegon_client_company', company);
-          localStorage.setItem('craftegon_client_cin', cin);
-          localStorage.setItem('craftegon_client_email', email);
-          localStorage.setItem('craftegon_client_phone', phone);
-          localStorage.setItem('craftegon_payment_method', paymentMethod);
-          localStorage.setItem('craftegon_alert_prefs', JSON.stringify(alertPrefs));
-          localStorage.setItem('craftegon_subscription_active', 'true');
-          localStorage.setItem('craftegon_subscription_start', new Date().toISOString());
-          
+
+    function toggleBillingSwitch(checkbox) {
+      setBillingCycle(checkbox && checkbox.checked ? 'annual' : 'monthly');
+    }
+
+    function updateModalSummary() {
+      const tierData = TIER_PRICING[selectedTierName] || TIER_PRICING['Growth Tier'];
+      const cycleData = tierData[currentCycle] || tierData.annual;
+      const basePrice = cycleData.base;
+      const gst = Math.round(basePrice * 0.18);
+      const total = basePrice + gst;
+
+      const titleEl = document.getElementById('modal-tier-title');
+      const planNameEl = document.getElementById('summary-plan-name');
+      const cycleEl = document.getElementById('summary-billing-cycle');
+      const baseEl = document.getElementById('summary-base-price');
+      const totalEl = document.getElementById('summary-total-price');
+
+      if (titleEl) titleEl.textContent = 'Enquire on ' + selectedTierName;
+      if (planNameEl) planNameEl.textContent = selectedTierName;
+      if (cycleEl) cycleEl.textContent = cycleData.cycleText;
+      if (baseEl) baseEl.textContent = cycleData.label;
+      if (totalEl) totalEl.textContent = '₹' + total.toLocaleString('en-IN') + ' (incl. 18% GST)';
+    }
+
+    let checkoutModalTrigger = null;
+
+    function getModalFocusableElements(modal) {
+      if (!modal) return [];
+      return Array.from(modal.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )).filter(el => el.getAttribute('aria-hidden') !== 'true' && el.type !== 'hidden');
+    }
+
+    function openCheckoutModal(tierName, annualPrice, monthlyPrice) {
+      checkoutModalTrigger = document.activeElement;
+      if (tierName && TIER_PRICING[tierName]) {
+        selectedTierName = tierName;
+      }
+      updateModalSummary();
+
+      const modal = document.getElementById('checkout-modal-backdrop');
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+
+        // Accessibility: isolate background content
+        const mainEl = document.querySelector('main');
+        const headerEl = document.querySelector('header') || document.getElementById('global-nav');
+        if (mainEl) mainEl.setAttribute('aria-hidden', 'true');
+        if (headerEl) headerEl.setAttribute('aria-hidden', 'true');
+
+        // Move focus into modal: focus the close button or first interactive element
+        const closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) {
+          closeBtn.focus();
+        } else {
+          const focusables = getModalFocusableElements(modal);
+          if (focusables.length > 0) focusables[0].focus();
+        }
+      }
+    }
+
+    function closeCheckoutModal() {
+      const modal = document.getElementById('checkout-modal-backdrop');
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+
+        // Restore background content
+        const mainEl = document.querySelector('main');
+        const headerEl = document.querySelector('header') || document.getElementById('global-nav');
+        if (mainEl) mainEl.removeAttribute('aria-hidden');
+        if (headerEl) headerEl.removeAttribute('aria-hidden');
+
+        // Return focus to exact triggering element
+        if (checkoutModalTrigger && typeof checkoutModalTrigger.focus === 'function') {
+          checkoutModalTrigger.focus();
+        }
+        checkoutModalTrigger = null;
+      }
+    }
+
+    function handleEnquiryDispatch(e) {
+      if (e) e.preventDefault();
+      const tierData = TIER_PRICING[selectedTierName] || TIER_PRICING['Growth Tier'];
+      const cycleData = tierData[currentCycle] || tierData.annual;
+
+      // Privacy minimization: WhatsApp URL contains ONLY tier, cycle & scope confirmation request
+      // Zero visitor-entered personal information is passed through the URL.
+      const lines = [
+        'Hello CraftEgon CCS,',
+        '',
+        'I would like to enquire about the corporate retainer subscription:',
+        `- Retainer Tier: ${selectedTierName}`,
+        `- Billing Frequency: ${cycleData.cycleText} (${cycleData.label} + GST)`,
+        '',
+        'Please share the detailed scope confirmation, entity eligibility criteria, and client onboarding requirements.'
+      ];
+
+      const text = lines.join('\n');
+      const waUrl = 'https://wa.me/918606918247?text=' + encodeURIComponent(text);
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    function handleEmailDispatch() {
+      const company = document.getElementById('co-company')?.value.trim() || '';
+      const name = document.getElementById('co-name')?.value.trim() || '';
+      const phone = document.getElementById('co-phone')?.value.trim() || '';
+      const email = document.getElementById('co-email')?.value.trim() || '';
+
+      const tierData = TIER_PRICING[selectedTierName] || TIER_PRICING['Growth Tier'];
+      const cycleData = tierData[currentCycle] || tierData.annual;
+
+      const subject = `Enquiry: ${selectedTierName} Retainer Subscription - CraftEgon CCS`;
+      const lines = [
+        'Dear CraftEgon CCS Team,',
+        '',
+        'I am interested in learning more about your corporate compliance retainer subscription:',
+        `- Retainer Tier: ${selectedTierName}`,
+        `- Billing Cycle: ${cycleData.cycleText}`,
+        `- Benchmark Fee: ${cycleData.label} + GST`,
+        '',
+        `- Entity Name: ${company || '[Please specify]'}`,
+        `- Contact Person: ${name || '[Please specify]'}`,
+        `- Phone / WhatsApp: ${phone || '[Please specify]'}`,
+        `- Email: ${email || '[Please specify]'}`,
+        '',
+        'Please provide formal scope confirmation, statutory exclusions, and client onboarding documentation.',
+        '',
+        'Regards,',
+        name || 'Prospective Client'
+      ];
+
+      const body = lines.join('\n');
+      const mailtoUrl = 'mailto:admin@craftegon.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      try { window.location.href = mailtoUrl; } catch (e) {}
+      return mailtoUrl;
+    }
+
+    // Modal focus trap & keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('checkout-modal-backdrop');
+      if (!modal || !modal.classList.contains('open')) return;
+
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeCheckoutModal();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        const focusables = getModalFocusableElements(modal);
+        if (focusables.length === 0) {
+          e.preventDefault();
+          return;
+        }
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first || !modal.contains(document.activeElement)) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last || !modal.contains(document.activeElement)) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    });
+
+    const modalBackdrop = document.getElementById('checkout-modal-backdrop');
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener('click', (e) => {
+        if (e.target === modalBackdrop) {
           closeCheckoutModal();
-          showToast(`Sandbox Active: ${selectedTierName} staged for ${company}. Webhook alerts configured. Redirecting...`);
-          
-          setTimeout(() => {
-            window.location.href = '/portal/dashboard.html';
-          }, 1200);
-        }, 800);
-      }, 950);
+        }
+      });
     }
-    
-    // Sync alert preferences from dashboard
-    function syncAlertPreferences() {
-      try {
-        const prefs = JSON.parse(localStorage.getItem('craftegon_alert_prefs') || '{}');
-        // Update checkboxes on subscription page if they exist
-        Object.keys(prefs).forEach(key => {
-          const checkbox = document.getElementById(`sub-toggle-${key}`);
-          if (checkbox) checkbox.checked = prefs[key];
-        });
-      } catch {}
-    }
-    
+
     // Initialize on DOM ready
     document.addEventListener('DOMContentLoaded', () => {
       setBillingCycle('annual');
-      syncAlertPreferences();
     });
-</body>
+    </script>
+  </body>
 </html>

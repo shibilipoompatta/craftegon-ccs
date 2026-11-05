@@ -20,17 +20,15 @@ class InMemoryAccountStorage {
     this.accounts = new Map();     // id -> account
     this.credentials = new Map();  // email -> { account_id, password_hash, password_salt, failed_attempts, locked_until, recovery_token_hash, recovery_token_expires_at }
     this.sessions = new Map();     // token_hash -> session
-    this.lastResetToken = null;    // For automated test verification hook
   }
 
   reset() {
     this.accounts.clear();
     this.credentials.clear();
     this.sessions.clear();
-    this.lastResetToken = null;
   }
 
-  async createAccount(data) {
+  async createAccount(data, context = {}) {
     const val = validateAccountData(data);
     if (!val.valid) {
       const err = new Error(val.errors[0].issue);
@@ -49,7 +47,7 @@ class InMemoryAccountStorage {
     let passwordHash = null;
     let passwordSalt = null;
 
-    if (data.password) {
+    if (data.password !== undefined && data.password !== null) {
       const pVal = validatePassword(data.password);
       if (!pVal.valid) {
         const err = new Error(pVal.message);
@@ -60,10 +58,29 @@ class InMemoryAccountStorage {
       passwordHash = hashed.hash;
       passwordSalt = hashed.salt;
     } else {
-      // Default initial synthetic password for accounts created without explicit password
-      const hashed = hashPassword('TempPass123!');
-      passwordHash = hashed.hash;
-      passwordSalt = hashed.salt;
+      // Explicitly mark local password authentication disabled.
+      // Never assigns a usable default password.
+      passwordHash = '!DISABLED:NO_LOCAL_PASSWORD';
+      passwordSalt = 'disabled';
+    }
+
+    // DEF-001 / DEF-008: Strict role privilege gate in repository
+    let assignedRole = 'client';
+    const isManagingPartner = context && context.role === 'managing_partner';
+    const isInternalBootstrap = context && context.isInternalBootstrap === true;
+
+    if (data.account_role && data.account_role !== 'client') {
+      if (!isManagingPartner && !isInternalBootstrap) {
+        assignedRole = 'client';
+      } else {
+        if (['compliance_operator', 'managing_partner'].includes(data.account_role)) {
+          assignedRole = data.account_role;
+        } else {
+          const err = new Error(`Unsupported or invalid staff role: ${data.account_role}`);
+          err.statusCode = 400;
+          throw err;
+        }
+      }
     }
 
     const id = data.id || crypto.randomUUID();
@@ -74,7 +91,7 @@ class InMemoryAccountStorage {
       cin_llpin: data.cin_llpin || null,
       primary_email: email,
       primary_phone: data.primary_phone || '+91 9876543210',
-      account_role: data.account_role || 'client',
+      account_role: assignedRole,
       is_active: data.is_active !== false,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
@@ -124,8 +141,29 @@ class InMemoryAccountStorage {
     return account;
   }
 
+  async listStaff(context = {}) {
+    const isStaff = ['compliance_operator', 'managing_partner'].includes(context.role);
+    if (!isStaff) {
+      const err = new Error('FORBIDDEN: Only staff can list operational staff');
+      err.statusCode = 403;
+      throw err;
+    }
+    const staff = [];
+    for (const acc of this.accounts.values()) {
+      if (['compliance_operator', 'managing_partner'].includes(acc.account_role) && acc.is_active !== false) {
+        staff.push({
+          id: acc.id,
+          legal_entity_name: acc.legal_entity_name,
+          primary_email: acc.primary_email,
+          account_role: acc.account_role
+        });
+      }
+    }
+    return staff;
+  }
+
   async authenticate(email, password, ipHash = null) {
-    if (!email || !password) {
+    if (!email || !password || typeof password !== 'string' || password.length === 0) {
       return { authenticated: false, reason: 'MISSING_CREDENTIALS' };
     }
 
@@ -143,6 +181,11 @@ class InMemoryAccountStorage {
       throw err;
     }
 
+    // Reject disabled local-auth credentials or malformed hash format safely
+    if (!cred.password_hash || typeof cred.password_hash !== 'string' || !cred.password_hash.startsWith('scrypt:')) {
+      return { authenticated: false, reason: 'LOCAL_AUTH_DISABLED' };
+    }
+
     const valid = verifyPassword(password, cred.password_hash, cred.password_salt);
     if (!valid) {
       cred.failed_attempts = (cred.failed_attempts || 0) + 1;
@@ -157,11 +200,19 @@ class InMemoryAccountStorage {
     cred.locked_until = null;
 
     const account = this.accounts.get(cred.account_id);
+    // DEF-007: Account deactivation enforcement at login
+    if (!account || account.is_active === false) {
+      if (account) {
+        await this.revokeAllUserSessions(account.id);
+      }
+      return { authenticated: false, reason: 'ACCOUNT_INACTIVE' };
+    }
+
     return { authenticated: true, account };
   }
 
   async createPasswordResetToken(email) {
-    if (!email) return { success: true };
+    if (!email || typeof email !== 'string') return { success: true };
     const cleanEmail = email.trim().toLowerCase();
     const cred = this.credentials.get(cleanEmail);
     if (!cred) {
@@ -171,9 +222,63 @@ class InMemoryAccountStorage {
     const { rawToken, tokenHash } = generateRecoveryToken();
     cred.recovery_token_hash = tokenHash;
     cred.recovery_token_expires_at = new Date(Date.now() + (60 * 60 * 1000)).toISOString(); // 1 hour
-    this.lastResetToken = rawToken;
 
-    return { success: true, token: rawToken };
+    return { success: true, token: rawToken, tokenHash: tokenHash };
+  }
+
+  async invalidatePasswordResetTokenByHash(email, tokenHash) {
+    if (!email || !tokenHash || typeof email !== 'string' || typeof tokenHash !== 'string') {
+      return { success: true, invalidated: false };
+    }
+    const cleanEmail = email.trim().toLowerCase();
+    const cred = this.credentials.get(cleanEmail);
+    if (cred && cred.recovery_token_hash === tokenHash) {
+      cred.recovery_token_hash = null;
+      cred.recovery_token_expires_at = null;
+      return { success: true, invalidated: true };
+    }
+    return { success: true, invalidated: false };
+  }
+
+  async rotatePassword(accountId, newPassword) {
+    if (!accountId || !newPassword) {
+      const err = new Error('Account ID and new password are required');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    const pVal = validatePassword(newPassword);
+    if (!pVal.valid) {
+      const err = new Error(pVal.message);
+      err.statusCode = 400;
+      throw err;
+    }
+
+    let targetCred = null;
+    for (const cred of this.credentials.values()) {
+      if (cred.account_id === accountId) {
+        targetCred = cred;
+        break;
+      }
+    }
+
+    if (!targetCred) {
+      const err = new Error('Account credential record not found');
+      err.statusCode = 404;
+      throw err;
+    }
+
+    const hashed = hashPassword(newPassword);
+    targetCred.password_hash = hashed.hash;
+    targetCred.password_salt = hashed.salt;
+    targetCred.recovery_token_hash = null;
+    targetCred.recovery_token_expires_at = null;
+    targetCred.failed_attempts = 0;
+    targetCred.locked_until = null;
+
+    await this.revokeAllUserSessions(accountId);
+
+    return { success: true, message: 'Password rotated successfully' };
   }
 
   async resetPassword(rawToken, newPassword) {
@@ -229,6 +334,12 @@ class InMemoryAccountStorage {
   }
 
   async createSession(account, meta = {}, ttlSeconds = 86400) {
+    if (!account || account.is_active === false) {
+      const err = new Error('Cannot issue session to inactive or non-existent account');
+      err.statusCode = 403;
+      throw err;
+    }
+
     const { rawToken, tokenHash } = generateSessionToken();
     const expiresAt = new Date(Date.now() + (ttlSeconds * 1000)).toISOString();
 
@@ -265,6 +376,14 @@ class InMemoryAccountStorage {
       return null;
     }
 
+    // DEF-007: Server-side account status check on every authenticated request
+    const account = this.accounts.get(session.account_id);
+    if (!account || account.is_active === false) {
+      session.revoked_at = new Date().toISOString();
+      await this.revokeAllUserSessions(session.account_id);
+      return null;
+    }
+
     return {
       user_id: session.account_id,
       account_id: session.account_id,
@@ -298,12 +417,70 @@ class InMemoryAccountStorage {
     }
     return count;
   }
+
+  async setAccountActiveStatus(accountId, isActive, context) {
+    if (!accountId || typeof accountId !== 'string' || accountId.trim() === '') {
+      const err = new Error('Account ID is required');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    if (typeof isActive !== 'boolean') {
+      const err = new Error('Invalid status value: isActive must be a boolean (true or false)');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    const ctx = (context && typeof context === 'object') ? context : {};
+    const isManagingPartner = ctx.role === 'managing_partner';
+    const isInternalBootstrap = ctx.isInternalBootstrap === true;
+
+    if (!isManagingPartner && !isInternalBootstrap) {
+      const err = new Error('FORBIDDEN: Only Managing Partner or genuine internal bootstrap can modify account active status');
+      err.statusCode = 403;
+      throw err;
+    }
+
+    const account = this.accounts.get(accountId);
+    if (!account) {
+      const err = new Error('Account not found');
+      err.statusCode = 404;
+      throw err;
+    }
+
+    account.is_active = isActive;
+    account.updated_at = new Date().toISOString();
+
+    try {
+      const { memoryStore } = require('./memory-store');
+      if (memoryStore.accounts && memoryStore.accounts.has(accountId)) {
+        memoryStore.accounts.get(accountId).is_active = isActive;
+        memoryStore.accounts.get(accountId).updated_at = account.updated_at;
+      }
+    } catch (e) {}
+
+    // DEF-007 Requirement 4: Invalidate all existing sessions when deactivating
+    if (account.is_active === false) {
+      await this.revokeAllUserSessions(accountId);
+    }
+
+    return {
+      id: account.id,
+      primary_email: account.primary_email,
+      account_role: account.account_role,
+      is_active: account.is_active,
+      updated_at: account.updated_at
+    };
+  }
+
+  async deactivateAccount(accountId, context) {
+    return this.setAccountActiveStatus(accountId, false, context);
+  }
 }
 
 class PostgresAccountStorage {
   constructor(pgClient) {
     this.client = pgClient;
-    this.lastResetToken = null;
   }
 
   async executeQuery(text, params = []) {
@@ -348,7 +525,7 @@ class PostgresAccountStorage {
     }
   }
 
-  async createAccount(data) {
+  async createAccount(data, context = {}) {
     const val = validateAccountData(data);
     if (!val.valid) {
       const err = new Error(val.errors[0].issue);
@@ -368,7 +545,7 @@ class PostgresAccountStorage {
     let passwordHash = null;
     let passwordSalt = null;
 
-    if (data.password) {
+    if (data.password !== undefined && data.password !== null) {
       const pVal = validatePassword(data.password);
       if (!pVal.valid) {
         const err = new Error(pVal.message);
@@ -379,22 +556,37 @@ class PostgresAccountStorage {
       passwordHash = hashed.hash;
       passwordSalt = hashed.salt;
     } else {
-      const hashed = hashPassword('TempPass123!');
-      passwordHash = hashed.hash;
-      passwordSalt = hashed.salt;
+      // Explicitly mark local password authentication disabled.
+      // Satisfies database NOT NULL constraints without assigning any usable credential.
+      passwordHash = '!DISABLED:NO_LOCAL_PASSWORD';
+      passwordSalt = 'disabled';
+    }
+
+    // DEF-008: Strict role privilege gate in PostgreSQL repository adapter
+    let assignedRole = 'client';
+    const isManagingPartner = context && context.role === 'managing_partner';
+    const isInternalBootstrap = context && context.isInternalBootstrap === true;
+
+    if (data.account_role && data.account_role !== 'client') {
+      if (!isManagingPartner && !isInternalBootstrap) {
+        // Ordinary or unprivileged context forces client
+        assignedRole = 'client';
+      } else {
+        if (['compliance_operator', 'managing_partner'].includes(data.account_role)) {
+          assignedRole = data.account_role;
+        } else {
+          const err = new Error('Unsupported or invalid staff role: ' + data.account_role);
+          err.statusCode = 400;
+          throw err;
+        }
+      }
     }
 
     const accountId = data.id || crypto.randomUUID();
     const authUserId = data.auth_user_id || accountId;
 
     // 1. Insert Client Account
-    const accQuery = `
-      INSERT INTO client_accounts (
-        id, auth_user_id, legal_entity_name, cin_llpin, primary_email, primary_phone, account_role, is_active
-      ) VALUES (
-        $1, $2, $3, $4, $5, $6, $7, $8
-      ) RETURNING *;
-    `;
+    const accQuery = 'INSERT INTO client_accounts (id, auth_user_id, legal_entity_name, cin_llpin, primary_email, primary_phone, account_role, is_active) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;';
     const accRows = await this.executeQuery(accQuery, [
       accountId,
       authUserId,
@@ -402,20 +594,14 @@ class PostgresAccountStorage {
       data.cin_llpin || null,
       email,
       data.primary_phone || '+91 9876543210',
-      data.account_role || 'client',
+      assignedRole,
       data.is_active !== false
     ]);
 
     const createdAccount = accRows[0];
 
     // 2. Insert Auth Credentials
-    const credQuery = `
-      INSERT INTO auth_credentials (
-        account_id, email, password_hash, password_salt
-      ) VALUES (
-        $1, $2, $3, $4
-      ) RETURNING id;
-    `;
+    const credQuery = 'INSERT INTO auth_credentials (account_id, email, password_hash, password_salt) VALUES ($1, $2, $3, $4) RETURNING id;';
     await this.executeQuery(credQuery, [
       accountId,
       email,
@@ -423,7 +609,19 @@ class PostgresAccountStorage {
       passwordSalt
     ]);
 
-    return createdAccount;
+    // Sanitize returned object: do not expose password hashes, salts or internal credentials
+    return {
+      id: createdAccount.id,
+      auth_user_id: createdAccount.auth_user_id,
+      legal_entity_name: createdAccount.legal_entity_name,
+      cin_llpin: createdAccount.cin_llpin,
+      primary_email: createdAccount.primary_email,
+      primary_phone: createdAccount.primary_phone,
+      account_role: createdAccount.account_role,
+      is_active: createdAccount.is_active,
+      created_at: createdAccount.created_at,
+      updated_at: createdAccount.updated_at
+    };
   }
 
   async findByEmail(email) {
@@ -451,13 +649,13 @@ class PostgresAccountStorage {
   }
 
   async authenticate(email, password, ipHash = null) {
-    if (!email || !password) {
+    if (!email || !password || typeof password !== 'string' || password.length === 0) {
       return { authenticated: false, reason: 'MISSING_CREDENTIALS' };
     }
 
     const cleanEmail = email.trim().toLowerCase();
     const query = `
-      SELECT ac.*, ca.legal_entity_name, ca.cin_llpin, ca.account_role, ca.is_active, ca.id AS client_account_id
+      SELECT ac.*, ca.legal_entity_name, ca.cin_llpin, ca.account_role, ca.is_active AS account_is_active, ca.id AS client_account_id
       FROM auth_credentials ac
       JOIN client_accounts ca ON ca.id = ac.account_id
       WHERE LOWER(ac.email) = $1
@@ -474,6 +672,11 @@ class PostgresAccountStorage {
       const err = new Error('Account is temporarily locked due to multiple failed login attempts. Please reset your password or try again later.');
       err.statusCode = 429;
       throw err;
+    }
+
+    // Reject disabled local-auth credentials or malformed hash format safely
+    if (!cred.password_hash || typeof cred.password_hash !== 'string' || !cred.password_hash.startsWith('scrypt:')) {
+      return { authenticated: false, reason: 'LOCAL_AUTH_DISABLED' };
     }
 
     const valid = verifyPassword(password, cred.password_hash, cred.password_salt);
@@ -499,6 +702,12 @@ class PostgresAccountStorage {
       WHERE id = $1;
     `, [cred.id]);
 
+    // DEF-007: Account deactivation enforcement at login
+    if (cred.account_is_active === false) {
+      await this.revokeAllUserSessions(cred.client_account_id);
+      return { authenticated: false, reason: 'ACCOUNT_INACTIVE' };
+    }
+
     const account = {
       id: cred.client_account_id,
       auth_user_id: cred.client_account_id,
@@ -506,14 +715,14 @@ class PostgresAccountStorage {
       cin_llpin: cred.cin_llpin,
       primary_email: cred.email,
       account_role: cred.account_role,
-      is_active: cred.is_active
+      is_active: cred.account_is_active
     };
 
     return { authenticated: true, account };
   }
 
   async createPasswordResetToken(email) {
-    if (!email) return { success: true };
+    if (!email || typeof email !== 'string') return { success: true };
     const cleanEmail = email.trim().toLowerCase();
     const rows = await this.executeQuery(`SELECT id FROM auth_credentials WHERE LOWER(email) = $1;`, [cleanEmail]);
     if (!rows[0]) {
@@ -529,8 +738,70 @@ class PostgresAccountStorage {
       WHERE id = $2;
     `, [tokenHash, rows[0].id]);
 
-    this.lastResetToken = rawToken;
-    return { success: true, token: rawToken };
+    return { success: true, token: rawToken, tokenHash: tokenHash };
+  }
+
+  async invalidatePasswordResetTokenByHash(email, tokenHash) {
+    if (!email || !tokenHash || typeof email !== 'string' || typeof tokenHash !== 'string') {
+      return { success: true, invalidated: false };
+    }
+    const cleanEmail = email.trim().toLowerCase();
+    const query = `
+      UPDATE auth_credentials
+      SET recovery_token_hash = NULL,
+          recovery_token_expires_at = NULL,
+          updated_at = CURRENT_TIMESTAMP
+      WHERE LOWER(email) = $1 AND recovery_token_hash = $2
+      RETURNING id;
+    `;
+    const rows = await this.executeQuery(query, [cleanEmail, tokenHash]);
+    return { success: true, invalidated: rows.length > 0 };
+  }
+
+  async rotatePassword(accountId, newPassword) {
+    if (!accountId || !newPassword) {
+      const err = new Error('Account ID and new password are required');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    const pVal = validatePassword(newPassword);
+    if (!pVal.valid) {
+      const err = new Error(pVal.message);
+      err.statusCode = 400;
+      throw err;
+    }
+
+    const hashed = hashPassword(newPassword);
+    const query = `
+      WITH updated_cred AS (
+        UPDATE auth_credentials
+        SET password_hash = $1,
+            password_salt = $2,
+            recovery_token_hash = NULL,
+            recovery_token_expires_at = NULL,
+            failed_attempts = 0,
+            locked_until = NULL,
+            updated_at = CURRENT_TIMESTAMP
+        WHERE account_id = $3
+        RETURNING account_id
+      ),
+      revoked_sessions AS (
+        UPDATE auth_sessions
+        SET revoked_at = CURRENT_TIMESTAMP
+        WHERE account_id IN (SELECT account_id FROM updated_cred) AND revoked_at IS NULL
+        RETURNING id
+      )
+      SELECT account_id FROM updated_cred;
+    `;
+    const rows = await this.executeQuery(query, [hashed.hash, hashed.salt, accountId]);
+    if (!rows || rows.length === 0) {
+      const err = new Error('Account credential record not found');
+      err.statusCode = 404;
+      throw err;
+    }
+
+    return { success: true, message: 'Password rotated successfully' };
   }
 
   async resetPassword(rawToken, newPassword) {
@@ -548,52 +819,49 @@ class PostgresAccountStorage {
     }
 
     const tokenHash = hashToken(rawToken);
-    const query = `
-      SELECT id, account_id, recovery_token_expires_at
-      FROM auth_credentials
-      WHERE recovery_token_hash = $1
-      LIMIT 1;
-    `;
-    const rows = await this.executeQuery(query, [tokenHash]);
-    const cred = rows[0];
+    const hashed = hashPassword(newPassword);
 
-    if (!cred) {
+    const query = `
+      WITH updated_cred AS (
+        UPDATE auth_credentials
+        SET password_hash = $1,
+            password_salt = $2,
+            recovery_token_hash = NULL,
+            recovery_token_expires_at = NULL,
+            failed_attempts = 0,
+            locked_until = NULL,
+            updated_at = CURRENT_TIMESTAMP
+        WHERE recovery_token_hash = $3
+          AND recovery_token_expires_at IS NOT NULL
+          AND recovery_token_expires_at > CURRENT_TIMESTAMP
+        RETURNING account_id
+      ),
+      revoked_sessions AS (
+        UPDATE auth_sessions
+        SET revoked_at = CURRENT_TIMESTAMP
+        WHERE account_id IN (SELECT account_id FROM updated_cred)
+          AND revoked_at IS NULL
+        RETURNING id
+      )
+      SELECT account_id FROM updated_cred;
+    `;
+
+    const rows = await this.executeQuery(query, [hashed.hash, hashed.salt, tokenHash]);
+    if (!rows || rows.length === 0) {
       const err = new Error('Invalid or expired password reset token');
       err.statusCode = 400;
       throw err;
     }
 
-    if (new Date() > new Date(cred.recovery_token_expires_at)) {
-      await this.executeQuery(`
-        UPDATE auth_credentials
-        SET recovery_token_hash = NULL, recovery_token_expires_at = NULL
-        WHERE id = $1;
-      `, [cred.id]);
-      const err = new Error('Password reset token has expired. Please request a new one.');
-      err.statusCode = 400;
-      throw err;
-    }
-
-    const hashed = hashPassword(newPassword);
-    await this.executeQuery(`
-      UPDATE auth_credentials
-      SET password_hash = $1,
-          password_salt = $2,
-          recovery_token_hash = NULL,
-          recovery_token_expires_at = NULL,
-          failed_attempts = 0,
-          locked_until = NULL,
-          updated_at = CURRENT_TIMESTAMP
-      WHERE id = $3;
-    `, [hashed.hash, hashed.salt, cred.id]);
-
-    // Invalidate sessions
-    await this.revokeAllUserSessions(cred.account_id);
-
     return { success: true, message: 'Password updated successfully' };
   }
 
   async createSession(account, meta = {}, ttlSeconds = 86400) {
+    if (!account || account.is_active === false) {
+      const err = new Error('Cannot issue session to inactive or non-existent account');
+      err.statusCode = 403;
+      throw err;
+    }
     const { rawToken, tokenHash } = generateSessionToken();
     const query = `
       INSERT INTO auth_sessions (
@@ -629,28 +897,31 @@ class PostgresAccountStorage {
   async verifySession(rawToken) {
     if (!rawToken) return null;
     const tokenHash = hashToken(rawToken);
-    const query = `
-      SELECT s.id AS session_id, s.account_id, s.role, s.expires_at, s.revoked_at,
-             ca.legal_entity_name, ca.cin_llpin, ca.primary_email, ca.is_active
-      FROM auth_sessions s
-      JOIN client_accounts ca ON ca.id = s.account_id
-      WHERE s.session_token_hash = $1
-        AND s.revoked_at IS NULL
-        AND s.expires_at > CURRENT_TIMESTAMP
-      LIMIT 1;
-    `;
+    const query = 'SELECT s.id AS session_id, s.account_id, s.role, s.expires_at, s.revoked_at, ca.id AS client_account_id, ca.legal_entity_name, ca.cin_llpin, ca.primary_email, ca.is_active AS account_is_active FROM auth_sessions s LEFT JOIN client_accounts ca ON ca.id = s.account_id WHERE s.session_token_hash = $1 AND s.revoked_at IS NULL AND s.expires_at > CURRENT_TIMESTAMP LIMIT 1;';
     const rows = await this.executeQuery(query, [tokenHash]);
-    const session = rows[0];
-    if (!session) return null;
+    const record = rows[0];
+    if (!record) return null;
+
+    // Check 1: Missing or deleted owning account in client_accounts
+    if (!record.client_account_id) {
+      await this.revokeSession(rawToken);
+      return null;
+    }
+
+    // Check 2: Owning account active status (obtained directly from client_accounts.is_active)
+    if (record.account_is_active === false) {
+      await this.revokeAllUserSessions(record.account_id);
+      return null;
+    }
 
     return {
-      user_id: session.account_id,
-      account_id: session.account_id,
-      role: session.role,
-      legal_entity_name: session.legal_entity_name,
-      cin_llpin: session.cin_llpin,
-      email: session.primary_email,
-      expires_at: session.expires_at
+      user_id: record.account_id,
+      account_id: record.account_id,
+      role: record.role,
+      legal_entity_name: record.legal_entity_name,
+      cin_llpin: record.cin_llpin,
+      email: record.primary_email,
+      expires_at: record.expires_at
     };
   }
 
@@ -678,6 +949,48 @@ class PostgresAccountStorage {
     const rows = await this.executeQuery(query, [accountId]);
     return rows.length;
   }
+
+  async setAccountActiveStatus(accountId, isActive, context) {
+    if (!accountId || typeof accountId !== 'string' || accountId.trim() === '') {
+      const err = new Error('Account ID is required');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    if (typeof isActive !== 'boolean') {
+      const err = new Error('Invalid status value: isActive must be a boolean (true or false)');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    const ctx = (context && typeof context === 'object') ? context : {};
+    const isManagingPartner = ctx.role === 'managing_partner';
+    const isInternalBootstrap = ctx.isInternalBootstrap === true;
+
+    if (!isManagingPartner && !isInternalBootstrap) {
+      const err = new Error('FORBIDDEN: Only Managing Partner or genuine internal bootstrap can modify account active status');
+      err.statusCode = 403;
+      throw err;
+    }
+
+    const query = 'UPDATE client_accounts SET is_active = $1, updated_at = CURRENT_TIMESTAMP WHERE id = $2 RETURNING id, primary_email, account_role, is_active, updated_at;';
+    const rows = await this.executeQuery(query, [isActive, accountId]);
+    if (!rows || rows.length === 0) {
+      const err = new Error('Account not found');
+      err.statusCode = 404;
+      throw err;
+    }
+
+    if (isActive === false) {
+      await this.revokeAllUserSessions(accountId);
+    }
+
+    return rows[0];
+  }
+
+  async deactivateAccount(accountId, context) {
+    return this.setAccountActiveStatus(accountId, false, context);
+  }
 }
 
 class AccountRepository {
@@ -689,8 +1002,8 @@ class AccountRepository {
     this.adapter = adapter;
   }
 
-  createAccount(data) {
-    return this.adapter.createAccount(data);
+  createAccount(data, context = {}) {
+    return this.adapter.createAccount(data, context);
   }
 
   findByEmail(email) {
@@ -727,6 +1040,35 @@ class AccountRepository {
 
   revokeAllUserSessions(accountId) {
     return this.adapter.revokeAllUserSessions(accountId);
+  }
+
+  listStaff(context) {
+    if (this.adapter.listStaff) {
+      return this.adapter.listStaff(context);
+    }
+    return [];
+  }
+
+  rotatePassword(accountId, newPassword) {
+    return this.adapter.rotatePassword(accountId, newPassword);
+  }
+
+  invalidatePasswordResetTokenByHash(email, tokenHash) {
+    return this.adapter.invalidatePasswordResetTokenByHash(email, tokenHash);
+  }
+
+  setAccountActiveStatus(accountId, isActive, context) {
+    if (this.adapter && typeof this.adapter.setAccountActiveStatus === 'function') {
+      return this.adapter.setAccountActiveStatus(accountId, isActive, context);
+    }
+    throw new Error('NOT_IMPLEMENTED: Current storage adapter does not support setAccountActiveStatus');
+  }
+
+  deactivateAccount(accountId, context) {
+    if (this.adapter && typeof this.adapter.deactivateAccount === 'function') {
+      return this.adapter.deactivateAccount(accountId, context);
+    }
+    throw new Error('NOT_IMPLEMENTED: Current storage adapter does not support deactivateAccount');
   }
 }
 
