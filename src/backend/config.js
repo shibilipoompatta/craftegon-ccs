@@ -77,6 +77,12 @@ function loadConfig(overrides = {}) {
 
     // Candidate Providers (Metadata placeholders - zero cloud connections)
     databaseProvider: overrides.DATABASE_PROVIDER || process.env.DATABASE_PROVIDER || 'local_in_memory',
+    pgHost: overrides.PGHOST || overrides.pgHost || process.env.PGHOST || '127.0.0.1',
+    pgPort: parseInt(overrides.PGPORT || overrides.pgPort || process.env.PGPORT || '5432', 10),
+    pgUser: overrides.PGUSER || overrides.pgUser || process.env.PGUSER || 'postgres',
+    pgDatabase: overrides.PGDATABASE || overrides.pgDatabase || process.env.PGDATABASE || 'craftegon_ccs_dev',
+    pgPassword: overrides.PGPASSWORD !== undefined ? overrides.PGPASSWORD : (overrides.pgPassword !== undefined ? overrides.pgPassword : (process.env.PGPASSWORD || '')),
+    pgRuntimeRole: overrides.PG_RUNTIME_ROLE || overrides.pgRuntimeRole || process.env.PG_RUNTIME_ROLE || (isTest ? 'craftegon_test_app_user' : null),
     paymentProvider: overrides.PAYMENT_PROVIDER || process.env.PAYMENT_PROVIDER || 'razorpay_sandbox',
     storageProvider: overrides.STORAGE_PROVIDER || process.env.STORAGE_PROVIDER || 'local_quarantine',
 

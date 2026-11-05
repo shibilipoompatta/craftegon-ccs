@@ -172,8 +172,8 @@ class MockPostgresDatabase {
       return JSON.stringify(Array(revokedCount).fill({ id: 'revoked' }));
     }
 
-    // 7. UPDATE client_accounts (setAccountActiveStatus)
-    if (/^UPDATE\s+client_accounts\s+SET\s+is_active\s*=/i.test(innerSql)) {
+    // 7. UPDATE client_accounts (setAccountActiveStatus / CTE atomic revocation)
+    if (/UPDATE\s+client_accounts\s+SET\s+is_active\s*=/i.test(innerSql)) {
       const activeMatch = innerSql.match(/is_active\s*=\s*(true|false)/i);
       const idMatch = innerSql.match(/WHERE\s+id\s*=\s*'([^']+)'/i);
 
@@ -184,6 +184,16 @@ class MockPostgresDatabase {
         if (acc) {
           acc.is_active = newStatus;
           acc.updated_at = new Date().toISOString();
+
+          // If CTE also revokes sessions
+          if (newStatus === false && /UPDATE\s+auth_sessions\s+SET\s+revoked_at\s*=/i.test(innerSql)) {
+            for (const sess of this.authSessions.values()) {
+              if (sess.account_id === id && !sess.revoked_at) {
+                sess.revoked_at = new Date().toISOString();
+              }
+            }
+          }
+
           return JSON.stringify([{
             id: acc.id,
             primary_email: acc.primary_email,

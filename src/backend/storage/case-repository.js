@@ -42,7 +42,7 @@ class InMemoryCaseStorage {
 }
 
 class PostgresCaseStorage {
-  constructor(pgClient, defaultAppRole = 'craftegon_test_app_user') {
+  constructor(pgClient, defaultAppRole = null) {
     this.client = pgClient;
     this.defaultAppRole = defaultAppRole;
   }
@@ -52,6 +52,18 @@ class PostgresCaseStorage {
       throw new Error('POSTGRES_CLIENT_UNAVAILABLE: Cannot query PostgreSQL without active client');
     }
 
+    // 1. Native asynchronous connection pool (PostgresPool or pg.Pool)
+    if (this.client.isPool || typeof this.client.queryAsync === 'function' || this.client.constructor?.name === 'Pool' || this.client.constructor?.name === 'PostgresPool') {
+      const queryContext = {
+        userId: context.userId || '',
+        role: context.role || 'anon',
+        dbRole: context.dbRole !== undefined ? context.dbRole : this.defaultAppRole
+      };
+      const result = await this.client.query(text, params, queryContext);
+      return Array.isArray(result) ? result : (result.rows || []);
+    }
+
+    // 2. Fallback for test fixtures and legacy synchronous mock runners
     let formattedSql = text;
     params.forEach((val, idx) => {
       let sqlVal = 'NULL';
@@ -64,7 +76,7 @@ class PostgresCaseStorage {
           sqlVal = `'${String(val).replace(/'/g, "''")}'`;
         }
       }
-      const placeholder = new RegExp(`\\$${idx + 1}(?![0-9])`, 'g');
+      const placeholder = new RegExp('\\$' + (idx + 1) + '(?![0-9])', 'g');
       formattedSql = formattedSql.replace(placeholder, sqlVal);
     });
 
@@ -81,17 +93,24 @@ class PostgresCaseStorage {
     const queryOpts = {
       userId: context.userId || '',
       userRole: context.role || 'anon',
-      dbRole: context.dbRole || this.defaultAppRole
+      dbRole: context.dbRole !== undefined ? context.dbRole : this.defaultAppRole
     };
 
-    const raw = this.client.query(jsonSql, queryOpts);
+    const raw = await this.client.query(jsonSql, queryOpts);
+    if (typeof raw === 'object' && raw !== null && Array.isArray(raw.rows)) {
+      return raw.rows;
+    }
+    if (Array.isArray(raw)) {
+      return raw;
+    }
     try {
-      const start = raw.indexOf('[');
-      const end = raw.lastIndexOf(']');
+      const str = String(raw);
+      const start = str.indexOf('[');
+      const end = str.lastIndexOf(']');
       if (start !== -1 && end !== -1 && end >= start) {
-        return JSON.parse(raw.slice(start, end + 1));
+        return JSON.parse(str.slice(start, end + 1));
       }
-      return JSON.parse(raw);
+      return JSON.parse(str);
     } catch (e) {
       return [];
     }
@@ -99,8 +118,9 @@ class PostgresCaseStorage {
 
   async createCase(data, context = {}) {
     const isStaff = ['compliance_operator', 'managing_partner'].includes(context.role);
-    if (!isStaff) {
-      const err = new Error('FORBIDDEN: Only authorized compliance staff may create cases');
+    const isOwnerClient = context.role === 'client' && context.userId && context.userId === data.client_id;
+    if (!isStaff && !isOwnerClient) {
+      const err = new Error('FORBIDDEN: Insufficient privileges to create case');
       err.statusCode = 403;
       throw err;
     }
@@ -111,9 +131,9 @@ class PostgresCaseStorage {
     const query = `
       INSERT INTO cases (
         id, case_reference, client_id, lead_id, service_id, vertical_id,
-        title, status, priority, statutory_deadline
+        title, status, priority, statutory_deadline, assigned_officer_id
       ) VALUES (
-        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11
       ) RETURNING *;
     `;
 
@@ -127,8 +147,9 @@ class PostgresCaseStorage {
       data.title,
       data.status || 'IN_PROGRESS',
       data.priority || 'STANDARD',
-      data.statutory_deadline || null
-    ], context);
+      data.statutory_deadline || null,
+      data.assigned_officer_id || null
+    ], { ...context, dbRole: context.dbRole !== undefined ? context.dbRole : null });
 
     return rows[0] || null;
   }
@@ -166,35 +187,58 @@ class PostgresCaseStorage {
     return await this.executeQuery(query, params, context);
   }
 
-  async updateCaseStatus(ref, newStatus, context = {}) {
+  async updateCase(ref, updates = {}, context = {}) {
     const isStaff = ['compliance_operator', 'managing_partner'].includes(context.role);
     if (!isStaff) {
-      const err = new Error('FORBIDDEN: Only compliance staff can update case lifecycle status');
+      const err = new Error('FORBIDDEN: Only compliance staff can update case lifecycle status or assignment');
       err.statusCode = 403;
       throw err;
     }
 
-    // Fetch existing case first to validate transition
     const existing = await this.getCase(ref, context);
     if (!existing) {
       return null;
     }
 
-    if (!canTransition('case', existing.status, newStatus)) {
-      const err = new Error(`INVALID_TRANSITION: Cannot transition case from ${existing.status} to ${newStatus}`);
-      err.statusCode = 422;
-      throw err;
+    const setClauses = ['updated_at = CURRENT_TIMESTAMP'];
+    const params = [];
+
+    if (updates.status) {
+      if (!canTransition('case', existing.status, updates.status)) {
+        const err = new Error(`INVALID_TRANSITION: Cannot transition case from ${existing.status} to ${updates.status}`);
+        err.statusCode = 422;
+        throw err;
+      }
+      params.push(updates.status);
+      setClauses.push(`status = $${params.length}`);
     }
+
+    if (updates.assigned_officer_id !== undefined) {
+      params.push(updates.assigned_officer_id || null);
+      setClauses.push(`assigned_officer_id = $${params.length}`);
+    }
+
+    if (updates.priority) {
+      params.push(updates.priority);
+      setClauses.push(`priority = $${params.length}`);
+    }
+
+    params.push(ref);
+    const refParamIdx = params.length;
 
     const query = `
       UPDATE cases
-      SET status = $1, updated_at = CURRENT_TIMESTAMP
-      WHERE case_reference = $2
+      SET ${setClauses.join(', ')}
+      WHERE case_reference = $${refParamIdx} OR id::text = $${refParamIdx}
       RETURNING *;
     `;
 
-    const rows = await this.executeQuery(query, [newStatus, ref], context);
+    const rows = await this.executeQuery(query, params, context);
     return rows[0] || null;
+  }
+
+  async updateCaseStatus(ref, newStatus, context = {}) {
+    return this.updateCase(ref, { status: newStatus }, context);
   }
 
   async listCaseDocuments(caseId, context = {}) {

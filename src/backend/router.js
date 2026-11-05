@@ -63,6 +63,8 @@ const {
   handleRestoreBackup
 } = require('./controllers/admin.controller');
 const { parseJsonBody, parseRawBody } = require('./middleware/body-parser');
+const { accountRepository } = require('./storage/account-repository');
+const { requireAuth } = require('./middleware/auth-guard');
 
 async function routeRequest(req, res, config) {
   const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
@@ -426,6 +428,32 @@ async function routeRequest(req, res, config) {
     }
     res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET, POST' });
     return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+  }
+
+  const adminAccountMatch = pathname.match(/^\/api\/v1\/admin\/accounts\/([A-Za-z0-9\-]+)\/(deactivate|status)$/);
+  if (adminAccountMatch) {
+    if (method !== 'POST' && method !== 'PATCH') {
+      res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'POST, PATCH' });
+      return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+    }
+    const user = await requireAuth(req, res, ['managing_partner']);
+    if (!user) return;
+    const targetAccountId = adminAccountMatch[1];
+    const action = adminAccountMatch[2];
+    const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
+    const isActive = action === 'deactivate' ? false : (body && typeof body.is_active === 'boolean' ? body.is_active : false);
+    try {
+      const updated = await accountRepository.setAccountActiveStatus(targetAccountId, isActive, {
+        userId: user.user_id,
+        role: user.role
+      });
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ success: true, account: updated }));
+    } catch (err) {
+      const status = err.statusCode || 400;
+      res.writeHead(status, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: err.message }));
+    }
   }
 
   if (pathname === '/api/v1/admin/me') {

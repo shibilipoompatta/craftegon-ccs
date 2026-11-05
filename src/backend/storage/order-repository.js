@@ -31,7 +31,7 @@ class InMemoryOrderStorage {
 }
 
 class PostgresOrderStorage {
-  constructor(pgClient, defaultAppRole = 'craftegon_test_app_user') {
+  constructor(pgClient, defaultAppRole = null) {
     this.client = pgClient;
     this.defaultAppRole = defaultAppRole;
   }

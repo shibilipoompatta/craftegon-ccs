@@ -39,7 +39,13 @@ class PostgresEnquiryStorage {
       return result.rows;
     }
 
-    // 2. If client is PostgresClient (pure-Node psql wrapper)
+    // 1. Native asynchronous connection pool (PostgresPool or pg.Pool)
+    if (this.client.isPool || typeof this.client.queryAsync === 'function' || this.client.constructor?.name === 'Pool' || this.client.constructor?.name === 'PostgresPool') {
+      const result = await this.client.query(text, params);
+      return Array.isArray(result) ? result : (result.rows || []);
+    }
+
+    // 2. If client is PostgresClient or test mock
     if (typeof this.client.query === 'function') {
       let formattedSql = text;
       params.forEach((val, idx) => {
@@ -53,19 +59,26 @@ class PostgresEnquiryStorage {
             sqlVal = `'${String(val).replace(/'/g, "''")}'`;
           }
         }
-        const placeholder = new RegExp(`\\$${idx + 1}(?![0-9])`, 'g');
+        const placeholder = new RegExp('\\$' + (idx + 1) + '(?![0-9])', 'g');
         formattedSql = formattedSql.replace(placeholder, sqlVal);
       });
 
       const jsonSql = `WITH q AS (${formattedSql.replace(/;\s*$/, '')}) SELECT COALESCE(json_agg(q), '[]'::json) FROM q;`;
-      const raw = this.client.query(jsonSql);
+      const raw = await this.client.query(jsonSql);
+      if (typeof raw === 'object' && raw !== null && Array.isArray(raw.rows)) {
+        return raw.rows;
+      }
+      if (Array.isArray(raw)) {
+        return raw;
+      }
       try {
-        const start = raw.indexOf('[');
-        const end = raw.lastIndexOf(']');
+        const str = String(raw);
+        const start = str.indexOf('[');
+        const end = str.lastIndexOf(']');
         if (start !== -1 && end !== -1 && end >= start) {
-          return JSON.parse(raw.slice(start, end + 1));
+          return JSON.parse(str.slice(start, end + 1));
         }
-        return JSON.parse(raw);
+        return JSON.parse(str);
       } catch (e) {
         return [];
       }
@@ -118,7 +131,7 @@ class PostgresEnquiryStorage {
   }
 
   async updateStatus(ref, newStatus, context = {}) {
-    const query = 'UPDATE lead_enquiries SET status = $1, updated_at = CURRENT_TIMESTAMP WHERE lead_reference = $2 RETURNING *;';
+    const query = 'UPDATE lead_enquiries SET status = $1 WHERE lead_reference = $2 RETURNING *;';
     const rows = await this.executeQuery(query, [newStatus, ref]);
     return rows[0] || null;
   }
