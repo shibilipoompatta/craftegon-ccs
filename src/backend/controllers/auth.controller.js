@@ -6,6 +6,7 @@
 
 const { authenticate, requireAuth, revokeSessionToken } = require('../middleware/auth-guard');
 const { accountRepository } = require('../storage/account-repository');
+const { emailService } = require('../email/email-service');
 const crypto = require('node:crypto');
 
 function hashIp(ip, salt) {
@@ -48,7 +49,7 @@ async function handleLogin(req, res, config, body) {
       res.writeHead(401, { 'Content-Type': 'application/json' });
       return res.end(JSON.stringify({
         error: 'Unauthorized',
-        message: 'Invalid email or password'
+        message: authResult.reason === 'ACCOUNT_INACTIVE' ? 'Account is pending email verification or has been deactivated. Please verify your email or contact support.' : 'Invalid email or password'
       }));
     }
 
@@ -127,14 +128,29 @@ async function handleForgotPassword(req, res, config, body) {
     }));
   }
 
-  // NOTE: Automated password recovery is intentionally disabled at this public endpoint
-  // until an approved outbound email delivery provider and secure recovery workflow
-  // are implemented. To prevent orphaned token generation and false delivery claims,
-  // no reset token is generated or persisted here.
+  const cleanEmail = String(body.email).trim().toLowerCase();
   const responsePayload = {
     success: true,
     message: 'If an account matches that email address, recovery options will be provided when available.'
   };
+
+  // Only dispatch email if delivery is configured / enabled in environment
+  if (emailService.isDeliveryConfigured()) {
+    try {
+      const resetResult = await accountRepository.createPasswordResetToken(cleanEmail);
+      if (resetResult && resetResult.token) {
+        const account = await accountRepository.findByEmail(cleanEmail);
+        await emailService.sendPasswordRecovery({
+          to: cleanEmail,
+          name: account ? account.legal_entity_name : 'Client',
+          token: resetResult.token,
+          expiresAt: resetResult.expiresAt || new Date(Date.now() + 3600000).toISOString()
+        });
+      }
+    } catch (err) {
+      // Safe catch: zero enumeration, no internal leak
+    }
+  }
 
   res.writeHead(200, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify(responsePayload));
@@ -186,6 +202,7 @@ async function handleRegister(req, res, config, body) {
 
   // DEF-001: Public registration must ALWAYS create an account with account_role: 'client'.
   // Caller-supplied account_role, role, isAdmin, permissions are strictly ignored.
+  const requiresVerification = Boolean(config.requireEmailVerification);
   const clientData = {
     legal_entity_name: typeof body.legal_entity_name === 'string' && body.legal_entity_name.trim()
       ? body.legal_entity_name.trim()
@@ -198,11 +215,49 @@ async function handleRegister(req, res, config, body) {
       ? body.primary_phone.trim()
       : '+91 9876543210',
     password: String(body.password),
-    account_role: 'client'
+    account_role: 'client',
+    is_active: !requiresVerification
   };
 
   try {
     const account = await accountRepository.createAccount(clientData, { isPublicRegistration: true });
+
+    if (requiresVerification) {
+      const { rawToken, expiresAt } = await accountRepository.createVerificationToken(
+        account.id,
+        config.verificationTokenTtlSeconds || 86400
+      );
+
+      if (emailService.isDeliveryConfigured()) {
+        try {
+          await emailService.sendRegistrationVerification({
+            to: account.primary_email,
+            name: account.legal_entity_name,
+            token: rawToken,
+            expiresAt
+          });
+        } catch (emailErr) {
+          // Safe catch: account created in inactive state, verification can be resent
+        }
+      }
+
+      res.writeHead(201, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({
+        success: true,
+        message: 'Account registered successfully. Please verify your email address to activate your account.',
+        requires_verification: true,
+        account: {
+          id: account.id,
+          email: account.primary_email,
+          role: account.account_role,
+          account_role: account.account_role,
+          legal_entity_name: account.legal_entity_name,
+          cin_llpin: account.cin_llpin || null,
+          is_active: false
+        }
+      }));
+    }
+
     res.writeHead(201, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
       success: true,
@@ -304,6 +359,71 @@ async function handleProvisionStaff(req, res, config, body) {
   }
 }
 
+
+async function handleVerifyEmail(req, res, config, token) {
+  if (!token || typeof token !== 'string' || !token.trim()) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+      error: 'Bad Request',
+      message: 'Verification token is required'
+    }));
+  }
+
+  try {
+    const result = await accountRepository.verifyEmailToken(token.trim());
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      success: true,
+      message: 'Email address verified successfully. Your account is now active. You may now log in.'
+    }));
+  } catch (err) {
+    const status = err.statusCode || 400;
+    res.writeHead(status, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      error: 'Bad Request',
+      message: err.message
+    }));
+  }
+}
+
+async function handleResendVerification(req, res, config, body) {
+  if (!body || !body.email || typeof body.email !== 'string' || !body.email.trim()) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+      error: 'Bad Request',
+      message: 'Email address is required'
+    }));
+  }
+
+  const email = String(body.email).trim().toLowerCase();
+  const responsePayload = {
+    success: true,
+    message: 'If an unverified account matches that email address, a new verification link has been sent.'
+  };
+
+  if (emailService.isDeliveryConfigured()) {
+    try {
+      const resendResult = await accountRepository.resendVerificationToken(
+        email,
+        config.verificationTokenTtlSeconds || 86400
+      );
+      if (resendResult && resendResult.token) {
+        await emailService.sendRegistrationVerification({
+          to: email,
+          name: resendResult.account?.legal_entity_name || 'Client',
+          token: resendResult.token,
+          expiresAt: resendResult.expiresAt
+        });
+      }
+    } catch (e) {
+      // Safe catch: zero enumeration
+    }
+  }
+
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify(responsePayload));
+}
+
 module.exports = {
   handleLogin,
   handleLogout,
@@ -311,5 +431,7 @@ module.exports = {
   handleForgotPassword,
   handleResetPassword,
   handleRegister,
-  handleProvisionStaff
+  handleProvisionStaff,
+  handleVerifyEmail,
+  handleResendVerification
 };

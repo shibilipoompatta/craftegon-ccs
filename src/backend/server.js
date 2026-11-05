@@ -14,6 +14,7 @@ const { accountRepository, PostgresAccountStorage, InMemoryAccountStorage } = re
 const { caseRepository, PostgresCaseStorage, InMemoryCaseStorage } = require('./storage/case-repository');
 const { documentRepository, PostgresDocumentStorage, InMemoryDocumentStorage } = require('./storage/document-repository');
 const { orderRepository, PostgresOrderStorage, InMemoryOrderStorage } = require('./storage/order-repository');
+const { emailService } = require('./email/email-service');
 
 async function verifyDatabaseRuntimeSecurity(pool, config) {
   const connCheck = await pool.testConnection();
@@ -137,6 +138,7 @@ async function seedInitialAdmin(config, targetStorage = null) {
 function createServer(configOverrides = {}) {
   const config = loadConfig(configOverrides);
   configureStorageAdapters(config);
+  emailService.configure(config);
   seedInitialAdmin(config).catch(() => {});
 
   const server = http.createServer(async (req, res) => {
@@ -161,6 +163,7 @@ function createServer(configOverrides = {}) {
   return {
     server,
     config,
+    emailService,
     start: async () => {
       if (config.databaseProvider === 'postgresql') {
         const pool = getPostgresPool({

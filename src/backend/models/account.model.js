@@ -119,6 +119,15 @@ function generateRecoveryToken() {
 }
 
 /**
+ * Generates an unpredictable single-use account registration verification token and its SHA-256 hash
+ */
+function generateVerificationToken() {
+  const rawToken = `vrt_${crypto.randomBytes(32).toString('hex')}`;
+  const tokenHash = hashToken(rawToken);
+  return { rawToken, tokenHash };
+}
+
+/**
  * Hashes a token using SHA-256 for secure storage (never store raw tokens in DB)
  */
 function hashToken(rawToken) {
@@ -133,5 +142,6 @@ module.exports = {
   validateAccountData,
   generateSessionToken,
   generateRecoveryToken,
+  generateVerificationToken,
   hashToken
 };

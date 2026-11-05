@@ -12,6 +12,7 @@ const {
   validateAccountData,
   generateSessionToken,
   generateRecoveryToken,
+  generateVerificationToken,
   hashToken
 } = require('../models/account.model');
 
@@ -20,12 +21,14 @@ class InMemoryAccountStorage {
     this.accounts = new Map();     // id -> account
     this.credentials = new Map();  // email -> { account_id, password_hash, password_salt, failed_attempts, locked_until, recovery_token_hash, recovery_token_expires_at }
     this.sessions = new Map();     // token_hash -> session
+    this.verificationTokens = new Map(); // token_hash -> verification
   }
 
   reset() {
     this.accounts.clear();
     this.credentials.clear();
     this.sessions.clear();
+    if (this.verificationTokens) this.verificationTokens.clear();
   }
 
   async createAccount(data, context = {}) {
@@ -418,6 +421,112 @@ class InMemoryAccountStorage {
     return count;
   }
 
+
+  async createVerificationToken(accountId, ttlSeconds = 86400) {
+    if (!accountId) {
+      const err = new Error('Account ID is required to generate verification token');
+      err.statusCode = 400;
+      throw err;
+    }
+    const account = this.accounts.get(accountId);
+    if (!account) {
+      const err = new Error('Account not found');
+      err.statusCode = 404;
+      throw err;
+    }
+
+    const { rawToken, tokenHash } = generateVerificationToken();
+    const expiresAt = new Date(Date.now() + (ttlSeconds * 1000)).toISOString();
+
+    // Invalidate any prior active verification tokens for this account
+    for (const record of this.verificationTokens.values()) {
+      if (record.account_id === accountId && !record.revoked_at) {
+        record.revoked_at = new Date().toISOString();
+      }
+    }
+
+    this.verificationTokens.set(tokenHash, {
+      id: crypto.randomUUID(),
+      account_id: accountId,
+      token_hash: tokenHash,
+      expires_at: expiresAt,
+      revoked_at: null,
+      created_at: new Date().toISOString()
+    });
+
+    return { rawToken, tokenHash, expiresAt };
+  }
+
+  async verifyEmailToken(rawToken) {
+    if (!rawToken || typeof rawToken !== 'string') {
+      const err = new Error('Verification token is required');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    const tokenHash = hashToken(rawToken);
+    const record = this.verificationTokens.get(tokenHash);
+
+    if (!record) {
+      const err = new Error('Invalid or expired verification token');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    if (record.revoked_at) {
+      const err = new Error('Verification token has already been used or is invalid');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    if (new Date() > new Date(record.expires_at)) {
+      const err = new Error('Verification token has expired. Please request a new verification email.');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    // Single-use: atomically consume token
+    record.revoked_at = new Date().toISOString();
+
+    // Activate account
+    const account = this.accounts.get(record.account_id);
+    if (!account) {
+      const err = new Error('Associated account not found');
+      err.statusCode = 404;
+      throw err;
+    }
+
+    account.is_active = true;
+    account.updated_at = new Date().toISOString();
+
+    return {
+      success: true,
+      accountId: account.id,
+      email: account.primary_email,
+      message: 'Account verified and activated successfully'
+    };
+  }
+
+  async resendVerificationToken(email, ttlSeconds = 86400) {
+    if (!email || typeof email !== 'string') {
+      return { success: true };
+    }
+    const cleanEmail = email.trim().toLowerCase();
+    const account = await this.findByEmail(cleanEmail);
+    if (!account || account.is_active) {
+      return { success: true }; // Zero account enumeration
+    }
+
+    const tokenRes = await this.createVerificationToken(account.id, ttlSeconds);
+    return {
+      success: true,
+      account,
+      token: tokenRes.rawToken,
+      tokenHash: tokenRes.tokenHash,
+      expiresAt: tokenRes.expiresAt
+    };
+  }
+
   async setAccountActiveStatus(accountId, isActive, context) {
     if (!accountId || typeof accountId !== 'string' || accountId.trim() === '') {
       const err = new Error('Account ID is required');
@@ -489,7 +598,7 @@ class PostgresAccountStorage {
     }
 
     // 1. Native asynchronous connection pool (PostgresPool or pg.Pool)
-    if (this.client.isPool || typeof this.client.queryAsync === 'function' || this.client.constructor?.name === 'Pool' || this.client.constructor?.name === 'PostgresPool') {
+    if (this.client.isPool || typeof this.client.queryAsync === 'function' || this.client.constructor?.name === 'Pool' || this.client.constructor?.name === 'BoundPool' || this.client.constructor?.name === 'PostgresPool') {
       const result = await this.client.query(text, params, context);
       return Array.isArray(result) ? result : (result.rows || []);
     }
@@ -969,6 +1078,126 @@ class PostgresAccountStorage {
     return rows.length;
   }
 
+
+  async createVerificationToken(accountId, ttlSeconds = 86400) {
+    if (!accountId) {
+      const err = new Error('Account ID is required to generate verification token');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    // Invalidate existing active verification tokens for this account
+    await this.executeQuery(`
+      UPDATE auth_sessions
+      SET revoked_at = CURRENT_TIMESTAMP
+      WHERE account_id = $1 AND user_agent = 'VERIFICATION_TOKEN' AND revoked_at IS NULL;
+    `, [accountId], { role: 'managing_partner' });
+
+    const { rawToken, tokenHash } = generateVerificationToken();
+    const expiresAt = new Date(Date.now() + (ttlSeconds * 1000)).toISOString();
+
+    await this.executeQuery(`
+      INSERT INTO auth_sessions (
+        session_token_hash, account_id, role, user_agent, expires_at
+      ) VALUES (
+        $1, $2, 'client', 'VERIFICATION_TOKEN', CURRENT_TIMESTAMP + ($3 || ' seconds')::interval
+      );
+    `, [tokenHash, accountId, String(ttlSeconds)], { role: 'managing_partner' });
+
+    return { rawToken, tokenHash, expiresAt };
+  }
+
+  async verifyEmailToken(rawToken) {
+    if (!rawToken || typeof rawToken !== 'string') {
+      const err = new Error('Verification token is required');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    const tokenHash = hashToken(rawToken);
+
+    // Atomically consume token and activate account
+    const query = `
+      WITH consumed_token AS (
+        UPDATE auth_sessions
+        SET revoked_at = CURRENT_TIMESTAMP
+        WHERE session_token_hash = $1
+          AND user_agent = 'VERIFICATION_TOKEN'
+          AND revoked_at IS NULL
+          AND expires_at > CURRENT_TIMESTAMP
+        RETURNING account_id
+      ),
+      activated_account AS (
+        UPDATE client_accounts
+        SET is_active = true, updated_at = CURRENT_TIMESTAMP
+        WHERE id IN (SELECT account_id FROM consumed_token)
+        RETURNING id, primary_email
+      )
+      SELECT c.account_id, a.primary_email
+      FROM consumed_token c
+      JOIN activated_account a ON a.id = c.account_id;
+    `;
+
+    const rows = await this.executeQuery(query, [tokenHash], { role: 'managing_partner' });
+
+    if (!rows || rows.length === 0) {
+      // Check why it failed for detailed security status
+      const existing = await this.executeQuery(`
+        SELECT revoked_at, expires_at FROM auth_sessions
+        WHERE session_token_hash = $1 AND user_agent = 'VERIFICATION_TOKEN';
+      `, [tokenHash], { role: 'managing_partner' });
+
+      if (existing && existing.length > 0) {
+        if (existing[0].revoked_at) {
+          const err = new Error('Verification token has already been used or is invalid');
+          err.statusCode = 400;
+          throw err;
+        }
+        if (new Date() > new Date(existing[0].expires_at)) {
+          const err = new Error('Verification token has expired. Please request a new verification email.');
+          err.statusCode = 400;
+          throw err;
+        }
+      }
+
+      const err = new Error('Invalid or expired verification token');
+      err.statusCode = 400;
+      throw err;
+    }
+
+    return {
+      success: true,
+      accountId: rows[0].account_id,
+      email: rows[0].primary_email,
+      message: 'Account verified and activated successfully'
+    };
+  }
+
+  async resendVerificationToken(email, ttlSeconds = 86400) {
+    if (!email || typeof email !== 'string') {
+      return { success: true };
+    }
+    const cleanEmail = email.trim().toLowerCase();
+    const rows = await this.executeQuery(`
+      SELECT id, is_active, primary_email, legal_entity_name 
+      FROM client_accounts 
+      WHERE LOWER(primary_email) = $1 LIMIT 1;
+    `, [cleanEmail], { role: 'managing_partner' });
+
+    if (!rows || rows.length === 0 || rows[0].is_active) {
+      return { success: true }; // Zero account enumeration
+    }
+
+    const tokenRes = await this.createVerificationToken(rows[0].id, ttlSeconds);
+    return {
+      success: true,
+      account: rows[0],
+      token: tokenRes.rawToken,
+      tokenHash: tokenRes.tokenHash,
+      expiresAt: tokenRes.expiresAt
+    };
+  }
+
   async setAccountActiveStatus(accountId, isActive, context) {
     if (!accountId || typeof accountId !== 'string' || accountId.trim() === '') {
       const err = new Error('Account ID is required');
@@ -1119,6 +1348,28 @@ class AccountRepository {
 
   invalidatePasswordResetTokenByHash(email, tokenHash) {
     return this.adapter.invalidatePasswordResetTokenByHash(email, tokenHash);
+  }
+
+
+  createVerificationToken(accountId, ttlSeconds) {
+    if (this.adapter && typeof this.adapter.createVerificationToken === 'function') {
+      return this.adapter.createVerificationToken(accountId, ttlSeconds);
+    }
+    throw new Error('NOT_IMPLEMENTED: Current storage adapter does not support createVerificationToken');
+  }
+
+  verifyEmailToken(rawToken) {
+    if (this.adapter && typeof this.adapter.verifyEmailToken === 'function') {
+      return this.adapter.verifyEmailToken(rawToken);
+    }
+    throw new Error('NOT_IMPLEMENTED: Current storage adapter does not support verifyEmailToken');
+  }
+
+  resendVerificationToken(email, ttlSeconds) {
+    if (this.adapter && typeof this.adapter.resendVerificationToken === 'function') {
+      return this.adapter.resendVerificationToken(email, ttlSeconds);
+    }
+    throw new Error('NOT_IMPLEMENTED: Current storage adapter does not support resendVerificationToken');
   }
 
   setAccountActiveStatus(accountId, isActive, context) {

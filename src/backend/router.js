@@ -12,7 +12,9 @@ const {
   handleForgotPassword,
   handleResetPassword,
   handleRegister,
-  handleProvisionStaff
+  handleProvisionStaff,
+  handleVerifyEmail,
+  handleResendVerification
 } = require('./controllers/auth.controller');
 const { handleListCases, handleGetCase, handleCreateCase, handleUpdateCase, handleUpdateCaseStatus, handleListStaff } = require('./controllers/portal.controller');
 const {
@@ -160,6 +162,27 @@ async function routeRequest(req, res, config) {
     }
     const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
     return await handleRegister(req, res, config, body);
+  }
+  if (pathname === '/api/v1/auth/verify-email') {
+    if (method === 'GET') {
+      const token = parsedUrl.searchParams.get('token');
+      return await handleVerifyEmail(req, res, config, token);
+    }
+    if (method === 'POST') {
+      const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
+      return await handleVerifyEmail(req, res, config, body ? body.token : null);
+    }
+    res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET, POST' });
+    return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+  }
+
+  if (pathname === '/api/v1/auth/resend-verification') {
+    if (method !== 'POST') {
+      res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'POST' });
+      return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+    }
+    const body = await parseJsonBody(req, res, config.maxPayloadSizeBytes);
+    return await handleResendVerification(req, res, config, body);
   }
 
   // 5. Portal & Case Routes

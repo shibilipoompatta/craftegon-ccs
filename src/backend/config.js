@@ -50,8 +50,8 @@ function loadConfig(overrides = {}) {
     isDev,
     isTest,
     isProd: env === 'production',
-    host: overrides.HOST || process.env.HOST || '127.0.0.1',
-    port: parseInt(overrides.PORT || process.env.PORT || '3001', 10),
+    host: overrides.HOST || overrides.host || process.env.HOST || '127.0.0.1',
+    port: parseInt(overrides.PORT || overrides.port || process.env.PORT || '3001', 10),
     corsOrigin: overrides.CORS_ORIGIN || process.env.CORS_ORIGIN || 'http://localhost:8080',
     
     // Security & Anti-Abuse
@@ -75,8 +75,19 @@ function loadConfig(overrides = {}) {
     maxDocumentSizeBytes: parseInt(overrides.MAX_DOCUMENT_SIZE_BYTES || process.env.MAX_DOCUMENT_SIZE_BYTES || '15728640', 10), // 15 MB
     scannerEnabled: overrides.SCANNER_ENABLED !== undefined ? Boolean(overrides.SCANNER_ENABLED) : (process.env.SCANNER_ENABLED === 'true'),
 
+    // Transactional Email & Lifecycle Settings
+    emailProvider: overrides.EMAIL_PROVIDER || overrides.emailProvider || process.env.EMAIL_PROVIDER || 'memory',
+    emailFrom: overrides.EMAIL_FROM || overrides.emailFrom || process.env.EMAIL_FROM || 'compliance@craftegon.local',
+    emailStaffRecipient: overrides.EMAIL_STAFF_RECIPIENT || overrides.emailStaffRecipient || process.env.EMAIL_STAFF_RECIPIENT || 'compliance-desk@craftegon.local',
+    emailAppUrl: overrides.EMAIL_APP_URL || overrides.emailAppUrl || process.env.EMAIL_APP_URL || 'http://localhost:8080',
+    emailTimeoutMs: parseInt(overrides.EMAIL_TIMEOUT_MS || process.env.EMAIL_TIMEOUT_MS || '5000', 10),
+    emailDeliveryEnabled: overrides.EMAIL_DELIVERY_ENABLED !== undefined ? Boolean(overrides.EMAIL_DELIVERY_ENABLED) : (overrides.emailDeliveryEnabled !== undefined ? Boolean(overrides.emailDeliveryEnabled) : (process.env.EMAIL_DELIVERY_ENABLED === 'true')),
+    requireEmailVerification: overrides.REQUIRE_EMAIL_VERIFICATION !== undefined ? Boolean(overrides.REQUIRE_EMAIL_VERIFICATION) : (overrides.requireEmailVerification !== undefined ? Boolean(overrides.requireEmailVerification) : (process.env.REQUIRE_EMAIL_VERIFICATION === 'true')),
+    verificationTokenTtlSeconds: parseInt(overrides.VERIFICATION_TOKEN_TTL_SECONDS || overrides.verificationTokenTtlSeconds || process.env.VERIFICATION_TOKEN_TTL_SECONDS || '86400', 10),
+    passwordResetTokenTtlSeconds: parseInt(overrides.PASSWORD_RESET_TOKEN_TTL_SECONDS || overrides.passwordResetTokenTtlSeconds || process.env.PASSWORD_RESET_TOKEN_TTL_SECONDS || '3600', 10),
+
     // Candidate Providers (Metadata placeholders - zero cloud connections)
-    databaseProvider: overrides.DATABASE_PROVIDER || process.env.DATABASE_PROVIDER || 'local_in_memory',
+    databaseProvider: overrides.DATABASE_PROVIDER || overrides.databaseProvider || process.env.DATABASE_PROVIDER || 'local_in_memory',
     pgHost: overrides.PGHOST || overrides.pgHost || process.env.PGHOST || '127.0.0.1',
     pgPort: parseInt(overrides.PGPORT || overrides.pgPort || process.env.PGPORT || '5432', 10),
     pgUser: overrides.PGUSER || overrides.pgUser || process.env.PGUSER || 'postgres',

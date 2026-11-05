@@ -10,6 +10,7 @@ const { computeContentHash, getIdempotencyRecord, setIdempotencyRecord } = requi
 const { maskPii, recordAuditEvent } = require('../middleware/audit-logger');
 const { requireAuth } = require('../middleware/auth-guard');
 const { enquiryRepository } = require('../storage/enquiry-repository');
+const { emailService } = require('../email/email-service');
 
 async function handleCreateEnquiry(req, res, config, body) {
   const clientIp = resolveClientIp(req, config.trustedProxies);
@@ -170,7 +171,41 @@ async function handleCreateEnquiry(req, res, config, body) {
     }
   });
 
-  // 8. Cache response for idempotency
+  // 8. Transactional Notifications: Enquiry Receipt & Staff Alert
+  if (emailService.isDeliveryConfigured()) {
+    try {
+      // Customer confirmation receipt (strictly zero internal notes or other client info)
+      await emailService.sendEnquiryReceipt({
+        to: body.email.trim(),
+        name: body.contact_name ? body.contact_name.trim() : 'Valued Client',
+        leadReference: enquiryRecord.lead_reference,
+        serviceId: body.service_id,
+        verticalId: body.vertical_id
+      });
+
+      // Internal staff alert
+      await emailService.sendStaffEnquiryNotification({
+        to: config.emailStaffRecipient,
+        leadReference: enquiryRecord.lead_reference,
+        serviceId: body.service_id,
+        verticalId: body.vertical_id,
+        contactName: body.contact_name ? body.contact_name.trim() : 'Corporate Client'
+      });
+    } catch (emailErr) {
+      // Safe resilience: email failure must never fail the HTTP 201 response for a persisted enquiry
+      recordAuditEvent({
+        event_type: 'ENQUIRY_NOTIFICATION_FAILED',
+        actor_role: 'system',
+        target_entity: 'lead_enquiries',
+        target_id: lead_reference,
+        client_ip_hash: ipHash,
+        action_status: 'FAILED',
+        metadata: { error: emailErr.message }
+      });
+    }
+  }
+
+  // 9. Cache response for idempotency
   const responseData = {
     success: true,
     lead_reference,
