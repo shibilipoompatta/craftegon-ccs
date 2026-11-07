@@ -242,6 +242,10 @@ async function executeCompanySearch(e) {
   showLoading('company-results');
   try {
     const result = await searchCompany(query);
+    if (result && result.notFound) {
+      showNotFound('company-results', query, 'company');
+      return;
+    }
     renderCompanyResult(result);
   } catch (err) {
     showError('company-results', err.message);
@@ -255,6 +259,10 @@ async function executeTrademarkSearch(e) {
   showLoading('tm-results');
   try {
     const result = await searchTrademark(query);
+    if (result && result.notFound) {
+      showNotFound('tm-results', query, 'trademark');
+      return;
+    }
     renderTrademarkResult(result);
   } catch (err) {
     showError('tm-results', err.message);
@@ -274,6 +282,10 @@ async function executeGstinSearch(e) {
   showLoading('gstin-results');
   try {
     const result = await searchGstin(query);
+    if (result && result.notFound) {
+      showNotFound('gstin-results', query, 'gstin');
+      return;
+    }
     renderGstinResult(result);
   } catch (err) {
     showError('gstin-results', err.message);
@@ -300,8 +312,8 @@ async function searchCompany(query) {
   } catch (err) {
     console.warn('Live company search unavailable, using fallback:', err);
   }
-  // Generate synthetic result for unknown queries
-  return generateSyntheticCompany(query);
+  // Return transparent unverified notice — do not fabricate synthetic records
+  return { notFound: true, query: query, type: 'company' };
 }
 
 async function searchTrademark(query) {
@@ -322,7 +334,8 @@ async function searchTrademark(query) {
   } catch (err) {
     console.warn('Live trademark search unavailable:', err);
   }
-  return generateSyntheticTrademark(query);
+  // Return transparent unverified notice — do not fabricate synthetic records
+  return { notFound: true, query: query, type: 'trademark' };
 }
 
 async function searchGstin(query) {
@@ -341,7 +354,8 @@ async function searchGstin(query) {
   } catch (err) {
     console.warn('Live GSTIN search unavailable:', err);
   }
-  return generateSyntheticGstin(query);
+  // Return transparent unverified notice — do not fabricate synthetic records
+  return { notFound: true, query: query, type: 'gstin' };
 }
 
 function generateSyntheticCompany(query) {
@@ -367,7 +381,7 @@ function generateSyntheticCompany(query) {
       dir3kyc: { all: false, status: 'Unknown' }
     },
     risks: [
-      { title: 'Section 137 / 92 RoC Deadline', level: 'HIGH RISK', color: '#EF4444', desc: 'AOC-4 / MGT-7 filings appear overdue. Immediate Section 403 late fee exposure at ₹100/day per form. CCFS-2026 amnesty available until 15 Sep 2026 (10% additional fee).' },
+      { title: 'Section 137 / 92 RoC Deadline', level: 'HIGH RISK', color: '#EF4444', desc: 'AOC-4 / MGT-7 filings appear overdue. Immediate Section 403 statutory late fee exposure at ₹100/day per form. Verify current fee schedule on official MCA portal.' },
       { title: 'Director DIN KYC (Rule 12A)', level: 'UNKNOWN', color: '#F59E0B', desc: 'DIN KYC status unverified. Risk of ₹5,000 reactivation penalty and Section 164(2) disqualification if overdue.' },
       { title: 'MSME Section 43B(h) Audit', level: 'REVIEW NEEDED', color: '#F59E0B', desc: 'Verify vendor MSME status and payment aging. 45-day rule compliance required for tax deduction preservation.' },
       { title: 'Rule 9B PAS-6 Demat Audit', level: 'CHECK APPLICABILITY', color: '#F59E0B', desc: 'Determine if entity qualifies as non-small private company requiring half-yearly ISIN reconciliation.' }
@@ -452,6 +466,53 @@ function showError(containerId, message) {
       <strong>Search Unavailable:</strong> ${escapeHtml(message)}
       <br><br>
       <a href="/search/" class="btn-royal-outline" style="margin-top: 0.5rem; display: inline-block;">Try Again &rarr;</a>
+    </div>
+  `;
+}
+
+function showNotFound(containerId, query, type) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.style.display = 'block';
+  const typeLabel = type === 'trademark' ? 'Trademark Application' : type === 'gstin' ? 'GSTIN Record' : 'Corporate Entity';
+  const registryUrl = type === 'trademark' 
+    ? 'https://ipindiaservices.gov.in/eregister/eregister.aspx' 
+    : type === 'gstin' 
+      ? 'https://services.gst.gov.in/services/searchtp' 
+      : 'https://www.mca.gov.in/content/mca/global/en/mca/fo-llp-services/company-llp-name-search.html';
+  const registryName = type === 'trademark' 
+    ? 'IP India Trade Marks Portal' 
+    : type === 'gstin' 
+      ? 'Official GST Portal' 
+      : 'Official MCA V3 Portal';
+
+  container.innerHTML = `
+    <div class="result-card" style="border-left: 4px solid var(--text-dark-gold, #8C6D14); background: #FFFFFF; padding: 1.5rem; border-radius: 8px;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+        <span class="noble-badge" style="background: rgba(140, 109, 20, 0.1); color: var(--text-dark-gold, #8C6D14); border-color: rgba(140, 109, 20, 0.3);">
+          Registry Status Notice
+        </span>
+        <span style="font-size: 0.8rem; color: var(--text-muted, #64748B);">Static Directory Mode</span>
+      </div>
+      <h3 style="font-family: var(--font-heading, 'Cinzel', serif); font-size: 1.15rem; color: var(--navy-800, #0B2545); margin: 0 0 0.5rem;">
+        No Verified Record in Benchmark Index for "${escapeHtml(query)}"
+      </h3>
+      <p style="font-size: 0.88rem; color: var(--text-main, #334155); line-height: 1.6; margin-bottom: 1rem;">
+        This public directory currently operates in static demonstration mode. Live, real-time government registry lookups are not connected in this edge deployment, and CraftEgon CCS <strong>does not fabricate synthetic corporate records, fictional filing histories, or estimated compliance penalties</strong>.
+      </p>
+      <div style="background: var(--bg-slate, #F8FAFC); border: 1px solid var(--border-color, #E2E8F0); border-radius: 6px; padding: 1rem; margin-bottom: 1.25rem; font-size: 0.82rem; color: var(--text-muted, #64748B); line-height: 1.5;">
+        <strong style="color: var(--navy-800, #0B2545); display: block; margin-bottom: 0.25rem;">How to obtain verified registry data:</strong>
+        1. <strong>Official Verification:</strong> Inspect certified records directly on the <a href="${registryUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--text-dark-gold, #8C6D14); text-decoration: underline;">${registryName} &rarr;</a>.<br>
+        2. <strong>Compliance Advisory:</strong> Connect with our corporate desk for manual statutory search, entity standing verification, or incorporation assistance.
+      </div>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="https://wa.me/918606918247?text=${encodeURIComponent('Hello CraftEgon Compliance Desk, I would like to verify entity/trademark records for: ' + query)}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
+          💬 Request Desk Search (+91 86069 18247) &rarr;
+        </a>
+        <a href="/search/" class="btn-royal-outline" style="padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; border-radius: 6px;">
+          View Benchmark Examples
+        </a>
+      </div>
     </div>
   `;
 }
