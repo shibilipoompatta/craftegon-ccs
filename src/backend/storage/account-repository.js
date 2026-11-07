@@ -413,7 +413,7 @@ class InMemoryAccountStorage {
     if (!accountId) return 0;
     let count = 0;
     for (const session of this.sessions.values()) {
-      if (session.account_id === accountId && !session.revoked_at) {
+      if (session.account_id === accountId && session.user_agent !== 'VERIFICATION_TOKEN' && !session.revoked_at) {
         session.revoked_at = new Date().toISOString();
         count++;
       }
@@ -588,10 +588,29 @@ class InMemoryAccountStorage {
 }
 
 class PostgresAccountStorage {
-  constructor(pgClient) {
+  constructor(pgClient, options = {}) {
     this.client = pgClient;
+    this.authClient = options.authPool || options.authClient || pgClient;
+    this.govClient = options.govPool || options.govClient || pgClient;
   }
 
+  async executeAuthQuery(text, params = [], context = {}) {
+    const client = this.authClient || this.client;
+    if (client.isPool || typeof client.queryAsync === 'function' || client.constructor?.name === 'Pool' || client.constructor?.name === 'BoundPool' || client.constructor?.name === 'PostgresPool') {
+      const result = await client.query(text, params, context);
+      return Array.isArray(result) ? result : (result.rows || []);
+    }
+    return this.executeQuery(text, params, context);
+  }
+
+  async executeGovQuery(text, params = [], context = {}) {
+    const client = this.govClient || this.client;
+    if (client.isPool || typeof client.queryAsync === 'function' || client.constructor?.name === 'Pool' || client.constructor?.name === 'BoundPool' || client.constructor?.name === 'PostgresPool') {
+      const result = await client.query(text, params, context);
+      return Array.isArray(result) ? result : (result.rows || []);
+    }
+    return this.executeQuery(text, params, context);
+  }
   async executeQuery(text, params = [], context = {}) {
     if (!this.client) {
       throw new Error('POSTGRES_CLIENT_UNAVAILABLE: Cannot query PostgreSQL without active client');
@@ -713,29 +732,55 @@ class PostgresAccountStorage {
       role: assignedRole
     });
 
-    // 1. Insert Client Account
-    const accQuery = 'INSERT INTO client_accounts (id, auth_user_id, legal_entity_name, cin_llpin, primary_email, primary_phone, account_role, is_active) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;';
-    const accRows = await this.executeQuery(accQuery, [
-      accountId,
-      authUserId,
-      data.legal_entity_name || 'Individual Client',
-      data.cin_llpin || null,
-      email,
-      data.primary_phone || '+91 9876543210',
-      assignedRole,
-      data.is_active !== false
-    ], contextForInsert);
+    // 1. Insert Account (Gov pool for staff provisioning, App pool for client registration)
+    // For client registration, is_active is omitted from column list; trigger unconditionally enforces is_active = false.
+    let accQuery;
+    let accParams;
+    if (assignedRole === 'client') {
+      accQuery = 'INSERT INTO client_accounts (id, auth_user_id, legal_entity_name, cin_llpin, primary_email, primary_phone, account_role) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;';
+      accParams = [
+        accountId,
+        authUserId,
+        data.legal_entity_name || 'Individual Client',
+        data.cin_llpin || null,
+        email,
+        data.primary_phone || '+91 9876543210',
+        'client'
+      ];
+    } else {
+      accQuery = 'INSERT INTO client_accounts (id, auth_user_id, legal_entity_name, cin_llpin, primary_email, primary_phone, account_role, is_active) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;';
+      accParams = [
+        accountId,
+        authUserId,
+        data.legal_entity_name || 'Individual Client',
+        data.cin_llpin || null,
+        email,
+        data.primary_phone || '+91 9876543210',
+        assignedRole,
+        data.is_active !== false
+      ];
+    }
+    const accFn = assignedRole === 'client' ? this.executeQuery.bind(this) : this.executeGovQuery.bind(this);
+    const accRows = await accFn(accQuery, accParams, contextForInsert);
 
     const createdAccount = accRows[0];
 
-    // 2. Insert Auth Credentials
+    // 2. Insert Auth Credentials (ALWAYS via authPool running as craftegon_auth_user)
     const credQuery = 'INSERT INTO auth_credentials (account_id, email, password_hash, password_salt) VALUES ($1, $2, $3, $4) RETURNING id;';
-    await this.executeQuery(credQuery, [
-      accountId,
-      email,
-      passwordHash,
-      passwordSalt
-    ], contextForInsert);
+    try {
+      await this.executeAuthQuery(credQuery, [
+        accountId,
+        email,
+        passwordHash,
+        passwordSalt
+      ], contextForInsert);
+    } catch (credErr) {
+      // Inactive account remains dormant (is_active = false) for audit and data integrity.
+      // Reconciled strictly via two-person governance protocol after the 1-hour policy threshold.
+      // Zero silent exception swallowing; failure is logged with context and rethrown.
+      console.error(`[AccountStorage] Failed to create credentials for account ${accountId}: ${credErr.message}`);
+      throw credErr;
+    }
 
     // Sanitize returned object: do not expose password hashes, salts or internal credentials
     return {
@@ -789,7 +834,7 @@ class PostgresAccountStorage {
       WHERE LOWER(ac.email) = $1
       LIMIT 1;
     `;
-    const rows = await this.executeQuery(query, [cleanEmail], { role: 'managing_partner' });
+    const rows = await this.executeAuthQuery(query, [cleanEmail]);
     const cred = rows[0];
 
     if (!cred) {
@@ -814,7 +859,7 @@ class PostgresAccountStorage {
       if (newAttempts >= 5) {
         lockClause = `, locked_until = CURRENT_TIMESTAMP + INTERVAL '15 minutes'`;
       }
-      await this.executeQuery(`
+      await this.executeAuthQuery(`
         UPDATE auth_credentials
         SET failed_attempts = $1 ${lockClause}, updated_at = CURRENT_TIMESTAMP
         WHERE id = $2;
@@ -824,7 +869,7 @@ class PostgresAccountStorage {
     }
 
     // Reset failed attempts on success
-    await this.executeQuery(`
+    await this.executeAuthQuery(`
       UPDATE auth_credentials
       SET failed_attempts = 0, locked_until = NULL, updated_at = CURRENT_TIMESTAMP
       WHERE id = $1;
@@ -852,13 +897,13 @@ class PostgresAccountStorage {
   async createPasswordResetToken(email) {
     if (!email || typeof email !== 'string') return { success: true };
     const cleanEmail = email.trim().toLowerCase();
-    const rows = await this.executeQuery(`SELECT id FROM auth_credentials WHERE LOWER(email) = $1;`, [cleanEmail]);
+    const rows = await this.executeAuthQuery(`SELECT id FROM auth_credentials WHERE LOWER(email) = $1;`, [cleanEmail]);
     if (!rows[0]) {
       return { success: true };
     }
 
     const { rawToken, tokenHash } = generateRecoveryToken();
-    await this.executeQuery(`
+    await this.executeAuthQuery(`
       UPDATE auth_credentials
       SET recovery_token_hash = $1,
           recovery_token_expires_at = CURRENT_TIMESTAMP + INTERVAL '1 hour',
@@ -882,7 +927,7 @@ class PostgresAccountStorage {
       WHERE LOWER(email) = $1 AND recovery_token_hash = $2
       RETURNING id;
     `;
-    const rows = await this.executeQuery(query, [cleanEmail, tokenHash]);
+    const rows = await this.executeAuthQuery(query, [cleanEmail, tokenHash]);
     return { success: true, invalidated: rows.length > 0 };
   }
 
@@ -922,7 +967,7 @@ class PostgresAccountStorage {
       )
       SELECT account_id FROM updated_cred;
     `;
-    const rows = await this.executeQuery(query, [hashed.hash, hashed.salt, accountId]);
+    const rows = await this.executeAuthQuery(query, [hashed.hash, hashed.salt, accountId]);
     if (!rows || rows.length === 0) {
       const err = new Error('Account credential record not found');
       err.statusCode = 404;
@@ -974,7 +1019,7 @@ class PostgresAccountStorage {
       SELECT account_id FROM updated_cred;
     `;
 
-    const rows = await this.executeQuery(query, [hashed.hash, hashed.salt, tokenHash]);
+    const rows = await this.executeAuthQuery(query, [hashed.hash, hashed.salt, tokenHash]);
     if (!rows || rows.length === 0) {
       const err = new Error('Invalid or expired password reset token');
       err.statusCode = 400;
@@ -998,7 +1043,7 @@ class PostgresAccountStorage {
         $1, $2, $3, $4, $5, CURRENT_TIMESTAMP + ($6 || ' seconds')::interval
       ) RETURNING *;
     `;
-    const rows = await this.executeQuery(query, [
+    const rows = await this.executeAuthQuery(query, [
       tokenHash,
       account.id,
       account.account_role || 'client',
@@ -1026,7 +1071,7 @@ class PostgresAccountStorage {
     if (!rawToken) return null;
     const tokenHash = hashToken(rawToken);
     const query = 'SELECT s.id AS session_id, s.account_id, s.role, s.expires_at, s.revoked_at, ca.id AS client_account_id, ca.legal_entity_name, ca.cin_llpin, ca.primary_email, ca.is_active AS account_is_active FROM auth_sessions s LEFT JOIN client_accounts ca ON ca.id = s.account_id WHERE s.session_token_hash = $1 AND s.revoked_at IS NULL AND s.expires_at > CURRENT_TIMESTAMP LIMIT 1;';
-    const rows = await this.executeQuery(query, [tokenHash], { role: 'managing_partner' });
+    const rows = await this.executeAuthQuery(query, [tokenHash]);
     const record = rows[0];
     if (!record) return null;
 
@@ -1062,7 +1107,7 @@ class PostgresAccountStorage {
       WHERE session_token_hash = $1 AND revoked_at IS NULL
       RETURNING id;
     `;
-    const rows = await this.executeQuery(query, [tokenHash]);
+    const rows = await this.executeAuthQuery(query, [tokenHash]);
     return rows.length > 0;
   }
 
@@ -1071,10 +1116,12 @@ class PostgresAccountStorage {
     const query = `
       UPDATE auth_sessions
       SET revoked_at = CURRENT_TIMESTAMP
-      WHERE account_id = $1 AND revoked_at IS NULL
+      WHERE account_id = $1 
+        AND (user_agent IS DISTINCT FROM 'VERIFICATION_TOKEN')
+        AND revoked_at IS NULL
       RETURNING id;
     `;
-    const rows = await this.executeQuery(query, [accountId]);
+    const rows = await this.executeAuthQuery(query, [accountId]);
     return rows.length;
   }
 
@@ -1087,22 +1134,22 @@ class PostgresAccountStorage {
     }
 
     // Invalidate existing active verification tokens for this account
-    await this.executeQuery(`
+    await this.executeAuthQuery(`
       UPDATE auth_sessions
       SET revoked_at = CURRENT_TIMESTAMP
       WHERE account_id = $1 AND user_agent = 'VERIFICATION_TOKEN' AND revoked_at IS NULL;
-    `, [accountId], { role: 'managing_partner' });
+    `, [accountId]);
 
     const { rawToken, tokenHash } = generateVerificationToken();
     const expiresAt = new Date(Date.now() + (ttlSeconds * 1000)).toISOString();
 
-    await this.executeQuery(`
+    await this.executeAuthQuery(`
       INSERT INTO auth_sessions (
         session_token_hash, account_id, role, user_agent, expires_at
       ) VALUES (
         $1, $2, 'client', 'VERIFICATION_TOKEN', CURRENT_TIMESTAMP + ($3 || ' seconds')::interval
       );
-    `, [tokenHash, accountId, String(ttlSeconds)], { role: 'managing_partner' });
+    `, [tokenHash, accountId, String(ttlSeconds)]);
 
     return { rawToken, tokenHash, expiresAt };
   }
@@ -1116,36 +1163,16 @@ class PostgresAccountStorage {
 
     const tokenHash = hashToken(rawToken);
 
-    // Atomically consume token and activate account
-    const query = `
-      WITH consumed_token AS (
-        UPDATE auth_sessions
-        SET revoked_at = CURRENT_TIMESTAMP
-        WHERE session_token_hash = $1
-          AND user_agent = 'VERIFICATION_TOKEN'
-          AND revoked_at IS NULL
-          AND expires_at > CURRENT_TIMESTAMP
-        RETURNING account_id
-      ),
-      activated_account AS (
-        UPDATE client_accounts
-        SET is_active = true, updated_at = CURRENT_TIMESTAMP
-        WHERE id IN (SELECT account_id FROM consumed_token)
-        RETURNING id, primary_email
-      )
-      SELECT c.account_id, a.primary_email
-      FROM consumed_token c
-      JOIN activated_account a ON a.id = c.account_id;
-    `;
-
-    const rows = await this.executeQuery(query, [tokenHash], { role: 'managing_partner' });
+    // Call dedicated atomic stored procedure (GAP-08)
+    const procQuery = 'SELECT account_id, primary_email FROM public.sp_consume_email_verification_token($1);';
+    const rows = await this.executeQuery(procQuery, [tokenHash]);
 
     if (!rows || rows.length === 0) {
-      // Check why it failed for detailed security status
-      const existing = await this.executeQuery(`
+      // Check why it failed for detailed security status using auth pool
+      const existing = await this.executeAuthQuery(`
         SELECT revoked_at, expires_at FROM auth_sessions
         WHERE session_token_hash = $1 AND user_agent = 'VERIFICATION_TOKEN';
-      `, [tokenHash], { role: 'managing_partner' });
+      `, [tokenHash]);
 
       if (existing && existing.length > 0) {
         if (existing[0].revoked_at) {
@@ -1241,7 +1268,7 @@ class PostgresAccountStorage {
       SELECT id, primary_email, account_role, is_active, updated_at FROM updated_acc;
     `;
 
-    const rows = await this.executeQuery(query, [isActive, accountId]);
+    const rows = await this.executeGovQuery(query, [isActive, accountId]);
     if (!rows || rows.length === 0) {
       const err = new Error('Account not found');
       err.statusCode = 404;
@@ -1267,7 +1294,7 @@ class PostgresAccountStorage {
       ORDER BY legal_entity_name ASC;
     `;
 
-    const rows = await this.executeQuery(query, []);
+    const rows = await this.executeQuery(query, [], context);
     return rows.map(acc => ({
       id: acc.id,
       legal_entity_name: acc.legal_entity_name,

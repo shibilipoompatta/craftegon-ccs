@@ -572,8 +572,8 @@ async function runTests() {
     assert.ok(tokenMatch, 'Verification token captured');
     const rawPgToken = tokenMatch[1];
 
-    // Inspect direct PostgreSQL database state
-    const pool = new PostgresPool({ database: testDb });
+    // Inspect direct PostgreSQL database state as admin
+    const pool = new PostgresPool({ database: testDb, user: 'postgres' });
     const accRowsPre = await pool.query('SELECT is_active FROM client_accounts WHERE id = $1', [accountId]);
     assert.strictEqual(accRowsPre[0].is_active, false, 'Direct SQL: client_accounts.is_active is false');
 
@@ -672,6 +672,7 @@ async function runTests() {
   if (failedCount > 0) {
     process.exit(1);
   }
+  process.exit(0);
 }
 
 runTests().catch(err => {

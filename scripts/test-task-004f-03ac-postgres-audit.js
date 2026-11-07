@@ -60,6 +60,8 @@ class MockPostgresDatabase {
       const valuesMatch = innerSql.match(/VALUES\s*\(([\s\S]+?)\)\s*RETURNING/i);
       if (valuesMatch) {
         const rawVals = valuesMatch[1].split(',').map(s => s.trim().replace(/^'|'$/g, ''));
+        const hasIsActive = innerSql.includes('is_active');
+        const isActiveVal = hasIsActive ? (rawVals[7] === 'true') : false;
         const row = {
           id: rawVals[0],
           auth_user_id: rawVals[1],
@@ -68,7 +70,7 @@ class MockPostgresDatabase {
           primary_email: rawVals[4],
           primary_phone: rawVals[5],
           account_role: rawVals[6],
-          is_active: rawVals[7] === 'true',
+          is_active: isActiveVal,
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
         };
@@ -238,6 +240,9 @@ async function runTask03ACTests() {
     password: 'ValidPassword2026!'
   });
   assert.strictEqual(clientAcc.account_role, 'client');
+  // Task 004F-03AK: Registered account is initially inactive; activate for active session scenario
+  db.clientAccounts.get(clientAcc.id).is_active = true;
+  clientAcc.is_active = true;
   assert.strictEqual(clientAcc.is_active, true);
 
   const { token: clientToken } = await pgStorage.createSession(clientAcc, {}, 3600);
@@ -346,6 +351,8 @@ async function runTask03ACTests() {
     primary_phone: '+91 9876500003',
     password: 'ValidPassword2026!'
   });
+  db.clientAccounts.get(client2.id).is_active = true;
+  client2.is_active = true;
 
   // Session with TTL = 0 (immediately expired)
   const { token: expiredToken } = await pgStorage.createSession(client2, {}, 0);

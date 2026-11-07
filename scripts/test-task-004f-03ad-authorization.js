@@ -81,6 +81,8 @@ class MockPostgresDatabase {
       const valuesMatch = innerSql.match(/VALUES\s*\(([\s\S]+?)\)\s*RETURNING/i);
       if (valuesMatch) {
         const rawVals = valuesMatch[1].split(',').map(s => s.trim().replace(/^'|'$/g, ''));
+        const hasIsActive = innerSql.includes('is_active');
+        const isActiveVal = hasIsActive ? (rawVals[7] === 'true') : false;
         const row = {
           id: rawVals[0],
           auth_user_id: rawVals[1],
@@ -89,7 +91,7 @@ class MockPostgresDatabase {
           primary_email: rawVals[4],
           primary_phone: rawVals[5],
           account_role: rawVals[6],
-          is_active: rawVals[7] === 'true',
+          is_active: isActiveVal,
           created_at: new Date().toISOString(),
           updated_at: new Date().toISOString()
         };
@@ -395,6 +397,9 @@ async function runTask03ADTests() {
     primary_phone: '+91 9876500002',
     password: 'ValidPassword2026!'
   });
+  // Task 004F-03AK: Registered account is initially inactive; activate for active session test
+  db.clientAccounts.get(pgAccount.id).is_active = true;
+  pgAccount.is_active = true;
   const { token: pgToken } = await pgStorage.createSession(pgAccount);
   assert.ok(pgToken);
 

@@ -8,7 +8,7 @@ const { loadConfig } = require('./config');
 const { applySecurityHeaders } = require('./middleware/security-headers');
 const { routeRequest } = require('./router');
 const { postgresClient } = require('./storage/postgres-client');
-const { getPostgresPool } = require('./storage/postgres-pool');
+const { getPostgresPool, getAppPool, getAuthPool, getGovPool } = require('./storage/postgres-pool');
 const { enquiryRepository, PostgresEnquiryStorage, InMemoryEnquiryStorage } = require('./storage/enquiry-repository');
 const { accountRepository, PostgresAccountStorage, InMemoryAccountStorage } = require('./storage/account-repository');
 const { caseRepository, PostgresCaseStorage, InMemoryCaseStorage } = require('./storage/case-repository');
@@ -58,7 +58,6 @@ async function verifyDatabaseRuntimeSecurity(pool, config) {
   // 3. Runtime role permissions check
   try {
     await pool.query('SELECT 1 FROM client_accounts LIMIT 0;');
-    await pool.query('SELECT 1 FROM auth_credentials LIMIT 0;');
     await pool.query('SELECT 1 FROM auth_sessions LIMIT 0;');
     await pool.query('SELECT 1 FROM lead_enquiries LIMIT 0;');
     await pool.query('SELECT 1 FROM cases LIMIT 0;');
@@ -71,18 +70,30 @@ async function verifyDatabaseRuntimeSecurity(pool, config) {
 
 function configureStorageAdapters(config) {
   if (config.databaseProvider === 'postgresql') {
-    const pool = getPostgresPool({
+    const isSingleRole = config.pgUser && config.pgUser !== 'craftegon_app_user';
+    const appPool = getAppPool({
       host: config.pgHost,
       port: config.pgPort,
       user: config.pgUser,
       database: config.pgDatabase,
       password: config.pgPassword
     });
-    enquiryRepository.setAdapter(new PostgresEnquiryStorage(pool));
-    accountRepository.setAdapter(new PostgresAccountStorage(pool));
-    caseRepository.setAdapter(new PostgresCaseStorage(pool, config.pgRuntimeRole));
-    documentRepository.setAdapter(new PostgresDocumentStorage(pool, config.pgRuntimeRole));
-    orderRepository.setAdapter(new PostgresOrderStorage(pool, config.pgRuntimeRole));
+    const authPool = isSingleRole ? appPool : getAuthPool({
+      host: config.pgHost,
+      port: config.pgPort,
+      database: config.pgDatabase
+    });
+    const govPool = isSingleRole ? appPool : getGovPool({
+      host: config.pgHost,
+      port: config.pgPort,
+      database: config.pgDatabase
+    });
+
+    enquiryRepository.setAdapter(new PostgresEnquiryStorage(appPool));
+    accountRepository.setAdapter(new PostgresAccountStorage(appPool, { authPool, govPool }));
+    caseRepository.setAdapter(new PostgresCaseStorage(appPool, config.pgRuntimeRole));
+    documentRepository.setAdapter(new PostgresDocumentStorage(appPool, config.pgRuntimeRole));
+    orderRepository.setAdapter(new PostgresOrderStorage(appPool, config.pgRuntimeRole));
   } else {
     enquiryRepository.setAdapter(new InMemoryEnquiryStorage());
     accountRepository.setAdapter(new InMemoryAccountStorage());
@@ -166,7 +177,7 @@ function createServer(configOverrides = {}) {
     emailService,
     start: async () => {
       if (config.databaseProvider === 'postgresql') {
-        const pool = getPostgresPool({
+        const pool = getAppPool({
           host: config.pgHost,
           port: config.pgPort,
           user: config.pgUser,

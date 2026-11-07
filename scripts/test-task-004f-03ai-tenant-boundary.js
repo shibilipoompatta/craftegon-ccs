@@ -17,6 +17,7 @@ const http = require('node:http');
 const path = require('node:path');
 const fs = require('node:fs');
 const assert = require('node:assert');
+const crypto = require('node:crypto');
 const { Client, Pool } = require('pg');
 
 const { loadConfig } = require('../src/backend/config');
@@ -226,6 +227,24 @@ async function runTask03AISuite() {
   });
   assert.strictEqual(regB.statusCode, 201);
   const custBId = regB.body.account.id;
+
+  // Task 004F-03AK: Activate registered accounts via single-use email verification tokens
+  // Priority 1 Requirement 8: invoke sp_consume_email_verification_token
+  const vTokenA = 'vrt_test_token_alpha_' + Date.now();
+  const vHashA = crypto.createHash('sha256').update(vTokenA).digest('hex');
+  testDbClient.query(`
+    INSERT INTO auth_sessions (session_token_hash, account_id, role, user_agent, expires_at)
+    VALUES ('${vHashA}', '${custAId}', 'client', 'VERIFICATION_TOKEN', CURRENT_TIMESTAMP + INTERVAL '1 hour');
+    SELECT public.sp_consume_email_verification_token('${vHashA}');
+  `);
+
+  const vTokenB = 'vrt_test_token_beta_' + Date.now();
+  const vHashB = crypto.createHash('sha256').update(vTokenB).digest('hex');
+  testDbClient.query(`
+    INSERT INTO auth_sessions (session_token_hash, account_id, role, user_agent, expires_at)
+    VALUES ('${vHashB}', '${custBId}', 'client', 'VERIFICATION_TOKEN', CURRENT_TIMESTAMP + INTERVAL '1 hour');
+    SELECT public.sp_consume_email_verification_token('${vHashB}');
+  `);
 
   // Login Customer A
   const loginA = await request({

@@ -84,7 +84,7 @@ function loadConfig(overrides = {}) {
     emailDeliveryEnabled: overrides.EMAIL_DELIVERY_ENABLED !== undefined ? Boolean(overrides.EMAIL_DELIVERY_ENABLED) : (overrides.emailDeliveryEnabled !== undefined ? Boolean(overrides.emailDeliveryEnabled) : (process.env.EMAIL_DELIVERY_ENABLED === 'true')),
     requireEmailVerification: overrides.REQUIRE_EMAIL_VERIFICATION !== undefined ? Boolean(overrides.REQUIRE_EMAIL_VERIFICATION) : (overrides.requireEmailVerification !== undefined ? Boolean(overrides.requireEmailVerification) : (process.env.REQUIRE_EMAIL_VERIFICATION === 'true')),
     verificationTokenTtlSeconds: parseInt(overrides.VERIFICATION_TOKEN_TTL_SECONDS || overrides.verificationTokenTtlSeconds || process.env.VERIFICATION_TOKEN_TTL_SECONDS || '86400', 10),
-    passwordResetTokenTtlSeconds: parseInt(overrides.PASSWORD_RESET_TOKEN_TTL_SECONDS || overrides.passwordResetTokenTtlSeconds || process.env.PASSWORD_RESET_TOKEN_TTL_SECONDS || '3600', 10),
+    recoveryTokenTtlSeconds: parseInt(overrides.RECOVERY_TOKEN_TTL_SECONDS || overrides.PASSWORD_RESET_TOKEN_TTL_SECONDS || overrides.recoveryTokenTtlSeconds || overrides.passwordResetTokenTtlSeconds || process.env.RECOVERY_TOKEN_TTL_SECONDS || process.env.PASSWORD_RESET_TOKEN_TTL_SECONDS || '3600', 10),
 
     // Candidate Providers (Metadata placeholders - zero cloud connections)
     databaseProvider: overrides.DATABASE_PROVIDER || overrides.databaseProvider || process.env.DATABASE_PROVIDER || 'local_in_memory',

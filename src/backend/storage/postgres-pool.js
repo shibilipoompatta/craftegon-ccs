@@ -12,7 +12,23 @@ const { getPostgresCredentials } = require('./postgres-client');
 
 function resolvePassword(user, host, port, database, configuredPassword) {
   if (configuredPassword) return configuredPassword;
-  if (process.env.PGPASSWORD) return process.env.PGPASSWORD;
+
+  // 1. Role-specific environment variable (e.g. PGPASSWORD_CRAFTEGON_APP_USER)
+  const roleEnvKey = `PGPASSWORD_${String(user || '').toUpperCase().replace(/[^A-Z0-9_]/g, '_')}`;
+  if (process.env[roleEnvKey]) return process.env[roleEnvKey];
+
+  if (process.env.PGPASSWORD && (!user || user === 'postgres')) return process.env.PGPASSWORD;
+
+  // 2. Local secure credential vault (.vault/db-credentials.json)
+  const vaultPath = path.resolve(__dirname, '../../../.vault/db-credentials.json');
+  if (fs.existsSync(vaultPath)) {
+    try {
+      const vault = JSON.parse(fs.readFileSync(vaultPath, 'utf8'));
+      if (vault.clusterRoles && vault.clusterRoles[user] && vault.clusterRoles[user].password) {
+        return vault.clusterRoles[user].password;
+      }
+    } catch (_) {}
+  }
 
   const candidates = [];
   if (process.env.APPDATA) {
@@ -55,7 +71,7 @@ class PostgresPool {
     const creds = getPostgresCredentials();
     this.host = options.host || creds.host || '127.0.0.1';
     this.port = parseInt(options.port || creds.port || '5432', 10);
-    this.user = options.user || creds.user || 'postgres';
+    this.user = options.user || process.env.PG_APP_USER || 'craftegon_app_user';
     this.database = options.database || creds.database || 'craftegon_ccs_dev';
     this.password = resolvePassword(
       this.user,
@@ -124,7 +140,16 @@ class PostgresPool {
         } catch (_) {}
         throw err;
       } finally {
-        client.release();
+        try {
+          await client.query('RESET ALL;');
+          client.release();
+        } catch (resetErr) {
+          try {
+            client.release(resetErr || true);
+          } catch (_) {
+            try { client.destroy(); } catch (_) {}
+          }
+        }
       }
     }
 
@@ -157,7 +182,16 @@ class PostgresPool {
       } catch (_) {}
       throw err;
     } finally {
-      client.release();
+      try {
+        await client.query('RESET ALL;');
+        client.release();
+      } catch (resetErr) {
+        try {
+          client.release(resetErr || true);
+        } catch (_) {
+          try { client.destroy(); } catch (_) {}
+        }
+      }
     }
   }
 
@@ -248,11 +282,37 @@ const poolInstances = new Map();
 
 function getPostgresPool(options = {}) {
   const db = options.database || process.env.PGDATABASE || 'craftegon_ccs_dev';
-  const key = `${options.host || '127.0.0.1'}:${options.port || 5432}:${db}`;
+  const user = options.user || process.env.PG_APP_USER || 'craftegon_app_user';
+  const host = options.host || process.env.PGHOST || '127.0.0.1';
+  const port = options.port || process.env.PGPORT || 5432;
+  const ssl = options.ssl ? (typeof options.ssl === 'object' ? JSON.stringify(options.ssl) : String(options.ssl)) : 'none';
+  const key = `${user}@${host}:${port}/${db}?ssl=${ssl}`;
   if (!poolInstances.has(key)) {
-    poolInstances.set(key, new PostgresPool(options));
+    const opts = Object.assign({}, options, { user, database: db, host, port });
+    poolInstances.set(key, new PostgresPool(opts));
   }
   return poolInstances.get(key);
+}
+
+function getAppPool(options = {}) {
+  return getPostgresPool(Object.assign({}, options, {
+    user: options.user || process.env.PG_APP_USER || 'craftegon_app_user',
+    max: options.max || parseInt(process.env.PG_APP_POOL_MAX || '15', 10)
+  }));
+}
+
+function getAuthPool(options = {}) {
+  return getPostgresPool(Object.assign({}, options, {
+    user: options.user || process.env.PG_AUTH_USER || 'craftegon_auth_user',
+    max: options.max || parseInt(process.env.PG_AUTH_POOL_MAX || '5', 10)
+  }));
+}
+
+function getGovPool(options = {}) {
+  return getPostgresPool(Object.assign({}, options, {
+    user: options.user || process.env.PG_GOV_USER || 'craftegon_gov_user',
+    max: options.max || parseInt(process.env.PG_GOV_POOL_MAX || '3', 10)
+  }));
 }
 
 async function closeAllPools() {
@@ -267,6 +327,9 @@ async function closeAllPools() {
 module.exports = {
   PostgresPool,
   getPostgresPool,
+  getAppPool,
+  getAuthPool,
+  getGovPool,
   closeAllPools,
   resolvePassword
 };
