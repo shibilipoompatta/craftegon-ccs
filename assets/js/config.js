@@ -118,7 +118,7 @@
     brandShort: "CraftEgon CCS",
     brandSubtitle: "Corporate Services",
     legalEntity: "CraftEgon LLP",
-    headquarters: "Kozhikode, Kerala, India • PIN: 673001",
+    headquarters: "Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India • PIN: 690501",
     statutoryReg: "MCA V3 • RBI FIRMS • IP India",
 
     // Canonical Business Contact Parameters

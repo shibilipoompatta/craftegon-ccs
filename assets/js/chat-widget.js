@@ -103,7 +103,7 @@ const KB=[
   r:`CraftEgon Corporate Services (CCS) - Official Corporate Desk:<br>
   * <b>WhatsApp & Phone:</b> +91 86069 18247 (Direct Compliance Advisory)<br>
   * <b>Email:</b> admin@craftegon.com<br>
-  * <b>Registered HQ:</b> CraftEgon LLP, Kozhikode, Kerala, India - PIN: 673001<br>
+  * <b>Registered HQ:</b> CraftEgon LLP, Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India - PIN: 690501<br>
   * <b>Jurisdiction:</b> Pan-India coverage across all 24 RoC Offices, NCLT Benches & RBI Regional Offices.`,
   a:[['Chat Live on WhatsApp','https://wa.me/918606918247'],['Email Legal Desk','mailto:admin@craftegon.com'],['Annual Retainer Desk','/conversion/retainer-desk.html']]}
 ];

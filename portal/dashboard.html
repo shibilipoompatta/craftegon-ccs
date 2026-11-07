@@ -136,7 +136,7 @@
       <!-- Sample Demo Entity Quick Selectors -->
       <div class="sample-entities">
         <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Sample Profiles for Demonstration:</span>
-        <button class="sample-pill" onclick="loadSampleEntity('U72900KL2023PTC078912', 'CraftEgon Technologies Private Limited', 'Pvt Ltd', 'Kozhikode, Kerala', '₹10,00,000')">⚡ CraftEgon Tech Pvt Ltd</button>
+        <button class="sample-pill" onclick="loadSampleEntity('U72900KL2023PTC078912', 'CraftEgon Technologies Private Limited', 'Pvt Ltd', 'Alappuzha, Kerala', '₹10,00,000')">⚡ CraftEgon Tech Pvt Ltd</button>
         <button class="sample-pill" onclick="loadSampleEntity('AAB-8910', 'Malabar Ventures LLP', 'LLP', 'Ernakulam, Kerala', '₹5,00,000')">⚡ Malabar Ventures LLP</button>
         <button class="sample-pill" onclick="loadSampleEntity('L01111KL2020PLC065432', 'Bharat Agri-Tech Public Limited', 'Public Ltd', 'Thiruvananthapuram, Kerala', '₹1,00,00,000')">⚡ Bharat Agri-Tech Ltd</button>
       </div>
@@ -169,7 +169,7 @@
           </div>
           <div>
             <div class="entity-stat-label">Registered Office</div>
-            <div class="entity-stat-val" id="disp-entity-location">Kozhikode, Kerala, India</div>
+            <div class="entity-stat-val" id="disp-entity-location">Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, 690501</div>
           </div>
           <div>
             <div class="entity-stat-label">Active Directors / Partners</div>
@@ -1692,7 +1692,7 @@
         } else if (cin.includes('PLC') || cin.startsWith('L01')) {
           loadSampleEntity(cin, 'Bharat Agri-Tech Public Limited', 'Public Limited Company', 'Thiruvananthapuram, Kerala', '₹1,00,00,000');
         } else {
-          loadSampleEntity(cin, 'CraftEgon Technologies Private Limited', 'Private Limited Company', 'Kozhikode, Kerala', '₹10,00,000');
+          loadSampleEntity(cin, 'CraftEgon Technologies Private Limited', 'Private Limited Company', 'Alappuzha, Kerala', '₹10,00,000');
         }
 
         showToast('Statutory calendar calibrated using sample reference profile. (No official registry lookup performed)');
