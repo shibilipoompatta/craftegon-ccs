@@ -25,7 +25,7 @@
 
 ## 1. Executive Summary: The Business Operating System
 
-CraftEgon Corporate Services (CCS) is an integrated business infrastructure and corporate compliance services firm operating out of Kozhikode, Kerala, India. CCS coordinates the legal entity formation, statutory compliance, corporate governance, intellectual property, and regulatory filings required by Indian enterprises throughout their lifecycle.
+CraftEgon Corporate Services (CCS) is an integrated business infrastructure and corporate compliance services firm operating out of Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India (PIN 690501). CCS coordinates the legal entity formation, statutory compliance, corporate governance, intellectual property, and regulatory filings required by Indian enterprises throughout their lifecycle.
 
 ### The Fundamental Commercial Pivot:
 1. **From Website-Centric to Operating-System-Centric:** CCS is not merely an online marketing facade or automated document generator. It is a professionally managed corporate services practice combining technology coordination with rigorous professional execution.

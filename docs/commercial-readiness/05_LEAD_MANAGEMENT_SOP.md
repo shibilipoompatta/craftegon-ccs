@@ -4,7 +4,7 @@
 **Document Reference:** `docs/commercial-readiness/05_LEAD_MANAGEMENT_SOP.md`  
 **Task Reference:** `TASK-CCS-UX-002`  
 **Project:** CraftEgon Corporate Services (CCS)  
-**Applicable Desk:** Corporate Services Desk (Kozhikode & Remote Support)  
+**Applicable Desk:** Corporate Services Desk (Alappuzha & Remote Support)  
 **Execution Date:** November 2026  
 **Final Status:** Complete & Audited  
 

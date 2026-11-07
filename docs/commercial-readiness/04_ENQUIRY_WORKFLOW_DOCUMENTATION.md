@@ -79,7 +79,7 @@ When form submission occurs on the static platform, `showFormFallbackNotice` is 
 ### A. Notice Structure & Tone
 The notice explicitly informs the visitor:
 > **"Direct Corporate Desk Connection"**  
-> *"Your enquiry has been formatted for immediate processing by our corporate compliance team in Kozhikode. Because our public website operates on a hardened static architecture for maximum privacy, please choose your preferred channel below to send your details directly:"*
+> *"Your enquiry has been formatted for immediate processing by our corporate compliance team in Alappuzha (Room No.2, NS Building, Kaanjippuzha). Because our public website operates on a hardened static architecture for maximum privacy, please choose your preferred channel below to send your details directly:"*
 
 ### B. Pre-Filled WhatsApp Dispatch Payload
 A one-click button links to:
