@@ -47,7 +47,7 @@ Following comprehensive inspection and systematic engineering improvements acros
 ### Verified Master Contact Protocol
 Per strict project requirements, the exact canonical contact parameters are implemented across all user-facing components:
 - **Legal Entity**: CraftEgon Corporate Compliance Services, under CraftEgon LLP
-- **Headquarters**: Kozhikode, Kerala, India &bull; PIN: 673001
+- **Headquarters**: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN: 690501
 - **Display Telephone / WhatsApp**: `+91 86069 18247`
 - **WhatsApp Direct Action URL**: `https://wa.me/918606918247`
 - **Business Email**: `admin@craftegon.com`

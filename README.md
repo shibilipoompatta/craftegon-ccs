@@ -21,7 +21,7 @@
 Centralized in [`assets/js/config.js`](file:///c:/Users/shibi/OneDrive/Desktop/craftegon-ccs/assets/js/config.js) and rendered across header, mobile drawer, footer, forms, and JSON-LD schema:
 
 - **Entity**: CraftEgon Corporate Compliance Services, under CraftEgon LLP
-- **Headquarters**: Kozhikode, Kerala, India &bull; PIN: 673001
+- **Headquarters**: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN: 690501
 - **Telephone / WhatsApp**: `+91 86069 18247`
 - **WhatsApp Direct Action URL**: `https://wa.me/918606918247`
 - **Business Email**: `admin@craftegon.com`

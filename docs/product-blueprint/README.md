@@ -22,7 +22,7 @@ The objective is a reliable, accessible, search-optimized corporate compliance p
 All platform services, conversion tools, and communication channels operate under these verified corporate parameters:
 
 - **Entity**: CraftEgon Corporate Compliance Services, under CraftEgon LLP
-- **Headquarters**: Kozhikode, Kerala, India &bull; PIN: 673001
+- **Headquarters**: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN: 690501
 - **Statutory Registration**: MCA V3 &bull; RBI FIRMS &bull; IP India Registry
 - **Telephone / WhatsApp**: `+91 86069 18247`
 - **WhatsApp Direct Action URL**: `https://wa.me/918606918247`
