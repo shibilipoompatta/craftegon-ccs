@@ -13,7 +13,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--bg-ivory, #FCFBF7);
+  background: var(--bg-secondary, #F8FAFC);
   border: 1.5px solid var(--brand-gold, #C59B27);
   box-shadow: 0 4px 14px rgba(9, 13, 22, 0.16), 0 0 10px rgba(197, 155, 39, 0.15);
   cursor: pointer;
@@ -121,7 +121,7 @@
 /* Window Header */
 .cchat-header {
   padding: 0.85rem 1.15rem;
-  background: linear-gradient(90deg, #FFFFFF 0%, #FCFBF7 100%);
+  background: linear-gradient(90deg, #FFFFFF 0%, #F8FAFC 100%);
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;

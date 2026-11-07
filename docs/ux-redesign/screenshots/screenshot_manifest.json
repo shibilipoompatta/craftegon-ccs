@@ -1,0 +1,227 @@
+[
+  {
+    "label": "Homepage - Desktop",
+    "file": "home_desktop_1440x900.png",
+    "relativeUrl": "/",
+    "viewport": "1440x900",
+    "sizeBytes": 128607,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:15:19.724Z"
+  },
+  {
+    "label": "Homepage - Laptop",
+    "file": "home_laptop_1366x768.png",
+    "relativeUrl": "/",
+    "viewport": "1366x768",
+    "sizeBytes": 107966,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:15:25.049Z"
+  },
+  {
+    "label": "Homepage - Tablet Portrait",
+    "file": "home_tablet_768x1024.png",
+    "relativeUrl": "/",
+    "viewport": "768x1024",
+    "sizeBytes": 129481,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:15:33.190Z"
+  },
+  {
+    "label": "Homepage - Tablet Landscape",
+    "file": "home_tablet_landscape_1024x768.png",
+    "relativeUrl": "/",
+    "viewport": "1024x768",
+    "sizeBytes": 103649,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:15:48.075Z"
+  },
+  {
+    "label": "Homepage - Mobile iPhone 14",
+    "file": "home_mobile_390x844.png",
+    "relativeUrl": "/",
+    "viewport": "390x844",
+    "sizeBytes": 64337,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:15:59.227Z"
+  },
+  {
+    "label": "Homepage - Small Android",
+    "file": "home_small_mobile_360x800.png",
+    "relativeUrl": "/",
+    "viewport": "360x800",
+    "sizeBytes": 57375,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:16:15.957Z"
+  },
+  {
+    "label": "Services Directory - Desktop",
+    "file": "services_directory_desktop_1440x900.png",
+    "relativeUrl": "/services.html",
+    "viewport": "1440x900",
+    "sizeBytes": 245360,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:16:21.817Z"
+  },
+  {
+    "label": "Services Directory - Mobile",
+    "file": "services_directory_mobile_390x844.png",
+    "relativeUrl": "/services.html",
+    "viewport": "390x844",
+    "sizeBytes": 123876,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:16:26.164Z"
+  },
+  {
+    "label": "About CCS - Desktop",
+    "file": "about_desktop_1440x900.png",
+    "relativeUrl": "/about.html",
+    "viewport": "1440x900",
+    "sizeBytes": 260884,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:16:34.020Z"
+  },
+  {
+    "label": "About CCS - Mobile",
+    "file": "about_mobile_390x844.png",
+    "relativeUrl": "/about.html",
+    "viewport": "390x844",
+    "sizeBytes": 115017,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:16:44.226Z"
+  },
+  {
+    "label": "Pvt Ltd Registration - Desktop",
+    "file": "service_pvtltd_desktop_1440x900.png",
+    "relativeUrl": "/services/pvt-ltd-registration.html",
+    "viewport": "1440x900",
+    "sizeBytes": 178241,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:16:54.366Z"
+  },
+  {
+    "label": "Pvt Ltd Registration - Mobile",
+    "file": "service_pvtltd_mobile_390x844.png",
+    "relativeUrl": "/services/pvt-ltd-registration.html",
+    "viewport": "390x844",
+    "sizeBytes": 88078,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:17:03.840Z"
+  },
+  {
+    "label": "LLP Registration - Desktop",
+    "file": "service_llp_desktop_1440x900.png",
+    "relativeUrl": "/services/llp-registration.html",
+    "viewport": "1440x900",
+    "sizeBytes": 182204,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:17:09.379Z"
+  },
+  {
+    "label": "LLP Registration - Mobile",
+    "file": "service_llp_mobile_390x844.png",
+    "relativeUrl": "/services/llp-registration.html",
+    "viewport": "390x844",
+    "sizeBytes": 80523,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:17:15.190Z"
+  },
+  {
+    "label": "MSME Udyam - Desktop",
+    "file": "service_msme_desktop_1440x900.png",
+    "relativeUrl": "/services/msme-udyam.html",
+    "viewport": "1440x900",
+    "sizeBytes": 158502,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:17:20.395Z"
+  },
+  {
+    "label": "MSME Udyam - Mobile",
+    "file": "service_msme_mobile_390x844.png",
+    "relativeUrl": "/services/msme-udyam.html",
+    "viewport": "390x844",
+    "sizeBytes": 79229,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:17:24.162Z"
+  },
+  {
+    "label": "DIR-3 KYC - Desktop",
+    "file": "service_dir3kyc_desktop_1440x900.png",
+    "relativeUrl": "/services/dir3-kyc.html",
+    "viewport": "1440x900",
+    "sizeBytes": 187990,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:17:38.636Z"
+  },
+  {
+    "label": "DIR-3 KYC - Mobile",
+    "file": "service_dir3kyc_mobile_390x844.png",
+    "relativeUrl": "/services/dir3-kyc.html",
+    "viewport": "390x844",
+    "sizeBytes": 80806,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:17:44.052Z"
+  },
+  {
+    "label": "Trademark Registration - Desktop",
+    "file": "service_trademark_desktop_1440x900.png",
+    "relativeUrl": "/services/trademark-registration.html",
+    "viewport": "1440x900",
+    "sizeBytes": 171243,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:17:48.956Z"
+  },
+  {
+    "label": "Trademark Registration - Mobile",
+    "file": "service_trademark_mobile_390x844.png",
+    "relativeUrl": "/services/trademark-registration.html",
+    "viewport": "390x844",
+    "sizeBytes": 76706,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:17:54.411Z"
+  },
+  {
+    "label": "Pvt Ltd Checkout Flow - Desktop",
+    "file": "conversion_pvtltd_checkout_desktop.png",
+    "relativeUrl": "/conversion/pvt-ltd-checkout.html",
+    "viewport": "1440x900",
+    "sizeBytes": 8297,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:18:00.758Z"
+  },
+  {
+    "label": "Pvt Ltd Checkout Flow - Mobile",
+    "file": "conversion_pvtltd_checkout_mobile.png",
+    "relativeUrl": "/conversion/pvt-ltd-checkout.html",
+    "viewport": "390x844",
+    "sizeBytes": 5132,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:18:18.519Z"
+  },
+  {
+    "label": "Knowledge Blueprint - Desktop",
+    "file": "knowledge_spiceplus_desktop.png",
+    "relativeUrl": "/knowledge/spice-plus-mca-v3-blueprint.html",
+    "viewport": "1440x900",
+    "sizeBytes": 157545,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:18:41.063Z"
+  },
+  {
+    "label": "Client Portal Dashboard - Desktop",
+    "file": "portal_dashboard_desktop.png",
+    "relativeUrl": "/portal/dashboard.html",
+    "viewport": "1440x900",
+    "sizeBytes": 163713,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:18:48.248Z"
+  },
+  {
+    "label": "Statutory Disclaimer Page - Desktop",
+    "file": "legal_disclaimer_desktop.png",
+    "relativeUrl": "/legal/disclaimer.html",
+    "viewport": "1440x900",
+    "sizeBytes": 187750,
+    "status": "SUCCESS",
+    "timestamp": "2026-11-07T10:18:54.272Z"
+  }
+]

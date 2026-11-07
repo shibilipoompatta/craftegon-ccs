@@ -14,7 +14,7 @@
 
 /* --- Hero Banner --- */
 .portal-hero {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FCFBF7 60%, #F8FAFC 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 2.5rem 2rem;
@@ -968,7 +968,7 @@ input:checked + .slider:before {
 
 .doc-upload-box {
   border: 2px dashed rgba(197, 155, 39, 0.35);
-  background: #FCFBF7;
+  background: #F8FAFC;
   border-radius: var(--radius-md);
   padding: 1.5rem;
   text-align: center;

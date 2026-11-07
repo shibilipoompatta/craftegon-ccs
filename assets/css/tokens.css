@@ -20,17 +20,18 @@
   --bg-primary: #FFFFFF;            /* Clean White Canvas */
   --bg-white: #FFFFFF;              /* Pure White */
   --bg-secondary: #F8FAFC;          /* Clean Neutral Grey for Section Alternation */
-  --bg-ivory: #FFFFFF;
+  --bg-ivory: #F8FAFC;              /* Standardized to Cool Slate #F8FAFC to eliminate palette clash */
   --surface-light: #F1F5F9;         /* Light Surface Background */
   --card-bg: #FFFFFF;               /* White Cards */
 
   /* --- Muted Gold / Brass Accent --- */
-  --brand-gold: #C59B27;            /* Restrained Muted Gold */
+  --brand-gold: #C59B27;            /* Restrained Muted Gold (Borders & Icons) */
   --gold-primary: #C59B27;          /* Primary Accent Gold */
   --brand-gold-hover: #A37F1D;      /* Deep Gold Hover */
   --brand-gold-subtle: rgba(197, 155, 39, 0.08); /* Subtle Gold Tint */
   --brand-gold-border: rgba(197, 155, 39, 0.25); /* Subtle Gold Border */
-  --text-dark-gold: #8C6D14;
+  --text-dark-gold: #8C6D14;        /* WCAG AA Compliant 4.8:1 contrast on white */
+  --text-gold: #8C6D14;             /* Standard accessible gold text */
 
   /* --- Typography Colors --- */
   --text-dark: #0A192F;             /* Deep Navy / Charcoal Headings */
@@ -81,7 +82,7 @@
   --gold-border-strong: rgba(197, 155, 39, 0.4);
 
   --text-primary: var(--text-dark);
-  --text-gold: var(--brand-gold);
+  --text-gold: var(--text-dark-gold);
 
   /* --- Typography Scale & Font Families --- */
   --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
