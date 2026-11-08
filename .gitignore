@@ -32,3 +32,6 @@ coverage/
 # Catalog Backups & Snapshots
 data/backups/*.json
 !data/backups/.gitkeep
+
+# Production Distribution Artifact
+dist-public/

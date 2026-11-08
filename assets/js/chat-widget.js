@@ -26,16 +26,14 @@ const KB=[
   * <b>Form MGT-14:</b> Special resolutions filed within 30 days.<br>
   * <b>CCFS-2026:</b> Closed on <b>15 Sep 2026</b>; do not assume the historical fee concession applies to a current filing.<br>
   Late fees depend on the form, entity, current MCA rules, and any later notification.`,
-  a:[['Compliance Calendar','/portal/dashboard.html'],['RoC Annual Retainer Plan','/services/roc-annual-compliance.html'],['Calculate RoC Late Fees','/conversion/calculator.html']]},
+  a:[['MCA V3 Filing Guide','/knowledge/mca-v3-filing-guide.html'],['RoC Annual Retainer Plan','/services/roc-annual-compliance.html'],['Calculate RoC Late Fees','/conversion/calculator.html']]},
 
   {k:['portal','client portal','dashboard','compliance calendar','subscription','pricing','retainer plan','starter','growth','enterprise','tier','plan','retainer plans'],
-  r:`CraftEgon CCS Client Portal & Compliance Calendar:<br>
-  * <b>Calendar:</b> Rule-based estimates use local dates and sample or user-entered context; no registry sync is active.<br>
-  * <b>Starter Plan (1,499/mo):</b> LLPs & micro-enterprises - deadline alerts & drafting credits.<br>
-  * <b>Growth Plan (4,999/mo):</b> Pvt Ltd Startups - automated AOC-4/MGT-7 staging & priority CS review.<br>
-  * <b>Enterprise Plan (14,999/mo):</b> Dedicated secretarial desk, Form MR-3 audit & cross-border FEMA advisory.<br>
-  Confirm prices, coverage, and availability with CCS before relying on them. Checkout is a sandbox, not a live payment flow.`,
-  a:[['Launch Compliance Calendar','/portal/dashboard.html'],['View Subscription Tiers & Checkout','/portal/subscription.html'],['Client Portal Gateway','/portal/index.html']]},
+  r:`CraftEgon CCS Corporate Retainer & Service Desk:<br>
+  * <b>Annual Retainer:</b> Structured corporate governance, regular statutory filings, and priority professional support.<br>
+  * <b>Entity Coverage:</b> Private Limited Companies, LLPs, One Person Companies, and cross-border subsidiaries.<br>
+  * <b>Service Desk:</b> Connect with our operational desk in Alappuzha for scoped fee proposals.`,
+  a:[['Corporate Retainer Desk','/conversion/retainer-desk.html'],['Explore All Services','/services/index.html'],['Fee Calculator','/conversion/calculator.html']]},
 
   {k:['late fee','delay','penalty','calculate fee','fine','cost of filing','overdue','fees calculator','mca penalty','403','ccfs'],
   r:`Under MCA Fee Rules 2014 & Companies Act 2013 Sec 403:<br>
@@ -103,15 +101,15 @@ const KB=[
   r:`CraftEgon Corporate Services (CCS) - Official Corporate Desk:<br>
   * <b>WhatsApp & Phone:</b> +91 86069 18247 (Direct Compliance Advisory)<br>
   * <b>Email:</b> admin@craftegon.com<br>
-  * <b>Registered HQ:</b> CraftEgon LLP, Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India - PIN: 690501<br>
+  * <b>Operational Service Desk:</b> CraftEgon Corporate Services, Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India - PIN: 690501<br>
   * <b>Jurisdiction:</b> Pan-India coverage across all 24 RoC Offices, NCLT Benches & RBI Regional Offices.`,
   a:[['Chat Live on WhatsApp','https://wa.me/918606918247'],['Email Legal Desk','mailto:admin@craftegon.com'],['Annual Retainer Desk','/conversion/retainer-desk.html']]}
 ];
 
 const PILLS=[
-  ['Compliance Calendar','Open the Compliance Calendar'],
+  ['Retainer Desk','What is the Annual Corporate Retainer Desk?'],
   ['Contact Desk','How do I contact CraftEgon CCS via WhatsApp or email?'],
-  ['Subscription Plans','What are the SaaS subscription retainer tiers and pricing?'],
+  ['Fee Structure','How are professional service fees structured?'],
   ['Incorporate Pvt Ltd','How do I incorporate a Pvt Ltd company in India?'],
   ['MCA Due Dates','What are annual RoC compliance filing due dates?'],
   ['RoC Late Fees','How much are late fees for Form AOC-4 and MGT-7?'],

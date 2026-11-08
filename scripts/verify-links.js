@@ -14,7 +14,7 @@ function findHtml(dir) {
   for (const item of fs.readdirSync(dir)) {
     const full = path.join(dir, item);
     if (fs.statSync(full).isDirectory()) {
-      if (item !== 'node_modules' && item !== '.git') findHtml(full);
+      if (item !== 'node_modules' && item !== '.git' && item !== 'dist-public') findHtml(full);
     } else if (item.endsWith('.html')) {
       htmlFiles.push(full);
     }

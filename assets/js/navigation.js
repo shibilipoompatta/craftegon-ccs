@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <strong>Statutory Disclosure:</strong> CraftEgon CCS provides corporate secretarial, compliance, and procedural documentation infrastructure. We do not provide court appearances or litigation advocacy; matters requiring courtroom representation must be handled by an independent advocate enrolled under the Advocates Act, 1961. <a href="/legal/disclaimer.html">Read full professional disclaimer &rarr;</a>
               </p>
               <p class="if-footer-copy">
-                &copy; 2026 CraftEgon Corporate Services (CCS). All rights reserved. Registered Office: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN 690501. Operating across all RoC Jurisdictions nationwide.
+                &copy; 2026 CraftEgon Corporate Services (CCS). All rights reserved. Operational Service Desk: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN 690501. Operating across all RoC Jurisdictions nationwide.
               </p>
             </div>
           </div>

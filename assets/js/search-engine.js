@@ -633,8 +633,8 @@ function renderCompanyResult(entity) {
           <div class="cta-text">
             <strong>Protect this entity from regulatory penalties:</strong> Automate statutory filings, secretarial audits, and board resolutions.
           </div>
-          <a href="/portal/subscription.html" class="cta-btn">
-            Onboard to Compliance OS (from ₹1,499/mo) &rarr;
+          <a href="/conversion/retainer-desk.html" class="cta-btn">
+            Explore Corporate Retainer (from ₹1,499/mo) &rarr;
           </a>
         </div>
       </div>

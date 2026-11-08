@@ -143,8 +143,8 @@
     setText(diagnostic, 'p', 'risk-item-desc', 'A benchmark is not a current registry extract. This checklist is informational, not legal or tax advice.');
     const action = document.createElement('a');
     action.className = 'onboard-cta-btn';
-    action.href = '/portal/subscription.html';
-    action.textContent = 'Compare Retainer Tiers';
+    action.href = '/conversion/retainer-desk.html';
+    action.textContent = 'Explore Retainer Desk';
     diagnostic.appendChild(action);
     card.appendChild(diagnostic);
     output.appendChild(card);

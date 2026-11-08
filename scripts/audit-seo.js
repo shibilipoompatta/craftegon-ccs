@@ -13,7 +13,7 @@ function getFiles(dir, exts = ['.html']) {
   let results = [];
   const list = fs.readdirSync(dir);
   list.forEach(file => {
-    if (file === '.git' || file === 'node_modules') return;
+    if (file === '.git' || file === 'node_modules' || file === 'dist-public') return;
     const fullPath = path.join(dir, file);
     const stat = fs.statSync(fullPath);
     if (stat && stat.isDirectory()) {
