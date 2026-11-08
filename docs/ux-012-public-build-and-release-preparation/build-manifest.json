@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-08T10:28:28.730Z",
+  "buildTimestamp": "2026-11-08T10:36:48.261Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,9 +11,9 @@
   },
   "metrics": {
     "totalFilesIncluded": 152,
-    "totalOutputSizeBytes": 2594189,
-    "totalOutputSizeFormatted": "2.47 MB",
-    "sanitizedResidualLinksCount": 15,
+    "totalOutputSizeBytes": 2626436,
+    "totalOutputSizeFormatted": "2.50 MB",
+    "sanitizedResidualLinksCount": 22,
     "filesByExtension": {
       ".html": 118,
       ".css": 6,
@@ -67,7 +67,7 @@
     },
     {
       "path": "assets/css/home-unique.css",
-      "bytes": 31298
+      "bytes": 35799
     },
     {
       "path": "assets/css/navbar.css",
@@ -111,7 +111,7 @@
     },
     {
       "path": "assets/js/home-3d.js",
-      "bytes": 6559
+      "bytes": 9678
     },
     {
       "path": "assets/js/home-interactive.js",
@@ -135,7 +135,7 @@
     },
     {
       "path": "components/footer.html",
-      "bytes": 6106
+      "bytes": 6202
     },
     {
       "path": "components/navbar.html",
@@ -271,7 +271,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 48523
+      "bytes": 73054
     },
     {
       "path": "knowledge/director-disqualification-guide.html",

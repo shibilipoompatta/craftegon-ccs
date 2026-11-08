@@ -14,6 +14,7 @@
     initCard3DTilt();
     initFeeEstimator();
     initStageTabs();
+    initFrontSearch();
   });
 
   /**
@@ -124,13 +125,13 @@
 
     const pricingMatrix = {
       pvt_ltd: {
-        baseGov: 1000, // Name approval + basic stamp
+        baseGov: 1000,
         baseProf: 4999,
         capitalFeeRate: 0.002,
         sla: "3–5 Working Days"
       },
       llp: {
-        baseGov: 1500, // RUN-LLP + FiLLiP
+        baseGov: 1500,
         baseProf: 3999,
         capitalFeeRate: 0.001,
         sla: "4–6 Working Days"
@@ -197,6 +198,78 @@
           targetPanel.classList.add("active");
         }
       });
+    });
+  }
+
+  /**
+   * 5. FRONT-AND-CENTER HERO SEARCH AUTOCOMPLETE
+   */
+  function initFrontSearch() {
+    const input = document.getElementById("home-front-search-input");
+    const dropdown = document.getElementById("home-front-search-dropdown");
+    const resultsContainer = document.getElementById("home-front-search-results");
+    if (!input || !dropdown || !resultsContainer) return;
+
+    let debounceTimer = null;
+
+    input.addEventListener("input", function (e) {
+      const q = e.target.value.trim().toLowerCase();
+      clearTimeout(debounceTimer);
+
+      if (!q) {
+        dropdown.style.display = "none";
+        resultsContainer.innerHTML = "";
+        return;
+      }
+
+      debounceTimer = setTimeout(function () {
+        let matches = [];
+        if (window.CraftEgonSearch && window.CraftEgonSearch.engine) {
+          const results = window.CraftEgonSearch.engine.search(q);
+          matches = results.slice(0, 6).map(function (r) {
+            return {
+              name: r.item.name,
+              route: r.item.route,
+              vertical: r.item.vertical_name || "Corporate Service",
+              id: r.item.id
+            };
+          });
+        } else if (Array.isArray(window.CRAFTEGON_SERVICE_CATALOG)) {
+          matches = window.CRAFTEGON_SERVICE_CATALOG.filter(function (s) {
+            return s.name.toLowerCase().includes(q) || (s.id && s.id.toLowerCase().includes(q));
+          }).slice(0, 6);
+        }
+
+        if (matches.length > 0) {
+          let html = "";
+          matches.forEach(function (m) {
+            html += '<a href="' + m.route + '" class="front-search-result-item">' +
+              '<div>' +
+                '<div class="front-result-title">' + m.name + '</div>' +
+                '<div class="front-result-meta">' + (m.vertical || m.vertical_name || "Corporate Practice") + ' • ' + (m.id || "") + '</div>' +
+              '</div>' +
+              '<span style="color:var(--accent-green-primary); font-weight:700;">&rarr;</span>' +
+            '</a>';
+          });
+          html += '<div style="padding:0.6rem 1rem; background:var(--surface-mint-white); text-align:center;">' +
+            '<a href="/services.html?q=' + encodeURIComponent(q) + '" style="font-size:0.78rem; font-weight:700; color:var(--accent-green-primary); text-decoration:none;">View all results in 57-Service Directory &rarr;</a>' +
+          '</div>';
+          resultsContainer.innerHTML = html;
+          dropdown.style.display = "block";
+        } else {
+          resultsContainer.innerHTML = '<div style="padding:1rem; text-align:center; font-size:0.85rem; color:var(--text-secondary);">' +
+            'No matching corporate services found for "' + q.replace(/[&<>"']/g, "") + '". ' +
+            '<br><a href="/services.html" style="color:var(--accent-green-primary); font-weight:700;">Explore all 57 services &rarr;</a>' +
+          '</div>';
+          dropdown.style.display = "block";
+        }
+      }, 100);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = "none";
+      }
     });
   }
 
