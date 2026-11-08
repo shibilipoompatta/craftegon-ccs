@@ -123,7 +123,7 @@ const redirectsContent = fs.readFileSync(redirectsPath, 'utf8');
 
 assert(redirectsContent.includes('/portal*           /404.html               404'), '_redirects blocks /portal* with HTTP 404');
 assert(redirectsContent.includes('/admin*            /404.html               404'), '_redirects blocks /admin* with HTTP 404');
-assert(redirectsContent.includes('/services          /services/index.html    200'), '_redirects maintains clean /services rewrite');
+assert(/\/services\s+\/services\/index\.html\s+200/.test(redirectsContent), '_redirects maintains clean /services rewrite');
 
 const headersPath = path.join(DIST, '_headers');
 assert(fs.existsSync(headersPath), '_headers exists in public build');

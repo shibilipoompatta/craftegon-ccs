@@ -343,7 +343,9 @@ function initLeadCaptureForms() {
         vertical_id: data.vertical_id || data.service_category || form.dataset.verticalId || routeContext.vertical_id || "V01",
         scope_description: (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || "").trim(),
         source_url: window.location.pathname,
-        dpdp_consent: true,
+        dpdp_consent: form.querySelector('input[name*="dpdp"], input[name*="consent"]')
+          ? Boolean(form.querySelector('input[name*="dpdp"]:checked, input[name*="consent"]:checked'))
+          : true,
         _hp_website: data._hp_website || "",
         _render_time: form.dataset.renderTime || (Date.now() - 3000)
       };
@@ -639,6 +641,11 @@ function showFormFallbackNotice(form, data, options = {}) {
   const phoneDisplay = cfg.phoneDisplay || "+91 86069 18247";
   const emailDisplay = cfg.email || "admin@craftegon.com";
 
+  const gw = cfg.googleWorkspace;
+  const googleFormUrl = (gw && typeof gw.getIntakeUrl === "function")
+    ? gw.getIntakeUrl({ name: contactName, email: email, phone: phone, service: serviceName, scope: scope, source: window.location.pathname })
+    : `/conversion/google-forms-intake.html?service=${encodeURIComponent(serviceName)}`;
+
   const isUnconfirmed = options.reason === "unconfirmed";
   const noticeTitle = isUnconfirmed ? "Submission Unconfirmed — Direct Engagement" : "Notice: Direct Engagement Channel";
   const noticeBody = isUnconfirmed
@@ -653,15 +660,18 @@ function showFormFallbackNotice(form, data, options = {}) {
       ${noticeBody}
     </div>
     <p style="font-size: 0.85rem; color: var(--text-main, #334155); margin: 0 0 0.5rem 0; line-height: 1.5; font-family: var(--font-body, 'Manrope', sans-serif);">
-      To consult with our corporate compliance desk regarding <strong>${escapeHtml(serviceName)}</strong>, please connect directly using our verified WhatsApp or Email channels:
+      To consult with our corporate compliance desk regarding <strong>${escapeHtml(serviceName)}</strong>, please connect directly using our verified WhatsApp, Email, or official Google Workspace Form channels:
     </p>
     <p style="font-size: 0.8rem; color: #475569; margin: 0 0 0.5rem 0; line-height: 1.45; font-family: var(--font-body, 'Manrope', sans-serif);">
       <strong>Review &amp; Response Expectation:</strong> Our corporate compliance desk reviews enquiries during regular business hours (Monday – Saturday, 9:00 AM – 7:00 PM IST) to understand statutory scope, jurisdiction, and filing timeline.
     </p>
     <p style="font-size: 0.78rem; color: var(--text-muted, #64748B); margin: 0 0 1rem 0; line-height: 1.45; font-family: var(--font-body, 'Manrope', sans-serif);">
-      <em>Privacy note:</em> Selecting an alternative channel opens your external WhatsApp application or default email composer with your pre-filled inquiry. Your details are only sent when you choose to transmit the message.
+      <em>Privacy note:</em> Selecting an alternative channel opens your external WhatsApp application, default email composer, or Google Workspace intake with your pre-filled inquiry. Your details are only sent when you choose to transmit the message.
     </p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+      <a href="${googleFormUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-primary" style="background: #1A73E8; border: 1px solid #1557b0; color: #FFFFFF; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
+        📋 Submit via Google Workspace Form &rarr;
+      </a>
       <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
         💬 Chat on WhatsApp (${phoneDisplay}) &rarr;
       </a>

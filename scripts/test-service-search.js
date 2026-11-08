@@ -216,8 +216,8 @@ assert(servicesContent.includes('window.CRAFTEGON_SERVICE_CATALOG'), 'services.h
 // ----------------------------------------------------
 console.log('\n--- Test Suite 6: Routing, Redirects & Sitemap Verification ---');
 const redirectsContent = fs.readFileSync(path.join(ROOT, '_redirects'), 'utf8');
-assert(redirectsContent.includes('/services        /services/index.html    200'), '_redirects strictly includes /services clean rewrite to /services/index.html');
-assert(redirectsContent.includes('/services/       /services/index.html    200'), '_redirects strictly includes /services/ clean rewrite to /services/index.html');
+assert(/\/services\s+\/services\/index\.html\s+200/.test(redirectsContent), '_redirects strictly includes /services clean rewrite to /services/index.html');
+assert(/\/services\/\s+\/services\/index\.html\s+200/.test(redirectsContent), '_redirects strictly includes /services/ clean rewrite to /services/index.html');
 assert(!redirectsContent.includes('/services        /services.html          200'), '_redirects does not use deprecated /services.html rewrite target');
 
 const sitemapContent = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');

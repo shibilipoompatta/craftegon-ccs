@@ -1,28 +1,37 @@
-# --- Security Restrictions & Information Leak Prevention ---
-/.env*            /404.html               404
-/.git*            /404.html               404
-/package*.json    /404.html               404
-/scripts/*        /404.html               404
-/scratch/*        /404.html               404
-/docs/*           /404.html               404
-/data/*.schema.json /404.html             404
+# ==============================================================================
+# CRAFTEGON CCS — HARDENED EDGE ROUTING CONFIGURATION (_redirects)
+# Defense-in-Depth Root Policy — Internal Application Isolation & Threat Mitigation
+# ==============================================================================
 
-# --- Clean URL Rewrites (Status 200 for internal mapping) ---
-/admin         /admin/index.html       200
-/admin/        /admin/index.html       200
-/admin/*       /admin/:splat           200
-/portal        /portal/index.html      200
-/knowledge     /knowledge/index.html   200
-/conversion    /conversion/index.html  200
-/portal/*      /portal/:splat          200
-/verticals/*   /verticals/:splat       200
+# 1. HARD SECURITY GATES: Internal Applications, Secrets & Leaks (HTTP 404)
+/admin*            /404.html               404
+/portal*           /404.html               404
+/.env*             /404.html               404
+/.git*             /404.html               404
+/.vault*           /404.html               404
+/package*.json     /404.html               404
+/scripts/*         /404.html               404
+/scratch/*         /404.html               404
+/docs/*            /404.html               404
+/data/*.schema.json /404.html              404
+/data/regulatory-claims.json /404.html     404
+/data/backups/*    /404.html               404
+
+# 2. CLEAN URL REWRITES (Status 200 for internal mapping)
 /services        /services/index.html    200
 /services/       /services/index.html    200
-/services.html   /services/index.html    200
-/services/*      /services/:splat        200
-/knowledge/*   /knowledge/:splat       200
-/conversion/*  /conversion/:splat      200
-/legal/*       /legal/:splat           200
+/services.html     /services/index.html    200
+/services/*        /services/:splat        200
+/verticals/*       /verticals/:splat       200
+/knowledge         /knowledge/index.html   200
+/knowledge/*       /knowledge/:splat       200
+/conversion        /conversion/index.html  200
+/conversion/*      /conversion/:splat      200
+/legal/*           /legal/:splat           200
+/contact           /contact.html           200
+/about             /about.html             200
+/search            /search/index.html      200
+/search/           /search/index.html      200
 
-# --- Global Fallback for 404 Not Found Routing ---
-/*             /404.html               404
+# 3. GLOBAL CATCH-ALL (HTTP 404 Fallback)
+/*                 /404.html               404

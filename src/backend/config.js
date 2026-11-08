@@ -103,6 +103,11 @@ function loadConfig(overrides = {}) {
     razorpayWebhookSecret: overrides.RAZORPAY_WEBHOOK_SECRET || process.env.RAZORPAY_WEBHOOK_SECRET || 'craftegon-webhook-test-secret'
   };
 
+  // Enforce zero insecure fallback secrets in production
+  if (config.isProd && config.jwtSecret === 'craftegon-local-test-jwt-secret-do-not-use-in-prod') {
+    throw new Error('FATAL_SECURITY_ERROR: Production environment requires a securely configured, non-default JWT_SECRET. Insecure placeholder secret is forbidden.');
+  }
+
   return Object.freeze(config);
 }
 

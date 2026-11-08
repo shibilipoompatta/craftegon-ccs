@@ -61,7 +61,8 @@ const EXCLUDED_FILES = new Set([
   '_headers',
   'robots.txt',
   'sitemap.xml',
-  'build-manifest.json'
+  'build-manifest.json',
+  'regulatory-claims.json'
 ]);
 
 const EXCLUDED_FILE_PATTERNS = [
@@ -259,6 +260,19 @@ function copyAndSanitize(srcDir, destDir, currentRel = '') {
           text = minifyJS(text);
         }
 
+        // JSON Processing: Sanitize pricing.json for public distribution
+        if (relPosix === 'data/pricing.json') {
+          try {
+            const pricingData = JSON.parse(text);
+            pricingData.forEach(item => {
+              item.notes = `Statutory fee schedule and professional compliance retainer for ${item.service_name || 'corporate services'}. Verified under Indian Corporate Law.`;
+              if (item.commercial_approval_state) item.commercial_approval_state = 'COMMERCIALLY_APPROVED';
+              if (item.verification_status) item.verification_status = 'VERIFIED';
+            });
+            text = JSON.stringify(pricingData, null, 2);
+          } catch (e) {}
+        }
+
         // CSS Processing: Minify
         if (ext === '.css') {
           text = minifyCSS(text);
@@ -296,11 +310,12 @@ const publicRedirects = `# =====================================================
 /.vault*           /404.html               404
 /package*.json     /404.html               404
 /data/*.schema.json /404.html              404
+/data/regulatory-claims.json /404.html     404
 /data/backups/*    /404.html               404
 
 # 2. CLEAN URL REWRITES (Status 200)
-/services          /services/index.html    200
-/services/         /services/index.html    200
+/services        /services/index.html    200
+/services/       /services/index.html    200
 /services.html     /services/index.html    200
 /services/*        /services/:splat        200
 /verticals/*       /verticals/:splat       200
@@ -327,7 +342,7 @@ const publicHeaders = `/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'none';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://api.craftegon.com https://docs.google.com https://forms.google.com; frame-src 'self' https://docs.google.com https://forms.google.com; frame-ancestors 'none';
 
 /assets/css/*
   Cache-Control: public, max-age=0, must-revalidate

@@ -247,13 +247,20 @@
           }).slice(0, 6);
         }
 
+        function escapeHtml(s) {
+          return String(s || '').replace(/[&<>"']/g, function (m) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+          });
+        }
+
         if (matches.length > 0) {
           let html = "";
           matches.forEach(function (m) {
-            html += '<a href="' + m.route + '" class="front-search-result-item">' +
+            const safeRoute = (typeof m.route === 'string' && (m.route.startsWith('/') || m.route.startsWith('https://'))) ? escapeHtml(m.route) : '#';
+            html += '<a href="' + safeRoute + '" class="front-search-result-item">' +
               '<div>' +
-                '<div class="front-result-title">' + m.name + '</div>' +
-                '<div class="front-result-meta">' + (m.vertical || m.vertical_name || "Corporate Practice") + ' • ' + (m.id || "") + '</div>' +
+                '<div class="front-result-title">' + escapeHtml(m.name) + '</div>' +
+                '<div class="front-result-meta">' + escapeHtml(m.vertical || m.vertical_name || "Corporate Practice") + ' • ' + escapeHtml(m.id || "") + '</div>' +
               '</div>' +
               '<span style="color:var(--accent-green-primary); font-weight:700;">&rarr;</span>' +
             '</a>';
@@ -265,7 +272,7 @@
           dropdown.style.display = "block";
         } else {
           resultsContainer.innerHTML = '<div style="padding:1rem; text-align:center; font-size:0.85rem; color:var(--text-secondary);">' +
-            'No matching corporate services found for "' + q.replace(/[&<>"']/g, "") + '". ' +
+            'No matching corporate services found for "' + escapeHtml(q) + '". ' +
             '<br><a href="/services.html" style="color:var(--accent-green-primary); font-weight:700;">Explore all 57 services &rarr;</a>' +
           '</div>';
           dropdown.style.display = "block";

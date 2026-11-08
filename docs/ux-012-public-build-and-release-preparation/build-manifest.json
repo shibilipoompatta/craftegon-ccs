@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-08T13:08:40.827Z",
+  "buildTimestamp": "2026-11-08T13:53:27.854Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,16 +11,16 @@
   },
   "metrics": {
     "totalFilesIncluded": 152,
-    "totalOutputSizeBytes": 6603002,
+    "totalOutputSizeBytes": 6604729,
     "totalOutputSizeFormatted": "6.30 MB",
     "sanitizedResidualLinksCount": 15,
-    "preRenderedSSGPagesCount": 115,
+    "preRenderedSSGPagesCount": 116,
     "filesByExtension": {
-      ".html": 118,
+      ".html": 119,
       ".css": 6,
       ".jpg": 1,
       ".js": 11,
-      ".json": 12,
+      ".json": 11,
       "config": 2,
       ".txt": 1,
       ".xml": 1
@@ -51,7 +51,8 @@
     "_headers",
     "robots.txt",
     "sitemap.xml",
-    "build-manifest.json"
+    "build-manifest.json",
+    "regulatory-claims.json"
   ],
   "includedFiles": [
     {
@@ -96,11 +97,11 @@
     },
     {
       "path": "assets/js/chat-widget.js",
-      "bytes": 20299
+      "bytes": 20361
     },
     {
       "path": "assets/js/config.js",
-      "bytes": 3875
+      "bytes": 5310
     },
     {
       "path": "assets/js/entity-intelligence.js",
@@ -108,11 +109,11 @@
     },
     {
       "path": "assets/js/forms.js",
-      "bytes": 27276
+      "bytes": 28195
     },
     {
       "path": "assets/js/home-3d.js",
-      "bytes": 8407
+      "bytes": 8741
     },
     {
       "path": "assets/js/home-interactive.js",
@@ -179,12 +180,16 @@
       "bytes": 39346
     },
     {
+      "path": "conversion/google-forms-intake.html",
+      "bytes": 43189
+    },
+    {
       "path": "conversion/hr-audit.html",
       "bytes": 39672
     },
     {
       "path": "conversion/index.html",
-      "bytes": 74202
+      "bytes": 75799
     },
     {
       "path": "conversion/license-qualification.html",
@@ -248,11 +253,7 @@
     },
     {
       "path": "data/pricing.json",
-      "bytes": 86731
-    },
-    {
-      "path": "data/regulatory-claims.json",
-      "bytes": 44406
+      "bytes": 85150
     },
     {
       "path": "data/search-index.json",
@@ -644,11 +645,11 @@
     },
     {
       "path": "_redirects",
-      "bytes": 1544
+      "bytes": 1587
     },
     {
       "path": "_headers",
-      "bytes": 868
+      "bytes": 1003
     },
     {
       "path": "robots.txt",

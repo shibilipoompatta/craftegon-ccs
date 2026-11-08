@@ -157,6 +157,42 @@
       return `${this.emailHref}?subject=${subj}`;
     },
 
+    // Google Workspace for craftegon.com Integration
+    googleWorkspace: {
+      domain: "craftegon.com",
+      organization: "CraftEgon Corporate Services",
+      deskEmail: "admin@craftegon.com",
+      forms: {
+        enabled: true,
+        intakeFormId: "1FAIpQLScq1V8kE-CraftEgon-Workspace-Intake",
+        formViewUrl: "https://docs.google.com/forms/d/e/1FAIpQLScq1V8kE-CraftEgon-Workspace-Intake/viewform",
+        formResponseUrl: "https://docs.google.com/forms/d/e/1FAIpQLScq1V8kE-CraftEgon-Workspace-Intake/formResponse",
+        embedUrl: "https://docs.google.com/forms/d/e/1FAIpQLScq1V8kE-CraftEgon-Workspace-Intake/viewform?embedded=true",
+        fields: {
+          name: "entry.1000001",
+          email: "entry.1000002",
+          phone: "entry.1000003",
+          service: "entry.1000004",
+          scope: "entry.1000005",
+          source: "entry.1000006",
+          dpdp_consent: "entry.1000007"
+        }
+      },
+      getIntakeUrl: function (params) {
+        params = params || {};
+        const base = "https://docs.google.com/forms/d/e/1FAIpQLScq1V8kE-CraftEgon-Workspace-Intake/viewform";
+        const q = [];
+        q.push("usp=pp_url");
+        if (params.name) q.push("entry.1000001=" + encodeURIComponent(params.name));
+        if (params.email) q.push("entry.1000002=" + encodeURIComponent(params.email));
+        if (params.phone) q.push("entry.1000003=" + encodeURIComponent(params.phone));
+        if (params.service) q.push("entry.1000004=" + encodeURIComponent(params.service));
+        if (params.scope) q.push("entry.1000005=" + encodeURIComponent(params.scope));
+        if (params.source) q.push("entry.1000006=" + encodeURIComponent(params.source));
+        return base + "?" + q.join("&");
+      }
+    },
+
     // Evaluator helper for testing & programmatic configuration
     _evaluateDynamicMode: evaluateDynamicMode,
     _isProductionHost: isProductionHost,

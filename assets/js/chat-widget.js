@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Rules-Grounded AI Counsel Widget
+ * CraftEgon CCS - Rules-Grounded Compliance Assistant Widget
  * Local reference index; no live model, registry, or webhook connection.
  */
 (function(){'use strict';
@@ -134,26 +134,26 @@ function createWidget(){
   if(document.getElementById('craftegon-chat-window'))return;
   const t=document.createElement('button');
   t.id='craftegon-chat-trigger';
-  t.setAttribute('aria-label','Open CraftEgon AI Counsel');
+  t.setAttribute('aria-label','Open CraftEgon Compliance Assistant');
   t.innerHTML=`<div class="chat-pulse"></div><svg class="trigger-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><svg class="close-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
   const b=document.createElement('div');
   b.id='craftegon-chat-badge';
-  b.innerHTML=`<span class="badge-dot"></span> AI Counsel`;
+  b.innerHTML=`<span class="badge-dot"></span> Compliance Assistant`;
   const w=document.createElement('div');
   w.id='craftegon-chat-window';
   w.setAttribute('role','dialog');
-  w.setAttribute('aria-label','CraftEgon AI Counsel');
+  w.setAttribute('aria-label','CraftEgon Compliance Assistant');
   w.innerHTML=`<div class="cchat-header">
   <div class="cchat-brand-wrap">
     <img src="/assets/images/craftegon-logo.jpg" alt="Craftegon CCS Logo" class="cchat-avatar">
     <div class="cchat-brand-info">
-      <h4>Craftegon AI Counsel</h4>
+      <h4>Craftegon Compliance Assistant</h4>
       <span><span class="cchat-status-dot"></span> Rules-based local reference</span>
     </div>
   </div>
   <div class="cchat-header-actions">
     <button class="cchat-btn-icon" id="cchat-clear-btn" title="Reset Conversation"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.8 1 6.5 2.7L21 8M21 3v5h-5"/></svg></button>
-    <button class="cchat-btn-icon" id="cchat-close-btn" title="Minimize Counsel"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <button class="cchat-btn-icon" id="cchat-close-btn" title="Minimize Assistant"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
   </div>
   <div class="cchat-body" id="cchat-messages-container"></div>
@@ -194,7 +194,7 @@ function appendBotMsg(h,acts=[],sources=[]){
   const sourceHtml=sources.length?`<div class="cchat-sources"><strong>CCS references</strong>${sources.map(([label,url])=>`<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`).join('')}</div>`:'';
   const e=document.createElement('div');
   e.className='cchat-msg bot';
-  e.innerHTML=`<div class="cchat-bubble">${h}${sourceHtml}${aHtml}</div><div class="cchat-timestamp">${getTime()} - Craftegon AI Counsel</div>`;
+  e.innerHTML=`<div class="cchat-bubble">${h}${sourceHtml}${aHtml}</div><div class="cchat-timestamp">${getTime()} - Craftegon Compliance Assistant</div>`;
   b.appendChild(e);
   b.scrollTop=b.scrollHeight;
 }
@@ -259,7 +259,7 @@ function handleQuery(q){
 function initGreeting(){
   const b=document.getElementById('cchat-messages-container');
   if(!b||b.children.length>0)return;
-  appendBotMsg(`Welcome to <b>Craftegon CCS AI Counsel</b>, a local rules-based reference guide for Indian corporate compliance.<br>
+  appendBotMsg(`Welcome to <b>Craftegon CCS Compliance Assistant</b>, a local rules-based reference guide for Indian corporate compliance.<br>
   Topics include <b>Companies Act 2013</b>, <b>MCA V3</b>, <b>FEMA 1999</b>, <b>GST Act 2017</b>, <b>DPDP Act 2023</b>, and <b>MSMED Act 2006</b>. It does not access live registries or send queries to a language model.<br>
   <i>Verify current rules, notifications, and entity facts with official sources and a qualified professional.</i><br>
   Select a prompt below or type your inquiry (e.g., "DIR-3 KYC deadline", "MSME 45-day payment rule", "GSTR-2B reconciliation").`);
