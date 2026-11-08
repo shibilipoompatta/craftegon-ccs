@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-08T14:49:43.700Z",
+  "buildTimestamp": "2026-11-08T15:36:12.059Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 152,
-    "totalOutputSizeBytes": 6619503,
-    "totalOutputSizeFormatted": "6.31 MB",
+    "totalFilesIncluded": 151,
+    "totalOutputSizeBytes": 6577742,
+    "totalOutputSizeFormatted": "6.27 MB",
     "sanitizedResidualLinksCount": 15,
-    "preRenderedSSGPagesCount": 116,
+    "preRenderedSSGPagesCount": 115,
     "filesByExtension": {
-      ".html": 119,
+      ".html": 118,
       ".css": 6,
       ".jpg": 1,
       ".js": 11,
@@ -101,7 +101,7 @@
     },
     {
       "path": "assets/js/config.js",
-      "bytes": 5310
+      "bytes": 5930
     },
     {
       "path": "assets/js/entity-intelligence.js",
@@ -109,7 +109,7 @@
     },
     {
       "path": "assets/js/forms.js",
-      "bytes": 28195
+      "bytes": 30660
     },
     {
       "path": "assets/js/home-3d.js",
@@ -180,16 +180,12 @@
       "bytes": 39346
     },
     {
-      "path": "conversion/google-forms-intake.html",
-      "bytes": 43189
-    },
-    {
       "path": "conversion/hr-audit.html",
       "bytes": 39672
     },
     {
       "path": "conversion/index.html",
-      "bytes": 90573
+      "bytes": 88916
     },
     {
       "path": "conversion/license-qualification.html",

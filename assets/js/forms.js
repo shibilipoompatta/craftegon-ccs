@@ -298,20 +298,8 @@ function initLeadCaptureForms() {
         auditContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
 
-      const endpoint = form.dataset.endpoint || window.CRAFTEGON_CONFIG?.apiEndpoint || "/api/v1/enquiries";
-
-      // If form explicitly requests static fallback notice OR static environment configured
-      if (form.dataset.staticFallback === "true" || window.CRAFTEGON_CONFIG?.isStatic === true) {
-        showFormFallbackNotice(form, data);
-        const submitBtn = form.querySelector("button[type='submit']");
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = "Retry Submission";
-        }
-        return;
-      }
-
-      // Map canonical routes to verified service and vertical IDs
+      // Extract canonical unified payload across all 42 intake forms
+      const currentPath = (window.location.pathname || "").toLowerCase();
       const ROUTE_SERVICE_MAP = {
         "/services/pvt-ltd-registration.html": { service_id: "V01-SVC-007", vertical_id: "V01" },
         "/conversion/contract-intake.html": { service_id: "V05-SVC-002", vertical_id: "V05" },
@@ -331,17 +319,21 @@ function initLeadCaptureForms() {
         "/conversion/trademark-search.html": { service_id: "V06-SVC-003", vertical_id: "V06" },
         "/conversion/venture-deal-booking.html": { service_id: "V05-SVC-001", vertical_id: "V05" }
       };
-
-      const currentPath = (window.location.pathname || "").toLowerCase();
       const routeContext = ROUTE_SERVICE_MAP[currentPath] || {};
 
       const payload = {
-        contact_name: (data.contact_name || data.director_name || data.applicant_name || data["signatory-name"] || data.name || data.company_name || "Prospective Client").trim(),
+        name: (data.contact_name || data.director_name || data.applicant_name || data["signatory-name"] || data.name || "Prospective Client").trim(),
+        contact_name: (data.contact_name || data.director_name || data.applicant_name || data["signatory-name"] || data.name || "Prospective Client").trim(),
         email: data.email ? String(data.email).trim() : "",
         phone: data.phone ? String(data.phone).trim() : "",
+        company_name: (data.company_name || data.entity_name || data.startup_name || data.org_name || data.platform_name || "").trim(),
+        entity_type: (data.entity_type || data.entityType || data.state || "").trim(),
+        reg_number: (data.cin || data.gstin || data.pan || data.din || data.llpin || data.reg_number || "").trim(),
+        service_name: (data.service_name || data.service || data.service_id || routeContext.service_id || "Corporate Compliance").trim(),
         service_id: data.service_id || form.dataset.serviceId || routeContext.service_id || "V01-SVC-007",
         vertical_id: data.vertical_id || data.service_category || form.dataset.verticalId || routeContext.vertical_id || "V01",
-        scope_description: (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || "").trim(),
+        scope_description: (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || data.notes || data.message || "").trim(),
+        scope: (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || data.notes || data.message || "").trim(),
         source_url: window.location.pathname,
         dpdp_consent: form.querySelector('input[name*="dpdp"], input[name*="consent"]')
           ? Boolean(form.querySelector('input[name*="dpdp"]:checked, input[name*="consent"]:checked'))
@@ -349,6 +341,50 @@ function initLeadCaptureForms() {
         _hp_website: data._hp_website || "",
         _render_time: form.dataset.renderTime || (Date.now() - 3000)
       };
+
+      const cfg = window.CRAFTEGON_CONFIG || {};
+      const webhookUrl = (cfg.googleWorkspace && cfg.googleWorkspace.webhookUrl) ||
+                         (typeof window !== "undefined" && window.__CRAFTEGON_WEBHOOK_URL__) ||
+                         (typeof window !== "undefined" && window.localStorage && window.localStorage.getItem("craftegon_webhook_url")) || "";
+
+      // 1. Direct Silent Webhook to Google Drive / Sheets (if configured)
+      if (webhookUrl) {
+        const submitBtn = form.querySelector("button[type='submit']");
+        form.dataset.submitting = "true";
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Recording to Google Drive...";
+        }
+        try {
+          await fetch(webhookUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          showFormSuccess(form, "✓ Your compliance inquiry has been recorded directly to our CraftEgon Compliance Desk ledger in Google Drive. A compliance officer will contact you within 2–4 business hours.");
+          form.dataset.submitted = "true";
+          if (submitBtn) {
+            submitBtn.textContent = "Inquiry Recorded ✓";
+          }
+          return;
+        } catch (wbErr) {
+          console.warn("Google Drive webhook transmission fallback", wbErr);
+        }
+      }
+
+      const endpoint = form.dataset.endpoint || cfg.apiEndpoint || "/api/v1/enquiries";
+
+      // 2. If form explicitly requests static fallback notice OR static environment configured
+      if (form.dataset.staticFallback === "true" || cfg.isStatic === true) {
+        showFormFallbackNotice(form, data);
+        const submitBtn = form.querySelector("button[type='submit']");
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Retry Submission";
+        }
+        return;
+      }
 
       const submitBtn = form.querySelector("button[type='submit']");
       const originalText = submitBtn ? submitBtn.textContent : "Submit";
@@ -611,14 +647,19 @@ function showFormFallbackNotice(form, data, options = {}) {
   alertBox.style.cssText = "background: #FFFFFF; border: 1.5px solid var(--gold-border-strong, #C59B27); padding: 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem; box-shadow: var(--shadow-sm);";
 
   const cfg = window.CRAFTEGON_CONFIG || {};
-  const serviceName = (data && (data.service_id || data.service_category || data.service)) || "Corporate Compliance";
+  const serviceName = (data && (data.service_name || data.service || data.service_id || data.service_category)) || "Corporate Compliance";
   const contactName = (data && (data.contact_name || data.director_name || data.applicant_name || data["signatory-name"] || data.name || data.company_name)) || "";
   const phone = (data && (data.phone || data.mobile)) || "";
   const email = (data && data.email) || "";
-  const scope = (data && (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || data.notes)) || "";
+  const company = (data && (data.company_name || data.entity_name || data.startup_name || data.org_name || data.platform_name)) || "";
+  const entityType = (data && (data.entity_type || data.entityType || data.state)) || "";
+  const regNumber = (data && (data.cin || data.gstin || data.pan || data.din || data.llpin || data.reg_number)) || "";
+  const scope = (data && (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || data.notes || data.message)) || "";
 
   let waText = `Hello CraftEgon Compliance Desk, I would like to consult on: ${serviceName}.`;
   if (contactName) waText += `\nName: ${contactName}`;
+  if (company) waText += `\nEntity: ${company}`;
+  if (regNumber) waText += `\nRegistration ID: ${regNumber}`;
   if (phone) waText += `\nPhone: ${phone}`;
   if (email) waText += `\nEmail: ${email}`;
   if (scope) waText += `\nRequirement: ${scope}`;
@@ -630,6 +671,8 @@ function showFormFallbackNotice(form, data, options = {}) {
 
   let mailBody = `Hello CraftEgon Compliance Desk,\n\nI would like to consult on: ${serviceName}.\n\n`;
   if (contactName) mailBody += `Name: ${contactName}\n`;
+  if (company) mailBody += `Entity: ${company}\n`;
+  if (regNumber) mailBody += `Registration ID: ${regNumber}\n`;
   if (phone) mailBody += `Phone: ${phone}\n`;
   if (email) mailBody += `Email: ${email}\n`;
   if (scope) mailBody += `Requirement: ${scope}\n`;
@@ -643,8 +686,18 @@ function showFormFallbackNotice(form, data, options = {}) {
 
   const gw = cfg.googleWorkspace;
   const googleFormUrl = (gw && typeof gw.getIntakeUrl === "function")
-    ? gw.getIntakeUrl({ name: contactName, email: email, phone: phone, service: serviceName, scope: scope, source: window.location.pathname })
-    : `/conversion/google-forms-intake.html?service=${encodeURIComponent(serviceName)}`;
+    ? gw.getIntakeUrl({
+        name: contactName,
+        email: email,
+        phone: phone,
+        company: company,
+        entityType: entityType,
+        regNumber: regNumber,
+        service: serviceName,
+        scope: scope,
+        sourceUrl: window.location.pathname
+      })
+    : `https://docs.google.com/forms/d/e/1FAIpQLSd-DERFEEOwSOs15bPuiCjc-eMFvKaAEVkKixDwjbPa1OKdfg/viewform`;
 
   const isUnconfirmed = options.reason === "unconfirmed";
   const noticeTitle = isUnconfirmed ? "Submission Unconfirmed — Direct Engagement" : "Notice: Direct Engagement Channel";
