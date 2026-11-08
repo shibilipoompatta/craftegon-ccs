@@ -153,12 +153,21 @@
 
 .hero-headline {
   font-family: var(--font-heading, 'Manrope', sans-serif);
-  font-size: clamp(2.35rem, 4.4vw, 3.5rem);
+  font-size: clamp(1.85rem, 4.4vw, 3.5rem);
   font-weight: 800;
   color: var(--navy-900, #10262E);
-  line-height: 1.15;
+  line-height: 1.18;
   letter-spacing: -0.035em;
   margin: 0 0 1.25rem;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: 1.72rem;
+    line-height: 1.22;
+  }
 }
 
 .hero-headline-accent {
@@ -313,15 +322,15 @@
   100% { transform: translate(-50%, -50%) translateZ(-80px) scale(1.15); opacity: 0.9; }
 }
 
-/* 3D Isometric Rotating Governance Cube */
+/* 3D Isometric Rotating Governance Cube (Positioned in Top-Left Quadrant to prevent badge collisions) */
 .geo-cube-container {
   position: absolute;
-  top: 25px;
-  right: 25px;
-  width: 70px;
-  height: 70px;
+  top: 10px;
+  left: 15px;
+  width: 60px;
+  height: 60px;
   transform-style: preserve-3d;
-  transform: translateZ(60px);
+  transform: translateZ(65px);
 }
 
 .geo-cube-3d {
@@ -339,20 +348,20 @@
 
 .cube-face {
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   background: rgba(221, 245, 234, 0.45);
   border: 1.5px solid var(--accent-mint-vibrant, #75CDA9);
   backdrop-filter: blur(4px);
   box-shadow: 0 0 12px rgba(117, 205, 169, 0.3);
 }
 
-.face-front  { transform: translateZ(35px); }
-.face-back   { transform: rotateY(180deg) translateZ(35px); }
-.face-right  { transform: rotateY(90deg) translateZ(35px); }
-.face-left   { transform: rotateY(-90deg) translateZ(35px); }
-.face-top    { transform: rotateX(90deg) translateZ(35px); }
-.face-bottom { transform: rotateX(-90deg) translateZ(35px); }
+.face-front  { transform: translateZ(30px); }
+.face-back   { transform: rotateY(180deg) translateZ(30px); }
+.face-right  { transform: rotateY(90deg) translateZ(30px); }
+.face-left   { transform: rotateY(-90deg) translateZ(30px); }
+.face-top    { transform: rotateX(90deg) translateZ(30px); }
+.face-bottom { transform: rotateX(-90deg) translateZ(30px); }
 
 /* Central 3D Corporate Vault Card */
 .vault-card-3d {
@@ -533,8 +542,8 @@
 
 /* Chip 1: Top-Right (Z: 85px) */
 .chip-top-right {
-  top: 15px;
-  right: -25px;
+  top: 25px;
+  right: -15px;
   transform: translateZ(85px);
   border: 1.5px solid var(--accent-sky-vibrant, #79C5E8);
   animation: floatChip1 5s ease-in-out infinite alternate;
@@ -553,7 +562,7 @@
 /* Chip 2: Bottom-Left (Z: 75px) */
 .chip-bottom-left {
   bottom: 25px;
-  left: -35px;
+  left: -25px;
   transform: translateZ(75px);
   border: 1.5px solid var(--accent-mint-vibrant, #75CDA9);
   animation: floatChip2 6s ease-in-out infinite alternate 0.5s;
@@ -569,10 +578,10 @@
   100% { transform: translateZ(75px) translateY(12px); }
 }
 
-/* Chip 3: Bottom-Right (Z: 95px) */
+/* Chip 3: Bottom-Right (Z: 95px) - Elevated to prevent overlap with floating chat widget */
 .chip-bottom-right {
-  bottom: -15px;
-  right: -10px;
+  bottom: 40px;
+  right: -15px;
   transform: translateZ(95px);
   border: 1.5px solid rgba(36, 122, 98, 0.4);
   animation: floatChip3 5.5s ease-in-out infinite alternate 1s;
@@ -589,9 +598,33 @@
 }
 
 @media (max-width: 992px) {
-  .chip-top-right { right: 5px; top: 10px; }
-  .chip-bottom-left { left: 0px; bottom: 20px; }
-  .chip-bottom-right { right: 10px; bottom: -10px; }
+  .chip-top-right { right: 8px; top: 15px; }
+  .chip-bottom-left { left: 8px; bottom: 25px; }
+  .chip-bottom-right { right: 8px; bottom: 30px; }
+}
+
+@media (max-width: 480px) {
+  .hero-3d-stage {
+    height: 330px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .scene-3d {
+    max-width: 310px;
+    height: 290px;
+  }
+  .vault-card-3d {
+    width: 280px;
+    padding: 1.15rem;
+  }
+  .chip-3d {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.72rem;
+  }
+  .chip-top-right { right: 6px; top: 8px; }
+  .chip-bottom-left { left: 6px; bottom: 12px; }
+  .chip-bottom-right { right: 6px; bottom: 16px; }
+  .geo-cube-container { display: none; }
 }
 
 /* ==========================================================================

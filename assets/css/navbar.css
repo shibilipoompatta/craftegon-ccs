@@ -1002,7 +1002,7 @@
   .brand-subtitle { font-size: 0.64rem; }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 500px) {
   .btn-talk-expert { display: none; }
   .brand-title { font-size: 0.98rem; }
   .brand-subtitle { font-size: 0.62rem; }

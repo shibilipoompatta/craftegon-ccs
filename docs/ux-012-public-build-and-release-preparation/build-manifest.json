@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-08T10:36:48.261Z",
+  "buildTimestamp": "2026-11-08T10:46:49.016Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 152,
-    "totalOutputSizeBytes": 2626436,
-    "totalOutputSizeFormatted": "2.50 MB",
+    "totalOutputSizeBytes": 2627604,
+    "totalOutputSizeFormatted": "2.51 MB",
     "sanitizedResidualLinksCount": 22,
     "filesByExtension": {
       ".html": 118,
@@ -67,7 +67,7 @@
     },
     {
       "path": "assets/css/home-unique.css",
-      "bytes": 35799
+      "bytes": 36559
     },
     {
       "path": "assets/css/navbar.css",
@@ -271,7 +271,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 73054
+      "bytes": 73462
     },
     {
       "path": "knowledge/director-disqualification-guide.html",
