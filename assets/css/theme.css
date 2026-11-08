@@ -380,7 +380,7 @@ label {
 .statutory-disclosure-panel {
   background: var(--bg-secondary, #F8FAFC);
   border: 1px solid var(--border-color, #E2E8F0);
-  border-left: 4px solid var(--brand-gold, #C59B27);
+  border-left: 4px solid var(--accent-green-primary, #247A62);
   padding: 1.15rem 1.4rem;
   border-radius: var(--radius-md, 8px);
   font-size: 0.82rem;
@@ -437,8 +437,8 @@ label {
 }
 
 .tools-hub-card.featured {
-  border-color: var(--brand-gold, #C59B27);
-  box-shadow: 0 4px 16px -2px rgba(197, 155, 39, 0.12);
+  border-color: var(--accent-green-primary, #247A62);
+  box-shadow: 0 4px 16px -2px rgba(36, 122, 98, 0.12);
 }
 
 .tools-hub-card-header {
@@ -541,7 +541,7 @@ label {
 }
 
 .tools-hub-card:hover .tool-btn-action {
-  color: var(--brand-gold, #C59B27);
+  color: var(--accent-green-primary, #247A62);
   transform: translateX(2px);
 }
 
@@ -561,7 +561,7 @@ label {
   font-weight: 700;
   font-size: 0.88rem;
   border-radius: var(--radius-sm, 6px);
-  border: 1.5px solid var(--brand-gold, #C59B27);
+  border: 1.5px solid var(--accent-green-primary, #247A62);
   box-shadow: 0 4px 16px rgba(11, 37, 69, 0.35);
   z-index: 9999;
   text-decoration: none;
@@ -571,7 +571,7 @@ label {
 .skip-link:focus,
 .skip-link:focus-visible {
   top: 1rem;
-  outline: 2px solid var(--brand-gold, #C59B27);
+  outline: 2px solid var(--accent-green-primary, #247A62);
   outline-offset: 2px;
 }
 

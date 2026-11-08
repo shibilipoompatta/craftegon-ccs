@@ -470,7 +470,7 @@ function injectServiceDiscoveryReciprocal() {
     const backLink = document.createElement("a");
     backLink.className = "service-dir-backlink";
     backLink.href = "/services.html";
-    backLink.style.cssText = "margin-left:auto; font-size:0.8rem; color:var(--brand-gold, #C59B27); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px;";
+    backLink.style.cssText = "margin-left:auto; font-size:0.8rem; color:var(--accent-green-primary, #247A62); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px;";
     backLink.innerHTML = "<span>← All 57 Services</span>";
     breadcrumb.style.display = "flex";
     breadcrumb.style.alignItems = "center";
@@ -497,10 +497,10 @@ function injectServiceDiscoveryReciprocal() {
       let relatedHtml = `
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.5rem;">
           <div>
-            <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-gold, #C59B27); font-weight: 700;">Adjacent Regulatory Filings</span>
+            <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-green-primary, #247A62); font-weight: 700;">Adjacent Regulatory Filings</span>
             <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-dark, #090D16); margin: 0.2rem 0 0;">Related Services in ${currentService.vertical_name}</h3>
           </div>
-          <a href="/services.html?vertical=${encodeURIComponent(currentService.vertical_id)}" style="font-size: 0.82rem; font-weight: 700; color: var(--brand-gold, #C59B27); text-decoration: none;">View all in category &rarr;</a>
+          <a href="/services.html?vertical=${encodeURIComponent(currentService.vertical_id)}" style="font-size: 0.82rem; font-weight: 700; color: var(--accent-green-primary, #247A62); text-decoration: none;">View all in category &rarr;</a>
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.85rem;">
       `;
@@ -509,11 +509,11 @@ function injectServiceDiscoveryReciprocal() {
         const isRef = item.is_referral;
         relatedHtml += `
           <a href="${item.route}" style="display: block; padding: 0.85rem; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
-            <div style="font-family: var(--font-mono, monospace); font-size: 0.68rem; color: var(--brand-gold, #C59B27); margin-bottom: 0.3rem;">${item.id}</div>
+            <div style="font-family: var(--font-mono, monospace); font-size: 0.68rem; color: var(--accent-green-primary, #247A62); margin-bottom: 0.3rem;">${item.id}</div>
             <div style="font-weight: 600; font-size: 0.85rem; color: #090D16; line-height: 1.35; margin-bottom: 0.4rem;">${item.name}</div>
             <div style="font-size: 0.74rem; color: #64748B; display: flex; align-items: center; justify-content: space-between;">
               <span>${isRef ? 'Referral Service' : 'Direct Service'}</span>
-              <span style="color: var(--brand-gold, #C59B27);">&rarr;</span>
+              <span style="color: var(--accent-green-primary, #247A62);">&rarr;</span>
             </div>
           </a>
         `;

@@ -18,7 +18,7 @@
   font-size: 0.85rem !important;
   font-weight: 700 !important;
   border-radius: var(--radius-sm, 6px) !important;
-  border: 1.5px solid var(--brand-gold, #C59B27) !important;
+  border: 1.5px solid var(--accent-green-primary, #247A62) !important;
   box-shadow: 0 4px 16px rgba(11, 37, 69, 0.4) !important;
   text-decoration: none !important;
   transition: none !important;
@@ -28,7 +28,7 @@
 .skip-link:focus-visible {
   top: 12px !important;
   left: 16px !important;
-  outline: 2px solid var(--brand-gold, #C59B27) !important;
+  outline: 2px solid var(--accent-green-primary, #247A62) !important;
   outline-offset: 2px !important;
 }
 
@@ -226,7 +226,7 @@
 
 .if-dropdown.is-open .dropdown-chevron {
   transform: rotate(180deg);
-  color: var(--brand-gold, #C59B27);
+  color: var(--accent-green-primary, #247A62);
 }
 
 /* Services Mega-Menu Layout & Viewport Bounding */
@@ -272,9 +272,9 @@
   font-family: var(--font-mono, monospace);
   font-size: 0.62rem;
   font-weight: 700;
-  color: var(--brand-gold, #C59B27);
-  background: rgba(197, 155, 39, 0.1);
-  border: 1px solid rgba(197, 155, 39, 0.25);
+  color: var(--accent-green-primary, #247A62);
+  background: rgba(36, 122, 98, 0.1);
+  border: 1px solid rgba(36, 122, 98, 0.25);
   padding: 1px 6px;
   border-radius: 4px;
   text-transform: uppercase;
