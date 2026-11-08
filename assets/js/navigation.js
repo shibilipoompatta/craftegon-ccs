@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                   Building Business Infrastructure — Your Business Infrastructure Partner. From business formation to compliance, protection and growth — coordinated corporate services supported by professional expertise and technology.
                 </p>
                 <div class="if-footer-contact">
-                  <p class="if-contact-item"><strong>Entity:</strong> CraftEgon LLP</p>
+                  <p class="if-contact-item"><strong>Service Desk:</strong> CraftEgon Corporate Services (CCS)</p>
                   <p class="if-contact-item"><strong>Office:</strong> Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN 690501</p>
                   <p class="if-contact-item"><strong>Phone:</strong> <a href="tel:+918606918247">+91 86069 18247</a></p>
                   <p class="if-contact-item"><strong>WhatsApp:</strong> <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer">+91 86069 18247 &bull; Chat Live &rarr;</a></p>
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <strong>Statutory Disclosure:</strong> CraftEgon CCS provides corporate secretarial, compliance, and procedural documentation infrastructure. We do not provide court appearances or litigation advocacy; matters requiring courtroom representation must be handled by an independent advocate enrolled under the Advocates Act, 1961. <a href="/legal/disclaimer.html">Read full professional disclaimer &rarr;</a>
               </p>
               <p class="if-footer-copy">
-                &copy; 2026 CraftEgon LLP. All rights reserved. Registered Office: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN 690501. Operating across all RoC Jurisdictions nationwide.
+                &copy; 2026 CraftEgon Corporate Services (CCS). All rights reserved. Registered Office: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN 690501. Operating across all RoC Jurisdictions nationwide.
               </p>
             </div>
           </div>

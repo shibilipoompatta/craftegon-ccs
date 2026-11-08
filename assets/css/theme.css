@@ -307,8 +307,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--navy-800, #0B2545);
-  box-shadow: var(--focus-ring, 0 0 0 3px rgba(11, 37, 69, 0.15));
+  border-color: var(--accent-green-primary, #247A62);
+  box-shadow: 0 0 0 3px rgba(36, 122, 98, 0.18);
 }
 
 label {
@@ -367,10 +367,10 @@ label {
 
 .filter-chip.active,
 .conv-filter-btn.active {
-  background: var(--navy-800, #0B2545) !important;
+  background: var(--accent-green-primary, #247A62) !important;
   color: #FFFFFF !important;
-  border-color: var(--navy-800, #0B2545) !important;
-  box-shadow: 0 1px 4px rgba(11, 37, 69, 0.2);
+  border-color: var(--accent-green-primary, #247A62) !important;
+  box-shadow: 0 1px 4px rgba(36, 122, 98, 0.2);
 }
 
 /* --------------------------------------------------------------------------

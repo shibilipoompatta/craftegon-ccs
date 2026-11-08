@@ -1,0 +1,502 @@
+[
+  {
+    "page": "home",
+    "file": "index.html",
+    "viewport": "320px",
+    "width": 320,
+    "height": 640,
+    "filename": "home-320px.png",
+    "size": 34685,
+    "pass": true
+  },
+  {
+    "page": "home",
+    "file": "index.html",
+    "viewport": "360px",
+    "width": 360,
+    "height": 740,
+    "filename": "home-360px.png",
+    "size": 38565,
+    "pass": true
+  },
+  {
+    "page": "home",
+    "file": "index.html",
+    "viewport": "375px",
+    "width": 375,
+    "height": 667,
+    "filename": "home-375px.png",
+    "size": 38163,
+    "pass": true
+  },
+  {
+    "page": "home",
+    "file": "index.html",
+    "viewport": "390px",
+    "width": 390,
+    "height": 844,
+    "filename": "home-390px.png",
+    "size": 43979,
+    "pass": true
+  },
+  {
+    "page": "home",
+    "file": "index.html",
+    "viewport": "414px",
+    "width": 414,
+    "height": 896,
+    "filename": "home-414px.png",
+    "size": 47897,
+    "pass": true
+  },
+  {
+    "page": "home",
+    "file": "index.html",
+    "viewport": "430px",
+    "width": 430,
+    "height": 932,
+    "filename": "home-430px.png",
+    "size": 49498,
+    "pass": true
+  },
+  {
+    "page": "home",
+    "file": "index.html",
+    "viewport": "768px",
+    "width": 768,
+    "height": 1024,
+    "filename": "home-768px.png",
+    "size": 57961,
+    "pass": true
+  },
+  {
+    "page": "home",
+    "file": "index.html",
+    "viewport": "1024px",
+    "width": 1024,
+    "height": 768,
+    "filename": "home-1024px.png",
+    "size": 48313,
+    "pass": true
+  },
+  {
+    "page": "home",
+    "file": "index.html",
+    "viewport": "1366px",
+    "width": 1366,
+    "height": 768,
+    "filename": "home-1366px.png",
+    "size": 50423,
+    "pass": true
+  },
+  {
+    "page": "home",
+    "file": "index.html",
+    "viewport": "1920px",
+    "width": 1920,
+    "height": 1080,
+    "filename": "home-1920px.png",
+    "size": 56131,
+    "pass": true
+  },
+  {
+    "page": "services-directory",
+    "file": "services/index.html",
+    "viewport": "320px",
+    "width": 320,
+    "height": 640,
+    "filename": "services-directory-320px.png",
+    "size": 83184,
+    "pass": true
+  },
+  {
+    "page": "services-directory",
+    "file": "services/index.html",
+    "viewport": "360px",
+    "width": 360,
+    "height": 740,
+    "filename": "services-directory-360px.png",
+    "size": 103885,
+    "pass": true
+  },
+  {
+    "page": "services-directory",
+    "file": "services/index.html",
+    "viewport": "375px",
+    "width": 375,
+    "height": 667,
+    "filename": "services-directory-375px.png",
+    "size": 106186,
+    "pass": true
+  },
+  {
+    "page": "services-directory",
+    "file": "services/index.html",
+    "viewport": "390px",
+    "width": 390,
+    "height": 844,
+    "filename": "services-directory-390px.png",
+    "size": 119959,
+    "pass": true
+  },
+  {
+    "page": "services-directory",
+    "file": "services/index.html",
+    "viewport": "414px",
+    "width": 414,
+    "height": 896,
+    "filename": "services-directory-414px.png",
+    "size": 130797,
+    "pass": true
+  },
+  {
+    "page": "services-directory",
+    "file": "services/index.html",
+    "viewport": "430px",
+    "width": 430,
+    "height": 932,
+    "filename": "services-directory-430px.png",
+    "size": 137390,
+    "pass": true
+  },
+  {
+    "page": "services-directory",
+    "file": "services/index.html",
+    "viewport": "768px",
+    "width": 768,
+    "height": 1024,
+    "filename": "services-directory-768px.png",
+    "size": 229739,
+    "pass": true
+  },
+  {
+    "page": "services-directory",
+    "file": "services/index.html",
+    "viewport": "1024px",
+    "width": 1024,
+    "height": 768,
+    "filename": "services-directory-1024px.png",
+    "size": 234755,
+    "pass": true
+  },
+  {
+    "page": "services-directory",
+    "file": "services/index.html",
+    "viewport": "1366px",
+    "width": 1366,
+    "height": 768,
+    "filename": "services-directory-1366px.png",
+    "size": 279471,
+    "pass": true
+  },
+  {
+    "page": "services-directory",
+    "file": "services/index.html",
+    "viewport": "1920px",
+    "width": 1920,
+    "height": 1080,
+    "filename": "services-directory-1920px.png",
+    "size": 416286,
+    "pass": true
+  },
+  {
+    "page": "service-detail-pvt-ltd",
+    "file": "services/pvt-ltd-registration.html",
+    "viewport": "320px",
+    "width": 320,
+    "height": 640,
+    "filename": "service-detail-pvt-ltd-320px.png",
+    "size": 34904,
+    "pass": true
+  },
+  {
+    "page": "service-detail-pvt-ltd",
+    "file": "services/pvt-ltd-registration.html",
+    "viewport": "360px",
+    "width": 360,
+    "height": 740,
+    "filename": "service-detail-pvt-ltd-360px.png",
+    "size": 43455,
+    "pass": true
+  },
+  {
+    "page": "service-detail-pvt-ltd",
+    "file": "services/pvt-ltd-registration.html",
+    "viewport": "375px",
+    "width": 375,
+    "height": 667,
+    "filename": "service-detail-pvt-ltd-375px.png",
+    "size": 40972,
+    "pass": true
+  },
+  {
+    "page": "service-detail-pvt-ltd",
+    "file": "services/pvt-ltd-registration.html",
+    "viewport": "390px",
+    "width": 390,
+    "height": 844,
+    "filename": "service-detail-pvt-ltd-390px.png",
+    "size": 50034,
+    "pass": true
+  },
+  {
+    "page": "service-detail-pvt-ltd",
+    "file": "services/pvt-ltd-registration.html",
+    "viewport": "414px",
+    "width": 414,
+    "height": 896,
+    "filename": "service-detail-pvt-ltd-414px.png",
+    "size": 60083,
+    "pass": true
+  },
+  {
+    "page": "service-detail-pvt-ltd",
+    "file": "services/pvt-ltd-registration.html",
+    "viewport": "430px",
+    "width": 430,
+    "height": 932,
+    "filename": "service-detail-pvt-ltd-430px.png",
+    "size": 60556,
+    "pass": true
+  },
+  {
+    "page": "service-detail-pvt-ltd",
+    "file": "services/pvt-ltd-registration.html",
+    "viewport": "768px",
+    "width": 768,
+    "height": 1024,
+    "filename": "service-detail-pvt-ltd-768px.png",
+    "size": 83516,
+    "pass": true
+  },
+  {
+    "page": "service-detail-pvt-ltd",
+    "file": "services/pvt-ltd-registration.html",
+    "viewport": "1024px",
+    "width": 1024,
+    "height": 768,
+    "filename": "service-detail-pvt-ltd-1024px.png",
+    "size": 75213,
+    "pass": true
+  },
+  {
+    "page": "service-detail-pvt-ltd",
+    "file": "services/pvt-ltd-registration.html",
+    "viewport": "1366px",
+    "width": 1366,
+    "height": 768,
+    "filename": "service-detail-pvt-ltd-1366px.png",
+    "size": 79844,
+    "pass": true
+  },
+  {
+    "page": "service-detail-pvt-ltd",
+    "file": "services/pvt-ltd-registration.html",
+    "viewport": "1920px",
+    "width": 1920,
+    "height": 1080,
+    "filename": "service-detail-pvt-ltd-1920px.png",
+    "size": 111943,
+    "pass": true
+  },
+  {
+    "page": "conversion-checkout",
+    "file": "conversion/post-incorporation-checkout.html",
+    "viewport": "320px",
+    "width": 320,
+    "height": 640,
+    "filename": "conversion-checkout-320px.png",
+    "size": 22150,
+    "pass": true
+  },
+  {
+    "page": "conversion-checkout",
+    "file": "conversion/post-incorporation-checkout.html",
+    "viewport": "360px",
+    "width": 360,
+    "height": 740,
+    "filename": "conversion-checkout-360px.png",
+    "size": 26646,
+    "pass": true
+  },
+  {
+    "page": "conversion-checkout",
+    "file": "conversion/post-incorporation-checkout.html",
+    "viewport": "375px",
+    "width": 375,
+    "height": 667,
+    "filename": "conversion-checkout-375px.png",
+    "size": 25939,
+    "pass": true
+  },
+  {
+    "page": "conversion-checkout",
+    "file": "conversion/post-incorporation-checkout.html",
+    "viewport": "390px",
+    "width": 390,
+    "height": 844,
+    "filename": "conversion-checkout-390px.png",
+    "size": 32773,
+    "pass": true
+  },
+  {
+    "page": "conversion-checkout",
+    "file": "conversion/post-incorporation-checkout.html",
+    "viewport": "414px",
+    "width": 414,
+    "height": 896,
+    "filename": "conversion-checkout-414px.png",
+    "size": 34009,
+    "pass": true
+  },
+  {
+    "page": "conversion-checkout",
+    "file": "conversion/post-incorporation-checkout.html",
+    "viewport": "430px",
+    "width": 430,
+    "height": 932,
+    "filename": "conversion-checkout-430px.png",
+    "size": 34024,
+    "pass": true
+  },
+  {
+    "page": "conversion-checkout",
+    "file": "conversion/post-incorporation-checkout.html",
+    "viewport": "768px",
+    "width": 768,
+    "height": 1024,
+    "filename": "conversion-checkout-768px.png",
+    "size": 35477,
+    "pass": true
+  },
+  {
+    "page": "conversion-checkout",
+    "file": "conversion/post-incorporation-checkout.html",
+    "viewport": "1024px",
+    "width": 1024,
+    "height": 768,
+    "filename": "conversion-checkout-1024px.png",
+    "size": 35676,
+    "pass": true
+  },
+  {
+    "page": "conversion-checkout",
+    "file": "conversion/post-incorporation-checkout.html",
+    "viewport": "1366px",
+    "width": 1366,
+    "height": 768,
+    "filename": "conversion-checkout-1366px.png",
+    "size": 37145,
+    "pass": true
+  },
+  {
+    "page": "conversion-checkout",
+    "file": "conversion/post-incorporation-checkout.html",
+    "viewport": "1920px",
+    "width": 1920,
+    "height": 1080,
+    "filename": "conversion-checkout-1920px.png",
+    "size": 40249,
+    "pass": true
+  },
+  {
+    "page": "portal-dashboard",
+    "file": "portal/dashboard.html",
+    "viewport": "320px",
+    "width": 320,
+    "height": 640,
+    "filename": "portal-dashboard-320px.png",
+    "size": 32445,
+    "pass": true
+  },
+  {
+    "page": "portal-dashboard",
+    "file": "portal/dashboard.html",
+    "viewport": "360px",
+    "width": 360,
+    "height": 740,
+    "filename": "portal-dashboard-360px.png",
+    "size": 39519,
+    "pass": true
+  },
+  {
+    "page": "portal-dashboard",
+    "file": "portal/dashboard.html",
+    "viewport": "375px",
+    "width": 375,
+    "height": 667,
+    "filename": "portal-dashboard-375px.png",
+    "size": 35813,
+    "pass": true
+  },
+  {
+    "page": "portal-dashboard",
+    "file": "portal/dashboard.html",
+    "viewport": "390px",
+    "width": 390,
+    "height": 844,
+    "filename": "portal-dashboard-390px.png",
+    "size": 45796,
+    "pass": true
+  },
+  {
+    "page": "portal-dashboard",
+    "file": "portal/dashboard.html",
+    "viewport": "414px",
+    "width": 414,
+    "height": 896,
+    "filename": "portal-dashboard-414px.png",
+    "size": 53363,
+    "pass": true
+  },
+  {
+    "page": "portal-dashboard",
+    "file": "portal/dashboard.html",
+    "viewport": "430px",
+    "width": 430,
+    "height": 932,
+    "filename": "portal-dashboard-430px.png",
+    "size": 55025,
+    "pass": true
+  },
+  {
+    "page": "portal-dashboard",
+    "file": "portal/dashboard.html",
+    "viewport": "768px",
+    "width": 768,
+    "height": 1024,
+    "filename": "portal-dashboard-768px.png",
+    "size": 78521,
+    "pass": true
+  },
+  {
+    "page": "portal-dashboard",
+    "file": "portal/dashboard.html",
+    "viewport": "1024px",
+    "width": 1024,
+    "height": 768,
+    "filename": "portal-dashboard-1024px.png",
+    "size": 64141,
+    "pass": true
+  },
+  {
+    "page": "portal-dashboard",
+    "file": "portal/dashboard.html",
+    "viewport": "1366px",
+    "width": 1366,
+    "height": 768,
+    "filename": "portal-dashboard-1366px.png",
+    "size": 68215,
+    "pass": true
+  },
+  {
+    "page": "portal-dashboard",
+    "file": "portal/dashboard.html",
+    "viewport": "1920px",
+    "width": 1920,
+    "height": 1080,
+    "filename": "portal-dashboard-1920px.png",
+    "size": 90228,
+    "pass": true
+  }
+]
