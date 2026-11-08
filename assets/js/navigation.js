@@ -64,18 +64,19 @@ document.addEventListener("DOMContentLoaded", async function () {
   preserveConversionContext();
   injectServiceDiscoveryReciprocal();
 
-  // 1. Load and inject Navbar with graceful fallback
+  // 1. Load and inject Navbar with graceful fallback (Skips fetch if pre-rendered)
   const navContainer = document.getElementById("global-navbar") || document.getElementById("global-header");
   if (navContainer) {
-    try {
-      const navResponse = await fetch("/components/navbar.html");
-      if (navResponse.ok) {
-        navContainer.innerHTML = await navResponse.text();
-      } else {
-        throw new Error("Navbar component not found");
-      }
-    } catch (error) {
-      navContainer.innerHTML = `
+    if (!navContainer.children.length) {
+      try {
+        const navResponse = await fetch("/components/navbar.html");
+        if (navResponse.ok) {
+          navContainer.innerHTML = await navResponse.text();
+        } else {
+          throw new Error("Navbar component not found");
+        }
+      } catch (error) {
+        navContainer.innerHTML = `
         <header class="if-header">
           <div class="if-header-inner">
             <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
@@ -130,6 +131,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           </div>
         </header>
       `;
+      }
     }
 
     initDropdowns();
@@ -144,9 +146,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 
-  // 2. Load and inject Footer with graceful fallback
+  // 2. Load and inject Footer with graceful fallback (Skips fetch if pre-rendered)
   const footerContainer = document.getElementById("global-footer");
-  if (footerContainer) {
+  if (footerContainer && !footerContainer.children.length) {
     try {
       const footerResponse = await fetch("/components/footer.html");
       if (footerResponse.ok) {
@@ -240,6 +242,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     chatScript.defer = true;
     document.body.appendChild(chatScript);
   }
+
+  // 4. Initialize Contextual WhatsApp Links
+  initContextualWhatsApp();
 });
 
 function initDropdowns() {
@@ -528,4 +533,25 @@ function injectServiceDiscoveryReciprocal() {
     });
   }
 }
+
+function initContextualWhatsApp() {
+  try {
+    const pageTitle = (document.title || '').split('|')[0].trim();
+    const h1 = document.querySelector('h1');
+    const rawContext = (h1 ? h1.textContent : pageTitle) || 'Corporate Services';
+    const cleanContext = rawContext.replace(/\s+/g, ' ').trim().slice(0, 80);
+    const encodedMsg = encodeURIComponent("Hello CraftEgon Desk, I would like to inquire about: " + cleanContext);
+    const waLinks = document.querySelectorAll('a[href*="wa.me/918606918247"]');
+    waLinks.forEach(link => {
+      const currentHref = link.getAttribute('href');
+      if (currentHref && !currentHref.includes('text=')) {
+        const separator = currentHref.includes('?') ? '&' : '?';
+        link.setAttribute('href', `${currentHref}${separator}text=${encodedMsg}`);
+      }
+    });
+  } catch (e) {
+    // Non-fatal enhancement
+  }
+}
+
 

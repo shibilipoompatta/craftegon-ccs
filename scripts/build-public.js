@@ -97,9 +97,62 @@ function shouldExclude(relPath) {
   return false;
 }
 
-// 3. Recursive Copy with Exclusion & Sanitization
+// 3. Pre-load and prepare canonical components for Static Site Pre-rendering (SSG)
+const rawNavbar = fs.readFileSync(path.join(ROOT, 'components', 'navbar.html'), 'utf8');
+const rawFooter = fs.readFileSync(path.join(ROOT, 'components', 'footer.html'), 'utf8');
+
+function cleanPortalLinks(raw) {
+  return raw
+    .replace(/<a\s+href="\/portal\/dashboard\.html"\s+class="if-btn-secondary\s+portal-nav-link".*?>[\s\S]*?<\/a>/gi, 
+      '<a href="/services/" class="if-btn-secondary" title="Universal Services Directory">Services</a>')
+    .replace(/href=["']\/portal\/entity-search\.html["']/g, 'href="/search/index.html"')
+    .replace(/href=["']\/portal\/dashboard\.html["']/g, 'href="/services/roc-annual-compliance.html"')
+    .replace(/href=["']\/portal\/subscription\.html["']/g, 'href="/conversion/retainer-desk.html"')
+    .replace(/href=["']\/portal\/?["']/g, 'href="/services/"')
+    .replace(/href=["']\/admin\/?.*?["']/g, 'href="/404.html"');
+}
+
+const ssgNavbar = cleanPortalLinks(rawNavbar);
+const ssgFooter = cleanPortalLinks(rawFooter);
+
+function minifyCSS(css) {
+  return css
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/\s*([\{\};:,>~+])\s*/g, '$1')
+    .replace(/;\}/g, '}')
+    .replace(/\band\(/g, 'and (')
+    .replace(/\bor\(/g, 'or (')
+    .replace(/\bnot\(/g, 'not (')
+    .trim();
+}
+
+function minifyJS(js) {
+  // Strip block comments
+  let text = js.replace(/\/\*[\s\S]*?\*\//g, '');
+  // Line-by-line whitespace & full-line comment stripping (preserves ASI and line breaks)
+  const lines = text.split('\n');
+  const out = [];
+  for (let line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('//')) continue;
+    out.push(trimmed);
+  }
+  const minified = out.join('\n');
+  // Syntax safety check
+  try {
+    new Function(minified);
+    return minified;
+  } catch (err) {
+    console.warn('  ⚠️ Minification syntax warning, keeping original:', err.message);
+    return js;
+  }
+}
+
+// 4. Recursive Copy with Exclusion, Sanitization & Pre-rendering
 const includedFiles = [];
 let sanitizedLinksCount = 0;
+let preRenderedPagesCount = 0;
 
 function copyAndSanitize(srcDir, destDir, currentRel = '') {
   if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
@@ -122,7 +175,7 @@ function copyAndSanitize(srcDir, destDir, currentRel = '') {
       let content = fs.readFileSync(srcPath);
       const ext = path.extname(srcPath).toLowerCase();
 
-      // Text-based file sanitization
+      // Text-based file sanitization & optimization
       if (ext === '.html' || ext === '.js' || ext === '.css' || ext === '.json') {
         let text = content.toString('utf8');
         const originalText = text;
@@ -132,8 +185,27 @@ function copyAndSanitize(srcDir, destDir, currentRel = '') {
           text = text.replace(/@import\s+url\(['"]?\/assets\/css\/portal\.css['"]?\);?/g, '/* portal.css excluded from public build */');
         }
 
-        // HTML & JS: Clean residual portal / admin links
-        if (ext === '.html' || ext === '.js') {
+        // HTML Processing: SSG Pre-rendering & Portal link sanitization
+        if (ext === '.html') {
+          // Pre-render Navbar and Footer into empty containers (skips component fragments themselves)
+          if (relPosix !== 'components/navbar.html' && relPosix !== 'components/footer.html') {
+            if (/<div\s+id=["'](?:global-navbar|global-header)["']\s*>\s*<\/div>/i.test(text)) {
+              text = text.replace(/<div\s+id=["'](?:global-navbar|global-header)["']\s*>\s*<\/div>/gi, () => {
+                preRenderedPagesCount++;
+                return `<div id="global-navbar">\n${ssgNavbar}\n</div>`;
+              });
+            }
+            text = text.replace(/<div\s+id=["']global-footer["']\s*>\s*<\/div>/gi, () => {
+              return `<div id="global-footer">\n${ssgFooter}\n</div>`;
+            });
+          }
+
+          // Clean portal header button across any HTML page
+          text = text.replace(/<a\s+href="\/portal\/dashboard\.html"\s+class="if-btn-secondary\s+portal-nav-link".*?>[\s\S]*?<\/a>/gi, () => {
+            sanitizedLinksCount++;
+            return '<a href="/services/" class="if-btn-secondary" title="Universal Services Directory">Services</a>';
+          });
+
           // Replace entity search portal link with public search
           text = text.replace(/href=["']\/portal\/entity-search\.html["']/g, () => {
             sanitizedLinksCount++;
@@ -159,12 +231,37 @@ function copyAndSanitize(srcDir, destDir, currentRel = '') {
             sanitizedLinksCount++;
             return 'href="/404.html"';
           });
+        }
 
-          // In components/navbar.html: clean portal header button
-          if (relPosix === 'components/navbar.html') {
-            text = text.replace(/<a\s+href="\/portal\/dashboard\.html"\s+class="if-btn-secondary\s+portal-nav-link".*?>[\s\S]*?<\/a>/gi, 
-              '<a href="/services/" class="if-btn-secondary" title="Universal Services Directory">Services</a>');
-          }
+        // JS Processing: Sanitize residual portal links & Minify
+        if (ext === '.js') {
+          text = text.replace(/href=["']\/portal\/entity-search\.html["']/g, () => {
+            sanitizedLinksCount++;
+            return 'href="/search/index.html"';
+          });
+          text = text.replace(/href=["']\/portal\/dashboard\.html["']/g, () => {
+            sanitizedLinksCount++;
+            return 'href="/services/roc-annual-compliance.html"';
+          });
+          text = text.replace(/href=["']\/portal\/subscription\.html["']/g, () => {
+            sanitizedLinksCount++;
+            return 'href="/conversion/retainer-desk.html"';
+          });
+          text = text.replace(/href=["']\/portal\/?["']/g, () => {
+            sanitizedLinksCount++;
+            return 'href="/services/"';
+          });
+          text = text.replace(/href=["']\/admin\/?.*?["']/g, () => {
+            sanitizedLinksCount++;
+            return 'href="/404.html"';
+          });
+
+          text = minifyJS(text);
+        }
+
+        // CSS Processing: Minify
+        if (ext === '.css') {
+          text = minifyCSS(text);
         }
 
         if (text !== originalText) {
@@ -306,6 +403,7 @@ const buildManifest = {
     totalOutputSizeBytes: totalBytes,
     totalOutputSizeFormatted: (totalBytes / (1024 * 1024)).toFixed(2) + ' MB',
     sanitizedResidualLinksCount: sanitizedLinksCount,
+    preRenderedSSGPagesCount: preRenderedPagesCount,
     filesByExtension: extCounts
   },
   excludedPaths: Array.from(EXCLUDED_DIRS).concat(Array.from(EXCLUDED_FILES)),
@@ -324,6 +422,7 @@ console.log('----------------------------------------------------------------');
 console.log(`✅ Build Success: ${includedFiles.length} files compiled into dist-public/`);
 console.log(`✅ Total Output Size: ${(totalBytes / (1024 * 1024)).toFixed(2)} MB`);
 console.log(`✅ Residual Links Sanitized: ${sanitizedLinksCount}`);
+console.log(`✅ SSG Pre-rendered Pages: ${preRenderedPagesCount} HTML pages with inlined navbar/footer`);
 console.log(`✅ Internal Tools Excluded: /portal/, /admin/, /src/, /docs/, /scripts/`);
 console.log(`✅ Build Manifest Saved: dist-public/build-manifest.json`);
 console.log('================================================================\n');

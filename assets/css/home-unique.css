@@ -627,6 +627,38 @@
   .geo-cube-container { display: none; }
 }
 
+/* WCAG 2.2 SC 2.3.3: Motion Accessibility (prefers-reduced-motion) */
+@media (prefers-reduced-motion: reduce) {
+  .geo-cube-3d,
+  .glow-orb-3d,
+  .chip-3d,
+  .hero-pill-dot {
+    animation: none !important;
+  }
+  .scene-3d,
+  .card-3d,
+  .vault-card-3d {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Homepage Dual-Search Scroll Synchronization */
+@media (min-width: 1025px) {
+  body.home-page .universal-search-container.nav-search-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px) scale(0.96);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  body.home-page .universal-search-container.nav-search-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+}
+
 /* ==========================================================================
    3. TRUST & STATUTORY SLA BAR
    ========================================================================== */

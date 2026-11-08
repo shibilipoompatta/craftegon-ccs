@@ -15,12 +15,16 @@
     initFeeEstimator();
     initStageTabs();
     initFrontSearch();
+    initSearchScrollSync();
   });
 
   /**
    * 1. 3D HERO STAGE PARALLAX & CURSOR TRACKING
    */
   function initHero3DParallax() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
     const stage = document.querySelector(".hero-3d-stage");
     const scene = document.querySelector(".scene-3d");
     if (!stage || !scene) return;
@@ -83,6 +87,9 @@
    * 2. 3D HOVER TILT FOR CORE PILLAR & VALUE CARDS
    */
   function initCard3DTilt() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
     const cards = document.querySelectorAll(".card-3d");
     if (!cards.length) return;
 
@@ -271,6 +278,32 @@
         dropdown.style.display = "none";
       }
     });
+  }
+
+  /**
+   * 6. DUAL-SEARCH SCROLL SYNCHRONIZATION ON HOMEPAGE
+   * Smoothly hides navbar search when hero search is in view, revealing it on scroll.
+   */
+  function initSearchScrollSync() {
+    const navSearch = document.getElementById("universal-search-container");
+    const heroSearch = document.querySelector(".hero-front-search-card");
+    if (!navSearch || !heroSearch) return;
+
+    function updateSearchVisibility() {
+      const heroRect = heroSearch.getBoundingClientRect();
+      if (heroRect.bottom < 80) {
+        navSearch.classList.add("nav-search-visible");
+        navSearch.classList.remove("nav-search-hidden");
+      } else {
+        navSearch.classList.add("nav-search-hidden");
+        navSearch.classList.remove("nav-search-visible");
+      }
+    }
+
+    if (window.innerWidth > 1024) {
+      window.addEventListener("scroll", updateSearchVisibility, { passive: true });
+      updateSearchVisibility();
+    }
   }
 
 })();
