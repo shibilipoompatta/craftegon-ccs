@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CraftEgon Corporate Services (CCS) | Building Business Infrastructure</title>
-  <meta name="description" content="Your Business Infrastructure Partner. From business formation to compliance, protection and growth — coordinated corporate services supported by professional expertise and technology.">
+  <meta name="description" content="Your Business Infrastructure Partner. Coordinated corporate secretarial, tax, entity formation, and compliance services supported by professional expertise and technology.">
   <link rel="canonical" href="https://ccs.craftegon.com/">
   
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ccs.craftegon.com/">
   <meta property="og:title" content="CraftEgon Corporate Services (CCS) | Building Business Infrastructure">
-  <meta property="og:description" content="Your Business Infrastructure Partner. Coordinated corporate services supported by professional expertise and technology.">
+  <meta property="og:description" content="Your Business Infrastructure Partner. Coordinated corporate secretarial, tax, entity formation, and compliance services supported by professional expertise and technology.">
   <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
   
   <!-- Stylesheets -->
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="assets/css/home-unique.css">
   <link rel="stylesheet" href="assets/css/chat-widget.css">
   
-  <!-- Structured Data JSON-LD -->
+  <!-- Structured Data JSON-LD (WCAG & Schema.org Compliant) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -63,6 +63,7 @@
   <!-- Universal Fixed Header -->
   <header class="if-header" role="banner">
     <div class="if-header-inner">
+      <!-- Brand Logo -->
       <a href="/" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
         <img src="assets/images/craftegon-logo.jpg" alt="CraftEgon Logo" class="brand-logo-img" width="38" height="38">
         <div class="brand-text-block">
@@ -71,12 +72,42 @@
         </div>
       </a>
 
+      <!-- Compact Universal Service Search -->
+      <div class="universal-search-container" id="universal-search-container">
+        <form class="universal-search-form" id="universal-search-form" action="/services.html" method="GET" role="search" aria-label="Universal Service Search">
+          <span class="universal-search-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input 
+            type="text" 
+            id="universal-search-input" 
+            name="q" 
+            class="universal-search-input" 
+            placeholder="Search services or forms..." 
+            autocomplete="off" 
+            spellcheck="false" 
+            aria-label="Universal Service Search"
+            aria-expanded="false" 
+            aria-haspopup="listbox" 
+            aria-controls="universal-search-results"
+            role="combobox"
+          >
+          <button type="button" class="universal-search-clear" id="universal-search-clear" aria-label="Clear Search Input">&times;</button>
+          <span class="universal-search-shortcut" aria-hidden="true" title="Press forward slash to focus search">/</span>
+        </form>
+        <div class="universal-search-dropdown" id="universal-search-dropdown" role="region" aria-label="Search Results">
+          <div class="universal-search-results" id="universal-search-results" role="listbox"></div>
+        </div>
+      </div>
+
       <!-- Desktop Navigation Menu -->
       <nav class="if-nav" aria-label="Primary Navigation">
-        <a href="/services/" class="if-nav-link">Explore Services</a>
+        <a href="/services.html" class="if-nav-link">Services <span class="nav-count-badge" style="background:var(--surface-mint-soft); color:var(--accent-green-primary); font-size:0.7rem; padding:0.15rem 0.45rem; border-radius:999px; margin-left:0.25rem;">57</span></a>
         <a href="/verticals/01-entity-formation.html" class="if-nav-link">Practice Areas</a>
-        <a href="/conversion/calculator.html" class="if-nav-link">Diagnostic Tools</a>
-        <a href="/knowledge/" class="if-nav-link">Knowledge Centre</a>
+        <a href="/conversion/calculator.html" class="if-nav-link">Fee Calculator</a>
         <a href="/about.html" class="if-nav-link">About CCS</a>
         <a href="/contact.html" class="if-nav-link">Contact</a>
       </nav>
@@ -108,10 +139,9 @@
     <div class="if-drawer-content">
       <nav class="if-mobile-nav" aria-label="Mobile Navigation">
         <a href="/" class="if-mobile-nav-link active">Home</a>
-        <a href="/services/" class="if-mobile-nav-link">Explore Services (All 57)</a>
+        <a href="/services.html" class="if-mobile-nav-link">Explore Services (All 57)</a>
         <a href="/verticals/01-entity-formation.html" class="if-mobile-nav-link">Practice Verticals (15 Areas)</a>
-        <a href="/conversion/calculator.html" class="if-mobile-nav-link">Diagnostic Tools &amp; Calculators</a>
-        <a href="/knowledge/" class="if-mobile-nav-link">Knowledge Centre &amp; Guides</a>
+        <a href="/conversion/calculator.html" class="if-mobile-nav-link">Fee Calculators</a>
         <a href="/about.html" class="if-mobile-nav-link">About CraftEgon CCS</a>
         <a href="/contact.html" class="if-mobile-nav-link">Contact Service Desk</a>
       </nav>
@@ -122,340 +152,608 @@
     </div>
   </div>
 
-  <div class="if-header-spacer"></div>
+  <div class="if-header-spacer" style="height:76px;"></div>
 
-  <!-- MAIN CONTENT AREA (8 RATIONALISED SECTIONS) -->
+  <!-- ======================================================================
+       MAIN CONTENT CONTAINER
+       ====================================================================== -->
   <main id="main-content">
 
     <!-- ====================================================================
-         SECTION 1: HERO & STRATEGIC POSITIONING
+         SECTION 1: HERO & 3D INTERACTIVE INFRASTRUCTURE SHOWCASE
          ==================================================================== -->
-    <section class="home-hero" aria-labelledby="hero-title">
-      <div class="home-hero-inner">
-        <div class="hero-badge">Building Business Infrastructure &bull; CraftEgon Corporate Services</div>
-        <h1 id="hero-title" class="hero-title">Your Business Infrastructure Partner.</h1>
-        <p class="hero-subtitle">
-          From business formation to compliance, protection and growth &mdash; coordinated corporate services supported by professional expertise and technology.
-        </p>
-
-        <div class="hero-actions">
-          <a href="/services/" class="btn-primary">Explore All 57 Services &rarr;</a>
-          <a href="/contact.html" class="btn-secondary">Contact Service Desk</a>
-        </div>
-
-        <div class="hero-trust-bar">
-          <span class="trust-pill"><span class="trust-check">&check;</span> Coordinated Secretarial &amp; Tax Support</span>
-          <span class="trust-pill"><span class="trust-check">&check;</span> Transparent Itemised Government Fee Schedules</span>
-          <span class="trust-pill"><span class="trust-check">&check;</span> Operational Service Desk in Alappuzha, Kerala</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SECTION 2: BUSINESS LIFECYCLE PROGRESSION
-         ==================================================================== -->
-    <section id="lifecycle" class="home-section lifecycle-section" aria-labelledby="lifecycle-title">
-      <div class="section-container">
-        <div class="section-header-centered">
-          <span class="section-eyebrow">Lifecycle Trajectory</span>
-          <h2 id="lifecycle-title" class="section-title">Supporting Your Business at Every Stage</h2>
-          <p class="section-lead">A unified business infrastructure framework from initial incorporation through enterprise governance.</p>
-        </div>
-
-        <div class="lifecycle-grid">
-          <div class="lifecycle-card">
-            <div class="lifecycle-num">01</div>
-            <h3 class="lifecycle-heading">Establish</h3>
-            <p class="lifecycle-desc">Entity formation, founder structuring, DIN/DSC, MSME, and initial regulatory clearances.</p>
-            <a href="/verticals/01-entity-formation.html" class="lifecycle-link">Entity Formation &rarr;</a>
-          </div>
-
-          <div class="lifecycle-card">
-            <div class="lifecycle-num">02</div>
-            <h3 class="lifecycle-heading">Operate</h3>
-            <p class="lifecycle-desc">Corporate secretarial support, board governance, employment policies, and commercial contracts.</p>
-            <a href="/verticals/05-contracts-legal.html" class="lifecycle-link">Governance &amp; Contracts &rarr;</a>
-          </div>
-
-          <div class="lifecycle-card">
-            <div class="lifecycle-num">03</div>
-            <h3 class="lifecycle-heading">Comply</h3>
-            <p class="lifecycle-desc">Statutory annual ROC returns (AOC-4, MGT-7), DIR-3 KYC, and GST annual reconciliation.</p>
-            <a href="/verticals/02-roc-compliance.html" class="lifecycle-link">Annual Compliance &rarr;</a>
-          </div>
-
-          <div class="lifecycle-card">
-            <div class="lifecycle-num">04</div>
-            <h3 class="lifecycle-heading">Protect</h3>
-            <p class="lifecycle-desc">Trademark registration, brand defense, DPDP Act 2023 data compliance, and dispute avoidance.</p>
-            <a href="/verticals/06-ipr-protection.html" class="lifecycle-link">IP &amp; Protection &rarr;</a>
-          </div>
-
-          <div class="lifecycle-card">
-            <div class="lifecycle-num">05</div>
-            <h3 class="lifecycle-heading">Grow</h3>
-            <p class="lifecycle-desc">Startup cap-table advisory, cross-border FEMA/RBI returns, restructuring, and legal retainers.</p>
-            <a href="/verticals/14-exit-insolvency.html" class="lifecycle-link">Corporate Retainers &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SECTION 3: PRIORITY SERVICE GROUPS
-         ==================================================================== -->
-    <section id="services-overview" class="home-section services-overview-section" aria-labelledby="services-title">
-      <div class="section-container">
-        <div class="section-header-centered">
-          <span class="section-eyebrow">Core Practice Verticals</span>
-          <h2 id="services-title" class="section-title">Priority Corporate Service Capabilities</h2>
-          <p class="section-lead">Coordinated corporate solutions designed for Indian founders, scaling enterprises, and multinational subsidiaries.</p>
-        </div>
-
-        <div class="priority-services-grid">
-          <!-- Group 1 -->
-          <div class="priority-service-tile">
-            <div class="tile-header">
-              <span class="tile-icon-box">01</span>
-              <div>
-                <h3 class="tile-title">Business Formation &amp; Structuring</h3>
-                <span class="tile-badge">Turnaround: 7–10 Days</span>
-              </div>
+    <section class="hero-3d-section" id="hero" aria-labelledby="hero-title">
+      <div class="home-container">
+        <div class="hero-3d-grid">
+          <!-- Hero Copy (Left) -->
+          <div class="hero-content">
+            <div class="hero-pill-badge">
+              <span class="hero-pill-dot" aria-hidden="true"></span>
+              <span>Next-Gen Corporate Services &amp; Legal Infrastructure</span>
             </div>
-            <p class="tile-desc">Full corporate incorporation on MCA V3 via SPICe+ with PAN, TAN, EPFO, ESIC, and statutory registers.</p>
-            <ul class="tile-list">
-              <li><a href="/services/pvt-ltd-registration.html">Private Limited Company Registration</a></li>
-              <li><a href="/services/llp-registration.html">Limited Liability Partnership (LLP) Formation</a></li>
-              <li><a href="/services/section-8-registration.html">Section 8 Non-Profit Company</a></li>
-              <li><a href="/services/cross-border-tech-transfer.html">Cross-Border Technology Transfer Setup</a></li>
-            </ul>
-            <a href="/verticals/01-entity-formation.html" class="tile-action-link">View Formation Services &rarr;</a>
-          </div>
 
-          <!-- Group 2 -->
-          <div class="priority-service-tile">
-            <div class="tile-header">
-              <span class="tile-icon-box">02</span>
-              <div>
-                <h3 class="tile-title">Corporate Secretarial &amp; ROC Filing</h3>
-                <span class="tile-badge">Mandatory Statutory</span>
-              </div>
-            </div>
-            <p class="tile-desc">Statutory filings under the Companies Act 2013 and LLP Act 2008 with structured statutory compliance review.</p>
-            <ul class="tile-list">
-              <li><a href="/services/roc-annual-compliance.html">Form AOC-4 Financial Statements Filing</a></li>
-              <li><a href="/services/form-mgt7.html">Form MGT-7 Annual Return Filing</a></li>
-              <li><a href="/services/dir3-kyc.html">Director KYC Verification (DIR-3 KYC)</a></li>
-              <li><a href="/services/form-stk2-strike-off.html">Fast-Track Strike-Off (Form STK-2)</a></li>
-            </ul>
-            <a href="/verticals/02-roc-compliance.html" class="tile-action-link">View Secretarial Services &rarr;</a>
-          </div>
+            <h1 id="hero-title" class="hero-headline">
+              Building the Legal &amp; Compliance Infrastructure for India's <span class="hero-headline-accent">High-Growth Enterprises.</span>
+            </h1>
 
-          <!-- Group 3 -->
-          <div class="priority-service-tile">
-            <div class="tile-header">
-              <span class="tile-icon-box">03</span>
-              <div>
-                <h3 class="tile-title">Tax &amp; Regulatory Registrations</h3>
-                <span class="tile-badge">Statutory Clearances</span>
-              </div>
-            </div>
-            <p class="tile-desc">Comprehensive commercial registrations, GST lifecycle management, and corporate tax compliance.</p>
-            <ul class="tile-list">
-              <li><a href="/services/gst-annual.html">GST Annual Return &amp; Audit (GSTR-9/9C)</a></li>
-              <li><a href="/services/msme-udyam.html">MSME Udyam Certificate &amp; Benefits</a></li>
-              <li><a href="/services/form-3ceb.html">Transfer Pricing Report (Form 3CEB)</a></li>
-              <li><a href="/services/rbi-fla-return.html">RBI Foreign Liabilities Return (FLA)</a></li>
-            </ul>
-            <a href="/verticals/03-tax-compliance.html" class="tile-action-link">View Tax &amp; Regulatory &rarr;</a>
-          </div>
-
-          <!-- Group 4 -->
-          <div class="priority-service-tile">
-            <div class="tile-header">
-              <span class="tile-icon-box">04</span>
-              <div>
-                <h3 class="tile-title">Intellectual Property &amp; Contracts</h3>
-                <span class="tile-badge">Protection &amp; IP</span>
-              </div>
-            </div>
-            <p class="tile-desc">Brand protection under Trade Marks Act 1999 and robust commercial documentation drafting.</p>
-            <ul class="tile-list">
-              <li><a href="/services/trademark-registration.html">Trademark Application (Form TM-A)</a></li>
-              <li><a href="/services/ip-enforcement-cease-desist.html">IP Enforcement &amp; Cease &amp; Desist</a></li>
-              <li><a href="/services/founder-shareholder-agreements.html">Founder &amp; Shareholder Agreements</a></li>
-              <li><a href="/services/dpdp-compliance-audit.html">DPDP Act 2023 Privacy Audit</a></li>
-            </ul>
-            <a href="/verticals/06-ipr-protection.html" class="tile-action-link">View IP &amp; Legal Drafting &rarr;</a>
-          </div>
-        </div>
-
-        <!-- Central Directory Promotion Card -->
-        <div class="directory-callout-banner">
-          <div class="banner-text">
-            <h4>Looking for a specific MCA form, statutory calculator, or customized retainer?</h4>
-            <p>Our complete catalog comprises 57 specialized corporate services across 15 practice verticals.</p>
-          </div>
-          <a href="/services/" class="btn-primary" style="white-space:nowrap;">Browse Complete 57-Service Directory &rarr;</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SECTION 4: COORDINATED OPERATING MODEL: HOW CCS WORKS
-         ==================================================================== -->
-    <section id="how-ccs-works" class="home-section model-section" aria-labelledby="model-title">
-      <div class="section-container">
-        <div class="section-header-centered">
-          <span class="section-eyebrow">Operating Model</span>
-          <h2 id="model-title" class="section-title">How CraftEgon Delivers Corporate Services</h2>
-          <p class="section-lead">A structured, technology-assisted corporate secretarial model combining Service Desk coordination with accredited professional expertise.</p>
-        </div>
-
-        <div class="model-grid">
-          <div class="model-card">
-            <div class="model-step-num">1</div>
-            <h3 class="model-card-title">Requirement Scoping</h3>
-            <p class="model-card-text">We assess your entity structure, statutory deadlines, and filing history to identify the precise regulatory requirement without unnecessary services.</p>
-          </div>
-
-          <div class="model-card">
-            <div class="model-step-num">2</div>
-            <h3 class="model-card-title">Professional Coordination</h3>
-            <p class="model-card-text">Filings and statutory documentation are coordinated through qualified independent professional associates and domain practitioners.</p>
-          </div>
-
-          <div class="model-card">
-            <div class="model-step-num">3</div>
-            <h3 class="model-card-title">Transparent Fee Schedules</h3>
-            <p class="model-card-text">Every engagement is bound by a transparent, itemised quote separating professional service fees from actual government dues.</p>
-          </div>
-
-          <div class="model-card">
-            <div class="model-step-num">4</div>
-            <h3 class="model-card-title">Statutory Completion</h3>
-            <p class="model-card-text">We facilitate filing on official government portals (MCA V3, GSTN, IP India), monitor government challan acknowledgments, and deliver official filing receipts.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SECTION 5: TRANSPARENT ENGAGEMENT PROCESS
-         ==================================================================== -->
-    <section id="engagement-process" class="home-section process-section" aria-labelledby="process-title">
-      <div class="section-container">
-        <div class="section-header-centered">
-          <span class="section-eyebrow">Operational Milestones</span>
-          <h2 id="process-title" class="section-title">Five Steps from Intake to Filing</h2>
-          <p class="section-lead">A predictable, documented workflow ensuring complete clarity at each milestone.</p>
-        </div>
-
-        <div class="process-steps-grid">
-          <div class="process-step-card">
-            <div class="step-badge">Step 1</div>
-            <h4>Initial Intake</h4>
-            <p>Submit your service enquiry online, via WhatsApp, or through our Service Desk.</p>
-          </div>
-          <div class="process-step-card">
-            <div class="step-badge">Step 2</div>
-            <h4>Qualification</h4>
-            <p>Our team verifies entity parameters, eligibility criteria, and required documents.</p>
-          </div>
-          <div class="process-step-card">
-            <div class="step-badge">Step 3</div>
-            <h4>Defined Scope</h4>
-            <p>Receive an itemised quote with clear turnaround times and fee partitions.</p>
-          </div>
-          <div class="process-step-card">
-            <div class="step-badge">Step 4</div>
-            <h4>Specialist Execution</h4>
-            <p>Statutory documentation, drafting, and regulatory filing on official portals.</p>
-          </div>
-          <div class="process-step-card">
-            <div class="step-badge">Step 5</div>
-            <h4>Delivery &amp; Ack</h4>
-            <p>Receive official filing challans, government acknowledgments, and statutory compliance guidance.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SECTION 6: PROFESSIONAL STANDARDS & REGULATORY BOUNDARIES
-         ==================================================================== -->
-    <section id="standards" class="home-section standards-section" aria-labelledby="standards-title">
-      <div class="section-container">
-        <div class="section-header-centered">
-          <span class="section-eyebrow">Regulatory Governance</span>
-          <h2 id="standards-title" class="section-title">Professional Standards &amp; Service Boundaries</h2>
-          <p class="section-lead">Clear accountability, transparent fee structures, and strict adherence to statutory boundaries under Indian law.</p>
-        </div>
-
-        <div class="standards-grid">
-          <div class="standard-card">
-            <div class="standard-icon-circle">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            </div>
-            <h3 class="standard-card-title">Transparent Fee Schedules</h3>
-            <p class="standard-card-desc">We maintain transparent pricing with zero hidden surcharges or disguised government fee markups. You always receive a clear fee breakdown prior to engagement.</p>
-          </div>
-
-          <div class="standard-card">
-            <div class="standard-icon-circle">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </div>
-            <h3 class="standard-card-title">Independent Advocacy Referral</h3>
-            <p class="standard-card-desc">CraftEgon delivers corporate secretarial, tax, and governance services. Matters requiring formal court appearances, litigation, or judicial advocacy are referred directly to independent advocates under the Advocates Act, 1961.</p>
-          </div>
-
-          <div class="standard-card">
-            <div class="standard-icon-circle">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
-            </div>
-            <h3 class="standard-card-title">No Government Affiliation</h3>
-            <p class="standard-card-desc">CraftEgon Corporate Services is an independent private corporate services facilitator. We are not a government agency and are not affiliated with the Ministry of Corporate Affairs, CBIC, or IP India.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         SECTION 7: FINAL CONVERSION INVITATION
-         ==================================================================== -->
-    <section id="contact-cta" class="home-section contact-cta-section" aria-labelledby="cta-title">
-      <div class="section-container">
-        <div class="conversion-card">
-          <div class="conversion-content">
-            <span class="conversion-eyebrow">Get In Touch</span>
-            <h2 id="cta-title" class="conversion-heading">Discuss Your Corporate Service Requirements</h2>
-            <p class="conversion-text">
-              Speak directly with our Operational Service Desk or request a structured consultation for business formation, secretarial compliance, or corporate retainers.
+            <p class="hero-lead">
+              From Private Limited company incorporation and statutory MCA compliance to corporate tax architecture and annual secretarial retainers — executed with fixed transparent pricing, dedicated desk support, and institutional speed.
             </p>
 
-            <div class="conversion-channels">
-              <div class="channel-item">
-                <span class="channel-label">Direct Telephone</span>
-                <a href="tel:+918606918247" class="channel-value">+91 86069 18247</a>
+            <div class="hero-actions-group">
+              <a href="#core-services" class="btn-hero-primary">Start Company Formation &rarr;</a>
+              <a href="#fee-estimator" class="btn-hero-secondary">Calculate Filing Fees</a>
+            </div>
+
+            <div class="hero-guarantee-pills">
+              <span class="guarantee-pill"><span class="guarantee-pill-icon">&check;</span> 100% On-Time Filing SLA</span>
+              <span class="guarantee-pill"><span class="guarantee-pill-icon">&check;</span> Zero Hidden MCA Surcharges</span>
+              <span class="guarantee-pill"><span class="guarantee-pill-icon">&check;</span> Dedicated Desk in Alappuzha, Kerala</span>
+            </div>
+          </div>
+
+          <!-- Hero 3D Interactive Stage (Right) -->
+          <div class="hero-3d-stage" aria-label="Interactive 3D Corporate Governance Showcase">
+            <div class="scene-3d">
+              <!-- Radial Background Glow -->
+              <div class="glow-orb-3d" aria-hidden="true"></div>
+
+              <!-- 3D Rotating Geometric Cube -->
+              <div class="geo-cube-container" aria-hidden="true">
+                <div class="geo-cube-3d">
+                  <div class="cube-face face-front"></div>
+                  <div class="cube-face face-back"></div>
+                  <div class="cube-face face-right"></div>
+                  <div class="cube-face face-left"></div>
+                  <div class="cube-face face-top"></div>
+                  <div class="cube-face face-bottom"></div>
+                </div>
               </div>
-              <div class="channel-item">
-                <span class="channel-label">Instant WhatsApp</span>
-                <a href="https://wa.me/918606918247" class="channel-value" target="_blank" rel="noopener noreferrer">+91 86069 18247 &bull; Chat Live</a>
+
+              <!-- Central 3D Corporate Vault Card (Glassmorphic) -->
+              <div class="vault-card-3d">
+                <div class="vault-header">
+                  <div class="vault-brand">
+                    <div class="vault-icon-badge" aria-hidden="true">&sect;</div>
+                    <div>
+                      <h2 class="vault-title" style="font-size:0.95rem; margin:0;">CraftEgon Corporate Desk</h2>
+                      <p class="vault-subtitle">Statutory Compliance Vault</p>
+                    </div>
+                  </div>
+                  <div class="vault-status-indicator">
+                    <span class="vault-status-dot"></span>
+                    <span>MCA V3 Live</span>
+                  </div>
+                </div>
+
+                <div class="vault-metrics-row">
+                  <div class="vault-metric-box">
+                    <div class="vault-metric-label">Turnaround SLA</div>
+                    <div class="vault-metric-val">3–5 Days</div>
+                  </div>
+                  <div class="vault-metric-box">
+                    <div class="vault-metric-label">Statutory Risk</div>
+                    <div class="vault-metric-val" style="color:var(--accent-green-primary);">0% Defect</div>
+                  </div>
+                </div>
+
+                <div class="vault-progress-bar">
+                  <div class="vault-progress-label">
+                    <span>Corporate Health Index</span>
+                    <strong>100 / 100</strong>
+                  </div>
+                  <div class="vault-progress-track">
+                    <div class="vault-progress-fill"></div>
+                  </div>
+                </div>
               </div>
-              <div class="channel-item">
-                <span class="channel-label">Official Email</span>
-                <a href="mailto:admin@craftegon.com" class="channel-value">admin@craftegon.com</a>
+
+              <!-- Floating 3D Depth Chips with Multi-Layer Parallax -->
+              <div class="chip-3d chip-top-right">
+                <div class="chip-3d-icon">&check;</div>
+                <div>
+                  <div style="font-size:0.68rem; color:var(--text-secondary); text-transform:uppercase;">SPICe+ Fast-Track</div>
+                  <div>MCA Approved</div>
+                </div>
               </div>
-              <div class="channel-item">
-                <span class="channel-label">Operational Service Desk</span>
-                <span class="channel-value">Alappuzha, Kerala &bull; PIN 690501</span>
+
+              <div class="chip-3d chip-bottom-left">
+                <div class="chip-3d-icon">&sect;</div>
+                <div>
+                  <div style="font-size:0.68rem; color:var(--text-secondary); text-transform:uppercase;">ROC Governance</div>
+                  <div>100% On-Time Filing</div>
+                </div>
+              </div>
+
+              <div class="chip-3d chip-bottom-right">
+                <div class="chip-3d-icon">&spades;</div>
+                <div>
+                  <div style="font-size:0.68rem; color:var(--text-secondary); text-transform:uppercase;">Statutory Audit</div>
+                  <div>Section 139 Ready</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: TRUST & STATUTORY SLA BAR
+         ==================================================================== -->
+    <section class="trust-bar-section" id="trust-metrics" aria-label="Trust and Execution Metrics">
+      <div class="home-container">
+        <div class="trust-metrics-grid">
+          <div class="trust-metric-item">
+            <div class="metric-icon-wrap" aria-hidden="true">&#9733;</div>
+            <div>
+              <div class="metric-text-val">100%</div>
+              <p class="metric-text-desc">Statutory On-Time Filing Rate</p>
+            </div>
+          </div>
+
+          <div class="trust-metric-item">
+            <div class="metric-icon-wrap" aria-hidden="true">&#9881;</div>
+            <div>
+              <div class="metric-text-val">3–5 Days</div>
+              <p class="metric-text-desc">Average Incorporation Turnaround</p>
+            </div>
+          </div>
+
+          <div class="trust-metric-item">
+            <div class="metric-icon-wrap" aria-hidden="true">&#9873;</div>
+            <div>
+              <div class="metric-text-val">50+ Cities</div>
+              <p class="metric-text-desc">Pan-India Operational Reach</p>
+            </div>
+          </div>
+
+          <div class="trust-metric-item">
+            <div class="metric-icon-wrap" aria-hidden="true">&#128100;</div>
+            <div>
+              <div class="metric-text-val">Dedicated</div>
+              <p class="metric-text-desc">Compliance Desk in Alappuzha, Kerala</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3: THE 4 CORE SERVICE PILLARS (3D ELEVATION CARDS)
+         ==================================================================== -->
+    <section class="home-section pillars-section" id="core-services" aria-labelledby="pillars-heading">
+      <div class="home-container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow">Core Service Pillars</span>
+          <h2 id="pillars-heading" class="section-title">The Four Pillars of Corporate Governance</h2>
+          <p class="section-lead">
+            Comprehensive corporate and compliance architecture designed for Indian founders, scaling enterprises, and multinational subsidiaries.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <!-- Pillar 1: Entity Formation -->
+          <article class="card-3d">
+            <div class="pillar-card-top">
+              <div class="pillar-icon-box" aria-hidden="true">&#9874;</div>
+              <span class="pillar-badge">Turnaround: 3–5 Days</span>
+            </div>
+            <h3 class="pillar-title">Company Formation &amp; Structuring</h3>
+            <p class="pillar-desc">
+              End-to-end entity incorporation on MCA V3 via SPICe+ with comprehensive statutory kits, director KYC, and bank account setup.
+            </p>
+            <ul class="pillar-checklist">
+              <li class="pillar-checklist-item"><a href="/services/pvt-ltd-registration.html" style="color:inherit; text-decoration:none; font-weight:600;">Private Limited Company Registration</a></li>
+              <li class="pillar-checklist-item"><a href="/services/llp-registration.html" style="color:inherit; text-decoration:none; font-weight:600;">Limited Liability Partnership (LLP) Formation</a></li>
+              <li class="pillar-checklist-item"><a href="/services/opc-registration.html" style="color:inherit; text-decoration:none; font-weight:600;">One Person Company (OPC) Registration</a></li>
+              <li class="pillar-checklist-item"><a href="/services/section-8-registration.html" style="color:inherit; text-decoration:none; font-weight:600;">Section 8 Non-Profit Company Setup</a></li>
+            </ul>
+            <div class="pillar-footer">
+              <div class="pillar-price">
+                <span class="pillar-price-label">Starting from</span>
+                <span class="pillar-price-val">&#8377;4,999 + Govt Fees</span>
+              </div>
+              <a href="/services/pvt-ltd-registration.html" class="pillar-cta-link">Explore Formation &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Pillar 2: ROC Compliance -->
+          <article class="card-3d">
+            <div class="pillar-card-top">
+              <div class="pillar-icon-box" aria-hidden="true">&#128221;</div>
+              <span class="pillar-badge">Mandatory Statutory</span>
+            </div>
+            <h3 class="pillar-title">Annual &amp; Secretarial Compliance (ROC)</h3>
+            <p class="pillar-desc">
+              Protect your board from Section 403 late filing penalties (&#8377;100/day) with proactive annual ROC filings and statutory registers.
+            </p>
+            <ul class="pillar-checklist">
+              <li class="pillar-checklist-item"><a href="/services/form-aoc4.html" style="color:inherit; text-decoration:none; font-weight:600;">Form AOC-4 Financial Statements Filing</a></li>
+              <li class="pillar-checklist-item"><a href="/services/form-mgt7.html" style="color:inherit; text-decoration:none; font-weight:600;">Form MGT-7 Annual Return Filing</a></li>
+              <li class="pillar-checklist-item"><a href="/services/dir3-kyc.html" style="color:inherit; text-decoration:none; font-weight:600;">DIR-3 KYC Director Verification</a></li>
+              <li class="pillar-checklist-item"><a href="/services/roc-annual-compliance.html" style="color:inherit; text-decoration:none; font-weight:600;">Comprehensive Annual Secretarial Retainer</a></li>
+            </ul>
+            <div class="pillar-footer">
+              <div class="pillar-price">
+                <span class="pillar-price-label">Retainer plans from</span>
+                <span class="pillar-price-val">&#8377;11,999 / year</span>
+              </div>
+              <a href="/services/roc-annual-compliance.html" class="pillar-cta-link">View ROC Filings &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Pillar 3: Tax & GST -->
+          <article class="card-3d">
+            <div class="pillar-card-top">
+              <div class="pillar-icon-box" aria-hidden="true">&#128202;</div>
+              <span class="pillar-badge">Monthly &amp; Annual</span>
+            </div>
+            <h3 class="pillar-title">Tax, GST &amp; Financial Infrastructure</h3>
+            <p class="pillar-desc">
+              Integrated tax compliance, input tax credit reconciliation, corporate income tax returns, and cross-border transfer pricing reports.
+            </p>
+            <ul class="pillar-checklist">
+              <li class="pillar-checklist-item"><a href="/services/gst-annual.html" style="color:inherit; text-decoration:none; font-weight:600;">GST Registration &amp; Monthly GSTR-1/3B Filings</a></li>
+              <li class="pillar-checklist-item"><a href="/services/gst-annual.html" style="color:inherit; text-decoration:none; font-weight:600;">GSTR-9 &amp; 9C Annual Reconciliation Audit</a></li>
+              <li class="pillar-checklist-item"><a href="/services/form-3ceb.html" style="color:inherit; text-decoration:none; font-weight:600;">Form 3CEB Transfer Pricing Reports (Section 92E)</a></li>
+              <li class="pillar-checklist-item"><a href="/services/itr7.html" style="color:inherit; text-decoration:none; font-weight:600;">Corporate Income Tax Returns (ITR-6 &amp; ITR-7)</a></li>
+            </ul>
+            <div class="pillar-footer">
+              <div class="pillar-price">
+                <span class="pillar-price-label">Tax desks from</span>
+                <span class="pillar-price-val">&#8377;2,499 / month</span>
+              </div>
+              <a href="/services/gst-annual.html" class="pillar-cta-link">Explore Tax Desks &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Pillar 4: IP & Commercial Contracts -->
+          <article class="card-3d">
+            <div class="pillar-card-top">
+              <div class="pillar-icon-box" aria-hidden="true">&#128737;</div>
+              <span class="pillar-badge">Asset Protection</span>
+            </div>
+            <h3 class="pillar-title">Intellectual Property &amp; Legal Contracts</h3>
+            <p class="pillar-desc">
+              Safeguard proprietary brand assets, enforce founder equity vesting, and draft airtight commercial vendor agreements.
+            </p>
+            <ul class="pillar-checklist">
+              <li class="pillar-checklist-item"><a href="/services/trademark-registration.html" style="color:inherit; text-decoration:none; font-weight:600;">Brand Name &amp; Logo Trademark Filing (TM-A)</a></li>
+              <li class="pillar-checklist-item"><a href="/services/founder-shareholder-agreements.html" style="color:inherit; text-decoration:none; font-weight:600;">Founders' Pacts &amp; Shareholder Agreements (SHA)</a></li>
+              <li class="pillar-checklist-item"><a href="/services/master-service-agreements.html" style="color:inherit; text-decoration:none; font-weight:600;">Commercial Master Service Agreements (MSA) &amp; NDAs</a></li>
+              <li class="pillar-checklist-item"><a href="/services/software-copyright-patents.html" style="color:inherit; text-decoration:none; font-weight:600;">Software Source Code Copyright Registrations</a></li>
+            </ul>
+            <div class="pillar-footer">
+              <div class="pillar-price">
+                <span class="pillar-price-label">Trademark packages from</span>
+                <span class="pillar-price-val">&#8377;1,499 + Govt Fees</span>
+              </div>
+              <a href="/services/trademark-registration.html" class="pillar-cta-link">Protect Your Brand &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: INTERACTIVE STAGE-BASED SOLUTIONS SELECTOR
+         ==================================================================== -->
+    <section class="home-section stages-section" id="business-stages" aria-labelledby="stages-heading">
+      <div class="home-container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow">Lifecycle Architecture</span>
+          <h2 id="stages-heading" class="section-title">Compliance Tailored to Your Growth Stage</h2>
+          <p class="section-lead">
+            Select your organization's current trajectory to view the exact statutory, corporate, and tax requirements you need to scale securely.
+          </p>
+        </div>
+
+        <!-- Stage Navigation Tabs -->
+        <div class="stages-tabs-nav" role="tablist">
+          <button type="button" class="stage-tab-btn active" data-stage="stage-startup" role="tab" aria-selected="true" aria-controls="stage-startup">
+            Early-Stage Startup (0–1)
+          </button>
+          <button type="button" class="stage-tab-btn" data-stage="stage-scaleup" role="tab" aria-selected="false" aria-controls="stage-scaleup">
+            Funded Scaleup (Seed–Series A)
+          </button>
+          <button type="button" class="stage-tab-btn" data-stage="stage-enterprise" role="tab" aria-selected="false" aria-controls="stage-enterprise">
+            Established Enterprise &amp; SME
+          </button>
+          <button type="button" class="stage-tab-btn" data-stage="stage-foreign" role="tab" aria-selected="false" aria-controls="stage-foreign">
+            Foreign Subsidiary / FDI Setup
+          </button>
+        </div>
+
+        <!-- Panel 1: Startup -->
+        <div class="stage-panel active" id="stage-startup" role="tabpanel">
+          <div class="stage-panel-header">
+            <h3 class="stage-panel-title">Stage 1: Launch &amp; Founding Architecture</h3>
+            <p class="stage-panel-lead">Establish your legal entity cleanly with complete founder protections, intellectual property assignment, and statutory clearance.</p>
+          </div>
+          <div class="stage-services-grid">
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">Pvt Ltd Incorporation</h4>
+              <p class="stage-card-desc">MCA V3 SPICe+ company registration with DIN, DSC, PAN, TAN, and corporate bank account.</p>
+              <a href="/services/pvt-ltd-registration.html" class="stage-card-link">View Incorporation &rarr;</a>
+            </div>
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">Founders' Agreement</h4>
+              <p class="stage-card-desc">Reverse vesting, equity split, IP assignment, and deadlock resolution mechanisms.</p>
+              <a href="/services/founder-shareholder-agreements.html" class="stage-card-link">View Agreement &rarr;</a>
+            </div>
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">Brand Trademark</h4>
+              <p class="stage-card-desc">Comprehensive search and Form TM-A registration across core NICE classes.</p>
+              <a href="/services/trademark-registration.html" class="stage-card-link">Protect Brand &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Scaleup -->
+        <div class="stage-panel" id="stage-scaleup" role="tabpanel">
+          <div class="stage-panel-header">
+            <h3 class="stage-panel-title">Stage 2: Institutional Governance &amp; Funding</h3>
+            <p class="stage-panel-lead">Prepare your corporate structure for venture investment, clean cap tables, and statutory filings.</p>
+          </div>
+          <div class="stage-services-grid">
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">ESOP Scheme Design</h4>
+              <p class="stage-card-desc">Structuring employee stock option pools, vesting schedules, and board approvals.</p>
+              <a href="/services/founder-shareholder-agreements.html" class="stage-card-link">Explore ESOPs &rarr;</a>
+            </div>
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">Share Allotment (PAS-3)</h4>
+              <p class="stage-card-desc">Filing return of allotment, stamp duty adjudication, and share certificate issuance.</p>
+              <a href="/services/form-mgt14.html" class="stage-card-link">Allotment Filings &rarr;</a>
+            </div>
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">DPIIT Recognition</h4>
+              <p class="stage-card-desc">Startup India registration and Section 56(2)(viib) angel tax exemption documentation.</p>
+              <a href="/services/dpiit-startup-india.html" class="stage-card-link">DPIIT Filing &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: Enterprise -->
+        <div class="stage-panel" id="stage-enterprise" role="tabpanel">
+          <div class="stage-panel-header">
+            <h3 class="stage-panel-title">Stage 3: Enterprise Compliance &amp; Retainers</h3>
+            <p class="stage-panel-lead">Ongoing annual corporate secretarial retainers, internal financial controls, and risk mitigation.</p>
+          </div>
+          <div class="stage-services-grid">
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">Annual ROC Filings</h4>
+              <p class="stage-card-desc">Form AOC-4, Form MGT-7, and Director KYC completed with zero statutory delay.</p>
+              <a href="/services/roc-annual-compliance.html" class="stage-card-link">ROC Retainer &rarr;</a>
+            </div>
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">Demat Shares (PAS-6)</h4>
+              <p class="stage-card-desc">Rule 9B dematerialisation of securities, ISIN generation via NSDL / CDSL.</p>
+              <a href="/services/form-pas6.html" class="stage-card-link">Demat Services &rarr;</a>
+            </div>
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">Statutory Audit Support</h4>
+              <p class="stage-card-desc">ADT-1 auditor appointment, balance sheet XBRL tagging, and board disclosures.</p>
+              <a href="/services/form-adt1.html" class="stage-card-link">Auditor Filings &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4: Foreign Subsidiary -->
+        <div class="stage-panel" id="stage-foreign" role="tabpanel">
+          <div class="stage-panel-header">
+            <h3 class="stage-panel-title">Stage 4: International Inbound &amp; Cross-Border</h3>
+            <p class="stage-panel-lead">Establishing Wholly Owned Subsidiaries (WOS), liaison offices, and FEMA / RBI regulatory reporting.</p>
+          </div>
+          <div class="stage-services-grid">
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">Wholly Owned Subsidiary</h4>
+              <p class="stage-card-desc">Incorporate Indian subsidiary of foreign parent with apostilled charter documents.</p>
+              <a href="/services/pvt-ltd-registration.html" class="stage-card-link">Subsidiary Setup &rarr;</a>
+            </div>
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">RBI FLA &amp; FIRMS</h4>
+              <p class="stage-card-desc">Foreign Liabilities and Assets annual return and Single Master Form (SMF) filings.</p>
+              <a href="/services/rbi-fla-return.html" class="stage-card-link">RBI Filings &rarr;</a>
+            </div>
+            <div class="stage-service-card">
+              <h4 class="stage-card-title">Transfer Pricing (3CEB)</h4>
+              <p class="stage-card-desc">Section 92E arm's length documentation and cross-border tech licensing agreements.</p>
+              <a href="/services/form-3ceb.html" class="stage-card-link">Transfer Pricing &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: 3D INTERACTIVE FEE & TIMELINE ESTIMATOR WIDGET
+         ==================================================================== -->
+    <section class="home-section estimator-section" id="fee-estimator" aria-labelledby="estimator-heading">
+      <div class="home-container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow">Fee Transparency</span>
+          <h2 id="estimator-heading" class="section-title">Instant Statutory Fee &amp; Timeline Estimator</h2>
+          <p class="section-lead">
+            Select your prospective corporate structure and capital requirements to view itemized statutory fees and turnaround timelines in real-time.
+          </p>
+        </div>
+
+        <div class="estimator-3d-card">
+          <!-- Estimator Inputs (Left) -->
+          <div class="estimator-controls">
+            <div class="calc-control-group">
+              <label class="calc-control-label">1. Select Legal Structure</label>
+              <div class="calc-pill-options">
+                <button type="button" class="calc-pill-btn active" data-calc-entity="pvt_ltd">Private Limited Company</button>
+                <button type="button" class="calc-pill-btn" data-calc-entity="llp">Limited Liability Partnership</button>
+                <button type="button" class="calc-pill-btn" data-calc-entity="opc">One Person Company</button>
               </div>
             </div>
 
-            <div class="conversion-buttons">
-              <a href="/contact.html" class="btn-primary">Open Contact Service Desk &rarr;</a>
-              <a href="https://wa.me/918606918247" class="btn-secondary" target="_blank" rel="noopener noreferrer">Consult on WhatsApp</a>
+            <div class="calc-control-group">
+              <label class="calc-control-label">2. Authorized Capital Tier</label>
+              <div class="calc-pill-options">
+                <button type="button" class="calc-pill-btn active" data-calc-capital="100000">&#8377;1 Lakh (Standard)</button>
+                <button type="button" class="calc-pill-btn" data-calc-capital="500000">&#8377;5 Lakh</button>
+                <button type="button" class="calc-pill-btn" data-calc-capital="1000000">&#8377;10 Lakh</button>
+                <button type="button" class="calc-pill-btn" data-calc-capital="2500000">&#8377;25 Lakh+</button>
+              </div>
             </div>
+
+            <p style="font-size:0.82rem; color:var(--text-secondary); margin:0; line-height:1.5;">
+              Includes 2 Director Identification Numbers (DIN), Digital Signature Certificates (DSC), SPICe+ MCA filing, PAN, TAN, and corporate bank account introduction.
+            </p>
+          </div>
+
+          <!-- Estimator Live Display (Right) -->
+          <div class="estimator-output-box">
+            <div class="calc-summary-title">Estimated Total Investment</div>
+            <div class="calc-total-amount" id="calc-total-display">&#8377;5,999</div>
+
+            <div class="calc-breakdown-list">
+              <div class="calc-breakdown-row">
+                <span>Govt Statutory MCA Fee:</span>
+                <strong id="calc-gov-fee">&#8377;1,000</strong>
+              </div>
+              <div class="calc-breakdown-row">
+                <span>Professional Legal Fee:</span>
+                <strong id="calc-prof-fee">&#8377;4,999</strong>
+              </div>
+              <div class="calc-breakdown-row">
+                <span>Turnaround SLA:</span>
+                <strong id="calc-sla-display" style="color:var(--brand-mint);">3–5 Working Days</strong>
+              </div>
+            </div>
+
+            <a href="/conversion/calculator.html" class="btn-calc-cta">Launch Detailed Fee Calculator &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 6: THE 4-STEP INSTITUTIONAL PROCESS
+         ==================================================================== -->
+    <section class="home-section process-section" id="how-it-works" aria-labelledby="process-heading">
+      <div class="home-container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow">Operational Methodology</span>
+          <h2 id="process-heading" class="section-title">Four Steps from Intake to Compliance Shield</h2>
+          <p class="section-lead">
+            A frictionless, digital-first execution model that eliminates administrative delays and ensures total statutory compliance.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-num-3d">01</div>
+            <h3 class="process-title">Scoping &amp; Entity Selection</h3>
+            <p class="process-desc">Initial consultation with compliance advisors to select optimal entity structure and capital sizing.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-num-3d">02</div>
+            <h3 class="process-title">Digital Intake &amp; Verification</h3>
+            <p class="process-desc">Upload identity proofs and utility bills securely; our legal team drafts MOA, AOA, and resolutions.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-num-3d">03</div>
+            <h3 class="process-title">MCA V3 Government Filing</h3>
+            <p class="process-desc">Attestation and submission via MCA V3 SPICe+ by certified Chartered Accountants or Company Secretaries.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-num-3d">04</div>
+            <h3 class="process-title">Active Retainer Shield</h3>
+            <p class="process-desc">Certificate of Incorporation, PAN, and TAN delivered; automated compliance calendar activated.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 7: WHY CRAFTEGON CCS (3D VALUE CARDS)
+         ==================================================================== -->
+    <section class="home-section value-props-section" id="why-craftegon" aria-labelledby="why-heading">
+      <div class="home-container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow">Enterprise Value Proposition</span>
+          <h2 id="why-heading" class="section-title">Why High-Growth Companies Choose CraftEgon</h2>
+          <p class="section-lead">
+            Combining structured compliance processes with professional human accountability.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon" aria-hidden="true">&#128178;</div>
+            <h3 class="why-title">Transparent Fixed Pricing</h3>
+            <p class="why-desc">
+              Zero surprise government fee markups or undisclosed hourly legal bills. Every quote clearly separates statutory fees from professional retainers.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon" aria-hidden="true">&#127963;</div>
+            <h3 class="why-title">Dedicated Human Desk</h3>
+            <p class="why-desc">
+              Direct access to our operational service desk in Alappuzha, Kerala, backed by responsive telephone and WhatsApp communication channels.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon" aria-hidden="true">&#9878;</div>
+            <h3 class="why-title">Certified Expert Coordination</h3>
+            <p class="why-desc">
+              All statutory filings and legal audits are coordinated through licensed Chartered Accountants, Company Secretaries, and Legal Practitioners.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 8: STATUTORY DISCLOSURE & PROFESSIONAL BOUNDARIES
+         ==================================================================== -->
+    <section class="statutory-boundary-section" id="statutory-disclosures" aria-labelledby="statutory-heading">
+      <div class="home-container">
+        <div class="statutory-box">
+          <div class="statutory-seal-icon" aria-hidden="true">&#9878;</div>
+          <div class="statutory-text-content">
+            <h4 id="statutory-heading">Professional Standards &amp; Regulatory Boundaries</h4>
+            <p>
+              CraftEgon Corporate Services (CCS) is a corporate compliance and business infrastructure advisory service. CraftEgon is not an advocate law firm and does not provide formal court litigation services. All statutory corporate filings on MCA V3, tax attestations, and audit certifications are performed exclusively in coordination with independent, qualified Chartered Accountants (CAs), Company Secretaries (CS), and licensed Legal Practitioners.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 9: FINAL CONVERSION ACTION BANNER
+         ==================================================================== -->
+    <section class="final-cta-section" id="consultation-cta" aria-labelledby="cta-heading">
+      <div class="home-container">
+        <div class="final-cta-card">
+          <h2 id="cta-heading" class="final-cta-title">Ready to Build Your Business Infrastructure?</h2>
+          <p class="final-cta-lead">
+            Speak directly with our corporate advisory team or calculate your exact entity formation costs in seconds.
+          </p>
+          <div class="final-cta-buttons">
+            <a href="/contact.html" class="btn-hero-primary" style="background:var(--brand-mint); color:var(--navy-900) !important; border-color:var(--brand-mint);">
+              Book Free Consultation &rarr;
+            </a>
+            <a href="https://wa.me/918606918247" class="btn-hero-secondary" style="background:transparent; color:#FFFFFF !important; border-color:rgba(255,255,255,0.4);" target="_blank" rel="noopener noreferrer">
+              WhatsApp Service Desk
+            </a>
+          </div>
+          <div class="final-cta-contact-info">
+            <span>Direct Telephone: <a href="tel:+918606918247">+91 86069 18247</a></span>
+            <span>Official Email: <a href="mailto:admin@craftegon.com">admin@craftegon.com</a></span>
+            <span>Desk: Alappuzha, Kerala</span>
           </div>
         </div>
       </div>
@@ -463,77 +761,81 @@
 
   </main>
 
-  <!-- ====================================================================
-       SECTION 8: COMPACT INSTITUTIONAL FOOTER
-       ==================================================================== -->
+  <!-- ======================================================================
+       UNIVERSAL INSTITUTIONAL FOOTER
+       ====================================================================== -->
   <footer class="if-footer" role="contentinfo">
     <div class="if-footer-inner">
-      <div class="footer-columns-grid">
+      <div class="if-footer-grid">
         <!-- Col 1: Brand & Contact -->
-        <div class="footer-col brand-col">
-          <div class="brand-text-block">
-            <span class="brand-title">CraftEgon</span>
-            <span class="brand-subtitle">Corporate Services</span>
-          </div>
-          <p class="footer-tagline">Building Business Infrastructure</p>
-          <div class="footer-contact-details">
-            <p><strong>Service Desk:</strong> CraftEgon Corporate Services (CCS)</p>
-            <p><strong>Operations:</strong> Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN 690501</p>
-            <p><strong>Phone:</strong> <a href="tel:+918606918247">+91 86069 18247</a></p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer">+91 86069 18247 &bull; Chat Live &rarr;</a></p>
-            <p><strong>Email:</strong> <a href="mailto:admin@craftegon.com">admin@craftegon.com</a></p>
+        <div class="if-footer-col if-footer-brand">
+          <a href="/" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
+            <img src="assets/images/craftegon-logo.jpg" alt="CraftEgon Logo" class="brand-logo-img">
+            <div class="brand-text-block">
+              <span class="brand-title">CraftEgon</span>
+              <span class="brand-subtitle">Corporate Services</span>
+            </div>
+          </a>
+          <p class="if-footer-desc">
+            Building Business Infrastructure. From business formation to compliance, protection and growth &mdash; coordinated corporate services supported by professional expertise and technology.
+          </p>
+          <div class="if-footer-contact">
+            <p class="if-contact-item"><strong>Service Desk:</strong> CraftEgon Corporate Services (CCS)</p>
+            <p class="if-contact-item"><strong>Office:</strong> Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala &bull; PIN 690501</p>
+            <p class="if-contact-item"><strong>Phone:</strong> <a href="tel:+918606918247">+91 86069 18247</a></p>
+            <p class="if-contact-item"><strong>WhatsApp:</strong> <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer">+91 86069 18247 &bull; Chat Live &rarr;</a></p>
+            <p class="if-contact-item"><strong>Email:</strong> <a href="mailto:admin@craftegon.com">admin@craftegon.com</a></p>
           </div>
         </div>
 
-        <!-- Col 2: Practice Areas -->
-        <div class="footer-col">
-          <h4 class="footer-col-title">Practice Verticals</h4>
-          <ul class="footer-links">
-            <li><a href="/verticals/01-entity-formation.html">Business Formation</a></li>
-            <li><a href="/verticals/02-roc-compliance.html">ROC Secretarial Compliance</a></li>
-            <li><a href="/verticals/03-tax-compliance.html">Tax &amp; GST Compliance</a></li>
-            <li><a href="/verticals/05-contracts-legal.html">Commercial Contracts</a></li>
-            <li><a href="/verticals/06-ipr-protection.html">Intellectual Property</a></li>
+        <!-- Col 2: Services -->
+        <div class="if-footer-col">
+          <h4 class="if-footer-heading">Services</h4>
+          <ul class="if-footer-list">
+            <li><a href="/verticals/01-entity-formation.html">Entity Formation &amp; Structuring</a></li>
+            <li><a href="/verticals/02-roc-compliance.html">RoC Secretarial &amp; Annual Filings</a></li>
+            <li><a href="/verticals/03-tax-compliance.html">Corporate Tax &amp; GST Compliance</a></li>
+            <li><a href="/verticals/04-statutory-licenses.html">Statutory Licenses &amp; Registrations</a></li>
+            <li><a href="/verticals/05-contracts-legal.html">Commercial Contracts &amp; Drafting</a></li>
+            <li><a href="/verticals/06-ipr-protection.html">IPR &amp; Trademark Protection</a></li>
             <li><a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a></li>
             <li><a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law</a></li>
             <li><a href="/verticals/15-it-digital.html">IT &amp; Digital Infrastructure</a></li>
+            <li><a href="/services.html">Explore All 57 Services &rarr;</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Core Services -->
-        <div class="footer-col">
-          <h4 class="footer-col-title">Core Services</h4>
-          <ul class="footer-links">
-            <li><a href="/services/pvt-ltd-registration.html">Private Limited Incorporation</a></li>
-            <li><a href="/services/llp-registration.html">LLP Registration</a></li>
-            <li><a href="/services/roc-annual-compliance.html">Annual ROC Compliance</a></li>
-            <li><a href="/services/trademark-registration.html">Trademark Registration</a></li>
-            <li><a href="/services/msme-udyam.html">MSME Udyam Certificate</a></li>
-            <li><a href="/services/">All 57 Services Directory &rarr;</a></li>
+        <!-- Col 3: Diagnostic Tools -->
+        <div class="if-footer-col">
+          <h4 class="if-footer-heading">Diagnostic Tools</h4>
+          <ul class="if-footer-list">
+            <li><a href="/conversion/calculator.html">MCA Late Fee &amp; Retainer Calculator</a></li>
+            <li><a href="/conversion/trademark-search.html">NICE Trademark Class Screener</a></li>
+            <li><a href="/conversion/strike-off-checker.html">STK-2 Fast-Track Strike-Off Checker</a></li>
+            <li><a href="/conversion/ai-document-generator.html">AI Legal Document Drafter</a></li>
+            <li><a href="/services.html">Search 57 Corporate Services</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Institutional & Legal -->
-        <div class="footer-col">
-          <h4 class="footer-col-title">Governance &amp; Desk</h4>
-          <ul class="footer-links">
+        <!-- Col 4: Corporate Governance & Legal -->
+        <div class="if-footer-col">
+          <h4 class="if-footer-heading">Governance &amp; Trust</h4>
+          <ul class="if-footer-list">
             <li><a href="/about.html">About CraftEgon CCS</a></li>
             <li><a href="/contact.html">Contact Service Desk</a></li>
-            <li><a href="/conversion/calculator.html">Late Fee Calculator</a></li>
-            <li><a href="/knowledge/">Knowledge Centre</a></li>
-            <li><a href="/legal/privacy.html">Privacy Policy</a></li>
             <li><a href="/legal/terms.html">Terms of Service</a></li>
-            <li><a href="/legal/disclaimer.html">Statutory Disclaimer</a></li>
+            <li><a href="/legal/privacy.html">Privacy Policy</a></li>
+            <li><a href="/legal/disclaimer.html">Regulatory Disclaimer</a></li>
           </ul>
         </div>
       </div>
 
-      <div class="footer-bottom-bar">
-        <p class="footer-disclaimer-text">
-          <strong>Statutory Governance Notice:</strong> CraftEgon Corporate Services is a corporate secretarial and business infrastructure facilitator. We do not provide court litigation or judicial advocacy; matters requiring court representation are referred to independent advocates under the Advocates Act, 1961.
+      <div class="if-footer-bottom">
+        <p class="if-copyright">
+          &copy; 2026 CraftEgon Corporate Services. All rights reserved. Building Business Infrastructure.
         </p>
-        <p class="footer-copyright-text">
-          &copy; 2026 CraftEgon Corporate Services (CCS). All rights reserved.
+        <p class="if-disclaimer">
+          CraftEgon Corporate Services is an enterprise compliance management provider. Filings are coordinated with licensed legal and financial professionals.
         </p>
       </div>
     </div>
@@ -541,7 +843,10 @@
 
   <!-- Scripts -->
   <script src="assets/js/config.js"></script>
+  <script src="assets/js/search-index.js"></script>
+  <script src="assets/js/service-search.js"></script>
   <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/home-3d.js"></script>
   <script src="assets/js/chat-widget.js"></script>
 </body>
 </html>

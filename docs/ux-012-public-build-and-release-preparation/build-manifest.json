@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-08T09:35:36.564Z",
+  "buildTimestamp": "2026-11-08T10:28:28.730Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,15 +10,15 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 151,
-    "totalOutputSizeBytes": 2581392,
-    "totalOutputSizeFormatted": "2.46 MB",
+    "totalFilesIncluded": 152,
+    "totalOutputSizeBytes": 2594189,
+    "totalOutputSizeFormatted": "2.47 MB",
     "sanitizedResidualLinksCount": 15,
     "filesByExtension": {
       ".html": 118,
       ".css": 6,
       ".jpg": 1,
-      ".js": 10,
+      ".js": 11,
       ".json": 12,
       "config": 2,
       ".txt": 1,
@@ -67,7 +67,7 @@
     },
     {
       "path": "assets/css/home-unique.css",
-      "bytes": 42305
+      "bytes": 31298
     },
     {
       "path": "assets/css/navbar.css",
@@ -108,6 +108,10 @@
     {
       "path": "assets/js/forms.js",
       "bytes": 32685
+    },
+    {
+      "path": "assets/js/home-3d.js",
+      "bytes": 6559
     },
     {
       "path": "assets/js/home-interactive.js",
@@ -267,7 +271,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 31278
+      "bytes": 48523
     },
     {
       "path": "knowledge/director-disqualification-guide.html",
