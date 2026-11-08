@@ -1,68 +1,81 @@
 /**
  * ==========================================================================
  * CRAFTEGON CORPORATE SERVICES (CCS) - GLOBAL DESIGN TOKENS
- * Professional Corporate Navy, White & Slate Specification
+ * Light Mint Green (#BCEBD5) & Light Sky Blue (#B8E3F7) Visual Identity
+ * High-Legibility Dark Typography (#193B46 / #243746) - WCAG 2.2 AA
  * ==========================================================================
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
 
 :root {
-  /* --- Primary Brand Palette: Corporate Navy --- */
-  --navy-900: #071527;              /* Deepest Corporate Navy */
-  --navy-800: #0B2545;              /* Master Corporate Navy */
-  --navy-700: #133965;              /* Mid Navy */
-  --navy-600: #1C4D82;              /* Active Blue / Navy Accent */
-  --navy-100: #E6EEF7;              /* Light Navy Tint */
-  --navy-50:  #F0F5FA;              /* Very Subtle Navy Tint */
+  /* --- Primary Brand Palette: Mint Green & Light Sky Blue --- */
+  --brand-mint: #BCEBD5;             /* Master Mint Green */
+  --brand-sky: #B8E3F7;              /* Master Light Sky Blue */
 
-  /* --- Neutral Background & Grey Scale --- */
-  --bg-primary: #FFFFFF;            /* Clean White Canvas */
-  --bg-white: #FFFFFF;              /* Pure White */
-  --bg-secondary: #F8FAFC;          /* Clean Neutral Grey for Section Alternation */
-  --bg-ivory: #F8FAFC;              /* Standardized to Cool Slate #F8FAFC to eliminate palette clash */
-  --surface-light: #F1F5F9;         /* Light Surface Background */
-  --card-bg: #FFFFFF;               /* White Cards */
+  /* --- Soft Surfaces & Canvases --- */
+  --surface-mint-soft: #DDF5EA;      /* Mint Soft Tint */
+  --surface-sky-soft: #DDF2FC;       /* Sky Soft Tint */
+  --surface-mint-white: #F4FAF7;     /* Mint White Surface */
+  --surface-sky-white: #F3F9FD;      /* Blue White Surface */
+  --bg-primary: #FFFFFF;             /* Pure White Canvas */
+  --bg-white: #FFFFFF;               /* Pure White */
+  --bg-secondary: #F4FAF7;           /* Mint White for Section Alternation */
+  --bg-ivory: #F4FAF7;               /* Standardized Soft Canvas */
+  --surface-light: #F4FAF7;          /* Light Surface Background */
+  --card-bg: #FFFFFF;                /* Pure White Cards */
 
-  /* --- Muted Gold / Brass Accent --- */
-  --brand-gold: #C59B27;            /* Restrained Muted Gold (Borders & Icons) */
-  --gold-primary: #C59B27;          /* Primary Accent Gold */
-  --brand-gold-hover: #A37F1D;      /* Deep Gold Hover */
-  --brand-gold-subtle: rgba(197, 155, 39, 0.08); /* Subtle Gold Tint */
-  --brand-gold-border: rgba(197, 155, 39, 0.25); /* Subtle Gold Border */
-  --text-dark-gold: #8C6D14;        /* WCAG AA Compliant 4.8:1 contrast on white */
-  --text-gold: #8C6D14;             /* Standard accessible gold text */
+  /* --- Accents & Interactive Controls --- */
+  --accent-green-primary: #247A62;   /* Primary Dark Green Accent (Buttons, Active) - 5.4:1 on White */
+  --accent-blue-secondary: #287DA8;  /* Secondary Ocean Blue Accent - 4.8:1 on White */
+  --accent-mint-vibrant: #75CDA9;    /* Mid Mint Accent */
+  --accent-sky-vibrant: #79C5E8;     /* Mid Sky Accent */
 
-  /* --- Typography Colors --- */
-  --text-dark: #0A192F;             /* Deep Navy / Charcoal Headings */
-  --charcoal: #0A192F;              /* Sovereign Dark */
-  --text-main: #334155;             /* High-legibility Slate Body Text */
-  --text-secondary: #64748B;        /* Muted Text / Sub-labels */
-  --text-muted: #64748B;            /* Muted Labels & Captions */
-  --text-light: #94A3B8;            /* Placeholder / Light Slate */
+  /* --- Deep Corporate Navy / Teal Scale --- */
+  --navy-900: #10262E;               /* Deepest Teal Charcoal */
+  --navy-800: #193B46;               /* Master Corporate Deep Teal */
+  --navy-700: #204C5A;               /* Mid Deep Teal */
+  --navy-600: #287DA8;               /* Active Ocean Blue */
+  --navy-100: #DDF2FC;               /* Light Sky Tint */
+  --navy-50:  #F3F9FD;               /* Very Subtle Sky Tint */
+
+  /* --- Backward-Compatible Accent Aliases (Replaces Gold with Emerald/Ocean) --- */
+  --brand-gold: #247A62;             /* Mapped to Primary Emerald Accent */
+  --gold-primary: #247A62;           /* Primary Accent */
+  --brand-gold-hover: #1B5E4B;       /* Deep Emerald Hover */
+  --brand-gold-subtle: rgba(188, 235, 213, 0.35); /* Subtle Mint Tint */
+  --brand-gold-border: rgba(36, 122, 98, 0.25);   /* Accessible Green Border */
+  --text-dark-gold: #247A62;         /* WCAG AA Compliant 5.4:1 contrast on white */
+  --text-gold: #247A62;              /* Standard accessible green text */
+
+  /* --- High-Legibility Typography Colors (WCAG 2.2 AA) --- */
+  --text-dark: #193B46;              /* Deep Teal Charcoal Headings (11.2:1 contrast) */
+  --charcoal: #193B46;               /* Sovereign Dark Teal */
+  --text-main: #243746;              /* High-legibility Body Text (10.1:1 contrast) */
+  --text-secondary: #52717A;         /* Slate Teal Sub-labels (5.1:1 contrast) */
+  --text-muted: #52717A;             /* Muted Labels & Captions (5.1:1 contrast) */
+  --text-light: #708A93;             /* Placeholder / Subtle Slate */
 
   /* --- Structural Borders & Dividers --- */
-  --border-color: #E2E8F0;          /* Clean Light Border */
-  --border-subtle: #E2E8F0;
-  --border-hover: #CBD5E1;          /* Medium Grey on Hover */
-  --silver-border: #E2E8F0;
+  --border-color: #DCE8E5;           /* Clean Soft Mint Border */
+  --border-subtle: #DCE8E5;
+  --border-hover: #B5CDC7;           /* Medium Mint-Slate on Hover */
+  --silver-border: #DCE8E5;
 
   /* --- Status Indicators --- */
-  --success: #059669;               /* Forest Emerald */
+  --success: #059669;                /* Forest Emerald */
   --success-light: #ECFDF5;
-  --warning: #D97706;               /* Amber */
+  --warning: #D97706;                /* Amber */
   --warning-light: #FFFBEB;
-  --danger: #DC2626;                /* Crimson */
+  --danger: #DC2626;                 /* Crimson */
   --danger-light: #FEF2F2;
 
-  /* --- Backward-Compatible Aliases --- */
-  --primary: var(--navy-800);
-  --primary-hover: var(--navy-900);
-  --primary-light: var(--navy-50);
-  --accent: var(--brand-gold);
-  --accent-gradient: linear-gradient(135deg, #0B2545 0%, #133965 100%);
-  --cta-gradient: linear-gradient(135deg, #0B2545 0%, #071527 100%);
-  --royal-gradient: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  /* --- Gradients --- */
+  --accent-gradient: linear-gradient(135deg, #247A62 0%, #287DA8 100%);
+  --cta-gradient: linear-gradient(135deg, #247A62 0%, #193B46 100%);
+  --royal-gradient: linear-gradient(180deg, #FFFFFF 0%, #F4FAF7 100%);
+  --mint-sky-gradient: linear-gradient(135deg, #DDF5EA 0%, #DDF2FC 100%);
+  --mint-sky-hero: linear-gradient(135deg, #F4FAF7 0%, #DDF5EA 45%, #DDF2FC 100%);
   --card-gradient: #FFFFFF;
 
   --bg-main: var(--bg-primary);
@@ -74,19 +87,19 @@
   --bg-muted: var(--surface-light);
 
   --gold: var(--brand-gold);
-  --gold-light: #C59B27;
-  --gold-dark: #8C6D14;
+  --gold-light: #75CDA9;
+  --gold-dark: #1B5E4B;
   --gold-hover: var(--brand-gold-hover);
   --gold-subtle: var(--brand-gold-subtle);
   --gold-border: var(--brand-gold-border);
-  --gold-border-strong: rgba(197, 155, 39, 0.4);
+  --gold-border-strong: rgba(36, 122, 98, 0.4);
 
   --text-primary: var(--text-dark);
-  --text-gold: var(--text-dark-gold);
+  --heading-color: var(--text-dark);
 
   /* --- Typography Scale & Font Families --- */
   --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'DM Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --font-sans: var(--font-body);
@@ -125,22 +138,22 @@
   --container-max: 1200px;
   --container-narrow: 900px;
 
-  /* --- Border Radius (Simple, Professional, Restrained) --- */
-  --radius-sm: 4px;
-  --radius-md: 8px;    /* Clean professional card radius */
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  /* --- Border Radius --- */
+  --radius-sm: 6px;
+  --radius-md: 10px;   /* Modern calm card radius */
+  --radius-lg: 14px;
+  --radius-xl: 18px;
   --radius-full: 9999px;
 
-  /* --- Subtle Corporate Shadows (No Glows) --- */
-  --shadow-standard: 0 1px 3px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(15, 23, 42, 0.03);
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.08);
+  /* --- Soft Modern Shadows (No harsh glows) --- */
+  --shadow-standard: 0 1px 3px rgba(25, 59, 70, 0.05), 0 2px 8px rgba(25, 59, 70, 0.03);
+  --shadow-sm: 0 1px 2px rgba(25, 59, 70, 0.04);
+  --shadow-md: 0 4px 14px rgba(25, 59, 70, 0.07);
+  --shadow-lg: 0 8px 28px rgba(25, 59, 70, 0.09);
   --shadow-noble: var(--shadow-standard);
-  --shadow-gold: 0 2px 8px rgba(197, 155, 39, 0.12);
+  --shadow-gold: 0 2px 8px rgba(36, 122, 98, 0.15);
   --shadow-gold-card: var(--shadow-standard);
   --shadow-glow: none;
-  --focus-ring: 0 0 0 3px rgba(11, 37, 69, 0.2);
-  --focus-gold: 0 0 0 3px rgba(197, 155, 39, 0.25);
+  --focus-ring: 0 0 0 3px rgba(36, 122, 98, 0.25);
+  --focus-gold: 0 0 0 3px rgba(36, 122, 98, 0.25);
 }

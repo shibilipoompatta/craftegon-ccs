@@ -81,8 +81,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
               <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
               <div class="brand-text-block">
-                <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #0F172A);">CRAFTEGON</span>
-                <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--brand-gold, #B4881B); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
+                <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #193B46);">CRAFTEGON</span>
+                <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--accent-green-primary, #247A62); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
               </div>
             </a>
             <nav class="if-nav">
@@ -109,8 +109,8 @@ document.addEventListener("DOMContentLoaded", async function () {
               <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
                 <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
                 <div class="brand-text-block">
-                  <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #0F172A);">CRAFTEGON</span>
-                  <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--brand-gold, #B4881B); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
+                  <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #193B46);">CRAFTEGON</span>
+                  <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--accent-green-primary, #247A62); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
                 </div>
               </a>
               <button class="if-mobile-drawer-close" id="mobile-drawer-close" aria-label="Close Navigation Menu">
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                   </div>
                 </a>
                 <p class="if-footer-desc">
-                  Corporate secretarial, regulatory compliance, and statutory filing services for companies, LLPs, and foreign subsidiaries in India.
+                  Building Business Infrastructure — Your Business Infrastructure Partner. From business formation to compliance, protection and growth — coordinated corporate services supported by professional expertise and technology.
                 </p>
                 <div class="if-footer-contact">
                   <p class="if-contact-item"><strong>Entity:</strong> CraftEgon LLP</p>

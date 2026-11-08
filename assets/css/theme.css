@@ -33,13 +33,13 @@ body {
 
 /* Accessible Focus States */
 :focus-visible {
-  outline: 2px solid var(--navy-800, #0B2545);
+  outline: 2px solid var(--accent-green-primary, #247A62);
   outline-offset: 2px;
 }
 
 ::selection {
-  background-color: var(--navy-800, #0B2545);
-  color: #FFFFFF;
+  background-color: var(--brand-mint, #BCEBD5);
+  color: var(--text-dark, #193B46);
 }
 
 /* --------------------------------------------------------------------------
@@ -68,13 +68,13 @@ p {
 }
 
 a {
-  color: var(--navy-800, #0B2545);
+  color: var(--accent-green-primary, #247A62);
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 a:hover {
-  color: var(--navy-600, #1C4D82);
+  color: var(--accent-blue-secondary, #287DA8);
 }
 
 .font-mono,
@@ -163,37 +163,37 @@ a:hover {
   text-decoration: none;
 }
 
-/* Primary Button: Deep Corporate Navy */
+/* Primary Button: Forest Emerald Accent (#247A62) with White Text */
 .btn-primary,
 .btn-navy,
 .btn-sovereign-gold,
 .if-btn-primary {
-  background-color: var(--navy-800, #0B2545) !important;
+  background-color: var(--accent-green-primary, #247A62) !important;
   color: #FFFFFF !important;
-  border-color: var(--navy-800, #0B2545) !important;
-  box-shadow: 0 1px 3px rgba(11, 37, 69, 0.2);
+  border-color: var(--accent-green-primary, #247A62) !important;
+  box-shadow: 0 1px 3px rgba(36, 122, 98, 0.2);
 }
 
 .btn-primary:hover,
 .btn-navy:hover,
 .btn-sovereign-gold:hover,
 .if-btn-primary:hover {
-  background-color: var(--navy-900, #071527) !important;
-  border-color: var(--navy-900, #071527) !important;
+  background-color: var(--brand-gold-hover, #1B5E4B) !important;
+  border-color: var(--brand-gold-hover, #1B5E4B) !important;
   color: #FFFFFF !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(11, 37, 69, 0.25);
+  box-shadow: 0 4px 12px rgba(36, 122, 98, 0.28);
 }
 
-/* Secondary Button: Clean Crisp Outline */
+/* Secondary Button: Clean Crisp Outline with Deep Teal Typography */
 .btn-secondary,
 .btn-outline,
 .btn-sovereign-glass,
 .btn-royal-outline,
 .if-btn-secondary {
   background-color: #FFFFFF !important;
-  color: var(--navy-800, #0B2545) !important;
-  border-color: var(--border-hover, #CBD5E1) !important;
+  color: var(--text-dark, #193B46) !important;
+  border-color: var(--border-hover, #B5CDC7) !important;
 }
 
 .btn-secondary:hover,
@@ -201,24 +201,24 @@ a:hover {
 .btn-sovereign-glass:hover,
 .btn-royal-outline:hover,
 .if-btn-secondary:hover {
-  background-color: var(--bg-secondary, #F8FAFC) !important;
-  border-color: var(--navy-800, #0B2545) !important;
-  color: var(--navy-800, #0B2545) !important;
+  background-color: var(--surface-mint-white, #F4FAF7) !important;
+  border-color: var(--accent-green-primary, #247A62) !important;
+  color: var(--accent-green-primary, #247A62) !important;
   transform: translateY(-1px);
 }
 
-/* Accent Button: Muted Gold Accent */
+/* Accent Button: Secondary Ocean Blue Accent (#287DA8) with White Text */
 .btn-accent,
 .btn-royal-gold {
-  background-color: var(--brand-gold, #C59B27) !important;
+  background-color: var(--accent-blue-secondary, #287DA8) !important;
   color: #FFFFFF !important;
-  border-color: var(--brand-gold, #C59B27) !important;
+  border-color: var(--accent-blue-secondary, #287DA8) !important;
 }
 
 .btn-accent:hover,
 .btn-royal-gold:hover {
-  background-color: var(--brand-gold-hover, #A37F1D) !important;
-  border-color: var(--brand-gold-hover, #A37F1D) !important;
+  background-color: #1F6487 !important;
+  border-color: #1F6487 !important;
   color: #FFFFFF !important;
   transform: translateY(-1px);
 }
@@ -601,7 +601,7 @@ table {
 .hero-search-inline-btn:focus-visible,
 .filter-chip.active:focus-visible,
 .conv-filter-btn.active:focus-visible {
-  outline: 2px solid var(--brand-gold, #C59B27) !important;
+  outline: 2px solid var(--accent-green-primary, #247A62) !important;
   outline-offset: 2px !important;
 }
 

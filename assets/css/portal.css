@@ -14,7 +14,7 @@
 
 /* --- Hero Banner --- */
 .portal-hero {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  background: var(--mint-sky-hero, linear-gradient(135deg, #F4FAF7 0%, #DDF5EA 45%, #DDF2FC 100%));
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 2.5rem 2rem;
@@ -30,9 +30,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(197, 155, 39, 0.08);
-  border: 1px solid rgba(197, 155, 39, 0.3);
-  color: var(--text-dark-gold);
+  background: var(--surface-mint-soft, #DDF5EA);
+  border: 1px solid var(--accent-mint-vibrant, #75CDA9);
+  color: var(--accent-green-primary, #247A62);
   padding: 0.35rem 0.9rem;
   border-radius: var(--radius-full);
   font-size: 0.78rem;

@@ -43,6 +43,16 @@
 
   <!-- Main Container -->
   <main class="admin-container">
+    <!-- Admin Prototype & Demonstration Notice -->
+    <div class="admin-demo-alert" role="status" style="background: #193B46; border: 1px solid #75CDA9; border-left: 4px solid #75CDA9; padding: 0.85rem 1.25rem; border-radius: 6px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; color: #FFFFFF;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#75CDA9" stroke-width="2" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <div>
+        <strong style="color: #BCEBD5; font-size: 0.88rem; display: block; margin-bottom: 0.15rem;">DEMONSTRATION PREVIEW — Executive Management Console</strong>
+        <span style="font-size: 0.82rem; color: #DDF5EA; line-height: 1.4;">
+          This internal console is in demonstration mode. In this static distribution, live write operations are isolated. No operational administrative records are modified.
+        </span>
+      </div>
+    </div>
     <!-- Top Section Navigation Tabs -->
     <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--admin-border, #334155); padding-bottom: 0.75rem;">
       <button type="button" id="tab-nav-cases" class="admin-btn admin-btn-primary admin-btn-sm" onclick="switchAdminSection('cases')">

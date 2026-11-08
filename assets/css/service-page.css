@@ -7,7 +7,7 @@
 
 /* --- Service Hero Section --- */
 .if-service-hero {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF9F5 100%);
+  background: var(--mint-sky-hero, linear-gradient(135deg, #F4FAF7 0%, #DDF5EA 45%, #DDF2FC 100%));
   padding: var(--space-12) 0 var(--space-8);
   border-bottom: 1px solid var(--border-color);
   text-align: center;

@@ -119,7 +119,7 @@ const PILLS=[
   ['DPDP Act Audit','What are our fiduciary obligations under DPDP Act 2023?'],
   ['Doc Drafter','Can you generate a founder or NDA agreement?'],
   ['MSME 43B(h)','What is the 45-day MSME payment rule and Form MSME-1?'],
-  ['CCFS-2026','What is the CCFS-2026 amnesty scheme deadline?']
+  ['DIR-3 KYC','What is the annual Director KYC deadline?']
 ];
 
 function ensureStyles(){
@@ -164,7 +164,7 @@ function createWidget(){
   </div>
   <div class="cchat-footer">
   <form id="cchat-form" class="cchat-input-row" onsubmit="return false;">
-    <input type="text" id="cchat-input-field" class="cchat-input" placeholder="Ask: 'AOC-4 due date', 'CCFS-2026 amnesty', 'MSME 45-day rule', 'RBI FLA filing'..." autocomplete="off">
+    <input type="text" id="cchat-input-field" class="cchat-input" placeholder="Ask: 'AOC-4 due date', 'DIR-3 KYC deadline', 'MSME 45-day rule', 'RBI FLA filing'..." autocomplete="off">
     <button type="submit" id="cchat-send-btn" class="cchat-send-btn" aria-label="Send message"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>
   </form>
   <div class="cchat-disclaimer">Local reference guide only. No live registry, model, or alert connection. Not legal advice. <a href="/legal/disclaimer.html" target="_blank" rel="noopener noreferrer">Full Disclaimer</a></div>
@@ -264,7 +264,7 @@ function initGreeting(){
   appendBotMsg(`Welcome to <b>Craftegon CCS AI Counsel</b>, a local rules-based reference guide for Indian corporate compliance.<br>
   Topics include <b>Companies Act 2013</b>, <b>MCA V3</b>, <b>FEMA 1999</b>, <b>GST Act 2017</b>, <b>DPDP Act 2023</b>, and <b>MSMED Act 2006</b>. It does not access live registries or send queries to a language model.<br>
   <i>Verify current rules, notifications, and entity facts with official sources and a qualified professional.</i><br>
-  Select a prompt below or type your inquiry (e.g., "CCFS-2026 deadline", "MSME 45-day payment rule", "GSTR-2B reconciliation").`);
+  Select a prompt below or type your inquiry (e.g., "DIR-3 KYC deadline", "MSME 45-day payment rule", "GSTR-2B reconciliation").`);
 }
 
 function bind(){
