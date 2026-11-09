@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-09T08:36:40.137Z",
+  "buildTimestamp": "2026-11-09T08:51:17.700Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 155,
-    "totalOutputSizeBytes": 6958281,
-    "totalOutputSizeFormatted": "6.64 MB",
+    "totalOutputSizeBytes": 6991519,
+    "totalOutputSizeFormatted": "6.67 MB",
     "sanitizedResidualLinksCount": 26,
     "preRenderedSSGPagesCount": 113,
     "filesByExtension": {
@@ -305,7 +305,7 @@
     },
     {
       "path": "knowledge/llp-compliance-solvency-guide.html",
-      "bytes": 40561
+      "bytes": 47199
     },
     {
       "path": "knowledge/mca-adjudication-penalties.html",
@@ -313,11 +313,11 @@
     },
     {
       "path": "knowledge/mca-v3-filing-guide.html",
-      "bytes": 41196
+      "bytes": 52308
     },
     {
       "path": "knowledge/pas6-demat-audit-guide.html",
-      "bytes": 40302
+      "bytes": 48530
     },
     {
       "path": "knowledge/rbi-fla-return-blueprint.html",
@@ -325,7 +325,7 @@
     },
     {
       "path": "knowledge/sbo-ben2-guide.html",
-      "bytes": 40845
+      "bytes": 48105
     },
     {
       "path": "knowledge/spice-plus-mca-v3-blueprint.html",
