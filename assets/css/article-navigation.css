@@ -212,3 +212,17 @@
     height: 40px;
   }
 }
+
+/* Fluid Typography and Symmetrical Balance for Article Headers */
+article h1,
+.article-main-col h1 {
+  font-family: var(--font-heading, 'Manrope', sans-serif) !important;
+  font-size: clamp(1.75rem, 4.2vw, 2.5rem) !important;
+  font-weight: 800 !important;
+  color: var(--navy-900, #10262E) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.02em !important;
+  text-wrap: balance !important;
+  word-break: break-word !important;
+  margin-bottom: 1rem !important;
+}

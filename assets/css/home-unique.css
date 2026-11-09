@@ -161,6 +161,7 @@
   margin: 0 0 1.25rem;
   overflow-wrap: break-word;
   word-break: normal;
+  text-wrap: balance;
 }
 
 @media (max-width: 480px) {

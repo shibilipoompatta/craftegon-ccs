@@ -757,12 +757,16 @@
 }
 
 .if-footer-disclaimer {
-  max-width: 860px;
-  margin: 0;
-  font-size: 0.74rem;
-  line-height: 1.55;
+  max-width: 920px;
+  margin: 0.5rem auto;
+  font-size: 0.75rem;
+  line-height: 1.62;
   color: #94A3B8;
-  text-align: center;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .if-footer-disclaimer strong {
