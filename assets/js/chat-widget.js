@@ -421,9 +421,14 @@ function updateAssistantBadge() {
   const dot = document.getElementById('cchat-status-dot');
   const hasKey = Boolean(getGeminiApiKey());
   if (badgeText) {
-    badgeText.innerHTML = hasKey 
-      ? '<span class="cchat-status-dot ai-active" id="cchat-status-dot"></span> ⚡ AI Co-Pilot (Gemini Active)' 
-      : '<span class="cchat-status-dot" id="cchat-status-dot"></span> 🔒 Statutory Reference Mode (Offline Safe)';
+    badgeText.textContent = hasKey ? 'AI Active' : 'Compliance Co-Pilot';
+  }
+  if (dot) {
+    if (hasKey) {
+      dot.classList.add('ai-active');
+    } else {
+      dot.classList.remove('ai-active');
+    }
   }
 }
 
@@ -517,16 +522,19 @@ function createWidget(){
   w.setAttribute('aria-label','CraftEgon Compliance Assistant');
   w.innerHTML=`<div class="cchat-header">
   <div class="cchat-brand-wrap">
-    <img src="/assets/images/craftegon-logo.jpg" alt="Craftegon CCS Logo" class="cchat-avatar">
+    <div class="cchat-avatar-wrap">
+      <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon" class="cchat-avatar">
+      <span class="cchat-status-dot ai-active" id="cchat-status-dot"></span>
+    </div>
     <div class="cchat-brand-info">
-      <h4>CraftEgon Compliance Co-Pilot</h4>
-      <span id="cchat-status-text"><span class="cchat-status-dot"></span> Statutory Reference Mode (Offline Safe)</span>
+      <h4>CraftEgon AI</h4>
+      <span id="cchat-status-text">Compliance Co-Pilot</span>
     </div>
   </div>
   <div class="cchat-header-actions">
-    <button type="button" class="cchat-btn-icon" id="cchat-settings-btn" title="AI Key &amp; Model Settings"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
-    <button type="button" class="cchat-btn-icon" id="cchat-clear-btn" title="Reset Conversation"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.8 1 6.5 2.7L21 8M21 3v5h-5"/></svg></button>
-    <button type="button" class="cchat-btn-icon" id="cchat-close-btn" title="Minimize Assistant"><svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <button type="button" class="cchat-btn-icon" id="cchat-settings-btn" title="AI Model Settings"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
+    <button type="button" class="cchat-btn-icon" id="cchat-clear-btn" title="New Chat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.8 1 6.5 2.7L21 8M21 3v5h-5"/></svg></button>
+    <button type="button" class="cchat-btn-icon" id="cchat-close-btn" title="Close"><svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
   </div>
   <div class="cchat-body" id="cchat-messages-container"></div>
@@ -535,10 +543,10 @@ function createWidget(){
   </div>
   <div class="cchat-footer">
   <form id="cchat-form" class="cchat-input-row" onsubmit="return false;">
-    <input type="text" id="cchat-input-field" class="cchat-input" placeholder="Ask: 'AOC-4 due date', 'DIR-3 KYC deadline', 'MSME 45-day rule', 'RBI FLA filing'..." autocomplete="off">
+    <input type="text" id="cchat-input-field" class="cchat-input" placeholder="Ask about compliance, MCA V3, due dates..." autocomplete="off">
     <button type="submit" id="cchat-send-btn" class="cchat-send-btn" aria-label="Send message"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>
   </form>
-  <div class="cchat-disclaimer">Grounded in Companies Act 2013, MCA V3 &amp; FEMA. Not legal litigation advice. <a href="/legal/disclaimer.html" target="_blank" rel="noopener noreferrer">Full Disclaimer</a></div>
+  <div class="cchat-disclaimer">Statutory reference &bull; Not litigation advice &bull; <a href="/legal/disclaimer.html" target="_blank" rel="noopener noreferrer">Disclaimer</a></div>
   </div>`;
   document.body.appendChild(t);
   document.body.appendChild(b);
@@ -632,18 +640,7 @@ async function handleQuery(q){
 function initGreeting(){
   const b=document.getElementById('cchat-messages-container');
   if(!b||b.children.length>0)return;
-  const hasKey = Boolean(getGeminiApiKey());
-  
-  if (hasKey) {
-    appendBotMsg(`Welcome to <strong>CraftEgon AI Compliance Co-Pilot</strong>, powered by Google Gemini.<br>
-    I am grounded in Indian corporate law (<b>Companies Act 2013</b>, <b>MCA V3</b>, <b>FEMA 1999</b>, <b>GST</b>, <b>DPDP Act 2023</b>) and CraftEgon's 57 corporate secretarial services.<br><br>
-    How can I assist your business today? Select a topic below or type your inquiry.`);
-  } else {
-    appendBotMsg(`Welcome to <strong>CraftEgon Compliance Assistant</strong>.<br>
-    Operating in <b>Statutory Reference Mode</b> covering the <b>Companies Act 2013</b>, <b>MCA V3</b>, <b>FEMA 1999</b>, <b>GST Act 2017</b>, and <b>DPDP Act 2023</b>.<br>
-    <i>Tip: Click the ⚙️ settings icon to activate the live Google Gemini AI mode.</i><br><br>
-    Select a topic below or ask about due dates, statutory late fees, or incorporation.`);
-  }
+  appendBotMsg(`Hello! 👋 How can I help with your company registration, RoC filings, or statutory compliance today?`);
 }
 
 function bind(){
