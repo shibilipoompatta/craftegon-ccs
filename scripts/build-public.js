@@ -324,10 +324,8 @@ const publicRedirects = `# =====================================================
 /conversion        /conversion/index.html  200
 /conversion/*      /conversion/:splat      200
 /legal/*           /legal/:splat           200
-/contact           /contact.html           200
 /search            /search/index.html      200
 /search/           /search/index.html      200
-/about             /about.html             200
 
 # 3. GLOBAL CATCH-ALL (HTTP 404 Fallback)
 /*                 /404.html               404
