@@ -321,17 +321,33 @@ function initLeadCaptureForms() {
       };
       const routeContext = ROUTE_SERVICE_MAP[currentPath] || {};
 
-      // Extract Campaign Attribution (UTM Parameters) from URL query string
-      let utmParams = { utm_source: "", utm_medium: "", utm_campaign: "", utm_term: "", utm_content: "", gclid: "" };
+      // Extract Campaign Attribution (UTM Parameters) with multi-touch session persistence
+      const attr = (typeof window !== "undefined" && window.CraftegonAttribution && typeof window.CraftegonAttribution.get === "function")
+        ? window.CraftegonAttribution.get()
+        : {};
+
+      let utmParams = {
+        utm_source: attr.utm_source || "",
+        utm_medium: attr.utm_medium || "",
+        utm_campaign: attr.utm_campaign || "",
+        utm_term: attr.utm_term || "",
+        utm_content: attr.utm_content || "",
+        gclid: attr.gclid || "",
+        fbclid: attr.fbclid || "",
+        msclkid: attr.msclkid || ""
+      };
+
       try {
         if (typeof window !== "undefined" && window.location && window.location.search) {
           const sp = new URLSearchParams(window.location.search);
-          utmParams.utm_source = sp.get("utm_source") || "";
-          utmParams.utm_medium = sp.get("utm_medium") || "";
-          utmParams.utm_campaign = sp.get("utm_campaign") || "";
-          utmParams.utm_term = sp.get("utm_term") || "";
-          utmParams.utm_content = sp.get("utm_content") || "";
-          utmParams.gclid = sp.get("gclid") || "";
+          if (sp.get("utm_source")) utmParams.utm_source = sp.get("utm_source");
+          if (sp.get("utm_medium")) utmParams.utm_medium = sp.get("utm_medium");
+          if (sp.get("utm_campaign")) utmParams.utm_campaign = sp.get("utm_campaign");
+          if (sp.get("utm_term")) utmParams.utm_term = sp.get("utm_term");
+          if (sp.get("utm_content")) utmParams.utm_content = sp.get("utm_content");
+          if (sp.get("gclid")) utmParams.gclid = sp.get("gclid");
+          if (sp.get("fbclid")) utmParams.fbclid = sp.get("fbclid");
+          if (sp.get("msclkid")) utmParams.msclkid = sp.get("msclkid");
         }
       } catch (utmErr) {
         // Fallback gracefully if URLSearchParams is unavailable
@@ -357,6 +373,8 @@ function initLeadCaptureForms() {
         utm_term: utmParams.utm_term,
         utm_content: utmParams.utm_content,
         gclid: utmParams.gclid,
+        fbclid: utmParams.fbclid,
+        msclkid: utmParams.msclkid,
         dpdp_consent: form.querySelector('input[name*="dpdp"], input[name*="consent"]')
           ? Boolean(form.querySelector('input[name*="dpdp"]:checked, input[name*="consent"]:checked'))
           : true,
@@ -753,6 +771,9 @@ function showFormFallbackNotice(form, data, options = {}) {
       <a href="${mailUrl}" class="if-btn-secondary" style="border: 1px solid var(--gold-border, rgba(197, 155, 39, 0.28)); color: var(--text-dark-gold, #785B0D); background: #fefce8; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
         ✉️ Email Desk (${emailDisplay})
       </a>
+      <button type="button" class="if-btn-secondary" data-checkout="true" data-client-name="${escapeHtml(contactName)}" style="border: 1px solid #247A62; color: #247A62; background: rgba(36, 122, 98, 0.06); padding: 0.55rem 1rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;">
+        ⚡ Instant Retainer / UPI Deposit &rarr;
+      </button>
     </div>
   `;
   form.prepend(alertBox);

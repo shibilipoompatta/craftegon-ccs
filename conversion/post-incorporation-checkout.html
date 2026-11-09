@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/assets/css/navbar.css">
   <link rel="stylesheet" href="/assets/css/service-page.css">
   <link rel="stylesheet" href="/assets/css/conversion-desks.css">
+  <link rel="stylesheet" href="/assets/css/checkout.css">
 
   <!-- Favicon & Brand Icons -->
   <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
@@ -165,7 +166,13 @@
 
         <button type="submit" class="desk-btn-submit">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg> Request Starter Kit Consultation &amp; Scope</button>
-        <p style="font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Submitting formats an enquiry for our corporate desk. No payment is processed online in this environment.</p>
+        <div style="text-align: center; margin-top: 0.25rem;">
+          <span style="font-size: 0.78rem; color: #64748B;">— OR LOCK IN VIA INSTANT CHECKOUT —</span>
+        </div>
+        <button type="button" class="if-btn-secondary" data-checkout="true" data-checkout-tier="incorporation-starter" style="width: 100%; padding: 0.75rem; border-color: #247A62; color: #247A62; font-weight: 700; background: #FFFFFF; font-size: 0.88rem;">
+          ⚡ Instant Retainer Deposit via UPI (₹4,999) &rarr;
+        </button>
+        <p style="font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Submitting formats an enquiry for our corporate desk. Retainer deposits are held against official statutory dockets.</p>
       </form>
       <div class="desk-security-notice">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -176,6 +183,8 @@
 
   <div id="global-footer"></div>
   <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/attribution.js"></script>
   <script src="/assets/js/forms.js"></script>
+  <script src="/assets/js/checkout.js"></script>
 </body>
 </html>

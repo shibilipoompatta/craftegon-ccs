@@ -55,6 +55,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.head.appendChild(configScript);
   }
 
+  // Ensure Attribution & Campaign Tracker is loaded
+  if (!window.CraftegonAttribution && !document.getElementById("craftegon-attribution-script")) {
+    const attrScript = document.createElement("script");
+    attrScript.id = "craftegon-attribution-script";
+    attrScript.src = "/assets/js/attribution.js";
+    document.head.appendChild(attrScript);
+  }
+
+  // Ensure Instant Retainer & Checkout Engine is loaded
+  if (!window.CraftegonCheckout && !document.getElementById("craftegon-checkout-script")) {
+    const chkScript = document.createElement("script");
+    chkScript.id = "craftegon-checkout-script";
+    chkScript.src = "/assets/js/checkout.js";
+    document.head.appendChild(chkScript);
+  }
+
   // Ensure main landmark has id="main-content" for accessibility skip link
   const mainEl = document.querySelector("main");
   if (mainEl && !mainEl.id) {

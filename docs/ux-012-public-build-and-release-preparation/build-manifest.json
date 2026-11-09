@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-09T09:01:41.845Z",
+  "buildTimestamp": "2026-11-09T09:31:09.085Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,16 +10,16 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 155,
-    "totalOutputSizeBytes": 6992471,
-    "totalOutputSizeFormatted": "6.67 MB",
+    "totalFilesIncluded": 161,
+    "totalOutputSizeBytes": 7101048,
+    "totalOutputSizeFormatted": "6.77 MB",
     "sanitizedResidualLinksCount": 26,
     "preRenderedSSGPagesCount": 113,
     "filesByExtension": {
-      ".html": 118,
-      ".css": 9,
+      ".html": 121,
+      ".css": 10,
       ".jpg": 1,
-      ".js": 12,
+      ".js": 14,
       ".json": 11,
       "config": 2,
       ".txt": 1,
@@ -61,7 +61,7 @@
     },
     {
       "path": "about.html",
-      "bytes": 49907
+      "bytes": 50249
     },
     {
       "path": "assets/css/article-navigation.css",
@@ -70,6 +70,10 @@
     {
       "path": "assets/css/chat-widget.css",
       "bytes": 8769
+    },
+    {
+      "path": "assets/css/checkout.css",
+      "bytes": 6179
     },
     {
       "path": "assets/css/conversion-desks.css",
@@ -108,12 +112,20 @@
       "bytes": 5751
     },
     {
+      "path": "assets/js/attribution.js",
+      "bytes": 5099
+    },
+    {
       "path": "assets/js/calculator.js",
       "bytes": 21752
     },
     {
       "path": "assets/js/chat-widget.js",
       "bytes": 20361
+    },
+    {
+      "path": "assets/js/checkout.js",
+      "bytes": 14191
     },
     {
       "path": "assets/js/config.js",
@@ -125,7 +137,7 @@
     },
     {
       "path": "assets/js/forms.js",
-      "bytes": 31433
+      "bytes": 32474
     },
     {
       "path": "assets/js/home-3d.js",
@@ -137,7 +149,7 @@
     },
     {
       "path": "assets/js/navigation.js",
-      "bytes": 21657
+      "bytes": 22209
     },
     {
       "path": "assets/js/search-engine.js",
@@ -161,7 +173,7 @@
     },
     {
       "path": "contact.html",
-      "bytes": 52953
+      "bytes": 52511
     },
     {
       "path": "conversion/ai-document-generator.html",
@@ -201,7 +213,7 @@
     },
     {
       "path": "conversion/index.html",
-      "bytes": 91449
+      "bytes": 97495
     },
     {
       "path": "conversion/license-qualification.html",
@@ -217,11 +229,23 @@
     },
     {
       "path": "conversion/post-incorporation-checkout.html",
-      "bytes": 43109
+      "bytes": 43804
+    },
+    {
+      "path": "conversion/ppc-annual-compliance.html",
+      "bytes": 23570
+    },
+    {
+      "path": "conversion/ppc-company-registration.html",
+      "bytes": 25300
+    },
+    {
+      "path": "conversion/ppc-trademark-registration.html",
+      "bytes": 24620
     },
     {
       "path": "conversion/retainer-desk.html",
-      "bytes": 42723
+      "bytes": 43499
     },
     {
       "path": "conversion/secretarial-audit-scope.html",
@@ -669,7 +693,7 @@
     },
     {
       "path": "sitemap.xml",
-      "bytes": 22325
+      "bytes": 22933
     },
     {
       "path": "build-manifest.json",

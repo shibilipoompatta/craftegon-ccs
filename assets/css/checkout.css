@@ -1,0 +1,420 @@
+/**
+ * ==============================================================================
+ * CRAFTEGON CORPORATE SERVICES (CCS) - INSTANT RETAINER & CHECKOUT ENGINE STYLES
+ * High-Trust Modal Drawer, Tier Selectors, Dynamic UPI QR, and Deposit Receipts
+ * ==============================================================================
+ */
+
+.ccs-checkout-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(9, 13, 22, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.ccs-checkout-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ccs-checkout-modal {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color, #E2E8F0);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(36, 122, 98, 0.1);
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.ccs-checkout-backdrop.active .ccs-checkout-modal {
+  transform: translateY(0) scale(1);
+}
+
+.ccs-checkout-header {
+  padding: 1.5rem 1.75rem 1rem;
+  border-bottom: 1px solid #EDF2F7;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+}
+
+.ccs-checkout-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-green-primary, #247A62);
+  background: rgba(36, 122, 98, 0.08);
+  border: 1px solid rgba(36, 122, 98, 0.2);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.ccs-checkout-title {
+  font-family: var(--font-heading, "Cinzel", serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-dark, #193B46);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.ccs-checkout-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted, #64748B);
+  margin: 0.35rem 0 0;
+  line-height: 1.4;
+}
+
+.ccs-checkout-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.ccs-checkout-close:hover {
+  color: #0F172A;
+  background: #F1F5F9;
+}
+
+.ccs-checkout-body {
+  padding: 1.5rem 1.75rem;
+}
+
+/* Tier Selection Grid */
+.ccs-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.ccs-tier-card {
+  border: 1.5px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #FFFFFF;
+  position: relative;
+  text-align: left;
+}
+
+.ccs-tier-card:hover {
+  border-color: #CBD5E1;
+  background: #F8FAFC;
+}
+
+.ccs-tier-card.selected {
+  border-color: #247A62;
+  background: rgba(36, 122, 98, 0.03);
+  box-shadow: 0 0 0 2px rgba(36, 122, 98, 0.15);
+}
+
+.ccs-tier-card.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #247A62;
+  background: rgba(36, 122, 98, 0.15);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ccs-tier-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.25rem;
+}
+
+.ccs-tier-price {
+  font-family: var(--font-heading, "Cinzel", serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #193B46;
+}
+
+.ccs-tier-sla {
+  font-size: 0.7rem;
+  color: #247A62;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+/* Payment Mode Tabs */
+.ccs-payment-tabs {
+  display: flex;
+  border-bottom: 1px solid #E2E8F0;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+
+.ccs-tab-btn {
+  background: none;
+  border: none;
+  padding: 0.65rem 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #64748B;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s;
+}
+
+.ccs-tab-btn.active {
+  color: #247A62;
+}
+
+.ccs-tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #247A62;
+}
+
+/* Payment Panels */
+.ccs-tab-panel {
+  display: none;
+}
+
+.ccs-tab-panel.active {
+  display: block;
+}
+
+/* QR Code Display Container */
+.ccs-qr-box {
+  background: #F8FAFC;
+  border: 1px dashed #CBD5E1;
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.ccs-qr-image {
+  width: 170px;
+  height: 170px;
+  background: #FFFFFF;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  margin-bottom: 0.85rem;
+}
+
+.ccs-upi-id-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.ccs-copy-btn {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.72rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #334155;
+  transition: all 0.15s;
+}
+
+.ccs-copy-btn:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+/* Bank Details Grid */
+.ccs-bank-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+}
+
+.ccs-bank-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ccs-bank-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: #64748B;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.ccs-bank-val {
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  color: #0F172A;
+  word-break: break-all;
+}
+
+/* UTR Confirmation Form */
+.ccs-utr-block {
+  background: #F0FDF4;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 8px;
+  padding: 1.15rem;
+  margin-top: 1rem;
+}
+
+.ccs-utr-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #166534;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ccs-utr-input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ccs-utr-input {
+  flex: 1;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.85rem;
+  border: 1px solid #86EFAC;
+  border-radius: 6px;
+  background: #FFFFFF;
+}
+
+.ccs-btn-confirm-pay {
+  background: #15803D;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.ccs-btn-confirm-pay:hover {
+  background: #166534;
+}
+
+/* Printable Receipt Card */
+.ccs-receipt-card {
+  border: 1.5px solid #247A62;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #FFFFFF;
+  margin-top: 1rem;
+}
+
+.ccs-receipt-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.ccs-receipt-brand {
+  font-family: var(--font-heading, "Cinzel", serif);
+  font-weight: 700;
+  color: #193B46;
+  font-size: 1.1rem;
+}
+
+.ccs-receipt-ref {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: #247A62;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .ccs-bank-grid {
+    grid-template-columns: 1fr;
+  }
+  .ccs-tiers-grid {
+    grid-template-columns: 1fr;
+  }
+  .ccs-utr-input-group {
+    flex-direction: column;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .ccs-receipt-card, .ccs-receipt-card * {
+    visibility: visible;
+  }
+  .ccs-receipt-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: none;
+  }
+}
