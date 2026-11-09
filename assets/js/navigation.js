@@ -88,11 +88,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             </a>
             <nav class="if-nav">
               <a href="/index.html" class="if-nav-link">Home</a>
-              <a href="/index.html#practice-areas" class="if-nav-link">Practice Areas</a>
-              <a href="/portal/dashboard.html" class="if-nav-link" style="color: var(--brand-gold);">Client Portal</a>
-              <a href="/conversion/index.html" class="if-nav-link">Diagnostic Tools</a>
+              <a href="/services.html" class="if-nav-link">Services</a>
+              <a href="/about.html" class="if-nav-link">About</a>
               <a href="/knowledge/index.html" class="if-nav-link">Knowledge Centre</a>
               <a href="/conversion/calculator.html" class="if-nav-link">Fee Estimator</a>
+              <a href="/contact.html" class="if-nav-link">Contact</a>
             </nav>
             <div class="if-header-actions">
               <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border-color: rgba(37, 211, 102, 0.4); color: #25D366; padding: 0.6rem 0.95rem;">WhatsApp</a>
@@ -120,13 +120,12 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
             <div class="if-mobile-drawer-body">
               <a href="/index.html" class="if-mobile-nav-link">Home</a>
-              <a href="/index.html#practice-areas" class="if-mobile-nav-link">Practice Areas</a>
-              <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-mobile-nav-link" style="color: #25D366; font-weight:700;">💬 WhatsApp Desk: +91 86069 18247</a>
-              <a href="/portal/dashboard.html" class="if-mobile-nav-link" style="color: var(--gold-light); font-weight:700;">Client Portal &amp; Calendar</a>
-              <a href="/portal/subscription.html" class="if-mobile-nav-link">Retainer Plans</a>
-              <a href="/conversion/index.html" class="if-mobile-nav-link">Diagnostic Tools</a>
+              <a href="/services.html" class="if-mobile-nav-link">Services Directory</a>
+              <a href="/about.html" class="if-mobile-nav-link">About CraftEgon</a>
               <a href="/knowledge/index.html" class="if-mobile-nav-link">Knowledge Centre</a>
-              <a href="/conversion/ai-document-generator.html" class="if-mobile-btn-ai" style="margin-top: 1rem;">Doc Drafter</a>
+              <a href="/conversion/calculator.html" class="if-mobile-nav-link">Fee Estimator</a>
+              <a href="/contact.html" class="if-mobile-nav-link">Contact &amp; Service Desk</a>
+              <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-mobile-nav-link" style="color: #25D366; font-weight:700;">💬 WhatsApp Desk: +91 86069 18247</a>
             </div>
           </div>
         </header>

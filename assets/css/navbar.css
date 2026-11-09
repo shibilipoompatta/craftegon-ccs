@@ -168,6 +168,12 @@
   color: var(--brand-gold);
 }
 
+.if-nav-link.active {
+  color: var(--accent-green-primary, #247A62) !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid var(--accent-green-primary, #247A62);
+}
+
 .nav-count-badge {
   font-family: var(--font-mono);
   font-size: 0.65rem;
