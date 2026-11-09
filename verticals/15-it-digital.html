@@ -103,6 +103,7 @@
   ]
 }
   </script>
+  <link rel="stylesheet" href="/assets/css/vertical-hub.css">
 </head>
 <body>
   <div id="global-navbar"></div>
@@ -130,26 +131,66 @@
 
     <!-- Related Cross-Vertical Links -->
     <h2 style="font-size: 1.35rem; font-weight: 600; margin-bottom: 1.25rem;">Active Related Practice Areas</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; margin-bottom: 3rem;">
+    <div class="vertical-grid">
       
-      <a href="/verticals/12-esg-csr.html" style="border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-sm); background: var(--card-gradient); border: 1px solid rgba(212, 175, 55, 0.22); color: var(--text-main); box-shadow: var(--shadow-sm); text-decoration: none; transition: transform 0.2s ease;">
-        <span class="noble-badge" style="font-size: 0.72rem; margin-bottom: 0.4rem; display: inline-block;">Vertical 12</span>
-        <h3 style="font-size: 1rem; font-weight: 600; color: var(--primary);">Data Privacy &amp; Tech Law Hub</h3>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.4rem;">DPDP Act 2023 compliance audits (V12-SVC-002), CERT-In incident reporting (V12-SVC-001), and SaaS privacy architecture (V12-SVC-003).</p>
+      
+      <a href="/verticals/12-esg-csr.html" class="vertical-card">
+        <div class="vertical-card-header">
+          <div class="vertical-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="vertical-card-badges">
+            <span class="v-badge-turnaround">⏱️ 2–3 Days</span>
+            <span class="v-badge-price">From ₹13,999</span>
+          </div>
+        </div>
+        <h3 class="vertical-card-title">Data Privacy &amp; Tech Law Hub</h3>
+        <p class="vertical-card-desc">DPDP Act 2023 compliance audits (V12-SVC-002), CERT-In incident reporting (V12-SVC-001), and SaaS privacy architecture (V12-SVC-003).</p>
+        <div class="vertical-card-footer">
+          <span>View Statutory Scope</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
       </a>
 
-      <a href="/verticals/06-ipr-protection.html" style="border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-sm); background: var(--card-gradient); border: 1px solid rgba(212, 175, 55, 0.22); color: var(--text-main); box-shadow: var(--shadow-sm); text-decoration: none; transition: transform 0.2s ease;">
-        <span class="noble-badge" style="font-size: 0.72rem; margin-bottom: 0.4rem; display: inline-block;">Vertical 06</span>
-        <h3 style="font-size: 1rem; font-weight: 600; color: var(--primary);">Intellectual Property &amp; Technology IP</h3>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.4rem;">Software source code copyright, technical patent registrations (V06-SVC-002), and trademark prosecution (V06-SVC-003).</p>
+      
+      <a href="/verticals/06-ipr-protection.html" class="vertical-card">
+        <div class="vertical-card-header">
+          <div class="vertical-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="vertical-card-badges">
+            <span class="v-badge-turnaround">⏱️ 2–3 Days</span>
+            <span class="v-badge-price">From ₹4,999</span>
+          </div>
+        </div>
+        <h3 class="vertical-card-title">Intellectual Property &amp; Technology IP</h3>
+        <p class="vertical-card-desc">Software source code copyright, technical patent registrations (V06-SVC-002), and trademark prosecution (V06-SVC-003).</p>
+        <div class="vertical-card-footer">
+          <span>View Statutory Scope</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
       </a>
 
-      <a href="/verticals/05-contracts-legal.html" style="border: 1px solid var(--border-color); padding: 1.25rem; border-radius: var(--radius-sm); background: var(--card-gradient); border: 1px solid rgba(212, 175, 55, 0.22); color: var(--text-main); box-shadow: var(--shadow-sm); text-decoration: none; transition: transform 0.2s ease;">
-        <span class="noble-badge" style="font-size: 0.72rem; margin-bottom: 0.4rem; display: inline-block;">Vertical 05</span>
-        <h3 style="font-size: 1rem; font-weight: 600; color: var(--primary);">Contracts &amp; Commercial Legal</h3>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.4rem;">Enterprise Master Service Agreements (MSA), IT vendor procurement contracts, and technical SLAs.</p>
+      
+      <a href="/verticals/05-contracts-legal.html" class="vertical-card">
+        <div class="vertical-card-header">
+          <div class="vertical-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="vertical-card-badges">
+            <span class="v-badge-turnaround">⏱️ 2–3 Days</span>
+            <span class="v-badge-price">From ₹10,999</span>
+          </div>
+        </div>
+        <h3 class="vertical-card-title">Contracts &amp; Commercial Legal</h3>
+        <p class="vertical-card-desc">Enterprise Master Service Agreements (MSA), IT vendor procurement contracts, and technical SLAs.</p>
+        <div class="vertical-card-footer">
+          <span>View Statutory Scope</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
       </a>
 
+    
     </div>
 
     <!-- Statutory FAQ Accordions Grounded in Schema -->

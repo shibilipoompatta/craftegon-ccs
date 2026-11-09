@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link rel="stylesheet" href="/assets/css/navbar.css">
   <link rel="stylesheet" href="/assets/css/service-page.css">
+  <link rel="stylesheet" href="/assets/css/conversion-desks.css">
 
   <!-- Favicon & Brand Icons -->
   <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
@@ -85,23 +86,51 @@
 <body>
   <div id="global-navbar"></div>
 
-  <main class="container" style="padding: 3rem 1.5rem; max-width: 800px;">
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 860px;">
     <nav class="if-breadcrumb" aria-label="Breadcrumb">
       <a href="/index.html">Home</a> / <a href="/verticals/04-statutory-licenses.html">Statutory Licenses</a> / <span>License Audit Tool</span>
     </nav>
     
-    <div class="if-service-hero" style="text-align: left; padding: 2rem 0;">
-      <h1>Instant License Qualification Audit Engine</h1>
-      <p>Answer a few operational parameters to instantly determine your mandatory statutory licenses, MSME eligibility, and DPIIT startup tax exemption readiness.</p>
+    <div class="desk-hero-card">
+      <div class="desk-eyebrow-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>STATUTORY LICENSING & REGISTRATION DESK</span>
+      </div>
+      <h1 class="desk-hero-title">Instant License Qualification Audit Engine</h1>
+      <p class="desk-hero-lead">Answer a few operational parameters to instantly determine your mandatory statutory licenses, MSME eligibility, and DPIIT startup tax exemption readiness.</p>
+      <div class="desk-trust-strip">
+        <div class="desk-trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#247A62" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Practicing CA / CS Advisory</span>
+        </div>
+        <div class="desk-trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#247A62" stroke-width="2.5"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Strict Attorney-Client Privilege</span>
+        </div>
+        <div class="desk-trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#247A62" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Guaranteed 2-Hour Response SLA</span>
+        </div>
+      </div>
     </div>
 
-    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+    <div class="desk-form-card">
+      <div class="desk-form-header">
+        <h2 class="desk-form-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#247A62" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          License Qualification Audit Docket
+        </h2>
+        <span class="desk-sla-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Active Desk • Priority Queue
+        </span>
+      </div>
       <form class="if-lead-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
         
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Business Structure</label>
-            <select name="entity_type" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+            <label>Business Structure</label>
+            <select name="entity_type" >
               <option value="pvt-ltd">Private Limited Company</option>
               <option value="llp">Limited Liability Partnership</option>
               <option value="proprietorship">Sole Proprietorship</option>
@@ -109,8 +138,8 @@
             </select>
           </div>
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Industry / Sector</label>
-            <select name="industry" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+            <label>Industry / Sector</label>
+            <select name="industry" >
               <option value="tech-saas">Tech / SaaS / Software</option>
               <option value="ecommerce">E-Commerce & Retail</option>
               <option value="manufacturing">Manufacturing / Industrial</option>
@@ -121,16 +150,16 @@
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Years in Operation</label>
-            <select name="age" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+            <label>Years in Operation</label>
+            <select name="age" >
               <option value="pre-launch">Pre-Launch / Startup (0-1 Year)</option>
               <option value="1-3-years">1 to 3 Years</option>
               <option value="3-plus">Over 3 Years</option>
             </select>
           </div>
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Do you have physical premises / offices?</label>
-            <select name="premises" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+            <label>Do you have physical premises / offices?</label>
+            <select name="premises" >
               <option value="commercial">Commercial Office / Warehouse</option>
               <option value="home">Home Office / Coworking</option>
               <option value="factory">Manufacturing Plant</option>
@@ -140,22 +169,27 @@
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Contact Person Name</label>
-            <input type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <label>Contact Person Name</label>
+            <input type="text" name="contact_name" required placeholder="Full Name" >
           </div>
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Mobile Number</label>
-            <input type="tel" name="phone" required placeholder="9876543210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <label>Mobile Number</label>
+            <input type="tel" name="phone" required placeholder="9876543210" >
           </div>
         </div>
 
         <div>
-          <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Email Address</label>
-          <input type="email" name="email" required placeholder="founder@company.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          <label>Email Address</label>
+          <input type="email" name="email" required placeholder="founder@company.com" >
         </div>
 
-        <button type="submit" class="if-btn-primary" style="margin-top: 1rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Run License Qualification Audit</button>
+        <button type="submit" class="desk-btn-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg> Run License Qualification Audit</button>
       </form>
+      <div class="desk-security-notice">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>End-to-end encrypted statutory intake. Regulated under ICSI & ICAI ethical guidelines.</span>
+      </div>
     </div>
   </main>
 

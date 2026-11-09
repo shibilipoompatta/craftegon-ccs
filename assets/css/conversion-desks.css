@@ -1,0 +1,236 @@
+/**
+ * ============================================================================
+ * CRAFTEGON CORPORATE SERVICES (CCS) - CONVERSION DESKS ENHANCED STYLING
+ * 2026 High-Conversion Gradient Cards, Floating Form Elevations & Input Polish
+ * ============================================================================
+ */
+
+:root {
+  --desk-navy-deep: #10262E;
+  --desk-navy-dark: #1E3842;
+  --desk-mint-primary: #247A62;
+  --desk-mint-vibrant: #75CDA9;
+  --desk-mint-soft: #DDF5EA;
+  --desk-sky-soft: #DDF2FC;
+  --desk-border: #DCE8E5;
+  --desk-text-main: #10262E;
+  --desk-text-muted: #52717A;
+}
+
+.desk-hero-card {
+  position: relative;
+  background: radial-gradient(130% 130% at 50% 0%, #FFFFFF 0%, #F4FAF7 45%, #DDF5EA 80%, #DDF2FC 100%);
+  border: 1px solid rgba(117, 205, 169, 0.4);
+  border-radius: 20px;
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(16, 38, 46, 0.05);
+  overflow: hidden;
+}
+
+.desk-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.95rem;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(36, 122, 98, 0.25);
+  border-radius: 9999px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--desk-mint-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.15rem;
+  box-shadow: 0 2px 8px rgba(36, 122, 98, 0.08);
+}
+
+.desk-hero-title {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-weight: 800;
+  color: var(--desk-navy-deep);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  max-width: 820px;
+  margin: 0 auto 0.85rem;
+}
+
+.desk-hero-lead {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.98rem, 1.8vw, 1.08rem);
+  color: var(--desk-text-muted);
+  line-height: 1.62;
+  max-width: 680px;
+  margin: 0 auto 1.5rem;
+}
+
+.desk-trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(36, 122, 98, 0.15);
+  margin-top: 1.25rem;
+}
+
+.desk-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--desk-navy-dark);
+}
+
+.desk-form-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--desk-border);
+  border-radius: 18px;
+  padding: 2.5rem;
+  box-shadow: 0 12px 36px rgba(16, 38, 46, 0.07);
+  position: relative;
+  transition: box-shadow 0.25s ease;
+}
+
+.desk-form-card:hover {
+  box-shadow: 0 16px 44px rgba(16, 38, 46, 0.1);
+}
+
+.desk-form-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1.5px solid #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.desk-form-heading {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--desk-navy-deep);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.desk-sla-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--desk-mint-primary);
+  background: var(--desk-mint-soft);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Enhanced Form Inputs */
+.desk-form-card label {
+  display: block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--desk-navy-deep);
+  margin-bottom: 0.4rem;
+}
+
+.desk-form-card input[type="text"],
+.desk-form-card input[type="email"],
+.desk-form-card input[type="tel"],
+.desk-form-card input[type="number"],
+.desk-form-card select,
+.desk-form-card textarea {
+  width: 100%;
+  padding: 0.82rem 1rem;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  color: var(--desk-navy-deep);
+  background: #FFFFFF;
+  border: 1.5px solid var(--desk-border);
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.desk-form-card input:focus,
+.desk-form-card select:focus,
+.desk-form-card textarea:focus {
+  outline: none;
+  border-color: var(--desk-mint-primary);
+  box-shadow: 0 0 0 3.5px rgba(117, 205, 169, 0.28);
+  background: #FFFFFF;
+}
+
+.desk-form-card input[readonly] {
+  background: #F8FAFC;
+  cursor: default;
+  color: #64748B;
+}
+
+.desk-btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 1rem 1.75rem;
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #247A62 0%, #175242 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(36, 122, 98, 0.28);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 0.75rem;
+}
+
+.desk-btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(36, 122, 98, 0.38);
+  background: linear-gradient(135deg, #2D9679 0%, #1E6451 100%);
+}
+
+.desk-btn-submit:active {
+  transform: translateY(0);
+}
+
+.desk-security-notice {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--desk-text-muted);
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+@media (max-width: 640px) {
+  .desk-hero-card {
+    padding: 2rem 1.25rem 1.75rem;
+    border-radius: 14px;
+  }
+  .desk-form-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 14px;
+  }
+  .desk-trust-strip {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+}

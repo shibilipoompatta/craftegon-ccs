@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link rel="stylesheet" href="/assets/css/navbar.css">
   <link rel="stylesheet" href="/assets/css/service-page.css">
+  <link rel="stylesheet" href="/assets/css/conversion-desks.css">
 
   <!-- Favicon & Brand Icons -->
   <link rel="icon" type="image/jpeg" href="/assets/images/craftegon-logo.jpg">
@@ -85,34 +86,62 @@
 <body>
   <div id="global-navbar"></div>
 
-  <main class="container" style="padding: 3rem 1.5rem; max-width: 800px;">
+  <main class="container" style="padding: 3rem 1.5rem; max-width: 860px;">
     <nav class="if-breadcrumb" aria-label="Breadcrumb">
       <a href="/index.html">Home</a> / <a href="/verticals/03-tax-compliance.html">Tax Compliance</a> / <span>Tax Intake Portal</span>
     </nav>
     
-    <div class="if-service-hero" style="text-align: left; padding: 2rem 0;">
-      <h1>Corporate Tax Audit & Filing Intake Portal</h1>
-      <p>Submit your organizational parameters and compliance requirements securely to initiate senior Chartered Accountant review.</p>
+    <div class="desk-hero-card">
+      <div class="desk-eyebrow-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>CORPORATE TAX & STATUTORY AUDIT DESK</span>
+      </div>
+      <h1 class="desk-hero-title">Corporate Tax Audit & Filing Intake Portal</h1>
+      <p class="desk-hero-lead">Submit your organizational parameters and compliance requirements securely to initiate senior Chartered Accountant review.</p>
+      <div class="desk-trust-strip">
+        <div class="desk-trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#247A62" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Practicing CA / CS Advisory</span>
+        </div>
+        <div class="desk-trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#247A62" stroke-width="2.5"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Strict Attorney-Client Privilege</span>
+        </div>
+        <div class="desk-trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#247A62" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Guaranteed 2-Hour Response SLA</span>
+        </div>
+      </div>
     </div>
 
-    <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+    <div class="desk-form-card">
+      <div class="desk-form-header">
+        <h2 class="desk-form-heading">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#247A62" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Corporate Tax Intake Docket
+        </h2>
+        <span class="desk-sla-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Active Desk • Priority Queue
+        </span>
+      </div>
       <form class="if-lead-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
         
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Entity / Business Name</label>
-            <input type="text" name="entity_name" required placeholder="e.g. Acme Enterprises LLP" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <label>Entity / Business Name</label>
+            <input type="text" name="entity_name" required placeholder="e.g. Acme Enterprises LLP" >
           </div>
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">PAN Number <span style="font-weight: normal; color: var(--text-muted);">(Optional for preliminary inquiry)</span></label>
-            <input type="text" name="pan" placeholder="ABCDE1234F" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <label>PAN Number <span style="font-weight: normal; color: var(--text-muted);">(Optional for preliminary inquiry)</span></label>
+            <input type="text" name="pan" placeholder="ABCDE1234F" >
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Select Tax Service Required</label>
-            <select name="tax_service" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+            <label>Select Tax Service Required</label>
+            <select name="tax_service" >
               <option value="gst-annual">GST Annual Return (GSTR-9 & 9C)</option>
               <option value="itr7">ITR-7 Filing (Companies / Trusts)</option>
               <option value="proprietorship">Proprietorship / SME Tax Filing</option>
@@ -121,8 +150,8 @@
             </select>
           </div>
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Approx. Annual Turnover</label>
-            <select name="turnover" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
+            <label>Approx. Annual Turnover</label>
+            <select name="turnover" >
               <option value="under-1cr">Under ₹1 Crore</option>
               <option value="1cr-5cr">₹1 Crore to ₹5 Crores</option>
               <option value="5cr-50cr">₹5 Crores to ₹50 Crores</option>
@@ -133,22 +162,27 @@
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Contact Person Name</label>
-            <input type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <label>Contact Person Name</label>
+            <input type="text" name="contact_name" required placeholder="Full Name" >
           </div>
           <div>
-            <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Mobile Number</label>
-            <input type="tel" name="phone" required placeholder="9876543210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <label>Mobile Number</label>
+            <input type="tel" name="phone" required placeholder="9876543210" >
           </div>
         </div>
 
         <div>
-          <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Email Address</label>
-          <input type="email" name="email" required placeholder="finance@company.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+          <label>Email Address</label>
+          <input type="email" name="email" required placeholder="finance@company.com" >
         </div>
 
-        <button type="submit" class="if-btn-primary" style="margin-top: 1rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Submit Tax Intake for CA Review</button>
+        <button type="submit" class="desk-btn-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg> Submit Tax Intake for CA Review</button>
       </form>
+      <div class="desk-security-notice">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>End-to-end encrypted statutory intake. Regulated under ICSI & ICAI ethical guidelines.</span>
+      </div>
     </div>
   </main>
 

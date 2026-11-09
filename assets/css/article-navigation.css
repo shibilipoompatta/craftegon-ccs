@@ -1,0 +1,214 @@
+/**
+ * ============================================================================
+ * CRAFTEGON CORPORATE SERVICES (CCS) - KNOWLEDGE ARTICLE NAVIGATION STYLES
+ * Sticky Table of Contents, Reading Progress Bar & Floating Back-to-Top Button
+ * ============================================================================
+ */
+
+/* Reading Progress Bar (Top of Screen) */
+#reading-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.5px;
+  background: transparent;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+#reading-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-mint-vibrant, #75CDA9) 0%, var(--accent-green-primary, #247A62) 100%);
+  transition: width 0.1s ease-out;
+}
+
+/* Sticky Table of Contents Sidebar / Dock */
+.article-nav-wrapper {
+  position: relative;
+  display: block;
+}
+
+@media (min-width: 1200px) {
+  .article-with-toc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 3.5rem;
+    align-items: start;
+    max-width: 1200px !important;
+    margin: 0 auto;
+  }
+}
+
+.article-main-col {
+  min-width: 0;
+}
+
+.article-sidebar-col {
+  min-width: 0;
+}
+
+@media (max-width: 1199px) {
+  .article-with-toc {
+    display: flex;
+    flex-direction: column;
+  }
+  .article-sidebar-col {
+    margin-top: 2rem;
+    order: 2;
+  }
+  .article-main-col {
+    order: 1;
+  }
+}
+
+.toc-item-sub {
+  padding-left: 0.85rem;
+}
+
+.toc-item-sub .toc-link {
+  font-size: 0.78rem;
+  color: var(--text-muted, #728F99);
+}
+
+.sticky-toc-container {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color, #DCE8E5);
+  border-radius: 12px;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 4px 16px rgba(16, 38, 46, 0.05);
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 1200px) {
+  .sticky-toc-container {
+    position: sticky;
+    top: 90px;
+    margin-bottom: 0;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-color, #DCE8E5);
+}
+
+.toc-title {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--navy-900, #10262E);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.toc-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-green-primary, #247A62);
+  background: var(--surface-mint-soft, #DDF5EA);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.toc-item {
+  position: relative;
+}
+
+.toc-link {
+  display: block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-secondary, #52717A);
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.toc-link:hover {
+  color: var(--accent-green-primary, #247A62);
+  background: var(--surface-mint-white, #F4FAF7);
+}
+
+.toc-link.active {
+  color: var(--navy-900, #10262E);
+  font-weight: 700;
+  background: var(--surface-mint-soft, #DDF5EA);
+  border-left-color: var(--accent-green-primary, #247A62);
+}
+
+/* Floating Back-to-Top Button */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 5.5rem; /* Sits next to chat widget */
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid var(--accent-mint-vibrant, #75CDA9);
+  color: var(--accent-green-primary, #247A62);
+  box-shadow: 0 4px 16px rgba(16, 38, 46, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 990;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  background: var(--accent-green-primary, #247A62);
+  color: #FFFFFF;
+  border-color: var(--accent-green-primary, #247A62);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(36, 122, 98, 0.3);
+}
+
+#back-to-top svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+}
+
+@media (max-width: 768px) {
+  #back-to-top {
+    bottom: 5.5rem;
+    right: 1.25rem;
+    width: 40px;
+    height: 40px;
+  }
+}

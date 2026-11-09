@@ -1,0 +1,150 @@
+/**
+ * ============================================================================
+ * CRAFTEGON CORPORATE SERVICES (CCS) - VERTICAL HUB ENHANCED STYLING
+ * Modern Grid, SVG Emblems, Pricing Pills, SLA Turnaround Badges, Flex Alignment
+ * ============================================================================
+ */
+
+.vertical-grid,
+.v01-grid,
+.v04-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.vertical-card,
+.v01-card,
+.v04-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color, #DCE8E5);
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--text-main, #10262E);
+  box-shadow: 0 4px 16px rgba(16, 38, 46, 0.04);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.vertical-card:hover,
+.v01-card:hover,
+.v04-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-mint-vibrant, #75CDA9);
+  box-shadow: 0 10px 28px rgba(36, 122, 98, 0.12);
+}
+
+.vertical-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.vertical-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--surface-mint-soft, #DDF5EA);
+  color: var(--accent-green-primary, #247A62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.vertical-card:hover .vertical-card-icon {
+  background: var(--accent-green-primary, #247A62);
+  color: #FFFFFF;
+}
+
+.vertical-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: flex-end;
+}
+
+.v-badge-turnaround {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #1E3842;
+  background: #F1F5F9;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid #E2E8F0;
+}
+
+.v-badge-price {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent-green-primary, #247A62);
+  background: var(--surface-mint-soft, #DDF5EA);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(36, 122, 98, 0.2);
+}
+
+.vertical-card-title {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy-900, #10262E);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.35;
+}
+
+.vertical-card-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.85rem;
+  color: var(--text-secondary, #52717A);
+  line-height: 1.55;
+  margin: 0 0 1.25rem 0;
+  flex-grow: 1;
+}
+
+.vertical-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  border-top: 1px solid #F1F5F9;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-green-primary, #247A62);
+}
+
+.vertical-card-footer svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  transition: transform 0.2s ease;
+}
+
+.vertical-card:hover .vertical-card-footer svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .vertical-grid,
+  .v01-grid {
+    grid-template-columns: 1fr;
+  }
+}
