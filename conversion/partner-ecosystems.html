@@ -43,6 +43,8 @@
     .bank-card:hover { transform: translateY(-3px); border-color: var(--brand-gold); box-shadow: var(--shadow-gold); }
     .bank-card.featured { border: 1.5px solid var(--brand-gold); background: #FFFAF0; }
     .bank-logo { width: 56px; height: 56px; border-radius: 10px; object-fit: contain; background: #F8FAFC; padding: 0.5rem; border: 1px solid var(--border-color); margin-bottom: 1rem; }
+    .bank-logo-badge { width: 56px; height: 56px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0B111E; border: 1px solid rgba(197, 155, 39, 0.4); margin-bottom: 1rem; color: #C59B27; font-family: var(--font-heading, 'Cinzel', serif); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.05em; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+    .bank-logo-badge svg { width: 22px; height: 22px; stroke: #C59B27; stroke-width: 1.75; margin-bottom: 2px; }
     .bank-name { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--charcoal); margin: 0 0 0.5rem; }
     .bank-tagline { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5; }
     .bank-features { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem; }
@@ -117,7 +119,10 @@
       <div class="bank-grid">
         <!-- HDFC Bank -->
         <article class="bank-card featured">
-          <img src="https://img.indiafilings.com/partners-bank-logo/hdfc-bank.png" alt="HDFC Bank" class="bank-logo" onerror="this.style.display='none'">
+          <div class="bank-logo-badge" aria-label="HDFC Bank Emblem">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+            <span>HDFC</span>
+          </div>
           <h3 class="bank-name">HDFC Bank</h3>
           <p class="bank-tagline">India's leading private sector bank with dedicated startup & corporate banking verticals. Zero-balance current accounts for new incorporations.</p>
           <div class="bank-features">
@@ -132,7 +137,10 @@
 
         <!-- ICICI Bank -->
         <article class="bank-card featured">
-          <img src="https://img.indiafilings.com/partners-bank-logo/icici.png" alt="ICICI Bank" class="bank-logo" onerror="this.style.display='none'">
+          <div class="bank-logo-badge" aria-label="ICICI Bank Emblem">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+            <span>ICICI</span>
+          </div>
           <h3 class="bank-name">ICICI Bank</h3>
           <p class="bank-tagline">Comprehensive corporate banking with InstaBIZ platform for digital account opening, trade, and cash management solutions.</p>
           <div class="bank-features">
@@ -147,7 +155,10 @@
 
         <!-- Axis Bank -->
         <article class="bank-card">
-          <img src="https://img.indiafilings.com/partners-bank-logo/axis-bank.png" alt="Axis Bank" class="bank-logo" onerror="this.style.display='none'">
+          <div class="bank-logo-badge" aria-label="Axis Bank Emblem">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+            <span>AXIS</span>
+          </div>
           <h3 class="bank-name">Axis Bank</h3>
           <p class="bank-tagline">Axis Bank's corporate banking offers digital current accounts with integrated payroll, vendor payments, and GST-compliant invoicing.</p>
           <div class="bank-features">
@@ -162,7 +173,10 @@
 
         <!-- Kotak Mahindra Bank -->
         <article class="bank-card">
-          <img src="https://img.indiafilings.com/partners-bank-logo/kotak.png" alt="Kotak Mahindra Bank" class="bank-logo" onerror="this.style.display='none'">
+          <div class="bank-logo-badge" aria-label="Kotak Mahindra Bank Emblem">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+            <span>KOTAK</span>
+          </div>
           <h3 class="bank-name">Kotak Mahindra Bank</h3>
           <p class="bank-tagline">Kotak Neo Current Account for startups with zero minimum balance, free NEFT/RTGS/IMPS, and dedicated relationship manager.</p>
           <div class="bank-features">
@@ -177,7 +191,10 @@
 
         <!-- Yes Bank -->
         <article class="bank-card">
-          <img src="https://img.indiafilings.com/partners-bank-logo/yes-bank.png" alt="Yes Bank" class="bank-logo" onerror="this.style.display='none'">
+          <div class="bank-logo-badge" aria-label="Yes Bank Emblem">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+            <span>YES</span>
+          </div>
           <h3 class="bank-name">Yes Bank</h3>
           <p class="bank-tagline">YES BANK's startup banking program with zero-balance current accounts, co-branded cards, and API banking sandbox access.</p>
           <div class="bank-features">
@@ -192,7 +209,10 @@
 
         <!-- IndusInd Bank -->
         <article class="bank-card">
-          <img src="https://img.indiafilings.com/partners-bank-logo/indusind.png" alt="IndusInd Bank" class="bank-logo" onerror="this.style.display='none'">
+          <div class="bank-logo-badge" aria-label="IndusInd Bank Emblem">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+            <span>INDUS</span>
+          </div>
           <h3 class="bank-name">IndusInd Bank</h3>
           <p class="bank-tagline">IndusInd Corporate Banking with IndusCorp platform for digital onboarding, cash management, and supply chain financing.</p>
           <div class="bank-features">
@@ -207,7 +227,10 @@
 
         <!-- AU Small Finance Bank -->
         <article class="bank-card">
-          <img src="https://img.indiafilings.com/partners-bank-logo/au-bank.png" alt="AU Small Finance Bank" class="bank-logo" onerror="this.style.display='none'">
+          <div class="bank-logo-badge" aria-label="AU Small Finance Bank Emblem">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+            <span>AU</span>
+          </div>
           <h3 class="bank-name">AU Small Finance Bank</h3>
           <p class="bank-tagline">AU Bank's digital-first current accounts for SMEs with high transaction limits, instant account activation, and dedicated SME desk.</p>
           <div class="bank-features">
@@ -222,7 +245,10 @@
 
         <!-- South Indian Bank -->
         <article class="bank-card">
-          <img src="https://img.indiafilings.com/partners-bank-logo/sib.png" alt="South Indian Bank" class="bank-logo" onerror="this.style.display='none'">
+          <div class="bank-logo-badge" aria-label="South Indian Bank Emblem">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+            <span>SIB</span>
+          </div>
           <h3 class="bank-name">South Indian Bank</h3>
           <p class="bank-tagline">SIB Corporate Banking with SIBerNet platform, competitive forex rates, and strong presence in South India for regional enterprises.</p>
           <div class="bank-features">
@@ -237,7 +263,10 @@
 
         <!-- DBS Bank -->
         <article class="bank-card featured">
-          <img src="https://img.indiafilings.com/partners-bank-logo/dbs.png" alt="DBS Bank" class="bank-logo" onerror="this.style.display='none'">
+          <div class="bank-logo-badge" aria-label="DBS Bank Emblem">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v4M12 14v4M16 14v4"/></svg>
+            <span>DBS</span>
+          </div>
           <h3 class="bank-name">DBS Bank</h3>
           <p class="bank-tagline">DBS IDEAL for startups — Asia's best digital bank with zero-balance multi-currency accounts, API marketplace, and global connectivity.</p>
           <div class="bank-features">

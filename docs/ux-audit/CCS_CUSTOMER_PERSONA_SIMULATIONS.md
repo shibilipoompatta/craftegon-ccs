@@ -28,7 +28,7 @@
    - Looks for a button to start: Sees *"Calculate Exact State Stamp Duty"* pointing to `/conversion/calculator.html`.
 8. **Navigation Path:** Clicks to `/conversion/calculator.html`. Selects "Karnataka", enters ₹1,00,000 capital. Sees stamp duty calculation of ₹1,000.
 9. **CTA Interaction:** The calculator shows the calculation, but there is no prominent "Hire CraftEgon to Incorporate My Company" button. Instead, she finds a static contact form that warns her that online submission is inactive and opens WhatsApp.
-10. **Likely Decision:** **Hesitant Conversion via WhatsApp or Site Abandonment**. She messages on WhatsApp if she is highly motivated, but is likely to open a competing tab (e.g. IndiaFilings or Vakilsearch) that displays an instant "Pay ₹6,999" checkout button.
+10. **Likely Decision:** **Hesitant Conversion via WhatsApp or Site Abandonment**. She messages on WhatsApp if she is highly motivated, but is likely to open a competing tab (e.g. an external legal tech aggregator) that displays an instant "Pay ₹6,999" checkout button.
 
 ---
 

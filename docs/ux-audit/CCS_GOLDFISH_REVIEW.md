@@ -47,7 +47,7 @@
 - **What it communicates:** SPICe+ Private Limited registration in India.
 - **Is the purpose obvious?** Yes.
 - **What looks unprofessional?** The pricing card says: *"Status: Pending Commercial Approval"*. Why are you showing me a service you haven't commercially approved yet? Can I buy this or not?
-- **What information is missing?** The actual price! If IndiaFilings says ₹6,999 and Vakilsearch says ₹7,499, what do you charge?
+- **What information is missing?** The actual price! If competing corporate desks say ₹6,999 or ₹7,499, what do you charge?
 - **What is confusing?** The primary button says *"Calculate Exact State Stamp Duty"* and sends me to a calculator page. Why can't I just click "Incorporate Now" and fill in my details?
 - **What would make me leave?** Having to click through three pages just to find out what you charge.
 

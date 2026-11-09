@@ -339,7 +339,7 @@ File / Route: sitemap.xml
 Evidence: Local disk verification identified 24 URLs in sitemap.xml that do not exist (e.g., https://ccs.craftegon.com/learn/). Live probe confirmed HTTP 404.
 Impact: Search engines waste crawl budget and log 24 dead links, impairing domain authority.
 Expected Behavior: sitemap.xml should only contain valid URLs that resolve with HTTP 200.
-Root Cause: sitemap.xml was populated with target URLs from the REA IndiaFilings merge blueprint (/learn/*) instead of the actual repository structure (/knowledge/*).
+Root Cause: sitemap.xml was populated with target URLs from a legacy external draft blueprint (/learn/*) instead of the actual repository structure (/knowledge/*).
 Recommended Correction: Reconcile sitemap.xml to replace phantom /learn/* routes with canonical /knowledge/* routes.
 Confidence: 100% (Empirically verified live)
 ========================================================================================================
