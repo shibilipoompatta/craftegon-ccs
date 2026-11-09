@@ -340,7 +340,7 @@ const publicHeaders = `/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://api.craftegon.com https://docs.google.com https://forms.google.com; frame-src 'self' https://docs.google.com https://forms.google.com; frame-ancestors 'none';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://api.craftegon.com https://generativelanguage.googleapis.com https://docs.google.com https://forms.google.com; frame-src 'self' https://docs.google.com https://forms.google.com; frame-ancestors 'none';
 
 /assets/css/*
   Cache-Control: public, max-age=0, must-revalidate

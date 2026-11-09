@@ -142,6 +142,17 @@
       currency: "INR"
     },
 
+    // AI Compliance Assistant & Gemini Integration Configuration
+    aiAssistant: {
+      enabled: true,
+      provider: "google-gemini",
+      model: "gemini-2.5-flash",
+      apiKey: "", // Sourced via window.CRAFTEGON_GEMINI_KEY, localStorage, or UI configuration
+      proxyEndpoint: "/api/chat",
+      temperature: 0.2,
+      maxOutputTokens: 1000
+    },
+
     // Architecture State: Safe Static Default; Dynamic only when explicitly configured on allowed hosts
     isStatic: !isDynamic,
     apiMode: isDynamic ? "dynamic" : "static",

@@ -530,3 +530,125 @@
 
 .cchat-btn-icon { width: 44px; height: 44px; }
 .cchat-send-btn { width: 44px; height: 44px; }
+
+/* AI Active Pulsing Green Dot */
+.cchat-status-dot.ai-active {
+  background: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.35);
+  animation: aiPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes aiPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.7; }
+}
+
+/* AI Settings Modal */
+.cchat-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(16, 38, 46, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.cchat-modal-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color, #DCE8E5);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.cchat-modal-header {
+  padding: 1rem 1.25rem;
+  background: var(--surface-mint-white, #F4FAF7);
+  border-bottom: 1px solid var(--border-color, #DCE8E5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cchat-modal-header h5 {
+  margin: 0;
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy-900, #10262E);
+}
+
+.cchat-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--text-secondary, #52717A);
+  cursor: pointer;
+  padding: 0;
+  min-width: 32px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cchat-modal-body {
+  padding: 1.25rem;
+}
+
+.cchat-modal-input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.88rem;
+  font-family: var(--font-mono, monospace);
+  border: 1.5px solid var(--border-color, #DCE8E5);
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: var(--navy-900, #10262E);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.cchat-modal-input:focus {
+  border-color: var(--accent-green-primary, #247A62);
+  box-shadow: 0 0 0 3px rgba(36, 122, 98, 0.15);
+}
+
+/* AI Markdown Typography Inside Bubbles */
+.cchat-bubble ul {
+  margin: 0.5rem 0;
+  padding-left: 1.25rem;
+}
+
+.cchat-bubble li {
+  margin-bottom: 0.35rem;
+  line-height: 1.45;
+}
+
+.cchat-bubble strong {
+  color: var(--navy-900, #10262E);
+}
+
+.cchat-bubble code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82em;
+  background: rgba(36, 122, 98, 0.08);
+  color: var(--accent-green-primary, #247A62);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+}
