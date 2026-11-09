@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-09T09:31:09.085Z",
+  "buildTimestamp": "2026-11-09T09:40:04.012Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,16 +10,16 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 161,
-    "totalOutputSizeBytes": 7101048,
-    "totalOutputSizeFormatted": "6.77 MB",
+    "totalFilesIncluded": 162,
+    "totalOutputSizeBytes": 7114533,
+    "totalOutputSizeFormatted": "6.78 MB",
     "sanitizedResidualLinksCount": 26,
     "preRenderedSSGPagesCount": 113,
     "filesByExtension": {
       ".html": 121,
       ".css": 10,
       ".jpg": 1,
-      ".js": 14,
+      ".js": 15,
       ".json": 11,
       "config": 2,
       ".txt": 1,
@@ -120,16 +120,20 @@
       "bytes": 21752
     },
     {
+      "path": "assets/js/campaign-pixels.js",
+      "bytes": 6313
+    },
+    {
       "path": "assets/js/chat-widget.js",
       "bytes": 20361
     },
     {
       "path": "assets/js/checkout.js",
-      "bytes": 14191
+      "bytes": 14591
     },
     {
       "path": "assets/js/config.js",
-      "bytes": 5892
+      "bytes": 6035
     },
     {
       "path": "assets/js/entity-intelligence.js",
@@ -137,7 +141,7 @@
     },
     {
       "path": "assets/js/forms.js",
-      "bytes": 32474
+      "bytes": 33005
     },
     {
       "path": "assets/js/home-3d.js",
@@ -149,7 +153,7 @@
     },
     {
       "path": "assets/js/navigation.js",
-      "bytes": 22209
+      "bytes": 22478
     },
     {
       "path": "assets/js/search-engine.js",
@@ -233,15 +237,15 @@
     },
     {
       "path": "conversion/ppc-annual-compliance.html",
-      "bytes": 23570
+      "bytes": 25513
     },
     {
       "path": "conversion/ppc-company-registration.html",
-      "bytes": 25300
+      "bytes": 27243
     },
     {
       "path": "conversion/ppc-trademark-registration.html",
-      "bytes": 24620
+      "bytes": 26563
     },
     {
       "path": "conversion/retainer-desk.html",

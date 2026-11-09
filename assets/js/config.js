@@ -133,6 +133,15 @@
     domain: "https://craftegon.com",
     liveUrl: "https://ccs.craftegon.com",
 
+    // Paid Campaign Tracking & Conversion Pixels
+    advertising: {
+      enabled: true,
+      googleAdsId: "AW-11500000000",
+      metaPixelId: "1234567890123456",
+      linkedInPartnerId: "1234567",
+      currency: "INR"
+    },
+
     // Architecture State: Safe Static Default; Dynamic only when explicitly configured on allowed hosts
     isStatic: !isDynamic,
     apiMode: isDynamic ? "dynamic" : "static",

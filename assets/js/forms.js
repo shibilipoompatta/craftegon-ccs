@@ -404,6 +404,14 @@ function initLeadCaptureForms() {
           });
           showFormSuccess(form, "✓ Your compliance inquiry has been recorded directly to our CraftEgon Compliance Desk ledger in Google Drive. A compliance officer will contact you within 2–4 business hours.");
           form.dataset.submitted = "true";
+          if (typeof window !== "undefined" && window.CraftegonPixels && typeof window.CraftegonPixels.trackLead === "function") {
+            window.CraftegonPixels.trackLead({
+              service_id: payload.service_id,
+              service_name: payload.service_name,
+              lead_ref: "DRIVE-" + Date.now(),
+              value: 0
+            });
+          }
           if (submitBtn) {
             submitBtn.textContent = "Inquiry Recorded ✓";
           }
@@ -504,6 +512,15 @@ function initLeadCaptureForms() {
           form,
           `Your compliance enquiry was accepted. Reference: ${cleanRef}. CraftEgon will follow up using the contact details provided.`
         );
+
+        if (typeof window !== "undefined" && window.CraftegonPixels && typeof window.CraftegonPixels.trackLead === "function") {
+          window.CraftegonPixels.trackLead({
+            service_id: payload.service_id,
+            service_name: payload.service_name,
+            lead_ref: cleanRef,
+            value: 0
+          });
+        }
 
         if (submitBtn) {
           submitBtn.disabled = true;

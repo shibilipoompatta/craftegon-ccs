@@ -282,6 +282,11 @@
       localStorage.setItem("craftegon_orders_ledger", JSON.stringify(ledger));
     } catch (e) {}
 
+    // Dispatch Conversion Pixel Purchase Event
+    if (typeof window !== "undefined" && window.CraftegonPixels && typeof window.CraftegonPixels.trackPurchase === "function") {
+      window.CraftegonPixels.trackPurchase(ledgerRecord);
+    }
+
     // Render Printable Receipt Card
     var mount = activeModal.querySelector("#ccs-receipt-mount");
     var waNotifyText = encodeURIComponent(
@@ -340,6 +345,11 @@
 
     activeModal.classList.add("active");
     document.body.style.overflow = "hidden";
+
+    // Dispatch Conversion Pixel InitiateCheckout Event
+    if (typeof window !== "undefined" && window.CraftegonPixels && typeof window.CraftegonPixels.trackInitiateCheckout === "function") {
+      window.CraftegonPixels.trackInitiateCheckout(PRESET_TIERS[currentOrderState.tierId]);
+    }
   }
 
   function closeCheckout() {

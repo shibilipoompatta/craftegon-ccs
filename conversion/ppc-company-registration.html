@@ -341,6 +341,37 @@
         </div>
       </div>
     </div>
+  
+    <!-- Google & Meta Ads Policy Compliance Strip -->
+    <div class="ppc-policy-strip" style="background: #FFFFFF; border-top: 1px solid #E2E8F0; padding: 1.5rem 1rem; margin-top: 3rem; text-align: center; font-size: 0.78rem; color: #64748B;">
+      <div style="max-width: 900px; margin: 0 auto; line-height: 1.5;">
+        <div style="font-weight: 700; color: #193B46; margin-bottom: 0.35rem;">CraftEgon Corporate Services (CCS) • Institutional Secretarial &amp; Compliance Partner</div>
+        <p style="margin: 0 0 0.5rem 0;">Regulated corporate advisory desk adhering to ICSI &amp; ICAI statutory standards. Official filings executed on Ministry of Corporate Affairs (MCA V3) &amp; IP India portals.</p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="/legal/privacy.html" style="color: #247A62; text-decoration: underline;">Privacy Policy (DPDP 2023 Compliant)</a>
+          <a href="/legal/terms.html" style="color: #247A62; text-decoration: underline;">Terms of Engagement</a>
+          <a href="/legal/refund.html" style="color: #247A62; text-decoration: underline;">Statutory Fee &amp; Refund Policy</a>
+          <a href="/contact.html" style="color: #247A62; text-decoration: underline;">Contact Service Desk</a>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // Dynamic Keyword / Geo Insertion (DKI) for Google & Meta Ads
+      (function() {
+        try {
+          var sp = new URLSearchParams(window.location.search);
+          var geo = sp.get('location') || sp.get('geo') || sp.get('city');
+          if (geo) {
+            var badges = document.querySelectorAll('.desk-eyebrow-badge span');
+            if (badges.length > 0) {
+              badges[0].textContent += ' • ' + geo.toUpperCase() + ' DESK';
+            }
+          }
+        } catch(e) {}
+      })();
+    </script>
+    
   </main>
 
   <div id="global-footer"></div>
@@ -348,6 +379,7 @@
   <!-- Script Architecture -->
   <script src="/assets/js/config.js"></script>
   <script src="/assets/js/attribution.js"></script>
+  <script src="/assets/js/campaign-pixels.js"></script>
   <script src="/assets/js/navigation.js"></script>
   <script src="/assets/js/forms.js"></script>
   <script src="/assets/js/checkout.js"></script>

@@ -71,6 +71,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.head.appendChild(chkScript);
   }
 
+  // Ensure Mass Campaign & Ad Pixel Tracker is loaded
+  if (!window.CraftegonPixels && !document.getElementById("craftegon-pixels-script")) {
+    const pixScript = document.createElement("script");
+    pixScript.id = "craftegon-pixels-script";
+    pixScript.src = "/assets/js/campaign-pixels.js";
+    document.head.appendChild(pixScript);
+  }
+
   // Ensure main landmark has id="main-content" for accessibility skip link
   const mainEl = document.querySelector("main");
   if (mainEl && !mainEl.id) {
