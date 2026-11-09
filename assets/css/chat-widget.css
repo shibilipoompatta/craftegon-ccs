@@ -156,7 +156,7 @@
 
 .cchat-brand-info h4 {
   margin: 0;
-  font-family: var(--font-serif);
+  font-family: var(--font-heading, 'Manrope', sans-serif);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-dark);

@@ -321,6 +321,22 @@ function initLeadCaptureForms() {
       };
       const routeContext = ROUTE_SERVICE_MAP[currentPath] || {};
 
+      // Extract Campaign Attribution (UTM Parameters) from URL query string
+      let utmParams = { utm_source: "", utm_medium: "", utm_campaign: "", utm_term: "", utm_content: "", gclid: "" };
+      try {
+        if (typeof window !== "undefined" && window.location && window.location.search) {
+          const sp = new URLSearchParams(window.location.search);
+          utmParams.utm_source = sp.get("utm_source") || "";
+          utmParams.utm_medium = sp.get("utm_medium") || "";
+          utmParams.utm_campaign = sp.get("utm_campaign") || "";
+          utmParams.utm_term = sp.get("utm_term") || "";
+          utmParams.utm_content = sp.get("utm_content") || "";
+          utmParams.gclid = sp.get("gclid") || "";
+        }
+      } catch (utmErr) {
+        // Fallback gracefully if URLSearchParams is unavailable
+      }
+
       const payload = {
         name: (data.contact_name || data.director_name || data.applicant_name || data["signatory-name"] || data.name || "Prospective Client").trim(),
         contact_name: (data.contact_name || data.director_name || data.applicant_name || data["signatory-name"] || data.name || "Prospective Client").trim(),
@@ -335,6 +351,12 @@ function initLeadCaptureForms() {
         scope_description: (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || data.notes || data.message || "").trim(),
         scope: (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || data.notes || data.message || "").trim(),
         source_url: window.location.pathname,
+        utm_source: utmParams.utm_source,
+        utm_medium: utmParams.utm_medium,
+        utm_campaign: utmParams.utm_campaign,
+        utm_term: utmParams.utm_term,
+        utm_content: utmParams.utm_content,
+        gclid: utmParams.gclid,
         dpdp_consent: form.querySelector('input[name*="dpdp"], input[name*="consent"]')
           ? Boolean(form.querySelector('input[name*="dpdp"]:checked, input[name*="consent"]:checked'))
           : true,

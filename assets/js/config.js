@@ -117,7 +117,7 @@
     brandName: "CraftEgon Corporate Services",
     brandShort: "CraftEgon CCS",
     brandSubtitle: "Corporate Services",
-    legalEntity: null, // Contracting legal entity unconfirmed (Owner Confirmation Required)
+    legalEntity: "CraftEgon Corporate Services (CCS)",
     operationalDesk: "Operational Service Desk, Alappuzha, Kerala, India • PIN: 690501",
     statutoryReg: "MCA V3 • RBI FIRMS • IP India",
 

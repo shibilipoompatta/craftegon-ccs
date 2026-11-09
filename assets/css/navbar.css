@@ -14,7 +14,7 @@
   padding: 0.6rem 1.25rem !important;
   background: var(--navy-800, #0B2545) !important;
   color: #FFFFFF !important;
-  font-family: var(--font-body, 'Manrope', sans-serif) !important;
+  font-family: var(--font-body, 'Inter', -apple-system, sans-serif) !important;
   font-size: 0.85rem !important;
   font-weight: 700 !important;
   border-radius: var(--radius-sm, 6px) !important;
@@ -650,6 +650,36 @@
 
 .if-contact-item a:hover {
   color: var(--brand-gold);
+}
+
+.if-footer-social {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.if-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #CBD5E1;
+  font-size: 0.76rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.if-social-link:hover {
+  background: rgba(36, 122, 98, 0.25);
+  border-color: var(--accent-mint-vibrant, #75CDA9);
+  color: #FFFFFF;
+  transform: translateY(-1px);
 }
 
 .if-footer-list {
