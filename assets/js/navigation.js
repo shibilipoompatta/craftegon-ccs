@@ -379,7 +379,13 @@ function initMobileNav() {
     if (backdrop) backdrop.classList.add("active");
     drawer.setAttribute("aria-hidden", "false");
     toggleBtn.setAttribute("aria-expanded", "true");
+    document.body.classList.add("mobile-nav-open");
     document.body.style.overflow = "hidden";
+    // Close AI chat modal if active to eliminate floating conflict
+    const chatCloseBtn = document.getElementById("cchat-close-btn");
+    if (chatCloseBtn) {
+      chatCloseBtn.click();
+    }
     setTimeout(() => {
       if (closeBtn) closeBtn.focus();
     }, 50);
@@ -390,6 +396,7 @@ function initMobileNav() {
     if (backdrop) backdrop.classList.remove("active");
     drawer.setAttribute("aria-hidden", "true");
     toggleBtn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("mobile-nav-open");
     document.body.style.overflow = "";
     toggleBtn.focus();
   }
@@ -397,6 +404,13 @@ function initMobileNav() {
   toggleBtn.addEventListener("click", openDrawer);
   if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
   if (backdrop) backdrop.addEventListener("click", closeDrawer);
+
+  // Auto-close drawer when clicking an in-page anchor link
+  drawer.querySelectorAll('a[href*="#"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      closeDrawer();
+    });
+  });
 
   // Focus trap inside drawer while active
   drawer.addEventListener("keydown", (e) => {

@@ -7,6 +7,16 @@
  */
 
 /* --- 1. FLOATING LAUNCHER TRIGGER --- */
+body.mobile-nav-open #craftegon-chat-trigger,
+body.mobile-nav-open #craftegon-chat-badge,
+body.mobile-nav-open #craftegon-chat-window {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: scale(0.8) !important;
+  visibility: hidden !important;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease !important;
+}
+
 #craftegon-chat-trigger {
   position: fixed;
   bottom: 24px;

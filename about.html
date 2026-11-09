@@ -417,8 +417,8 @@
     
     <!-- Mobile Search Form -->
     <div class="if-mobile-search-box">
-      <form action="/services.html" method="GET" style="position:relative; width:100%;">
-        <span style="position:absolute; left:0.8rem; top:50%; transform:translateY(-50%); color:var(--text-muted); pointer-events:none;">
+      <form action="/services.html" method="GET">
+        <span class="if-mobile-search-icon">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </span>
         <input type="text" name="q" class="if-mobile-search-input" placeholder="Search 57+ services or forms..." aria-label="Search services on mobile">
@@ -436,8 +436,15 @@
       <!-- Practice Areas Accordion: All 15 Verticals grouped by Business Objective -->
       <details class="if-mobile-accordion" id="mobile-verticals-accordion">
         <summary>
-          <span>Practice Areas by Objective (15)</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </span>
+            <span class="accordion-title-text">Practice Areas by Objective (15)</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
         </summary>
         <div class="if-mobile-sublinks">
           <strong style="font-size: 0.72rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Start &amp; Register</strong>
@@ -468,8 +475,15 @@
       <!-- Diagnostic Tools & Resources Accordion -->
       <details class="if-mobile-accordion" id="mobile-tools-accordion">
         <summary>
-          <span>Tools &amp; Resources</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </span>
+            <span class="accordion-title-text">Tools &amp; Resources</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
         </summary>
         <div class="if-mobile-sublinks">
           <a href="/knowledge/index.html">Compliance Knowledge Centre</a>
