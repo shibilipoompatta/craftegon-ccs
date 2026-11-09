@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-09T13:36:32.471Z",
+  "buildTimestamp": "2026-11-09T13:53:51.397Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,9 +10,9 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 164,
-    "totalOutputSizeBytes": 7387612,
-    "totalOutputSizeFormatted": "7.05 MB",
+    "totalFilesIncluded": 162,
+    "totalOutputSizeBytes": 7278482,
+    "totalOutputSizeFormatted": "6.94 MB",
     "sanitizedResidualLinksCount": 26,
     "preRenderedSSGPagesCount": 113,
     "filesByExtension": {
@@ -20,7 +20,6 @@
       ".css": 10,
       ".jpg": 1,
       ".js": 15,
-      ".png": 2,
       ".json": 11,
       "config": 2,
       ".txt": 1,
@@ -70,7 +69,7 @@
     },
     {
       "path": "assets/css/chat-widget.css",
-      "bytes": 11316
+      "bytes": 11620
     },
     {
       "path": "assets/css/checkout.css",
@@ -126,7 +125,7 @@
     },
     {
       "path": "assets/js/chat-widget.js",
-      "bytes": 38105
+      "bytes": 44112
     },
     {
       "path": "assets/js/checkout.js",
@@ -167,14 +166,6 @@
     {
       "path": "assets/js/service-search.js",
       "bytes": 15692
-    },
-    {
-      "path": "bars_only.png",
-      "bytes": 30903
-    },
-    {
-      "path": "bar_test.png",
-      "bytes": 84538
     },
     {
       "path": "components/footer.html",
