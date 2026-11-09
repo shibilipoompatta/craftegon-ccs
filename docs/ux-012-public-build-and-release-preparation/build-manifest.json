@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-09T11:50:33.709Z",
+  "buildTimestamp": "2026-11-09T13:21:31.346Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 162,
-    "totalOutputSizeBytes": 7149937,
-    "totalOutputSizeFormatted": "6.82 MB",
+    "totalOutputSizeBytes": 7160069,
+    "totalOutputSizeFormatted": "6.83 MB",
     "sanitizedResidualLinksCount": 26,
     "preRenderedSSGPagesCount": 113,
     "filesByExtension": {
@@ -81,7 +81,7 @@
     },
     {
       "path": "assets/css/home-unique.css",
-      "bytes": 28197
+      "bytes": 34659
     },
     {
       "path": "assets/css/navbar.css",
@@ -89,7 +89,7 @@
     },
     {
       "path": "assets/css/service-page.css",
-      "bytes": 4406
+      "bytes": 12548
     },
     {
       "path": "assets/css/theme.css",
@@ -313,7 +313,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 98338
+      "bytes": 93688
     },
     {
       "path": "knowledge/director-disqualification-guide.html",
@@ -577,7 +577,7 @@
     },
     {
       "path": "services/pvt-ltd-registration.html",
-      "bytes": 76115
+      "bytes": 76293
     },
     {
       "path": "services/rbi-fla-return.html",
