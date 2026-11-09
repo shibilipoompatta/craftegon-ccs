@@ -299,6 +299,30 @@
     let activeIndex = -1;
     let currentResults = [];
 
+    function ensureSearchCatalogLoaded(callback) {
+      if (window.CRAFTEGON_SERVICE_CATALOG && window.CRAFTEGON_SERVICE_CATALOG.length > 0) {
+        if (callback) callback();
+        return;
+      }
+      if (!document.getElementById('craft-search-catalog-script')) {
+        const s = document.createElement('script');
+        s.id = 'craft-search-catalog-script';
+        s.src = '/assets/js/search-index.js';
+        s.defer = true;
+        s.onload = function() {
+          if (searchEngine && window.CRAFTEGON_SERVICE_CATALOG) {
+            searchEngine.setCatalog(window.CRAFTEGON_SERVICE_CATALOG);
+          }
+          if (callback) callback();
+        };
+        document.head.appendChild(s);
+      }
+    }
+
+    input.addEventListener('pointerenter', function() {
+      ensureSearchCatalogLoaded();
+    }, { once: true });
+
     function renderEmptySuggestions() {
       if (!resultsContainer) return;
       activeIndex = -1;
@@ -433,6 +457,13 @@
     });
 
     input.addEventListener('focus', function () {
+      ensureSearchCatalogLoaded(() => {
+        const q = input.value.trim();
+        if (q.length > 0) {
+          const results = searchEngine.search(q);
+          renderSearchResults(results, q);
+        }
+      });
       const q = input.value.trim();
       if (clearBtn) {
         clearBtn.style.display = q.length > 0 ? 'flex' : 'none';

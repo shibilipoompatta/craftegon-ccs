@@ -97,17 +97,17 @@
 
     <!-- Partner Tabs -->
     <div class="partner-tabs" role="tablist" aria-label="Partner Categories">
-      <button class="partner-tab-btn active" id="tab-banking" onclick="switchPartnerTab('banking')" role="tab" aria-selected="true" aria-controls="panel-banking">
+      <button type="button" class="partner-tab-btn active" id="tab-banking" onclick="switchPartnerTab('banking')" role="tab" aria-selected="true" aria-controls="panel-banking">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path></svg>
         <span>Corporate Banking</span>
         <span style="font-size: 0.65rem; background: rgba(197,155,39,0.15); color: var(--brand-gold); padding: 2px 6px; border-radius: 999px;">9 Banks</span>
       </button>
-      <button class="partner-tab-btn" id="tab-marketplace" onclick="switchPartnerTab('marketplace')" role="tab" aria-selected="false" aria-controls="panel-marketplace">
+      <button type="button" class="partner-tab-btn" id="tab-marketplace" onclick="switchPartnerTab('marketplace')" role="tab" aria-selected="false" aria-controls="panel-marketplace">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
         <span>E-Commerce Marketplaces</span>
         <span style="font-size: 0.65rem; background: rgba(197,155,39,0.15); color: var(--brand-gold); padding: 2px 6px; border-radius: 999px;">6 Platforms</span>
       </button>
-      <button class="partner-tab-btn" id="tab-resolutions" onclick="switchPartnerTab('resolutions')" role="tab" aria-selected="false" aria-controls="panel-resolutions">
+      <button type="button" class="partner-tab-btn" id="tab-resolutions" onclick="switchPartnerTab('resolutions')" role="tab" aria-selected="false" aria-controls="panel-resolutions">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
         <span>Board Resolution Generator</span>
         <span style="font-size: 0.65rem; background: rgba(197,155,39,0.15); color: var(--brand-gold); padding: 2px 6px; border-radius: 999px;">AI Powered</span>
@@ -132,7 +132,7 @@
             <span class="bank-feature">Forex Services</span>
             <span class="bank-feature">API Banking</span>
           </div>
-          <button class="bank-btn" data-bank-onboard="hdfc" data-bank-name="HDFC Bank">Draft Bank Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-bank-onboard="hdfc" data-bank-name="HDFC Bank">Draft Bank Resolution &rarr;</button>
         </article>
 
         <!-- ICICI Bank -->
@@ -150,7 +150,7 @@
             <span class="bank-feature">Supply Chain Finance</span>
             <span class="bank-feature">ESOP Funding</span>
           </div>
-          <button class="bank-btn" data-bank-onboard="icici" data-bank-name="ICICI Bank">Draft Bank Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-bank-onboard="icici" data-bank-name="ICICI Bank">Draft Bank Resolution &rarr;</button>
         </article>
 
         <!-- Axis Bank -->
@@ -168,7 +168,7 @@
             <span class="bank-feature">GST Invoicing</span>
             <span class="bank-feature">API Stack</span>
           </div>
-          <button class="bank-btn" data-bank-onboard="axis" data-bank-name="Axis Bank">Draft Bank Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-bank-onboard="axis" data-bank-name="Axis Bank">Draft Bank Resolution &rarr;</button>
         </article>
 
         <!-- Kotak Mahindra Bank -->
@@ -186,7 +186,7 @@
             <span class="bank-feature">Trade Services</span>
             <span class="bank-feature">Forex</span>
           </div>
-          <button class="bank-btn" data-bank-onboard="kotak" data-bank-name="Kotak Mahindra Bank">Draft Bank Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-bank-onboard="kotak" data-bank-name="Kotak Mahindra Bank">Draft Bank Resolution &rarr;</button>
         </article>
 
         <!-- Yes Bank -->
@@ -204,7 +204,7 @@
             <span class="bank-feature">Trade Finance</span>
             <span class="bank-feature">Escrow Services</span>
           </div>
-          <button class="bank-btn" data-bank-onboard="yes" data-bank-name="Yes Bank">Draft Bank Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-bank-onboard="yes" data-bank-name="Yes Bank">Draft Bank Resolution &rarr;</button>
         </article>
 
         <!-- IndusInd Bank -->
@@ -222,7 +222,7 @@
             <span class="bank-feature">Trade Finance</span>
             <span class="bank-feature">Forex</span>
           </div>
-          <button class="bank-btn" data-bank-onboard="indusind" data-bank-name="IndusInd Bank">Draft Bank Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-bank-onboard="indusind" data-bank-name="IndusInd Bank">Draft Bank Resolution &rarr;</button>
         </article>
 
         <!-- AU Small Finance Bank -->
@@ -240,7 +240,7 @@
             <span class="bank-feature">Digital Onboarding</span>
             <span class="bank-feature">QR Payments</span>
           </div>
-          <button class="bank-btn" data-bank-onboard="au" data-bank-name="AU Small Finance Bank">Draft Bank Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-bank-onboard="au" data-bank-name="AU Small Finance Bank">Draft Bank Resolution &rarr;</button>
         </article>
 
         <!-- South Indian Bank -->
@@ -258,7 +258,7 @@
             <span class="bank-feature">Trade Finance</span>
             <span class="bank-feature">Cash Mgmt</span>
           </div>
-          <button class="bank-btn" data-bank-onboard="sib" data-bank-name="South Indian Bank">Draft Bank Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-bank-onboard="sib" data-bank-name="South Indian Bank">Draft Bank Resolution &rarr;</button>
         </article>
 
         <!-- DBS Bank -->
@@ -276,7 +276,7 @@
             <span class="bank-feature">Global Reach</span>
             <span class="bank-feature">ESG Finance</span>
           </div>
-          <button class="bank-btn" data-bank-onboard="dbs" data-bank-name="DBS Bank">Draft Bank Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-bank-onboard="dbs" data-bank-name="DBS Bank">Draft Bank Resolution &rarr;</button>
         </article>
       </div>
 
@@ -306,7 +306,7 @@
               <li>Account health monitoring</li>
             </ul>
           </div>
-          <button class="bank-btn" data-marketplace-onboard="amazon" data-marketplace-name="Amazon India">Prepare Seller Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-marketplace-onboard="amazon" data-marketplace-name="Amazon India">Prepare Seller Resolution &rarr;</button>
         </article>
 
         <!-- Flipkart -->
@@ -325,7 +325,7 @@
               <li>Performance metrics dashboard</li>
             </ul>
           </div>
-          <button class="bank-btn" data-marketplace-onboard="flipkart" data-marketplace-name="Flipkart">Prepare Seller Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-marketplace-onboard="flipkart" data-marketplace-name="Flipkart">Prepare Seller Resolution &rarr;</button>
         </article>
 
         <!-- Swiggy -->
@@ -344,7 +344,7 @@
               <li>Rating & review management</li>
             </ul>
           </div>
-          <button class="bank-btn" data-marketplace-onboard="swiggy" data-marketplace-name="Swiggy">Prepare Partner Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-marketplace-onboard="swiggy" data-marketplace-name="Swiggy">Prepare Partner Resolution &rarr;</button>
         </article>
 
         <!-- Blinkit -->
@@ -363,7 +363,7 @@
               <li>SLA & penalty frameworks</li>
             </ul>
           </div>
-          <button class="bank-btn" data-marketplace-onboard="blinkit" data-marketplace-name="Blinkit">Prepare Partner Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-marketplace-onboard="blinkit" data-marketplace-name="Blinkit">Prepare Partner Resolution &rarr;</button>
         </article>
 
         <!-- Zepto -->
@@ -382,7 +382,7 @@
               <li>Category manager connect</li>
             </ul>
           </div>
-          <button class="bank-btn" data-marketplace-onboard="zepto" data-marketplace-name="Zepto">Prepare Seller Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-marketplace-onboard="zepto" data-marketplace-name="Zepto">Prepare Seller Resolution &rarr;</button>
         </article>
 
         <!-- BigBasket -->
@@ -401,7 +401,7 @@
               <li>Payment cycle terms</li>
             </ul>
           </div>
-          <button class="bank-btn" data-marketplace-onboard="bigbasket" data-marketplace-name="BigBasket">Prepare Seller Resolution &rarr;</button>
+          <button type="button" class="bank-btn" data-marketplace-onboard="bigbasket" data-marketplace-name="BigBasket">Prepare Seller Resolution &rarr;</button>
         </article>
       </div>
     </div>

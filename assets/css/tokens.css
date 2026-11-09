@@ -156,4 +156,10 @@
   --shadow-glow: none;
   --focus-ring: 0 0 0 3px rgba(36, 122, 98, 0.25);
   --focus-gold: 0 0 0 3px rgba(36, 122, 98, 0.25);
+
+  /* --- Standardized Responsive Breakpoint Hierarchy --- */
+  --bp-sm: 640px;      /* Mobile Landscape / Phablet */
+  --bp-md: 768px;      /* Tablet / Small Laptop */
+  --bp-lg: 1024px;     /* Standard Desktop */
+  --bp-xl: 1280px;     /* Large High-Res Displays */
 }
