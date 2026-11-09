@@ -293,20 +293,13 @@ async function runTaskETestSuite() {
     });
     const tokenB = loginResB.body.token;
 
-    const regResStaff = await request({
-      hostname: '127.0.0.1',
-      port: testPort,
-      path: '/api/v1/auth/register',
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' }
-    }, {
+    const accStaff = await accountRepository.createAccount({
       legal_entity_name: 'CraftEgon Compliance Operations',
       primary_email: 'compliance.ops@craftegon.com',
       primary_phone: '+91 9876543212',
       account_role: 'compliance_operator',
       password: 'StaffPassword789'
-    });
-    const accStaff = regResStaff.body.account;
+    }, { role: 'managing_partner' });
 
     const loginResStaff = await request({
       hostname: '127.0.0.1',

@@ -105,7 +105,7 @@ async function runPaymentSandboxSuite() {
       primary_email: 'billing@craftegon.com',
       primary_phone: '+919876543299',
       account_role: 'compliance_operator'
-    });
+    }, { role: 'managing_partner' });
 
     const cfg = testInstance.config;
     // Issue verified session tokens

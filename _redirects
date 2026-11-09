@@ -5,7 +5,9 @@
 
 # 1. HARD SECURITY GATES: Internal Applications, Secrets & Leaks (HTTP 404)
 /admin*            /404.html               404
+/admin/*           /404.html               404
 /portal*           /404.html               404
+/portal/*          /404.html               404
 /.env*             /404.html               404
 /.git*             /404.html               404
 /.vault*           /404.html               404

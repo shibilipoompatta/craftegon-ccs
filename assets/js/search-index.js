@@ -2,8 +2,8 @@
  * ==========================================================================
  * CRAFTEGON CORPORATE SERVICES (CCS) - CANONICAL SERVICE SEARCH INDEX
  * Published via CraftEgon Admin Console
- * Generated: 2026-11-05T07:49:12.437Z
- * Operator: managing_partner@craftegon.com
+ * Generated: 2026-11-09T14:12:07.926Z
+ * Operator: admin@craftegon.com
  * ==========================================================================
  */
 

@@ -158,7 +158,7 @@ async function runE2EJourneysSuite() {
       primary_email: 'ops@craftegon.com',
       primary_phone: '+919876543299',
       account_role: 'compliance_operator'
-    });
+    }, { role: 'managing_partner' });
     const staffSession = await accountRepository.createSession(staffAccount);
     const staffToken = `Bearer ${staffSession.token}`;
 

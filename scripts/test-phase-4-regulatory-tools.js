@@ -536,7 +536,7 @@ async function runTestSuite() {
       primary_phone: '+919876543212',
       account_role: 'compliance_operator',
       password: 'StrongPassword123!'
-    });
+    }, { role: 'managing_partner' });
 
     const sessionA = await accountRepository.createSession(tenantA);
     const sessionB = await accountRepository.createSession(tenantB);

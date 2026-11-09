@@ -276,7 +276,12 @@ async function runSuite() {
     }, { email: 'hacker@adversary.com' });
     assert(noPassDevRes.statusCode === 400 && noPassDevRes.body.message === 'Password is required', 'DEV BOUNDARY: Passwordless login rejected with HTTP 400 Bad Request');
 
-    const prodServer = createServer({ PORT: 3198, NODE_ENV: 'production', DATABASE_PROVIDER: 'local_in_memory' });
+    const prodServer = createServer({
+      PORT: 3198,
+      NODE_ENV: 'production',
+      DATABASE_PROVIDER: 'local_in_memory',
+      JWT_SECRET: 'prod_audit_test_jwt_secret_9823482739487293847293847293847293847293'
+    });
     await prodServer.start();
     try {
       const prodLoginRes = await request({
