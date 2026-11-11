@@ -447,10 +447,12 @@ async function fetchAvailableGeminiModels(apiKey) {
           if (compatible.length) {
             const PREF = [
               'gemini-2.0-flash',
-              'gemini-1.5-flash',
-              'gemini-1.5-flash-latest',
-              'gemini-1.5-flash-002',
               'gemini-2.5-flash',
+              'gemini-1.5-flash-latest',
+              'gemini-1.5-flash-8b',
+              'gemini-2.0-flash-exp',
+              'gemini-1.5-flash',
+              'gemini-1.5-flash-002',
               'gemini-1.5-pro'
             ];
             compatible.sort((a, b) => {
@@ -480,24 +482,28 @@ async function callGeminiApi(userQuery) {
     throw new Error('NO_API_KEY');
   }
 
+  // 1. Proactively discover available models for this specific API key if not yet cached
+  if (!window.__CRAFTEGON_AVAILABLE_MODELS__ || !window.__CRAFTEGON_AVAILABLE_MODELS__.length) {
+    try {
+      await fetchAvailableGeminiModels(apiKey);
+    } catch(e) {}
+  }
+
   const configuredModel = getGeminiModel();
   const cachedModel = window.__CRAFTEGON_WORKING_MODEL__;
-  let modelsToTry = [
-    cachedModel,
-    configuredModel,
-    'gemini-2.0-flash',
-    'gemini-1.5-flash',
-    'gemini-1.5-flash-latest',
-    'gemini-1.5-flash-002',
-    'gemini-2.5-flash',
-    'gemini-1.5-pro'
-  ].filter((m, idx, arr) => m && arr.indexOf(m) === idx);
+  let modelsToTry = [];
 
+  // If models were discovered from Google AI Studio, prioritize them
   if (Array.isArray(window.__CRAFTEGON_AVAILABLE_MODELS__) && window.__CRAFTEGON_AVAILABLE_MODELS__.length) {
     window.__CRAFTEGON_AVAILABLE_MODELS__.forEach(m => {
       if (!modelsToTry.includes(m)) modelsToTry.push(m);
     });
   }
+
+  // Ensure high-performance fallbacks are included
+  [cachedModel, configuredModel, 'gemini-2.0-flash', 'gemini-2.5-flash', 'gemini-1.5-flash-latest', 'gemini-1.5-flash', 'gemini-1.5-pro'].forEach(m => {
+    if (m && !modelsToTry.includes(m)) modelsToTry.push(m);
+  });
 
   // Construct rolling history
   const contents = [];
@@ -528,8 +534,9 @@ async function callGeminiApi(userQuery) {
   const uniqueVersions = versionsToTry.filter((v, i, a) => a.indexOf(v) === i);
 
   for (const model of modelsToTry) {
+    const cleanModel = model.replace(/^models\//, '');
     for (const ver of uniqueVersions) {
-      const endpoint = `https://generativelanguage.googleapis.com/${ver}/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
+      const endpoint = `https://generativelanguage.googleapis.com/${ver}/models/${encodeURIComponent(cleanModel)}:generateContent?key=${encodeURIComponent(apiKey)}`;
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 9000);
 
@@ -560,11 +567,11 @@ async function callGeminiApi(userQuery) {
 
         if (!response.ok) {
           if (response.status === 404 || response.status === 429) {
-            lastError = new Error(`HTTP ${response.status} for model ${model} on ${ver}`);
+            lastError = new Error(`HTTP ${response.status} for model ${cleanModel} on ${ver}`);
             continue;
           }
           const errText = await response.text();
-          let parsedErrMsg = `HTTP ${response.status} (${model})`;
+          let parsedErrMsg = `HTTP ${response.status} (${cleanModel})`;
           try {
             const errJson = JSON.parse(errText);
             if (errJson && errJson.error && errJson.error.message) {
@@ -581,11 +588,11 @@ async function callGeminiApi(userQuery) {
         const replyText = candidate && candidate.content && candidate.content.parts && candidate.content.parts[0] && candidate.content.parts[0].text;
 
         if (!replyText) {
-          throw new Error(`Empty Gemini response payload from ${model}`);
+          throw new Error(`Empty Gemini response payload from ${cleanModel}`);
         }
 
         // Cache working model & version
-        window.__CRAFTEGON_WORKING_MODEL__ = model;
+        window.__CRAFTEGON_WORKING_MODEL__ = cleanModel;
         window.__CRAFTEGON_WORKING_VERSION__ = ver;
 
         // Update conversation history
@@ -654,22 +661,40 @@ async function callCoPilotEngine(userQuery) {
 // Live diagnostics helper to verify API key connectivity & auto-heal to working models
 async function testGeminiConnection(key, model) {
   if (!key) throw new Error('API key is required.');
-  const targetModel = model || getGeminiModel() || 'gemini-2.0-flash';
   const startTime = Date.now();
 
-  const modelsToProbe = [
-    targetModel,
-    'gemini-2.0-flash',
-    'gemini-1.5-flash',
-    'gemini-1.5-flash-latest',
-    'gemini-1.5-flash-002',
-    'gemini-2.5-flash'
-  ].filter((m, i, a) => m && a.indexOf(m) === i);
+  // 1. First probe available models dynamically from Google AI Studio
+  let discovered = [];
+  try {
+    discovered = await fetchAvailableGeminiModels(key);
+  } catch(e) {}
+
+  // 2. Build candidate models prioritizing discovered active models
+  const candidateModels = [];
+  if (model) {
+    const cleanReq = model.replace(/^models\//, '');
+    if (!discovered.length || discovered.includes(cleanReq)) {
+      candidateModels.push(cleanReq);
+    }
+  }
+  if (discovered && discovered.length) {
+    discovered.forEach(m => {
+      const clean = m.replace(/^models\//, '');
+      if (!candidateModels.includes(clean)) candidateModels.push(clean);
+    });
+  }
+  ['gemini-2.0-flash', 'gemini-2.5-flash', 'gemini-1.5-flash-latest', 'gemini-1.5-flash-8b', 'gemini-2.0-flash-exp', 'gemini-1.5-flash', 'gemini-1.5-pro'].forEach(m => {
+    if (!candidateModels.includes(m)) candidateModels.push(m);
+  });
 
   let lastErr = null;
-  for (const m of modelsToProbe) {
-    for (const ver of ['v1beta', 'v1']) {
-      const endpoint = `https://generativelanguage.googleapis.com/${ver}/models/${encodeURIComponent(m)}:generateContent?key=${encodeURIComponent(key)}`;
+  const versions = window.__CRAFTEGON_WORKING_VERSION__ ? [window.__CRAFTEGON_WORKING_VERSION__, 'v1beta', 'v1'] : ['v1beta', 'v1'];
+  const uniqueVersions = versions.filter((v, i, a) => a.indexOf(v) === i);
+
+  for (const m of candidateModels) {
+    const cleanModel = m.replace(/^models\//, '');
+    for (const ver of uniqueVersions) {
+      const endpoint = `https://generativelanguage.googleapis.com/${ver}/models/${encodeURIComponent(cleanModel)}:generateContent?key=${encodeURIComponent(key)}`;
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 6500);
 
@@ -678,7 +703,7 @@ async function testGeminiConnection(key, model) {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contents: [{ role: 'user', parts: [{ text: 'Respond with the single word: OK' }] }],
+            contents: [{ role: 'user', parts: [{ text: 'Respond with OK' }] }],
             generationConfig: { maxOutputTokens: 5 }
           }),
           signal: controller.signal
@@ -687,15 +712,16 @@ async function testGeminiConnection(key, model) {
 
         if (res.ok) {
           const latency = Date.now() - startTime;
-          window.__CRAFTEGON_WORKING_MODEL__ = m;
+          window.__CRAFTEGON_WORKING_MODEL__ = cleanModel;
           window.__CRAFTEGON_WORKING_VERSION__ = ver;
-          localStorage.setItem('craftegon_gemini_model', m);
+          localStorage.setItem('craftegon_gemini_model', cleanModel);
           return {
             ok: true,
             latency: latency,
-            model: m,
+            model: cleanModel,
             version: ver,
-            autoSwitched: m !== targetModel
+            autoSwitched: model ? cleanModel !== model.replace(/^models\//, '') : false,
+            discoveredList: discovered
           };
         } else {
           const errText = await res.text();
@@ -717,49 +743,16 @@ async function testGeminiConnection(key, model) {
     }
   }
 
-  // If standard models failed with 404, probe ModelService.ListModels
-  try {
-    const discovered = await fetchAvailableGeminiModels(key);
-    if (discovered && discovered.length) {
-      const firstModel = discovered[0];
-      const ver = window.__CRAFTEGON_WORKING_VERSION__ || 'v1beta';
-      const endpoint = `https://generativelanguage.googleapis.com/${ver}/models/${encodeURIComponent(firstModel)}:generateContent?key=${encodeURIComponent(key)}`;
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 6500);
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ role: 'user', parts: [{ text: 'OK' }] }],
-          generationConfig: { maxOutputTokens: 5 }
-        }),
-        signal: controller.signal
-      });
-      clearTimeout(timeoutId);
-      if (res.ok) {
-        const latency = Date.now() - startTime;
-        window.__CRAFTEGON_WORKING_MODEL__ = firstModel;
-        localStorage.setItem('craftegon_gemini_model', firstModel);
-        return {
-          ok: true,
-          latency: latency,
-          model: firstModel,
-          version: ver,
-          autoSwitched: true,
-          discoveredList: discovered
-        };
-      }
-    }
-  } catch(e) {}
-
   throw lastErr || new Error('Connection failed across all candidate Gemini models and endpoints.');
 }
 
 function normalizeQuery(text) {
   if (!text) return '';
   let s = text.toLowerCase().trim();
-  s = s.replace(/isaiis/g, 'is ai is')
+  s = s.replace(/isaiis/g, 'is ai')
        .replace(/isai/g, 'is ai')
+       .replace(/whether ai is working/g, 'is ai working')
+       .replace(/whether ai working/g, 'is ai working')
        .replace(/copoilat/g, 'copilot')
        .replace(/copilet/g, 'copilot')
        .replace(/inprove/g, 'improve');
@@ -867,9 +860,9 @@ function openSettingsModal() {
         </label>
         <select id="cchat-gemini-model-select" class="cchat-modal-input" style="margin-bottom: 0.85rem; padding: 0.45rem; font-size: 0.82rem; width: 100%; border: 1px solid #CBD5E1; border-radius: 6px; background: #fff;">
           <option value="gemini-2.0-flash"${currentModel === 'gemini-2.0-flash' ? ' selected' : ''}>gemini-2.0-flash (Fast &amp; Recommended)</option>
-          <option value="gemini-1.5-flash"${currentModel === 'gemini-1.5-flash' ? ' selected' : ''}>gemini-1.5-flash (Standard)</option>
-          <option value="gemini-1.5-flash-latest"${currentModel === 'gemini-1.5-flash-latest' ? ' selected' : ''}>gemini-1.5-flash-latest (Dynamic Latest)</option>
           <option value="gemini-2.5-flash"${currentModel === 'gemini-2.5-flash' ? ' selected' : ''}>gemini-2.5-flash (High Reasoning Flash)</option>
+          <option value="gemini-1.5-flash-latest"${currentModel === 'gemini-1.5-flash-latest' ? ' selected' : ''}>gemini-1.5-flash-latest (Dynamic Latest)</option>
+          <option value="gemini-1.5-flash"${currentModel === 'gemini-1.5-flash' ? ' selected' : ''}>gemini-1.5-flash (Legacy Standard)</option>
           <option value="gemini-1.5-pro"${currentModel === 'gemini-1.5-pro' ? ' selected' : ''}>gemini-1.5-pro (High Reasoning Depth)</option>
         </select>
         <label style="display:block; font-size: 0.78rem; font-weight: 700; color: var(--navy-800, #193B46); margin-bottom: 0.35rem;">
@@ -925,7 +918,16 @@ function openSettingsModal() {
       resultBox.style.background = '#ECFDF5';
       resultBox.style.color = '#065F46';
       resultBox.style.border = '1px solid #A7F3D0';
-      if (res.autoSwitched && modelSelect) {
+      if (res.discoveredList && res.discoveredList.length && modelSelect) {
+        modelSelect.innerHTML = '';
+        res.discoveredList.forEach(dm => {
+          const opt = document.createElement('option');
+          opt.value = dm;
+          opt.textContent = `${dm}${dm === res.model ? ' (Active Recommended)' : ''}`;
+          if (dm === res.model) opt.selected = true;
+          modelSelect.appendChild(opt);
+        });
+      } else if (res.autoSwitched && modelSelect) {
         let found = false;
         for (let i = 0; i < modelSelect.options.length; i++) {
           if (modelSelect.options[i].value === res.model) {
@@ -941,10 +943,8 @@ function openSettingsModal() {
           opt.selected = true;
           modelSelect.appendChild(opt);
         }
-        resultBox.innerHTML = `✅ <strong>Connected successfully!</strong><br>Auto-switched to active model: <strong>${escapeHtml(res.model)}</strong> (HTTP 200 on ${escapeHtml(res.version)} in ${res.latency}ms). Model is live and ready.`;
-      } else {
-        resultBox.innerHTML = `✅ <strong>Connected successfully!</strong><br>Gemini (${escapeHtml(res.model)}) responded in ${res.latency}ms on ${escapeHtml(res.version)}. Model is live and ready.`;
       }
+      resultBox.innerHTML = `✅ <strong>Connected successfully!</strong><br>Gemini (<strong>${escapeHtml(res.model)}</strong>) responded in ${res.latency}ms on ${escapeHtml(res.version)}. Model is active and ready.`;
     } catch (err) {
       resultBox.style.background = '#FEF2F2';
       resultBox.style.color = '#991B1B';
