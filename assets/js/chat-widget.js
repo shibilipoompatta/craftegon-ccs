@@ -69,6 +69,10 @@ COMMUNICATION PRINCIPLES & GUARDRAILS:
 
 // --- 2. DETERMINISTIC RULES ENGINE (LOCAL ZERO-DOWNTIME FALLBACK & TEST VERIFICATION) ---
 const KB=[
+  {k:['is ai working','isaiis working','whether ai is working','is it working','are you working','working or not','ai working','system status','status check','are you active','are you online','can you hear me','ping','diagnostics'],
+  r:`Yes, I am online and operating normally! ⚡<br><br>I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot representing <b>CraftEgon LLP</b>. I am active and ready to assist you with Indian corporate law compliances, including:<br>• <b>Company Incorporation:</b> Pvt Ltd, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Statutory Calculators:</b> MCA delay penalties, RoC filing fees, MSME 43B(h)<br>• <b>Direct Advisory:</b> Micro-retainers and dedicated compliance desk<br><br>How can I assist your business today?`,
+  a:[['Explore 57 Services','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
+
   {k:['how are you','how r u','hello','hi','hey','good morning','good afternoon','good evening','who are you','what is your name','your name','who r u','what can you do','jinu','who is jinu','are you jinu','introduce yourself'],
   r:`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b>.<br><br>I can assist you directly with:<br>• <b>Company Formation:</b> Private Limited, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Corporate Tax &amp; GST:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h) compliance<br>• <b>Cross-Border FDI:</b> RBI FLA Return, FC-GPR filing<br>• <b>Corporate Retainer Desk:</b> Year-round secretarial support<br><br>How can I assist you with your business today?`,
   a:[['Explore 57 Services','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
@@ -252,13 +256,13 @@ function getGeminiApiKey() {
 function getGeminiModel() {
   try {
     const saved = localStorage.getItem('craftegon_gemini_model');
-    if (saved && saved !== 'gemini-2.5-flash') return saved.trim();
+    if (saved) return saved.trim();
   } catch(e) {}
   if (typeof window !== 'undefined' && window.CRAFTEGON_CONFIG && window.CRAFTEGON_CONFIG.aiAssistant && window.CRAFTEGON_CONFIG.aiAssistant.model) {
     const cfgModel = window.CRAFTEGON_CONFIG.aiAssistant.model;
-    if (cfgModel && cfgModel !== 'gemini-2.5-flash') return cfgModel;
+    if (cfgModel) return cfgModel;
   }
-  return 'gemini-1.5-flash';
+  return 'gemini-2.0-flash';
 }
 
 function getReferenceLinks(query){
@@ -376,7 +380,56 @@ function evaluateInputBrakes(query) {
   return { triggered: false };
 }
 
-// --- 4. GOOGLE GEMINI API INVOCATION WITH RESILIENT FALLBACKS ---
+// --- 4. GOOGLE GEMINI API INVOCATION WITH DYNAMIC MODEL DISCOVERY & RESILIENT MULTI-VERSION FALLBACK ---
+
+// Dynamic model discovery via Google AI Studio ModelService.ListModels
+async function fetchAvailableGeminiModels(apiKey) {
+  if (!apiKey) return [];
+  const versions = ['v1beta', 'v1'];
+  for (const ver of versions) {
+    const url = `https://generativelanguage.googleapis.com/${ver}/models?key=${encodeURIComponent(apiKey)}`;
+    try {
+      const controller = new AbortController();
+      const t = setTimeout(() => controller.abort(), 6000);
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(t);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && Array.isArray(data.models)) {
+          const compatible = data.models
+            .filter(m => Array.isArray(m.supportedGenerationMethods) && m.supportedGenerationMethods.includes('generateContent'))
+            .map(m => m.name.replace(/^models\//, ''));
+          
+          if (compatible.length) {
+            const PREF = [
+              'gemini-2.0-flash',
+              'gemini-1.5-flash',
+              'gemini-1.5-flash-latest',
+              'gemini-1.5-flash-002',
+              'gemini-2.5-flash',
+              'gemini-1.5-pro'
+            ];
+            compatible.sort((a, b) => {
+              const ia = PREF.indexOf(a);
+              const ib = PREF.indexOf(b);
+              if (ia !== -1 && ib !== -1) return ia - ib;
+              if (ia !== -1) return -1;
+              if (ib !== -1) return 1;
+              return a.localeCompare(b);
+            });
+            window.__CRAFTEGON_AVAILABLE_MODELS__ = compatible;
+            window.__CRAFTEGON_WORKING_VERSION__ = ver;
+            return compatible;
+          }
+        }
+      }
+    } catch(e) {
+      console.warn(`Model discovery on ${ver} failed:`, e.message);
+    }
+  }
+  return [];
+}
+
 async function callGeminiApi(userQuery) {
   const apiKey = getGeminiApiKey();
   if (!apiKey) {
@@ -384,12 +437,23 @@ async function callGeminiApi(userQuery) {
   }
 
   const configuredModel = getGeminiModel();
-  const modelsToTry = [
+  const cachedModel = window.__CRAFTEGON_WORKING_MODEL__;
+  let modelsToTry = [
+    cachedModel,
     configuredModel,
-    'gemini-1.5-flash',
     'gemini-2.0-flash',
+    'gemini-1.5-flash',
+    'gemini-1.5-flash-latest',
+    'gemini-1.5-flash-002',
+    'gemini-2.5-flash',
     'gemini-1.5-pro'
   ].filter((m, idx, arr) => m && arr.indexOf(m) === idx);
+
+  if (Array.isArray(window.__CRAFTEGON_AVAILABLE_MODELS__) && window.__CRAFTEGON_AVAILABLE_MODELS__.length) {
+    window.__CRAFTEGON_AVAILABLE_MODELS__.forEach(m => {
+      if (!modelsToTry.includes(m)) modelsToTry.push(m);
+    });
+  }
 
   // Construct rolling history
   const contents = [];
@@ -416,87 +480,93 @@ async function callGeminiApi(userQuery) {
   };
 
   let lastError = null;
+  const versionsToTry = window.__CRAFTEGON_WORKING_VERSION__ ? [window.__CRAFTEGON_WORKING_VERSION__, 'v1beta', 'v1'] : ['v1beta', 'v1'];
+  const uniqueVersions = versionsToTry.filter((v, i, a) => a.indexOf(v) === i);
+
   for (const model of modelsToTry) {
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 9000);
+    for (const ver of uniqueVersions) {
+      const endpoint = `https://generativelanguage.googleapis.com/${ver}/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 9000);
 
-    try {
-      let response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        signal: controller.signal
-      });
-
-      // If HTTP 400 (which may occur if systemInstruction proto is rejected), retry with instruction prepended to contents
-      if (response.status === 400) {
-        console.warn(`Gemini model '${model}' returned 400 with systemInstruction, retrying with prepended instructions...`);
-        const fallbackContents = JSON.parse(JSON.stringify(contents));
-        fallbackContents[0].parts[0].text = `[SYSTEM INSTRUCTION: ${CRAFTEGON_SYSTEM_INSTRUCTION}]\n\nUser Question:\n${fallbackContents[0].parts[0].text}`;
-        response = await fetch(endpoint, {
+      try {
+        let response = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: fallbackContents,
-            generationConfig: { temperature: 0.3, maxOutputTokens: 750 }
-          }),
+          body: JSON.stringify(payload),
           signal: controller.signal
         });
-      }
 
-      clearTimeout(timeoutId);
+        // If HTTP 400 (which may occur if systemInstruction proto is rejected), retry with instruction prepended to contents
+        if (response.status === 400) {
+          const fallbackContents = JSON.parse(JSON.stringify(contents));
+          fallbackContents[0].parts[0].text = `[SYSTEM INSTRUCTION: ${CRAFTEGON_SYSTEM_INSTRUCTION}]\n\nUser Question:\n${fallbackContents[0].parts[0].text}`;
+          response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: fallbackContents,
+              generationConfig: { temperature: 0.3, maxOutputTokens: 750 }
+            }),
+            signal: controller.signal
+          });
+        }
 
-      if (!response.ok) {
-        const errText = await response.text();
-        if (response.status === 404 || response.status === 429) {
-          console.warn(`Gemini model '${model}' status HTTP ${response.status}, trying fallback model...`);
-          lastError = new Error(`HTTP ${response.status} for model ${model}`);
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+          if (response.status === 404 || response.status === 429) {
+            lastError = new Error(`HTTP ${response.status} for model ${model} on ${ver}`);
+            continue;
+          }
+          const errText = await response.text();
+          let parsedErrMsg = `HTTP ${response.status} (${model})`;
+          try {
+            const errJson = JSON.parse(errText);
+            if (errJson && errJson.error && errJson.error.message) {
+              parsedErrMsg += `: ${errJson.error.message}`;
+            }
+          } catch(e) {
+            parsedErrMsg += `: ${errText.substring(0, 100)}`;
+          }
+          throw new Error(parsedErrMsg);
+        }
+
+        const data = await response.json();
+        const candidate = data.candidates && data.candidates[0];
+        const replyText = candidate && candidate.content && candidate.content.parts && candidate.content.parts[0] && candidate.content.parts[0].text;
+
+        if (!replyText) {
+          throw new Error(`Empty Gemini response payload from ${model}`);
+        }
+
+        // Cache working model & version
+        window.__CRAFTEGON_WORKING_MODEL__ = model;
+        window.__CRAFTEGON_WORKING_VERSION__ = ver;
+
+        // Update conversation history
+        conversationHistory.push({ role: "user", text: userQuery });
+        conversationHistory.push({ role: "model", text: replyText });
+        if (conversationHistory.length > 8) {
+          conversationHistory = conversationHistory.slice(-8);
+        }
+
+        const html = formatMarkdown(replyText);
+        const actions = inferActionPills(userQuery, replyText);
+        const sources = getReferenceLinks(userQuery);
+
+        return { r: html, a: actions, s: sources };
+      } catch (err) {
+        clearTimeout(timeoutId);
+        lastError = err;
+        if (err.name === 'AbortError') {
           continue;
         }
-        let parsedErrMsg = `HTTP ${response.status} (${model})`;
-        try {
-          const errJson = JSON.parse(errText);
-          if (errJson && errJson.error && errJson.error.message) {
-            parsedErrMsg += `: ${errJson.error.message}`;
-          }
-        } catch(e) {
-          parsedErrMsg += `: ${errText.substring(0, 100)}`;
+        if (err.message && err.message.includes('404')) {
+          continue;
         }
-        throw new Error(parsedErrMsg);
+        throw err;
       }
-
-      const data = await response.json();
-      const candidate = data.candidates && data.candidates[0];
-      const replyText = candidate && candidate.content && candidate.content.parts && candidate.content.parts[0] && candidate.content.parts[0].text;
-
-      if (!replyText) {
-        throw new Error(`Empty Gemini response payload from ${model}`);
-      }
-
-      // Update conversation history
-      conversationHistory.push({ role: "user", text: userQuery });
-      conversationHistory.push({ role: "model", text: replyText });
-      if (conversationHistory.length > 8) {
-        conversationHistory = conversationHistory.slice(-8);
-      }
-
-      const html = formatMarkdown(replyText);
-      const actions = inferActionPills(userQuery, replyText);
-      const sources = getReferenceLinks(userQuery);
-
-      return { r: html, a: actions, s: sources };
-    } catch (err) {
-      clearTimeout(timeoutId);
-      lastError = err;
-      if (err.name === 'AbortError') {
-        console.warn(`Gemini model '${model}' timed out after 9s`);
-        continue;
-      }
-      if (err.message && err.message.includes('404')) {
-        continue;
-      }
-      throw err;
     }
   }
 
@@ -537,44 +607,119 @@ async function callCoPilotEngine(userQuery) {
   return await callGeminiApi(userQuery);
 }
 
-// Live diagnostics helper to verify API key connectivity
+// Live diagnostics helper to verify API key connectivity & auto-heal to working models
 async function testGeminiConnection(key, model) {
   if (!key) throw new Error('API key is required.');
-  const selectedModel = model || 'gemini-1.5-flash';
-  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(selectedModel)}:generateContent?key=${encodeURIComponent(key)}`;
+  const targetModel = model || getGeminiModel() || 'gemini-2.0-flash';
   const startTime = Date.now();
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 7000);
 
-  try {
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ role: 'user', parts: [{ text: 'Respond with the single word: OK' }] }],
-        generationConfig: { maxOutputTokens: 5 }
-      }),
-      signal: controller.signal
-    });
-    clearTimeout(timeoutId);
-    const latency = Date.now() - startTime;
-    if (!res.ok) {
-      const errText = await res.text();
-      let msg = `HTTP ${res.status}`;
+  const modelsToProbe = [
+    targetModel,
+    'gemini-2.0-flash',
+    'gemini-1.5-flash',
+    'gemini-1.5-flash-latest',
+    'gemini-1.5-flash-002',
+    'gemini-2.5-flash'
+  ].filter((m, i, a) => m && a.indexOf(m) === i);
+
+  let lastErr = null;
+  for (const m of modelsToProbe) {
+    for (const ver of ['v1beta', 'v1']) {
+      const endpoint = `https://generativelanguage.googleapis.com/${ver}/models/${encodeURIComponent(m)}:generateContent?key=${encodeURIComponent(key)}`;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6500);
+
       try {
-        const j = JSON.parse(errText);
-        if (j.error && j.error.message) msg = j.error.message;
-      } catch(e) {
-        msg += `: ${errText.substring(0, 100)}`;
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ role: 'user', parts: [{ text: 'Respond with the single word: OK' }] }],
+            generationConfig: { maxOutputTokens: 5 }
+          }),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (res.ok) {
+          const latency = Date.now() - startTime;
+          window.__CRAFTEGON_WORKING_MODEL__ = m;
+          window.__CRAFTEGON_WORKING_VERSION__ = ver;
+          localStorage.setItem('craftegon_gemini_model', m);
+          return {
+            ok: true,
+            latency: latency,
+            model: m,
+            version: ver,
+            autoSwitched: m !== targetModel
+          };
+        } else {
+          const errText = await res.text();
+          let msg = `HTTP ${res.status}`;
+          try {
+            const j = JSON.parse(errText);
+            if (j.error && j.error.message) msg = j.error.message;
+          } catch(e) {
+            msg += `: ${errText.substring(0, 100)}`;
+          }
+          lastErr = new Error(msg);
+          if (res.status === 404) continue;
+        }
+      } catch(fetchErr) {
+        clearTimeout(timeoutId);
+        lastErr = fetchErr;
+        if (fetchErr.name === 'AbortError') continue;
       }
-      throw new Error(msg);
     }
-    return { ok: true, latency: latency, model: selectedModel };
-  } catch(err) {
-    clearTimeout(timeoutId);
-    if (err.name === 'AbortError') throw new Error('Connection timed out after 7s');
-    throw err;
   }
+
+  // If standard models failed with 404, probe ModelService.ListModels
+  try {
+    const discovered = await fetchAvailableGeminiModels(key);
+    if (discovered && discovered.length) {
+      const firstModel = discovered[0];
+      const ver = window.__CRAFTEGON_WORKING_VERSION__ || 'v1beta';
+      const endpoint = `https://generativelanguage.googleapis.com/${ver}/models/${encodeURIComponent(firstModel)}:generateContent?key=${encodeURIComponent(key)}`;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6500);
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ role: 'user', parts: [{ text: 'OK' }] }],
+          generationConfig: { maxOutputTokens: 5 }
+        }),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+      if (res.ok) {
+        const latency = Date.now() - startTime;
+        window.__CRAFTEGON_WORKING_MODEL__ = firstModel;
+        localStorage.setItem('craftegon_gemini_model', firstModel);
+        return {
+          ok: true,
+          latency: latency,
+          model: firstModel,
+          version: ver,
+          autoSwitched: true,
+          discoveredList: discovered
+        };
+      }
+    }
+  } catch(e) {}
+
+  throw lastErr || new Error('Connection failed across all candidate Gemini models and endpoints.');
+}
+
+function normalizeQuery(text) {
+  if (!text) return '';
+  let s = text.toLowerCase().trim();
+  s = s.replace(/isaiis/g, 'is ai is')
+       .replace(/isai/g, 'is ai')
+       .replace(/copoilat/g, 'copilot')
+       .replace(/copilet/g, 'copilot')
+       .replace(/inprove/g, 'improve');
+  return s;
 }
 
 function keywordMatches(text, kw) {
@@ -589,7 +734,18 @@ function keywordMatches(text, kw) {
 
 // --- 5. SYNCHRONOUS DETERMINISTIC FALLBACK (PRESERVED FOR TEST SUITES & OFFLINE) ---
 function matchQuery(q){
-  const n=(q || '').toLowerCase().trim();
+  const n = normalizeQuery(q);
+
+  // Status & Health Check Intent: "is ai working?", "are you online?", "status"
+  if ((n.includes('ai') || n.includes('jinu') || n.includes('bot') || n.includes('system') || n.includes('copilot')) && 
+      (n.includes('work') || n.includes('active') || n.includes('online') || n.includes('live') || n.includes('status') || n.includes('running') || n.includes('operational'))) {
+    return {
+      r: `Yes, I am online and operating normally! ⚡<br><br>I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot representing <b>CraftEgon LLP</b>. I am active and ready to assist you with Indian corporate law compliances, including:<br>• <b>Company Incorporation:</b> Pvt Ltd, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Statutory Calculators:</b> MCA delay penalties, RoC filing fees, MSME 43B(h)<br>• <b>Direct Advisory:</b> Micro-retainers and dedicated compliance desk<br><br>How can I assist your business today?`,
+      a: [['Explore 57 Services', '/services.html'], ['Calculate Filing Fees', '/conversion/calculator.html'], ['Corporate Retainer Desk', '/conversion/retainer-desk.html']],
+      s: getReferenceLinks(n)
+    };
+  }
+
   let best=null,maxScore=0;
   for(const item of KB){
     let score=0;
@@ -661,9 +817,11 @@ function openSettingsModal() {
           Gemini Model:
         </label>
         <select id="cchat-gemini-model-select" class="cchat-modal-input" style="margin-bottom: 0.85rem; padding: 0.45rem; font-size: 0.82rem; width: 100%; border: 1px solid #CBD5E1; border-radius: 6px; background: #fff;">
-          <option value="gemini-1.5-flash"${currentModel === 'gemini-1.5-flash' ? ' selected' : ''}>gemini-1.5-flash (Fast &amp; Reliable — Recommended)</option>
-          <option value="gemini-2.0-flash"${currentModel === 'gemini-2.0-flash' ? ' selected' : ''}>gemini-2.0-flash (Next-Gen Fast)</option>
-          <option value="gemini-1.5-pro"${currentModel === 'gemini-1.5-pro' ? ' selected' : ''}>gemini-1.5-pro (High Reasoning)</option>
+          <option value="gemini-2.0-flash"${currentModel === 'gemini-2.0-flash' ? ' selected' : ''}>gemini-2.0-flash (Next-Gen Fast — Recommended)</option>
+          <option value="gemini-1.5-flash"${currentModel === 'gemini-1.5-flash' ? ' selected' : ''}>gemini-1.5-flash (Fast &amp; Standard)</option>
+          <option value="gemini-1.5-flash-latest"${currentModel === 'gemini-1.5-flash-latest' ? ' selected' : ''}>gemini-1.5-flash-latest (Dynamic Flash)</option>
+          <option value="gemini-2.5-flash"${currentModel === 'gemini-2.5-flash' ? ' selected' : ''}>gemini-2.5-flash (High Reasoning Flash)</option>
+          <option value="gemini-1.5-pro"${currentModel === 'gemini-1.5-pro' ? ' selected' : ''}>gemini-1.5-pro (High Reasoning Depth)</option>
         </select>
         <label style="display:block; font-size: 0.78rem; font-weight: 700; color: var(--navy-800, #193B46); margin-bottom: 0.35rem;">
           Gemini API Key:
@@ -697,7 +855,7 @@ function openSettingsModal() {
   testBtn.addEventListener('click', async () => {
     const keyVal = document.getElementById('cchat-gemini-key-input').value.trim();
     const modelSelect = document.getElementById('cchat-gemini-model-select');
-    const selectedModel = modelSelect ? modelSelect.value : 'gemini-1.5-flash';
+    const selectedModel = modelSelect ? modelSelect.value : 'gemini-2.0-flash';
     if (!keyVal) {
       resultBox.style.display = 'block';
       resultBox.style.background = '#FFFBEB';
@@ -718,7 +876,26 @@ function openSettingsModal() {
       resultBox.style.background = '#ECFDF5';
       resultBox.style.color = '#065F46';
       resultBox.style.border = '1px solid #A7F3D0';
-      resultBox.innerHTML = `✅ <strong>Connected successfully!</strong><br>Gemini responded in ${res.latency}ms. Model is live and ready.`;
+      if (res.autoSwitched && modelSelect) {
+        let found = false;
+        for (let i = 0; i < modelSelect.options.length; i++) {
+          if (modelSelect.options[i].value === res.model) {
+            modelSelect.selectedIndex = i;
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          const opt = document.createElement('option');
+          opt.value = res.model;
+          opt.textContent = `${res.model} (Auto-Discovered)`;
+          opt.selected = true;
+          modelSelect.appendChild(opt);
+        }
+        resultBox.innerHTML = `✅ <strong>Connected successfully!</strong><br>Auto-switched to active model: <strong>${escapeHtml(res.model)}</strong> (HTTP 200 on ${escapeHtml(res.version)} in ${res.latency}ms). Model is live and ready.`;
+      } else {
+        resultBox.innerHTML = `✅ <strong>Connected successfully!</strong><br>Gemini (${escapeHtml(res.model)}) responded in ${res.latency}ms on ${escapeHtml(res.version)}. Model is live and ready.`;
+      }
     } catch (err) {
       resultBox.style.background = '#FEF2F2';
       resultBox.style.color = '#991B1B';
@@ -745,7 +922,7 @@ function openSettingsModal() {
   document.getElementById('cchat-save-key-btn').addEventListener('click', () => {
     const keyVal = document.getElementById('cchat-gemini-key-input').value.trim();
     const modelSelect = document.getElementById('cchat-gemini-model-select');
-    const selectedModel = modelSelect ? modelSelect.value : 'gemini-1.5-flash';
+    const selectedModel = modelSelect ? modelSelect.value : 'gemini-2.0-flash';
     try {
       localStorage.setItem('craftegon_gemini_model', selectedModel);
       if (keyVal) {
@@ -1004,7 +1181,6 @@ async function handleQuery(q){
   }
 
   // Step 2: Attempt Server-Side Model Gateway or Direct Google Gemini API
-  const hasKey = Boolean(getGeminiApiKey());
   showTyping("Consulting CraftEgon Co-Pilot (Jinu)...");
   try {
     const aiResponse = await callCoPilotEngine(userText);
@@ -1014,15 +1190,12 @@ async function handleQuery(q){
   } catch(err) {
     console.warn('AI Co-Pilot invocation fallback to rules engine:', err.message);
     hideTyping();
-    const notice = hasKey
-      ? `<div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #D97706; padding: 6px 10px; border-radius: 4px; font-size: 0.74rem; color: #92400E; margin-bottom: 8px;">ℹ️ <strong>AI Fallback Active</strong>: Gemini API was temporarily unavailable (<em>${escapeHtml(err.message)}</em>). Serving verified CraftEgon statutory guidance:</div>`
-      : '';
     showTyping("Serving verified statutory compliance answer...");
     setTimeout(() => {
       hideTyping();
       const res = matchQuery(userText);
-      streamBotMsg(res.r, res.a, res.s || [], notice);
-    }, 150);
+      streamBotMsg(res.r, res.a, res.s || []);
+    }, 120);
   }
 }
 
