@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T07:47:28.693Z",
+  "buildTimestamp": "2026-11-11T08:01:44.920Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,15 +10,16 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 162,
-    "totalOutputSizeBytes": 7300167,
-    "totalOutputSizeFormatted": "6.96 MB",
+    "totalFilesIncluded": 163,
+    "totalOutputSizeBytes": 7322921,
+    "totalOutputSizeFormatted": "6.98 MB",
     "sanitizedResidualLinksCount": 26,
     "preRenderedSSGPagesCount": 113,
     "filesByExtension": {
       ".html": 121,
       ".css": 10,
       ".jpg": 1,
+      ".bak": 1,
       ".js": 15,
       ".json": 11,
       "config": 2,
@@ -105,6 +106,10 @@
     },
     {
       "path": "assets/images/craftegon-logo.jpg",
+      "bytes": 22754
+    },
+    {
+      "path": "assets/images/craftegon-logo.jpg.bak",
       "bytes": 194157
     },
     {
