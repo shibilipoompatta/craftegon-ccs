@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T10:41:14.764Z",
+  "buildTimestamp": "2026-11-11T11:04:22.918Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 164,
-    "totalOutputSizeBytes": 7482523,
-    "totalOutputSizeFormatted": "7.14 MB",
+    "totalFilesIncluded": 165,
+    "totalOutputSizeBytes": 7599157,
+    "totalOutputSizeFormatted": "7.25 MB",
     "sanitizedResidualLinksCount": 26,
-    "preRenderedSSGPagesCount": 114,
+    "preRenderedSSGPagesCount": 115,
     "filesByExtension": {
-      ".html": 122,
+      ".html": 123,
       ".css": 10,
       ".jpg": 1,
       ".bak": 1,
@@ -330,7 +330,7 @@
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 56496
+      "bytes": 57338
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -351,6 +351,10 @@
     {
       "path": "knowledge/mca-v3-filing-guide.html",
       "bytes": 53252
+    },
+    {
+      "path": "knowledge/opc-incorporation-nominee-guide.html",
+      "bytes": 74299
     },
     {
       "path": "knowledge/pas6-demat-audit-guide.html",
@@ -558,7 +562,7 @@
     },
     {
       "path": "services/opc-registration.html",
-      "bytes": 50356
+      "bytes": 91849
     },
     {
       "path": "services/oppression-mismanagement-petitions.html",
