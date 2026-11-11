@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T12:16:36.696Z",
+  "buildTimestamp": "2026-11-11T18:01:43.628Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 167,
-    "totalOutputSizeBytes": 7821906,
-    "totalOutputSizeFormatted": "7.46 MB",
+    "totalFilesIncluded": 168,
+    "totalOutputSizeBytes": 7925922,
+    "totalOutputSizeFormatted": "7.56 MB",
     "sanitizedResidualLinksCount": 26,
-    "preRenderedSSGPagesCount": 117,
+    "preRenderedSSGPagesCount": 118,
     "filesByExtension": {
-      ".html": 125,
+      ".html": 126,
       ".css": 10,
       ".jpg": 1,
       ".bak": 1,
@@ -130,7 +130,7 @@
     },
     {
       "path": "assets/js/chat-widget.js",
-      "bytes": 70146
+      "bytes": 71908
     },
     {
       "path": "assets/js/checkout.js",
@@ -330,7 +330,7 @@
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 59125
+      "bytes": 60050
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -375,6 +375,10 @@
     {
       "path": "knowledge/section-8-licensing-governance-guide.html",
       "bytes": 75211
+    },
+    {
+      "path": "knowledge/sole-proprietorship-udyam-gst-banking-guide.html",
+      "bytes": 72651
     },
     {
       "path": "knowledge/spice-plus-mca-v3-blueprint.html",
@@ -590,7 +594,7 @@
     },
     {
       "path": "services/proprietorship-registration.html",
-      "bytes": 50247
+      "bytes": 78925
     },
     {
       "path": "services/proprietorship-tax.html",

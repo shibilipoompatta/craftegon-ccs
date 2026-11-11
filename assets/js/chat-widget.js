@@ -129,6 +129,15 @@ const KB=[
   * <b>Tax Exemptions:</b> Requires post-incorporation 12AB and 80G registrations with the Income Tax Department.`,
   a:[['Section 8 Registration','/services/section-8-registration.html'],['Explore 57 Services','/services.html'],['Contact Compliance Desk','/conversion/retainer-desk.html']]},
 
+  {k:['proprietor','proprietorship','sole proprietor','udyam','kerala shops','shop act','lcas','k-smart','current account documents'],
+  r:`Establishing a <b>Sole Proprietorship</b> in India &amp; Kerala:<br>
+  * <b>Legal Foundation:</b> No separate incorporation under Companies Act 2013; uses the proprietor's <b>Personal PAN</b> with unlimited personal liability.<br>
+  * <b>MSME Udyam (2025 Limits):</b> Free (₹0 govt fee) on <code>udyamregistration.gov.in</code>. Effective April 1, 2025: Micro &le; ₹2.5Cr Inv / ₹10Cr Turnover.<br>
+  * <b>Kerala Shops Act 1960:</b> Mandatory via <code>lcas.kerala.gov.in</code> <b>even with zero employees</b>.<br>
+  * <b>RBI Current Account Rules:</b> Requires any <b>TWO official business proofs</b> (e.g., Udyam + Shop Act / GSTIN). Banks may accept 1 proof upon physical Contact Point Verification (CPV).<br>
+  * <b>GST Applicability:</b> Conditional—triggers above ₹40L (goods) / ₹20L (services) or immediately under Section 24 for interstate supply.`,
+  a:[['Proprietorship Service','/services/proprietorship-registration.html'],['Proprietorship &amp; RBI Handbook','/knowledge/sole-proprietorship-udyam-gst-banking-guide.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
+
   {k:['aoc-4','aoc4','mgt-7','mgt7','mgt-14','mgt14','annual filing','roc compliance','agm','financial statement','annual return','dir-3 kyc','dir3 kyc','dpt-3','dpt3','msme-1','msme1','due date','deadline','ccfs','ccfs-2026'],
   r:`Annual RoC filings under Companies Act 2013:<br>
   * <b>Form AOC-4:</b> Financials within 30 days of AGM (typically Oct 30) under Sec 137.<br>
@@ -331,6 +340,7 @@ function getReferenceLinks(query){
     {terms:['trademark','tm-a','nice class','ipr'],link:['Trademark Clearance Intake','/conversion/trademark-search.html']},
     {terms:['llp','limited liability partnership','fillip','form 3','run-llp'],link:['LLP Registration Service','/services/llp-registration.html']},
     {terms:['partnership firm','partnership deed','rof','registrar of firms','section 69','egroops'],link:['Partnership Registration Service','/services/partnership-registration.html']},
+    {terms:['proprietor','proprietorship','sole proprietor','udyam','kerala shops','shop act'],link:['Proprietorship Registration Service','/services/proprietorship-registration.html']},
     {terms:['opc','one person company','inc-3'],link:['OPC Registration Service','/services/opc-registration.html']},
     {terms:['section 8','non profit','ngo company','inc-12'],link:['Section 8 Registration','/services/section-8-registration.html']},
     {terms:['incorporat','pvt ltd','private limited','spice+'],link:['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html']}
@@ -375,6 +385,9 @@ function inferActionPills(query, botText) {
   } else if (combined.includes('partnership firm') || combined.includes('partnership deed') || combined.includes('registrar of firms') || combined.includes('rof') || combined.includes('egroops')) {
     pills.push(['Partnership Service', '/services/partnership-registration.html']);
     pills.push(['RoF Handbook', '/knowledge/partnership-firm-deed-rof-handbook.html']);
+  } else if (combined.includes('proprietor') || combined.includes('proprietorship') || combined.includes('udyam') || combined.includes('kerala shops')) {
+    pills.push(['Proprietorship Service', '/services/proprietorship-registration.html']);
+    pills.push(['Udyam &amp; Banking Guide', '/knowledge/sole-proprietorship-udyam-gst-banking-guide.html']);
   } else if (combined.includes('opc') || combined.includes('one person')) {
     pills.push(['OPC Registration', '/services/opc-registration.html']);
     pills.push(['Calculate Filing Fees', '/conversion/calculator.html']);
