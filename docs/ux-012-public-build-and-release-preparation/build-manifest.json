@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T11:04:22.918Z",
+  "buildTimestamp": "2026-11-11T11:45:30.052Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 165,
-    "totalOutputSizeBytes": 7599157,
-    "totalOutputSizeFormatted": "7.25 MB",
+    "totalFilesIncluded": 166,
+    "totalOutputSizeBytes": 7714411,
+    "totalOutputSizeFormatted": "7.36 MB",
     "sanitizedResidualLinksCount": 26,
-    "preRenderedSSGPagesCount": 115,
+    "preRenderedSSGPagesCount": 116,
     "filesByExtension": {
-      ".html": 123,
+      ".html": 124,
       ".css": 10,
       ".jpg": 1,
       ".bak": 1,
@@ -130,7 +130,7 @@
     },
     {
       "path": "assets/js/chat-widget.js",
-      "bytes": 67958
+      "bytes": 68204
     },
     {
       "path": "assets/js/checkout.js",
@@ -330,7 +330,7 @@
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 57338
+      "bytes": 58197
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -367,6 +367,10 @@
     {
       "path": "knowledge/sbo-ben2-guide.html",
       "bytes": 49049
+    },
+    {
+      "path": "knowledge/section-8-licensing-governance-guide.html",
+      "bytes": 75211
     },
     {
       "path": "knowledge/spice-plus-mca-v3-blueprint.html",
@@ -610,7 +614,7 @@
     },
     {
       "path": "services/section-8-registration.html",
-      "bytes": 50696
+      "bytes": 89634
     },
     {
       "path": "services/slump-sale-asset-purchase.html",
