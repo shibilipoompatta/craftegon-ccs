@@ -10,9 +10,10 @@ if(window.__CRAFTEGON_CHAT_INITIALIZED__)return;
 window.__CRAFTEGON_CHAT_INITIALIZED__=true;
 
 // --- 1. SOVEREIGN REGULATORY GROUNDING & BUSINESS GUARDRAIL INSTRUCTIONS ("VEILS & BRAKES") ---
-const CRAFTEGON_SYSTEM_INSTRUCTION = `You are the CraftEgon AI Corporate Co-Pilot, the institutional regulatory and compliance assistant representing CraftEgon Corporate Services (CCS) and CraftEgon LLP.
-Your primary conversational partner is Jinu (founder / executive lead).
-Your role is to assist Jinu and corporate clients with authoritative, realistic, concise, and practical corporate secretarial, RoC filing, and statutory compliance guidance under Indian corporate law.
+const CRAFTEGON_SYSTEM_INSTRUCTION = `You are Jinu, the CraftEgon AI Corporate Co-Pilot and compliance advisor representing CraftEgon Corporate Services (CCS) and CraftEgon LLP.
+Your identity and name is Jinu.
+When greeting users or when asked who you are, introduce yourself clearly and naturally: "I am Jinu, your AI corporate compliance advisor at CraftEgon LLP."
+Your role is to assist corporate leaders, founders, CFOs, and clients with authoritative, realistic, concise, and practical corporate secretarial, RoC filing, and statutory compliance guidance under Indian corporate law.
 
 CORE INSTITUTIONAL FACTS:
 - Organization: CraftEgon Corporate Services (CCS), a division of CraftEgon LLP.
@@ -53,7 +54,7 @@ REGULATORY GROUNDING:
    - Form MSC-1: Application for obtaining Dormant Company status under Section 455.
 
 COMMUNICATION PRINCIPLES & GUARDRAILS:
-- CONVERSATIONAL TONE: Address Jinu warmly, realistically, and respectfully. Speak naturally like an expert corporate agent at CraftEgon LLP. Be normal, polite, direct, and helpful—zero promotional sycophancy or robotic formulas.
+- CONVERSATIONAL TONE & IDENTITY: You are Jinu. Speak naturally, realistically, politely, and authoritatively like an experienced corporate compliance agent at CraftEgon LLP. Be normal, helpful, and direct—zero promotional sycophancy or robotic formulas.
 - DO NOT REPEAT BOILERPLATE DISCLAIMERS: Do NOT append or prepend long legal disclaimers, statutory notices, or 'brakes' to every conversational message. The permanent statutory notice is already clearly visible in the UI footer and modal.
 - STATUTORY BOUNDARIES (BRING UP ONLY WHEN RELEVANT):
   * Advocates Act 1961: If asked for courtroom advocacy or NCLT litigation representation, state that court pleadings are handled by independent practicing advocates on separate vakalatnama.
@@ -64,8 +65,8 @@ COMMUNICATION PRINCIPLES & GUARDRAILS:
 
 // --- 2. DETERMINISTIC RULES ENGINE (LOCAL ZERO-DOWNTIME FALLBACK & TEST VERIFICATION) ---
 const KB=[
-  {k:['how are you','how r u','hello','hi','hey','good morning','good afternoon','good evening','who are you','what can you do','jinu'],
-  r:`Hello Jinu! 👋 Great to connect with you.<br><br>I am the <b>CraftEgon AI Compliance Co-Pilot</b> representing <b>CraftEgon LLP</b>. I can assist you directly with:<br>• <b>Company Formation:</b> Private Limited, LLP, OPC via MCA V3 SPICe+<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Corporate Tax &amp; GST:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h) compliance<br>• <b>Cross-Border FDI:</b> RBI FLA Return, FC-GPR filing<br>• <b>Corporate Retainer Desk:</b> Year-round secretarial support<br><br>What would you like to review or get started with today?`,
+  {k:['how are you','how r u','hello','hi','hey','good morning','good afternoon','good evening','who are you','what is your name','your name','who r u','what can you do','jinu'],
+  r:`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Advisor at <b>CraftEgon LLP</b>.<br><br>I can assist you directly with:<br>• <b>Company Formation:</b> Private Limited, LLP, OPC via MCA V3 SPICe+<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Corporate Tax &amp; GST:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h) compliance<br>• <b>Cross-Border FDI:</b> RBI FLA Return, FC-GPR filing<br>• <b>Corporate Retainer Desk:</b> Year-round secretarial support<br><br>How can I assist you with your business today?`,
   a:[['Explore 57 Services','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['incorporat','pvt ltd','private limited','llp','opc','one person','section 8','formation','spice+','director','shareholder','din','dsc','pan','tan','run'],
@@ -450,7 +451,7 @@ function matchQuery(q){
   }
   if(maxScore>=2&&best)return{r:best.r,a:best.a,s:getReferenceLinks(n)};
   return{
-    r:`I have noted your inquiry regarding <b>"${escapeHtml(q)}"</b>.<br><br>As the <b>CraftEgon Corporate Services</b> AI Co-Pilot, I can provide practical statutory procedures, MCA V3 filing guidelines, due dates, and fee estimations under Indian corporate law (Companies Act 2013, MCA V3, FEMA 1999, GST Act 2017).<br><br>Could you share a bit more detail on your entity type or requirement? Alternatively, you can use our instant calculators or connect with our corporate desk:`,
+    r:`I have noted your inquiry regarding <b>"${escapeHtml(q)}"</b>.<br><br>I am <b>Jinu</b>, your corporate compliance AI advisor at <b>CraftEgon LLP</b>. I can provide practical statutory procedures, MCA V3 filing guidelines, due dates, and fee estimations under Indian corporate law (Companies Act 2013, MCA V3, FEMA 1999, GST Act 2017).<br><br>Could you share a bit more detail on your entity type or requirement? Alternatively, you can use our instant calculators or connect with our corporate desk:`,
     a:[['Fee & Late Fee Calculator','/conversion/calculator.html'],['Contact Compliance Desk','/conversion/retainer-desk.html'],['Explore Practice Areas','/index.html#practice-areas']],
     s:getReferenceLinks(n)
   };
@@ -472,7 +473,7 @@ function updateAssistantBadge() {
   const dot = document.getElementById('cchat-status-dot');
   const hasKey = Boolean(getGeminiApiKey());
   if (badgeText) {
-    badgeText.textContent = hasKey ? 'AI Active' : 'Compliance Co-Pilot';
+    badgeText.textContent = hasKey ? 'Jinu (AI Active)' : 'Jinu (Compliance Advisor)';
   }
   if (dot) {
     if (hasKey) {
@@ -635,12 +636,12 @@ function createWidget(){
   
   const b=document.createElement('div');
   b.id='craftegon-chat-badge';
-  b.innerHTML=`<span class="badge-dot"></span> AI Compliance Co-Pilot`;
+  b.innerHTML=`<span class="badge-dot"></span> Ask Jinu &bull; AI Assistant`;
   
   const w=document.createElement('div');
   w.id='craftegon-chat-window';
   w.setAttribute('role','dialog');
-  w.setAttribute('aria-label','CraftEgon Compliance Assistant');
+  w.setAttribute('aria-label','Jinu - CraftEgon Corporate Compliance Assistant');
   w.innerHTML=`<div class="cchat-header">
   <div class="cchat-brand-wrap">
     <div class="cchat-avatar-wrap">
@@ -648,8 +649,8 @@ function createWidget(){
       <span class="cchat-status-dot ai-active" id="cchat-status-dot"></span>
     </div>
     <div class="cchat-brand-info">
-      <h4>CraftEgon AI</h4>
-      <span id="cchat-status-text">Compliance Co-Pilot</span>
+      <h4>Jinu <span style="font-size:0.75rem; font-weight:500; opacity:0.85;">&bull; CraftEgon AI</span></h4>
+      <span id="cchat-status-text">Compliance Advisor</span>
     </div>
   </div>
   <div class="cchat-header-actions">
@@ -699,7 +700,7 @@ function appendBotMsg(h,acts=[],sources=[]){
   const sourceHtml=sources.length?`<div class="cchat-sources"><strong>CCS References</strong>${sources.map(([label,url])=>`<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`).join('')}</div>`:'';
   const e=document.createElement('div');
   e.className='cchat-msg bot';
-  e.innerHTML=`<div class="cchat-bubble">${h}${sourceHtml}${aHtml}</div><div class="cchat-timestamp">${getTime()} &bull; CraftEgon Co-Pilot</div>`;
+  e.innerHTML=`<div class="cchat-bubble">${h}${sourceHtml}${aHtml}</div><div class="cchat-timestamp">${getTime()} &bull; Jinu &bull; CraftEgon AI</div>`;
   b.appendChild(e);
   b.scrollTop=b.scrollHeight;
 }
@@ -766,7 +767,7 @@ async function handleQuery(q){
 function initGreeting(){
   const b=document.getElementById('cchat-messages-container');
   if(!b||b.children.length>0)return;
-  appendBotMsg(`Hello Jinu! 👋 Welcome to <b>CraftEgon Corporate Services</b>.<br><br>How can I assist you with your company registration, RoC filings, or statutory compliance today?`);
+  appendBotMsg(`Hello! 👋 I am <b>Jinu</b>, your AI corporate compliance advisor at <b>CraftEgon LLP</b>.<br><br>How can I assist you with your company registration, RoC filings, or statutory governance today?`);
 }
 
 function bind(){
