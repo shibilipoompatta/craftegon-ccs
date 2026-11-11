@@ -142,13 +142,13 @@
       currency: "INR"
     },
 
-    // AI Compliance Assistant & Gemini Integration Configuration
+    // AI Compliance Assistant & Multi-Model Engine Configuration
     aiAssistant: {
       enabled: true,
       provider: "google-gemini",
-      model: "gemini-1.5-flash",
-      fallbackModels: ["gemini-1.5-flash", "gemini-2.0-flash"],
-      apiKey: "", // Sourced via window.CRAFTEGON_GEMINI_KEY, localStorage, or UI configuration
+      model: "gemini-2.0-flash",
+      fallbackModels: ["gemini-2.0-flash", "gemini-1.5-flash-latest", "gemini-1.5-flash", "gemini-2.5-flash"],
+      apiKey: "", // Master institutional key can be set here, via window.CRAFTEGON_GEMINI_KEY, or env
       proxyEndpoint: "/api/chat",
       temperature: 0.3,
       maxOutputTokens: 750

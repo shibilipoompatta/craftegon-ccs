@@ -223,6 +223,50 @@ const PILLS=[
   ['Contact Desk','How do I contact CraftEgon CCS via WhatsApp or phone?']
 ];
 
+// Get current user mode: 'ai' (Smart AI Assistant) or 'guide' (Statutory Reference Desk)
+function getChatMode() {
+  try {
+    const saved = localStorage.getItem('craftegon_chat_mode');
+    if (saved === 'guide') return 'guide';
+  } catch(e) {}
+  return 'ai';
+}
+
+function setChatMode(mode) {
+  try {
+    localStorage.setItem('craftegon_chat_mode', mode === 'guide' ? 'guide' : 'ai');
+  } catch(e) {}
+  updateAssistantBadge();
+  updateModeToggleUi();
+}
+
+function updateModeToggleUi() {
+  const mode = getChatMode();
+  const aiBtn = document.getElementById('cchat-mode-ai');
+  const guideBtn = document.getElementById('cchat-mode-guide');
+  if (aiBtn && guideBtn) {
+    if (mode === 'ai') {
+      aiBtn.classList.add('active', 'ai-btn');
+      guideBtn.classList.remove('active');
+    } else {
+      guideBtn.classList.add('active');
+      aiBtn.classList.remove('active', 'ai-btn');
+    }
+  }
+}
+
+// Check if admin modal access is unlocked via query (?admin=ai or ?setup=ai) or localStorage
+function isAdminConfigAuthorized() {
+  try {
+    if (window.location && window.location.search) {
+      const sp = new URLSearchParams(window.location.search);
+      if (sp.has('admin') || sp.has('setup') || sp.has('dev')) return true;
+    }
+    if (localStorage.getItem('craftegon_admin_unlocked') === 'true') return true;
+  } catch(e) {}
+  return false;
+}
+
 // Rolling conversation history (up to 6 turns)
 let conversationHistory = [];
 
@@ -778,12 +822,17 @@ function ensureStyles(){
 function updateAssistantBadge() {
   const badgeText = document.getElementById('cchat-status-text');
   const dot = document.getElementById('cchat-status-dot');
-  const hasKey = Boolean(getGeminiApiKey());
+  const mode = getChatMode();
+  
   if (badgeText) {
-    badgeText.textContent = hasKey ? 'Jinu (AI Active)' : 'Jinu (Compliance Advisor)';
+    if (mode === 'guide') {
+      badgeText.textContent = 'Statutory Guide';
+    } else {
+      badgeText.textContent = 'Jinu • AI Co-Pilot';
+    }
   }
   if (dot) {
-    if (hasKey) {
+    if (mode === 'ai') {
       dot.classList.add('ai-active');
     } else {
       dot.classList.remove('ai-active');
@@ -806,29 +855,29 @@ function openSettingsModal() {
   modal.innerHTML = `
     <div class="cchat-modal-card">
       <div class="cchat-modal-header">
-        <h5>AI Co-Pilot Settings</h5>
+        <h5>CraftEgon Institutional AI Settings</h5>
         <button type="button" class="cchat-modal-close" id="cchat-modal-close">&times;</button>
       </div>
       <div class="cchat-modal-body">
         <p style="font-size: 0.82rem; color: var(--text-secondary, #52717A); margin-bottom: 1rem; line-height: 1.5;">
-          Connect your <strong>Google Gemini API Key</strong> to activate automatic natural language communication grounded in CraftEgon's 57 corporate compliance services.
+          Configure CraftEgon's global AI co-pilot engine. When saved, Jinu answers questions using natural AI reasoning grounded in CraftEgon's 57 corporate compliance services.
         </p>
         <label style="display:block; font-size: 0.78rem; font-weight: 700; color: var(--navy-800, #193B46); margin-bottom: 0.35rem;">
-          Gemini Model:
+          Active AI Model:
         </label>
         <select id="cchat-gemini-model-select" class="cchat-modal-input" style="margin-bottom: 0.85rem; padding: 0.45rem; font-size: 0.82rem; width: 100%; border: 1px solid #CBD5E1; border-radius: 6px; background: #fff;">
-          <option value="gemini-2.0-flash"${currentModel === 'gemini-2.0-flash' ? ' selected' : ''}>gemini-2.0-flash (Next-Gen Fast — Recommended)</option>
-          <option value="gemini-1.5-flash"${currentModel === 'gemini-1.5-flash' ? ' selected' : ''}>gemini-1.5-flash (Fast &amp; Standard)</option>
-          <option value="gemini-1.5-flash-latest"${currentModel === 'gemini-1.5-flash-latest' ? ' selected' : ''}>gemini-1.5-flash-latest (Dynamic Flash)</option>
+          <option value="gemini-2.0-flash"${currentModel === 'gemini-2.0-flash' ? ' selected' : ''}>gemini-2.0-flash (Fast &amp; Recommended)</option>
+          <option value="gemini-1.5-flash"${currentModel === 'gemini-1.5-flash' ? ' selected' : ''}>gemini-1.5-flash (Standard)</option>
+          <option value="gemini-1.5-flash-latest"${currentModel === 'gemini-1.5-flash-latest' ? ' selected' : ''}>gemini-1.5-flash-latest (Dynamic Latest)</option>
           <option value="gemini-2.5-flash"${currentModel === 'gemini-2.5-flash' ? ' selected' : ''}>gemini-2.5-flash (High Reasoning Flash)</option>
           <option value="gemini-1.5-pro"${currentModel === 'gemini-1.5-pro' ? ' selected' : ''}>gemini-1.5-pro (High Reasoning Depth)</option>
         </select>
         <label style="display:block; font-size: 0.78rem; font-weight: 700; color: var(--navy-800, #193B46); margin-bottom: 0.35rem;">
-          Gemini API Key:
+          Google Gemini API Key:
         </label>
         <input type="password" id="cchat-gemini-key-input" class="cchat-modal-input" placeholder="AIzaSy..." value="${escapeHtml(currentKey)}" style="width: 100%;">
         <div style="font-size: 0.72rem; color: var(--text-muted, #708A93); margin-top: 0.4rem; margin-bottom: 0.85rem;">
-          Keys are stored locally in your browser (localStorage). Never shared externally.
+          Saved securely on this browser. Clients chat freely with Jinu without needing to provide their own keys.
         </div>
         <div style="display:flex; gap:0.5rem; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
           <button type="button" class="btn btn-secondary" id="cchat-test-key-btn" style="padding:0.4rem 0.75rem; font-size:0.78rem; background: #F1F5F9; border: 1px solid #CBD5E1; color: var(--navy-800, #193B46); border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">🔍 Test Connection</button>
@@ -1024,7 +1073,11 @@ function createWidget(){
     </div>
   </div>
   <div class="cchat-header-actions">
-    <button type="button" class="cchat-btn-icon" id="cchat-settings-btn" title="AI Model Settings"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
+    <div class="cchat-mode-toggle" id="cchat-mode-toggle" title="Switch between Smart AI and Statutory Guide mode">
+      <button type="button" class="cchat-mode-btn active ai-btn" id="cchat-mode-ai">⚡ AI Co-Pilot</button>
+      <button type="button" class="cchat-mode-btn" id="cchat-mode-guide">📖 Guide</button>
+    </div>
+    <button type="button" class="cchat-btn-icon" id="cchat-settings-btn" title="Institutional AI Settings" style="display:none;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
     <button type="button" class="cchat-btn-icon" id="cchat-clear-btn" title="New Chat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.8 1 6.5 2.7L21 8M21 3v5h-5"/></svg></button>
     <button type="button" class="cchat-btn-icon" id="cchat-close-btn" title="Close"><svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
   </div>
@@ -1163,7 +1216,7 @@ function hideTyping(){
   els.forEach(el=>el.remove());
 }
 
-// --- 7. QUERY DISPATCHER (HYBRID AI + INPUT BRAKES + DETERMINISTIC FALLBACK) ---
+// --- 7. QUERY DISPATCHER (HYBRID AI + USER MODE SELECTION + INPUT BRAKES + DETERMINISTIC FALLBACK) ---
 async function handleQuery(q){
   if(!q||!q.trim())return;
   const userText = q.trim();
@@ -1180,7 +1233,19 @@ async function handleQuery(q){
     return;
   }
 
-  // Step 2: Attempt Server-Side Model Gateway or Direct Google Gemini API
+  // Step 2: Check active user mode preference (Guide mode forces deterministic lookup)
+  const currentMode = getChatMode();
+  if (currentMode === 'guide') {
+    showTyping("Consulting verified statutory reference index...");
+    setTimeout(() => {
+      hideTyping();
+      const res = matchQuery(userText);
+      streamBotMsg(res.r, res.a, res.s || []);
+    }, 120);
+    return;
+  }
+
+  // Step 3: Default AI Mode — Attempt Server-Side Model Gateway or Direct Gemini API
   showTyping("Consulting CraftEgon Co-Pilot (Jinu)...");
   try {
     const aiResponse = await callCoPilotEngine(userText);
@@ -1239,6 +1304,33 @@ function bind(){
   if(closeBtn)closeBtn.addEventListener('click',()=>toggle(false));
   if(settingsBtn)settingsBtn.addEventListener('click', openSettingsModal);
   if(brakesBtn)brakesBtn.addEventListener('click', openBrakesModal);
+
+  // Admin access gating for settings button
+  if (settingsBtn) {
+    if (isAdminConfigAuthorized()) {
+      settingsBtn.style.display = 'inline-flex';
+    } else {
+      settingsBtn.style.display = 'none';
+    }
+  }
+
+  // Header Mode Toggle bindings
+  const modeAiBtn = document.getElementById('cchat-mode-ai');
+  const modeGuideBtn = document.getElementById('cchat-mode-guide');
+  if (modeAiBtn) {
+    modeAiBtn.addEventListener('click', () => {
+      setChatMode('ai');
+      appendBotMsg('⚡ <b>AI Co-Pilot Mode active</b>. Jinu will provide conversational intelligence grounded in CraftEgon statutory guidance.');
+    });
+  }
+  if (modeGuideBtn) {
+    modeGuideBtn.addEventListener('click', () => {
+      setChatMode('guide');
+      appendBotMsg('📖 <b>Statutory Guide Mode active</b>. Fast, deterministic MCA V3, due date &amp; fee reference lookups.');
+    });
+  }
+  updateModeToggleUi();
+
   if(clearBtn)clearBtn.addEventListener('click',()=>{
     const b=document.getElementById('cchat-messages-container');
     if(b)b.innerHTML='';

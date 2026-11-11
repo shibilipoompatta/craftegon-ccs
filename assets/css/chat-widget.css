@@ -220,7 +220,46 @@ body.mobile-nav-open #craftegon-chat-window {
 .cchat-header-actions {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.35rem;
+}
+
+/* User Mode Toggle: Smart AI vs Statutory Guide */
+.cchat-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: #F1F5F4;
+  padding: 2px;
+  border-radius: 20px;
+  border: 1px solid #DCE8E5;
+  margin-right: 0.2rem;
+}
+
+.cchat-mode-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-secondary, #52717A);
+  padding: 3px 8px;
+  border-radius: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  line-height: 1.2;
+}
+
+.cchat-mode-btn.active {
+  background: #FFFFFF;
+  color: var(--navy-900, #10262E);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(16, 38, 46, 0.12);
+}
+
+.cchat-mode-btn.active.ai-btn {
+  color: var(--accent-green-primary, #247A62);
 }
 
 .cchat-btn-icon {
