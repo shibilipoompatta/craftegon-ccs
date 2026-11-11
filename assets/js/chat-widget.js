@@ -87,6 +87,16 @@ const KB=[
   * <b>Step 6 — Form 3 (Mandatory Agreement):</b> Draft and execute the LLP Agreement on required state stamp paper and file in <b>Form 3 within 30 days</b> of incorporation (late filing incurs daily statutory additional fees).`,
   a:[['LLP Registration Service','/services/llp-registration.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
+  {k:['partnership','partnership firm','indian partnership act','register partnership','partnership deed','rof','registrar of firms','section 58','section 59','section 69','egroops'],
+  r:`Registering a <b>Partnership Firm</b> under the <b>Indian Partnership Act, 1932</b> &amp; State RoF:<br>
+  * <b>Step 1 — Deed Drafting:</b> Draft customized Partnership Deed with Section 40(b) remuneration formulas, 12% interest on capital, and Section 42(c) non-dissolution covenants.<br>
+  * <b>Step 2 — State Stamp Duty:</b> Execute on required state stamp paper (e.g., ₹1,000 under Kerala Stamp Act Art 44).<br>
+  * <b>Step 3 — Professional Attestation:</b> Attestation of Form A by an Authorized Attesting Officer (Advocate, Practicing CA, or Gazetted Officer).<br>
+  * <b>Step 4 — RoF Registration:</b> File under Section 58 with the Registrar of Firms (via Kerala eGroops 2.0 under S.R.O. 255/2025 or respective State RoF).<br>
+  * <b>Step 5 — Form C Certificate:</b> Official entry in Register of Firms under Section 59, eliminating Section 69 civil litigation disabilities.<br>
+  * <b>Step 6 — Tax &amp; Banking:</b> Entity PAN, Bank Current Account, and GST registration.`,
+  a:[['Partnership Registration Service','/services/partnership-registration.html'],['Partnership RoF Handbook','/knowledge/partnership-firm-deed-rof-handbook.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
+
   {k:['incorporat','pvt ltd','private limited','spice+','spice plus','inc-32','inc-33','inc-34','agile-pro-s','inc-20a','incorporate pvt','company registration','register company','form company','formation','director','shareholder','din','dsc','pan','tan'],
   r:`Incorporating a <b>Private Limited Company</b> under <b>Companies Act 2013</b> via MCA V3:<br>
   * <b>Requirements:</b> Minimum 2 Directors (at least 1 Indian resident) and 2 Shareholders.<br>
@@ -320,6 +330,7 @@ function getReferenceLinks(query){
     {terms:['dpdp','privacy','cyber'],link:['DPDP Compliance Audit','/services/dpdp-compliance-audit.html']},
     {terms:['trademark','tm-a','nice class','ipr'],link:['Trademark Clearance Intake','/conversion/trademark-search.html']},
     {terms:['llp','limited liability partnership','fillip','form 3','run-llp'],link:['LLP Registration Service','/services/llp-registration.html']},
+    {terms:['partnership firm','partnership deed','rof','registrar of firms','section 69','egroops'],link:['Partnership Registration Service','/services/partnership-registration.html']},
     {terms:['opc','one person company','inc-3'],link:['OPC Registration Service','/services/opc-registration.html']},
     {terms:['section 8','non profit','ngo company','inc-12'],link:['Section 8 Registration','/services/section-8-registration.html']},
     {terms:['incorporat','pvt ltd','private limited','spice+'],link:['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html']}
@@ -361,6 +372,9 @@ function inferActionPills(query, botText) {
   if (combined.includes('llp') || combined.includes('fillip') || combined.includes('form 3') || combined.includes('run-llp')) {
     pills.push(['LLP Registration', '/services/llp-registration.html']);
     pills.push(['Calculate Filing Fees', '/conversion/calculator.html']);
+  } else if (combined.includes('partnership firm') || combined.includes('partnership deed') || combined.includes('registrar of firms') || combined.includes('rof') || combined.includes('egroops')) {
+    pills.push(['Partnership Service', '/services/partnership-registration.html']);
+    pills.push(['RoF Handbook', '/knowledge/partnership-firm-deed-rof-handbook.html']);
   } else if (combined.includes('opc') || combined.includes('one person')) {
     pills.push(['OPC Registration', '/services/opc-registration.html']);
     pills.push(['Calculate Filing Fees', '/conversion/calculator.html']);

@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T11:45:30.052Z",
+  "buildTimestamp": "2026-11-11T12:16:36.696Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 166,
-    "totalOutputSizeBytes": 7714411,
-    "totalOutputSizeFormatted": "7.36 MB",
+    "totalFilesIncluded": 167,
+    "totalOutputSizeBytes": 7821906,
+    "totalOutputSizeFormatted": "7.46 MB",
     "sanitizedResidualLinksCount": 26,
-    "preRenderedSSGPagesCount": 116,
+    "preRenderedSSGPagesCount": 117,
     "filesByExtension": {
-      ".html": 124,
+      ".html": 125,
       ".css": 10,
       ".jpg": 1,
       ".bak": 1,
@@ -130,7 +130,7 @@
     },
     {
       "path": "assets/js/chat-widget.js",
-      "bytes": 68204
+      "bytes": 70146
     },
     {
       "path": "assets/js/checkout.js",
@@ -330,7 +330,7 @@
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 58197
+      "bytes": 59125
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -355,6 +355,10 @@
     {
       "path": "knowledge/opc-incorporation-nominee-guide.html",
       "bytes": 74299
+    },
+    {
+      "path": "knowledge/partnership-firm-deed-rof-handbook.html",
+      "bytes": 79229
     },
     {
       "path": "knowledge/pas6-demat-audit-guide.html",
@@ -574,7 +578,7 @@
     },
     {
       "path": "services/partnership-registration.html",
-      "bytes": 50411
+      "bytes": 75807
     },
     {
       "path": "services/pf-esic-compliance.html",
