@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T18:01:43.628Z",
+  "buildTimestamp": "2026-11-11T18:11:48.313Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 168,
-    "totalOutputSizeBytes": 7925922,
-    "totalOutputSizeFormatted": "7.56 MB",
+    "totalFilesIncluded": 169,
+    "totalOutputSizeBytes": 8024228,
+    "totalOutputSizeFormatted": "7.65 MB",
     "sanitizedResidualLinksCount": 26,
-    "preRenderedSSGPagesCount": 118,
+    "preRenderedSSGPagesCount": 119,
     "filesByExtension": {
-      ".html": 126,
+      ".html": 127,
       ".css": 10,
       ".jpg": 1,
       ".bak": 1,
@@ -130,7 +130,7 @@
     },
     {
       "path": "assets/js/chat-widget.js",
-      "bytes": 71908
+      "bytes": 73625
     },
     {
       "path": "assets/js/checkout.js",
@@ -330,7 +330,7 @@
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 60050
+      "bytes": 60977
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -375,6 +375,10 @@
     {
       "path": "knowledge/section-8-licensing-governance-guide.html",
       "bytes": 75211
+    },
+    {
+      "path": "knowledge/society-registration-kerala-act-2025-handbook.html",
+      "bytes": 71960
     },
     {
       "path": "knowledge/sole-proprietorship-udyam-gst-banking-guide.html",
@@ -630,7 +634,7 @@
     },
     {
       "path": "services/society-registration.html",
-      "bytes": 49977
+      "bytes": 73679
     },
     {
       "path": "services/software-copyright-patents.html",

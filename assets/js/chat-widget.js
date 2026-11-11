@@ -138,6 +138,14 @@ const KB=[
   * <b>GST Applicability:</b> Conditional—triggers above ₹40L (goods) / ₹20L (services) or immediately under Section 24 for interstate supply.`,
   a:[['Proprietorship Service','/services/proprietorship-registration.html'],['Proprietorship &amp; RBI Handbook','/knowledge/sole-proprietorship-udyam-gst-banking-guide.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
+  {k:['society','society registration','kerala societies act','travancore-cochin','1860 act','ngo darpan','bye-laws','society moa','charitable society'],
+  r:`Registering a <b>Charitable or Welfare Society</b> in India &amp; Kerala:<br>
+  * <b>Kerala Unified Act (Act 14 of 2025):</b> Commenced <b>Jan 1, 2026</b> (<i>S.R.O. 1435/2025</i>), repealing the split 1860 (Malabar) &amp; 1955 Travancore-Cochin Acts. Administered by <b>District Registrars (General)</b>.<br>
+  * <b>Minimum Founders:</b> Minimum <b>7 adult members</b> (Indian citizens under Kerala Act Sec 4) signing the MoA and Bye-Laws.<br>
+  * <b>Annual Filings &amp; Audits:</b> File Governing Body list &amp; audited accounts within <b>21 days of AGM</b> (Kerala Sec 19). CA audit mandatory unless annual income &lt; ₹1 Lakh (Sec 18).<br>
+  * <b>Tax &amp; Foreign Funding:</b> Society registration does NOT grant tax exemption or FCRA access—apply separately for <b>12AB/80G (Form 10A)</b>, <b>NGO Darpan</b>, and <b>MHA FCRA</b>.`,
+  a:[['Society Registration Service','/services/society-registration.html'],['Kerala Act 2025 Handbook','/knowledge/society-registration-kerala-act-2025-handbook.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
+
   {k:['aoc-4','aoc4','mgt-7','mgt7','mgt-14','mgt14','annual filing','roc compliance','agm','financial statement','annual return','dir-3 kyc','dir3 kyc','dpt-3','dpt3','msme-1','msme1','due date','deadline','ccfs','ccfs-2026'],
   r:`Annual RoC filings under Companies Act 2013:<br>
   * <b>Form AOC-4:</b> Financials within 30 days of AGM (typically Oct 30) under Sec 137.<br>
@@ -341,6 +349,7 @@ function getReferenceLinks(query){
     {terms:['llp','limited liability partnership','fillip','form 3','run-llp'],link:['LLP Registration Service','/services/llp-registration.html']},
     {terms:['partnership firm','partnership deed','rof','registrar of firms','section 69','egroops'],link:['Partnership Registration Service','/services/partnership-registration.html']},
     {terms:['proprietor','proprietorship','sole proprietor','udyam','kerala shops','shop act'],link:['Proprietorship Registration Service','/services/proprietorship-registration.html']},
+    {terms:['society','kerala societies act','ngo darpan','1860 act','bye-laws'],link:['Society Registration Service','/services/society-registration.html']},
     {terms:['opc','one person company','inc-3'],link:['OPC Registration Service','/services/opc-registration.html']},
     {terms:['section 8','non profit','ngo company','inc-12'],link:['Section 8 Registration','/services/section-8-registration.html']},
     {terms:['incorporat','pvt ltd','private limited','spice+'],link:['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html']}
@@ -388,6 +397,9 @@ function inferActionPills(query, botText) {
   } else if (combined.includes('proprietor') || combined.includes('proprietorship') || combined.includes('udyam') || combined.includes('kerala shops')) {
     pills.push(['Proprietorship Service', '/services/proprietorship-registration.html']);
     pills.push(['Udyam &amp; Banking Guide', '/knowledge/sole-proprietorship-udyam-gst-banking-guide.html']);
+  } else if (combined.includes('society') || combined.includes('kerala societies act') || combined.includes('ngo darpan') || combined.includes('bye-laws')) {
+    pills.push(['Society Registration', '/services/society-registration.html']);
+    pills.push(['Kerala Act 2025 Handbook', '/knowledge/society-registration-kerala-act-2025-handbook.html']);
   } else if (combined.includes('opc') || combined.includes('one person')) {
     pills.push(['OPC Registration', '/services/opc-registration.html']);
     pills.push(['Calculate Filing Fees', '/conversion/calculator.html']);
