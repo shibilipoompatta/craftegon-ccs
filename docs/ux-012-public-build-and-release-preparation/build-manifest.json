@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T18:11:48.313Z",
+  "buildTimestamp": "2026-11-11T18:34:27.549Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 169,
-    "totalOutputSizeBytes": 8024228,
-    "totalOutputSizeFormatted": "7.65 MB",
+    "totalFilesIncluded": 170,
+    "totalOutputSizeBytes": 8117082,
+    "totalOutputSizeFormatted": "7.74 MB",
     "sanitizedResidualLinksCount": 26,
-    "preRenderedSSGPagesCount": 119,
+    "preRenderedSSGPagesCount": 120,
     "filesByExtension": {
-      ".html": 127,
+      ".html": 128,
       ".css": 10,
       ".jpg": 1,
       ".bak": 1,
@@ -130,7 +130,7 @@
     },
     {
       "path": "assets/js/chat-widget.js",
-      "bytes": 73625
+      "bytes": 75428
     },
     {
       "path": "assets/js/checkout.js",
@@ -321,6 +321,10 @@
       "bytes": 94646
     },
     {
+      "path": "knowledge/charitable-trust-deed-sro-sec332-handbook.html",
+      "bytes": 66407
+    },
+    {
       "path": "knowledge/director-disqualification-guide.html",
       "bytes": 41832
     },
@@ -330,7 +334,7 @@
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 60977
+      "bytes": 61905
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -646,7 +650,7 @@
     },
     {
       "path": "services/trust-registration.html",
-      "bytes": 50062
+      "bytes": 73778
     },
     {
       "path": "services.html",

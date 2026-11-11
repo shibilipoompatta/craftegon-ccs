@@ -143,8 +143,16 @@ const KB=[
   * <b>Kerala Unified Act (Act 14 of 2025):</b> Commenced <b>Jan 1, 2026</b> (<i>S.R.O. 1435/2025</i>), repealing the split 1860 (Malabar) &amp; 1955 Travancore-Cochin Acts. Administered by <b>District Registrars (General)</b>.<br>
   * <b>Minimum Founders:</b> Minimum <b>7 adult members</b> (Indian citizens under Kerala Act Sec 4) signing the MoA and Bye-Laws.<br>
   * <b>Annual Filings &amp; Audits:</b> File Governing Body list &amp; audited accounts within <b>21 days of AGM</b> (Kerala Sec 19). CA audit mandatory unless annual income &lt; ₹1 Lakh (Sec 18).<br>
-  * <b>Tax &amp; Foreign Funding:</b> Society registration does NOT grant tax exemption or FCRA access—apply separately for <b>12AB/80G (Form 10A)</b>, <b>NGO Darpan</b>, and <b>MHA FCRA</b>.`,
+  * <b>Tax &amp; Foreign Funding:</b> Society registration does NOT grant tax exemption or FCRA access—apply separately for <b>12AB/80G / Sec 332/354</b>, <b>NGO Darpan</b>, and <b>MHA FCRA</b>.`,
   a:[['Society Registration Service','/services/society-registration.html'],['Kerala Act 2025 Handbook','/knowledge/society-registration-kerala-act-2025-handbook.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
+
+  {k:['trust','charitable trust','trust deed','public trust','section 332','section 354','form 105','form 107','indian trusts act','pearl kerala'],
+  r:`Registering a <b>Public Charitable Trust</b> in India &amp; Kerala:<br>
+  * <b>Statutory Reality:</b> Section 1 of the <i>Indian Trusts Act, 1882</i> excludes public charitable endowments (applies to private trusts only). Public trusts register via Trust Deed under the <b>Registration Act, 1908</b> (or Bombay Public Trusts Act in Maharashtra/Gujarat).<br>
+  * <b>Kerala PEARL &amp; Art 57 Duty:</b> Trust Declarations attract <b>2% ad-valorem stamp duty</b> (no rupee cap; e-stamping mandatory &ge; ₹1L) + <b>2% registration fee</b> via PEARL SRO token.<br>
+  * <b>Income-tax Act 2025 (Effective 1 Apr 2026):</b> File unified <b>Form No. 105</b> (Rule 181) for NPO exemption (<b>Sec 332</b>) and donor deductions (<b>Sec 354</b>), receiving a 16-digit URN in <b>Form No. 107</b>.<br>
+  * <b>Grants &amp; FCRA:</b> Obtain PAN (Form 49A), NITI Aayog NGO Darpan, and MHA FCRA before accepting foreign funds.`,
+  a:[['Trust Registration Service','/services/trust-registration.html'],['Trust &amp; Sec 332 Handbook','/knowledge/charitable-trust-deed-sro-sec332-handbook.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['aoc-4','aoc4','mgt-7','mgt7','mgt-14','mgt14','annual filing','roc compliance','agm','financial statement','annual return','dir-3 kyc','dir3 kyc','dpt-3','dpt3','msme-1','msme1','due date','deadline','ccfs','ccfs-2026'],
   r:`Annual RoC filings under Companies Act 2013:<br>
@@ -350,6 +358,7 @@ function getReferenceLinks(query){
     {terms:['partnership firm','partnership deed','rof','registrar of firms','section 69','egroops'],link:['Partnership Registration Service','/services/partnership-registration.html']},
     {terms:['proprietor','proprietorship','sole proprietor','udyam','kerala shops','shop act'],link:['Proprietorship Registration Service','/services/proprietorship-registration.html']},
     {terms:['society','kerala societies act','ngo darpan','1860 act','bye-laws'],link:['Society Registration Service','/services/society-registration.html']},
+    {terms:['trust','charitable trust','trust deed','section 332','section 354','form 105'],link:['Charitable Trust Service','/services/trust-registration.html']},
     {terms:['opc','one person company','inc-3'],link:['OPC Registration Service','/services/opc-registration.html']},
     {terms:['section 8','non profit','ngo company','inc-12'],link:['Section 8 Registration','/services/section-8-registration.html']},
     {terms:['incorporat','pvt ltd','private limited','spice+'],link:['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html']}
@@ -400,6 +409,9 @@ function inferActionPills(query, botText) {
   } else if (combined.includes('society') || combined.includes('kerala societies act') || combined.includes('ngo darpan') || combined.includes('bye-laws')) {
     pills.push(['Society Registration', '/services/society-registration.html']);
     pills.push(['Kerala Act 2025 Handbook', '/knowledge/society-registration-kerala-act-2025-handbook.html']);
+  } else if (combined.includes('trust') || combined.includes('trust deed') || combined.includes('section 332') || combined.includes('section 354') || combined.includes('form 105')) {
+    pills.push(['Trust Registration', '/services/trust-registration.html']);
+    pills.push(['Trust &amp; Sec 332 Handbook', '/knowledge/charitable-trust-deed-sro-sec332-handbook.html']);
   } else if (combined.includes('opc') || combined.includes('one person')) {
     pills.push(['OPC Registration', '/services/opc-registration.html']);
     pills.push(['Calculate Filing Fees', '/conversion/calculator.html']);
