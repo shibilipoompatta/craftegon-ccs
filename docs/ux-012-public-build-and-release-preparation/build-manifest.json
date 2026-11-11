@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T09:06:37.362Z",
+  "buildTimestamp": "2026-11-11T10:04:08.906Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 163,
-    "totalOutputSizeBytes": 7326516,
-    "totalOutputSizeFormatted": "6.99 MB",
+    "totalOutputSizeBytes": 7384777,
+    "totalOutputSizeFormatted": "7.04 MB",
     "sanitizedResidualLinksCount": 26,
     "preRenderedSSGPagesCount": 113,
     "filesByExtension": {
@@ -362,7 +362,7 @@
     },
     {
       "path": "knowledge/spice-plus-mca-v3-blueprint.html",
-      "bytes": 46788
+      "bytes": 86707
     },
     {
       "path": "knowledge/transfer-pricing-guide.html",
@@ -582,7 +582,7 @@
     },
     {
       "path": "services/pvt-ltd-registration.html",
-      "bytes": 77209
+      "bytes": 95551
     },
     {
       "path": "services/rbi-fla-return.html",
