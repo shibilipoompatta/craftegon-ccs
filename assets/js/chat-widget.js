@@ -449,9 +449,9 @@ async function callGeminiApi(userQuery) {
 
       if (!response.ok) {
         const errText = await response.text();
-        if (response.status === 404) {
-          console.warn(`Gemini model '${model}' not found (404), trying fallback model...`);
-          lastError = new Error(`HTTP 404 for model ${model}`);
+        if (response.status === 404 || response.status === 429) {
+          console.warn(`Gemini model '${model}' status HTTP ${response.status}, trying fallback model...`);
+          lastError = new Error(`HTTP ${response.status} for model ${model}`);
           continue;
         }
         let parsedErrMsg = `HTTP ${response.status} (${model})`;
@@ -501,6 +501,40 @@ async function callGeminiApi(userQuery) {
   }
 
   throw lastError || new Error('All candidate Gemini models failed');
+}
+
+// High-level co-pilot orchestrator: checks server-side proxy gateway first, then client-side Gemini
+async function callCoPilotEngine(userQuery) {
+  // 1. Try server-side secure ModelGateway (/api/chat) if available
+  const proxyEndpoint = (window.CRAFTEGON_CONFIG && window.CRAFTEGON_CONFIG.aiAssistant && window.CRAFTEGON_CONFIG.aiAssistant.proxyEndpoint) || '/api/chat';
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 4500);
+    const proxyRes = await fetch(proxyEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: userQuery, message: userQuery }),
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+    if (proxyRes.ok) {
+      const data = await proxyRes.json();
+      const rawText = data.reply || data.answer || data.content;
+      if (rawText && typeof rawText === 'string') {
+        const html = formatMarkdown(rawText);
+        const actions = inferActionPills(userQuery, rawText);
+        const sources = (Array.isArray(data.citations) && data.citations.length)
+          ? data.citations.map(c => [c.section || c.statute || 'Statutory Authority', c.url || '/services.html'])
+          : getReferenceLinks(userQuery);
+        return { r: html, a: actions, s: sources, isProxy: true };
+      }
+    }
+  } catch (proxyErr) {
+    // Server proxy not available (static showcase host or offline) — proceed to client Gemini
+  }
+
+  // 2. Direct Gemini API invocation (requires configured key)
+  return await callGeminiApi(userQuery);
 }
 
 // Live diagnostics helper to verify API key connectivity
@@ -864,6 +898,77 @@ function appendBotMsg(h,acts=[],sources=[]){
   b.scrollTop=b.scrollHeight;
 }
 
+// Progressive streaming renderer for fast, natural response appearance
+function streamBotMsg(h, acts = [], sources = [], extraNotice = '') {
+  const b = document.getElementById('cchat-messages-container');
+  if (!b) return;
+
+  const e = document.createElement('div');
+  e.className = 'cchat-msg bot';
+  const bubble = document.createElement('div');
+  bubble.className = 'cchat-bubble';
+
+  if (extraNotice) {
+    const noticeEl = document.createElement('div');
+    noticeEl.innerHTML = extraNotice;
+    bubble.appendChild(noticeEl);
+  }
+
+  const contentSpan = document.createElement('div');
+  bubble.appendChild(contentSpan);
+  e.appendChild(bubble);
+
+  const timeDiv = document.createElement('div');
+  timeDiv.className = 'cchat-timestamp';
+  timeDiv.innerHTML = `${getTime()} &bull; Jinu &bull; CraftEgon AI`;
+  e.appendChild(timeDiv);
+
+  b.appendChild(e);
+  b.scrollTop = b.scrollHeight;
+
+  function attachFooter() {
+    let aHtml = acts && acts.length ? `<div class="cchat-actions-grid" style="animation: cchatFadeIn 0.3s ease;">${acts.map(([l, u]) => {
+      const safeU = (typeof u === 'string' && (u.startsWith('/') || u.startsWith('https://'))) ? escapeHtml(u) : '#';
+      const isExternal = safeU.startsWith('https://wa.me');
+      return `<a href="${safeU}" class="cchat-action-btn"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''}><span>${escapeHtml(l)}</span><span>&rarr;</span></a>`;
+    }).join('')}</div>` : '';
+    const sourceHtml = sources.length ? `<div class="cchat-sources" style="animation: cchatFadeIn 0.3s ease;"><strong>CCS References</strong>${sources.map(([label, url]) => `<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`).join('')}</div>` : '';
+    if (sourceHtml || aHtml) {
+      const footerWrap = document.createElement('div');
+      footerWrap.innerHTML = sourceHtml + aHtml;
+      bubble.appendChild(footerWrap);
+    }
+    b.scrollTop = b.scrollHeight;
+  }
+
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced || h.length < 50) {
+    contentSpan.innerHTML = h;
+    attachFooter();
+    return;
+  }
+
+  const tokens = h.split(/(\s+|<[^>]+>)/g).filter(Boolean);
+  let idx = 0;
+  const tokensPerTick = 4;
+  const interval = 20;
+
+  function streamStep() {
+    idx = Math.min(idx + tokensPerTick, tokens.length);
+    contentSpan.innerHTML = tokens.slice(0, idx).join('');
+    b.scrollTop = b.scrollHeight;
+
+    if (idx < tokens.length) {
+      setTimeout(streamStep, interval);
+    } else {
+      contentSpan.innerHTML = h;
+      attachFooter();
+    }
+  }
+
+  setTimeout(streamStep, 25);
+}
+
 function showTyping(label="Analyzing statutory rules..."){
   hideTyping();
   const b=document.getElementById('cchat-messages-container');
@@ -893,42 +998,32 @@ async function handleQuery(q){
     showTyping("Applying compliance safeguards...");
     setTimeout(() => {
       hideTyping();
-      appendBotMsg(brakeResult.r, brakeResult.a, brakeResult.s);
-    }, 350);
+      streamBotMsg(brakeResult.r, brakeResult.a, brakeResult.s);
+    }, 250);
     return;
   }
 
-  // Step 2: Check if Google Gemini API key is available
+  // Step 2: Attempt Server-Side Model Gateway or Direct Google Gemini API
   const hasKey = Boolean(getGeminiApiKey());
-  if (hasKey) {
-    showTyping("Querying CraftEgon Gemini AI Co-Pilot (Jinu)...");
-    try {
-      const aiResponse = await callGeminiApi(userText);
-      hideTyping();
-      appendBotMsg(aiResponse.r, aiResponse.a, aiResponse.s);
-      return;
-    } catch(err) {
-      console.warn('Gemini API invocation fallback to rules engine:', err.message);
-      hideTyping();
-      // Provide transparent fallback notification before serving deterministic answer
-      showTyping("Serving verified statutory compliance answer...");
-      setTimeout(() => {
-        hideTyping();
-        const res = matchQuery(userText);
-        const notice = `<div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #D97706; padding: 6px 10px; border-radius: 4px; font-size: 0.74rem; color: #92400E; margin-bottom: 8px;">ℹ️ <strong>AI Fallback Active</strong>: Gemini API was temporarily unavailable (<em>${escapeHtml(err.message)}</em>). Serving verified CraftEgon statutory guidance:</div>`;
-        appendBotMsg(notice + res.r, res.a, res.s || []);
-      }, 150);
-      return;
-    }
-  }
-
-  // Step 3: Zero-Downtime Deterministic Local Fallback
-  showTyping("Analyzing statutory rules...");
-  setTimeout(()=>{
+  showTyping("Consulting CraftEgon Co-Pilot (Jinu)...");
+  try {
+    const aiResponse = await callCoPilotEngine(userText);
     hideTyping();
-    const res=matchQuery(userText);
-    appendBotMsg(res.r,res.a,res.s||[]);
-  }, 200);
+    streamBotMsg(aiResponse.r, aiResponse.a, aiResponse.s);
+    return;
+  } catch(err) {
+    console.warn('AI Co-Pilot invocation fallback to rules engine:', err.message);
+    hideTyping();
+    const notice = hasKey
+      ? `<div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #D97706; padding: 6px 10px; border-radius: 4px; font-size: 0.74rem; color: #92400E; margin-bottom: 8px;">ℹ️ <strong>AI Fallback Active</strong>: Gemini API was temporarily unavailable (<em>${escapeHtml(err.message)}</em>). Serving verified CraftEgon statutory guidance:</div>`
+      : '';
+    showTyping("Serving verified statutory compliance answer...");
+    setTimeout(() => {
+      hideTyping();
+      const res = matchQuery(userText);
+      streamBotMsg(res.r, res.a, res.s || [], notice);
+    }, 150);
+  }
 }
 
 function initGreeting(){

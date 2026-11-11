@@ -19,8 +19,8 @@ body.mobile-nav-open #craftegon-chat-window {
 
 #craftegon-chat-trigger {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  right: calc(24px + env(safe-area-inset-right, 0px));
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -652,18 +652,29 @@ body.mobile-nav-open #craftegon-chat-window {
     right: 0;
     left: 0;
     width: 100%;
-    height: 80vh;
-    max-height: 80dvh;
+    height: 85vh;
+    max-height: 85dvh;
     border-radius: 20px 20px 0 0;
     border-bottom: none;
   }
   #craftegon-chat-trigger {
-    bottom: 16px;
-    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: calc(16px + env(safe-area-inset-right, 0px));
     width: 48px;
     height: 48px;
   }
   #craftegon-chat-badge {
     display: none;
+  }
+}
+
+@keyframes cchatFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

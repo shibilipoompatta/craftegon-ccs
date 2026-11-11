@@ -398,7 +398,7 @@ async function routeRequest(req, res, config) {
   }
 
   // 10. Phase 5 — AI & Legal Reasoner Routes
-  if (pathname === '/api/v1/ai/query') {
+  if (pathname === '/api/v1/ai/query' || pathname === '/api/chat' || pathname === '/api/v1/chat') {
     if (method !== 'POST') {
       res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'POST' });
       return res.end(JSON.stringify({ error: 'Method Not Allowed' }));

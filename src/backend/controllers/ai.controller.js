@@ -21,7 +21,15 @@ const drafter = new DocumentDrafter({
 });
 
 async function handleAiQuery(req, res, config, body) {
-  if (!body || !body.prompt || typeof body.prompt !== 'string' || body.prompt.trim().length === 0) {
+  let prompt = body && (body.prompt || body.query || body.message);
+  if (!prompt && body && Array.isArray(body.contents)) {
+    const lastTurn = body.contents[body.contents.length - 1];
+    if (lastTurn && Array.isArray(lastTurn.parts) && lastTurn.parts[0]?.text) {
+      prompt = lastTurn.parts[0].text;
+    }
+  }
+
+  if (!prompt || typeof prompt !== 'string' || prompt.trim().length === 0) {
     res.writeHead(400, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify({
       error: 'Bad Request',
@@ -30,15 +38,21 @@ async function handleAiQuery(req, res, config, body) {
   }
 
   try {
-    const result = await reasoner.answerQuery(body.prompt, {
+    const result = await reasoner.answerQuery(prompt.trim(), {
       topK: body.topK,
       statuteFilter: body.statuteFilter,
       authorityFilter: body.authorityFilter,
       temperature: body.temperature
     });
 
+    const responsePayload = {
+      ...result,
+      reply: result.answer,
+      content: result.answer
+    };
+
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    return res.end(JSON.stringify(result));
+    return res.end(JSON.stringify(responsePayload));
   } catch (err) {
     res.writeHead(500, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify({
