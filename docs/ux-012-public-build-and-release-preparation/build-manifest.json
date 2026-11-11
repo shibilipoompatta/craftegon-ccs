@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T10:04:08.906Z",
+  "buildTimestamp": "2026-11-11T10:41:14.764Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 163,
-    "totalOutputSizeBytes": 7384777,
-    "totalOutputSizeFormatted": "7.04 MB",
+    "totalFilesIncluded": 164,
+    "totalOutputSizeBytes": 7482523,
+    "totalOutputSizeFormatted": "7.14 MB",
     "sanitizedResidualLinksCount": 26,
-    "preRenderedSSGPagesCount": 113,
+    "preRenderedSSGPagesCount": 114,
     "filesByExtension": {
-      ".html": 121,
+      ".html": 122,
       ".css": 10,
       ".jpg": 1,
       ".bak": 1,
@@ -330,7 +330,7 @@
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 55620
+      "bytes": 56496
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -339,6 +339,10 @@
     {
       "path": "knowledge/llp-compliance-solvency-guide.html",
       "bytes": 48143
+    },
+    {
+      "path": "knowledge/llp-incorporation-fillip-guide.html",
+      "bytes": 83023
     },
     {
       "path": "knowledge/mca-adjudication-penalties.html",
@@ -530,7 +534,7 @@
     },
     {
       "path": "services/llp-registration.html",
-      "bytes": 76620
+      "bytes": 90467
     },
     {
       "path": "services/master-service-agreements.html",
