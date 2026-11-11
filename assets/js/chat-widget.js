@@ -10,9 +10,13 @@ if(window.__CRAFTEGON_CHAT_INITIALIZED__)return;
 window.__CRAFTEGON_CHAT_INITIALIZED__=true;
 
 // --- 1. SOVEREIGN REGULATORY GROUNDING & BUSINESS GUARDRAIL INSTRUCTIONS ("VEILS & BRAKES") ---
-const CRAFTEGON_SYSTEM_INSTRUCTION = `You are Jinu, the CraftEgon AI Corporate Co-Pilot and compliance advisor representing CraftEgon Corporate Services (CCS) and CraftEgon LLP.
+const CRAFTEGON_SYSTEM_INSTRUCTION = `You are Jinu, the AI Corporate Compliance Co-Pilot and senior regulatory advisor representing CraftEgon Corporate Services (CCS) and CraftEgon LLP.
 Your identity and name is Jinu.
-When greeting users or when asked who you are, introduce yourself clearly and naturally: "I am Jinu, your AI corporate compliance advisor at CraftEgon LLP."
+CRITICAL IDENTITY & ADDRESSING RULES:
+- The person chatting with you is a business owner, founder, director, CFO, or client. They are NOT named Jinu.
+- NEVER address the user as "Jinu" or "Hello Jinu".
+- Address the visitor naturally: "Hello! 👋 I am Jinu, your AI corporate compliance co-pilot at CraftEgon LLP. How can I assist you today?"
+- If asked who you are or what your name is, clearly state: "I am Jinu, the AI Corporate Compliance Co-Pilot for CraftEgon LLP."
 Your role is to assist corporate leaders, founders, CFOs, and clients with authoritative, realistic, concise, and practical corporate secretarial, RoC filing, and statutory compliance guidance under Indian corporate law.
 
 CORE INSTITUTIONAL FACTS:
@@ -25,9 +29,9 @@ CORE INSTITUTIONAL FACTS:
 
 REGULATORY GROUNDING:
 1. Companies Act 2013 & MCA V3:
-   - Pvt Ltd Incorporation: SPICe+ (INC-32) with Part A (name reservation) and Part B (incorporation, DIN, PAN, TAN, EPFO, ESIC, Professional Tax, Bank Account). Minimum 2 directors (at least 1 Indian resident) and 2 shareholders.
-   - LLP: FiLLiP form under LLP Act 2008. Min. 2 Designated Partners.
-   - OPC: Sec 2(62), single resident shareholder with nominee director.
+   - Pvt Ltd Incorporation: SPICe+ (INC-32) with Part A (name reservation) and Part B (incorporation, DIN, PAN, TAN, EPFO, ESIC, Professional Tax, Bank Account). Minimum 2 directors (at least 1 Indian resident) and 2 shareholders. Post-incorporation mandatory Form INC-20A (Commencement of Business) within 180 days.
+   - LLP: FiLLiP form under LLP Act 2008. Min. 2 Designated Partners (at least 1 Indian resident). RUN-LLP for name reservation. Mandatory execution and filing of LLP Agreement in Form 3 within 30 days of incorporation.
+   - OPC: Sec 2(62), single resident member with mandatory Nominee Director (written consent in Form INC-3).
    - Section 8: Non-profit INC-12 license with zero dividend distribution.
    - Annual RoC Filings: Form AOC-4 (Financials) within 30 days of AGM (typically Oct 30 under Sec 137); Form MGT-7 (Annual Return) within 60 days of AGM (typically Nov 29 under Sec 92); Form DIR-3 KYC (Director KYC) due annually by Sept 30 (penalty Rs 5,000 for delay); Form DPT-3 (Return of deposits/loans) due annually by June 30; Form MGT-14 for special resolutions within 30 days.
    - Share Dematerialization: Rule 9B of Companies (Prospectus and Allotment of Securities) Rules mandates private companies (except small companies) to dematerialize securities. Form PAS-6 filed half-yearly for reconciliation.
@@ -54,7 +58,7 @@ REGULATORY GROUNDING:
    - Form MSC-1: Application for obtaining Dormant Company status under Section 455.
 
 COMMUNICATION PRINCIPLES & GUARDRAILS:
-- CONVERSATIONAL TONE & IDENTITY: You are Jinu. Speak naturally, realistically, politely, and authoritatively like an experienced corporate compliance agent at CraftEgon LLP. Be normal, helpful, and direct—zero promotional sycophancy or robotic formulas.
+- CONVERSATIONAL TONE & IDENTITY: You are Jinu. Speak naturally, realistically, politely, and authoritatively like an experienced corporate compliance co-pilot at CraftEgon LLP. Be normal, helpful, and direct—zero promotional sycophancy or robotic formulas.
 - DO NOT REPEAT BOILERPLATE DISCLAIMERS: Do NOT append or prepend long legal disclaimers, statutory notices, or 'brakes' to every conversational message. The permanent statutory notice is already clearly visible in the UI footer and modal.
 - STATUTORY BOUNDARIES (BRING UP ONLY WHEN RELEVANT):
   * Advocates Act 1961: If asked for courtroom advocacy or NCLT litigation representation, state that court pleadings are handled by independent practicing advocates on separate vakalatnama.
@@ -65,18 +69,51 @@ COMMUNICATION PRINCIPLES & GUARDRAILS:
 
 // --- 2. DETERMINISTIC RULES ENGINE (LOCAL ZERO-DOWNTIME FALLBACK & TEST VERIFICATION) ---
 const KB=[
-  {k:['how are you','how r u','hello','hi','hey','good morning','good afternoon','good evening','who are you','what is your name','your name','who r u','what can you do','jinu'],
-  r:`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Advisor at <b>CraftEgon LLP</b>.<br><br>I can assist you directly with:<br>• <b>Company Formation:</b> Private Limited, LLP, OPC via MCA V3 SPICe+<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Corporate Tax &amp; GST:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h) compliance<br>• <b>Cross-Border FDI:</b> RBI FLA Return, FC-GPR filing<br>• <b>Corporate Retainer Desk:</b> Year-round secretarial support<br><br>How can I assist you with your business today?`,
+  {k:['how are you','how r u','hello','hi','hey','good morning','good afternoon','good evening','who are you','what is your name','your name','who r u','what can you do','jinu','who is jinu','are you jinu','introduce yourself'],
+  r:`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b>.<br><br>I can assist you directly with:<br>• <b>Company Formation:</b> Private Limited, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Corporate Tax &amp; GST:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h) compliance<br>• <b>Cross-Border FDI:</b> RBI FLA Return, FC-GPR filing<br>• <b>Corporate Retainer Desk:</b> Year-round secretarial support<br><br>How can I assist you with your business today?`,
   a:[['Explore 57 Services','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
-  {k:['incorporat','pvt ltd','private limited','llp','opc','one person','section 8','formation','spice+','director','shareholder','din','dsc','pan','tan','run'],
-  r:`Entity incorporation on MCA V3 via SPICe+ (INC-32):<br>
-  * <b>Pvt Ltd:</b> Min. 2 Directors (1 resident) & 2 Shareholders. Bundles PAN, TAN, EPFO, ESIC & Bank A/c.<br>
-  * <b>LLP:</b> Min. 2 Designated Partners under LLP Act 2008.<br>
-  * <b>OPC:</b> Sec 2(62), single resident member with nominee director.<br>
-  * <b>Section 8:</b> Non-profit INC-12 license with zero dividend distribution.<br>
-  * <b>CCFS-2026:</b> The scheme deadline was <b>15 Sep 2026</b> and has passed. Historical concessions are not presented as available.`,
+  {k:['llp','limited liability partnership','fillip','form 3','run-llp','dpin','incorporate llp','llp formation','register llp','start llp'],
+  r:`Incorporating a <b>Limited Liability Partnership (LLP)</b> under the <b>LLP Act, 2008</b> &amp; MCA V3:<br>
+  * <b>Step 1 — Name Reservation:</b> File web-form <b>RUN-LLP</b> (Reserve Unique Name - LLP) or apply directly in FiLLiP.<br>
+  * <b>Step 2 — Digital Signatures:</b> Class-3 DSC for all proposed Designated Partners (min. 2; at least 1 resident in India).<br>
+  * <b>Step 3 — Form FiLLiP:</b> File integrated Form for Incorporation of LLP with subscriber sheets, partner consent (Form 9), and registered office proof.<br>
+  * <b>Step 4 — DPIN Allocation:</b> Designated Partner Identification Numbers (DPIN) are allotted directly via FiLLiP.<br>
+  * <b>Step 5 — Certificate of Incorporation:</b> Issued by the Central Registration Centre (CRC) with unique LLPIN.<br>
+  * <b>Step 6 — Form 3 (Mandatory Agreement):</b> Draft and execute the LLP Agreement on required state stamp paper and file in <b>Form 3 within 30 days</b> of incorporation (late filing incurs daily statutory additional fees).`,
+  a:[['LLP Registration Service','/services/llp-registration.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
+
+  {k:['incorporat','pvt ltd','private limited','spice+','spice plus','inc-32','inc-33','inc-34','agile-pro-s','inc-20a','incorporate pvt','company registration','register company','form company','formation','director','shareholder','din','dsc','pan','tan'],
+  r:`Incorporating a <b>Private Limited Company</b> under <b>Companies Act 2013</b> via MCA V3:<br>
+  * <b>Requirements:</b> Minimum 2 Directors (at least 1 Indian resident) and 2 Shareholders.<br>
+  * <b>SPICe+ Part A:</b> Reserve company name (up to 2 proposed names).<br>
+  * <b>SPICe+ Part B:</b> Integrated single-window application for:<br>
+    &nbsp;&bull; Incorporation &amp; DIN allotment (up to 3 directors)<br>
+    &nbsp;&bull; PAN &amp; TAN allocation from Income Tax Department<br>
+    &nbsp;&bull; EPFO &amp; ESIC registration<br>
+    &nbsp;&bull; Mandatory Corporate Bank Account opening &amp; Professional Tax (state-specific)<br>
+  * <b>Linked E-Forms:</b> Electronic MoA (INC-33), AoA (INC-34), and AGILE-PRO-S (INC-35).<br>
+  * <b>Post-Incorporation Crucial Step:</b> Mandatory filing of <b>Form INC-20A</b> (Commencement of Business) within 180 days after capital deposit.<br>
+  * <b>CCFS-2026:</b> The scheme deadline was <b>15 Sep 2026</b> and has passed; standard MCA fees apply.`,
   a:[['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html'],['Post-Incorporation Portal','/conversion/post-incorporation-checkout.html'],['SPICe+ MCA V3 Blueprint','/knowledge/spice-plus-mca-v3-blueprint.html']]},
+
+  {k:['opc','one person company','single director','solo founder company','inc-3','nominee director'],
+  r:`Incorporating a <b>One Person Company (OPC)</b> under <b>Section 2(62) of Companies Act 2013</b>:<br>
+  * <b>Structure:</b> Single member/shareholder (must be an Indian citizen) and minimum 1 director (member can be director).<br>
+  * <b>Nominee Requirement:</b> Mandatory nomination of a Nominee Director with prior written consent in <b>Form INC-3</b> to take over in case of death or incapacity.<br>
+  * <b>MCA V3 Filing:</b> Integrated web-form <b>SPICe+ (INC-32)</b> with SPICe+ Part A and Part B.<br>
+  * <b>Statutory Privileges:</b> Exempt from holding Annual General Meetings (AGMs) under Sec 96 and preparing Cash Flow Statements.<br>
+  * <b>Post-Incorporation:</b> Mandatory <b>Form INC-20A</b> within 180 days prior to commencing business.`,
+  a:[['OPC Registration Service','/services/opc-registration.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
+
+  {k:['section 8','non profit','ngo company','inc-12','charitable company'],
+  r:`Incorporating a <b>Section 8 (Non-Profit) Company</b> under <b>Companies Act 2013</b>:<br>
+  * <b>Objective:</b> Promotion of commerce, art, science, sports, education, research, social welfare, charity, or environmental protection.<br>
+  * <b>Zero Dividend Distribution:</b> All profits and income must be strictly applied towards the promotion of objects; no dividends to members.<br>
+  * <b>Prior License (Form INC-12):</b> Requires Central Government / RoC license approval via Form INC-12 before incorporation.<br>
+  * <b>SPICe+ Filing:</b> Incorporated via SPICe+ with specialized non-profit MoA and AoA without adding "Private Limited" or "Limited" to its corporate name.<br>
+  * <b>Tax Exemptions:</b> Requires post-incorporation 12AB and 80G registrations with the Income Tax Department.`,
+  a:[['Section 8 Registration','/services/section-8-registration.html'],['Explore 57 Services','/services.html'],['Contact Compliance Desk','/conversion/retainer-desk.html']]},
 
   {k:['aoc-4','aoc4','mgt-7','mgt7','mgt-14','mgt14','annual filing','roc compliance','agm','financial statement','annual return','dir-3 kyc','dir3 kyc','dpt-3','dpt3','msme-1','msme1','due date','deadline','ccfs','ccfs-2026'],
   r:`Annual RoC filings under Companies Act 2013:<br>
@@ -171,6 +208,7 @@ const KB=[
 const PILLS=[
   ['Retainer Desk','What is the Annual Corporate Retainer Desk?'],
   ['Incorporate Pvt Ltd','How do I incorporate a Pvt Ltd company in India?'],
+  ['Incorporate LLP','How do I incorporate a Limited Liability Partnership (LLP)?'],
   ['MCA Due Dates','What are annual RoC compliance filing due dates?'],
   ['RoC Late Fees','How much are late fees for Form AOC-4 and MGT-7?'],
   ['RBI FLA Return','What is the deadline and requirement for RBI FLA return?'],
@@ -233,7 +271,10 @@ function getReferenceLinks(query){
     {terms:['msme','43b','vendor payment'],link:['MSME Payment Tracker','/conversion/calculator.html#calc-tab-3']},
     {terms:['dpdp','privacy','cyber'],link:['DPDP Compliance Audit','/services/dpdp-compliance-audit.html']},
     {terms:['trademark','tm-a','nice class','ipr'],link:['Trademark Clearance Intake','/conversion/trademark-search.html']},
-    {terms:['incorporat','pvt ltd','spice+','llp'],link:['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html']}
+    {terms:['llp','limited liability partnership','fillip','form 3','run-llp'],link:['LLP Registration Service','/services/llp-registration.html']},
+    {terms:['opc','one person company','inc-3'],link:['OPC Registration Service','/services/opc-registration.html']},
+    {terms:['section 8','non profit','ngo company','inc-12'],link:['Section 8 Registration','/services/section-8-registration.html']},
+    {terms:['incorporat','pvt ltd','private limited','spice+'],link:['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html']}
   ];
   const matches=references.filter(reference=>reference.terms.some(term=>qNorm.includes(term))).map(reference=>reference.link);
   return matches.length?matches.slice(0,3):[['All 57 Canonical Services','/services.html'],['Compliance Desk','/conversion/retainer-desk.html']];
@@ -269,7 +310,16 @@ function inferActionPills(query, botText) {
   const combined = ((query || '') + ' ' + (botText || '')).toLowerCase();
   const pills = [];
 
-  if (combined.includes('incorporat') || combined.includes('pvt ltd') || combined.includes('company') || combined.includes('llp')) {
+  if (combined.includes('llp') || combined.includes('fillip') || combined.includes('form 3') || combined.includes('run-llp')) {
+    pills.push(['LLP Registration', '/services/llp-registration.html']);
+    pills.push(['Calculate Filing Fees', '/conversion/calculator.html']);
+  } else if (combined.includes('opc') || combined.includes('one person')) {
+    pills.push(['OPC Registration', '/services/opc-registration.html']);
+    pills.push(['Calculate Filing Fees', '/conversion/calculator.html']);
+  } else if (combined.includes('section 8') || combined.includes('non profit')) {
+    pills.push(['Section 8 Formation', '/services/section-8-registration.html']);
+    pills.push(['Explore 57 Services', '/services.html']);
+  } else if (combined.includes('incorporat') || combined.includes('pvt ltd') || combined.includes('company') || combined.includes('formation')) {
     pills.push(['Pvt Ltd Formation', '/services/pvt-ltd-registration.html']);
     pills.push(['Fast-Track Intake', '/conversion/ppc-company-registration.html']);
   }
@@ -326,7 +376,7 @@ function evaluateInputBrakes(query) {
   return { triggered: false };
 }
 
-// --- 4. GOOGLE GEMINI API INVOCATION WITH BUSINESS VEILS ---
+// --- 4. GOOGLE GEMINI API INVOCATION WITH RESILIENT FALLBACKS ---
 async function callGeminiApi(userQuery) {
   const apiKey = getGeminiApiKey();
   if (!apiKey) {
@@ -337,7 +387,8 @@ async function callGeminiApi(userQuery) {
   const modelsToTry = [
     configuredModel,
     'gemini-1.5-flash',
-    'gemini-2.0-flash'
+    'gemini-2.0-flash',
+    'gemini-1.5-pro'
   ].filter((m, idx, arr) => m && arr.indexOf(m) === idx);
 
   // Construct rolling history
@@ -368,15 +419,32 @@ async function callGeminiApi(userQuery) {
   for (const model of modelsToTry) {
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000);
+    const timeoutId = setTimeout(() => controller.abort(), 9000);
 
     try {
-      const response = await fetch(endpoint, {
+      let response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
         signal: controller.signal
       });
+
+      // If HTTP 400 (which may occur if systemInstruction proto is rejected), retry with instruction prepended to contents
+      if (response.status === 400) {
+        console.warn(`Gemini model '${model}' returned 400 with systemInstruction, retrying with prepended instructions...`);
+        const fallbackContents = JSON.parse(JSON.stringify(contents));
+        fallbackContents[0].parts[0].text = `[SYSTEM INSTRUCTION: ${CRAFTEGON_SYSTEM_INSTRUCTION}]\n\nUser Question:\n${fallbackContents[0].parts[0].text}`;
+        response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: fallbackContents,
+            generationConfig: { temperature: 0.3, maxOutputTokens: 750 }
+          }),
+          signal: controller.signal
+        });
+      }
+
       clearTimeout(timeoutId);
 
       if (!response.ok) {
@@ -386,7 +454,16 @@ async function callGeminiApi(userQuery) {
           lastError = new Error(`HTTP 404 for model ${model}`);
           continue;
         }
-        throw new Error(`Gemini API Error HTTP ${response.status} (${model}): ${errText}`);
+        let parsedErrMsg = `HTTP ${response.status} (${model})`;
+        try {
+          const errJson = JSON.parse(errText);
+          if (errJson && errJson.error && errJson.error.message) {
+            parsedErrMsg += `: ${errJson.error.message}`;
+          }
+        } catch(e) {
+          parsedErrMsg += `: ${errText.substring(0, 100)}`;
+        }
+        throw new Error(parsedErrMsg);
       }
 
       const data = await response.json();
@@ -413,7 +490,7 @@ async function callGeminiApi(userQuery) {
       clearTimeout(timeoutId);
       lastError = err;
       if (err.name === 'AbortError') {
-        console.warn(`Gemini model '${model}' timed out after 8s`);
+        console.warn(`Gemini model '${model}' timed out after 9s`);
         continue;
       }
       if (err.message && err.message.includes('404')) {
@@ -424,6 +501,46 @@ async function callGeminiApi(userQuery) {
   }
 
   throw lastError || new Error('All candidate Gemini models failed');
+}
+
+// Live diagnostics helper to verify API key connectivity
+async function testGeminiConnection(key, model) {
+  if (!key) throw new Error('API key is required.');
+  const selectedModel = model || 'gemini-1.5-flash';
+  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(selectedModel)}:generateContent?key=${encodeURIComponent(key)}`;
+  const startTime = Date.now();
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 7000);
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ role: 'user', parts: [{ text: 'Respond with the single word: OK' }] }],
+        generationConfig: { maxOutputTokens: 5 }
+      }),
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+    const latency = Date.now() - startTime;
+    if (!res.ok) {
+      const errText = await res.text();
+      let msg = `HTTP ${res.status}`;
+      try {
+        const j = JSON.parse(errText);
+        if (j.error && j.error.message) msg = j.error.message;
+      } catch(e) {
+        msg += `: ${errText.substring(0, 100)}`;
+      }
+      throw new Error(msg);
+    }
+    return { ok: true, latency: latency, model: selectedModel };
+  } catch(err) {
+    clearTimeout(timeoutId);
+    if (err.name === 'AbortError') throw new Error('Connection timed out after 7s');
+    throw err;
+  }
 }
 
 function keywordMatches(text, kw) {
@@ -451,7 +568,7 @@ function matchQuery(q){
   }
   if(maxScore>=2&&best)return{r:best.r,a:best.a,s:getReferenceLinks(n)};
   return{
-    r:`I have noted your inquiry regarding <b>"${escapeHtml(q)}"</b>.<br><br>I am <b>Jinu</b>, your corporate compliance AI advisor at <b>CraftEgon LLP</b>. I can provide practical statutory procedures, MCA V3 filing guidelines, due dates, and fee estimations under Indian corporate law (Companies Act 2013, MCA V3, FEMA 1999, GST Act 2017).<br><br>Could you share a bit more detail on your entity type or requirement? Alternatively, you can use our instant calculators or connect with our corporate desk:`,
+    r:`I have noted your inquiry regarding <b>"${escapeHtml(q)}"</b>.<br><br>I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b>. In statutory reference mode, I can provide exact procedures, MCA V3 filing rules, statutory due dates, and fee estimations under Indian corporate law (Companies Act 2013, LLP Act 2008, FEMA 1999, GST Act 2017).<br><br>Could you clarify your entity structure (Pvt Ltd, LLP, OPC) or the specific compliance area you need help with? You can also explore our quick tools or connect directly with our compliance desk:`,
     a:[['Fee & Late Fee Calculator','/conversion/calculator.html'],['Contact Compliance Desk','/conversion/retainer-desk.html'],['Explore Practice Areas','/index.html#practice-areas']],
     s:getReferenceLinks(n)
   };
@@ -518,13 +635,17 @@ function openSettingsModal() {
           Gemini API Key:
         </label>
         <input type="password" id="cchat-gemini-key-input" class="cchat-modal-input" placeholder="AIzaSy..." value="${escapeHtml(currentKey)}" style="width: 100%;">
-        <div style="font-size: 0.72rem; color: var(--text-muted, #708A93); margin-top: 0.4rem; margin-bottom: 1.25rem;">
+        <div style="font-size: 0.72rem; color: var(--text-muted, #708A93); margin-top: 0.4rem; margin-bottom: 0.85rem;">
           Keys are stored locally in your browser (localStorage). Never shared externally.
         </div>
-        <div style="display:flex; gap:0.5rem; justify-content: flex-end;">
-          <button type="button" class="btn btn-secondary" id="cchat-clear-key-btn" style="padding:0.4rem 0.85rem; font-size:0.8rem;">Clear Key</button>
-          <button type="button" class="btn btn-primary" id="cchat-save-key-btn" style="padding:0.4rem 0.85rem; font-size:0.8rem; background: var(--accent-green-primary, #247A62); color:#fff; border:none; border-radius:6px; cursor:pointer;">Save &amp; Activate</button>
+        <div style="display:flex; gap:0.5rem; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+          <button type="button" class="btn btn-secondary" id="cchat-test-key-btn" style="padding:0.4rem 0.75rem; font-size:0.78rem; background: #F1F5F9; border: 1px solid #CBD5E1; color: var(--navy-800, #193B46); border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">🔍 Test Connection</button>
+          <div style="display:flex; gap:0.5rem;">
+            <button type="button" class="btn btn-secondary" id="cchat-clear-key-btn" style="padding:0.4rem 0.85rem; font-size:0.8rem;">Clear Key</button>
+            <button type="button" class="btn btn-primary" id="cchat-save-key-btn" style="padding:0.4rem 0.85rem; font-size:0.8rem; background: var(--accent-green-primary, #247A62); color:#fff; border:none; border-radius:6px; cursor:pointer;">Save &amp; Activate</button>
+          </div>
         </div>
+        <div id="cchat-test-result-box" style="display:none; font-size: 0.76rem; border-radius: 6px; padding: 0.5rem 0.75rem; line-height: 1.4; margin-bottom: 0.5rem;"></div>
       </div>
     </div>
   `;
@@ -535,6 +656,44 @@ function openSettingsModal() {
   });
   modal.addEventListener('click', (e) => {
     if (e.target === modal) modal.style.display = 'none';
+  });
+
+  const testBtn = document.getElementById('cchat-test-key-btn');
+  const resultBox = document.getElementById('cchat-test-result-box');
+  testBtn.addEventListener('click', async () => {
+    const keyVal = document.getElementById('cchat-gemini-key-input').value.trim();
+    const modelSelect = document.getElementById('cchat-gemini-model-select');
+    const selectedModel = modelSelect ? modelSelect.value : 'gemini-1.5-flash';
+    if (!keyVal) {
+      resultBox.style.display = 'block';
+      resultBox.style.background = '#FFFBEB';
+      resultBox.style.color = '#B45309';
+      resultBox.style.border = '1px solid #FDE68A';
+      resultBox.innerHTML = '⚠️ Please enter an API key to test.';
+      return;
+    }
+    testBtn.disabled = true;
+    testBtn.textContent = 'Testing...';
+    resultBox.style.display = 'block';
+    resultBox.style.background = '#F8FAFC';
+    resultBox.style.color = '#475569';
+    resultBox.style.border = '1px solid #E2E8F0';
+    resultBox.innerHTML = `Pinging Google Gemini (${escapeHtml(selectedModel)})...`;
+    try {
+      const res = await testGeminiConnection(keyVal, selectedModel);
+      resultBox.style.background = '#ECFDF5';
+      resultBox.style.color = '#065F46';
+      resultBox.style.border = '1px solid #A7F3D0';
+      resultBox.innerHTML = `✅ <strong>Connected successfully!</strong><br>Gemini responded in ${res.latency}ms. Model is live and ready.`;
+    } catch (err) {
+      resultBox.style.background = '#FEF2F2';
+      resultBox.style.color = '#991B1B';
+      resultBox.style.border = '1px solid #FECACA';
+      resultBox.innerHTML = `❌ <strong>Connection failed:</strong><br>${escapeHtml(err.message)}<br><small style="color:#64748B;">Verify your key at https://aistudio.google.com and check quota/region access.</small>`;
+    } finally {
+      testBtn.disabled = false;
+      testBtn.textContent = '🔍 Test Connection';
+    }
   });
 
   document.getElementById('cchat-clear-key-btn').addEventListener('click', () => {
@@ -742,7 +901,7 @@ async function handleQuery(q){
   // Step 2: Check if Google Gemini API key is available
   const hasKey = Boolean(getGeminiApiKey());
   if (hasKey) {
-    showTyping("Querying CraftEgon Gemini AI Co-Pilot...");
+    showTyping("Querying CraftEgon Gemini AI Co-Pilot (Jinu)...");
     try {
       const aiResponse = await callGeminiApi(userText);
       hideTyping();
@@ -751,7 +910,15 @@ async function handleQuery(q){
     } catch(err) {
       console.warn('Gemini API invocation fallback to rules engine:', err.message);
       hideTyping();
-      // Seamlessly fall through to deterministic local fallback
+      // Provide transparent fallback notification before serving deterministic answer
+      showTyping("Serving verified statutory compliance answer...");
+      setTimeout(() => {
+        hideTyping();
+        const res = matchQuery(userText);
+        const notice = `<div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #D97706; padding: 6px 10px; border-radius: 4px; font-size: 0.74rem; color: #92400E; margin-bottom: 8px;">ℹ️ <strong>AI Fallback Active</strong>: Gemini API was temporarily unavailable (<em>${escapeHtml(err.message)}</em>). Serving verified CraftEgon statutory guidance:</div>`;
+        appendBotMsg(notice + res.r, res.a, res.s || []);
+      }, 150);
+      return;
     }
   }
 
@@ -767,7 +934,7 @@ async function handleQuery(q){
 function initGreeting(){
   const b=document.getElementById('cchat-messages-container');
   if(!b||b.children.length>0)return;
-  appendBotMsg(`Hello! 👋 I am <b>Jinu</b>, your AI corporate compliance advisor at <b>CraftEgon LLP</b>.<br><br>How can I assist you with your company registration, RoC filings, or statutory governance today?`);
+  appendBotMsg(`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b>.<br><br>How can I assist you with your company registration, RoC filings, or statutory governance today?`);
 }
 
 function bind(){

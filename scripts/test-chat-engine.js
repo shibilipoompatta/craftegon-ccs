@@ -34,6 +34,11 @@ sandbox.matchQuery = sandbox.window.matchQuery;
 
 const testQueries = [
   'How do I incorporate a Pvt Ltd company in India?',
+  'How do I incorporate a Limited Liability Partnership (LLP)?',
+  'How do I start a One Person Company (OPC)?',
+  'How do I register a Section 8 non-profit company?',
+  'Hello, how are you?',
+  'Who is Jinu?',
   'What are the annual RoC compliance filing due dates?',
   'How much are late fees for Form AOC-4 and MGT-7?',
   'What is the deadline and requirement for RBI FLA return?',
