@@ -147,46 +147,59 @@ body.mobile-nav-open #craftegon-chat-window {
 
 /* --- 3. ELEGANT MINIMALIST HEADER --- */
 .cchat-header {
-  padding: 0.9rem 1.15rem;
+  padding: 0.85rem 1.15rem;
   background: #FFFFFF;
   border-bottom: 1px solid #EDF3F1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
+  gap: 0.5rem;
 }
 
 .cchat-brand-wrap {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
+  flex: 1;
 }
 
 .cchat-avatar-wrap {
   position: relative;
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
   flex-shrink: 0;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid rgba(220, 232, 229, 0.9);
+  box-shadow: 0 2px 6px rgba(16, 38, 46, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
 }
 
 .cchat-avatar {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  object-fit: cover;
-  border: 1.5px solid var(--surface-mint-soft, #DDF5EA);
-  box-shadow: 0 2px 6px rgba(36, 122, 98, 0.1);
+  object-fit: contain;
+  padding: 2px;
+  display: block;
 }
 
 .cchat-status-dot {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 8px;
-  height: 8px;
+  bottom: -1px;
+  right: -1px;
+  width: 9px;
+  height: 9px;
   background: var(--success, #059669);
-  border: 1.5px solid #FFFFFF;
+  border: 2px solid #FFFFFF;
   border-radius: 50%;
+  z-index: 2;
 }
 
 .cchat-status-dot.ai-active {
@@ -200,13 +213,23 @@ body.mobile-nav-open #craftegon-chat-window {
   50% { transform: scale(1.2); opacity: 0.7; }
 }
 
+.cchat-brand-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
 .cchat-brand-info h4 {
   margin: 0;
   font-family: var(--font-heading, 'Manrope', sans-serif);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: var(--navy-900, #10262E);
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cchat-brand-info span {
@@ -214,13 +237,17 @@ body.mobile-nav-open #craftegon-chat-window {
   font-weight: 500;
   color: var(--text-secondary, #52717A);
   display: block;
-  margin-top: 0.1rem;
+  margin-top: 0.12rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cchat-header-actions {
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  flex-shrink: 0;
 }
 
 /* User Mode Toggle: Smart AI vs Statutory Guide */
@@ -231,7 +258,7 @@ body.mobile-nav-open #craftegon-chat-window {
   padding: 2px;
   border-radius: 20px;
   border: 1px solid #DCE8E5;
-  margin-right: 0.2rem;
+  flex-shrink: 0;
 }
 
 .cchat-mode-btn {
@@ -241,11 +268,12 @@ body.mobile-nav-open #craftegon-chat-window {
   font-weight: 600;
   color: var(--text-secondary, #52717A);
   padding: 3px 8px;
-  border-radius: 16px;
+  border-radius: 14px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 3px;
+  white-space: nowrap;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   outline: none;
   line-height: 1.2;
@@ -255,7 +283,7 @@ body.mobile-nav-open #craftegon-chat-window {
   background: #FFFFFF;
   color: var(--navy-900, #10262E);
   font-weight: 700;
-  box-shadow: 0 1px 4px rgba(16, 38, 46, 0.12);
+  box-shadow: 0 1px 3px rgba(16, 38, 46, 0.12);
 }
 
 .cchat-mode-btn.active.ai-btn {
@@ -266,8 +294,8 @@ body.mobile-nav-open #craftegon-chat-window {
   background: transparent;
   border: none;
   color: var(--text-secondary, #52717A);
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -276,6 +304,7 @@ body.mobile-nav-open #craftegon-chat-window {
   transition: all 0.15s ease;
   outline: none;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .cchat-btn-icon:hover {

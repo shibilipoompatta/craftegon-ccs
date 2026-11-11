@@ -828,7 +828,7 @@ function updateAssistantBadge() {
     if (mode === 'guide') {
       badgeText.textContent = 'Statutory Guide';
     } else {
-      badgeText.textContent = 'Jinu • AI Co-Pilot';
+      badgeText.textContent = 'Corporate Compliance AI';
     }
   }
   if (dot) {
@@ -1068,14 +1068,14 @@ function createWidget(){
       <span class="cchat-status-dot ai-active" id="cchat-status-dot"></span>
     </div>
     <div class="cchat-brand-info">
-      <h4>Jinu <span style="font-size:0.75rem; font-weight:500; opacity:0.85;">&bull; CraftEgon AI</span></h4>
-      <span id="cchat-status-text">Compliance Advisor</span>
+      <h4>Jinu</h4>
+      <span id="cchat-status-text">Corporate Compliance AI</span>
     </div>
   </div>
   <div class="cchat-header-actions">
-    <div class="cchat-mode-toggle" id="cchat-mode-toggle" title="Switch between Smart AI and Statutory Guide mode">
-      <button type="button" class="cchat-mode-btn active ai-btn" id="cchat-mode-ai">⚡ AI Co-Pilot</button>
-      <button type="button" class="cchat-mode-btn" id="cchat-mode-guide">📖 Guide</button>
+    <div class="cchat-mode-toggle" id="cchat-mode-toggle" role="radiogroup" aria-label="Operating Mode" title="Switch between Smart AI and Statutory Guide mode">
+      <button type="button" class="cchat-mode-btn active ai-btn" id="cchat-mode-ai" title="Smart AI Mode">⚡ AI</button>
+      <button type="button" class="cchat-mode-btn" id="cchat-mode-guide" title="Statutory Guide Mode">📖 Guide</button>
     </div>
     <button type="button" class="cchat-btn-icon" id="cchat-settings-btn" title="Institutional AI Settings" style="display:none;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></button>
     <button type="button" class="cchat-btn-icon" id="cchat-clear-btn" title="New Chat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.8 1 6.5 2.7L21 8M21 3v5h-5"/></svg></button>
