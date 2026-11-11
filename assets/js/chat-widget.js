@@ -154,6 +154,14 @@ const KB=[
   * <b>Grants &amp; FCRA:</b> Obtain PAN (Form 49A), NITI Aayog NGO Darpan, and MHA FCRA before accepting foreign funds.`,
   a:[['Trust Registration Service','/services/trust-registration.html'],['Trust &amp; Sec 332 Handbook','/knowledge/charitable-trust-deed-sro-sec332-handbook.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
+  {k:['dpiit','startup india','gsr 108','deep tech','80-iac','80iac','section 140','angel tax','56(2)(viib)','nsws','ksum','kerala startup mission'],
+  r:`<b>DPIIT Startup India Recognition</b> under Notification <b>G.S.R. 108(E)</b> (4 Feb 2026):<br>
+  * <b>Revised Thresholds:</b> Standard startups qualify up to <b>10 years &amp; ₹200 Cr</b> turnover (doubled from ₹100 Cr); <b>Deep Tech Startups</b> qualify up to <b>20 years &amp; ₹300 Cr</b> turnover. Eligible structures include Pvt Ltd, LLP, Regd Partnership, and <b>Cooperative Societies</b> (via <code>nsws.gov.in</code>, ₹0 govt fee).<br>
+  * <b>Angel Tax Repealed:</b> Section 56(2)(viib) was prospectively <b>abolished effective 1 April 2025</b>; historical Form 2 is obsolete for current rounds (though Section 68 &amp; FEMA pricing floors remain active).<br>
+  * <b>3-Year Tax Holiday (Sec 140, Income-tax Act 2025):</b> Successor to Sec 80-IAC—requires separate <b>IMB Certification</b> and is strictly limited to Pvt Ltd Companies &amp; LLPs (subject to MAT).<br>
+  * <b>IPR, GeM &amp; KSUM Grants:</b> Unlocks 80% Patent rebate, 50% Trademark rebate, GeM waivers, Central SISFS (₹50L), and <b>Kerala Startup Mission (KSUM)</b> Idea Grants (₹3L+).`,
+  a:[['DPIIT Startup Service','/services/dpiit-startup-india.html'],['G.S.R. 108(E) &amp; Sec 140 Handbook','/knowledge/dpiit-startup-india-gsr108e-sec140-handbook.html'],['Angel Tax Abolition Brief','/knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html']]},
+
   {k:['aoc-4','aoc4','mgt-7','mgt7','mgt-14','mgt14','annual filing','roc compliance','agm','financial statement','annual return','dir-3 kyc','dir3 kyc','dpt-3','dpt3','msme-1','msme1','due date','deadline','ccfs','ccfs-2026'],
   r:`Annual RoC filings under Companies Act 2013:<br>
   * <b>Form AOC-4:</b> Financials within 30 days of AGM (typically Oct 30) under Sec 137.<br>
@@ -359,6 +367,7 @@ function getReferenceLinks(query){
     {terms:['proprietor','proprietorship','sole proprietor','udyam','kerala shops','shop act'],link:['Proprietorship Registration Service','/services/proprietorship-registration.html']},
     {terms:['society','kerala societies act','ngo darpan','1860 act','bye-laws'],link:['Society Registration Service','/services/society-registration.html']},
     {terms:['trust','charitable trust','trust deed','section 332','section 354','form 105'],link:['Charitable Trust Service','/services/trust-registration.html']},
+    {terms:['dpiit','startup india','gsr 108','deep tech','80-iac','section 140','angel tax','ksum'],link:['DPIIT Startup Service','/services/dpiit-startup-india.html']},
     {terms:['opc','one person company','inc-3'],link:['OPC Registration Service','/services/opc-registration.html']},
     {terms:['section 8','non profit','ngo company','inc-12'],link:['Section 8 Registration','/services/section-8-registration.html']},
     {terms:['incorporat','pvt ltd','private limited','spice+'],link:['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html']}
@@ -412,6 +421,9 @@ function inferActionPills(query, botText) {
   } else if (combined.includes('trust') || combined.includes('trust deed') || combined.includes('section 332') || combined.includes('section 354') || combined.includes('form 105')) {
     pills.push(['Trust Registration', '/services/trust-registration.html']);
     pills.push(['Trust &amp; Sec 332 Handbook', '/knowledge/charitable-trust-deed-sro-sec332-handbook.html']);
+  } else if (combined.includes('dpiit') || combined.includes('startup india') || combined.includes('deep tech') || combined.includes('section 140') || combined.includes('80-iac') || combined.includes('angel tax')) {
+    pills.push(['DPIIT Startup Service', '/services/dpiit-startup-india.html']);
+    pills.push(['G.S.R. 108(E) Handbook', '/knowledge/dpiit-startup-india-gsr108e-sec140-handbook.html']);
   } else if (combined.includes('opc') || combined.includes('one person')) {
     pills.push(['OPC Registration', '/services/opc-registration.html']);
     pills.push(['Calculate Filing Fees', '/conversion/calculator.html']);

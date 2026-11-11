@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T18:34:27.549Z",
+  "buildTimestamp": "2026-11-11T18:41:19.837Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 170,
-    "totalOutputSizeBytes": 8117082,
-    "totalOutputSizeFormatted": "7.74 MB",
+    "totalFilesIncluded": 172,
+    "totalOutputSizeBytes": 8258316,
+    "totalOutputSizeFormatted": "7.88 MB",
     "sanitizedResidualLinksCount": 26,
-    "preRenderedSSGPagesCount": 120,
+    "preRenderedSSGPagesCount": 122,
     "filesByExtension": {
-      ".html": 128,
+      ".html": 130,
       ".css": 10,
       ".jpg": 1,
       ".bak": 1,
@@ -130,7 +130,7 @@
     },
     {
       "path": "assets/js/chat-widget.js",
-      "bytes": 75428
+      "bytes": 77475
     },
     {
       "path": "assets/js/checkout.js",
@@ -321,6 +321,10 @@
       "bytes": 94646
     },
     {
+      "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
+      "bytes": 49387
+    },
+    {
       "path": "knowledge/charitable-trust-deed-sro-sec332-handbook.html",
       "bytes": 66407
     },
@@ -329,12 +333,16 @@
       "bytes": 41832
     },
     {
+      "path": "knowledge/dpiit-startup-india-gsr108e-sec140-handbook.html",
+      "bytes": 64219
+    },
+    {
       "path": "knowledge/gst-einvoicing-compliance-mandate.html",
       "bytes": 51087
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 61905
+      "bytes": 63741
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -454,7 +462,7 @@
     },
     {
       "path": "services/dpiit-startup-india.html",
-      "bytes": 50972
+      "bytes": 74717
     },
     {
       "path": "services/fast-track-mergers.html",
