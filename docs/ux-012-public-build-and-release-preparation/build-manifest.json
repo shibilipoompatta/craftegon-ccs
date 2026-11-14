@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-11T18:41:19.837Z",
+  "buildTimestamp": "2026-11-14T07:47:02.843Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,17 +10,17 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 172,
-    "totalOutputSizeBytes": 8258316,
-    "totalOutputSizeFormatted": "7.88 MB",
+    "totalFilesIncluded": 174,
+    "totalOutputSizeBytes": 8276031,
+    "totalOutputSizeFormatted": "7.89 MB",
     "sanitizedResidualLinksCount": 26,
     "preRenderedSSGPagesCount": 122,
     "filesByExtension": {
       ".html": 130,
-      ".css": 10,
+      ".css": 11,
       ".jpg": 1,
       ".bak": 1,
-      ".js": 15,
+      ".js": 16,
       ".json": 11,
       "config": 2,
       ".txt": 1,
@@ -81,8 +81,12 @@
       "bytes": 4451
     },
     {
+      "path": "assets/css/home-animations.css",
+      "bytes": 1534
+    },
+    {
       "path": "assets/css/home-unique.css",
-      "bytes": 34659
+      "bytes": 40044
     },
     {
       "path": "assets/css/navbar.css",
@@ -151,6 +155,10 @@
     {
       "path": "assets/js/home-3d.js",
       "bytes": 8741
+    },
+    {
+      "path": "assets/js/home-animations.js",
+      "bytes": 873
     },
     {
       "path": "assets/js/home-interactive.js",
@@ -318,7 +326,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 94646
+      "bytes": 104569
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
