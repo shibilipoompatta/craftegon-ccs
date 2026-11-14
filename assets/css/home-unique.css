@@ -3945,6 +3945,25 @@ a, button, input, select, textarea,
   flex-wrap: wrap;
   margin-top: 0.85rem;
 }
+@media (max-width: 640px) {
+  .hero-search-shortcuts {
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 0.2rem 0.25rem 0.5rem !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .hero-search-shortcuts::-webkit-scrollbar {
+    display: none !important;
+  }
+  .search-pill {
+    flex-shrink: 0 !important;
+  }
+}
 .shortcuts-label {
   font-size: 0.75rem;
   font-weight: 700;

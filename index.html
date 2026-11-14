@@ -243,6 +243,23 @@
   flex-wrap: wrap;
   margin-top: 0.85rem;
 }
+@media (max-width: 560px) {
+  .hero-search-shortcuts {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.2rem 0.25rem 0.4rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .hero-search-shortcuts::-webkit-scrollbar {
+    display: none;
+  }
+  .search-pill {
+    flex-shrink: 0;
+  }
+}
 .shortcuts-label {
   font-size: 0.78rem;
   font-weight: 700;
@@ -1079,7 +1096,7 @@
                 id="home-front-search-input"
                 name="q"
                 class="unified-search-input"
-                placeholder="Search services, RoC forms (e.g. SPICe+, AOC-4, Trademark, GST)..."
+                placeholder="Search 57+ services, forms (SPICe+, AOC-4, GST)..."
                 autocomplete="off"
                 spellcheck="false"
                 aria-label="Search corporate services from homepage"
@@ -1174,6 +1191,246 @@
         </div>
       </div>
     </section>
+
+    
+    <!-- ====================================================================
+         INTERACTIVE 60-SECOND ENTITY SELECTOR WIZARD
+         ==================================================================== -->
+    <section class="home-section entity-wizard-section" id="entity-selector" aria-labelledby="wizard-heading" style="background: var(--surface-mint-white, #F4FAF7); padding: 3.5rem 1rem; border-top: 1px solid var(--border-soft, #DCE8E5); border-bottom: 1px solid var(--border-soft, #DCE8E5);">
+      <div class="home-container" style="max-width: 1200px; margin: 0 auto;">
+        <div class="section-header-centered" style="text-align: center; max-width: 720px; margin: 0 auto 2.2rem;">
+          <span class="section-eyebrow" style="display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-emerald, #247A62); background: rgba(36, 122, 98, 0.1); padding: 3px 10px; border-radius: 9999px; margin-bottom: 0.6rem;">⚡ 60-Second Diagnostic Tool</span>
+          <h2 id="wizard-heading" class="section-title" style="font-family: var(--font-heading, 'Manrope', sans-serif); font-size: 1.85rem; font-weight: 800; color: var(--text-dark, #193B46); margin: 0 0 0.6rem; letter-spacing: -0.02em;">Which Business Entity is Right for You?</h2>
+          <p class="section-lead" style="font-size: 0.95rem; color: var(--text-muted, #5A7178); line-height: 1.55; margin: 0;">
+            Unsure whether to register a Private Limited Company, an LLP, or an OPC? Select your commercial preferences below for an instant statutory recommendation with transparent pricing.
+          </p>
+        </div>
+
+        <div class="wizard-grid-layout" style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 1.75rem; align-items: stretch;">
+          <!-- Left: Diagnostic Questions Card -->
+          <div class="wizard-card-questions" style="background: #FFFFFF; border: 1px solid var(--border-soft, #DCE8E5); border-radius: 12px; padding: 1.6rem; box-shadow: 0 2px 8px rgba(25, 59, 70, 0.04); display: flex; flex-direction: column; gap: 1.4rem;">
+            
+            <!-- Question 1: Funding & Growth Goal -->
+            <div class="wizard-q-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--text-dark, #193B46); margin-bottom: 0.6rem;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--accent-emerald, #247A62); color: #FFFFFF; border-radius: 50%; font-size: 0.72rem; font-weight: 800;">1</span>
+                <span>Funding &amp; Capital Growth Strategy</span>
+              </label>
+              <div class="wizard-options-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <label class="wizard-chip">
+                  <input type="radio" name="w-goal" value="vc" checked onchange="updateEntityWizard()">
+                  <div class="wizard-chip-inner">
+                    <span class="chip-title">🚀 Venture Capital / Angels</span>
+                    <span class="chip-desc">Needs equity shares &amp; ESOPs</span>
+                  </div>
+                </label>
+                <label class="wizard-chip">
+                  <input type="radio" name="w-goal" value="bootstrapped" onchange="updateEntityWizard()">
+                  <div class="wizard-chip-inner">
+                    <span class="chip-title">💼 Bootstrapped / Services</span>
+                    <span class="chip-desc">Direct profit distribution</span>
+                  </div>
+                </label>
+                <label class="wizard-chip">
+                  <input type="radio" name="w-goal" value="solo" onchange="updateEntityWizard()">
+                  <div class="wizard-chip-inner">
+                    <span class="chip-title">👤 Solo Consultant / Micro</span>
+                    <span class="chip-desc">100% single-owner control</span>
+                  </div>
+                </label>
+                <label class="wizard-chip">
+                  <input type="radio" name="w-goal" value="nonprofit" onchange="updateEntityWizard()">
+                  <div class="wizard-chip-inner">
+                    <span class="chip-title">🌱 Non-Profit / Foundation</span>
+                    <span class="chip-desc">Charity, 12AB/80G tax benefit</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 2: Founding Team -->
+            <div class="wizard-q-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--text-dark, #193B46); margin-bottom: 0.6rem;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--accent-emerald, #247A62); color: #FFFFFF; border-radius: 50%; font-size: 0.72rem; font-weight: 800;">2</span>
+                <span>Founding Team Size</span>
+              </label>
+              <div class="wizard-options-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <label class="wizard-chip">
+                  <input type="radio" name="w-team" value="solo" onchange="updateEntityWizard()">
+                  <div class="wizard-chip-inner">
+                    <span class="chip-title">Solo Founder (1 Person)</span>
+                    <span class="chip-desc">Single owner / director</span>
+                  </div>
+                </label>
+                <label class="wizard-chip">
+                  <input type="radio" name="w-team" value="multiple" checked onchange="updateEntityWizard()">
+                  <div class="wizard-chip-inner">
+                    <span class="chip-title">2+ Co-Founders / Partners</span>
+                    <span class="chip-desc">Shared equity or partnership</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 3: Statutory Preference -->
+            <div class="wizard-q-group">
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--text-dark, #193B46); margin-bottom: 0.6rem;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--accent-emerald, #247A62); color: #FFFFFF; border-radius: 50%; font-size: 0.72rem; font-weight: 800;">3</span>
+                <span>Compliance &amp; Audit Preference</span>
+              </label>
+              <div class="wizard-options-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <label class="wizard-chip">
+                  <input type="radio" name="w-audit" value="institutional" checked onchange="updateEntityWizard()">
+                  <div class="wizard-chip-inner">
+                    <span class="chip-title">Institutional Credibility</span>
+                    <span class="chip-desc">Mandatory statutory audit &amp; board meetings</span>
+                  </div>
+                </label>
+                <label class="wizard-chip">
+                  <input type="radio" name="w-audit" value="lightweight" onchange="updateEntityWizard()">
+                  <div class="wizard-chip-inner">
+                    <span class="chip-title">Audit-Exempt &amp; Agile</span>
+                    <span class="chip-desc">No audit up to ₹40L turnover</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Instant Recommended Structure Output -->
+          <div class="wizard-card-recommendation" id="wizard-output-card" style="background: linear-gradient(135deg, #FFFFFF 0%, #F4FAF7 100%); border: 2px solid var(--accent-mint-vibrant, #75CDA9); border-radius: 12px; padding: 1.6rem; box-shadow: 0 4px 16px rgba(36, 122, 98, 0.08); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.4rem;">
+                <span style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #065F46; background: #ECFDF5; border: 1px solid rgba(16, 185, 129, 0.3); padding: 3px 9px; border-radius: 9999px;">🎯 100% STATUTORY FIT</span>
+                <span id="rec-tag" style="font-family: var(--font-mono, monospace); font-size: 0.72rem; color: var(--text-muted, #5A7178); background: #FFFFFF; border: 1px solid var(--border-soft, #DCE8E5); padding: 2px 7px; border-radius: 4px;">Companies Act 2013</span>
+              </div>
+
+              <h3 id="rec-title" style="font-family: var(--font-heading, sans-serif); font-size: 1.35rem; font-weight: 800; color: var(--text-dark, #193B46); margin: 0 0 0.5rem;">Private Limited Company (SPICe+)</h3>
+              <p id="rec-desc" style="font-size: 0.85rem; color: var(--text-main, #243746); line-height: 1.55; margin: 0 0 1rem;">
+                India's standard corporate vehicle for high-growth ventures. Required by institutional angels and venture capital funds to issue preference shares, convertible debt, and employee stock option pools (ESOPs).
+              </p>
+
+              <!-- Transparent Price Box -->
+              <div style="background: #FFFFFF; border: 1px solid var(--border-soft, #DCE8E5); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1rem;">
+                <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted, #5A7178);">Indicative Professional Retainer</div>
+                <div style="display: flex; align-items: baseline; gap: 0.45rem; margin-top: 2px;">
+                  <span id="rec-price" style="font-size: 1.45rem; font-weight: 800; color: var(--accent-emerald, #247A62);">From ₹7,999</span>
+                  <span id="rec-sub" style="font-size: 0.75rem; color: var(--text-muted, #5A7178);">+ Govt Fees &amp; Stamp Duty</span>
+                </div>
+              </div>
+
+              <!-- Key Highlights -->
+              <div style="display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.25rem;">
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8rem; color: var(--text-main, #243746);">
+                  <span style="color: #059669; font-weight: 800;">✓</span>
+                  <span id="rec-h1">Complete limited liability protection ring-fencing personal assets</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8rem; color: var(--text-main, #243746);">
+                  <span style="color: #059669; font-weight: 800;">✓</span>
+                  <span id="rec-h2">Zero MCA government filing fee for authorized capital up to ₹15 Lakhs</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8rem; color: var(--text-main, #243746);">
+                  <span style="color: #059669; font-weight: 800;">✓</span>
+                  <span id="rec-h3">3–5 working days turnaround supervised by practicing CS &amp; CA</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+              <a href="/services/pvt-ltd-registration.html" id="rec-cta" class="flagship-btn" style="flex: 1; text-align: center; text-decoration: none; padding: 0.65rem 1rem; font-size: 0.85rem; font-weight: 700;">
+                Incorporate Company &rarr;
+              </a>
+              <a href="https://wa.me/918606918247?text=Hello%20CraftEgon%20CCS,%20I%20used%20the%20Entity%20Selector%20and%20want%20to%20discuss%20incorporation" target="_blank" rel="noopener noreferrer" class="flagship-btn" style="flex: 1; text-align: center; text-decoration: none; padding: 0.65rem 1rem; font-size: 0.85rem; font-weight: 700; background: #FFFFFF; color: #065F46; border: 1px solid #75CDA9;">
+                💬 WhatsApp Desk
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Entity Selector Wizard Dynamic Controller Script -->
+    <script>
+      function updateEntityWizard() {
+        var goal = document.querySelector('input[name="w-goal"]:checked') ? document.querySelector('input[name="w-goal"]:checked').value : 'vc';
+        var team = document.querySelector('input[name="w-team"]:checked') ? document.querySelector('input[name="w-team"]:checked').value : 'multiple';
+        var audit = document.querySelector('input[name="w-audit"]:checked') ? document.querySelector('input[name="w-audit"]:checked').value : 'institutional';
+
+        var titleEl = document.getElementById('rec-title');
+        var tagEl = document.getElementById('rec-tag');
+        var descEl = document.getElementById('rec-desc');
+        var priceEl = document.getElementById('rec-price');
+        var subEl = document.getElementById('rec-sub');
+        var h1El = document.getElementById('rec-h1');
+        var h2El = document.getElementById('rec-h2');
+        var h3El = document.getElementById('rec-h3');
+        var ctaEl = document.getElementById('rec-cta');
+
+        if (!titleEl) return;
+
+        if (goal === 'nonprofit') {
+          titleEl.textContent = 'Section 8 Non-Profit Company';
+          tagEl.textContent = 'Companies Act 2013';
+          descEl.textContent = 'The gold standard for charitable foundations, NGOs, and CSR implementation agencies. Unlocks Central Govt Section 8 License, Section 12AB tax exemption, and Section 80G donor deductions.';
+          priceEl.textContent = 'From ₹13,999';
+          subEl.textContent = '+ Govt Fees & Stamp Duty';
+          h1El.textContent = 'Eligible for Section 12AB income tax exemption & 80G donor deductions';
+          h2El.textContent = 'Central Government Section 8 License issued by CRC/MCA';
+          h3El.textContent = 'Complete statutory MOA/AOA drafting with mandatory non-profit clauses';
+          ctaEl.href = '/services/section-8-registration.html';
+          ctaEl.textContent = 'Register Section 8 Company →';
+        } else if (team === 'solo' && goal === 'solo') {
+          if (audit === 'institutional') {
+            titleEl.textContent = 'One Person Company (OPC)';
+            tagEl.textContent = 'Section 2(62) Companies Act';
+            descEl.textContent = 'Full corporate veil and limited liability ring-fencing with 100% single-member equity control. Exempt from holding mandatory annual general meetings (AGMs).';
+            priceEl.textContent = 'From ₹6,999';
+            subEl.textContent = '+ Govt Fees & Stamp Duty';
+            h1El.textContent = '100% solo equity ownership with corporate limited liability';
+            h2El.textContent = 'Nominee director documentation (Form INC-3) included';
+            h3El.textContent = 'Statutory exemption from holding formal AGMs under Section 96';
+            ctaEl.href = '/services/opc-registration.html';
+            ctaEl.textContent = 'Incorporate OPC →';
+          } else {
+            titleEl.textContent = 'Sole Proprietorship Registration';
+            tagEl.textContent = 'MSMED Act & GSTN Network';
+            descEl.textContent = 'The fastest, most cost-effective path to launch a solo consultancy, agency, or retail operation. Zero MCA compliance, instant current account readiness, and MSME Udyam protection.';
+            priceEl.textContent = '₹2,999';
+            subEl.textContent = 'All Inclusive Advisory Fee';
+            h1El.textContent = 'Bank-ready current account kit with MSME Udyam URN certificate';
+            h2El.textContent = 'Zero MCA RoC annual filings or statutory audit requirements';
+            h3El.textContent = 'Section 43B(h) 45-day statutory payment protection under MSMED Act';
+            ctaEl.href = '/services/proprietorship-registration.html';
+            ctaEl.textContent = 'Register Proprietorship →';
+          }
+        } else if (goal === 'bootstrapped' || audit === 'lightweight') {
+          titleEl.textContent = 'Limited Liability Partnership (LLP)';
+          tagEl.textContent = 'LLP Act 2008';
+          descEl.textContent = 'The optimal hybrid structure for professional firms, consultancies, and profitable joint ventures. Partners enjoy limited liability without mandatory statutory audits up to ₹40 Lakhs turnover.';
+          priceEl.textContent = 'From ₹6,499';
+          subEl.textContent = '+ Govt Fees & Stamp Duty';
+          h1El.textContent = 'Audit exemption under ₹40 Lakhs turnover / ₹25 Lakhs partner capital';
+          h2El.textContent = 'Flexible profit distribution without corporate dividend distribution taxes';
+          h3El.textContent = 'Customized LLP Agreement drafting and Form 3 e-filing with RoC';
+          ctaEl.href = '/services/llp-registration.html';
+          ctaEl.textContent = 'Register LLP →';
+        } else {
+          titleEl.textContent = 'Private Limited Company (SPICe+)';
+          tagEl.textContent = 'Companies Act 2013';
+          descEl.textContent = 'India\\'s standard corporate vehicle for high-growth ventures. Required by institutional angels and venture capital funds to issue preference shares, convertible debt, and employee stock ownership pools (ESOPs).';
+          priceEl.textContent = 'From ₹7,999';
+          subEl.textContent = '+ Govt Fees & Stamp Duty at Actuals';
+          h1El.textContent = 'Complete limited liability protection ring-fencing personal assets';
+          h2El.textContent = 'Zero MCA government filing fee for capital up to ₹15 Lakhs';
+          h3El.textContent = '3–5 working days turnaround with practicing CS & CA supervision';
+          ctaEl.href = '/services/pvt-ltd-registration.html';
+          ctaEl.textContent = 'Incorporate Company →';
+        }
+      }
+    </script>
+
 
     <!-- ====================================================================
          SECTION 2: FLAGSHIP SERVICES GRID (THE CORE 6)
