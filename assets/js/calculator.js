@@ -13,14 +13,14 @@ function calculateCost() {
   const delayDays = parseInt(document.getElementById('roc-delay-days')?.value) || 0;
   const ccfsMode = Boolean(document.getElementById('ccfs-mode')?.checked) && Date.now() <= CCFS_2026_DEADLINE.getTime();
 
-  let baseProf = 14999;
+  let baseProf = 15999;
   let baseGovt = 1200;
 
-  if (service === 'pvt-ltd') { baseProf = 7499; baseGovt = 3500; }
-  else if (service === 'llp') { baseProf = 5999; baseGovt = 2500; }
-  else if (service === 'roc-retainer') { baseProf = 14999; baseGovt = 1200; }
-  else if (service === 'gst-annual') { baseProf = 12999; baseGovt = 0; }
-  else if (service === 'trademark') { baseProf = 4499; baseGovt = 4500; }
+  if (service === 'pvt-ltd') { baseProf = 7999; baseGovt = 3500; }
+  else if (service === 'llp') { baseProf = 6499; baseGovt = 2500; }
+  else if (service === 'roc-retainer') { baseProf = 15999; baseGovt = 1200; }
+  else if (service === 'gst-annual') { baseProf = 13999; baseGovt = 0; }
+  else if (service === 'trademark') { baseProf = 4999; baseGovt = 4500; }
 
   // Tier multiplier
   if (tier === 'tier-2') baseGovt = Math.round(baseGovt * 1.5);
