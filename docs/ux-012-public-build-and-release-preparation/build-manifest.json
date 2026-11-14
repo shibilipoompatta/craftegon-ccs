@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-14T11:45:36.255Z",
+  "buildTimestamp": "2026-11-14T12:12:24.823Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 174,
-    "totalOutputSizeBytes": 8446571,
+    "totalOutputSizeBytes": 8449314,
     "totalOutputSizeFormatted": "8.06 MB",
     "sanitizedResidualLinksCount": 21,
     "preRenderedSSGPagesCount": 122,
@@ -90,7 +90,7 @@
     },
     {
       "path": "assets/css/navbar.css",
-      "bytes": 31006
+      "bytes": 31257
     },
     {
       "path": "assets/css/service-page.css",
@@ -550,7 +550,7 @@
     },
     {
       "path": "services/index.html",
-      "bytes": 99104
+      "bytes": 100350
     },
     {
       "path": "services/ip-enforcement-cease-desist.html",
@@ -670,7 +670,7 @@
     },
     {
       "path": "services.html",
-      "bytes": 99484
+      "bytes": 100730
     },
     {
       "path": "verticals/01-entity-formation.html",

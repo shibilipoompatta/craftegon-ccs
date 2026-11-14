@@ -912,13 +912,17 @@ body.mobile-nav-open .if-header {
   box-shadow: -8px 0 36px rgba(16, 38, 46, 0.28);
   display: flex;
   flex-direction: column;
-  transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
   padding-block-end: env(safe-area-inset-bottom);
   box-sizing: border-box;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .if-mobile-drawer.active {
   right: 0 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 /* Enforce 100% width on all mobile and tablet viewports to prevent split-drawer glitches */
@@ -927,9 +931,13 @@ body.mobile-nav-open .if-header {
     width: 100% !important;
     max-width: 100vw !important;
     right: -100% !important;
+    visibility: hidden;
+    pointer-events: none;
   }
   .if-mobile-drawer.active {
     right: 0 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
   }
 }
 
@@ -1256,7 +1264,8 @@ body.mobile-nav-open .if-header {
 }
 
 @media (max-width: 767.98px) {
-  .portal-nav-link { display: none !important; }
+  .portal-nav-link,
+  .if-header-actions .if-btn-secondary { display: none !important; }
   .btn-talk-expert { display: none !important; }
   .brand-title { font-size: 0.98rem !important; }
   .brand-subtitle { font-size: 0.62rem !important; }

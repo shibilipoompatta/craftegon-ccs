@@ -263,16 +263,19 @@
 
     /* Segmented Tab Bar for Stages */
     .filter-chips-group {
-      display: inline-flex;
+      display: flex;
+      flex-wrap: nowrap;
       background: var(--surface-mint-white, #F4FAF7);
       border: 1px solid var(--border-soft);
       border-radius: 9999px;
-      padding: 3px;
-      gap: 3px;
+      padding: 4px;
+      gap: 4px;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       -ms-overflow-style: none;
       flex-shrink: 0;
+      box-sizing: border-box;
     }
 
     .filter-chips-group::-webkit-scrollbar {
@@ -292,6 +295,7 @@
       transition: all 0.2s ease;
       text-decoration: none;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .filter-chip:hover {
@@ -313,10 +317,12 @@
     }
 
     .filter-select {
+      width: auto;
+      flex: 0 1 auto;
       background: #FFFFFF;
       border: 1px solid var(--border-soft);
       border-radius: 8px;
-      padding: 0.42rem 0.75rem;
+      padding: 0.42rem 1.8rem 0.42rem 0.75rem;
       font-size: 0.82rem;
       font-family: var(--font-body, 'Inter', sans-serif);
       color: var(--charcoal);
@@ -819,25 +825,58 @@
 
     @media (max-width: 600px) {
       .directory-hero {
-        padding: 5rem 0.85rem 2rem;
+        padding: 4.5rem 0.75rem 1.75rem;
+      }
+      .directory-title {
+        font-size: clamp(1.35rem, 6.2vw, 1.85rem) !important;
+        line-height: 1.25;
+        margin: 0.5rem auto 0.6rem;
+        padding: 0 0.25rem;
+      }
+      .directory-subtitle {
+        font-size: 0.88rem;
+        line-height: 1.55;
+        margin-bottom: 1.25rem;
+        padding: 0 0.25rem;
       }
       .hero-search-box {
-        padding: 0.3rem 0.4rem 0.3rem 0.85rem;
+        padding: 0.25rem 0.35rem 0.25rem 0.75rem;
+        gap: 0.35rem;
       }
       .hero-search-input {
-        font-size: 0.92rem;
+        font-size: 0.88rem;
+        padding: 0.35rem 0.25rem;
       }
       .hero-search-btn {
-        padding: 0.6rem 0.95rem;
+        padding: 0.55rem 0.85rem;
         font-size: 0.82rem;
       }
+      .hero-search-btn svg {
+        display: none;
+      }
       .filter-toolbar-inner {
-        padding: 0.65rem 0.85rem;
+        padding: 0.6rem 0.75rem;
+        gap: 0.6rem;
+      }
+      .filter-chips-group {
+        padding: 3px;
+        gap: 3px;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+      }
+      .filter-chip {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.76rem;
+        flex-shrink: 0 !important;
       }
       .filter-selects-group {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 0.45rem;
+        gap: 0.4rem;
+      }
+      .filter-select {
+        padding: 0.45rem 1.6rem 0.45rem 0.65rem;
+        font-size: 0.78rem;
       }
       .filter-selects-group select:first-child {
         grid-column: span 2;
@@ -845,9 +884,15 @@
       .reset-btn {
         grid-column: span 2;
         justify-content: center;
+        padding: 0.45rem 0.75rem;
+        font-size: 0.78rem;
       }
       .directory-content-wrapper {
-        padding: 0.75rem 0.85rem 4rem;
+        padding: 0.75rem 0.75rem 3.5rem;
+      }
+      .directory-meta-bar {
+        font-size: 0.8rem;
+        padding: 0 0.15rem;
       }
       #craftegon-chat-toggle, .chat-toggle-pill {
         bottom: 1rem !important;
@@ -901,14 +946,14 @@
               type="text"
               id="directory-search-input"
               class="hero-search-input"
-              placeholder="Search by service name, statutory form (SPICe+, AOC-4, GSTR-9), or query..."
+              placeholder="Search 57+ services or forms (e.g. SPICe+, AOC-4)..."
               autocomplete="off"
               aria-label="Filter 57 canonical services"
             >
             <button type="button" id="directory-search-clear" class="hero-search-clear" aria-label="Clear Search">&times;</button>
             <button type="submit" class="hero-search-btn">
-              <span>Search Catalog</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+              <span>Search</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
             </button>
           </form>
         </div>
@@ -1435,7 +1480,7 @@
             vertical_id: currentFilters.vertical_id,
             entity_type: currentFilters.entity_type,
             status: currentFilters.status
-          });
+          }).filter(r => !r.item.id.startsWith('TOOL-'));
         } else {
           results = catalog.map(item => ({ item, score: 10 }));
         }
