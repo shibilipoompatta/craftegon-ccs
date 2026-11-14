@@ -487,18 +487,18 @@
   }
 }
 
-/* Hero 5-Channel Quick Launch Strip */
+/* Hero 5-Channel Quick Launch Strip (Full-Width Desktop / Tablet / Mobile Launchpad) */
 .hero-channels-container {
-  margin-top: 1.25rem;
-  padding-top: 1.15rem;
+  margin-top: 2.25rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border-color);
-  margin-bottom: 1.5rem;
+  width: 100%;
 }
 .channels-title-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.85rem;
   font-size: var(--fs-xs);
   font-weight: 700;
   color: var(--text-secondary);
@@ -510,21 +510,34 @@
   text-decoration: none;
   font-weight: 700;
   font-size: var(--fs-xs);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 .channels-view-all:hover {
+  color: var(--accent-green-hover);
   text-decoration: underline;
+  transform: translateX(2px);
 }
 .hero-quick-channels {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 0.65rem;
+  gap: 0.85rem;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .hero-quick-channels {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .hero-quick-channels {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+}
+@media (max-width: 480px) {
   .hero-quick-channels {
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -533,25 +546,26 @@
 .channel-card {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.65rem 0.8rem;
+  gap: 0.75rem;
+  padding: 0.85rem 1.05rem;
   background: #FFFFFF;
-  border: 1px solid var(--border-color);
-  border-radius: 9px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
   text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  min-height: 48px;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 52px;
+  box-shadow: 0 2px 6px rgba(16, 38, 46, 0.03);
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 .channel-card:hover {
   border-color: var(--accent-green-primary);
   background: var(--surface-mint-white);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(36, 122, 98, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(36, 122, 98, 0.12);
 }
 .channel-icon {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   flex-shrink: 0;
   line-height: 1;
 }
@@ -563,18 +577,18 @@
 }
 .channel-name {
   font-family: var(--font-heading);
-  font-size: 0.84rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--navy-900);
   line-height: 1.25;
 }
 .channel-sub {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: 0.1rem;
+  margin-top: 0.15rem;
 }
 
 /* Minimalist FAQ Accordion */
@@ -1226,51 +1240,6 @@
               </a>
             </div>
 
-            <!-- 5 Core Service Channels (Instant Founder Navigation) -->
-            <div class="hero-channels-container">
-              <div class="channels-title-bar">
-                <span>Core Practice Channels</span>
-                <a href="/services.html" class="channels-view-all">All 57 Services &rarr;</a>
-              </div>
-              <div class="hero-quick-channels">
-                <a href="/verticals/01-entity-formation.html" class="channel-card">
-                  <span class="channel-icon" aria-hidden="true">🏢</span>
-                  <div class="channel-text">
-                    <span class="channel-name">Start a Business</span>
-                    <span class="channel-sub">Pvt Ltd, LLP from ₹5,499</span>
-                  </div>
-                </a>
-                <a href="/verticals/02-roc-compliance.html" class="channel-card">
-                  <span class="channel-icon" aria-hidden="true">🏛️</span>
-                  <div class="channel-text">
-                    <span class="channel-name">RoC &amp; MCA Filings</span>
-                    <span class="channel-sub">AOC-4, MGT-7, Retainers</span>
-                  </div>
-                </a>
-                <a href="/verticals/03-tax-compliance.html" class="channel-card">
-                  <span class="channel-icon" aria-hidden="true">📊</span>
-                  <div class="channel-text">
-                    <span class="channel-name">GST &amp; Tax Returns</span>
-                    <span class="channel-sub">GSTR-9, Corporate ITR-7</span>
-                  </div>
-                </a>
-                <a href="/verticals/06-ipr-protection.html" class="channel-card">
-                  <span class="channel-icon" aria-hidden="true">🛡️</span>
-                  <div class="channel-text">
-                    <span class="channel-name">Trademark &amp; IPR</span>
-                    <span class="channel-sub">Brand Protection, TM-A</span>
-                  </div>
-                </a>
-                <a href="/verticals/04-statutory-licenses.html" class="channel-card">
-                  <span class="channel-icon" aria-hidden="true">📋</span>
-                  <div class="channel-text">
-                    <span class="channel-name">Statutory Licences</span>
-                    <span class="channel-sub">Startup India, MSME Udyam</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-
             <!-- Streamlined High-Trust Strip (Single clean line) -->
             <div class="hero-trust-strip">
               <div class="trust-badge-stars">
@@ -1365,6 +1334,51 @@
             </div>
           </div>
         </div>
+
+        <!-- 5 Core Service Channels (Instant Founder Navigation) -->
+                    <div class="hero-channels-container">
+                      <div class="channels-title-bar">
+                        <span>Core Practice Channels</span>
+                        <a href="/services.html" class="channels-view-all">All 57 Services &rarr;</a>
+                      </div>
+                      <div class="hero-quick-channels">
+                        <a href="/verticals/01-entity-formation.html" class="channel-card">
+                          <span class="channel-icon" aria-hidden="true">🏢</span>
+                          <div class="channel-text">
+                            <span class="channel-name">Start a Business</span>
+                            <span class="channel-sub">Pvt Ltd, LLP from ₹5,499</span>
+                          </div>
+                        </a>
+                        <a href="/verticals/02-roc-compliance.html" class="channel-card">
+                          <span class="channel-icon" aria-hidden="true">🏛️</span>
+                          <div class="channel-text">
+                            <span class="channel-name">RoC &amp; MCA Filings</span>
+                            <span class="channel-sub">AOC-4, MGT-7, Retainers</span>
+                          </div>
+                        </a>
+                        <a href="/verticals/03-tax-compliance.html" class="channel-card">
+                          <span class="channel-icon" aria-hidden="true">📊</span>
+                          <div class="channel-text">
+                            <span class="channel-name">GST &amp; Tax Returns</span>
+                            <span class="channel-sub">GSTR-9, Corporate ITR-7</span>
+                          </div>
+                        </a>
+                        <a href="/verticals/06-ipr-protection.html" class="channel-card">
+                          <span class="channel-icon" aria-hidden="true">🛡️</span>
+                          <div class="channel-text">
+                            <span class="channel-name">Trademark &amp; IPR</span>
+                            <span class="channel-sub">Brand Protection, TM-A</span>
+                          </div>
+                        </a>
+                        <a href="/verticals/04-statutory-licenses.html" class="channel-card">
+                          <span class="channel-icon" aria-hidden="true">📋</span>
+                          <div class="channel-text">
+                            <span class="channel-name">Statutory Licences</span>
+                            <span class="channel-sub">Startup India, MSME Udyam</span>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
       </div>
     </section>
 
