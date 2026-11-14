@@ -215,14 +215,14 @@ document.addEventListener("DOMContentLoaded", async function () {
                   <li><a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a></li>
                   <li><a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law</a></li>
                   <li><a href="/verticals/13-cross-border-fema.html">Cross-Border FDI &amp; FEMA</a></li>
-                  <li class="if-footer-all-link"><a href="/index.html#practice-areas">Explore All Practice Areas &rarr;</a></li>
+                  <li class="if-footer-all-link"><a href="/verticals/index.html">All 15 Practice Verticals &rarr;</a></li>
                 </ul>
               </div>
               <div class="if-footer-col">
                 <h4 class="if-footer-heading">Company &amp; Resources</h4>
                 <ul class="if-footer-list">
-                  <li><a href="/portal/dashboard.html">Client Portal &amp; Compliance Calendar</a></li>
-                  <li><a href="/portal/subscription.html">Annual Retainer Plans</a></li>
+                  <li><a href="/services/roc-annual-compliance.html">RoC Annual Compliance Retainer</a></li>
+                  <li><a href="/conversion/retainer-desk.html">Annual Retainer Plans</a></li>
                   <li><a href="/knowledge/index.html">Compliance Knowledge Centre</a></li>
                   <li><a href="/conversion/calculator.html">RoC Late Fee Calculator</a></li>
                   <li><a href="/conversion/index.html">Diagnostic Tools &amp; Checkers</a></li>

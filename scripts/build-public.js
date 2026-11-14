@@ -201,6 +201,11 @@ function copyAndSanitize(srcDir, destDir, currentRel = '') {
             });
           }
 
+          // Ensure <main> has id="main-content" for accessibility skip link
+          if (!text.includes('id="main-content"') && !text.includes("id='main-content'")) {
+            text = text.replace(/<main(\b[^>]*)>/i, (m, attrs) => `<main id="main-content"${attrs}>`);
+          }
+
           // Clean portal header button across any HTML page
           text = text.replace(/<a\s+href="\/portal\/dashboard\.html"\s+class="if-btn-secondary\s+portal-nav-link".*?>[\s\S]*?<\/a>/gi, () => {
             sanitizedLinksCount++;

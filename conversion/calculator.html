@@ -95,7 +95,7 @@
       <p style="font-size: 1.05rem; color: #475569; max-width: 820px; line-height: 1.6; margin: 0;">Interactive estimates for statutory fee exposure, manually compared GSTR-2B values, tax scenarios, MSME payment dates, startup EMI, cap-table dilution, and user-supplied treasury assumptions. Results are informational and are not connected to MCA, GSTN, or bank feeds.</p>
     </div>
   </header>
-  <main class="calc-container">
+  <main id="main-content" class="calc-container">
     <div class="calc-tabs" role="tablist" aria-label="Statutory Calculators">
       <button type="button" class="calc-tab-btn active" id="tab-btn-1" onclick="switchTab(1)" role="tab" aria-selected="true" aria-controls="calc-tab-1">1. RoC Late Fee &amp; Retainer Estimator</button>
       <button type="button" class="calc-tab-btn" id="tab-btn-2" onclick="switchTab(2)" role="tab" aria-selected="false" aria-controls="calc-tab-2">2. GST Rate &amp; ITC / GSTR-2B Reconciler</button>
@@ -170,7 +170,7 @@
           <hr style="border: none; border-top: 1px solid var(--silver-border); margin: 1.5rem 0;">
           <h3 style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0 0 0.5rem; color: var(--charcoal);">MSME 43B(h) Compliance Summary</h3>
           <div id="msme-summary" style="font-size: 0.85rem; color: var(--text-muted);">Add vendors to track payment deadlines</div>
-          <a href="/conversion/calculator.html" class="if-btn-secondary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700; margin-top: 1rem;">Scroll Up for Full Tracker</a>
+          <a href="#msme-vendor-list" onclick="const el = document.getElementById('msme-vendor-list'); if (el) { el.scrollIntoView({behavior:'smooth'}); } return false;" class="if-btn-secondary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700; margin-top: 1rem;">Scroll Up to Vendor Tracker</a>
           <div class="ai-optimization-note"><strong>TRACKER LIMITATION:</strong> Supplier status is entered by the user and is not verified against Udyam. The tracker stores data only in this browser and does not sync with GSTN or submit Form MSME-1. Confirm applicability and tax treatment with a qualified professional.</div>
         </div>
       </div>

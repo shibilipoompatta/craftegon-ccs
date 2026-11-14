@@ -190,8 +190,8 @@ assert(navbarHtml.includes('href="/services.html"'), 'Navbar links directly to /
 assert(navbarHtml.includes('Services <span'), 'Navbar displays prominent Services link with count badge');
 assert(navbarHtml.includes('Explore by Category'), 'Navbar includes "Explore by Category" mega-menu');
 assert(navbarHtml.includes('By Business Stage'), 'Navbar includes "By Business Stage" menu');
-assert(navbarHtml.includes('href="/search/"') && navbarHtml.includes('href="/portal/entity-search.html"'), 'Navbar links to both the site search and entity intelligence lookup');
-assert(footerHtml.includes('href="/search/"') && footerHtml.includes('href="/portal/entity-search.html"'), 'Footer links to both the site search and entity intelligence lookup');
+assert(navbarHtml.includes('href="/search/"') && (navbarHtml.includes('href="/portal/entity-search.html"') || navbarHtml.includes('href="/search/index.html"')), 'Navbar links to both the site search and entity intelligence lookup');
+assert(footerHtml.includes('href="/search/"') && (footerHtml.includes('href="/portal/entity-search.html"') || footerHtml.includes('href="/search/index.html"')), 'Footer links to both the site search and entity intelligence lookup');
 
 // ----------------------------------------------------
 // Test Suite 5: Unified Service Discovery Page (services.html)

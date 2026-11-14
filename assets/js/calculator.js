@@ -515,6 +515,31 @@ function disableExpiredCcfsControl() {
 
 // Initialize calculators on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
+  // Sync state from query parameters (e.g. ?service=pvt-ltd&capital=100000)
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('service')) {
+      const svcEl = document.getElementById('service-type');
+      if (svcEl) {
+        const val = params.get('service');
+        if (['pvt-ltd', 'llp', 'roc-retainer', 'gst-annual', 'trademark'].includes(val)) {
+          svcEl.value = val;
+        }
+      }
+    }
+    if (params.has('capital')) {
+      const cap = parseInt(params.get('capital'), 10);
+      const tierEl = document.getElementById('capital-tier');
+      if (tierEl && !isNaN(cap)) {
+        if (cap <= 100000) tierEl.value = 'tier-1';
+        else if (cap <= 1000000) tierEl.value = 'tier-2';
+        else tierEl.value = 'tier-3';
+      }
+    }
+  } catch (err) {
+    // Non-blocking URL sync
+  }
+
   disableExpiredCcfsControl();
   mountGst2bReconciliation();
   mountStartupForecastControls();

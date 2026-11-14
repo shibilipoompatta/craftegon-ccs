@@ -161,6 +161,12 @@
       if (govFeeDisplay) govFeeDisplay.textContent = "₹" + govFee.toLocaleString("en-IN");
       if (profFeeDisplay) profFeeDisplay.textContent = "₹" + profFee.toLocaleString("en-IN");
       if (slaDisplay) slaDisplay.textContent = data.sla;
+
+      const ctaBtn = document.querySelector(".btn-calc-cta");
+      if (ctaBtn) {
+        const serviceParam = selectedEntity === "llp" ? "llp" : (selectedEntity === "opc" ? "pvt-ltd" : "pvt-ltd");
+        ctaBtn.href = `/conversion/calculator.html?service=${serviceParam}&capital=${selectedCapital}`;
+      }
     }
 
     entityButtons.forEach(function (btn) {
