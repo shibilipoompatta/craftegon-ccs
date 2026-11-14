@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>15 Corporate Practice Areas &amp; Regulatory Verticals | CraftEgon CCS</title>
+  <meta name="description" content="Comprehensive directory of CraftEgon's 15 institutional legal, regulatory, corporate secretarial, tax, and governance practice areas operating across India.">
+  <link rel="canonical" href="https://ccs.craftegon.com/verticals/">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="15 Corporate Practice Areas &amp; Regulatory Verticals | CraftEgon CCS">
+  <meta property="og:description" content="Explore all 15 institutional corporate secretarial, regulatory compliance, IPR, tax, FEMA, and governance practice areas operating across India.">
+  <meta property="og:url" content="https://ccs.craftegon.com/verticals/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="15 Corporate Practice Areas &amp; Regulatory Verticals | CraftEgon CCS">
+  <meta name="twitter:description" content="Explore all 15 institutional corporate secretarial, regulatory compliance, IPR, tax, FEMA, and governance practice areas operating across India.">
+  <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Design System Tokens & Typography -->
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/home-unique.css">
+
+  <style>
+    body {
+      background-color: var(--bg-secondary, #F4FAF7);
+      color: var(--text-main, #243746);
+      font-family: var(--font-body, 'Inter', -apple-system, sans-serif);
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .verticals-hero {
+      padding: 7rem 1.5rem 3.5rem;
+      background: var(--mint-sky-hero, linear-gradient(135deg, #F4FAF7 0%, #DDF5EA 45%, #DDF2FC 100%));
+      border-bottom: 1px solid var(--border-color, #DCE8E5);
+      text-align: center;
+    }
+
+    .verticals-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .verticals-title {
+      font-family: var(--font-heading, 'Manrope', sans-serif);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      color: var(--text-dark, #193B46);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin: 1rem auto 0.75rem;
+    }
+
+    .verticals-subtitle {
+      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+      color: var(--text-secondary, #52717A);
+      max-width: 740px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.6;
+    }
+
+    .verticals-hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .verticals-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .verticals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .vertical-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color, #DCE8E5);
+      border-radius: 14px;
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 10px rgba(25, 59, 70, 0.04);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .vertical-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(25, 59, 70, 0.08);
+      border-color: var(--accent-green-primary, #247A62);
+    }
+
+    .vertical-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+    }
+
+    .vertical-code-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.65rem;
+      background: var(--surface-mint-soft, #DDF5EA);
+      color: var(--accent-green-primary, #247A62);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 6px;
+      border: 1px solid rgba(36, 122, 98, 0.2);
+    }
+
+    .vertical-count-pill {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-secondary, #52717A);
+      background: #F1F5F9;
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
+    }
+
+    .vertical-card-title {
+      font-family: var(--font-heading, 'Manrope', sans-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-dark, #193B46);
+      margin: 0 0 0.6rem;
+      line-height: 1.35;
+    }
+
+    .vertical-card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .vertical-card-title a:hover {
+      color: var(--accent-green-primary, #247A62);
+    }
+
+    .vertical-card-desc {
+      font-size: 0.86rem;
+      color: var(--text-secondary, #52717A);
+      line-height: 1.58;
+      margin: 0 0 1.25rem;
+      flex-grow: 1;
+    }
+
+    .vertical-card-footer {
+      border-top: 1px solid var(--border-color, #DCE8E5);
+      padding-top: 1rem;
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .vertical-cta-link {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--accent-green-primary, #247A62);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s ease;
+    }
+
+    .vertical-cta-link:hover {
+      gap: 0.55rem;
+      color: #1B5E4B;
+    }
+
+    @media (max-width: 1024px) {
+      .verticals-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .verticals-hero {
+        padding: 5.5rem 1rem 2.5rem;
+      }
+      .verticals-grid {
+        grid-template-columns: 1fr;
+      }
+      .verticals-container {
+        padding: 2rem 1rem 4rem;
+      }
+    }
+  </style>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "15 Corporate Practice Areas & Regulatory Verticals | CraftEgon CCS",
+    "description": "Comprehensive directory of CraftEgon's 15 institutional legal, regulatory, corporate secretarial, tax, and governance practice areas operating across India.",
+    "url": "https://ccs.craftegon.com/verticals/",
+    "provider": {
+      "@type": "LegalService",
+      "name": "CraftEgon Corporate Services",
+      "url": "https://ccs.craftegon.com"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Dynamic Global Navbar -->
+  <div id="global-navbar"></div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <header class="verticals-hero">
+      <div class="verticals-hero-inner">
+        <span class="noble-badge" style="background: var(--surface-mint-soft, #DDF5EA); color: var(--accent-green-primary, #247A62); border: 1px solid var(--accent-mint-vibrant, #75CDA9); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; padding: 4px 12px; border-radius: 9999px;">
+          ✦ Corporate Practice Matrix
+        </span>
+        <h1 class="verticals-title">15 Institutional Practice Areas</h1>
+        <p class="verticals-subtitle">
+          From company formation and statutory RoC retainers to IPR protection, tax reconciliations, and cross-border FEMA compliance — discover our comprehensive corporate practice matrix.
+        </p>
+        <div class="verticals-hero-actions">
+          <a href="/services.html" class="btn btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.9rem;">
+            Explore All 57 Services &rarr;
+          </a>
+          <a href="/conversion/calculator.html" class="btn btn-secondary" style="padding: 0.65rem 1.4rem; font-size: 0.9rem;">
+            Launch Fee Calculator
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="verticals-container">
+      <div class="verticals-grid">
+
+        <!-- V01 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V01 &bull; Formation</span>
+            <span class="vertical-count-pill">10 Canonical Services</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/01-entity-formation.html">Business Formation &amp; Structuring</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Statutory corporate and enterprise incorporation, including Private Limited (SPICe+), LLP, OPC, Section 8, Trust, Society, and MSME/DPIIT registrations under the Companies Act 2013.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">Companies Act 2013 &bull; LLP Act</span>
+            <a href="/verticals/01-entity-formation.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V02 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V02 &bull; Compliance</span>
+            <span class="vertical-count-pill">18 Canonical Services</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/02-roc-compliance.html">Corporate Compliance &amp; Secretarial</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Routine and event-based company secretarial compliance, statutory RoC filings, annual returns (AOC-4, MGT-7, ADT-1), DIR-3 KYC, and corporate secretarial retainers.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">MCA V3 &bull; RoC Secretarial</span>
+            <a href="/verticals/02-roc-compliance.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V03 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V03 &bull; Tax</span>
+            <span class="vertical-count-pill">5 Canonical Services</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/03-tax-compliance.html">Tax &amp; Regulatory Registrations</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Corporate direct and indirect tax return filings, statutory trust audits (Form 10B/10BB), transfer pricing reports (Form 3CEB), and GST annual reconciliations (GSTR-9/9C).
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">Income Tax Act &bull; GST Law</span>
+            <a href="/verticals/03-tax-compliance.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V04 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V04 &bull; Licensing</span>
+            <span class="vertical-count-pill">1 Canonical Service</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/04-statutory-licenses.html">Licenses &amp; Statutory Registrations</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Labour and social security establishment registrations, monthly EPFO and ESIC compliance, and statutory enterprise registrations.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">EPFO &bull; ESIC &bull; Labour Code</span>
+            <a href="/verticals/04-statutory-licenses.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V05 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V05 &bull; Contracts</span>
+            <span class="vertical-count-pill">2 Canonical Services</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/05-contracts-legal.html">Contracts &amp; Legal Architecture</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Corporate commercial agreements, Master Service Agreements (MSA), Statements of Work (SOW), Founder Vesting Pacts, and Share Purchase/Shareholders Agreements.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">Contract Act 1872 &bull; Commercial Law</span>
+            <a href="/verticals/05-contracts-legal.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V06 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V06 &bull; IPR</span>
+            <span class="vertical-count-pill">3 Canonical Services</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/06-ipr-protection.html">Intellectual Property (IPR)</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Trademark clearance searches, Form TM-A filings, software copyright registration, technology patent documentation, and formal IP enforcement notices.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">Trade Marks Act 1999 &bull; Copyright</span>
+            <a href="/verticals/06-ipr-protection.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V07 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V07 &bull; HR Law</span>
+            <span class="vertical-count-pill">1 Canonical Service</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/07-labour-hr.html">Employment &amp; HR Compliance</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Statutory employment standing, POSH policy architecture, employment contract drafting, and mandatory enterprise HR regulatory filings.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">POSH Act 2013 &bull; Labour Codes</span>
+            <a href="/verticals/07-labour-hr.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V08 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V08 &bull; Finance</span>
+            <span class="vertical-count-pill">Strategic Advisory</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/08-fundraising-investment.html">Banking &amp; Fundraising Support</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Strategic advisory and compliance support for corporate credit lines, investor cap-table mechanics, and venture financing governance.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">Capital Raising &bull; Banking</span>
+            <a href="/verticals/08-fundraising-investment.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V09 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V09 &bull; M&amp;A</span>
+            <span class="vertical-count-pill">2 Canonical Services</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/09-ma-restructuring.html">Corporate Transactions &amp; M&amp;A</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Corporate restructuring, asset transfers, legal due diligence audits, and statutory filings for mergers, acquisitions, and equity transactions.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">Companies Act M&amp;A &bull; NCLT</span>
+            <a href="/verticals/09-ma-restructuring.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V10 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V10 &bull; Disputes</span>
+            <span class="vertical-count-pill">Non-Litigation Advisory</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Pre-litigation corporate mediation, shareholder resolution advisory, legal notice drafting, and referral coordination with senior advocates.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">Pre-Litigation &bull; Section 89 CPC</span>
+            <a href="/verticals/10-litigation-dispute.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V11 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V11 &bull; Governance</span>
+            <span class="vertical-count-pill">2 Canonical Services</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/11-governance-audit.html">Governance, Audit &amp; Risk</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Comprehensive internal secretarial audits, statutory register reconstruction, Board governance health evaluations, and risk mitigation frameworks.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">Secretarial Standards &bull; Section 205</span>
+            <a href="/verticals/11-governance-audit.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V12 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V12 &bull; Tech Law</span>
+            <span class="vertical-count-pill">1 Canonical Service</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Digital Personal Data Protection (DPDP) Act 2023 compliance architectures, privacy policies, consent notices, and enterprise data audit readiness.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">DPDP Act 2023 &bull; IT Act 2000</span>
+            <a href="/verticals/12-esg-csr.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V13 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V13 &bull; FEMA</span>
+            <span class="vertical-count-pill">3 Canonical Services</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/13-cross-border-fema.html">International Business &amp; FEMA</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Cross-border foreign direct investment (FDI), Foreign Liabilities &amp; Assets (FLA) return filings, FC-GPR/FC-TRS equity reporting via RBI FIRMS portal.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">FEMA 1999 &bull; RBI FIRMS</span>
+            <a href="/verticals/13-cross-border-fema.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V14 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V14 &bull; Exit</span>
+            <span class="vertical-count-pill">2 Canonical Services</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/14-exit-insolvency.html">Restructuring, Insolvency &amp; Exit</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Defunct entity strike-off (Form STK-2), fast-track dormant status acquisition (Form MSC-1), and pre-insolvency corporate advisory under IBC 2016.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">Section 248 &bull; IBC 2016</span>
+            <a href="/verticals/14-exit-insolvency.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- V15 -->
+        <article class="vertical-card">
+          <div class="vertical-card-header">
+            <span class="vertical-code-badge">V15 &bull; IT</span>
+            <span class="vertical-count-pill">1 Canonical Service</span>
+          </div>
+          <h2 class="vertical-card-title">
+            <a href="/verticals/15-it-digital.html">IT &amp; Digital Infrastructure</a>
+          </h2>
+          <p class="vertical-card-desc">
+            Corporate digital infrastructure advisory, website legal policies (Terms of Service, Disclaimers), and enterprise software licensing compliance.
+          </p>
+          <div class="vertical-card-footer">
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">IT Rules &bull; Digital Compliance</span>
+            <a href="/verticals/15-it-digital.html" class="vertical-cta-link">
+              Explore Practice Area &rarr;
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Dynamic Global Footer -->
+  <div id="global-footer"></div>
+
+  <!-- Shared Scripts -->
+  <script src="/assets/js/navigation.js"></script>
+</body>
+</html>

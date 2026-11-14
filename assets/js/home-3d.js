@@ -133,20 +133,20 @@
     const pricingMatrix = {
       pvt_ltd: {
         baseGov: 1000,
-        baseProf: 4999,
-        capitalFeeRate: 0.002,
+        baseProf: 7999,
+        capitalFeeRate: 0.0015,
         sla: "3–5 Working Days"
       },
       llp: {
         baseGov: 1500,
-        baseProf: 3999,
+        baseProf: 6499,
         capitalFeeRate: 0.001,
         sla: "4–6 Working Days"
       },
       opc: {
-        baseGov: 800,
-        baseProf: 3999,
-        capitalFeeRate: 0.002,
+        baseGov: 1000,
+        baseProf: 6999,
+        capitalFeeRate: 0.0015,
         sla: "3–5 Working Days"
       }
     };

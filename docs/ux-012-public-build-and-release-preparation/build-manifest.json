@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-14T17:40:14.313Z",
+  "buildTimestamp": "2026-11-14T17:56:28.827Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 174,
-    "totalOutputSizeBytes": 9064828,
-    "totalOutputSizeFormatted": "8.64 MB",
+    "totalFilesIncluded": 175,
+    "totalOutputSizeBytes": 9127992,
+    "totalOutputSizeFormatted": "8.71 MB",
     "sanitizedResidualLinksCount": 21,
-    "preRenderedSSGPagesCount": 122,
+    "preRenderedSSGPagesCount": 123,
     "filesByExtension": {
-      ".html": 130,
+      ".html": 131,
       ".css": 11,
       ".jpg": 1,
       ".bak": 1,
@@ -154,7 +154,7 @@
     },
     {
       "path": "assets/js/home-3d.js",
-      "bytes": 9967
+      "bytes": 9970
     },
     {
       "path": "assets/js/home-animations.js",
@@ -326,7 +326,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 149818
+      "bytes": 149814
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
@@ -550,7 +550,7 @@
     },
     {
       "path": "services/index.html",
-      "bytes": 106721
+      "bytes": 106743
     },
     {
       "path": "services/ip-enforcement-cease-desist.html",
@@ -670,7 +670,7 @@
     },
     {
       "path": "services.html",
-      "bytes": 107101
+      "bytes": 107123
     },
     {
       "path": "verticals/01-entity-formation.html",
@@ -733,8 +733,12 @@
       "bytes": 53562
     },
     {
+      "path": "verticals/index.html",
+      "bytes": 62855
+    },
+    {
       "path": "_redirects",
-      "bytes": 1493
+      "bytes": 1585
     },
     {
       "path": "_headers",
@@ -746,7 +750,7 @@
     },
     {
       "path": "sitemap.xml",
-      "bytes": 22933
+      "bytes": 23107
     },
     {
       "path": "build-manifest.json",
