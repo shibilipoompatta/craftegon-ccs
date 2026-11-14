@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-14T09:03:53.223Z",
+  "buildTimestamp": "2026-11-14T09:22:43.440Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 174,
-    "totalOutputSizeBytes": 8382472,
-    "totalOutputSizeFormatted": "7.99 MB",
+    "totalOutputSizeBytes": 8363935,
+    "totalOutputSizeFormatted": "7.98 MB",
     "sanitizedResidualLinksCount": 26,
     "preRenderedSSGPagesCount": 122,
     "filesByExtension": {
@@ -86,7 +86,7 @@
     },
     {
       "path": "assets/css/home-unique.css",
-      "bytes": 52995
+      "bytes": 60035
     },
     {
       "path": "assets/css/navbar.css",
@@ -326,7 +326,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 139070
+      "bytes": 113493
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
