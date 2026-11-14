@@ -22,7 +22,7 @@
    * 1. 3D HERO STAGE PARALLAX & CURSOR TRACKING
    */
   function initHero3DParallax() {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (window.matchMedia && (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(hover: none)').matches || window.matchMedia('(pointer: coarse)').matches)) {
       return;
     }
     const stage = document.querySelector(".hero-3d-stage");
@@ -87,7 +87,7 @@
    * 2. 3D HOVER TILT FOR CORE PILLAR & VALUE CARDS
    */
   function initCard3DTilt() {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (window.matchMedia && (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(hover: none)').matches || window.matchMedia('(pointer: coarse)').matches)) {
       return;
     }
     const cards = document.querySelectorAll(".card-3d");

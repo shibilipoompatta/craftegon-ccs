@@ -856,8 +856,11 @@ body.mobile-nav-open {
 body.mobile-nav-open #craftegon-chat-trigger,
 body.mobile-nav-open #craftegon-chat-badge,
 body.mobile-nav-open #craftegon-chat-window,
+body.mobile-nav-open #craftegon-chat-toggle,
 body.mobile-nav-open .cchat-trigger,
-body.mobile-nav-open #cchat-widget-container {
+body.mobile-nav-open #cchat-widget-container,
+body.mobile-nav-open #quick-access,
+body.mobile-nav-open .quick-access-btn {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
@@ -990,7 +993,7 @@ body.mobile-nav-open .if-header {
   height: 44px !important;
   padding: 0.65rem 1rem 0.65rem 2.85rem !important;
   font-family: var(--font-body, 'Inter', -apple-system, sans-serif) !important;
-  font-size: 0.875rem !important;
+  font-size: 16px !important; /* Minimum 16px prevents iOS Safari auto-zoom */
   color: var(--navy-900, #10262E) !important;
   background: #FFFFFF !important;
   border: 1.5px solid var(--border-color, #E2E8F0) !important;
@@ -1388,6 +1391,19 @@ body.mobile-nav-open .if-header {
   justify-content: center !important;
   z-index: 3 !important;
   transition: all 0.15s ease !important;
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* 44x44px touch hitbox for mobile/touch ergonomics without changing visual badge */
+.universal-search-clear::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
 }
 
 .universal-search-clear:hover {
@@ -1588,5 +1604,12 @@ body.mobile-nav-open .if-header {
 @media (max-width: 1023px) {
   .universal-search-container {
     display: none;
+  }
+}
+
+/* iOS Safari auto-zoom prevention and touch optimizations */
+@media (max-width: 1024px) {
+  .universal-search-input {
+    font-size: 16px !important;
   }
 }

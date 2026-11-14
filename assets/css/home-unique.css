@@ -1998,16 +1998,22 @@
 }
 
 .front-chip-tag {
-  font-size: 0.74rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--navy-800, #193B46);
   background: var(--surface-mint-white, #F4FAF7);
   border: 1px solid var(--border-color, #DCE8E5);
   border-radius: 9999px;
-  padding: 0.22rem 0.65rem;
+  padding: 0.38rem 0.82rem;
+  min-height: 38px;
   text-decoration: none;
   transition: all 0.2s ease;
   white-space: nowrap;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .front-chip-tag:hover {
@@ -2032,6 +2038,8 @@
   display: none;
   max-height: 340px;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .front-search-result-item {
@@ -2106,19 +2114,23 @@
   .bento-tile { padding: 1.5rem; }
 }
 
-/* Stage tabs: scrollable on mobile */
-@media (max-width: 640px) {
+/* Stage tabs: horizontal swipe rail on mobile & tablets */
+@media (max-width: 768px) {
   .stages-tabs-nav {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 0.5rem;
-    justify-content: flex-start;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding: 0.35rem 1rem 0.75rem !important;
+    justify-content: flex-start !important;
+    margin-inline: -1rem !important;
+    width: calc(100% + 2rem) !important;
   }
-  .stages-tabs-nav::-webkit-scrollbar { display: none; }
+  .stages-tabs-nav::-webkit-scrollbar { display: none !important; }
   .stage-tab-btn {
-    white-space: nowrap;
-    flex-shrink: 0;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
 }
 
@@ -3533,10 +3545,86 @@
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
+  padding: 0.4rem 0;
+  min-height: 36px;
   transition: gap 0.2s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tool-card-link:hover {
   text-decoration: underline;
   gap: 0.5rem;
+}
+
+/* ==========================================================================
+   CROSS-DEVICE ERGONOMICS & PLATFORM QUIRK REMEDIATION (APPLE & ANDROID)
+   ========================================================================== */
+
+/* 1. Global Touch Optimization: Eliminate tap delay and unwanted rectangular tap highlight boxes */
+a, button, input, select, textarea,
+.stage-tab-btn, .front-chip-tag, .card-3d, .flagship-card, .tool-card, .why-card-3d {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* 2. Apple iOS Safari Auto-Zoom Remediation: Form controls must be >= 16px on mobile/tablets */
+@media (max-width: 1024px) {
+  .intake-field input,
+  .intake-field select,
+  .intake-field textarea,
+  .front-search-input,
+  .discovery-input {
+    font-size: 16px !important;
+  }
+}
+
+/* 3. Virtual Keyboard Overlap Prevention: Limit search dropdown height on mobile viewports */
+@media (max-width: 768px) {
+  .home-front-search-dropdown {
+    max-height: min(45vh, 260px) !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* 4. Tablet 3-Card Grid Balance (768px - 1024px): Prevent awkward orphaned 3rd card */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .flagship-grid > :nth-child(3),
+  .process-grid-3 > :nth-child(3),
+  .why-grid > :nth-child(3) {
+    grid-column: 1 / -1;
+    max-width: 620px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+/* 5. Small Screens (<= 480px, Foldables 280px-320px, iPhone SE): Full width button stacking & search */
+@media (max-width: 480px) {
+  .hero-actions-group .btn-hero-primary,
+  .hero-actions-group .btn-hero-secondary {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .front-search-form {
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+  }
+  .front-search-submit {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .front-search-input {
+    width: 100% !important;
+    height: 44px !important;
+  }
+}
+
+/* 6. Mobile Footer FAB Clearance: Ensure floating chat/desk button never covers statutory links */
+@media (max-width: 768px) {
+  .footer {
+    padding-bottom: 5.5rem !important;
+  }
 }
