@@ -1,3 +1,12 @@
+
+:root {
+  --fs-hero: clamp(2.35rem, 4vw, 3.4rem);
+  --fs-title: clamp(1.85rem, 2.8vw, 2.4rem);
+  --fs-lead: clamp(1.05rem, 1.2vw, 1.18rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+}
 /**
  * ==========================================================================
  * CRAFTEGON CORPORATE SERVICES (CCS) — HOMEPAGE 3D & MODERN LAYOUT STYLES
@@ -3962,4 +3971,61 @@ a, button, input, select, textarea,
   border-color: var(--accent-green-primary, #247A62);
   color: var(--accent-green-primary, #247A62);
   transform: translateY(-1px);
+}
+
+/* Explicit Hero Typographic Hierarchy */
+.hero-headline {
+  font-family: var(--font-heading, 'Manrope', sans-serif) !important;
+  font-size: clamp(2.35rem, 4vw, 3.4rem) !important;
+  font-weight: 800 !important;
+  color: var(--navy-900, #10262E) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.035em !important;
+  margin: 0 auto 1.15rem !important;
+  max-width: 860px !important;
+  text-align: center !important;
+}
+
+.hero-lead {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: clamp(1.05rem, 1.2vw, 1.18rem) !important;
+  color: var(--text-secondary, #52717A) !important;
+  line-height: 1.65 !important;
+  max-width: 720px !important;
+  margin: 0 auto 2rem !important;
+  text-align: center !important;
+}
+
+.hero-unified-search-wrap {
+  width: 100% !important;
+  max-width: 640px !important;
+  margin: 0 auto 1.5rem !important;
+}
+
+.hero-search-shortcuts {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  flex-wrap: wrap !important;
+  margin-top: 0.85rem !important;
+}
+
+.hero-trust-strip {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.65rem !important;
+  font-size: 0.84rem !important;
+  color: var(--text-secondary, #52717A) !important;
+  font-weight: 600 !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 2rem !important;
+}
+
+.trust-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.3rem !important;
+  white-space: nowrap !important;
 }

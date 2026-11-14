@@ -29,18 +29,42 @@
   <link rel="stylesheet" href="/assets/css/home-animations.css">
   <style id="critical-hero-css">
 /* ==========================================================================
-   HERO SHOWCASE & CRITICAL RESPONSIVE TYPOGRAPHY (MINIMALIST & CONVERTING)
+   GLOBAL DESIGN TOKENS & TYPOGRAPHY ROOT DEFINITIONS
+   ========================================================================== */
+:root {
+  --fs-hero: clamp(2.35rem, 4vw, 3.4rem);
+  --fs-title: clamp(1.85rem, 2.8vw, 2.4rem);
+  --fs-lead: clamp(1.05rem, 1.2vw, 1.18rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --navy-900: #10262E;
+  --navy-800: #193B46;
+  --text-main: #243746;
+  --text-secondary: #52717A;
+  --accent-green-primary: #247A62;
+  --accent-green-hover: #185343;
+  --surface-mint-soft: #DDF5EA;
+  --surface-mint-white: #F4FAF7;
+  --border-color: #DCE8E5;
+  --bg-surface: #F8FAFC;
+}
+
+/* ==========================================================================
+   HERO SHOWCASE & HIGH-LEGIBILITY TYPOGRAPHIC HIERARCHY
    ========================================================================== */
 .hero-3d-section {
   position: relative;
   background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
-  padding: 3.5rem 1.5rem 2.5rem;
+  padding: 3.75rem 1.5rem 3rem;
   overflow: hidden;
   border-bottom: 1px solid var(--border-color);
 }
 @media (max-width: 768px) {
   .hero-3d-section {
-    padding: 2.25rem 1rem 2rem;
+    padding: 2.5rem 1rem 2.25rem;
   }
 }
 
@@ -52,7 +76,7 @@
 }
 
 .hero-center-showcase {
-  max-width: 860px;
+  max-width: 880px;
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -60,60 +84,66 @@
   align-items: center;
 }
 
+/* Eyebrow Badge */
 .hero-pill-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   font-family: var(--font-body);
-  font-size: var(--fs-xs);
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--navy-800);
   background: linear-gradient(135deg, #DDF5EA 0%, #DDF2FC 100%);
-  border: 1px solid var(--accent-mint-vibrant);
+  border: 1px solid rgba(36, 122, 98, 0.25);
   border-radius: 9999px;
   padding: 0.35rem 0.95rem;
   margin-bottom: 1.25rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 .hero-pill-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--accent-green-primary);
   box-shadow: 0 0 0 3px rgba(36, 122, 98, 0.2);
 }
 
+/* Commanding H1 Title */
 .hero-headline {
   font-family: var(--font-heading);
-  font-size: var(--fs-hero);
+  font-size: clamp(2.35rem, 4vw, 3.4rem);
   font-weight: 800;
   color: var(--navy-900);
-  line-height: 1.16;
+  line-height: 1.15;
   letter-spacing: -0.035em;
-  margin: 0 0 1rem;
-  max-width: 820px;
+  margin: 0 0 1.15rem;
+  max-width: 860px;
+  text-align: center;
   overflow-wrap: break-word;
 }
 .hero-headline-accent {
-  background: linear-gradient(135deg, var(--accent-green-primary) 0%, var(--accent-blue-secondary) 100%);
+  background: linear-gradient(135deg, var(--accent-green-primary) 0%, #0284C7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline;
 }
 
+/* Clear, Legible Lead Description */
 .hero-lead {
-  font-size: var(--fs-lead);
-  color: var(--text-main);
-  line-height: 1.62;
-  max-width: 680px;
-  margin: 0 0 1.75rem;
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.2vw, 1.18rem);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
 }
 
 /* Simple, Beautiful & Properly Aligned Unified Search Bar */
 .hero-unified-search-wrap {
   width: 100%;
-  max-width: 680px;
+  max-width: 640px;
   margin: 0 auto 1.5rem;
   position: relative;
 }
@@ -164,7 +194,7 @@
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.9rem;
-  padding: 0.65rem 1.25rem;
+  padding: 0.65rem 1.35rem;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -204,7 +234,7 @@
   text-align: left;
 }
 
-/* Beautifully Aligned Popular Shortcuts */
+/* Beautifully Aligned Single-Line Shortcuts */
 .hero-search-shortcuts {
   display: flex;
   align-items: center;
@@ -214,7 +244,7 @@
   margin-top: 0.85rem;
 }
 .shortcuts-label {
-  font-size: var(--fs-xs);
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text-secondary);
   margin-right: 0.15rem;
@@ -222,7 +252,7 @@
 .search-pill {
   display: inline-flex;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--navy-800);
   background: #FFFFFF;
@@ -246,9 +276,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.85rem;
+  gap: 0.95rem;
   flex-wrap: wrap;
-  margin: 1.25rem 0 1.25rem;
+  margin: 1.5rem 0 1.25rem;
 }
 .btn-hero-primary {
   display: inline-flex;
@@ -256,12 +286,12 @@
   justify-content: center;
   gap: 0.5rem;
   font-family: var(--font-body);
-  font-size: var(--fs-sm);
+  font-size: 0.95rem;
   font-weight: 700;
   color: #FFFFFF !important;
   background: var(--accent-green-primary);
   border: 1.5px solid var(--accent-green-primary);
-  padding: 0.8rem 1.65rem;
+  padding: 0.85rem 1.85rem;
   border-radius: 10px;
   min-height: 48px;
   text-decoration: none;
@@ -282,12 +312,12 @@
   justify-content: center;
   gap: 0.45rem;
   font-family: var(--font-body);
-  font-size: var(--fs-sm);
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--navy-800) !important;
   background: #FFFFFF;
   border: 1.5px solid var(--border-color);
-  padding: 0.8rem 1.45rem;
+  padding: 0.85rem 1.65rem;
   border-radius: 10px;
   min-height: 48px;
   text-decoration: none;
@@ -303,30 +333,27 @@
   transform: translateY(-1px);
 }
 
-/* Streamlined High-Trust Strip */
+/* Streamlined Single-Line High-Trust Strip */
 .hero-trust-strip {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  font-size: var(--fs-xs);
+  gap: 0.65rem;
+  font-size: 0.84rem;
   color: var(--text-secondary);
   font-weight: 600;
   flex-wrap: wrap;
   margin-bottom: 2rem;
 }
+.trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
 .trust-badge-stars {
   color: #D97706;
   font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-.trust-point {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  color: var(--navy-800);
 }
 .trust-point-icon {
   color: var(--accent-green-primary);
@@ -338,8 +365,8 @@
 
 /* Hero 5-Channel Quick Launch Strip (Full-Width Desktop / Tablet / Mobile Launchpad) */
 .hero-channels-container {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
   border-top: 1px solid var(--border-color);
   width: 100%;
 }
@@ -347,8 +374,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.85rem;
-  font-size: var(--fs-xs);
+  margin-bottom: 0.95rem;
+  font-size: 0.76rem;
   font-weight: 700;
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -358,7 +385,7 @@
   color: var(--accent-green-primary);
   text-decoration: none;
   font-weight: 700;
-  font-size: var(--fs-xs);
+  font-size: 0.76rem;
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
@@ -372,7 +399,7 @@
 .hero-quick-channels {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 0.85rem;
+  gap: 0.9rem;
 }
 @media (max-width: 1200px) {
   .hero-quick-channels {
@@ -396,13 +423,13 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.85rem 1.05rem;
+  padding: 0.95rem 1.15rem;
   background: #FFFFFF;
   border: 1.5px solid var(--border-color);
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  min-height: 52px;
+  min-height: 56px;
   box-shadow: 0 2px 6px rgba(16, 38, 46, 0.03);
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
@@ -1067,14 +1094,14 @@
               <div id="home-front-search-results"></div>
             </div>
 
-            <!-- Beautifully Aligned Popular Shortcuts -->
+            <!-- Beautifully Aligned Single-Line Popular Shortcuts -->
             <div class="hero-search-shortcuts">
               <span class="shortcuts-label">Popular:</span>
-              <a href="/services/pvt-ltd-registration.html" class="search-pill">Pvt Ltd (SPICe+)</a>
-              <a href="/services/llp-registration.html" class="search-pill">LLP Formation</a>
+              <a href="/services/pvt-ltd-registration.html" class="search-pill">Pvt Ltd</a>
+              <a href="/services/llp-registration.html" class="search-pill">LLP</a>
               <a href="/services/roc-annual-compliance.html" class="search-pill">RoC Retainer</a>
-              <a href="/services/trademark-registration.html" class="search-pill">Trademark (TM-A)</a>
-              <a href="/services/gst-annual.html" class="search-pill">GST Filing</a>
+              <a href="/services/trademark-registration.html" class="search-pill">Trademark</a>
+              <a href="/services/gst-annual.html" class="search-pill">GST Return</a>
             </div>
           </div>
 
@@ -1089,18 +1116,15 @@
             </a>
           </div>
 
-          <!-- Streamlined High-Trust Strip (Single clean line) -->
+          <!-- Streamlined Single-Line High-Trust Strip -->
           <div class="hero-trust-strip">
-            <div class="trust-badge-stars">
-              <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-              <span>4.9/5 Rating</span>
-            </div>
+            <span class="trust-item trust-badge-stars">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9/5 Verified Rating</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
-            <span class="trust-point"><span class="trust-point-icon">&check;</span> 100% On-Time SLA</span>
+            <span class="trust-item"><span class="trust-point-icon">&check;</span> 100% On-Time SLA</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
-            <span class="trust-point"><span class="trust-point-icon">&check;</span> Practicing CS &amp; CA Supervised</span>
+            <span class="trust-item"><span class="trust-point-icon">&check;</span> Practicing CS &amp; CA Supervised</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
-            <span class="trust-point"><span class="trust-point-icon">&check;</span> Zero Hidden MCA Surcharges</span>
+            <span class="trust-item"><span class="trust-point-icon">&check;</span> Zero Hidden MCA Surcharges</span>
           </div>
         </div>
 
