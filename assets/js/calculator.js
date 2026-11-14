@@ -1,83 +1,352 @@
 /**
- * Craftegon Corporate Services (CCS) - Shared Calculator Logic
+ * Craftegon Corporate Services (CCS) - Statutory & Financial Calculator Suite
  * Powers conversion/calculator.html and portal dashboard widgets
- * Pure ES6, zero dependencies
+ * Pure ES6, zero external dependencies
  */
 
-// Module 1: Corporate Retainer & RoC Late Fee Calculations
 const CCFS_2026_DEADLINE = new Date('2026-09-15T23:59:59+05:30');
+let currentTab1Mode = 'formation'; // 'formation' or 'annual'
 
+// Attribution Engine: Capture, persist, and append UTM parameters
+function getStoredAttribution() {
+  try {
+    const raw = sessionStorage.getItem('ccs_attribution');
+    return raw ? JSON.parse(raw) : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function captureAttribution() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'ref'];
+    const stored = getStoredAttribution();
+    let updated = false;
+    keys.forEach(k => {
+      if (params.has(k)) {
+        stored[k] = params.get(k);
+        updated = true;
+      }
+    });
+    if (updated) {
+      sessionStorage.setItem('ccs_attribution', JSON.stringify(stored));
+    }
+  } catch (e) {
+    // Non-blocking
+  }
+}
+
+function appendAttribution(url) {
+  try {
+    const stored = getStoredAttribution();
+    const params = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'ref'].forEach(k => {
+      if (params.has(k)) stored[k] = params.get(k);
+    });
+    const u = new URL(url, window.location.origin);
+    Object.keys(stored).forEach(k => {
+      if (!u.searchParams.has(k) && stored[k]) {
+        u.searchParams.set(k, stored[k]);
+      }
+    });
+    return u.pathname + u.search + u.hash;
+  } catch (e) {
+    return url;
+  }
+}
+
+// Module 1: Tab 1 Mode Switcher (Formation vs Annual Late Fees)
+function setTab1Mode(mode) {
+  currentTab1Mode = mode === 'annual' ? 'annual' : 'formation';
+
+  const btnFormation = document.getElementById('btn-mode-formation');
+  const btnAnnual = document.getElementById('btn-mode-annual');
+  if (btnFormation && btnAnnual) {
+    if (currentTab1Mode === 'formation') {
+      btnFormation.classList.add('active');
+      btnFormation.setAttribute('aria-checked', 'true');
+      btnAnnual.classList.remove('active');
+      btnAnnual.setAttribute('aria-checked', 'false');
+    } else {
+      btnAnnual.classList.add('active');
+      btnAnnual.setAttribute('aria-checked', 'true');
+      btnFormation.classList.remove('active');
+      btnFormation.setAttribute('aria-checked', 'false');
+    }
+  }
+
+  // Toggle Visibility of Formation vs Annual Controls
+  const formationState = document.getElementById('group-formation-state');
+  const formationInclusions = document.getElementById('group-formation-inclusions');
+  const formationAddons = document.getElementById('group-formation-addons');
+  const serviceTypeGroup = document.getElementById('group-service-type');
+  const rocDelayGroup = document.getElementById('group-roc-delay');
+  const defaultingFormsGroup = document.getElementById('group-defaulting-forms');
+  const ccfsGroup = document.getElementById('group-ccfs');
+  const annualAddonsGroup = document.getElementById('group-annual-addons');
+
+  const stampRow = document.getElementById('stamp-fee-row');
+  const dscDinRow = document.getElementById('dsc-din-row');
+  const lateFeeRow = document.getElementById('late-fee-row');
+  const ccfsRow = document.getElementById('ccfs-fee-row');
+
+  const cardTitle = document.getElementById('tab1-card-title');
+  const cardSubtitle = document.getElementById('tab1-card-subtitle');
+  const cardBadge = document.getElementById('tab1-card-badge');
+  const summaryTitle = document.getElementById('summary-title');
+  const summaryBadge = document.getElementById('summary-badge');
+  const profFeeLabel = document.getElementById('prof-fee-label');
+  const govtFeeLabel = document.getElementById('govt-fee-label');
+  const bannerLabel = document.getElementById('total-banner-label');
+  const turnaroundLabel = document.getElementById('turnaround-label');
+  const noteEl = document.getElementById('tab1-note');
+
+  if (currentTab1Mode === 'formation') {
+    if (formationState) formationState.style.display = 'block';
+    if (formationInclusions) formationInclusions.style.display = 'block';
+    if (formationAddons) formationAddons.style.display = 'block';
+    if (serviceTypeGroup) serviceTypeGroup.style.display = 'none';
+    if (rocDelayGroup) rocDelayGroup.style.display = 'none';
+    if (defaultingFormsGroup) defaultingFormsGroup.style.display = 'none';
+    if (ccfsGroup) ccfsGroup.style.display = 'none';
+    if (annualAddonsGroup) annualAddonsGroup.style.display = 'none';
+
+    if (stampRow) stampRow.style.display = 'flex';
+    if (dscDinRow) dscDinRow.style.display = 'flex';
+    if (lateFeeRow) lateFeeRow.style.display = 'none';
+    if (ccfsRow) ccfsRow.style.display = 'none';
+
+    if (cardTitle) cardTitle.textContent = 'New Entity Formation & Statutory Outlay Breakdown';
+    if (cardSubtitle) cardSubtitle.textContent = 'Official MCA V3 SPICe+ & FiLLiP statutory schedules with transparent state stamp duties and zero hidden costs.';
+    if (cardBadge) {
+      cardBadge.textContent = 'MCA V3 Rule 38: ₹0 Filing Fee';
+      cardBadge.style.color = '#065F46';
+      cardBadge.style.background = '#D1FAE5';
+    }
+    if (summaryTitle) summaryTitle.textContent = 'All-Inclusive Statutory Outlay';
+    if (summaryBadge) {
+      summaryBadge.textContent = 'Formation Ledger';
+      summaryBadge.style.color = '#065F46';
+      summaryBadge.style.background = '#D1FAE5';
+    }
+    if (profFeeLabel) profFeeLabel.textContent = 'Professional Retainer:';
+    if (govtFeeLabel) govtFeeLabel.textContent = 'MCA Filing Fee:';
+    if (bannerLabel) bannerLabel.textContent = 'Total Estimated Statutory Outlay';
+    if (turnaroundLabel) turnaroundLabel.textContent = 'Turnaround SLA: 3-5 Working Days';
+    if (noteEl) {
+      noteEl.innerHTML = '<strong>STATUTORY TRANSPARENCY:</strong> MCA Government filing fee is ₹0 under Rule 38 for companies with nominal capital up to ₹15 Lakhs. State stamp duty varies slightly by registered office location. All filings supervised directly by practicing CS & CA.';
+    }
+  } else {
+    if (formationState) formationState.style.display = 'none';
+    if (formationInclusions) formationInclusions.style.display = 'none';
+    if (formationAddons) formationAddons.style.display = 'none';
+    if (serviceTypeGroup) serviceTypeGroup.style.display = 'block';
+    if (rocDelayGroup) rocDelayGroup.style.display = 'block';
+    if (defaultingFormsGroup) defaultingFormsGroup.style.display = 'block';
+    if (ccfsGroup) ccfsGroup.style.display = 'block';
+    if (annualAddonsGroup) annualAddonsGroup.style.display = 'block';
+
+    if (stampRow) stampRow.style.display = 'none';
+    if (dscDinRow) dscDinRow.style.display = 'none';
+    if (lateFeeRow) lateFeeRow.style.display = 'flex';
+    if (ccfsRow) ccfsRow.style.display = 'flex';
+
+    if (cardTitle) cardTitle.textContent = 'RoC Statutory Late Fee & Retainer Estimate';
+    if (cardSubtitle) cardSubtitle.textContent = 'Indicative estimate for overdue annual returns (AOC-4, MGT-7, DIR-3 KYC). CCFS-2026 closed on 15 September 2026.';
+    if (cardBadge) {
+      cardBadge.textContent = 'Section 403: ₹100/Day';
+      cardBadge.style.color = '#B45309';
+      cardBadge.style.background = '#FEF3C7';
+    }
+    if (summaryTitle) summaryTitle.textContent = 'Statutory Exposure Assessment';
+    if (summaryBadge) {
+      summaryBadge.textContent = 'Diagnostic Ledger';
+      summaryBadge.style.color = '#475569';
+      summaryBadge.style.background = '#E2E8F0';
+    }
+    if (profFeeLabel) profFeeLabel.textContent = 'Base Professional Fee:';
+    if (govtFeeLabel) govtFeeLabel.textContent = 'Base RoC Challan Fee:';
+    if (bannerLabel) bannerLabel.textContent = 'Total Estimated Statutory Exposure';
+    if (turnaroundLabel) turnaroundLabel.textContent = 'Urgent Resolution SLA: 24-48 Hours';
+    if (noteEl) {
+      noteEl.innerHTML = '<strong>ESTIMATE LIMITATION:</strong> This illustrative model uses a per-day input and does not reproduce the complete MCA form-wise fee schedule or determine a filing\'s eligibility. CCFS-2026 relief is closed and is not included. Confirm current fees in the MCA portal.';
+    }
+  }
+
+  if (currentTab1Mode === 'annual') {
+    const svcEl = document.getElementById('service-type');
+    if (svcEl && (svcEl.value === 'pvt-ltd' || svcEl.value === 'llp')) {
+      svcEl.value = 'roc-retainer';
+    }
+  }
+
+  calculateCost();
+}
+
+function onEntityTypeChange() {
+  const entityType = document.getElementById('entity-type')?.value || 'pvt-ltd';
+  const svcEl = document.getElementById('service-type');
+  if (svcEl) {
+    if (entityType === 'llp') svcEl.value = 'llp';
+    else if (entityType === 'pvt-ltd' || entityType === 'opc') svcEl.value = 'pvt-ltd';
+  }
+  calculateCost();
+}
+
+// Module 1 Calculations
 function calculateCost() {
+  const entityType = document.getElementById('entity-type')?.value || 'pvt-ltd';
   const service = document.getElementById('service-type')?.value || 'roc-retainer';
   const tier = document.getElementById('capital-tier')?.value || 'tier-1';
-  const delayDays = parseInt(document.getElementById('roc-delay-days')?.value) || 0;
+  const state = document.getElementById('formation-state')?.value || 'maharashtra';
+  const delayDays = parseInt(document.getElementById('roc-delay-days')?.value, 10) || 0;
   const ccfsMode = Boolean(document.getElementById('ccfs-mode')?.checked) && Date.now() <= CCFS_2026_DEADLINE.getTime();
 
   let baseProf = 15999;
   let baseGovt = 1200;
-
-  if (service === 'pvt-ltd') { baseProf = 7999; baseGovt = 3500; }
-  else if (service === 'llp') { baseProf = 6499; baseGovt = 2500; }
-  else if (service === 'roc-retainer') { baseProf = 15999; baseGovt = 1200; }
-  else if (service === 'gst-annual') { baseProf = 13999; baseGovt = 0; }
-  else if (service === 'trademark') { baseProf = 4999; baseGovt = 4500; }
-
-  // Tier multiplier
-  if (tier === 'tier-2') baseGovt = Math.round(baseGovt * 1.5);
-  if (tier === 'tier-3') baseGovt = Math.round(baseGovt * 2.5);
-
-  // Addons
+  let stampDuty = 1000;
   let addonTotal = 0;
-  const msmeCheck = document.getElementById('addon-msme');
-  const shaCheck = document.getElementById('addon-sha');
-  const acCheck = document.getElementById('addon-current-ac');
-  if (msmeCheck && msmeCheck.checked) addonTotal += 999;
-  if (shaCheck && shaCheck.checked) addonTotal += 4999;
-  if (acCheck && acCheck.checked) addonTotal += 1499;
-
-  // Late fee logic: Section 403 ₹100 per day per form for AOC-4 & MGT-7
-  let overdueFormsCount = 0;
-  if (document.getElementById('form-aoc4')?.checked) overdueFormsCount++;
-  if (document.getElementById('form-mgt7')?.checked) overdueFormsCount++;
-
-  let rocLateFee = overdueFormsCount * delayDays * 100;
-
-  // DIR-3 KYC: flat ₹5,000 late filing penalty under Rule 12A
-  if (document.getElementById('form-dir3kyc')?.checked && delayDays > 0) {
-    rocLateFee += 5000;
-  }
-
-  // PAS-6: ₹1,000 flat late fee
-  if (document.getElementById('form-pas6')?.checked && delayDays > 0) {
-    rocLateFee += 1000;
-  }
-
-  // CCFS-2026 Amnesty: 10% of additional fee
+  let rocLateFee = 0;
   let ccfsFee = 0;
-  if (ccfsMode && rocLateFee > 0) {
-    ccfsFee = Math.round(rocLateFee * 0.9); // Savings = 90% of late fee
-    rocLateFee = Math.round(rocLateFee * 0.1); // Pay only 10%
+  let total = 0;
+
+  if (currentTab1Mode === 'formation') {
+    // FORMATION MODE: Harmonized exactly with homepage outlay estimator
+    if (state === 'karnataka') stampDuty = 1500;
+    else if (state === 'telangana') stampDuty = 1200;
+    else stampDuty = 1000;
+
+    if (entityType === 'pvt-ltd') {
+      baseProf = 4999;
+      baseGovt = 0; // MCA fee exempt up to 15L capital
+      if (tier === 'tier-3') { baseProf = 5499; stampDuty += 500; }
+      else if (tier === 'tier-4') { baseProf = 5999; baseGovt = 1000; stampDuty += 1500; }
+    } else if (entityType === 'llp') {
+      baseProf = 4499;
+      baseGovt = 500; // FiLLiP statutory fee
+      stampDuty = 500; // LLP Agreement stamp duty baseline
+      if (tier === 'tier-3') { baseProf = 4999; stampDuty += 500; }
+      else if (tier === 'tier-4') { baseProf = 5499; baseGovt = 1000; stampDuty += 1000; }
+    } else if (entityType === 'opc') {
+      baseProf = 4499;
+      baseGovt = 0;
+      if (tier === 'tier-3') { baseProf = 4999; stampDuty += 500; }
+      else if (tier === 'tier-4') { baseProf = 5499; baseGovt = 1000; stampDuty += 1000; }
+    } else if (entityType === 'section-8') {
+      baseProf = 14999;
+      baseGovt = 2000; // INC-12 license fee
+      stampDuty = 1000;
+    } else if (entityType === 'public-ltd') {
+      baseProf = 19999;
+      baseGovt = 1000;
+      stampDuty = 2000;
+    }
+
+    // Formation Addons
+    if (document.getElementById('f-addon-gst')?.checked) addonTotal += 999;
+    if (document.getElementById('f-addon-dpiit')?.checked) addonTotal += 2499;
+    if (document.getElementById('f-addon-tm')?.checked) addonTotal += 3999;
+    if (document.getElementById('f-addon-governance')?.checked) addonTotal += 1499;
+
+    total = baseProf + baseGovt + stampDuty + addonTotal;
+
+    // CTA routing & WhatsApp deep-link
+    const primaryCta = document.getElementById('tab1-primary-cta');
+    const whatsappCta = document.getElementById('tab1-whatsapp-cta');
+    const entityLabels = {
+      'pvt-ltd': 'Private Limited Company (SPICe+)',
+      'llp': 'Limited Liability Partnership (LLP)',
+      'opc': 'One Person Company (OPC)',
+      'section-8': 'Section 8 Non-Profit Company',
+      'public-ltd': 'Public Limited Company'
+    };
+    const entityLabel = entityLabels[entityType] || 'Company';
+
+    if (primaryCta) {
+      primaryCta.textContent = 'Proceed to Incorporation Checkout →';
+      primaryCta.href = appendAttribution(
+        `/conversion/post-incorporation-checkout.html?service=${entityType}&capital=${tier}&state=${state}&total=${total}`
+      );
+    }
+    if (whatsappCta) {
+      const waMsg = `Hello CraftEgon, I used your statutory outlay estimator for ${entityLabel} (Capital: ${tier}, State: ${state}, Outlay: ₹${total.toLocaleString('en-IN')}). I would like to proceed with incorporation.`;
+      whatsappCta.href = `https://wa.me/919946859555?text=${encodeURIComponent(waMsg)}`;
+      const waText = whatsappCta.querySelector('span');
+      if (waText) waText.textContent = 'WhatsApp Incorporation Specialist';
+    }
+  } else {
+    // ANNUAL COMPLIANCE & LATE FEE MODE
+    if (service === 'pvt-ltd') { baseProf = 7999; baseGovt = 3500; }
+    else if (service === 'llp') { baseProf = 6499; baseGovt = 2500; }
+    else if (service === 'roc-retainer') { baseProf = 15999; baseGovt = 1200; }
+    else if (service === 'gst-annual') { baseProf = 13999; baseGovt = 0; }
+    else if (service === 'trademark') { baseProf = 4999; baseGovt = 4500; }
+
+    if (tier === 'tier-2') baseGovt = Math.round(baseGovt * 1.5);
+    if (tier === 'tier-3' || tier === 'tier-4') baseGovt = Math.round(baseGovt * 2.5);
+
+    if (document.getElementById('addon-msme')?.checked) addonTotal += 999;
+    if (document.getElementById('addon-sha')?.checked) addonTotal += 4999;
+    if (document.getElementById('addon-current-ac')?.checked) addonTotal += 1499;
+
+    let overdueFormsCount = 0;
+    if (document.getElementById('form-aoc4')?.checked) overdueFormsCount++;
+    if (document.getElementById('form-mgt7')?.checked) overdueFormsCount++;
+
+    rocLateFee = overdueFormsCount * delayDays * 100;
+    if (document.getElementById('form-dir3kyc')?.checked && delayDays > 0) rocLateFee += 5000;
+    if (document.getElementById('form-pas6')?.checked && delayDays > 0) rocLateFee += 1000;
+
+    if (ccfsMode && rocLateFee > 0) {
+      ccfsFee = Math.round(rocLateFee * 0.9);
+      rocLateFee = Math.round(rocLateFee * 0.1);
+    }
+
+    total = baseProf + baseGovt + rocLateFee + addonTotal;
+
+    const primaryCta = document.getElementById('tab1-primary-cta');
+    const whatsappCta = document.getElementById('tab1-whatsapp-cta');
+    if (primaryCta) {
+      primaryCta.textContent = 'Engage RoC Compliance Desk →';
+      primaryCta.href = appendAttribution(`/conversion/retainer-desk.html?service=${service}&delay=${delayDays}&exposure=${total}`);
+    }
+    if (whatsappCta) {
+      const waMsg = `Hello CraftEgon, I calculated statutory late fee exposure for ${service} (${delayDays} days delay, Total Exposure: ₹${total.toLocaleString('en-IN')}). I would like to regularize statutory compliance.`;
+      whatsappCta.href = `https://wa.me/919946859555?text=${encodeURIComponent(waMsg)}`;
+      const waText = whatsappCta.querySelector('span');
+      if (waText) waText.textContent = 'Consult Compliance Specialist';
+    }
   }
 
-  const total = baseProf + baseGovt + rocLateFee + addonTotal;
-
+  // Update DOM readouts
   const profEl = document.getElementById('prof-fee');
   const govtEl = document.getElementById('govt-fee');
+  const stampEl = document.getElementById('stamp-fee');
   const lateEl = document.getElementById('roc-late-fee');
   const ccfsEl = document.getElementById('ccfs-fee');
   const addonEl = document.getElementById('addon-fee');
   const totalEl = document.getElementById('total-fee');
+  const dockTotal = document.getElementById('mobile-dock-total');
 
-  if (profEl) profEl.innerText = '₹' + baseProf.toLocaleString('en-IN');
-  if (govtEl) govtEl.innerText = '₹' + baseGovt.toLocaleString('en-IN');
-  if (lateEl) lateEl.innerText = '₹' + rocLateFee.toLocaleString('en-IN');
+  if (profEl) profEl.textContent = '₹' + baseProf.toLocaleString('en-IN');
+  if (govtEl) {
+    if (currentTab1Mode === 'formation' && baseGovt === 0) {
+      govtEl.textContent = '₹0 (MCA Exempt)';
+    } else {
+      govtEl.textContent = '₹' + baseGovt.toLocaleString('en-IN');
+    }
+  }
+  if (stampEl) stampEl.textContent = '₹' + stampDuty.toLocaleString('en-IN');
+  if (lateEl) lateEl.textContent = '₹' + rocLateFee.toLocaleString('en-IN');
   if (ccfsEl) {
     const closed = Date.now() > CCFS_2026_DEADLINE.getTime();
     ccfsEl.textContent = ccfsMode ? '₹' + ccfsFee.toLocaleString('en-IN') + ' saved' : (closed ? 'Closed 15 Sep 2026' : 'Not applied');
     ccfsEl.style.color = ccfsMode ? '#059669' : '#64748B';
   }
-  if (addonEl) addonEl.innerText = '₹' + addonTotal.toLocaleString('en-IN');
-  if (totalEl) totalEl.innerText = '₹' + Math.round(total).toLocaleString('en-IN');
+  if (addonEl) addonEl.textContent = '₹' + addonTotal.toLocaleString('en-IN');
+  if (totalEl) totalEl.textContent = '₹' + Math.round(total).toLocaleString('en-IN');
+  if (dockTotal) dockTotal.textContent = '₹' + Math.round(total).toLocaleString('en-IN');
 }
 
 // Module 2: GST & ITC Simulator
@@ -92,9 +361,9 @@ function calculateGst() {
   const procEl = document.getElementById('gst-procurement-val');
   const blockedEl = document.getElementById('gst-blocked-val');
 
-  if (turnoverEl) turnoverEl.innerText = '₹' + turnover.toLocaleString('en-IN');
-  if (procEl) procEl.innerText = '₹' + procurement.toLocaleString('en-IN');
-  if (blockedEl) blockedEl.innerText = (blockedPct * 100).toFixed(0) + '% Disallowed';
+  if (turnoverEl) turnoverEl.textContent = '₹' + turnover.toLocaleString('en-IN');
+  if (procEl) procEl.textContent = '₹' + procurement.toLocaleString('en-IN');
+  if (blockedEl) blockedEl.textContent = (blockedPct * 100).toFixed(0) + '% Disallowed';
 
   const outputTax = turnover * slab;
   const totalItc = procurement * slab;
@@ -108,11 +377,11 @@ function calculateGst() {
   const eligEl = document.getElementById('gst-eligible-itc');
   const netEl = document.getElementById('gst-net-payable');
 
-  if (outEl) outEl.innerText = '₹' + Math.round(outputTax).toLocaleString('en-IN');
-  if (itcEl) itcEl.innerText = '₹' + Math.round(totalItc).toLocaleString('en-IN');
-  if (blkEl) blkEl.innerText = '-₹' + Math.round(blockedTax).toLocaleString('en-IN');
-  if (eligEl) eligEl.innerText = '₹' + Math.round(eligibleItc).toLocaleString('en-IN');
-  if (netEl) netEl.innerText = '₹' + Math.round(netPayable).toLocaleString('en-IN');
+  if (outEl) outEl.textContent = '₹' + Math.round(outputTax).toLocaleString('en-IN');
+  if (itcEl) itcEl.textContent = '₹' + Math.round(totalItc).toLocaleString('en-IN');
+  if (blkEl) blkEl.textContent = '-₹' + Math.round(blockedTax).toLocaleString('en-IN');
+  if (eligEl) eligEl.textContent = '₹' + Math.round(eligibleItc).toLocaleString('en-IN');
+  if (netEl) netEl.textContent = '₹' + Math.round(netPayable).toLocaleString('en-IN');
   calculateGst2bReconciliation();
 }
 
@@ -137,8 +406,8 @@ function calculateTaxRegime() {
 
   const grossEl = document.getElementById('tax-gross-income-val');
   const dedEl = document.getElementById('tax-deductions-val');
-  if (grossEl) grossEl.innerText = '₹' + grossIncome.toLocaleString('en-IN');
-  if (dedEl) dedEl.innerText = '₹' + deductions.toLocaleString('en-IN');
+  if (grossEl) grossEl.textContent = '₹' + grossIncome.toLocaleString('en-IN');
+  if (dedEl) dedEl.textContent = '₹' + deductions.toLocaleString('en-IN');
 
   let deemedProfit = grossIncome;
   if (bizType === '44ada') deemedProfit = grossIncome * 0.50;
@@ -147,7 +416,7 @@ function calculateTaxRegime() {
   else deemedProfit = grossIncome * 0.35;
 
   const baseEl = document.getElementById('tax-deemed-base');
-  if (baseEl) baseEl.innerText = '₹' + Math.round(deemedProfit).toLocaleString('en-IN');
+  if (baseEl) baseEl.textContent = '₹' + Math.round(deemedProfit).toLocaleString('en-IN');
 
   // Old Regime Tax
   const oldNet = Math.max(0, deemedProfit - deductions);
@@ -156,10 +425,10 @@ function calculateTaxRegime() {
   else if (oldNet <= 500000) oldTax = (oldNet - 250000) * 0.05;
   else if (oldNet <= 1000000) oldTax = 12500 + (oldNet - 500000) * 0.20;
   else oldTax = 112500 + (oldNet - 1000000) * 0.30;
-  if (oldNet <= 500000) oldTax = 0;
-  oldTax *= 1.04;
+  if (oldNet <= 500000) oldTax = 0; // Section 87A rebate
+  oldTax *= 1.04; // Cess
 
-  // New Regime (115BAC)
+  // New Regime (115BAC - Finance Act 2024 slabs)
   let newTax = 0;
   if (deemedProfit <= 300000) newTax = 0;
   else if (deemedProfit <= 700000) newTax = (deemedProfit - 300000) * 0.05;
@@ -167,7 +436,15 @@ function calculateTaxRegime() {
   else if (deemedProfit <= 1200000) newTax = 50000 + (deemedProfit - 1000000) * 0.15;
   else if (deemedProfit <= 1500000) newTax = 80000 + (deemedProfit - 1200000) * 0.20;
   else newTax = 140000 + (deemedProfit - 1500000) * 0.30;
-  if (deemedProfit <= 700000) newTax = 0;
+
+  // Section 87A Full Rebate + Marginal Relief
+  if (deemedProfit <= 700000) {
+    newTax = 0;
+  } else if (deemedProfit > 700000 && deemedProfit <= 727777) {
+    // Marginal relief under Section 87A proviso
+    const excess = deemedProfit - 700000;
+    newTax = Math.min(newTax, excess);
+  }
   newTax *= 1.04;
 
   const savings = Math.abs(oldTax - newTax);
@@ -178,10 +455,10 @@ function calculateTaxRegime() {
   const optEl = document.getElementById('tax-optimal-choice');
   const savEl = document.getElementById('tax-net-savings');
 
-  if (oldEl) oldEl.innerText = '₹' + Math.round(oldTax).toLocaleString('en-IN');
-  if (newEl) newEl.innerText = '₹' + Math.round(newTax).toLocaleString('en-IN');
-  if (optEl) optEl.innerText = optimal;
-  if (savEl) savEl.innerText = '₹' + Math.round(savings).toLocaleString('en-IN');
+  if (oldEl) oldEl.textContent = '₹' + Math.round(oldTax).toLocaleString('en-IN');
+  if (newEl) newEl.textContent = '₹' + Math.round(newTax).toLocaleString('en-IN');
+  if (optEl) optEl.textContent = optimal;
+  if (savEl) savEl.textContent = '₹' + Math.round(savings).toLocaleString('en-IN');
 }
 
 // MSME 43B(h) Vendor Payment Tracker
@@ -189,10 +466,13 @@ const MSME_VENDORS_KEY = 'ccs_msme_vendors';
 
 function loadMsmVendors() {
   try {
-    const data = localStorage.getItem(MSME_VENDORS_KEY);
-    const vendors = data ? JSON.parse(data) : [];
-    return Array.isArray(vendors) ? vendors.filter(vendor => vendor && typeof vendor.name === 'string' && Number.isFinite(Number(vendor.amount))) : [];
-  } catch { return []; }
+    const raw = localStorage.getItem(MSME_VENDORS_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    console.warn('MSME tracker could not load from local storage.', error);
+    return [];
+  }
 }
 
 function saveMsmVendors(vendors) {
@@ -232,6 +512,39 @@ function removeMsmVendor(id) {
   const vendors = loadMsmVendors().filter(v => v.id !== id);
   saveMsmVendors(vendors);
   renderMsmVendors();
+}
+
+function exportMsmVendorsCsv() {
+  const vendors = loadMsmVendors();
+  if (vendors.length === 0) {
+    alert('No vendor records found to export. Add at least one vendor first.');
+    return;
+  }
+  const headers = ['Vendor Name', 'Outstanding Amount (INR)', 'Acceptance Date', 'Written Agreement', 'Is MSME', 'Payment Deadline (Days)', 'Payment Due Date', 'Status'];
+  const today = getLocalDateString();
+  const rows = vendors.map(v => {
+    const { daysAllowed, date: deadline } = getMsmPaymentDeadline(v);
+    const daysToDeadline = getDaysBetween(today, deadline);
+    const status = !v.isMsm ? 'Not MSME' : daysToDeadline < 0 ? `OVERDUE by ${Math.abs(daysToDeadline)}d` : `DUE in ${daysToDeadline}d`;
+    return [
+      `"${v.name.replace(/"/g, '""')}"`,
+      v.amount,
+      v.acceptanceDate,
+      v.hasWrittenAgreement ? 'Yes (45 Days)' : 'No (15 Days)',
+      v.isMsm ? 'Yes' : 'No',
+      daysAllowed,
+      deadline,
+      status
+    ].join(',');
+  });
+  const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows].join('\n');
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement('a');
+  link.setAttribute('href', encodedUri);
+  link.setAttribute('download', `craftegon-msme-43bh-audit-${today}.csv`);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 function getDaysBetween(start, end) {
@@ -295,11 +608,27 @@ function buildMsmVendorForm() {
     form.appendChild(label);
   });
 
+  const actions = document.createElement('div');
+  actions.className = 'msme-vendor-actions';
+  actions.style.display = 'flex';
+  actions.style.gap = '0.5rem';
+  actions.style.alignItems = 'center';
+  actions.style.marginTop = '0.5rem';
+
   const submit = document.createElement('button');
   submit.type = 'submit';
   submit.className = 'if-btn-secondary';
   submit.textContent = 'Add supplier to tracker';
-  form.appendChild(submit);
+  actions.appendChild(submit);
+
+  const exportBtn = document.createElement('button');
+  exportBtn.type = 'button';
+  exportBtn.className = 'if-btn-secondary';
+  exportBtn.textContent = '📥 Export CSV';
+  exportBtn.onclick = exportMsmVendorsCsv;
+  actions.appendChild(exportBtn);
+
+  form.appendChild(actions);
   form.addEventListener('submit', addMsmVendor);
   container.parentNode.insertBefore(form, container);
 }
@@ -317,7 +646,7 @@ function renderMsmVendors() {
     empty.className = 'msme-empty-state';
     empty.textContent = 'No suppliers added. Enter a supplier and acceptance date to start tracking.';
     container.replaceChildren(empty);
-    if (summaryEl) summaryEl.innerText = 'Add vendors to track payment deadlines';
+    if (summaryEl) summaryEl.textContent = 'Add vendors to track payment deadlines';
     return;
   }
 
@@ -349,28 +678,29 @@ function renderMsmVendors() {
     name.textContent = v.name;
     const details = document.createElement('span');
     details.className = 'tracker-value';
-    details.textContent = `₹${Number(v.amount).toLocaleString('en-IN')} · Accepted ${accepted} · Due ${deadline} (${daysAllowed} days)`;
+    details.textContent = `₹${Number(v.amount).toLocaleString('en-IN')} · Accepted: ${accepted} · Due: ${deadline} (${daysAllowed} days)`;
     info.append(name, details);
-    const actions = document.createElement('div');
-    actions.className = 'msme-vendor-actions';
-    const status = document.createElement('span');
-    status.className = `tracker-status ${statusBadgeClass}`;
-    status.textContent = statusText;
+
+    const right = document.createElement('div');
+    right.className = 'msme-vendor-actions';
+    const badge = document.createElement('span');
+    badge.className = `tracker-status ${statusBadgeClass}`;
+    badge.textContent = statusText;
+
     const remove = document.createElement('button');
     remove.type = 'button';
     remove.className = 'msme-remove-vendor';
     remove.textContent = 'Remove';
     remove.addEventListener('click', () => removeMsmVendor(v.id));
-    actions.append(status, remove);
-    row.append(info, actions);
+
+    right.append(badge, remove);
+    row.append(info, right);
     return row;
   });
-  container.replaceChildren(...rows);
 
+  container.replaceChildren(...rows);
   if (summaryEl) {
-    const total = document.createElement('p');
-    total.textContent = `${vendors.length} suppliers tracked · ${overdueCount} overdue · ${dueSoonCount} due in 7 days · ${compliantCount} within period · ${notApplicableCount} not marked MSME`;
-    summaryEl.replaceChildren(total);
+    summaryEl.textContent = `Total tracked: ${vendors.length} | Overdue: ${overdueCount} | Due soon: ${dueSoonCount} | Compliant: ${compliantCount}`;
   }
 }
 
@@ -386,15 +716,15 @@ function calculateCapTable() {
   const esopEl = document.getElementById('cap-esop-val');
   const treasuryEl = document.getElementById('treasury-cash-val');
 
-  if (preEl) preEl.innerText = '₹' + (preMoney / 10000000).toFixed(2) + ' Crores';
-  if (raiseEl) raiseEl.innerText = '₹' + (raise / 10000000).toFixed(2) + ' Crores';
-  if (esopEl) esopEl.innerText = esopTarget.toFixed(1) + '% Post-Round';
-  if (treasuryEl) treasuryEl.innerText = '₹' + (treasuryCash / 10000000).toFixed(2) + ' Crores';
+  if (preEl) preEl.textContent = '₹' + (preMoney / 10000000).toFixed(2) + ' Crores';
+  if (raiseEl) raiseEl.textContent = '₹' + (raise / 10000000).toFixed(2) + ' Crores';
+  if (esopEl) esopEl.textContent = esopTarget.toFixed(1) + '% Post-Round';
+  if (treasuryEl) treasuryEl.textContent = '₹' + (treasuryCash / 10000000).toFixed(2) + ' Crores';
 
   const postMoney = preMoney + raise;
   const investorPct = (raise / postMoney) * 100;
   const founderPct = Math.max(0, 100 - investorPct - esopTarget);
-  const treasuryRate = (Number(document.getElementById('treasury-rate')?.value) || 0) / 100;
+  const treasuryRate = (Number(document.getElementById('treasury-rate')?.value) || 7.2) / 100;
   const treasuryYield = treasuryCash * treasuryRate;
 
   const pmEl = document.getElementById('cap-post-money');
@@ -404,11 +734,11 @@ function calculateCapTable() {
   const tyEl = document.getElementById('treasury-annual-yield');
   const treasuryRateLabel = document.querySelector('#calc-tab-4 .total-banner > div:first-child');
 
-  if (pmEl) pmEl.innerText = '₹' + (postMoney / 10000000).toFixed(2) + ' Cr';
-  if (invEl) invEl.innerText = investorPct.toFixed(2) + '%';
-  if (esopPctEl) esopPctEl.innerText = esopTarget.toFixed(2) + '%';
-  if (fndEl) fndEl.innerText = founderPct.toFixed(2) + '%';
-  if (tyEl) tyEl.innerText = '₹' + Math.round(treasuryYield).toLocaleString('en-IN');
+  if (pmEl) pmEl.textContent = '₹' + (postMoney / 10000000).toFixed(2) + ' Cr';
+  if (invEl) invEl.textContent = investorPct.toFixed(2) + '%';
+  if (esopPctEl) esopPctEl.textContent = esopTarget.toFixed(2) + '%';
+  if (fndEl) fndEl.textContent = founderPct.toFixed(2) + '%';
+  if (tyEl) tyEl.textContent = '₹' + Math.round(treasuryYield).toLocaleString('en-IN');
   if (treasuryRateLabel) treasuryRateLabel.textContent = `Annual forecast at assumed yield (${(treasuryRate * 100).toFixed(2)}%)`;
   calculateEmi();
 }
@@ -507,37 +837,66 @@ function disableExpiredCcfsControl() {
     Array.from(label.childNodes).filter(node => node.nodeType === Node.TEXT_NODE).forEach(node => node.remove());
     label.appendChild(document.createTextNode(' CCFS-2026 closed 15 September 2026; historical relief is not applied.'));
   }
-  const note = document.querySelector('#calc-tab-1 .ai-optimization-note');
-  if (note && closed) {
-    note.textContent = 'CCFS-2026 closed on 15 September 2026. This estimator does not apply the historical fee concession. Government fees vary by filing and current rules; verify the current MCA fee schedule before filing.';
+}
+
+// Decorate all anchor links with UTM parameters
+function decorateOutboundLinks() {
+  try {
+    const links = document.querySelectorAll('a[href^="/conversion/"], a[href^="/services/"]');
+    links.forEach(a => {
+      const orig = a.getAttribute('href');
+      if (orig && !orig.startsWith('#')) {
+        a.setAttribute('href', appendAttribution(orig));
+      }
+    });
+  } catch (e) {
+    // Non-blocking
   }
 }
 
 // Initialize calculators on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
-  // Sync state from query parameters (e.g. ?service=pvt-ltd&capital=100000)
+  captureAttribution();
+
+  // Parse and sync state from query parameters
   try {
     const params = new URLSearchParams(window.location.search);
+    let targetMode = 'formation';
+
     if (params.has('service')) {
+      const val = params.get('service');
+      const entityEl = document.getElementById('entity-type');
       const svcEl = document.getElementById('service-type');
-      if (svcEl) {
-        const val = params.get('service');
-        if (['pvt-ltd', 'llp', 'roc-retainer', 'gst-annual', 'trademark'].includes(val)) {
-          svcEl.value = val;
-        }
+
+      if (['pvt-ltd', 'llp', 'opc', 'section-8', 'public-ltd'].includes(val)) {
+        targetMode = 'formation';
+        if (entityEl) entityEl.value = val;
+        if (svcEl && ['pvt-ltd', 'llp'].includes(val)) svcEl.value = val;
+      } else if (['roc-retainer', 'gst-annual', 'trademark', 'overdue'].includes(val)) {
+        targetMode = 'annual';
+        if (svcEl) svcEl.value = val;
       }
     }
+
     if (params.has('capital')) {
       const cap = parseInt(params.get('capital'), 10);
       const tierEl = document.getElementById('capital-tier');
       if (tierEl && !isNaN(cap)) {
         if (cap <= 100000) tierEl.value = 'tier-1';
         else if (cap <= 1000000) tierEl.value = 'tier-2';
-        else tierEl.value = 'tier-3';
+        else if (cap <= 2500000) tierEl.value = 'tier-3';
+        else tierEl.value = 'tier-4';
       }
     }
+
+    if (params.has('state')) {
+      const stateEl = document.getElementById('formation-state');
+      if (stateEl) stateEl.value = params.get('state');
+    }
+
+    setTab1Mode(targetMode);
   } catch (err) {
-    // Non-blocking URL sync
+    setTab1Mode('formation');
   }
 
   disableExpiredCcfsControl();
@@ -549,10 +908,14 @@ document.addEventListener('DOMContentLoaded', () => {
   calculateTaxRegime();
   calculateCapTable();
   renderMsmVendors();
+  decorateOutboundLinks();
 });
 
-// Export for use in other pages
+// Export for window
 window.CraftegonCalculator = {
+  get currentTab1Mode() { return currentTab1Mode; },
+  setTab1Mode,
+  onEntityTypeChange,
   calculateCost,
   calculateGst,
   calculateTaxRegime,
@@ -563,5 +926,7 @@ window.CraftegonCalculator = {
   saveMsmVendors,
   addMsmVendor,
   removeMsmVendor,
-  renderMsmVendors
+  renderMsmVendors,
+  exportMsmVendorsCsv,
+  appendAttribution
 };

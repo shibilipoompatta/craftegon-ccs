@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="color-scheme" content="light">
   <title>Executive Financial & Statutory Calculator Suite | Craftegon Corporate Services (CCS)</title>
-  <meta name="description" content="Estimate RoC filing fees, compare manually entered purchase-ledger and GSTR-2B ITC, model income-tax scenarios, track MSME payment deadlines, and forecast startup EMI and cap-table dilution.">
+  <meta name="description" content="Transparent entity formation outlay breakdown, RoC Section 403 late fee calculator, GSTR-2B ITC reconciler, Income Tax Section 115BAC simulator, and MSME 43B(h) payment deadline tracker.">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link rel="stylesheet" href="/assets/css/navbar.css">
@@ -15,19 +15,19 @@
   <meta property="og:site_name" content="Craftegon Corporate Services (CCS)">
   <meta property="og:url" content="https://ccs.craftegon.com/conversion/calculator.html">
   <meta property="og:title" content="Executive Financial & Statutory Calculator Suite | Craftegon Corporate Services (CCS)">
-  <meta property="og:description" content="Interactive estimates for RoC fees, manually reconciled ITC, income-tax scenarios, MSME payment deadlines, EMI, and startup dilution.">
+  <meta property="og:description" content="Transparent entity formation outlay breakdown, RoC Section 403 late fees, GSTR-2B reconciler, Income Tax 115BAC simulator, and MSME 43B(h) payment tracker.">
   <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@craftegon">
   <meta name="twitter:title" content="Executive Financial & Statutory Calculator Suite | Craftegon Corporate Services (CCS)">
-  <meta name="twitter:description" content="Interactive estimates for RoC fees, manually reconciled ITC, MSME payment deadlines, EMI, and startup dilution.">
+  <meta name="twitter:description" content="Transparent entity formation outlay breakdown, RoC late fees, GSTR-2B reconciler, tax regime simulator, and MSME 43B(h) tracker.">
   <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "BreadcrumbList", "@id": "https://ccs.craftegon.com/conversion/calculator.html#breadcrumb", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ccs.craftegon.com/" }, { "@type": "ListItem", "position": 2, "name": "Diagnostic Tools & AI", "item": "https://ccs.craftegon.com/conversion/index.html" }, { "@type": "ListItem", "position": 3, "name": "Statutory Calculator Suite", "item": "https://ccs.craftegon.com/conversion/calculator.html" } ] },
-      { "@type": "WebApplication", "@id": "https://ccs.craftegon.com/conversion/calculator.html#app", "name": "Executive Financial & Statutory Calculator Suite", "url": "https://ccs.craftegon.com/conversion/calculator.html", "description": "Multi-module statutory fee, GST, income tax regime, MSME 43B(h) payment tracker, and cap table simulator under Indian Corporate and Taxation Laws.", "applicationCategory": "BusinessApplication", "operatingSystem": "All", "browserRequirements": "Requires JavaScript", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "publisher": { "@type": "Organization", "name": "Craftegon Corporate Services (CCS)", "url": "https://ccs.craftegon.com", "logo": "https://ccs.craftegon.com/assets/images/craftegon-logo.jpg" } }
+      { "@type": "WebApplication", "@id": "https://ccs.craftegon.com/conversion/calculator.html#app", "name": "Executive Financial & Statutory Calculator Suite", "url": "https://ccs.craftegon.com/conversion/calculator.html", "description": "Multi-module statutory fee, entity formation outlay, GST, income tax regime, MSME 43B(h) payment tracker, and cap table simulator under Indian Corporate and Taxation Laws.", "applicationCategory": "BusinessApplication", "operatingSystem": "All", "browserRequirements": "Requires JavaScript", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "publisher": { "@type": "Organization", "name": "Craftegon Corporate Services (CCS)", "url": "https://ccs.craftegon.com", "logo": "https://ccs.craftegon.com/assets/images/craftegon-logo.jpg" } }
     ]
   }
   </script>
@@ -35,7 +35,7 @@
     .calc-hero { background: linear-gradient(180deg, var(--bg-ivory) 0%, #FFFFFF 100%); border-bottom: 1px solid var(--silver-border); padding: 3.5rem 1.5rem 2.5rem; }
     .calc-container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
     .calc-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.85rem; background: #FFFDF5; border: 1px solid #E6D29D; border-radius: 999px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
-    .calc-tabs { display: flex; gap: 0.5rem; border-bottom: 2px solid var(--silver-border); margin-bottom: 2rem; overflow-x: auto; padding-bottom: 2px; }
+    .calc-tabs { display: flex; gap: 0.5rem; border-bottom: 2px solid var(--silver-border); margin-bottom: 2rem; overflow-x: auto; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
     .calc-tab-btn { background: transparent; border: none; padding: 0.85rem 1.35rem; font-family: var(--font-body); font-size: 0.92rem; font-weight: 600; color: #64748B; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all 0.2s ease; }
     .calc-tab-btn:hover { color: var(--charcoal); }
     .calc-tab-btn.active { color: var(--charcoal); border-bottom-color: var(--brand-gold); font-weight: 700; }
@@ -81,6 +81,19 @@
     .msme-remove-vendor { border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.35rem 0.55rem; background: #FFFFFF; color: var(--text-main); cursor: pointer; }
     #gst-2b-reconciliation label { display: block; margin: 0.75rem 0 0.25rem; font-weight: 600; }
     #gst-2b-reconciliation input, #startup-finance-forecast input { width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font: inherit; }
+    
+    /* Mode Switcher Styles */
+    .calc-mode-switcher { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; background: #EEF2F6; padding: 0.35rem; border-radius: 10px; border: 1px solid #E2E8F0; }
+    .mode-btn { flex: 1; padding: 0.75rem 1rem; border: 1px solid transparent; border-radius: 8px; font-family: var(--font-body); font-size: 0.92rem; font-weight: 600; cursor: pointer; background: transparent; color: #64748B; transition: all 0.2s ease; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+    .mode-btn:hover { color: var(--charcoal); }
+    .mode-btn.active { background: #FFFFFF; color: var(--charcoal); border-color: #CBD5E1; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06); font-weight: 700; }
+    
+    /* Mobile Sticky Dock */
+    .calc-mobile-dock { display: none; }
+    @media (max-width: 900px) {
+      .calc-mobile-dock { display: block; position: fixed; bottom: 0; left: 0; right: 0; background: #FFFFFF; border-top: 1px solid var(--silver-border); box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08); padding: 0.75rem 1.25rem; z-index: 1000; }
+      .calc-mobile-dock-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    }
   </style>
 </head>
 <body style="background: var(--bg-ivory); color: var(--charcoal); margin: 0; font-family: var(--font-body);">
@@ -92,71 +105,379 @@
       </nav>
       <div class="calc-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Statutory Intelligence Engine v4.2 • Companies Act 2013, GST Act 2017, Income Tax Act 1961, MSMED Act 2006</div>
       <h1 style="font-family: var(--font-heading); font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 700; line-height: 1.2; margin: 0.5rem 0 0.85rem; color: var(--charcoal);">Executive Financial & Statutory Calculator Suite</h1>
-      <p style="font-size: 1.05rem; color: #475569; max-width: 820px; line-height: 1.6; margin: 0;">Interactive estimates for statutory fee exposure, manually compared GSTR-2B values, tax scenarios, MSME payment dates, startup EMI, cap-table dilution, and user-supplied treasury assumptions. Results are informational and are not connected to MCA, GSTN, or bank feeds.</p>
+      <p style="font-size: 1.05rem; color: #475569; max-width: 820px; line-height: 1.6; margin: 0;">Interactive estimates for company formation outlays, RoC statutory fee exposure, manually compared GSTR-2B values, tax scenarios, MSME payment dates, startup EMI, cap-table dilution, and treasury forecasts.</p>
     </div>
   </header>
   <main id="main-content" class="calc-container">
     <div class="calc-tabs" role="tablist" aria-label="Statutory Calculators">
-      <button type="button" class="calc-tab-btn active" id="tab-btn-1" onclick="switchTab(1)" role="tab" aria-selected="true" aria-controls="calc-tab-1">1. RoC Late Fee &amp; Retainer Estimator</button>
+      <button type="button" class="calc-tab-btn active" id="tab-btn-1" onclick="switchTab(1)" role="tab" aria-selected="true" aria-controls="calc-tab-1">1. Entity Outlay &amp; RoC Fee Suite</button>
       <button type="button" class="calc-tab-btn" id="tab-btn-2" onclick="switchTab(2)" role="tab" aria-selected="false" aria-controls="calc-tab-2">2. GST Rate &amp; ITC / GSTR-2B Reconciler</button>
       <button type="button" class="calc-tab-btn" id="tab-btn-3" onclick="switchTab(3)" role="tab" aria-selected="false" aria-controls="calc-tab-3">3. Income Tax Regime & Sec 44AD/ADA + MSME 43B(h)</button>
       <button type="button" class="calc-tab-btn" id="tab-btn-4" onclick="switchTab(4)" role="tab" aria-selected="false" aria-controls="calc-tab-4">4. Startup EMI, Cap Table &amp; Treasury</button>
     </div>
+
+    <!-- TAB 1: Dual-Mode Entity Formation Outlay & RoC Late Fee Suite -->
     <section id="calc-tab-1" class="calc-tab-content active" role="tabpanel" aria-labelledby="tab-btn-1">
+      <!-- Mode Switcher -->
+      <div class="calc-mode-switcher" role="radiogroup" aria-label="Calculator Mode">
+        <button type="button" class="mode-btn active" id="btn-mode-formation" onclick="setTab1Mode('formation')" role="radio" aria-checked="true">
+          🏢 New Entity Formation Outlay
+        </button>
+        <button type="button" class="mode-btn" id="btn-mode-annual" onclick="setTab1Mode('annual')" role="radio" aria-checked="false">
+          ⚠️ RoC Annual Compliance & Late Fees
+        </button>
+      </div>
+
       <div class="calc-grid">
         <div class="calc-card">
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 1px solid var(--silver-border); padding-bottom: 1rem;">
-            <div><h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin: 0 0 0.25rem;">RoC Statutory Late Fee & Retainer Estimate</h2><p style="font-size: 0.85rem; color: #64748B; margin: 0;">Indicative estimate only. Filing fees depend on form, company capital, delay, and current MCA rules. CCFS-2026 closed on 15 September 2026.</p></div>
-            <span class="readout-pill" style="color: #B45309; background: #FEF3C7;">Section 403: ₹100/Day</span>
+            <div>
+              <h2 id="tab1-card-title" style="font-family: var(--font-heading); font-size: 1.35rem; margin: 0 0 0.25rem;">New Entity Formation & Statutory Outlay Breakdown</h2>
+              <p id="tab1-card-subtitle" style="font-size: 0.85rem; color: #64748B; margin: 0;">Official MCA V3 SPICe+ & FiLLiP statutory schedules with transparent state stamp duties and zero hidden costs.</p>
+            </div>
+            <span id="tab1-card-badge" class="readout-pill" style="color: #065F46; background: #D1FAE5;">MCA V3 Rule 38: ₹0 Filing Fee</span>
           </div>
+
           <form id="estimator-form" onsubmit="event.preventDefault();">
-            <div class="form-group"><label for="entity-type"><span>Select Legal Entity Classification</span><span style="font-size: 0.75rem; color: #64748B;">MCA V3 Category</span></label><select id="entity-type" name="entity_type" onchange="calculateCost()"><option value="pvt-ltd">Private Limited Company (Pvt Ltd)</option><option value="opc">One Person Company (OPC)</option><option value="llp">Limited Liability Partnership (LLP)</option><option value="public-ltd">Public Limited Company (Unlisted)</option><option value="section-8">Section 8 Non-Profit Company</option></select></div>
-            <div class="form-group"><label for="service-type"><span>Core Statutory Service / Annual Return Scope</span><span style="font-size: 0.75rem; color: #64748B;">Secretarial Retainer</span></label><select id="service-type" name="service_type" onchange="calculateCost()"><option value="roc-retainer">RoC Annual Compliance Retainer (Standard Full-Scope)</option><option value="pvt-ltd">Private Limited Company Incorporation (SPICe+ Part A/B)</option><option value="llp">Limited Liability Partnership Setup (FiLLiP)</option><option value="gst-annual">GST Annual Return (GSTR-9 & 9C Self-Audit)</option><option value="trademark">Trademark Registration & Examination Defense (TM-A)</option></select></div>
-            <div class="form-group"><label for="capital-tier"><span>Authorized Nominal Capital / Annual Turnover</span><span style="font-size: 0.75rem; color: #64748B;">RoC Slab Schedule</span></label><select id="capital-tier" name="capital_tier" onchange="calculateCost()"><option value="tier-1">Standard Tier: Up to ₹10 Lakhs Capital</option><option value="tier-2">Growth Tier: ₹10 Lakhs to ₹1 Crore Capital</option><option value="tier-3">Enterprise Tier: Above ₹1 Crore Capital</option></select></div>
-            <div class="form-group"><label for="roc-delay-days"><span>Statutory Default Delay Past Due Date</span><span class="readout-pill" id="roc-delay-val">45 Days Overdue</span></label><div class="range-wrap"><input type="range" class="range-slider" id="roc-delay-days" min="0" max="365" value="45" step="5" oninput="updateDelayReadout(); calculateCost();"><div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);"><span>0 Days (On-Time)</span><span>60 Days</span><span>180 Days</span><span>365 Days</span></div></div></div>
-            <div class="form-group"><label style="margin-bottom: 0.75rem;"><span>Defaulting Annual Statutory Forms in Scope</span><span style="font-size: 0.75rem; color: #64748B;">Multiple Selection</span></label><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;"><label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;"><input type="checkbox" id="form-aoc4" checked onchange="calculateCost()"> Form AOC-4 (Financials)</label><label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;"><input type="checkbox" id="form-mgt7" checked onchange="calculateCost()"> Form MGT-7 (Annual Return)</label><label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;"><input type="checkbox" id="form-dir3kyc" onchange="calculateCost()"> DIR-3 KYC (Director Rule 12A)</label><label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;"><input type="checkbox" id="form-pas6" onchange="calculateCost()"> Form PAS-6 (Demat Share Audit)</label></div></div>
-            <div class="form-group" style="margin-bottom: 0;"><label style="margin-bottom: 0.5rem;"><span>CCFS-2026 historical relief</span></label><div style="display: flex; flex-direction: column; gap: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500;"><input type="checkbox" id="ccfs-mode" onchange="calculateCost()" disabled> Closed 15 September 2026; no relief applied</label></div></div>
-            <div class="form-group" style="margin-bottom: 0;"><label style="margin-bottom: 0.5rem;"><span>Optional Governance Add-ons</span></label><div style="display: flex; flex-direction: column; gap: 0.5rem;"><label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;"><input type="checkbox" id="addon-msme" value="999" onchange="calculateCost()"> MSME Form MSME-1 Bi-Annual Return (+₹999)</label><label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;"><input type="checkbox" id="addon-sha" value="4999" onchange="calculateCost()"> Board Minutes & Statutory Register Reconstruction (+₹4,999)</label><label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;"><input type="checkbox" id="addon-current-ac" value="1499" onchange="calculateCost()"> Corporate Banking Board Resolution Kit (+₹1,499)</label></div></div>
+            <!-- Common Entity Classification -->
+            <div class="form-group" id="group-entity-type">
+              <label for="entity-type">
+                <span>Select Legal Entity Classification</span>
+                <span style="font-size: 0.75rem; color: #64748B;" id="entity-mca-label">MCA V3 Structure</span>
+              </label>
+              <select id="entity-type" name="entity_type" onchange="onEntityTypeChange()">
+                <option value="pvt-ltd" selected>Private Limited Company (SPICe+)</option>
+                <option value="llp">Limited Liability Partnership (FiLLiP)</option>
+                <option value="opc">One Person Company (OPC)</option>
+                <option value="public-ltd">Public Limited Company (Unlisted)</option>
+                <option value="section-8">Section 8 Non-Profit Company</option>
+              </select>
+            </div>
+
+            <!-- Service Type for Annual Retainer Mode (Hidden in Formation Mode) -->
+            <div class="form-group" id="group-service-type" style="display: none;">
+              <label for="service-type">
+                <span>Core Statutory Service / Annual Return Scope</span>
+                <span style="font-size: 0.75rem; color: #64748B;">Secretarial Retainer</span>
+              </label>
+              <select id="service-type" name="service_type" onchange="calculateCost()">
+                <option value="roc-retainer" selected>RoC Annual Compliance Retainer (Standard Full-Scope)</option>
+                <option value="pvt-ltd">Private Limited Company Incorporation (SPICe+ Part A/B)</option>
+                <option value="llp">Limited Liability Partnership Setup (FiLLiP)</option>
+                <option value="gst-annual">GST Annual Return (GSTR-9 & 9C Self-Audit)</option>
+                <option value="trademark">Trademark Registration & Examination Defense (TM-A)</option>
+              </select>
+            </div>
+
+            <!-- Capital Tier -->
+            <div class="form-group" id="group-capital-tier">
+              <label for="capital-tier">
+                <span id="capital-tier-label">Authorized Nominal Capital Tier</span>
+                <span style="font-size: 0.75rem; color: #64748B;">RoC Slab Schedule</span>
+              </label>
+              <select id="capital-tier" name="capital_tier" onchange="calculateCost()">
+                <option value="tier-1" selected>Standard Tier: Up to ₹1 Lakh Capital (₹0 MCA Fee)</option>
+                <option value="tier-2">Growth Tier: ₹1 Lakh to ₹10 Lakhs Capital (₹0 MCA Fee)</option>
+                <option value="tier-3">Scale Tier: ₹10 Lakhs to ₹25 Lakhs Capital (₹0 MCA Fee up to ₹15L)</option>
+                <option value="tier-4">Enterprise Tier: Above ₹25 Lakhs Capital</option>
+              </select>
+            </div>
+
+            <!-- State Stamp Duty (Formation Mode Only) -->
+            <div class="form-group" id="group-formation-state">
+              <label for="formation-state">
+                <span>State of Registered Office</span>
+                <span style="font-size: 0.75rem; color: #64748B;">State Stamp Duty</span>
+              </label>
+              <select id="formation-state" name="formation_state" onchange="calculateCost()">
+                <option value="delhi">National Capital Territory of Delhi (₹1,000 Stamp)</option>
+                <option value="maharashtra" selected>Maharashtra (₹1,000 Articles Stamp)</option>
+                <option value="karnataka">Karnataka (₹1,500 Stamp)</option>
+                <option value="tamil-nadu">Tamil Nadu (₹1,000 Stamp)</option>
+                <option value="kerala">Kerala (₹1,000 Stamp)</option>
+                <option value="telangana">Telangana (₹1,200 Stamp)</option>
+                <option value="other">Other Indian States / UTs (₹1,000 Standard)</option>
+              </select>
+            </div>
+
+            <!-- Mandatory Statutory Inclusions Info Box (Formation Mode Only) -->
+            <div id="group-formation-inclusions" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.15rem; margin-bottom: 1.5rem;">
+              <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: #334155; margin-bottom: 0.5rem; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.4rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                Statutory Inclusions in Base Outlay
+              </div>
+              <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.82rem; color: #475569; line-height: 1.65;" id="formation-inclusions-list">
+                <li>2x Class-3 Digital Signature Certificates (DSC Tokens)</li>
+                <li>2x Director Identification Numbers (DIN via SPICe+ Part B)</li>
+                <li>Name Reservation Guarantee (SPICe+ Part A / RUN)</li>
+                <li>Drafting of Custom Memorandum & Articles of Association (MoA & AoA)</li>
+                <li>AGILE-PRO-S Allotments: PAN, TAN, Bank Account & EPFO/ESIC</li>
+                <li>Supervised & Certified by Practicing CS / CA</li>
+              </ul>
+            </div>
+
+            <!-- Formation Addons (Formation Mode Only) -->
+            <div class="form-group" id="group-formation-addons">
+              <label style="margin-bottom: 0.5rem;">
+                <span>Optional Startup Enablement Add-ons</span>
+                <span style="font-size: 0.75rem; color: #64748B;">All-in-One Launch</span>
+              </label>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="f-addon-gst" value="999" onchange="calculateCost()"> GST Registration Expedited Filing (+₹999)
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="f-addon-dpiit" value="2499" onchange="calculateCost()"> Startup India DPIIT Recognition & Tax Exemption Kit (+₹2,499)
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="f-addon-tm" value="3999" onchange="calculateCost()"> Trademark TM-A 1-Class Clearance & Filing (+₹3,999)
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="f-addon-governance" value="1499" onchange="calculateCost()"> Corporate Banking Board Resolution & Share Certificates Kit (+₹1,499)
+                </label>
+              </div>
+            </div>
+
+            <!-- Overdue Delay Slider (Annual Compliance Mode Only) -->
+            <div class="form-group" id="group-roc-delay" style="display: none;">
+              <label for="roc-delay-days">
+                <span>Statutory Default Delay Past Due Date</span>
+                <span class="readout-pill" id="roc-delay-val">45 Days Overdue</span>
+              </label>
+              <div class="range-wrap">
+                <input type="range" class="range-slider" id="roc-delay-days" min="0" max="365" value="45" step="5" oninput="updateDelayReadout(); calculateCost();">
+                <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);">
+                  <span>0 Days (On-Time)</span><span>60 Days</span><span>180 Days</span><span>365 Days</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Defaulting Forms Checkboxes (Annual Compliance Mode Only) -->
+            <div class="form-group" id="group-defaulting-forms" style="display: none;">
+              <label style="margin-bottom: 0.75rem;">
+                <span>Defaulting Annual Statutory Forms in Scope</span>
+                <span style="font-size: 0.75rem; color: #64748B;">Multiple Selection</span>
+              </label>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="form-aoc4" checked onchange="calculateCost()"> Form AOC-4 (Financials)
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="form-mgt7" checked onchange="calculateCost()"> Form MGT-7 (Annual Return)
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="form-dir3kyc" onchange="calculateCost()"> DIR-3 KYC (Director Rule 12A)
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="form-pas6" onchange="calculateCost()"> Form PAS-6 (Demat Share Audit)
+                </label>
+              </div>
+            </div>
+
+            <!-- CCFS Historical Relief (Annual Mode Only) -->
+            <div class="form-group" id="group-ccfs" style="display: none; margin-bottom: 0;">
+              <label style="margin-bottom: 0.5rem;"><span>CCFS-2026 historical relief</span></label>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500;">
+                  <input type="checkbox" id="ccfs-mode" onchange="calculateCost()" disabled> Closed 15 September 2026; no relief applied
+                </label>
+              </div>
+            </div>
+
+            <!-- Annual Retainer Add-ons (Annual Mode Only) -->
+            <div class="form-group" id="group-annual-addons" style="display: none; margin-bottom: 0;">
+              <label style="margin-bottom: 0.5rem;"><span>Optional Governance Add-ons</span></label>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="addon-msme" value="999" onchange="calculateCost()"> MSME Form MSME-1 Bi-Annual Return (+₹999)
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="addon-sha" value="4999" onchange="calculateCost()"> Board Minutes & Statutory Register Reconstruction (+₹4,999)
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
+                  <input type="checkbox" id="addon-current-ac" value="1499" onchange="calculateCost()"> Corporate Banking Board Resolution Kit (+₹1,499)
+                </label>
+              </div>
+            </div>
           </form>
         </div>
-        <div class="calc-summary-card">
-          <span class="readout-pill" style="font-size: 0.72rem; color: #475569; background: #E2E8F0;">Diagnostic Ledger</span>
-          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0.5rem 0 1rem; color: var(--charcoal);">Statutory Exposure Assessment</h3>
-          <div class="metric-row"><span style="color: #64748B;">Base Professional Fee:</span><span class="metric-value" id="prof-fee">₹15,999</span></div>
-          <div class="metric-row"><span style="color: #64748B;">Base RoC Challan Fee:</span><span class="metric-value" id="govt-fee">₹1,200</span></div>
-          <div class="metric-row" style="background: #FFF1F2; margin: 0 -0.5rem; padding: 0.65rem 0.5rem; border-radius: 6px;"><span style="color: #991B1B; font-weight: 600;">Sec 403 Delay Late Fees:</span><span class="metric-value" id="roc-late-fee" style="color: #DC2626;">₹9,000</span></div>
-          <div class="metric-row"><span style="color: #64748B;">CCFS-2026 Adjusted Fee:</span><span class="metric-value" id="ccfs-fee" style="color: #059669;">₹0</span></div>
-          <div class="metric-row"><span style="color: #64748B;">Governance Add-ons:</span><span class="metric-value" id="addon-fee">₹0</span></div>
-          <div class="total-banner"><div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B; margin-bottom: 0.25rem;">Total Estimated Statutory Exposure</div><div class="total-number" id="total-fee">₹26,199</div></div>
-          <a href="/conversion/retainer-desk.html" class="if-btn-primary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700;">Engage RoC Compliance Desk</a>
-          <div class="ai-optimization-note"><strong>ESTIMATE LIMITATION:</strong> This illustrative model uses a per-day input and does not reproduce the complete MCA form-wise fee schedule or determine a filing's eligibility. CCFS-2026 relief is closed and is not included. Confirm current fees in the MCA portal.</div>
+
+        <!-- Diagnostic Summary Card -->
+        <div class="calc-summary-card" id="calc-summary-anchor">
+          <span class="readout-pill" id="summary-badge" style="font-size: 0.72rem; color: #065F46; background: #D1FAE5;">Formation Ledger</span>
+          <h3 id="summary-title" style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0.5rem 0 1rem; color: var(--charcoal);">All-Inclusive Statutory Outlay</h3>
+          
+          <div class="metric-row">
+            <span style="color: #64748B;" id="prof-fee-label">Professional Retainer:</span>
+            <span class="metric-value" id="prof-fee">₹4,999</span>
+          </div>
+          <div class="metric-row">
+            <span style="color: #64748B;" id="govt-fee-label">MCA Filing Fee:</span>
+            <span class="metric-value" id="govt-fee">₹0 (MCA Exempt)</span>
+          </div>
+          <div class="metric-row" id="stamp-fee-row">
+            <span style="color: #64748B;">State Stamp Duty (MoA/AoA):</span>
+            <span class="metric-value" id="stamp-fee">₹1,000</span>
+          </div>
+          <div class="metric-row" id="dsc-din-row">
+            <span style="color: #64748B;">2x DSC & DIN Allotment:</span>
+            <span class="metric-value" style="color: #059669;">Included</span>
+          </div>
+          <div class="metric-row" id="late-fee-row" style="display: none; background: #FFF1F2; margin: 0 -0.5rem; padding: 0.65rem 0.5rem; border-radius: 6px;">
+            <span style="color: #991B1B; font-weight: 600;">Sec 403 Delay Late Fees:</span>
+            <span class="metric-value" id="roc-late-fee" style="color: #DC2626;">₹0</span>
+          </div>
+          <div class="metric-row" id="ccfs-fee-row" style="display: none;">
+            <span style="color: #64748B;">CCFS-2026 Adjusted Fee:</span>
+            <span class="metric-value" id="ccfs-fee" style="color: #64748B;">Closed 15 Sep 2026</span>
+          </div>
+          <div class="metric-row">
+            <span style="color: #64748B;" id="addon-fee-label">Selected Add-ons:</span>
+            <span class="metric-value" id="addon-fee">₹0</span>
+          </div>
+
+          <div class="total-banner">
+            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B; margin-bottom: 0.25rem;" id="total-banner-label">Total Estimated Statutory Outlay</div>
+            <div class="total-number" id="total-fee">₹5,999</div>
+            <div style="font-size: 0.72rem; color: #64748B; margin-top: 0.25rem;" id="turnaround-label">Turnaround SLA: 3-5 Working Days</div>
+          </div>
+
+          <a id="tab1-primary-cta" href="/conversion/post-incorporation-checkout.html" class="if-btn-primary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700;">Proceed to Incorporation Checkout &rarr;</a>
+
+          <a id="tab1-whatsapp-cta" href="https://wa.me/919946859555" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.75rem; font-weight: 600; margin-top: 0.65rem; border: 1px solid #25D366; color: #128C7E; background: #F0FDF4;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            <span>WhatsApp Incorporation Specialist</span>
+          </a>
+
+          <div class="ai-optimization-note" id="tab1-note">
+            <strong>STATUTORY TRANSPARENCY:</strong> MCA Government filing fee is ₹0 under Rule 38 for companies with nominal capital up to ₹15 Lakhs. State stamp duty varies slightly by registered office location. All filings supervised directly by practicing CS & CA.
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- TAB 2: GST Rate & ITC / GSTR-2B Reconciler -->
     <section id="calc-tab-2" class="calc-tab-content" role="tabpanel" aria-labelledby="tab-btn-2">
       <div class="calc-grid">
         <div class="calc-card">
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 1px solid var(--silver-border); padding-bottom: 1rem;"><div><h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin: 0 0 0.25rem;">GST Rate & Input Tax Credit (ITC) Estimate</h2><p style="font-size: 0.85rem; color: #64748B; margin: 0;">Enter applicable rates and figures. This calculator does not validate HSN/SAC classification or fetch GSTR-2B data.</p></div><span class="readout-pill" style="color: #065F46; background: #D1FAE5;">Manual Estimate</span></div>
-          <div class="form-group"><label for="gst-turnover"><span>Monthly Taxable Outward Supplies (Gross Turnover)</span><span class="readout-pill" id="gst-turnover-val">₹25,00,000</span></label><div class="range-wrap"><input type="range" class="range-slider" id="gst-turnover" min="100000" max="20000000" value="2500000" step="100000" oninput="calculateGst()"><div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);"><span>₹1 Lakh</span><span>₹50 Lakhs</span><span>₹1 Crore</span><span>₹2 Crores</span></div></div></div>
-          <div class="form-group"><label for="gst-slab"><span>Primary HSN / SAC Goods & Services Tax Slab</span><span style="font-size: 0.75rem; color: #64748B;">HSN Schedule</span></label><select id="gst-slab" onchange="calculateGst()"><option value="0.18" selected>18% Standard (SAC 9983 Tech, Consulting, Legal, SaaS)</option><option value="0.12">12% Reduced (SAC 9985 Construction, Transport)</option><option value="0.05">5% Essential / E-Commerce Transport & Packaged Goods</option><option value="0.28">28% Premium / Luxury & Automotive</option></select></div>
-          <div class="form-group"><label for="gst-procurement"><span>Monthly Inward Supplies (B2B Vendor Invoices with GST)</span><span class="readout-pill" id="gst-procurement-val">₹15,00,000</span></label><div class="range-wrap"><input type="range" class="range-slider" id="gst-procurement" min="50000" max="15000000" value="1500000" step="50000" oninput="calculateGst()"><div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);"><span>₹50,000</span><span>₹25 Lakhs</span><span>₹75 Lakhs</span><span>₹1.5 Crores</span></div></div></div>
-          <div class="form-group" style="margin-bottom: 0;"><label for="gst-blocked-itc"><span>Ineligible / Blocked ITC under Section 17(5)</span><span class="readout-pill" id="gst-blocked-val">10% Disallowed</span></label><div class="range-wrap"><input type="range" class="range-slider" id="gst-blocked-itc" min="0" max="40" value="10" step="5" oninput="calculateGst()"><p style="font-size: 0.78rem; color: #64748B; margin: 0.25rem 0 0;">Includes food & beverage, motor vehicles (<13 seater), club memberships, employee insurance unless statutorily mandated.</p></div></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 1px solid var(--silver-border); padding-bottom: 1rem;">
+            <div>
+              <h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin: 0 0 0.25rem;">GST Rate & Input Tax Credit (ITC) Estimate</h2>
+              <p style="font-size: 0.85rem; color: #64748B; margin: 0;">Enter applicable rates and figures. This calculator models gross outward liabilities and eligible input tax set-offs under Section 16/17.</p>
+            </div>
+            <span class="readout-pill" style="color: #065F46; background: #D1FAE5;">Sec 16/17 Ready</span>
+          </div>
+          <div class="form-group">
+            <label for="gst-turnover">
+              <span>Monthly Taxable Outward Supplies (Gross Turnover)</span>
+              <span class="readout-pill" id="gst-turnover-val">₹25,00,000</span>
+            </label>
+            <div class="range-wrap">
+              <input type="range" class="range-slider" id="gst-turnover" min="100000" max="20000000" value="2500000" step="100000" oninput="calculateGst()">
+              <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);">
+                <span>₹1 Lakh</span><span>₹50 Lakhs</span><span>₹1 Crore</span><span>₹2 Crores</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="gst-slab">
+              <span>Primary HSN / SAC Goods & Services Tax Slab</span>
+              <span style="font-size: 0.75rem; color: #64748B;">HSN Schedule</span>
+            </label>
+            <select id="gst-slab" onchange="calculateGst()">
+              <option value="0.18" selected>18% Standard (SAC 9983 Tech, Consulting, Legal, SaaS)</option>
+              <option value="0.12">12% Reduced (SAC 9985 Construction, Transport)</option>
+              <option value="0.05">5% Essential / E-Commerce Transport & Packaged Goods</option>
+              <option value="0.28">28% Premium / Luxury & Automotive</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="gst-procurement">
+              <span>Monthly Inward Supplies (B2B Vendor Invoices with GST)</span>
+              <span class="readout-pill" id="gst-procurement-val">₹15,00,000</span>
+            </label>
+            <div class="range-wrap">
+              <input type="range" class="range-slider" id="gst-procurement" min="50000" max="15000000" value="1500000" step="50000" oninput="calculateGst()">
+              <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);">
+                <span>₹50,000</span><span>₹25 Lakhs</span><span>₹75 Lakhs</span><span>₹1.5 Crores</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="gst-blocked-itc">
+              <span>Ineligible / Blocked ITC under Section 17(5)</span>
+              <span class="readout-pill" id="gst-blocked-val">10% Disallowed</span>
+            </label>
+            <div class="range-wrap">
+              <input type="range" class="range-slider" id="gst-blocked-itc" min="0" max="40" value="10" step="5" oninput="calculateGst()">
+              <p style="font-size: 0.78rem; color: #64748B; margin: 0.25rem 0 0;">Includes food & beverage, passenger motor vehicles, club memberships, employee insurance unless statutorily mandated.</p>
+            </div>
+          </div>
         </div>
-        <div class="calc-summary-card"><span class="readout-pill" style="font-size: 0.72rem; color: #475569; background: #E2E8F0;">Illustrative Tax Estimate</span><h3 style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0.5rem 0 1rem; color: var(--charcoal);">Monthly Net GST Position</h3><div class="metric-row"><span style="color: #64748B;">Gross Output Tax Liability:</span><span class="metric-value" id="gst-output-tax">₹4,50,000</span></div><div class="metric-row"><span style="color: #64748B;">Total Inward ITC Generated:</span><span class="metric-value" id="gst-total-itc">₹2,70,000</span></div><div class="metric-row"><span style="color: #991B1B;">Less Sec 17(5) Blocked ITC:</span><span class="metric-value" id="gst-blocked-tax" style="color: #DC2626;">-₹27,000</span></div><div class="metric-row" style="background: #F0FDF4; margin: 0 -0.5rem; padding: 0.65rem 0.5rem; border-radius: 6px;"><span style="color: #166534; font-weight: 600;">Eligible ITC Set-off:</span><span class="metric-value" id="gst-eligible-itc" style="color: #15803D;">₹2,43,000</span></div><div class="total-banner"><div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B; margin-bottom: 0.25rem;">Indicative Net Tax Payable</div><div class="total-number" id="gst-net-payable">₹2,07,000</div></div><a href="/conversion/tax-intake.html" class="if-btn-primary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700;">Review tax intake options</a><div class="ai-optimization-note"><strong>RECONCILIATION NOTE:</strong> Compare purchase records against the GSTR-2B statement downloaded from the GST portal. This page does not connect to GSTN, fetch returns, determine eligibility, or establish a tax position. Review mismatches against current rules and source documents.</div></div>
+        <div class="calc-summary-card">
+          <span class="readout-pill" style="font-size: 0.72rem; color: #475569; background: #E2E8F0;">Illustrative Tax Estimate</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0.5rem 0 1rem; color: var(--charcoal);">Monthly Net GST Position</h3>
+          <div class="metric-row"><span style="color: #64748B;">Gross Output Tax Liability:</span><span class="metric-value" id="gst-output-tax">₹4,50,000</span></div>
+          <div class="metric-row"><span style="color: #64748B;">Total Inward ITC Generated:</span><span class="metric-value" id="gst-total-itc">₹2,70,000</span></div>
+          <div class="metric-row"><span style="color: #991B1B;">Less Sec 17(5) Blocked ITC:</span><span class="metric-value" id="gst-blocked-tax" style="color: #DC2626;">-₹27,000</span></div>
+          <div class="metric-row" style="background: #F0FDF4; margin: 0 -0.5rem; padding: 0.65rem 0.5rem; border-radius: 6px;"><span style="color: #166534; font-weight: 600;">Eligible ITC Set-off:</span><span class="metric-value" id="gst-eligible-itc" style="color: #15803D;">₹2,43,000</span></div>
+          <div class="total-banner"><div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B; margin-bottom: 0.25rem;">Indicative Net Tax Payable</div><div class="total-number" id="gst-net-payable">₹2,07,000</div></div>
+          <a href="/conversion/tax-intake.html" class="if-btn-primary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700;">Review Tax Intake Options &rarr;</a>
+          <div class="ai-optimization-note"><strong>RECONCILIATION NOTE:</strong> Compare purchase records against the GSTR-2B statement downloaded from the GST portal. This page does not connect directly to GSTN. Verify source invoices and electronic credit ledgers before filing Form GSTR-3B.</div>
+        </div>
       </div>
     </section>
+
+    <!-- TAB 3: Income Tax Regime & Sec 44AD/ADA + MSME 43B(h) -->
     <section id="calc-tab-3" class="calc-tab-content" role="tabpanel" aria-labelledby="tab-btn-3">
       <div class="calc-grid">
         <div class="calc-card">
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 1px solid var(--silver-border); padding-bottom: 1rem;"><div><h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin: 0 0 0.25rem;">Income Tax Regime & MSME 43B(h) Payment Tracker</h2><p style="font-size: 0.85rem; color: #64748B; margin: 0;">Benchmarked across Section 115BAC (New Regime), Old Regime, Sections 44AD / 44ADA, and Section 43B(h) 45-day MSME payment rule.</p></div><span class="readout-pill" style="color: #1E40AF; background: #DBEAFE;">Sec 115BAC + 43B(h)</span></div>
-          <div class="form-group"><label for="tax-gross-income"><span>Annual Gross Receipts / Professional Turnover</span><span class="readout-pill" id="tax-gross-income-val">₹30,00,000</span></label><div class="range-wrap"><input type="range" class="range-slider" id="tax-gross-income" min="500000" max="10000000" value="3000000" step="100000" oninput="calculateTaxRegime()"><div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);"><span>₹5 Lakhs</span><span>₹25 Lakhs</span><span>₹50 Lakhs</span><span>₹1 Crore</span></div></div></div>
-          <div class="form-group"><label for="tax-business-type"><span>Business / Professional Category</span><span style="font-size: 0.75rem; color: #64748B;">Presumptive Eligibility</span></label><select id="tax-business-type" onchange="calculateTaxRegime()"><option value="44ada">Professional Services (Sec 44ADA: 50% Deemed Profit - Tech, Legal, CA, Med)</option><option value="44ad-digital">Eligible Business (Sec 44AD: 6% Deemed Profit - Digital/Bank Receipts)</option><option value="44ad-cash">Eligible Business (Sec 44AD: 8% Deemed Profit - Non-Digital Receipts)</option><option value="regular">Regular Book Profit (Actual Audited Accounts)</option></select></div>
-          <div class="form-group" style="margin-bottom: 0;"><label for="tax-deductions"><span>Old Regime Deductions (80C, 80D, NPS, Home Loan Interest)</span><span class="readout-pill" id="tax-deductions-val">₹2,50,000</span></label><div class="range-wrap"><input type="range" class="range-slider" id="tax-deductions" min="0" max="600000" value="250000" step="25000" oninput="calculateTaxRegime()"><p style="font-size: 0.78rem; color: #64748B; margin: 0.25rem 0 0;">Note: Most Chapter VI-A deductions are disallowed under the default Section 115BAC New Tax Regime.</p></div></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 1px solid var(--silver-border); padding-bottom: 1rem;">
+            <div>
+              <h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin: 0 0 0.25rem;">Income Tax Regime & MSME 43B(h) Payment Tracker</h2>
+              <p style="font-size: 0.85rem; color: #64748B; margin: 0;">Benchmarked across Section 115BAC (New Regime with Marginal Relief), Old Regime, and Section 43B(h) 45-day vendor payment rules.</p>
+            </div>
+            <span class="readout-pill" style="color: #1E40AF; background: #DBEAFE;">Sec 115BAC + 43B(h)</span>
+          </div>
+          <div class="form-group">
+            <label for="tax-gross-income">
+              <span>Annual Gross Receipts / Professional Turnover</span>
+              <span class="readout-pill" id="tax-gross-income-val">₹30,00,000</span>
+            </label>
+            <div class="range-wrap">
+              <input type="range" class="range-slider" id="tax-gross-income" min="500000" max="10000000" value="3000000" step="100000" oninput="calculateTaxRegime()">
+              <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);">
+                <span>₹5 Lakhs</span><span>₹25 Lakhs</span><span>₹50 Lakhs</span><span>₹1 Crore</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="tax-business-type">
+              <span>Business / Professional Category</span>
+              <span style="font-size: 0.75rem; color: #64748B;">Presumptive Eligibility</span>
+            </label>
+            <select id="tax-business-type" onchange="calculateTaxRegime()">
+              <option value="44ada">Professional Services (Sec 44ADA: 50% Deemed Profit - Tech, Legal, CA, Med)</option>
+              <option value="44ad-digital">Eligible Business (Sec 44AD: 6% Deemed Profit - Digital/Bank Receipts)</option>
+              <option value="44ad-cash">Eligible Business (Sec 44AD: 8% Deemed Profit - Non-Digital Receipts)</option>
+              <option value="regular">Regular Book Profit (Actual Audited Accounts)</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="tax-deductions">
+              <span>Old Regime Deductions (80C, 80D, NPS, Home Loan Interest)</span>
+              <span class="readout-pill" id="tax-deductions-val">₹2,50,000</span>
+            </label>
+            <div class="range-wrap">
+              <input type="range" class="range-slider" id="tax-deductions" min="0" max="600000" value="250000" step="25000" oninput="calculateTaxRegime()">
+              <p style="font-size: 0.78rem; color: #64748B; margin: 0.25rem 0 0;">Note: Most Chapter VI-A deductions are disallowed under the default Section 115BAC New Tax Regime.</p>
+            </div>
+          </div>
           <hr style="border: none; border-top: 1px solid var(--silver-border); margin: 1.5rem 0;">
           <h3 style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0 0 0.5rem; color: var(--charcoal);">MSME 43B(h) Vendor Payment Deadline Tracker</h3>
-          <p style="font-size: 0.85rem; color: #64748B; margin-bottom: 1rem;">Track supplier acceptance dates. The MSMED Act sets a 15-day default without a written agreement; agreed terms cannot exceed 45 days. Section 43B(h) tax treatment depends on the facts and payment date.</p>
-          <div id="msme-vendor-list" style="max-height: 200px; overflow-y: auto;"></div>
-          <p style="font-size: 0.75rem; color: var(--text-muted);">Enter supplier details below. Data is stored locally in this browser only.</p>
+          <p style="font-size: 0.85rem; color: #64748B; margin-bottom: 1rem;">Track supplier acceptance dates. The MSMED Act sets a 15-day default without a written agreement; agreed terms cannot exceed 45 days. Payments delayed past 31 March are disallowed as expense deductions.</p>
+          <div id="msme-vendor-list" style="max-height: 250px; overflow-y: auto;"></div>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">Enter supplier details below. Data is stored securely in this local browser session.</p>
         </div>
         <div class="calc-summary-card">
           <span class="readout-pill" style="font-size: 0.72rem; color: #475569; background: #E2E8F0;">Direct Tax Optimization</span>
@@ -166,34 +487,122 @@
           <div class="metric-row" style="background: #ECFDF5; margin: 0 -0.5rem; padding: 0.65rem 0.5rem; border-radius: 6px;"><span style="color: #065F46; font-weight: 600;">New Regime Sec 115BAC:</span><span class="metric-value" id="tax-new-liability" style="color: #059669;">₹1,40,400</span></div>
           <div class="metric-row"><span style="color: #64748B;">Recommended Optimal Path:</span><span class="metric-value" id="tax-optimal-choice" style="color: var(--brand-gold);">New Regime (115BAC)</span></div>
           <div class="total-banner"><div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B; margin-bottom: 0.25rem;">Estimated Net Annual Tax Savings</div><div class="total-number" id="tax-net-savings" style="color: #059669;">₹54,600</div></div>
-          <a href="/conversion/retainer-desk.html" class="if-btn-primary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700;">Structure Direct Tax Retainer</a>
+          <a href="/conversion/retainer-desk.html" class="if-btn-primary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700;">Structure Direct Tax Retainer &rarr;</a>
           <hr style="border: none; border-top: 1px solid var(--silver-border); margin: 1.5rem 0;">
           <h3 style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0 0 0.5rem; color: var(--charcoal);">MSME 43B(h) Compliance Summary</h3>
           <div id="msme-summary" style="font-size: 0.85rem; color: var(--text-muted);">Add vendors to track payment deadlines</div>
-          <a href="#msme-vendor-list" onclick="const el = document.getElementById('msme-vendor-list'); if (el) { el.scrollIntoView({behavior:'smooth'}); } return false;" class="if-btn-secondary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700; margin-top: 1rem;">Scroll Up to Vendor Tracker</a>
-          <div class="ai-optimization-note"><strong>TRACKER LIMITATION:</strong> Supplier status is entered by the user and is not verified against Udyam. The tracker stores data only in this browser and does not sync with GSTN or submit Form MSME-1. Confirm applicability and tax treatment with a qualified professional.</div>
+          <a href="#msme-vendor-list" onclick="const el = document.getElementById('msme-vendor-list'); if (el) { el.scrollIntoView({behavior:'smooth'}); } return false;" class="if-btn-secondary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700; margin-top: 1rem;">Scroll to Vendor Tracker</a>
+          <div class="ai-optimization-note"><strong>TRACKER LIMITATION:</strong> Supplier status is entered by the user and is not verified against Udyam. Confirm applicability and disallowance treatment under Section 43B(h) with your statutory auditor.</div>
         </div>
       </div>
     </section>
+
+    <!-- TAB 4: Startup EMI, Cap Table & Treasury -->
     <section id="calc-tab-4" class="calc-tab-content" role="tabpanel" aria-labelledby="tab-btn-4">
       <div class="calc-grid">
         <div class="calc-card">
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 1px solid var(--silver-border); padding-bottom: 1rem;"><div><h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin: 0 0 0.25rem;">Startup Equity Cap Table & Treasury Yield Forecaster</h2><p style="font-size: 0.85rem; color: #64748B; margin: 0;">Calculated under Section 42 / 62 Private Placement rules and corporate treasury arbitrage models.</p></div><span class="readout-pill" style="color: #6B21A8; background: #F3E8FF;">Sec 62(1)(c) Ready</span></div>
-          <div class="form-group"><label for="cap-pre-money"><span>Pre-Money Equity Valuation</span><span class="readout-pill" id="cap-pre-val">₹15.00 Crores</span></label><div class="range-wrap"><input type="range" class="range-slider" id="cap-pre-money" min="20000000" max="1000000000" value="150000000" step="10000000" oninput="calculateCapTable()"><div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);"><span>₹2 Cr</span><span>₹25 Cr</span><span>₹50 Cr</span><span>₹100 Cr</span></div></div></div>
-          <div class="form-group"><label for="cap-raise-amount"><span>New Primary Capital Round Size</span><span class="readout-pill" id="cap-raise-val">₹3.00 Crores</span></label><div class="range-wrap"><input type="range" class="range-slider" id="cap-raise-amount" min="5000000" max="300000000" value="30000000" step="5000000" oninput="calculateCapTable()"><div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);"><span>₹50 Lakhs</span><span>₹5 Cr</span><span>₹15 Cr</span><span>₹30 Cr</span></div></div></div>
-          <div class="form-group"><label for="cap-esop-target"><span>Unallocated ESOP Pool Carve-Out (%)</span><span class="readout-pill" id="cap-esop-val">10.0% Post-Round</span></label><div class="range-wrap"><input type="range" class="range-slider" id="cap-esop-target" min="0" max="20" value="10" step="1" oninput="calculateCapTable()"></div></div>
-          <div class="form-group" style="margin-bottom: 0;"><label for="treasury-idle-cash"><span>Working Capital Treasury Allocation</span><span class="readout-pill" id="treasury-cash-val">₹1.50 Crores</span></label><div class="range-wrap"><input type="range" class="range-slider" id="treasury-idle-cash" min="1000000" max="100000000" value="15000000" step="1000000" oninput="calculateCapTable()"><p style="font-size: 0.78rem; color: #64748B; margin: 0.25rem 0 0;">Yield is a user-entered assumption, not a bank quote or guaranteed return.</p></div></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; border-bottom: 1px solid var(--silver-border); padding-bottom: 1rem;">
+            <div>
+              <h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin: 0 0 0.25rem;">Startup Equity Cap Table & Treasury Yield Forecaster</h2>
+              <p style="font-size: 0.85rem; color: #64748B; margin: 0;">Calculated under Section 42 / 62 Private Placement rules and institutional equity dilution models.</p>
+            </div>
+            <span class="readout-pill" style="color: #6B21A8; background: #F3E8FF;">Sec 62(1)(c) Ready</span>
+          </div>
+          <div class="form-group">
+            <label for="cap-pre-money">
+              <span>Pre-Money Equity Valuation</span>
+              <span class="readout-pill" id="cap-pre-val">₹15.00 Crores</span>
+            </label>
+            <div class="range-wrap">
+              <input type="range" class="range-slider" id="cap-pre-money" min="20000000" max="1000000000" value="150000000" step="10000000" oninput="calculateCapTable()">
+              <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);">
+                <span>₹2 Cr</span><span>₹25 Cr</span><span>₹50 Cr</span><span>₹100 Cr</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cap-raise-amount">
+              <span>New Primary Capital Round Size</span>
+              <span class="readout-pill" id="cap-raise-val">₹3.00 Crores</span>
+            </label>
+            <div class="range-wrap">
+              <input type="range" class="range-slider" id="cap-raise-amount" min="5000000" max="300000000" value="30000000" step="5000000" oninput="calculateCapTable()">
+              <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: #94A3B8; font-family: var(--font-mono);">
+                <span>₹50 Lakhs</span><span>₹5 Cr</span><span>₹15 Cr</span><span>₹30 Cr</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cap-esop-target">
+              <span>Unallocated ESOP Pool Carve-Out (%)</span>
+              <span class="readout-pill" id="cap-esop-val">10.0% Post-Round</span>
+            </label>
+            <div class="range-wrap">
+              <input type="range" class="range-slider" id="cap-esop-target" min="0" max="20" value="10" step="1" oninput="calculateCapTable()">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label for="treasury-idle-cash">
+              <span>Working Capital Treasury Allocation</span>
+              <span class="readout-pill" id="treasury-cash-val">₹1.50 Crores</span>
+            </label>
+            <div class="range-wrap">
+              <input type="range" class="range-slider" id="treasury-idle-cash" min="1000000" max="100000000" value="15000000" step="1000000" oninput="calculateCapTable()">
+              <p style="font-size: 0.78rem; color: #64748B; margin: 0.25rem 0 0;">Yield is an assumed model rate, not a guaranteed bank interest quote.</p>
+            </div>
+          </div>
         </div>
-        <div class="calc-summary-card"><span class="readout-pill" style="font-size: 0.72rem; color: #475569; background: #E2E8F0;">Capitalization Architecture</span><h3 style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0.5rem 0 1rem; color: var(--charcoal);">Post-Round Ownership Structure</h3><div class="metric-row"><span style="color: #64748B;">Post-Money Valuation:</span><span class="metric-value" id="cap-post-money">₹18.00 Cr</span></div><div class="metric-row"><span style="color: #64748B;">Investor Equity Stake:</span><span class="metric-value" id="cap-investor-pct">16.67%</span></div><div class="metric-row"><span style="color: #64748B;">ESOP Pool Reserved:</span><span class="metric-value" id="cap-esop-pct">10.00%</span></div><div class="metric-row" style="background: #F8FAFC; margin: 0 -0.5rem; padding: 0.65rem 0.5rem; border-radius: 6px;"><span style="color: #0F172A; font-weight: 600;">Founder Retained Equity:</span><span class="metric-value" id="cap-founder-pct" style="color: #0F172A;">73.33%</span></div><div class="total-banner" style="background: #FDFBF7;"><div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B; margin-bottom: 0.25rem;">Annual Corporate Treasury Yield (@ 7.2%)</div><div class="total-number" id="treasury-annual-yield" style="color: #B45309;">₹10,80,000</div></div><a href="/conversion/post-incorporation-checkout.html" class="if-btn-primary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700;">Draft SHA & PAS-3 Resolution Kit</a><div class="ai-optimization-note"><strong>AI VENTURE GOVERNANCE NOTE:</strong> Following the abolition of the Angel Tax under Section 56(2)(viib), private placement compliance under Section 42 remains critical. Application money must be retained in a separate scheduled bank escrow account and allotted within 60 days via Form PAS-3 to avoid statutory 12% interest refund orders.</div></div>
+        <div class="calc-summary-card">
+          <span class="readout-pill" style="font-size: 0.72rem; color: #475569; background: #E2E8F0;">Capitalization Architecture</span>
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0.5rem 0 1rem; color: var(--charcoal);">Post-Round Ownership Structure</h3>
+          <div class="metric-row"><span style="color: #64748B;">Post-Money Valuation:</span><span class="metric-value" id="cap-post-money">₹18.00 Cr</span></div>
+          <div class="metric-row"><span style="color: #64748B;">Investor Equity Stake:</span><span class="metric-value" id="cap-investor-pct">16.67%</span></div>
+          <div class="metric-row"><span style="color: #64748B;">ESOP Pool Reserved:</span><span class="metric-value" id="cap-esop-pct">10.00%</span></div>
+          <div class="metric-row" style="background: #F8FAFC; margin: 0 -0.5rem; padding: 0.65rem 0.5rem; border-radius: 6px;"><span style="color: #0F172A; font-weight: 600;">Founder Retained Equity:</span><span class="metric-value" id="cap-founder-pct" style="color: #0F172A;">73.33%</span></div>
+          <div class="total-banner" style="background: #FDFBF7;"><div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B; margin-bottom: 0.25rem;">Annual Corporate Treasury Yield (@ 7.2%)</div><div class="total-number" id="treasury-annual-yield" style="color: #B45309;">₹10,80,000</div></div>
+          <a href="/conversion/post-incorporation-checkout.html" class="if-btn-primary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700;">Draft SHA & PAS-3 Resolution Kit &rarr;</a>
+          <div class="ai-optimization-note"><strong>VENTURE GOVERNANCE NOTE:</strong> Following the abolition of Angel Tax under Section 56(2)(viib), private placement compliance under Section 42 remains critical. Application money must be retained in a separate scheduled bank escrow account and allotted within 60 days via Form PAS-3.</div>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- Mobile Sticky Dock (< 900px) -->
+  <div id="calc-mobile-dock" class="calc-mobile-dock">
+    <div class="calc-mobile-dock-inner">
+      <div>
+        <div style="font-size: 0.7rem; color: #64748B; text-transform: uppercase; font-weight: 600;">Estimated Outlay</div>
+        <div style="font-family: var(--font-mono); font-weight: 800; font-size: 1.25rem; color: var(--brand-gold);" id="mobile-dock-total">₹5,999</div>
+      </div>
+      <a href="#calc-summary-anchor" onclick="const el = document.getElementById('calc-summary-anchor'); if (el) { el.scrollIntoView({behavior:'smooth'}); } return false;" class="if-btn-primary" style="padding: 0.5rem 1.15rem; font-size: 0.85rem; text-decoration: none;">View Breakdown</a>
+    </div>
+  </div>
+
   <div id="global-footer"></div>
   <script src="/assets/js/navigation.js"></script>
   <script src="/assets/js/calculator.js"></script>
   <script>
-    function switchTab(tabIndex) { for (let i = 1; i <= 4; i++) { const btn = document.getElementById('tab-btn-' + i); const content = document.getElementById('calc-tab-' + i); if (btn && content) { if (i === tabIndex) { btn.classList.add('active'); btn.setAttribute('aria-selected', 'true'); content.classList.add('active'); } else { btn.classList.remove('active'); btn.setAttribute('aria-selected', 'false'); content.classList.remove('active'); } } } }
-    function updateDelayReadout() { const days = document.getElementById('roc-delay-days').value; document.getElementById('roc-delay-val').innerText = days + ' Days Overdue'; }
+    function switchTab(tabIndex) {
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById('tab-btn-' + i);
+        const content = document.getElementById('calc-tab-' + i);
+        if (btn && content) {
+          if (i === tabIndex) {
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            content.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+            content.classList.remove('active');
+          }
+        }
+      }
+    }
+    function updateDelayReadout() {
+      const days = document.getElementById('roc-delay-days').value;
+      document.getElementById('roc-delay-val').innerText = days + ' Days Overdue';
+    }
   </script>
 </body>
 </html>
