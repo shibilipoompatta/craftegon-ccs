@@ -28,8 +28,465 @@
   <link rel="stylesheet" href="/assets/css/chat-widget.css?v=2.2">
   <link rel="stylesheet" href="/assets/css/home-animations.css">
   <style id="critical-hero-css">
-:root{--navy-900:#10262E;--navy-800:#193B46;--text-main:#243746;--text-secondary:#52717A;--accent-green-primary:#247A62;--accent-green-hover:#1b5e4b;--accent-blue-secondary:#287DA8;--accent-mint-vibrant:#75CDA9;--surface-mint-soft:#DDF5EA;--surface-mint-subtle:#EBF8F2;--bg-primary:#FFFFFF;--bg-surface:#F8FAFC;--border-color:#DCE8E5;--border-subtle:#E5EFEA;--font-heading:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}.home-section{padding:5.5rem 1.5rem;position:relative;overflow:hidden}@media (max-width:768px){.home-section{padding:3.75rem 1rem}}.home-container{max-width:1240px;margin:0 auto;position:relative;z-index:2}.home-container-narrow{max-width:880px;margin:0 auto;position:relative;z-index:2}.section-header-centered{text-align:center;max-width:760px;margin:0 auto 3.5rem}.section-header-left{text-align:left;max-width:760px;margin-bottom:3rem}.section-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-body,'Inter',sans-serif);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent-green-primary,#247A62);background:var(--surface-mint-soft,#DDF5EA);border:1px solid var(--accent-mint-vibrant,#75CDA9);padding:0.35rem 0.9rem;border-radius:9999px;margin-bottom:1rem}.section-title{font-family:var(--font-heading,'Manrope',sans-serif);font-size:clamp(2rem,3.8vw,2.75rem);font-weight:800;color:var(--navy-800,#193B46);line-height:1.2;letter-spacing:-0.03em;margin:0 0 1rem}.section-lead{font-size:clamp(1.02rem,1.8vw,1.18rem);color:var(--text-secondary,#52717A);line-height:1.68;margin:0}.hero-3d-section{position:relative;padding:6.5rem 1.5rem 5rem;background:radial-gradient(circle at 85% 20%,rgba(184,227,247,0.35) 0%,transparent 50%),radial-gradient(circle at 15% 80%,rgba(188,235,213,0.4) 0%,transparent 50%),var(--bg-primary,#FFFFFF);overflow:hidden}@media (max-width:1024px){.hero-3d-section{padding:4.5rem 1rem 3.5rem}}.hero-3d-grid{display:grid;grid-template-columns:1.15fr 0.85fr;align-items:center;gap:3.5rem}@media (max-width:1024px){.hero-3d-grid{grid-template-columns:1fr;gap:3rem}.hero-cockpit-stage{display:none !important}}.hero-content{position:relative;z-index:5}.hero-pill-badge{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--font-body,'Inter',sans-serif);font-size:0.82rem;font-weight:700;color:var(--navy-800,#193B46);background:linear-gradient(135deg,#DDF5EA 0%,#DDF2FC 100%);border:1px solid var(--accent-mint-vibrant,#75CDA9);padding:0.45rem 1.1rem;border-radius:9999px;box-shadow:0 2px 10px rgba(36,122,98,0.08);margin-bottom:1.5rem}.hero-pill-dot{width:8px;height:8px;background:var(--accent-green-primary,#247A62);border-radius:50%;box-shadow:0 0 0 3px rgba(36,122,98,0.25);animation:pulseDot 2s infinite ease-in-out}@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:0.7}}.hero-headline{font-family:var(--font-heading,'Manrope',sans-serif);font-size:clamp(1.85rem,4.4vw,3.5rem);font-weight:800;color:var(--navy-900,#10262E);line-height:1.18;letter-spacing:-0.035em;margin:0 0 1.25rem;overflow-wrap:break-word;word-break:normal}@media (max-width:480px){.hero-headline{font-size:1.72rem;line-height:1.22}.hero-actions-group .btn-hero-primary,.hero-actions-group .btn-hero-secondary{width:100% !important;justify-content:center !important;text-align:center !important}.front-search-form{flex-direction:column !important;gap:0.65rem !important}.front-search-submit{width:100% !important;justify-content:center !important}}@media (min-width:641px) and (max-width:1024px){.flagship-grid > :nth-child(3){grid-column:1 / -1;max-width:620px;margin-inline:auto;width:100%}}.hero-headline-accent{background:linear-gradient(135deg,var(--accent-green-primary,#247A62) 0%,var(--accent-blue-secondary,#287DA8) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}.hero-lead{font-size:clamp(1.05rem,1.9vw,1.22rem);color:var(--text-main,#243746);line-height:1.68;max-width:620px;margin:0 0 2rem}.hero-actions-group{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:1.5rem}.btn-hero-primary{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;font-family:var(--font-body,'Inter',sans-serif);font-size:1rem;font-weight:700;color:#FFFFFF !important;background:var(--accent-green-primary,#247A62);border:1.5px solid var(--accent-green-primary,#247A62);padding:0.85rem 1.85rem;border-radius:8px;box-shadow:0 4px 16px rgba(36,122,98,0.28);text-decoration:none;transition:all 0.25s cubic-bezier(0.16,1,0.3,1);min-height:48px}.btn-hero-primary:hover{background:#1B5E4B;border-color:#1B5E4B;transform:translateY(-2px);box-shadow:0 8px 24px rgba(36,122,98,0.36)}.btn-hero-secondary{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;font-family:var(--font-body,'Inter',sans-serif);font-size:1rem;font-weight:700;color:var(--navy-800,#193B46) !important;background:#FFFFFF;border:1.5px solid var(--border-color,#DCE8E5);padding:0.85rem 1.75rem;border-radius:8px;box-shadow:0 2px 8px rgba(15,23,42,0.04);text-decoration:none;transition:all 0.25s cubic-bezier(0.16,1,0.3,1);min-height:48px}.btn-hero-secondary:hover{background:var(--surface-sky-white,#F3F9FD);border-color:var(--accent-blue-secondary,#287DA8);color:var(--accent-blue-secondary,#287DA8) !important;transform:translateY(-2px)}.hero-trust-proof-bar{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.92);border:1px solid var(--border-color,#DCE8E5);border-radius:14px;padding:0.75rem 1rem;box-shadow:0 4px 18px rgba(16,38,46,0.05);margin-bottom:1.5rem}.trust-avatar-stack{display:flex;align-items:center;flex-shrink:0}.trust-avatar{width:32px;height:32px;border-radius:50%;border:2px solid #FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;margin-left:-8px}.trust-avatar:first-child{margin-left:0}.avatar-cs{background:linear-gradient(135deg,#247A62 0%,#193B46 100%);color:#FFFFFF}.avatar-ca{background:linear-gradient(135deg,#287DA8 0%,#193B46 100%);color:#FFFFFF}.avatar-adv{background:linear-gradient(135deg,#75CDA9 0%,#247A62 100%);color:#10262E}.avatar-count{background:#F4FAF7;color:var(--accent-green-primary,#247A62);border-color:#DCE8E5;font-size:0.65rem}.hero-guarantee-pills{display:flex;flex-wrap:wrap;gap:0.85rem}.guarantee-pill{display:inline-flex;align-items:center;gap:0.45rem;font-size:0.82rem;font-weight:600;color:var(--navy-800,#193B46);background:rgba(255,255,255,0.85);border:1px solid var(--border-color,#DCE8E5);padding:0.35rem 0.75rem;border-radius:6px}.guarantee-pill-icon{color:var(--accent-green-primary,#247A62);font-weight:800}.hero-cockpit-stage{position:relative;width:100%;display:flex;align-items:center;justify-content:center;perspective:1200px}.cockpit-wrapper{position:relative;width:100%;max-width:470px}.cockpit-ambient-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(188,235,213,0.55) 0%,rgba(184,227,247,0.35) 55%,transparent 75%);filter:blur(48px);pointer-events:none;z-index:1}.compliance-cockpit{position:relative;z-index:2;background:rgba(255,255,255,0.94);border:1.5px solid rgba(220,232,229,0.95);border-radius:20px;padding:1.65rem;backdrop-filter:blur(18px);box-shadow:0 24px 56px -12px rgba(16,38,46,0.16)}.popular-services-section{background:var(--bg-surface,#F8FAFC);border-top:1px solid var(--border-color,#DCE8E5);border-bottom:1px solid var(--border-color,#DCE8E5);padding:5.5rem 1.5rem}.flagship-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}@media (max-width:1024px){.flagship-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:640px){.flagship-grid{grid-template-columns:1fr;gap:1.25rem}}.flagship-card{background:#FFFFFF;border:1.5px solid var(--border-color,#DCE8E5);border-radius:16px;padding:2rem 1.75rem;display:flex;flex-direction:column;box-shadow:0 4px 18px rgba(16,38,46,0.04);transition:all 0.25s cubic-bezier(0.16,1,0.3,1)}
-  </style>
+:root {
+  --navy-900: #10262E;
+  --navy-800: #193B46;
+  --navy-700: #244C5A;
+  --text-main: #243746;
+  --text-secondary: #52717A;
+  --text-muted: #7D969F;
+  --accent-green-primary: #247A62;
+  --accent-green-hover: #1B5E4B;
+  --accent-blue-secondary: #287DA8;
+  --accent-mint-vibrant: #75CDA9;
+  --surface-mint-soft: #DDF5EA;
+  --surface-mint-subtle: #EBF8F2;
+  --surface-mint-white: #F4FAF7;
+  --bg-primary: #FFFFFF;
+  --bg-surface: #F8FAFC;
+  --border-color: #DCE8E5;
+  --border-subtle: #E5EFEA;
+  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Fluid Modular Typography Scale */
+  --fs-hero: clamp(2rem, 4.4vw, 3.4rem);
+  --fs-h2: clamp(1.65rem, 3.2vw, 2.4rem);
+  --fs-h3: clamp(1.12rem, 1.8vw, 1.3rem);
+  --fs-lead: clamp(1rem, 1.4vw, 1.16rem);
+  --fs-body: clamp(0.92rem, 1.05vw, 1rem);
+  --fs-sm: 0.84rem;
+  --fs-xs: 0.75rem;
+}
+
+/* Base Layout & Sections */
+.home-section {
+  padding: 5.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .home-section { padding: 4rem 1.25rem; }
+}
+@media (max-width: 640px) {
+  .home-section { padding: 3.25rem 1rem; }
+}
+
+.home-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.home-container-narrow {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Minimalist Editorial Section Headers */
+.section-header-centered {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.25rem;
+}
+.section-header-left {
+  text-align: left;
+  max-width: 720px;
+  margin-bottom: 2.75rem;
+}
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-green-primary);
+  background: var(--surface-mint-soft);
+  border: 1px solid var(--accent-mint-vibrant);
+  padding: 0.32rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 0.85rem;
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  color: var(--navy-900);
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.85rem;
+}
+.section-lead {
+  font-size: var(--fs-lead);
+  color: var(--text-secondary);
+  line-height: 1.62;
+  margin: 0;
+}
+
+/* ==========================================================================
+   HERO SECTION (MINIMALIST & HIGH-CONVERTING)
+   ========================================================================== */
+.hero-3d-section {
+  position: relative;
+  padding: 5.5rem 1.5rem 4.5rem;
+  background: radial-gradient(circle at 85% 15%, rgba(184, 227, 247, 0.28) 0%, transparent 45%),
+              radial-gradient(circle at 10% 85%, rgba(188, 235, 213, 0.32) 0%, transparent 45%),
+              var(--bg-primary);
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .hero-3d-section { padding: 3.5rem 1.25rem 3rem; }
+}
+@media (max-width: 640px) {
+  .hero-3d-section { padding: 2.75rem 1rem 2.5rem; }
+}
+
+.hero-3d-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+@media (max-width: 1024px) {
+  .hero-3d-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .hero-cockpit-stage { display: none !important; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+}
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--navy-800);
+  background: linear-gradient(135deg, #DDF5EA 0%, #DDF2FC 100%);
+  border: 1px solid var(--accent-mint-vibrant);
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(36, 122, 98, 0.06);
+  margin-bottom: 1.25rem;
+}
+.hero-pill-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent-green-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(36, 122, 98, 0.22);
+}
+
+.hero-headline {
+  font-family: var(--font-heading);
+  font-size: var(--fs-hero);
+  font-weight: 800;
+  color: var(--navy-900);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  margin: 0 0 1rem;
+  overflow-wrap: break-word;
+}
+.hero-headline-accent {
+  background: linear-gradient(135deg, var(--accent-green-primary) 0%, var(--accent-blue-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.hero-lead {
+  font-size: var(--fs-lead);
+  color: var(--text-main);
+  line-height: 1.62;
+  max-width: 600px;
+  margin: 0 0 1.75rem;
+}
+
+/* Minimalist Integrated Search Bar */
+.hero-front-search-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 4px 20px rgba(16, 38, 46, 0.05);
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.hero-front-search-card:focus-within {
+  border-color: var(--accent-green-primary);
+  box-shadow: 0 6px 24px rgba(36, 122, 98, 0.12);
+}
+.hero-front-search-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.hero-front-search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.front-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+.front-search-input {
+  width: 100%;
+  height: 46px;
+  padding: 0 1rem 0 2.5rem;
+  font-family: var(--font-body);
+  font-size: 16px; /* Strict 16px on all devices prevents iOS auto-zoom */
+  color: var(--navy-900);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.front-search-input:focus {
+  background: #FFFFFF;
+  border-color: var(--accent-green-primary);
+}
+.front-search-submit {
+  height: 46px;
+  padding: 0 1.25rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: #FFFFFF;
+  background: var(--accent-green-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.front-search-submit:hover {
+  background: var(--accent-green-hover);
+}
+
+/* Clean Single-Row Quick Shortcuts */
+.front-search-chips-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.2rem;
+}
+.front-search-chips-wrap::-webkit-scrollbar { display: none; }
+.front-chips-label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-right: 0.2rem;
+  flex-shrink: 0;
+}
+.front-chip-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy-800);
+  background: var(--surface-mint-white);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  padding: 0.35rem 0.8rem;
+  min-height: 36px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.front-chip-tag:hover {
+  background: var(--surface-mint-soft);
+  border-color: var(--accent-mint-vibrant);
+  color: var(--accent-green-primary);
+}
+
+/* Dual Primary Actions */
+.hero-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: #FFFFFF !important;
+  background: var(--accent-green-primary);
+  border: 1.5px solid var(--accent-green-primary);
+  padding: 0.8rem 1.65rem;
+  border-radius: 8px;
+  min-height: 48px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(36, 122, 98, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-hero-primary:hover {
+  background: var(--accent-green-hover);
+  border-color: var(--accent-green-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(36, 122, 98, 0.32);
+}
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--navy-900) !important;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  padding: 0.8rem 1.65rem;
+  border-radius: 8px;
+  min-height: 48px;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-hero-secondary:hover {
+  border-color: var(--navy-800);
+  background: var(--surface-mint-white);
+  transform: translateY(-1px);
+}
+@media (max-width: 480px) {
+  .hero-actions-group .btn-hero-primary,
+  .hero-actions-group .btn-hero-secondary {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .hero-front-search-form {
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+  }
+  .front-search-submit {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* Sleek Single-Line Trust Strip */
+.hero-trust-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding-top: 0.25rem;
+}
+.trust-badge-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #D97706;
+}
+.trust-point {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.trust-point-icon {
+  color: var(--accent-green-primary);
+  font-weight: 700;
+}
+.trust-divider {
+  color: var(--border-color);
+  user-select: none;
+}
+@media (max-width: 640px) {
+  .hero-trust-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .trust-divider { display: none; }
+}
+
+/* Flagship 6-Card Grid (2 rows of 3 on Desktop, 3 rows of 2 on Tablet, 1 col on Mobile) */
+.flagship-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 1024px) {
+  .flagship-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+@media (max-width: 640px) {
+  .flagship-grid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+}
+
+/* Stage Services Grid */
+.stage-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 1024px) {
+  .stage-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+@media (max-width: 640px) {
+  .stage-services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+</style>
   
   <!-- Structured Data JSON-LD (WCAG & Schema.org Compliant) -->
   <script type="application/ld+json">
@@ -467,15 +924,15 @@
           <div class="hero-content">
             <div class="hero-pill-badge">
               <span class="hero-pill-dot" aria-hidden="true"></span>
-              <span>Next-Gen Corporate Services &amp; Legal Infrastructure</span>
+              <span>Institutional Corporate Services &amp; Legal Infrastructure</span>
             </div>
 
             <h1 id="hero-title" class="hero-headline">
-              Building the Legal &amp; Compliance Infrastructure for India's <span class="hero-headline-accent">High-Growth Enterprises.</span>
+              Building the Legal &amp; Compliance Infrastructure for India's <span class="hero-headline-accent">Modern Enterprises.</span>
             </h1>
 
             <p class="hero-lead">
-              From Private Limited company incorporation and statutory MCA compliance to corporate tax architecture and annual secretarial retainers — engineered with fixed transparent pricing, dedicated desk support, and institutional speed.
+              From Private Limited company incorporation and statutory MCA compliance to corporate tax architecture and annual secretarial retainers — fixed transparent pricing with institutional speed.
             </p>
 
             <!-- Front-and-Center Universal Service Search -->
@@ -491,13 +948,13 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                   </svg>
                 </span>
-                <input 
-                  type="text" 
-                  id="home-front-search-input" 
-                  name="q" 
-                  class="front-search-input" 
-                  placeholder="Search services, RoC forms (SPICe+, AOC-4, MGT-7), GST, Trademark..." 
-                  autocomplete="off" 
+                <input
+                  type="text"
+                  id="home-front-search-input"
+                  name="q"
+                  class="front-search-input"
+                  placeholder="Search 57+ services, forms (SPICe+, AOC-4, MGT-7), GST, Trademark..."
+                  autocomplete="off"
                   spellcheck="false"
                   aria-label="Search corporate services from homepage"
                 >
@@ -509,17 +966,14 @@
                 <div id="home-front-search-results"></div>
               </div>
 
-              <!-- Popular Quick Search Shortcut Pills -->
+              <!-- Curated Popular Quick Search Shortcut Pills (Clean single row) -->
               <div class="front-search-chips-wrap">
                 <span class="front-chips-label">Popular:</span>
-                <a href="/services/pvt-ltd-registration.html" class="front-chip-tag">Private Limited (SPICe+)</a>
+                <a href="/services/pvt-ltd-registration.html" class="front-chip-tag">Pvt Ltd (SPICe+)</a>
                 <a href="/services/llp-registration.html" class="front-chip-tag">LLP Formation</a>
-                <a href="/services/form-aoc4.html" class="front-chip-tag">Form AOC-4 (Financials)</a>
-                <a href="/services/form-mgt7.html" class="front-chip-tag">Form MGT-7 (Annual Return)</a>
-                <a href="/services/dir3-kyc.html" class="front-chip-tag">DIR-3 KYC (Director)</a>
+                <a href="/services/roc-annual-compliance.html" class="front-chip-tag">RoC Retainer</a>
                 <a href="/services/trademark-registration.html" class="front-chip-tag">Trademark (TM-A)</a>
-                <a href="/services/gst-annual.html" class="front-chip-tag">GST Returns</a>
-                <a href="/services/form-stk2-strike-off.html" class="front-chip-tag">Strike-Off (STK-2)</a>
+                <a href="/services/gst-annual.html" class="front-chip-tag">GST Filing</a>
               </div>
             </div>
 
@@ -534,28 +988,18 @@
               </a>
             </div>
 
-            <!-- Proof-of-Trust Indicators -->
-            <div class="hero-trust-proof-bar">
-              <div class="trust-avatar-stack">
-                <span class="trust-avatar avatar-cs" title="Practicing Company Secretary">CS</span>
-                <span class="trust-avatar avatar-ca" title="Chartered Accountant Desk">CA</span>
-                <span class="trust-avatar avatar-adv" title="Corporate Legal Counsel">ADV</span>
-                <span class="trust-avatar avatar-count">+500</span>
+            <!-- Streamlined High-Trust Strip (Single clean line) -->
+            <div class="hero-trust-strip">
+              <div class="trust-badge-stars">
+                <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span>4.9/5 Rating</span>
               </div>
-              <div class="trust-proof-content">
-                <div class="trust-stars-row">
-                  <span class="trust-proof-badge">Institutional Statutory Governance</span>
-                </div>
-                <p class="trust-proof-text">
-                  Coordinated by <strong>Practicing CS, CA &amp; Corporate Legal Counsel</strong> &bull; <strong>Zero Retainer Ambiguity</strong> with Itemized MCA Challans
-                </p>
-              </div>
-            </div>
-
-            <div class="hero-guarantee-pills">
-              <span class="guarantee-pill"><span class="guarantee-pill-icon">&check;</span> Proactive Statutory Timeline Tracking</span>
-              <span class="guarantee-pill"><span class="guarantee-pill-icon">&check;</span> Zero Hidden MCA Surcharges</span>
-              <span class="guarantee-pill"><span class="guarantee-pill-icon">&check;</span> Direct Desk in Alappuzha, Kerala</span>
+              <span class="trust-divider" aria-hidden="true">&bull;</span>
+              <span class="trust-point"><span class="trust-point-icon">&check;</span> 100% On-Time SLA</span>
+              <span class="trust-divider" aria-hidden="true">&bull;</span>
+              <span class="trust-point"><span class="trust-point-icon">&check;</span> Practicing CS &amp; CA Supervised</span>
+              <span class="trust-divider" aria-hidden="true">&bull;</span>
+              <span class="trust-point"><span class="trust-point-icon">&check;</span> Zero Hidden MCA Surcharges</span>
             </div>
           </div>
 
@@ -582,77 +1026,57 @@
                   </div>
                 </div>
 
-                <div class="cockpit-score-strip">
-                  <div class="cockpit-score-left">
-                    <span class="cockpit-score-label">Statutory Standing Index</span>
-                    <div class="cockpit-score-number">99.8<span>/100</span></div>
-                  </div>
-                  <div class="cockpit-score-right">
-                    <div class="cockpit-sync-badge">
-                      <span class="sync-dot"></span> MCA V3 Portal Live
+                <div class="cockpit-card-body">
+                  <div class="cockpit-health-banner">
+                    <div>
+                      <span class="cockpit-health-label">Statutory Compliance Index</span>
+                      <div class="cockpit-health-val">99.8<span>/100</span></div>
                     </div>
-                    <span class="cockpit-audit-note">Section 134 &amp; 137 Ready</span>
+                    <div class="cockpit-mca-status">
+                      <span class="cockpit-pulse-green"></span>
+                      <span>MCA V3 Portal: Live</span>
+                    </div>
                   </div>
-                </div>
 
-                <div class="cockpit-telemetry-grid">
-                  <div class="telemetry-card">
-                    <span class="telemetry-label">MCA Filings</span>
-                    <strong class="telemetry-val">12/12</strong>
-                    <span class="telemetry-sub positive">&check; All Forms Up-to-Date</span>
+                  <div class="cockpit-telemetry-grid">
+                    <div class="telemetry-box">
+                      <span class="telemetry-num">12/12</span>
+                      <span class="telemetry-lbl">RoC Filings Complete</span>
+                    </div>
+                    <div class="telemetry-box">
+                      <span class="telemetry-num">&#8377;0</span>
+                      <span class="telemetry-lbl">Statutory Penalties</span>
+                    </div>
+                    <div class="telemetry-box">
+                      <span class="telemetry-num">100%</span>
+                      <span class="telemetry-lbl">Director DIN KYC</span>
+                    </div>
                   </div>
-                  <div class="telemetry-card">
-                    <span class="telemetry-label">Registry Penalties</span>
-                    <strong class="telemetry-val text-green">&#8377;0</strong>
-                    <span class="telemetry-sub positive">&check; Zero Late Fees</span>
-                  </div>
-                  <div class="telemetry-card">
-                    <span class="telemetry-label">Director DIN KYC</span>
-                    <strong class="telemetry-val">100%</strong>
-                    <span class="telemetry-sub positive">&check; 3/3 Active</span>
-                  </div>
-                </div>
 
-                <div class="cockpit-timeline-section">
-                  <div class="timeline-header">
-                    <span>Statutory Compliance Timeline</span>
-                    <span class="timeline-cycle">FY 2024-25 Track</span>
-                  </div>
+                  <div class="cockpit-timeline-label">Statutory Pipeline Tracking (FY 2025-26)</div>
                   <div class="cockpit-stepper">
-                    <div class="cockpit-step done">
-                      <div class="step-marker">&check;</div>
-                      <div class="step-text">
-                        <strong class="step-title">Form AOC-4</strong>
-                        <span class="step-meta">Financials Filed</span>
-                      </div>
+                    <div class="step-node step-done">
+                      <div class="step-dot">&check;</div>
+                      <span class="step-text">AOC-4 (Financials)</span>
                     </div>
-                    <div class="cockpit-step done">
-                      <div class="step-marker">&check;</div>
-                      <div class="step-text">
-                        <strong class="step-title">Form MGT-7</strong>
-                        <span class="step-meta">Annual Return</span>
-                      </div>
+                    <div class="step-node step-done">
+                      <div class="step-dot">&check;</div>
+                      <span class="step-text">MGT-7 (Annual Return)</span>
                     </div>
-                    <div class="cockpit-step done">
-                      <div class="step-marker">&check;</div>
-                      <div class="step-text">
-                        <strong class="step-title">DIR-3 KYC</strong>
-                        <span class="step-meta">Web-Verified</span>
-                      </div>
+                    <div class="step-node step-done">
+                      <div class="step-dot">&check;</div>
+                      <span class="step-text">DIR-3 KYC</span>
                     </div>
-                    <div class="cockpit-step active">
-                      <div class="step-marker">&bull;</div>
-                      <div class="step-text">
-                        <strong class="step-title">MSME-1</strong>
-                        <span class="step-meta">Oct–Mar Cycle</span>
-                      </div>
+                    <div class="step-node step-pending">
+                      <div class="step-dot">&bull;</div>
+                      <span class="step-text">MSME-1</span>
                     </div>
                   </div>
                 </div>
 
-                <div class="cockpit-actions-bar">
-                  <span class="cockpit-sla-note">&bull; Turnaround SLA: 3–5 Days</span>
-                  <a href="/conversion/retainer-desk.html" class="cockpit-action-link">View Retainer Plans &rarr;</a>
+                <div class="cockpit-footer">
+                  <span class="cockpit-footer-txt">Institutionally Managed by CraftEgon CCS</span>
+                  <a href="/services/roc-annual-compliance.html" class="cockpit-footer-link">View RoC Desk &rarr;</a>
                 </div>
               </div>
             </div>
