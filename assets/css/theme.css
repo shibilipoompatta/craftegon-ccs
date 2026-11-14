@@ -133,7 +133,7 @@ a:hover {
 
 .section-header p {
   font-size: 1.05rem;
-  color: var(--text-muted, #64748B);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
 }
@@ -384,7 +384,7 @@ label {
   padding: 1.15rem 1.4rem;
   border-radius: var(--radius-md, 8px);
   font-size: 0.82rem;
-  color: var(--text-muted, #64748B);
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -466,7 +466,7 @@ label {
 
 .tool-category-label {
   font-size: 0.72rem;
-  color: var(--text-muted, #64748B);
+  color: var(--text-secondary);
   font-weight: 600;
 }
 
@@ -481,7 +481,7 @@ label {
 
 .tool-desc {
   font-size: 0.86rem;
-  color: var(--text-muted, #64748B);
+  color: var(--text-secondary);
   line-height: 1.55;
   margin: 0 0 1.25rem;
   flex-grow: 1;
@@ -524,7 +524,7 @@ label {
 .tool-type-indicator {
   font-size: 0.74rem;
   font-weight: 600;
-  color: var(--text-muted, #64748B);
+  color: var(--text-secondary);
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;

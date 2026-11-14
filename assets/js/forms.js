@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initIntakePortals();
   initRealtimeValidation();
   initBankingDeskIntegration();
+  initFormDraftPersistence();
 });
 
 /**
@@ -701,7 +702,7 @@ function showFormFallbackNotice(form, data, options = {}) {
   alertBox.className = "if-form-alert";
   alertBox.setAttribute("role", "alert");
   alertBox.setAttribute("aria-live", "assertive");
-  alertBox.style.cssText = "background: #FFFFFF; border: 1.5px solid var(--gold-border-strong, #C59B27); padding: 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem; box-shadow: var(--shadow-sm);";
+  alertBox.style.cssText = "background: #FFFFFF; border: 1.5px solid var(--gold-border-strong); padding: 1.25rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem; box-shadow: var(--shadow-sm);";
 
   const cfg = window.CRAFTEGON_CONFIG || {};
   const serviceName = (data && (data.service_name || data.service || data.service_id || data.service_category)) || "Corporate Compliance";
@@ -763,10 +764,10 @@ function showFormFallbackNotice(form, data, options = {}) {
     : `<strong>Submission Notice:</strong> Online form transmission to a backend server is not active in this static environment. Details entered in this form are not stored or transmitted to CraftEgon CCS.`;
 
   alertBox.innerHTML = `
-    <div style="font-weight: 700; color: var(--text-dark, #090D16); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-cinzel, 'Cinzel', serif);">
+    <div style="font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-cinzel, var(--font-heading, 'Manrope', sans-serif));">
       <span style="color: var(--text-dark-gold, #785B0D);">${noticeTitle}</span>
     </div>
-    <div style="background: rgba(245, 158, 11, 0.1); border-left: 3px solid #F59E0B; padding: 0.6rem 0.8rem; border-radius: 4px; margin-bottom: 0.85rem; font-size: 0.8rem; color: var(--text-dark, #090D16); line-height: 1.45;">
+    <div style="background: rgba(245, 158, 11, 0.1); border-left: 3px solid #F59E0B; padding: 0.6rem 0.8rem; border-radius: 4px; margin-bottom: 0.85rem; font-size: 0.8rem; color: var(--text-dark); line-height: 1.45;">
       ${noticeBody}
     </div>
     <p style="font-size: 0.85rem; color: var(--text-main, #334155); margin: 0 0 0.5rem 0; line-height: 1.5; font-family: var(--font-body, 'Manrope', sans-serif);">
@@ -775,7 +776,7 @@ function showFormFallbackNotice(form, data, options = {}) {
     <p style="font-size: 0.8rem; color: #475569; margin: 0 0 0.5rem 0; line-height: 1.45; font-family: var(--font-body, 'Manrope', sans-serif);">
       <strong>Review &amp; Response Expectation:</strong> Our corporate compliance desk reviews enquiries during regular business hours (Monday – Saturday, 9:00 AM – 7:00 PM IST) to understand statutory scope, jurisdiction, and filing timeline.
     </p>
-    <p style="font-size: 0.78rem; color: var(--text-muted, #64748B); margin: 0 0 1rem 0; line-height: 1.45; font-family: var(--font-body, 'Manrope', sans-serif);">
+    <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0 0 1rem 0; line-height: 1.45; font-family: var(--font-body, 'Manrope', sans-serif);">
       <em>Privacy note:</em> Selecting an alternative channel opens your external WhatsApp application, default email composer, or Google Workspace intake with your pre-filled inquiry. Your details are only sent when you choose to transmit the message.
     </p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
@@ -849,3 +850,73 @@ window.CraftegonForms = {
   initRealtimeValidation,
   showFormFallbackNotice
 };
+
+/**
+ * Resilient Form Draft Persistence (Clerky/Stripe UX Pattern)
+ * Saves unsubmitted field inputs to sessionStorage to eliminate accidental data loss on reload.
+ */
+function initFormDraftPersistence() {
+  if (typeof window === 'undefined' || !window.sessionStorage) return;
+
+  const forms = document.querySelectorAll('form[id], form.if-lead-form');
+  forms.forEach(form => {
+    const formId = form.id || form.getAttribute('name') || window.location.pathname;
+    const storageKey = 'ccs_draft_' + String(formId).replace(/[^a-zA-Z0-9_]/g, '_');
+
+    // 1. Restore draft if available
+    try {
+      const saved = sessionStorage.getItem(storageKey);
+      if (saved) {
+        const data = JSON.parse(saved);
+        let restoredCount = 0;
+        Object.keys(data).forEach(name => {
+          const input = form.querySelector(`[name="${name}"]`);
+          if (input && !input.value && input.type !== 'password' && input.type !== 'file') {
+            if (input.type === 'checkbox') input.checked = Boolean(data[name]);
+            else if (input.type === 'radio') {
+              const radio = form.querySelector(`[name="${name}"][value="${data[name]}"]`);
+              if (radio) radio.checked = true;
+            } else {
+              input.value = data[name];
+            }
+            restoredCount++;
+          }
+        });
+        if (restoredCount > 0) {
+          const notice = document.createElement('div');
+          notice.className = 'ccs-draft-notice';
+          notice.style.cssText = 'background: #DDF5EA; border: 1px solid #75CDA9; color: #10262E; font-size: 0.8rem; padding: 0.5rem 0.75rem; border-radius: 6px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between;';
+          notice.innerHTML = '<span>ℹ️ Previous draft inputs restored.</span><button type="button" style="background: none; border: none; cursor: pointer; color: #247A62; font-weight: 700; font-size: 0.75rem;" onclick="this.parentElement.remove();">Dismiss</button>';
+          form.insertBefore(notice, form.firstChild);
+        }
+      }
+    } catch (e) {
+      // Non-blocking
+    }
+
+    // 2. Auto-save on input
+    form.addEventListener('input', () => {
+      try {
+        const formData = new FormData(form);
+        const data = {};
+        for (let [k, v] of formData.entries()) {
+          if (!k.toLowerCase().includes('password')) {
+            data[k] = v;
+          }
+        }
+        sessionStorage.setItem(storageKey, JSON.stringify(data));
+      } catch (e) {
+        // Non-blocking
+      }
+    });
+
+    // 3. Clear draft on successful submission
+    form.addEventListener('submit', () => {
+      try {
+        sessionStorage.removeItem(storageKey);
+      } catch (e) {
+        // Non-blocking
+      }
+    });
+  });
+}

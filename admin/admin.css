@@ -4,15 +4,15 @@
  */
 
 :root {
-  --admin-bg: #090D16;
+  --admin-bg: var(--text-dark);
   --admin-surface: #0F172A;
   --admin-card: #141E33;
   --admin-card-hover: #192640;
   --admin-border: rgba(148, 163, 184, 0.14);
-  --admin-border-focus: #C59B27;
+  --admin-border-focus: var(--brand-gold);
   --admin-text-main: #F8FAFC;
-  --admin-text-muted: #94A3B8;
-  --admin-gold: #C59B27;
+  --admin-text-muted: var(--text-light);
+  --admin-gold: var(--brand-gold);
   --admin-gold-hover: #D4AF37;
   --admin-gold-glow: rgba(197, 155, 39, 0.22);
   --admin-navy-accent: #1E3A8A;
@@ -45,7 +45,7 @@ body.admin-body {
    ADMIN LOGIN VIEW
    ========================================================================== */
 body.admin-login-body {
-  background: radial-gradient(circle at 50% 20%, rgba(197, 155, 39, 0.12) 0%, transparent 60%), #090D16;
+  background: radial-gradient(circle at 50% 20%, rgba(197, 155, 39, 0.12) 0%, transparent 60%), var(--text-dark);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -131,7 +131,7 @@ body.admin-login-body {
 .form-control {
   width: 100%;
   padding: 0.65rem 0.85rem;
-  background: #090D16;
+  background: var(--text-dark);
   border: 1px solid var(--admin-border);
   border-radius: 6px;
   color: #F8FAFC;
@@ -191,13 +191,13 @@ body.admin-login-body {
 }
 
 .admin-btn-primary {
-  background: linear-gradient(135deg, #C59B27 0%, #B4881B 100%);
-  color: #090D16;
+  background: linear-gradient(135deg, var(--brand-gold) 0%, #B4881B 100%);
+  color: var(--text-dark);
   box-shadow: 0 4px 14px var(--admin-gold-glow);
 }
 
 .admin-btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, var(--brand-gold) 100%);
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(197, 155, 39, 0.35);
 }
@@ -259,7 +259,7 @@ body.admin-login-body {
    ADMIN TOPBAR & HEADER
    ========================================================================== */
 .admin-topbar {
-  background: #090D16;
+  background: var(--text-dark);
   border-bottom: 1px solid var(--admin-border);
   padding: 0.75rem 2rem;
   display: flex;
@@ -475,7 +475,7 @@ body.admin-login-body {
 }
 
 .select-filter {
-  background: #090D16;
+  background: var(--text-dark);
   border: 1px solid var(--admin-border);
   color: #CBD5E1;
   font-family: var(--font-body);
@@ -502,7 +502,7 @@ body.admin-login-body {
 }
 
 .admin-table th {
-  background: #090D16;
+  background: var(--text-dark);
   padding: 0.75rem 1.25rem;
   font-size: 0.72rem;
   font-weight: 700;
@@ -627,7 +627,7 @@ body.admin-login-body {
 
 .modal-header {
   padding: 1.25rem 1.75rem;
-  background: #090D16;
+  background: var(--text-dark);
   border-bottom: 1px solid var(--admin-border);
   display: flex;
   align-items: center;
@@ -660,7 +660,7 @@ body.admin-login-body {
 .modal-tabs {
   display: flex;
   align-items: center;
-  background: #090D16;
+  background: var(--text-dark);
   border-bottom: 1px solid var(--admin-border);
   padding: 0 1.75rem;
   overflow-x: auto;
@@ -704,7 +704,7 @@ body.admin-login-body {
 
 .modal-footer {
   padding: 1rem 1.75rem;
-  background: #090D16;
+  background: var(--text-dark);
   border-top: 1px solid var(--admin-border);
   display: flex;
   align-items: center;
@@ -725,7 +725,7 @@ body.admin-login-body {
 }
 
 .tag-list-box {
-  background: #090D16;
+  background: var(--text-dark);
   border: 1px solid var(--admin-border);
   border-radius: 6px;
   padding: 0.5rem;
@@ -751,7 +751,7 @@ body.admin-login-body {
 .tag-item button {
   background: transparent;
   border: none;
-  color: #94A3B8;
+  color: var(--text-light);
   cursor: pointer;
   font-size: 0.85rem;
 }

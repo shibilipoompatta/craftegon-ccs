@@ -342,7 +342,7 @@ function calculateCost() {
   if (ccfsEl) {
     const closed = Date.now() > CCFS_2026_DEADLINE.getTime();
     ccfsEl.textContent = ccfsMode ? '₹' + ccfsFee.toLocaleString('en-IN') + ' saved' : (closed ? 'Closed 15 Sep 2026' : 'Not applied');
-    ccfsEl.style.color = ccfsMode ? '#059669' : '#64748B';
+    ccfsEl.style.color = ccfsMode ? '#059669' : 'var(--text-secondary)';
   }
   if (addonEl) addonEl.textContent = '₹' + addonTotal.toLocaleString('en-IN');
   if (totalEl) totalEl.textContent = '₹' + Math.round(total).toLocaleString('en-IN');

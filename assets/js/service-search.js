@@ -369,7 +369,7 @@
         resultsContainer.innerHTML = `
           <div class="search-no-results">
             <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🔍</div>
-            <div style="font-weight: 700; color: var(--charcoal, #090D16); margin-bottom: 0.35rem;">Zero services found for "${escapeHtml(query)}"</div>
+            <div style="font-weight: 700; color: var(--charcoal, var(--text-dark)); margin-bottom: 0.35rem;">Zero services found for "${escapeHtml(query)}"</div>
             <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0 0 1rem 0;">Try searching by statutory form (e.g. SPICe+, GSTR-9, DIR-3), entity type (LLP, Private Limited), or vertical.</p>
             <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
               <a href="/services.html" class="if-btn-secondary" style="font-size: 0.78rem; padding: 0.35rem 0.75rem;">Open Full Service Directory</a>

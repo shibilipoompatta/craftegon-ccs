@@ -126,9 +126,9 @@ function initCommandSearch() {
 
     if (items.length === 0) {
       resultsContainer.innerHTML = `
-        <div style="padding: 1.25rem; color: #94A3B8; font-size: 0.88rem; text-align: center;">
+        <div style="padding: 1.25rem; color: var(--text-light); font-size: 0.88rem; text-align: center;">
           <p style="margin: 0 0 0.5rem; color: #E2E8F0;">Zero matches found for "${String(q).replace(/[&<>"']/g, '')}".</p>
-          <a href="/services.html" style="color: var(--brand-gold, #C59B27); font-weight: 700; text-decoration: none;">Browse Complete 57-Service Directory &rarr;</a>
+          <a href="/services.html" style="color: var(--brand-gold); font-weight: 700; text-decoration: none;">Browse Complete 57-Service Directory &rarr;</a>
         </div>
       `;
     } else {
@@ -136,18 +136,18 @@ function initCommandSearch() {
         <a href="${m.url}" class="gov-search-item" style="display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.08); text-decoration: none; color: inherit;">
           <div>
             <div class="item-title" style="font-weight: 600; font-size: 0.88rem; color: #F8FAFC;">${m.name}</div>
-            <div style="font-size: 0.74rem; color: #94A3B8; margin-top: 2px;">
+            <div style="font-size: 0.74rem; color: var(--text-light); margin-top: 2px;">
               <span>${m.vertical}</span>
               ${m.isReferral ? ' &bull; <span style="color: #F59E0B; font-weight: 600;">Referral Service</span>' : ' &bull; <span style="color: #10B981; font-weight: 600;">Direct Regulatory</span>'}
             </div>
           </div>
-          <span class="item-code" style="font-family: var(--font-mono, monospace); font-size: 0.72rem; color: var(--brand-gold, #C59B27); background: rgba(197, 155, 39, 0.1); padding: 2px 6px; border-radius: 4px; white-space: nowrap;">${m.code}</span>
+          <span class="item-code" style="font-family: var(--font-mono, monospace); font-size: 0.72rem; color: var(--brand-gold); background: rgba(197, 155, 39, 0.1); padding: 2px 6px; border-radius: 4px; white-space: nowrap;">${m.code}</span>
         </a>
       `).join('');
 
       html += `
         <div style="padding: 0.6rem 1rem; background: rgba(15, 23, 42, 0.85); text-align: center; border-top: 1px solid rgba(226, 232, 240, 0.1);">
-          <a href="/services.html?q=${encodeURIComponent(q)}" style="color: var(--brand-gold, #C59B27); font-size: 0.8rem; font-weight: 700; text-decoration: none;">
+          <a href="/services.html?q=${encodeURIComponent(q)}" style="color: var(--brand-gold); font-size: 0.8rem; font-weight: 700; text-decoration: none;">
             View all results in 57-Service Directory &rarr;
           </a>
         </div>
@@ -338,7 +338,7 @@ function initTrademarkScreener() {
 
     if (filtered.length === 0) {
       container.innerHTML = `
-        <div style="grid-column: 1 / -1; padding: 2rem; text-align: center; color: #64748B;">
+        <div style="grid-column: 1 / -1; padding: 2rem; text-align: center; color: var(--text-secondary);">
           No matching Nice classes found. Check spelling or consult our <a href="/conversion/trademark-search.html" style="color: var(--brand-gold);">Comprehensive IP Screener</a>.
         </div>
       `;

@@ -45,7 +45,7 @@ function renderRegistrationVerification({ name, verificationUrl, token, expiresA
     <!DOCTYPE html>
     <html>
       <head><meta charset="utf-8"><title>${subject}</title></head>
-      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; background-color: #f8fafc; padding: 24px;">
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text-dark); background-color: #f8fafc; padding: 24px;">
         <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; padding: 32px;">
           <h2 style="color: #0f172a; margin-top: 0;">Verify Your Account</h2>
           <p>Dear ${safeName},</p>
@@ -53,10 +53,10 @@ function renderRegistrationVerification({ name, verificationUrl, token, expiresA
           <div style="margin: 24px 0; text-align: center;">
             <a href="${safeUrl}" style="background-color: #1e40af; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block;">Verify Email Address</a>
           </div>
-          <p style="font-size: 14px; color: #64748b;">Or copy and paste this verification code into the portal: <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">${safeToken}</code></p>
-          <p style="font-size: 14px; color: #64748b;">This verification link will expire in <strong>${expiryHours > 0 ? expiryHours : 24} hours</strong>.</p>
+          <p style="font-size: 14px; color: var(--text-secondary);">Or copy and paste this verification code into the portal: <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">${safeToken}</code></p>
+          <p style="font-size: 14px; color: var(--text-secondary);">This verification link will expire in <strong>${expiryHours > 0 ? expiryHours : 24} hours</strong>.</p>
           <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
-          <p style="font-size: 12px; color: #94a3b8;">If you did not initiate this request, no further action is required. Your account will not be activated without verification.</p>
+          <p style="font-size: 12px; color: var(--text-light);">If you did not initiate this request, no further action is required. Your account will not be activated without verification.</p>
         </div>
       </body>
     </html>
@@ -97,7 +97,7 @@ function renderPasswordRecovery({ name, resetUrl, token, expiresAt }) {
     <!DOCTYPE html>
     <html>
       <head><meta charset="utf-8"><title>${subject}</title></head>
-      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; background-color: #f8fafc; padding: 24px;">
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text-dark); background-color: #f8fafc; padding: 24px;">
         <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; padding: 32px;">
           <h2 style="color: #0f172a; margin-top: 0;">Password Recovery Request</h2>
           <p>Dear ${safeName},</p>
@@ -105,8 +105,8 @@ function renderPasswordRecovery({ name, resetUrl, token, expiresAt }) {
           <div style="margin: 24px 0; text-align: center;">
             <a href="${safeUrl}" style="background-color: #0f172a; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block;">Reset Password</a>
           </div>
-          <p style="font-size: 14px; color: #64748b;">Or use reset token: <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">${safeToken}</code></p>
-          <p style="font-size: 14px; color: #64748b;">This link is single-use and will expire in <strong>${expiryMins > 0 ? expiryMins : 60} minutes</strong>.</p>
+          <p style="font-size: 14px; color: var(--text-secondary);">Or use reset token: <code style="background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">${safeToken}</code></p>
+          <p style="font-size: 14px; color: var(--text-secondary);">This link is single-use and will expire in <strong>${expiryMins > 0 ? expiryMins : 60} minutes</strong>.</p>
           <div style="background-color: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 12px; margin-top: 16px;">
             <p style="font-size: 13px; color: #991b1b; margin: 0;"><strong>Security Reminder:</strong> CraftEgon staff will never ask for your password or reset token. If you did not request this reset, your account credentials remain safe and no action is needed.</p>
           </div>
@@ -150,7 +150,7 @@ function renderEnquiryReceipt({ name, leadReference, serviceId, verticalId }) {
     <!DOCTYPE html>
     <html>
       <head><meta charset="utf-8"><title>${subject}</title></head>
-      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; background-color: #f8fafc; padding: 24px;">
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text-dark); background-color: #f8fafc; padding: 24px;">
         <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; padding: 32px;">
           <h2 style="color: #0f172a; margin-top: 0;">Enquiry Received</h2>
           <p>Dear ${safeName},</p>
@@ -162,7 +162,7 @@ function renderEnquiryReceipt({ name, leadReference, serviceId, verticalId }) {
           </div>
           <p style="font-size: 14px; color: #475569;">Our compliance advisory desk will review your scope description and follow up within one business day.</p>
           <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
-          <p style="font-size: 12px; color: #94a3b8;">CraftEgon Corporate Services adheres strictly to the Digital Personal Data Protection (DPDP) Act 2023.</p>
+          <p style="font-size: 12px; color: var(--text-light);">CraftEgon Corporate Services adheres strictly to the Digital Personal Data Protection (DPDP) Act 2023.</p>
         </div>
       </body>
     </html>
@@ -202,7 +202,7 @@ function renderStaffEnquiryNotification({ leadReference, serviceId, verticalId, 
     <!DOCTYPE html>
     <html>
       <head><meta charset="utf-8"><title>${subject}</title></head>
-      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; background-color: #f8fafc; padding: 24px;">
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text-dark); background-color: #f8fafc; padding: 24px;">
         <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; padding: 32px;">
           <h2 style="color: #991b1b; margin-top: 0;">New Enquiry Logged</h2>
           <p>A new client enquiry has been validated and persisted. Triage is required within statutory/SLA timelines:</p>

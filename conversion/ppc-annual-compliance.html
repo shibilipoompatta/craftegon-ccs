@@ -122,7 +122,7 @@
       object-fit: cover;
     }
     .ppc-logo-text {
-      font-family: var(--font-heading, "Cinzel", serif);
+      font-family: var(--font-heading, var(--font-heading, 'Manrope', sans-serif));
       font-weight: 700;
       color: #193B46;
       font-size: 1.15rem;
@@ -142,7 +142,7 @@
     }
   </style>
 </head>
-<body style="background: #F8FAFC; color: #1E293B;">
+<body style="background: #F8FAFC; color: var(--text-dark);">
 
   <!-- Distraction-Free PPC Header -->
   <header class="ppc-header-strip">
@@ -174,7 +174,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span>STATUTORY DEFENSE &amp; PENALTY AVOIDANCE</span>
         </div>
-        <h1 style="font-family: var(--font-heading, 'Cinzel', serif); font-size: clamp(2rem, 3.8vw, 2.75rem); color: #193B46; line-height: 1.2; margin: 0 0 1rem 0; font-weight: 700;">
+        <h1 style="font-family: var(--font-heading, var(--font-heading, 'Manrope', sans-serif)); font-size: clamp(2rem, 3.8vw, 2.75rem); color: #193B46; line-height: 1.2; margin: 0 0 1rem 0; font-weight: 700;">
           Annual RoC Compliance &amp; Secretarial Retainer Desk
         </h1>
         <p style="font-size: 1.05rem; color: #475569; line-height: 1.6; margin-bottom: 1.5rem;">
@@ -195,19 +195,19 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
           <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 1.1rem; border-radius: 8px;">
             <div style="font-weight: 700; color: #193B46; font-size: 0.95rem; margin-bottom: 0.25rem;">Form AOC-4 (Financials)</div>
-            <div style="font-size: 0.8rem; color: #64748B;">Balance Sheet, P&amp;L, Auditor Report &amp; Director Report formatting.</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Balance Sheet, P&amp;L, Auditor Report &amp; Director Report formatting.</div>
           </div>
           <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 1.1rem; border-radius: 8px;">
             <div style="font-weight: 700; color: #193B46; font-size: 0.95rem; margin-bottom: 0.25rem;">Form MGT-7 (Annual Return)</div>
-            <div style="font-size: 0.8rem; color: #64748B;">Shareholding register, DIN verification, and board meeting minutes.</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Shareholding register, DIN verification, and board meeting minutes.</div>
           </div>
           <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 1.1rem; border-radius: 8px;">
             <div style="font-weight: 700; color: #193B46; font-size: 0.95rem; margin-bottom: 0.25rem;">DIR-3 KYC Directors</div>
-            <div style="font-size: 0.8rem; color: #64748B;">Annual mobile/email OTP authentication preventing DIN deactivation.</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Annual mobile/email OTP authentication preventing DIN deactivation.</div>
           </div>
           <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 1.1rem; border-radius: 8px;">
             <div style="font-weight: 700; color: #193B46; font-size: 0.95rem; margin-bottom: 0.25rem;">Rule 9B Demat Audit</div>
-            <div style="font-size: 0.8rem; color: #64748B;">Mandatory private company share dematerialisation compliance advisory.</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Mandatory private company share dematerialisation compliance advisory.</div>
           </div>
         </div>
       </div>
@@ -263,7 +263,7 @@
           </button>
 
           <div style="text-align: center; margin-top: 0.25rem;">
-            <span style="font-size: 0.8rem; color: #64748B;">— OR LOCK IN VIA INSTANT CHECKOUT —</span>
+            <span style="font-size: 0.8rem; color: var(--text-secondary);">— OR LOCK IN VIA INSTANT CHECKOUT —</span>
           </div>
 
           <button type="button" class="if-btn-secondary" data-checkout="true" data-checkout-tier="retainer-quarter" style="width: 100%; padding: 0.75rem; border-color: #247A62; color: #247A62; font-weight: 700; background: #FFFFFF; font-size: 0.9rem;">
@@ -279,7 +279,7 @@
     </div>
   
     <!-- Google & Meta Ads Policy Compliance Strip -->
-    <div class="ppc-policy-strip" style="background: #FFFFFF; border-top: 1px solid #E2E8F0; padding: 1.5rem 1rem; margin-top: 3rem; text-align: center; font-size: 0.78rem; color: #64748B;">
+    <div class="ppc-policy-strip" style="background: #FFFFFF; border-top: 1px solid #E2E8F0; padding: 1.5rem 1rem; margin-top: 3rem; text-align: center; font-size: 0.78rem; color: var(--text-secondary);">
       <div style="max-width: 900px; margin: 0 auto; line-height: 1.5;">
         <div style="font-weight: 700; color: #193B46; margin-bottom: 0.35rem;">CraftEgon Corporate Services (CCS) • Institutional Secretarial &amp; Compliance Partner</div>
         <p style="margin: 0 0 0.5rem 0;">Regulated corporate advisory desk adhering to ICSI &amp; ICAI statutory standards. Official filings executed on Ministry of Corporate Affairs (MCA V3) &amp; IP India portals.</p>

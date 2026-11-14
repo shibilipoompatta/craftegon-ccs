@@ -1012,7 +1012,7 @@ function openSettingsModal() {
       resultBox.style.background = '#FEF2F2';
       resultBox.style.color = '#991B1B';
       resultBox.style.border = '1px solid #FECACA';
-      resultBox.innerHTML = `❌ <strong>Connection failed:</strong><br>${escapeHtml(err.message)}<br><small style="color:#64748B;">Verify your key at https://aistudio.google.com and check quota/region access.</small>`;
+      resultBox.innerHTML = `❌ <strong>Connection failed:</strong><br>${escapeHtml(err.message)}<br><small style="color:var(--text-secondary);">Verify your key at https://aistudio.google.com and check quota/region access.</small>`;
     } finally {
       testBtn.disabled = false;
       testBtn.textContent = '🔍 Test Connection';

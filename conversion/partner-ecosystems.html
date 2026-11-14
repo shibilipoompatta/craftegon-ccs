@@ -44,13 +44,13 @@
     .bank-card:hover { transform: translateY(-3px); border-color: var(--brand-gold); box-shadow: var(--shadow-gold); }
     .bank-card.featured { border: 1.5px solid var(--brand-gold); background: #FFFAF0; }
     .bank-logo { width: 56px; height: 56px; border-radius: 10px; object-fit: contain; background: #F8FAFC; padding: 0.5rem; border: 1px solid var(--border-color); margin-bottom: 1rem; }
-    .bank-logo-badge { width: 56px; height: 56px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0B111E; border: 1px solid rgba(197, 155, 39, 0.4); margin-bottom: 1rem; color: #C59B27; font-family: var(--font-heading, 'Cinzel', serif); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.05em; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
-    .bank-logo-badge svg { width: 22px; height: 22px; stroke: #C59B27; stroke-width: 1.75; margin-bottom: 2px; }
+    .bank-logo-badge { width: 56px; height: 56px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0B111E; border: 1px solid rgba(197, 155, 39, 0.4); margin-bottom: 1rem; color: var(--brand-gold); font-family: var(--font-heading, var(--font-heading, 'Manrope', sans-serif)); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.05em; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+    .bank-logo-badge svg { width: 22px; height: 22px; stroke: var(--brand-gold); stroke-width: 1.75; margin-bottom: 2px; }
     .bank-name { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--charcoal); margin: 0 0 0.5rem; }
     .bank-tagline { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5; }
     .bank-features { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem; }
     .bank-feature { background: var(--bg-ivory); border: 1px solid var(--border-color); border-radius: 4px; padding: 0.25rem 0.5rem; font-size: 0.7rem; font-weight: 600; color: var(--text-main); font-family: var(--font-mono); }
-    .bank-feature.highlight { background: #FFFDF5; border-color: #E6D29D; color: var(--brand-gold); }
+    .bank-feature.highlight { background: var(--surface-mint-white); border-color: var(--border-color); color: var(--brand-gold); }
     .bank-btn { background: var(--cta-gradient); color: #FFFFFF; border: none; border-radius: 8px; padding: 0.75rem 1.5rem; font-size: 0.85rem; font-weight: 600; cursor: pointer; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.2s ease; text-decoration: none; }
     .bank-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2); }
     .bank-btn.outline { background: #FFFFFF; color: var(--charcoal); border: 1px solid var(--border-color); }
@@ -69,10 +69,10 @@
     .resolution-header h3 { font-family: var(--font-heading); font-size: 1.15rem; margin: 0; display: flex; align-items: center; gap: 0.5rem; }
     .resolution-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
     .resolution-form .form-group { margin-bottom: 0; }
-    .resolution-form label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: #94A3B8; margin-bottom: 0.35rem; font-weight: 600; }
+    .resolution-form label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-light); margin-bottom: 0.35rem; font-weight: 600; }
     .resolution-form input, .resolution-form select { width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; background: rgba(255,255,255,0.04); color: #FFFFFF; font-family: var(--font-body); font-size: 0.9rem; outline: none; transition: border-color 0.2s ease; }
     .resolution-form input:focus, .resolution-form select:focus { border-color: var(--brand-gold); }
-    .resolution-btn { background: linear-gradient(135deg, #C59B27 0%, #966F12 100%); color: #060911 !important; font-weight: 700; font-size: 0.85rem; padding: 0.75rem 1.5rem; border-radius: 8px; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 2px 10px rgba(197, 155, 39, 0.3); transition: all 0.2s ease; }
+    .resolution-btn { background: linear-gradient(135deg, var(--brand-gold) 0%, #966F12 100%); color: #060911 !important; font-weight: 700; font-size: 0.85rem; padding: 0.75rem 1.5rem; border-radius: 8px; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 2px 10px rgba(197, 155, 39, 0.3); transition: all 0.2s ease; }
     .resolution-btn:hover { box-shadow: 0 4px 16px rgba(197, 155, 39, 0.5); transform: translateY(-1px); }
     .generated-resolution { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.25rem; margin-top: 1.5rem; white-space: pre-wrap; font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6; display: none; }
     .benefit-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
@@ -415,7 +415,7 @@
             <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8C868" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg> Board Resolution Draft Generator</h3>
             <span style="font-size: 0.7rem; background: rgba(197,155,39,0.2); color: #E8C868; padding: 2px 8px; border-radius: 999px; font-family: var(--font-mono);">v2.1 Core</span>
           </div>
-          <p style="font-size: 0.9rem; color: #94A3B8; margin-bottom: 1.5rem;">Create a local text draft for review and adaptation to your Articles of Association, applicable law, and provider requirements. This tool does not certify, approve, or submit resolutions.</p>
+          <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.5rem;">Create a local text draft for review and adaptation to your Articles of Association, applicable law, and provider requirements. This tool does not certify, approve, or submit resolutions.</p>
 
           <form class="resolution-form" onsubmit="generateResolution(event)">
             <div class="form-group">

@@ -227,7 +227,7 @@
 .dropdown-chevron {
   transition: transform 0.2s ease;
   margin-left: 3px;
-  color: #64748B;
+  color: var(--text-secondary);
 }
 
 .if-dropdown.is-open .dropdown-chevron {
@@ -368,7 +368,7 @@
 
 .item-desc {
   font-size: 0.72rem !important;
-  color: #64748B !important;
+  color: var(--text-secondary) !important;
   font-weight: 400 !important;
   line-height: 1.35 !important;
   display: block !important;
@@ -384,7 +384,7 @@
   border-radius: 6px !important;
   font-size: 0.81rem !important;
   font-weight: 600 !important;
-  color: #1E293B !important;
+  color: var(--text-dark) !important;
   text-decoration: none !important;
   transition: all 0.15s ease !important;
 }
@@ -410,7 +410,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #94A3B8;
+  background: var(--text-light);
   flex-shrink: 0;
 }
 
@@ -564,8 +564,8 @@
 
 /* --- Corporate Institutional Footer (Calm, Restrained 3-Group System) --- */
 .if-footer {
-  background-color: #090D16;
-  color: #94A3B8;
+  background-color: var(--text-dark);
+  color: var(--text-light);
   padding-top: var(--space-10, 2.5rem);
   padding-bottom: var(--space-6, 1.5rem);
   margin-top: var(--space-12, 3rem);
@@ -625,14 +625,14 @@
 .if-footer-desc {
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #94A3B8;
+  color: var(--text-light);
   margin-bottom: 1rem;
   max-width: 380px;
 }
 
 .if-footer-contact {
   font-size: 0.82rem;
-  color: #94A3B8;
+  color: var(--text-light);
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -640,7 +640,7 @@
 
 .if-contact-item {
   margin: 0;
-  color: #94A3B8;
+  color: var(--text-light);
   line-height: 1.5;
 }
 
@@ -700,7 +700,7 @@
 
 .if-footer-list a {
   font-size: 0.85rem;
-  color: #94A3B8;
+  color: var(--text-light);
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -734,7 +734,7 @@
 }
 
 .if-footer-legal-nav a {
-  color: #94A3B8;
+  color: var(--text-light);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -756,7 +756,7 @@
   padding-top: 0.85rem;
   font-size: 0.78rem;
   text-align: center;
-  color: #64748B;
+  color: var(--text-secondary);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -792,7 +792,7 @@
 .if-footer-copy {
   margin: 0;
   font-size: 0.74rem;
-  color: #64748B;
+  color: var(--text-secondary);
 }
 
 /* ==========================================================================
@@ -839,7 +839,7 @@
   color: var(--accent-green-primary, #247A62);
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1023.98px) {
   .if-mobile-search-toggle {
     display: inline-flex !important;
   }
@@ -992,7 +992,7 @@ body.mobile-nav-open .if-header {
   left: 1rem !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  color: #94A3B8 !important;
+  color: var(--text-light) !important;
   pointer-events: none !important;
   display: flex !important;
   align-items: center !important;
@@ -1256,7 +1256,7 @@ body.mobile-nav-open .if-header {
   .if-mobile-toggle { display: none; }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1023.98px) {
   .if-header-inner { padding: 0.65rem 1rem; }
   .if-header-actions { gap: 0.5rem; }
   .if-nav { display: none; }
@@ -1289,7 +1289,7 @@ body.mobile-nav-open .if-header {
   min-height: 44px;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1023.98px) {
   .portal-nav-link { display: none; }
   .if-mobile-toggle { display: flex; }
 }
@@ -1346,7 +1346,7 @@ body.mobile-nav-open .if-header {
   left: 0.75rem !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  color: #94A3B8 !important;
+  color: var(--text-light) !important;
   pointer-events: none !important;
   display: flex !important;
   align-items: center !important;
@@ -1370,7 +1370,7 @@ body.mobile-nav-open .if-header {
   font-family: var(--font-mono) !important;
   font-size: 0.65rem !important;
   font-weight: 700 !important;
-  color: #64748B !important;
+  color: var(--text-secondary) !important;
   background: #E2E8F0 !important;
   border: 1px solid #CBD5E1 !important;
   padding: 0 5px !important;
@@ -1617,14 +1617,14 @@ body.mobile-nav-open .if-header {
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1023.98px) {
   .universal-search-container {
     display: none;
   }
 }
 
 /* iOS Safari auto-zoom prevention and touch optimizations */
-@media (max-width: 1024px) {
+@media (max-width: 1023.98px) {
   .universal-search-input {
     font-size: 16px !important;
   }
@@ -1637,7 +1637,7 @@ body.mobile-nav-open .if-header {
   display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   body {
     padding-bottom: 62px !important;
   }

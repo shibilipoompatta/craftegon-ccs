@@ -75,7 +75,7 @@
 }
 
 .ccs-checkout-title {
-  font-family: var(--font-heading, "Cinzel", serif);
+  font-family: var(--font-heading, var(--font-heading, 'Manrope', sans-serif));
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-dark, #193B46);
@@ -85,7 +85,7 @@
 
 .ccs-checkout-subtitle {
   font-size: 0.85rem;
-  color: var(--text-muted, #64748B);
+  color: var(--text-secondary);
   margin: 0.35rem 0 0;
   line-height: 1.4;
 }
@@ -95,7 +95,7 @@
   border: none;
   font-size: 1.5rem;
   line-height: 1;
-  color: #94A3B8;
+  color: var(--text-light);
   cursor: pointer;
   padding: 0.25rem;
   border-radius: 6px;
@@ -166,7 +166,7 @@
 }
 
 .ccs-tier-price {
-  font-family: var(--font-heading, "Cinzel", serif);
+  font-family: var(--font-heading, var(--font-heading, 'Manrope', sans-serif));
   font-size: 1.15rem;
   font-weight: 700;
   color: #193B46;
@@ -193,7 +193,7 @@
   padding: 0.65rem 0.5rem;
   font-size: 0.88rem;
   font-weight: 600;
-  color: #64748B;
+  color: var(--text-secondary);
   cursor: pointer;
   position: relative;
   transition: color 0.15s;
@@ -298,7 +298,7 @@
 .ccs-bank-label {
   font-size: 0.72rem;
   text-transform: uppercase;
-  color: #64748B;
+  color: var(--text-secondary);
   font-weight: 600;
   letter-spacing: 0.04em;
 }
@@ -378,7 +378,7 @@
 }
 
 .ccs-receipt-brand {
-  font-family: var(--font-heading, "Cinzel", serif);
+  font-family: var(--font-heading, var(--font-heading, 'Manrope', sans-serif));
   font-weight: 700;
   color: #193B46;
   font-size: 1.1rem;

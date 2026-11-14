@@ -176,7 +176,7 @@
 .desk-form-card input[readonly] {
   background: #F8FAFC;
   cursor: default;
-  color: #64748B;
+  color: var(--text-secondary);
 }
 
 .desk-btn-submit {

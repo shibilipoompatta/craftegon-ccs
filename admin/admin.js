@@ -102,9 +102,9 @@
   function showToast(message, type = 'success') {
     const toast = document.createElement('div');
     toast.className = 'admin-toast';
-    toast.style.borderColor = type === 'danger' ? '#EF4444' : '#C59B27';
+    toast.style.borderColor = type === 'danger' ? '#EF4444' : 'var(--brand-gold)';
     toast.innerHTML = `
-      <span style="color:${type === 'danger' ? '#EF4444' : '#C59B27'}; font-size:1.1rem;">
+      <span style="color:${type === 'danger' ? '#EF4444' : 'var(--brand-gold)'}; font-size:1.1rem;">
         ${type === 'danger' ? '⚠️' : '✓'}
       </span>
       <span>${escapeHtml(message)}</span>
@@ -680,7 +680,7 @@
       const dateStr = c.created_at ? new Date(c.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '--';
 
       tr.innerHTML = `
-        <td><strong style="font-family: var(--font-mono, monospace); color: var(--admin-gold, #C59B27);">${escapeHtml(c.case_reference)}</strong></td>
+        <td><strong style="font-family: var(--font-mono, monospace); color: var(--admin-gold, var(--brand-gold));">${escapeHtml(c.case_reference)}</strong></td>
         <td>
           <div style="font-weight: 600; color: #FFF;">${escapeHtml(c.title)}</div>
           <div style="font-size: 0.75rem; color: var(--admin-text-muted);">Service: ${escapeHtml(c.service_id)}</div>
@@ -856,7 +856,7 @@
       const dateStr = l.created_at ? new Date(l.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '--';
 
       tr.innerHTML = `
-        <td><strong style="font-family: var(--font-mono, monospace); color: var(--admin-gold, #C59B27);">${escapeHtml(l.lead_reference)}</strong></td>
+        <td><strong style="font-family: var(--font-mono, monospace); color: var(--admin-gold, var(--brand-gold));">${escapeHtml(l.lead_reference)}</strong></td>
         <td style="color: #FFF; font-weight: 500;">${escapeHtml(l.contact_name || '--')}</td>
         <td><span class="badge" style="background: rgba(255,255,255,0.06);">${escapeHtml(l.service_id || 'GENERAL')}</span></td>
         <td><span class="badge" style="background: rgba(255,255,255,0.06);">${escapeHtml(l.vertical_id || 'V01')}</span></td>

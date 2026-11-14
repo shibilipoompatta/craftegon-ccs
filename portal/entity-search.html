@@ -32,7 +32,7 @@
     .search-input-wrap { display: flex; gap: 0.75rem; align-items: center; background: var(--bg-ivory); border: 1.5px solid var(--silver-border); border-radius: 12px; padding: 0.5rem 0.75rem 0.5rem 1.25rem; transition: all 0.2s ease; }
     .search-input-wrap:focus-within { border-color: var(--brand-gold); background: #FFFFFF; box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15); }
     .search-input-field { width: 100%; border: none; background: transparent; outline: none; font-size: 1.05rem; font-family: var(--font-body); color: var(--charcoal); }
-    .search-btn { background: linear-gradient(135deg, #C59B27 0%, #966F12 100%); color: #FFFFFF; border: none; border-radius: 8px; padding: 0.75rem 1.5rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap; transition: all 0.2s ease; }
+    .search-btn { background: linear-gradient(135deg, var(--brand-gold) 0%, #966F12 100%); color: #FFFFFF; border: none; border-radius: 8px; padding: 0.75rem 1.5rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap; transition: all 0.2s ease; }
     .search-btn:hover { box-shadow: 0 4px 14px rgba(197, 155, 39, 0.35); transform: translateY(-1px); }
     .preset-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; font-size: 0.82rem; color: var(--text-muted); align-items: center; }
     .preset-chip-btn { background: #FFFFFF; border: 1px solid var(--silver-border); border-radius: 6px; padding: 0.25rem 0.65rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--charcoal); cursor: pointer; transition: all 0.15s ease; }
@@ -57,10 +57,10 @@
     .risk-items-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
     .risk-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1rem; }
     .risk-item-title { font-size: 0.85rem; font-weight: 700; color: #E8C868; margin-bottom: 0.3rem; display: flex; justify-content: space-between; }
-    .risk-item-desc { font-size: 0.78rem; color: #94A3B8; line-height: 1.5; margin: 0; }
+    .risk-item-desc { font-size: 0.78rem; color: var(--text-light); line-height: 1.5; margin: 0; }
     .onboard-cta-bar { display: flex; justify-content: space-between; align-items: center; background: rgba(197, 155, 39, 0.12); border: 1px solid rgba(197, 155, 39, 0.3); padding: 1rem 1.25rem; border-radius: 8px; flex-wrap: wrap; gap: 1rem; }
     .onboard-cta-text { font-size: 0.88rem; color: #FFFFFF; }
-    .onboard-cta-btn { background: linear-gradient(135deg, #C59B27 0%, #966F12 100%); color: #060911 !important; font-weight: 700; font-size: 0.85rem; padding: 0.65rem 1.25rem; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; box-shadow: 0 2px 10px rgba(197, 155, 39, 0.3); transition: all 0.2s ease; }
+    .onboard-cta-btn { background: linear-gradient(135deg, var(--brand-gold) 0%, #966F12 100%); color: #060911 !important; font-weight: 700; font-size: 0.85rem; padding: 0.65rem 1.25rem; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; box-shadow: 0 2px 10px rgba(197, 155, 39, 0.3); transition: all 0.2s ease; }
     .onboard-cta-btn:hover { box-shadow: 0 4px 16px rgba(197, 155, 39, 0.5); transform: translateY(-1px); }
     .tier-badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700; font-family: var(--font-mono); margin-right: 0.5rem; }
     .tier-roc { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
@@ -91,7 +91,7 @@
     <div class="search-card-shell">
       <form id="entity-search-form" data-entity-lookup data-results-target="master-card" data-feedback-target="lookup-feedback">
         <div class="search-input-wrap">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C59B27" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brand-gold)" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
           <input type="text" id="search-term" data-lookup-query class="search-input-field" placeholder="Search Company Name, CIN, LLPIN, or Trademark Number..." autocomplete="off" aria-label="Search Company Name, CIN, LLPIN, or Trademark Number" required>
           <button type="submit" class="search-btn">Analyze Entity &rarr;</button>
         </div>

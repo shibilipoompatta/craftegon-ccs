@@ -183,7 +183,7 @@ function escapeSearchData(value) {
 }
 
 function safeCssColor(value) {
-  return typeof value === 'string' && /^#[0-9a-f]{3,8}$/i.test(value) ? value : '#64748B';
+  return typeof value === 'string' && /^#[0-9a-f]{3,8}$/i.test(value) ? value : '#52717A';
 }
 
 function renderPreviewNotice(source) {
@@ -492,15 +492,15 @@ function showNotFound(containerId, query, type) {
         <span class="noble-badge" style="background: rgba(140, 109, 20, 0.1); color: var(--text-dark-gold, #8C6D14); border-color: rgba(140, 109, 20, 0.3);">
           Registry Status Notice
         </span>
-        <span style="font-size: 0.8rem; color: var(--text-muted, #64748B);">Static Directory Mode</span>
+        <span style="font-size: 0.8rem; color: var(--text-secondary);">Static Directory Mode</span>
       </div>
-      <h3 style="font-family: var(--font-heading, 'Cinzel', serif); font-size: 1.15rem; color: var(--navy-800, #0B2545); margin: 0 0 0.5rem;">
+      <h3 style="font-family: var(--font-heading, var(--font-heading, 'Manrope', sans-serif)); font-size: 1.15rem; color: var(--navy-800, #0B2545); margin: 0 0 0.5rem;">
         No Verified Record in Benchmark Index for "${escapeHtml(query)}"
       </h3>
       <p style="font-size: 0.88rem; color: var(--text-main, #334155); line-height: 1.6; margin-bottom: 1rem;">
         This public directory currently operates in static demonstration mode. Live, real-time government registry lookups are not connected in this edge deployment, and CraftEgon CCS <strong>does not fabricate synthetic corporate records, fictional filing histories, or estimated compliance penalties</strong>.
       </p>
-      <div style="background: var(--bg-slate, #F8FAFC); border: 1px solid var(--border-color, #E2E8F0); border-radius: 6px; padding: 1rem; margin-bottom: 1.25rem; font-size: 0.82rem; color: var(--text-muted, #64748B); line-height: 1.5;">
+      <div style="background: var(--bg-slate, #F8FAFC); border: 1px solid var(--border-color, #E2E8F0); border-radius: 6px; padding: 1rem; margin-bottom: 1.25rem; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
         <strong style="color: var(--navy-800, #0B2545); display: block; margin-bottom: 0.25rem;">How to obtain verified registry data:</strong>
         1. <strong>Official Verification:</strong> Inspect certified records directly on the <a href="${registryUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--text-dark-gold, #8C6D14); text-decoration: underline;">${registryName} &rarr;</a>.<br>
         2. <strong>Compliance Advisory:</strong> Connect with our corporate desk for manual statutory search, entity standing verification, or incorporation assistance.
@@ -748,7 +748,7 @@ function renderTrademarkResult(tm) {
             <div class="risk-item">
               <div class="risk-item-title">
                 <span>International Protection</span>
-                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #64748B;">OPTIONAL</span>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-secondary);">OPTIONAL</span>
               </div>
               <p class="risk-item-desc">Consider Madrid Protocol filing for international brand protection if expanding beyond India.</p>
             </div>
@@ -770,14 +770,14 @@ function renderTrademarkResult(tm) {
             <div class="risk-item">
               <div class="risk-item-title">
                 <span>Filing Readiness</span>
-                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #64748B;">PREPARE</span>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-secondary);">PREPARE</span>
               </div>
               <p class="risk-item-desc">Prepare user affidavit, power of attorney, and mark representation sheets for TM-A submission.</p>
             </div>
             <div class="risk-item">
               <div class="risk-item-title">
                 <span>Professional Assistance</span>
-                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: #64748B;">RECOMMENDED</span>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-secondary);">RECOMMENDED</span>
               </div>
               <p class="risk-item-desc">Engage registered trademark agent for official registry search, filing, and prosecution management.</p>
             </div>
