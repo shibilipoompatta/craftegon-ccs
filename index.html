@@ -486,6 +486,161 @@
     gap: 1rem;
   }
 }
+
+/* Hero 5-Channel Quick Launch Strip */
+.hero-channels-container {
+  margin-top: 1.25rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+}
+.channels-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.channels-view-all {
+  color: var(--accent-green-primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--fs-xs);
+}
+.channels-view-all:hover {
+  text-decoration: underline;
+}
+.hero-quick-channels {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.65rem;
+}
+@media (max-width: 1024px) {
+  .hero-quick-channels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .hero-quick-channels {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+.channel-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.8rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 48px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.channel-card:hover {
+  border-color: var(--accent-green-primary);
+  background: var(--surface-mint-white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(36, 122, 98, 0.08);
+}
+.channel-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.channel-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+.channel-name {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  line-height: 1.25;
+}
+.channel-sub {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0.1rem;
+}
+
+/* Minimalist FAQ Accordion */
+.faq-section {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+.faq-accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.faq-item {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.faq-item:hover {
+  border-color: rgba(36, 122, 98, 0.4);
+}
+.faq-item[open] {
+  border-color: var(--accent-green-primary);
+  box-shadow: 0 4px 16px rgba(16, 38, 46, 0.05);
+}
+.faq-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.3rem;
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  -webkit-appearance: none;
+  min-height: 48px;
+}
+.faq-summary::-webkit-details-marker,
+.faq-summary::marker {
+  display: none !important;
+}
+.faq-chevron {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--accent-green-primary);
+  transition: transform 0.2s ease;
+  line-height: 1;
+}
+.faq-item[open] .faq-chevron {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  padding: 0 1.3rem 1.15rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.62;
+}
+.faq-answer p {
+  margin: 0;
+}
+
 </style>
   
   <!-- Structured Data JSON-LD (WCAG & Schema.org Compliant) -->
@@ -827,69 +982,152 @@
             <a href="/about.html" class="if-mobile-nav-link">About CraftEgon</a>
           </div>
 
-          <!-- Practice Areas Accordion: All 15 Verticals grouped by Business Objective -->
-          <details class="if-mobile-accordion" id="mobile-verticals-accordion">
+          <!-- 1. Start a Business Accordion -->
+          <details class="if-mobile-accordion" id="mobile-startup-accordion">
             <summary>
               <div class="accordion-summary-content">
-                <span class="accordion-icon-wrap" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                </span>
-                <span class="accordion-title-text">Practice Areas by Objective (15)</span>
+                <span class="accordion-icon-wrap" aria-hidden="true">🏢</span>
+                <span class="accordion-title-text">Start a Business</span>
               </div>
               <span class="accordion-chevron-badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
               </span>
             </summary>
             <div class="if-mobile-sublinks">
-              <strong style="font-size: 0.72rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;">Start &amp; Register</strong>
-              <a href="/verticals/01-entity-formation.html">1. Business Formation &amp; Structuring</a>
-              <a href="/verticals/04-statutory-licenses.html">4. Statutory Licences &amp; Registrations</a>
-              <a href="/verticals/06-ipr-protection.html">6. IPR &amp; Trademark Protection</a>
-
-              <strong style="font-size: 0.72rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 8px;">Operate &amp; Comply</strong>
-              <a href="/verticals/02-roc-compliance.html">2. RoC Compliance &amp; Secretarial</a>
-              <a href="/verticals/03-tax-compliance.html">3. Corporate Tax &amp; GST Compliance</a>
-              <a href="/verticals/07-labour-hr.html">7. Employment &amp; HR Compliance</a>
-              <a href="/verticals/15-it-digital.html">15. IT &amp; Digital Infrastructure</a>
-
-              <strong style="font-size: 0.72rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 8px;">Protect &amp; Scale</strong>
-              <a href="/verticals/05-contracts-legal.html">5. Commercial Contracts &amp; Drafting</a>
-              <a href="/verticals/08-fundraising-investment.html">8. Banking &amp; Fundraising Support</a>
-              <a href="/verticals/11-governance-audit.html">11. Governance, Audit &amp; Risk</a>
-              <a href="/verticals/12-esg-csr.html">12. Data Privacy &amp; Tech Law</a>
-              <a href="/verticals/13-cross-border-fema.html">13. Cross-Border FDI &amp; FEMA</a>
-
-              <strong style="font-size: 0.72rem; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 8px;">Restructure &amp; Advisory</strong>
-              <a href="/verticals/09-ma-restructuring.html">9. Corporate Transactions &amp; M&amp;A</a>
-              <a href="/verticals/10-litigation-dispute.html">10. Dispute Avoidance (Non-Litigation)</a>
-              <a href="/verticals/14-exit-insolvency.html">14. Restructuring, Insolvency &amp; Exit</a>
+              <a href="/services/pvt-ltd-registration.html">Private Limited Company (SPICe+)</a>
+              <a href="/services/llp-registration.html">Limited Liability Partnership (LLP)</a>
+              <a href="/services/opc-registration.html">One Person Company (OPC)</a>
+              <a href="/services/section-8-registration.html">Section 8 Non-Profit Company</a>
+              <a href="/services/proprietorship-registration.html">Sole Proprietorship Registration</a>
+              <a href="/services/partnership-registration.html">Partnership Firm Registration</a>
+              <a href="/services/trust-registration.html">Charitable Trust Registration</a>
+              <a href="/services/society-registration.html">Society Registration</a>
+              <a href="/services/form-fc3-fc4.html">Foreign Branch &amp; Liaison Office</a>
             </div>
           </details>
 
-          <!-- Diagnostic Tools & Resources Accordion -->
+          <!-- 2. RoC Compliance & MCA Accordion -->
+          <details class="if-mobile-accordion" id="mobile-roc-accordion">
+            <summary>
+              <div class="accordion-summary-content">
+                <span class="accordion-icon-wrap" aria-hidden="true">🏛️</span>
+                <span class="accordion-title-text">RoC Compliance &amp; MCA</span>
+              </div>
+              <span class="accordion-chevron-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="if-mobile-sublinks">
+              <a href="/services/roc-annual-compliance.html">Annual Secretarial Retainer Plans</a>
+              <a href="/services/form-aoc4.html">Form AOC-4 (Financial Statements)</a>
+              <a href="/services/form-mgt7.html">Form MGT-7 (Annual Return)</a>
+              <a href="/services/dir3-kyc.html">DIR-3 KYC Director Verification</a>
+              <a href="/services/form-pas6.html">Form PAS-6 Demat Share Capital</a>
+              <a href="/services/form-adt1.html">Form ADT-1 Auditor Appointment</a>
+              <a href="/services/form-stk2-strike-off.html">Fast-Track Strike-Off (STK-2)</a>
+              <a href="/services/llp-compliance-forms.html">LLP Annual Filings (Form 8 &amp; 11)</a>
+              <a href="/services/form-ben2.html">Form BEN-2 SBO Reporting</a>
+              <a href="/services/form-dpt3.html">Form DPT-3 Return of Deposits</a>
+            </div>
+          </details>
+
+          <!-- 3. GST & Corporate Tax Accordion -->
+          <details class="if-mobile-accordion" id="mobile-tax-accordion">
+            <summary>
+              <div class="accordion-summary-content">
+                <span class="accordion-icon-wrap" aria-hidden="true">📊</span>
+                <span class="accordion-title-text">GST &amp; Corporate Tax</span>
+              </div>
+              <span class="accordion-chevron-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="if-mobile-sublinks">
+              <a href="/services/gst-annual.html">GST Annual Return (GSTR-9 &amp; 9C)</a>
+              <a href="/services/itr7.html">Corporate ITR-7 Tax Filing</a>
+              <a href="/services/proprietorship-tax.html">Proprietorship &amp; SME Tax Returns</a>
+              <a href="/services/form-3ceb.html">Form 3CEB Transfer Pricing Report</a>
+              <a href="/services/form-10b.html">Form 10B Trust Audit Report</a>
+            </div>
+          </details>
+
+          <!-- 4. Trademark & IPR Accordion -->
+          <details class="if-mobile-accordion" id="mobile-ipr-accordion">
+            <summary>
+              <div class="accordion-summary-content">
+                <span class="accordion-icon-wrap" aria-hidden="true">🛡️</span>
+                <span class="accordion-title-text">Trademark &amp; IPR</span>
+              </div>
+              <span class="accordion-chevron-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="if-mobile-sublinks">
+              <a href="/services/trademark-registration.html">Trademark Registration (Form TM-A)</a>
+              <a href="/services/software-copyright-patents.html">Software Copyright &amp; Tech Patents</a>
+              <a href="/services/ip-enforcement-cease-desist.html">IP Enforcement &amp; Cease and Desist</a>
+            </div>
+          </details>
+
+          <!-- 5. Licences & Registrations Accordion -->
+          <details class="if-mobile-accordion" id="mobile-licenses-accordion">
+            <summary>
+              <div class="accordion-summary-content">
+                <span class="accordion-icon-wrap" aria-hidden="true">📋</span>
+                <span class="accordion-title-text">Licences &amp; Registrations</span>
+              </div>
+              <span class="accordion-chevron-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="if-mobile-sublinks">
+              <a href="/services/dpiit-startup-india.html">DPIIT Startup India Recognition</a>
+              <a href="/services/msme-udyam.html">MSME / Udyam Registration</a>
+              <a href="/services/pf-esic-compliance.html">PF &amp; ESIC Statutory Registration</a>
+              <a href="/services/posh-compliance.html">POSH Act Internal Committee Setup</a>
+            </div>
+          </details>
+
+          <!-- 6. Legal Drafting & Contracts Accordion -->
+          <details class="if-mobile-accordion" id="mobile-contracts-accordion">
+            <summary>
+              <div class="accordion-summary-content">
+                <span class="accordion-icon-wrap" aria-hidden="true">⚖️</span>
+                <span class="accordion-title-text">Legal Drafting &amp; Contracts</span>
+              </div>
+              <span class="accordion-chevron-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="if-mobile-sublinks">
+              <a href="/services/founder-shareholder-agreements.html">Founder Pacts &amp; SHA / SPA</a>
+              <a href="/services/master-service-agreements.html">Master Service Agreements (MSA)</a>
+              <a href="/services/saas-terms-privacy-architecture.html">SaaS Terms &amp; Privacy Architecture</a>
+              <a href="/services/cross-border-tech-transfer.html">Cross-Border Technology Licensing</a>
+            </div>
+          </details>
+
+          <!-- 7. Calculators & Master Tools Accordion -->
           <details class="if-mobile-accordion" id="mobile-tools-accordion">
             <summary>
               <div class="accordion-summary-content">
-                <span class="accordion-icon-wrap" aria-hidden="true">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-                </span>
-                <span class="accordion-title-text">Tools &amp; Resources</span>
+                <span class="accordion-icon-wrap" aria-hidden="true">🧮</span>
+                <span class="accordion-title-text">Calculators &amp; Master Search</span>
               </div>
               <span class="accordion-chevron-badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
               </span>
             </summary>
             <div class="if-mobile-sublinks">
-              <a href="/knowledge/index.html">Compliance Knowledge Centre</a>
               <a href="/conversion/calculator.html">RoC Late Fee Calculator</a>
               <a href="/conversion/trademark-search.html">NICE Trademark Screener</a>
               <a href="/conversion/index.html">Diagnostic Tools &amp; Checkers</a>
-              <a href="/search/">Corporate &amp; IP Registry Search</a>
-              <a href="/search/index.html">CIN &amp; LLPIN Master Lookup</a>
+              <a href="/search/">Corporate &amp; Master Search</a>
+              <a href="/knowledge/index.html">Compliance Knowledge Centre</a>
             </div>
           </details>
 
-          <a href="/contact.html" class="if-mobile-nav-link">Contact</a>
+          <a href="/contact.html" class="if-mobile-nav-link">Contact &amp; Service Desk</a>
 
           <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem;">
             <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center;">
@@ -986,6 +1224,51 @@
               <a href="#fee-estimator" class="btn-hero-secondary">
                 <span>Calculate Filing Fees</span> &rarr;
               </a>
+            </div>
+
+            <!-- 5 Core Service Channels (Instant Founder Navigation) -->
+            <div class="hero-channels-container">
+              <div class="channels-title-bar">
+                <span>Core Practice Channels</span>
+                <a href="/services.html" class="channels-view-all">All 57 Services &rarr;</a>
+              </div>
+              <div class="hero-quick-channels">
+                <a href="/verticals/01-entity-formation.html" class="channel-card">
+                  <span class="channel-icon" aria-hidden="true">🏢</span>
+                  <div class="channel-text">
+                    <span class="channel-name">Start a Business</span>
+                    <span class="channel-sub">Pvt Ltd, LLP from ₹5,499</span>
+                  </div>
+                </a>
+                <a href="/verticals/02-roc-compliance.html" class="channel-card">
+                  <span class="channel-icon" aria-hidden="true">🏛️</span>
+                  <div class="channel-text">
+                    <span class="channel-name">RoC &amp; MCA Filings</span>
+                    <span class="channel-sub">AOC-4, MGT-7, Retainers</span>
+                  </div>
+                </a>
+                <a href="/verticals/03-tax-compliance.html" class="channel-card">
+                  <span class="channel-icon" aria-hidden="true">📊</span>
+                  <div class="channel-text">
+                    <span class="channel-name">GST &amp; Tax Returns</span>
+                    <span class="channel-sub">GSTR-9, Corporate ITR-7</span>
+                  </div>
+                </a>
+                <a href="/verticals/06-ipr-protection.html" class="channel-card">
+                  <span class="channel-icon" aria-hidden="true">🛡️</span>
+                  <div class="channel-text">
+                    <span class="channel-name">Trademark &amp; IPR</span>
+                    <span class="channel-sub">Brand Protection, TM-A</span>
+                  </div>
+                </a>
+                <a href="/verticals/04-statutory-licenses.html" class="channel-card">
+                  <span class="channel-icon" aria-hidden="true">📋</span>
+                  <div class="channel-text">
+                    <span class="channel-name">Statutory Licences</span>
+                    <span class="channel-sub">Startup India, MSME Udyam</span>
+                  </div>
+                </a>
+              </div>
             </div>
 
             <!-- Streamlined High-Trust Strip (Single clean line) -->
@@ -1731,7 +2014,74 @@
     <!-- ====================================================================
          SECTION 6: EXECUTIVE ADVISORY CONSULTATION & CONVERSION
          ==================================================================== -->
-    <section class="final-cta-section" id="consultation-cta" aria-labelledby="cta-heading">
+        <!-- ======================================================================
+         SECTION: FOUNDER FAQS & REGULATORY CLARITY
+         ====================================================================== -->
+    <section class="home-section faq-section" id="founder-faqs" aria-labelledby="faq-heading">
+      <div class="home-container-narrow">
+        <div class="section-header-centered">
+          <span class="section-eyebrow">COMMON INQUIRIES</span>
+          <h2 id="faq-heading" class="section-title">Frequently Asked Compliance Questions</h2>
+          <p class="section-lead">
+            Straightforward answers to the most common questions founders, directors, and finance heads ask about incorporating and staying compliant in India.
+          </p>
+        </div>
+
+        <div class="faq-accordion-group">
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span class="faq-question">How fast can my Private Limited company be incorporated in India?</span>
+              <span class="faq-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Under the MCA V3 portal and the unified SPICe+ (INC-32) filing mechanism, company incorporation typically completes in <strong>3 to 5 business days</strong> once DSCs and identity documents are verified. This package includes Name Reservation (Part A), SPICe+ Part B, 2 Director DINs, Certificate of Incorporation (CoI), PAN, TAN, EPFO, ESIC, and zero-balance corporate bank account setup.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span class="faq-question">What are the mandatory annual RoC secretarial compliance deadlines?</span>
+              <span class="faq-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Every active Private Limited company in India must complete three primary statutory filings annually: <strong>DIR-3 KYC</strong> for all board directors by September 30; <strong>Form AOC-4</strong> (Audited Financial Statements) within 30 days of the AGM (typically October 29); and <strong>Form MGT-7/7A</strong> (Annual Return) within 60 days of the AGM (typically November 28). Missing these statutory deadlines attracts late filing penalties of &#8377;100 per day under Section 403.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span class="faq-question">Are government MCA portal fees and stamp duties included in packages?</span>
+              <span class="faq-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>CraftEgon operates on a <strong>100% transparent fee structure</strong>. We quote our fixed professional advisory fee upfront, while statutory government filing fees and state-specific stamp duty (which vary based on authorized share capital and corporate headquarters location) are billed exactly at cost against official MCA / RoC payment challans with zero hidden surcharges.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span class="faq-question">Can foreign founders or NRIs incorporate an entity in India?</span>
+              <span class="faq-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes. Foreign nationals, NRIs, and foreign corporate bodies can incorporate wholly-owned subsidiaries in India under the 100% Automatic FDI Route across most industry sectors. At least one director on the board must be a resident of India (present in India for at least 182 days in the preceding financial year). Foreign KYC documents require apostille or consular notarization in the origin country.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span class="faq-question">What is CraftEgon CCS's statutory scope under the Advocates Act?</span>
+              <span class="faq-chevron" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>CraftEgon CCS provides corporate secretarial, non-contentious legal drafting, and regulatory filing infrastructure under Indian corporate law. In strict compliance with the Advocates Act, 1961 and Bar Council regulations, CCS does not provide contentious courtroom representation. Formal tribunal or High Court litigation representation is referred to independent practicing advocates engaged under a separate vakalatnama.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+<section class="final-cta-section" id="consultation-cta" aria-labelledby="cta-heading">
       <div class="home-container">
         <div class="final-cta-card">
           <div class="final-cta-split-grid">
