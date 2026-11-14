@@ -548,6 +548,284 @@
 .faq-answer p {
   margin: 0;
 }
+
+
+/* ==========================================================================
+   ENTITY SELECTOR DIAGNOSTIC TOOL (CLEAN, CARD-BASED & INDUSTRIAL STANDARD)
+   ========================================================================== */
+.entity-wizard-section {
+  background: var(--surface-mint-white, #F4FAF7);
+  padding: 4rem 1.5rem;
+  border-top: 1px solid var(--border-soft, #DCE8E5);
+  border-bottom: 1px solid var(--border-soft, #DCE8E5);
+}
+
+.wizard-grid-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .wizard-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+.wizard-card-questions {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-soft, #DCE8E5);
+  border-radius: 16px;
+  padding: 1.85rem;
+  box-shadow: 0 4px 16px rgba(25, 59, 70, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.wizard-q-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.wizard-q-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy-900, #10262E);
+  margin-bottom: 0.75rem;
+}
+
+.wizard-q-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--accent-emerald, #247A62);
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.wizard-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+@media (max-width: 580px) {
+  .wizard-options-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Beautiful Interactive Option Card (Tile) */
+.wizard-chip {
+  position: relative;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.75rem !important;
+  padding: 0.85rem 1rem !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border-soft, #DCE8E5) !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-sizing: border-box !important;
+  min-height: 64px !important;
+}
+
+.wizard-chip:hover {
+  border-color: var(--accent-emerald, #247A62) !important;
+  background: rgba(36, 122, 98, 0.04) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(25, 59, 70, 0.06) !important;
+}
+
+/* Radio button styling */
+.wizard-chip input[type="radio"] {
+  margin: 0.15rem 0 0 0 !important;
+  width: 17px !important;
+  height: 17px !important;
+  accent-color: var(--accent-emerald, #247A62) !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+}
+
+/* Active / Checked Card state */
+.wizard-chip:has(input[type="radio"]:checked),
+.wizard-chip.is-active {
+  border-color: var(--accent-emerald, #247A62) !important;
+  background: linear-gradient(135deg, rgba(221, 245, 234, 0.4) 0%, #FFFFFF 100%) !important;
+  box-shadow: 0 0 0 1.5px var(--accent-emerald, #247A62), 0 4px 14px rgba(36, 122, 98, 0.1) !important;
+}
+
+.wizard-chip-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.25rem !important;
+  min-width: 0 !important;
+  flex-grow: 1 !important;
+}
+
+.chip-title {
+  display: block !important;
+  font-family: var(--font-heading, 'Manrope', sans-serif) !important;
+  font-size: 0.84rem !important;
+  font-weight: 700 !important;
+  color: var(--navy-900, #10262E) !important;
+  line-height: 1.3 !important;
+}
+
+.chip-desc {
+  display: block !important;
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: 0.74rem !important;
+  color: var(--text-muted-color, #5A7178) !important;
+  line-height: 1.35 !important;
+}
+
+/* Right Column: Recommendation Card */
+.wizard-card-recommendation {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F4FAF7 100%) !important;
+  border: 2px solid var(--accent-mint-vibrant, #75CDA9) !important;
+  border-radius: 16px !important;
+  padding: 1.85rem !important;
+  box-shadow: 0 6px 24px rgba(36, 122, 98, 0.1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.wizard-price-box {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-soft, #DCE8E5);
+  border-radius: 10px;
+  padding: 0.85rem 1.15rem;
+  margin: 1rem 0;
+}
+
+.wizard-price-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted-color, #5A7178);
+  margin-bottom: 0.25rem;
+}
+
+.wizard-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.wizard-price-val {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--accent-emerald, #247A62);
+  line-height: 1;
+}
+
+.wizard-price-sub {
+  font-size: 0.76rem;
+  color: var(--text-muted-color, #5A7178);
+}
+
+.wizard-highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.5rem;
+}
+
+.wizard-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  color: var(--text-main, #243746);
+  line-height: 1.45;
+}
+
+.wizard-highlight-icon {
+  color: #059669;
+  font-weight: 800;
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.wizard-actions-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.wizard-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: var(--accent-emerald, #247A62);
+  color: #FFFFFF !important;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.8rem 1.25rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1.5px solid var(--accent-emerald, #247A62);
+  box-shadow: 0 2px 8px rgba(36, 122, 98, 0.25);
+  transition: all 0.2s ease;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.wizard-btn-primary:hover {
+  background: var(--accent-green-hover, #1B5E4B);
+  border-color: var(--accent-green-hover, #1B5E4B);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(36, 122, 98, 0.35);
+}
+
+.wizard-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: #FFFFFF;
+  color: #065F46 !important;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.8rem 1.25rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1.5px solid rgba(16, 185, 129, 0.4);
+  transition: all 0.2s ease;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.wizard-btn-secondary:hover {
+  background: #ECFDF5;
+  border-color: #059669;
+  transform: translateY(-1px);
+}
+
 </style>
   
   <!-- Structured Data JSON-LD (WCAG & Schema.org Compliant) -->
@@ -1196,28 +1474,28 @@
     <!-- ====================================================================
          INTERACTIVE 60-SECOND ENTITY SELECTOR WIZARD
          ==================================================================== -->
-    <section class="home-section entity-wizard-section" id="entity-selector" aria-labelledby="wizard-heading" style="background: var(--surface-mint-white, #F4FAF7); padding: 3.5rem 1rem; border-top: 1px solid var(--border-soft, #DCE8E5); border-bottom: 1px solid var(--border-soft, #DCE8E5);">
-      <div class="home-container" style="max-width: 1200px; margin: 0 auto;">
-        <div class="section-header-centered" style="text-align: center; max-width: 720px; margin: 0 auto 2.2rem;">
+    <section class="home-section entity-wizard-section" id="entity-selector" aria-labelledby="wizard-heading">
+      <div class="home-container">
+        <div class="section-header-centered" style="text-align: center; max-width: 720px; margin: 0 auto 2.25rem;">
           <span class="section-eyebrow" style="display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-emerald, #247A62); background: rgba(36, 122, 98, 0.1); padding: 3px 10px; border-radius: 9999px; margin-bottom: 0.6rem;">⚡ 60-Second Diagnostic Tool</span>
-          <h2 id="wizard-heading" class="section-title" style="font-family: var(--font-heading, 'Manrope', sans-serif); font-size: 1.85rem; font-weight: 800; color: var(--text-dark, #193B46); margin: 0 0 0.6rem; letter-spacing: -0.02em;">Which Business Entity is Right for You?</h2>
-          <p class="section-lead" style="font-size: 0.95rem; color: var(--text-muted, #5A7178); line-height: 1.55; margin: 0;">
+          <h2 id="wizard-heading" class="section-title" style="font-family: var(--font-heading, 'Manrope', sans-serif); font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800; color: var(--navy-900, #10262E); margin: 0 0 0.6rem; letter-spacing: -0.025em;">Which Business Entity is Right for You?</h2>
+          <p class="section-lead" style="font-size: 0.95rem; color: var(--text-secondary, #52717A); line-height: 1.6; margin: 0;">
             Unsure whether to register a Private Limited Company, an LLP, or an OPC? Select your commercial preferences below for an instant statutory recommendation with transparent pricing.
           </p>
         </div>
 
-        <div class="wizard-grid-layout" style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 1.75rem; align-items: stretch;">
+        <div class="wizard-grid-layout">
           <!-- Left: Diagnostic Questions Card -->
-          <div class="wizard-card-questions" style="background: #FFFFFF; border: 1px solid var(--border-soft, #DCE8E5); border-radius: 12px; padding: 1.6rem; box-shadow: 0 2px 8px rgba(25, 59, 70, 0.04); display: flex; flex-direction: column; gap: 1.4rem;">
+          <div class="wizard-card-questions">
             
             <!-- Question 1: Funding & Growth Goal -->
             <div class="wizard-q-group">
-              <label style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--text-dark, #193B46); margin-bottom: 0.6rem;">
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--accent-emerald, #247A62); color: #FFFFFF; border-radius: 50%; font-size: 0.72rem; font-weight: 800;">1</span>
+              <div class="wizard-q-header">
+                <span class="wizard-q-num">1</span>
                 <span>Funding &amp; Capital Growth Strategy</span>
-              </label>
-              <div class="wizard-options-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-                <label class="wizard-chip">
+              </div>
+              <div class="wizard-options-grid">
+                <label class="wizard-chip is-active">
                   <input type="radio" name="w-goal" value="vc" checked onchange="updateEntityWizard()">
                   <div class="wizard-chip-inner">
                     <span class="chip-title">🚀 Venture Capital / Angels</span>
@@ -1250,11 +1528,11 @@
 
             <!-- Question 2: Founding Team -->
             <div class="wizard-q-group">
-              <label style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--text-dark, #193B46); margin-bottom: 0.6rem;">
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--accent-emerald, #247A62); color: #FFFFFF; border-radius: 50%; font-size: 0.72rem; font-weight: 800;">2</span>
+              <div class="wizard-q-header">
+                <span class="wizard-q-num">2</span>
                 <span>Founding Team Size</span>
-              </label>
-              <div class="wizard-options-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+              </div>
+              <div class="wizard-options-grid">
                 <label class="wizard-chip">
                   <input type="radio" name="w-team" value="solo" onchange="updateEntityWizard()">
                   <div class="wizard-chip-inner">
@@ -1262,7 +1540,7 @@
                     <span class="chip-desc">Single owner / director</span>
                   </div>
                 </label>
-                <label class="wizard-chip">
+                <label class="wizard-chip is-active">
                   <input type="radio" name="w-team" value="multiple" checked onchange="updateEntityWizard()">
                   <div class="wizard-chip-inner">
                     <span class="chip-title">2+ Co-Founders / Partners</span>
@@ -1274,12 +1552,12 @@
 
             <!-- Question 3: Statutory Preference -->
             <div class="wizard-q-group">
-              <label style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--text-dark, #193B46); margin-bottom: 0.6rem;">
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: var(--accent-emerald, #247A62); color: #FFFFFF; border-radius: 50%; font-size: 0.72rem; font-weight: 800;">3</span>
+              <div class="wizard-q-header">
+                <span class="wizard-q-num">3</span>
                 <span>Compliance &amp; Audit Preference</span>
-              </label>
-              <div class="wizard-options-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-                <label class="wizard-chip">
+              </div>
+              <div class="wizard-options-grid">
+                <label class="wizard-chip is-active">
                   <input type="radio" name="w-audit" value="institutional" checked onchange="updateEntityWizard()">
                   <div class="wizard-chip-inner">
                     <span class="chip-title">Institutional Credibility</span>
@@ -1299,50 +1577,50 @@
           </div>
 
           <!-- Right: Instant Recommended Structure Output -->
-          <div class="wizard-card-recommendation" id="wizard-output-card" style="background: linear-gradient(135deg, #FFFFFF 0%, #F4FAF7 100%); border: 2px solid var(--accent-mint-vibrant, #75CDA9); border-radius: 12px; padding: 1.6rem; box-shadow: 0 4px 16px rgba(36, 122, 98, 0.08); display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="wizard-card-recommendation" id="wizard-output-card">
             <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.4rem;">
-                <span style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #065F46; background: #ECFDF5; border: 1px solid rgba(16, 185, 129, 0.3); padding: 3px 9px; border-radius: 9999px;">🎯 100% STATUTORY FIT</span>
-                <span id="rec-tag" style="font-family: var(--font-mono, monospace); font-size: 0.72rem; color: var(--text-muted, #5A7178); background: #FFFFFF; border: 1px solid var(--border-soft, #DCE8E5); padding: 2px 7px; border-radius: 4px;">Companies Act 2013</span>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.4rem;">
+                <span style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #065F46; background: #ECFDF5; border: 1px solid rgba(16, 185, 129, 0.3); padding: 4px 10px; border-radius: 9999px;">🎯 100% STATUTORY FIT</span>
+                <span id="rec-tag" style="font-family: var(--font-mono, monospace); font-size: 0.72rem; font-weight: 600; color: var(--text-secondary, #52717A); background: #FFFFFF; border: 1px solid var(--border-soft, #DCE8E5); padding: 3px 8px; border-radius: 6px;">Companies Act 2013</span>
               </div>
 
-              <h3 id="rec-title" style="font-family: var(--font-heading, sans-serif); font-size: 1.35rem; font-weight: 800; color: var(--text-dark, #193B46); margin: 0 0 0.5rem;">Private Limited Company (SPICe+)</h3>
-              <p id="rec-desc" style="font-size: 0.85rem; color: var(--text-main, #243746); line-height: 1.55; margin: 0 0 1rem;">
+              <h3 id="rec-title" style="font-family: var(--font-heading, 'Manrope', sans-serif); font-size: 1.45rem; font-weight: 800; color: var(--navy-900, #10262E); margin: 0 0 0.5rem; letter-spacing: -0.02em;">Private Limited Company (SPICe+)</h3>
+              <p id="rec-desc" style="font-size: 0.88rem; color: var(--text-secondary, #52717A); line-height: 1.6; margin: 0 0 1rem;">
                 India's standard corporate vehicle for high-growth ventures. Required by institutional angels and venture capital funds to issue preference shares, convertible debt, and employee stock option pools (ESOPs).
               </p>
 
               <!-- Transparent Price Box -->
-              <div style="background: #FFFFFF; border: 1px solid var(--border-soft, #DCE8E5); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1rem;">
-                <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted, #5A7178);">Indicative Professional Retainer</div>
-                <div style="display: flex; align-items: baseline; gap: 0.45rem; margin-top: 2px;">
-                  <span id="rec-price" style="font-size: 1.45rem; font-weight: 800; color: var(--accent-emerald, #247A62);">From ₹7,999</span>
-                  <span id="rec-sub" style="font-size: 0.75rem; color: var(--text-muted, #5A7178);">+ Govt Fees &amp; Stamp Duty</span>
+              <div class="wizard-price-box">
+                <div class="wizard-price-label">Indicative Professional Fee</div>
+                <div class="wizard-price-row">
+                  <span id="rec-price" class="wizard-price-val">From ₹7,999</span>
+                  <span id="rec-sub" class="wizard-price-sub">+ Govt Fees &amp; Stamp Duty</span>
                 </div>
               </div>
 
               <!-- Key Highlights -->
-              <div style="display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.25rem;">
-                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8rem; color: var(--text-main, #243746);">
-                  <span style="color: #059669; font-weight: 800;">✓</span>
+              <div class="wizard-highlights-list">
+                <div class="wizard-highlight-item">
+                  <span class="wizard-highlight-icon">✓</span>
                   <span id="rec-h1">Complete limited liability protection ring-fencing personal assets</span>
                 </div>
-                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8rem; color: var(--text-main, #243746);">
-                  <span style="color: #059669; font-weight: 800;">✓</span>
+                <div class="wizard-highlight-item">
+                  <span class="wizard-highlight-icon">✓</span>
                   <span id="rec-h2">Zero MCA government filing fee for authorized capital up to ₹15 Lakhs</span>
                 </div>
-                <div style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8rem; color: var(--text-main, #243746);">
-                  <span style="color: #059669; font-weight: 800;">✓</span>
+                <div class="wizard-highlight-item">
+                  <span class="wizard-highlight-icon">✓</span>
                   <span id="rec-h3">3–5 working days turnaround supervised by practicing CS &amp; CA</span>
                 </div>
               </div>
             </div>
 
             <!-- Action Buttons -->
-            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-              <a href="/services/pvt-ltd-registration.html" id="rec-cta" class="flagship-btn" style="flex: 1; text-align: center; text-decoration: none; padding: 0.65rem 1rem; font-size: 0.85rem; font-weight: 700;">
-                Incorporate Company &rarr;
+            <div class="wizard-actions-row">
+              <a href="/services/pvt-ltd-registration.html" id="rec-cta" class="wizard-btn-primary">
+                <span>Incorporate Company</span> &rarr;
               </a>
-              <a href="https://wa.me/918606918247?text=Hello%20CraftEgon%20CCS,%20I%20used%20the%20Entity%20Selector%20and%20want%20to%20discuss%20incorporation" target="_blank" rel="noopener noreferrer" class="flagship-btn" style="flex: 1; text-align: center; text-decoration: none; padding: 0.65rem 1rem; font-size: 0.85rem; font-weight: 700; background: #FFFFFF; color: #065F46; border: 1px solid #75CDA9;">
+              <a href="https://wa.me/918606918247?text=Hello%20CraftEgon%20CCS,%20I%20used%20the%20Entity%20Selector%20and%20want%20to%20discuss%20incorporation" target="_blank" rel="noopener noreferrer" class="wizard-btn-secondary">
                 💬 WhatsApp Desk
               </a>
             </div>
@@ -1354,6 +1632,16 @@
     <!-- Entity Selector Wizard Dynamic Controller Script -->
     <script>
       function updateEntityWizard() {
+        // Toggle is-active on all chips
+        document.querySelectorAll('.wizard-chip').forEach(function(chip) {
+          var input = chip.querySelector('input[type="radio"]');
+          if (input && input.checked) {
+            chip.classList.add('is-active');
+          } else {
+            chip.classList.remove('is-active');
+          }
+        });
+
         var goal = document.querySelector('input[name="w-goal"]:checked') ? document.querySelector('input[name="w-goal"]:checked').value : 'vc';
         var team = document.querySelector('input[name="w-team"]:checked') ? document.querySelector('input[name="w-team"]:checked').value : 'multiple';
         var audit = document.querySelector('input[name="w-audit"]:checked') ? document.querySelector('input[name="w-audit"]:checked').value : 'institutional';
