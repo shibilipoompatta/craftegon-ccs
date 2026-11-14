@@ -1961,6 +1961,27 @@
   }
 }
 
+@media (max-width: 480px) {
+  .hero-front-search-form {
+    border-radius: 14px !important;
+    padding: 0.5rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+  .front-search-input {
+    width: 100% !important;
+    font-size: 1rem !important;
+    padding: 0.65rem 0.5rem !important;
+  }
+  .front-search-submit {
+    width: 100% !important;
+    min-height: 44px !important;
+    border-radius: 8px !important;
+    font-size: 0.92rem !important;
+    justify-content: center !important;
+  }
+}
+
 .front-search-chips-wrap {
   display: flex;
   align-items: center;
@@ -2131,10 +2152,10 @@
   }
 }
 
-/* Hero cockpit: hide on very small screens */
-@media (max-width: 480px) {
+/* Hero cockpit: hide on tablet and mobile viewports to eliminate 700px scroll trap */
+@media (max-width: 992px) {
   .hero-cockpit-stage {
-    display: none;
+    display: none !important;
   }
 }
 

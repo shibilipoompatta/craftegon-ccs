@@ -381,6 +381,9 @@ function initMobileNav() {
     toggleBtn.setAttribute("aria-expanded", "true");
     document.body.classList.add("mobile-nav-open");
     document.body.style.overflow = "hidden";
+    // Force hide floating AI assistant trigger button when drawer is active
+    const chatTrigger = document.getElementById("craftegon-chat-trigger");
+    if (chatTrigger) chatTrigger.style.setProperty("display", "none", "important");
     // Close AI chat modal if active to eliminate floating conflict
     const chatCloseBtn = document.getElementById("cchat-close-btn");
     if (chatCloseBtn) {
@@ -398,6 +401,9 @@ function initMobileNav() {
     toggleBtn.setAttribute("aria-expanded", "false");
     document.body.classList.remove("mobile-nav-open");
     document.body.style.overflow = "";
+    // Restore floating AI assistant trigger button
+    const chatTrigger = document.getElementById("craftegon-chat-trigger");
+    if (chatTrigger) chatTrigger.style.removeProperty("display");
     toggleBtn.focus();
   }
 
