@@ -185,24 +185,62 @@
   }
 
   /**
-   * 4. INTERACTIVE STAGE TABS
+   * 4. INTERACTIVE STAGE TABS WITH FULL WAI-ARIA KEYBOARD NAVIGATION
    */
   function initStageTabs() {
-    const tabButtons = document.querySelectorAll(".stage-tab-btn");
-    const panels = document.querySelectorAll(".stage-panel");
+    const tabButtons = Array.from(document.querySelectorAll(".stage-tab-btn"));
+    const panels = Array.from(document.querySelectorAll(".stage-panel"));
     if (!tabButtons.length || !panels.length) return;
 
-    tabButtons.forEach(function (btn) {
+    function activateTab(index) {
+      if (index < 0 || index >= tabButtons.length) return;
+      const btn = tabButtons[index];
+      const targetId = btn.getAttribute("data-stage");
+
+      tabButtons.forEach(function (b, i) {
+        const isActive = i === index;
+        b.classList.toggle("active", isActive);
+        b.setAttribute("aria-selected", isActive ? "true" : "false");
+        b.setAttribute("tabindex", isActive ? "0" : "-1");
+      });
+
+      panels.forEach(function (p) {
+        const isTarget = p.id === targetId;
+        p.classList.toggle("active", isTarget);
+        p.setAttribute("aria-hidden", isTarget ? "false" : "true");
+      });
+
+      btn.focus();
+    }
+
+    tabButtons.forEach(function (btn, index) {
+      // Ensure initial accessible tabindex
+      const isInitiallyActive = btn.classList.contains("active");
+      btn.setAttribute("tabindex", isInitiallyActive ? "0" : "-1");
+      btn.setAttribute("aria-selected", isInitiallyActive ? "true" : "false");
+
       btn.addEventListener("click", function () {
-        const targetId = btn.getAttribute("data-stage");
+        activateTab(index);
+      });
 
-        tabButtons.forEach(function (b) { b.classList.remove("active"); });
-        panels.forEach(function (p) { p.classList.remove("active"); });
+      btn.addEventListener("keydown", function (e) {
+        let newIndex = null;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+          e.preventDefault();
+          newIndex = (index + 1) % tabButtons.length;
+        } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+          e.preventDefault();
+          newIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          newIndex = 0;
+        } else if (e.key === "End") {
+          e.preventDefault();
+          newIndex = tabButtons.length - 1;
+        }
 
-        btn.classList.add("active");
-        const targetPanel = document.getElementById(targetId);
-        if (targetPanel) {
-          targetPanel.classList.add("active");
+        if (newIndex !== null) {
+          activateTab(newIndex);
         }
       });
     });

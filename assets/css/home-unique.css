@@ -2915,3 +2915,191 @@
   margin: 0;
   text-align: center;
 }
+
+
+/* ==========================================================================
+   MID-PAGE ADVISORY CONSULTATION TRIGGER (Section 4B)
+   ========================================================================== */
+.mid-advisory-section {
+  padding: 2.25rem 1.5rem;
+  background: var(--bg-primary, #FFFFFF);
+}
+
+.mid-advisory-card {
+  background: linear-gradient(135deg, #F4FAF7 0%, #DDF5EA 50%, #DDF2FC 100%);
+  border: 1.5px solid var(--accent-mint-vibrant, #75CDA9);
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 0 8px 28px rgba(36, 122, 98, 0.08);
+}
+
+.mid-advisory-content {
+  max-width: 680px;
+}
+
+.mid-advisory-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-green-primary, #247A62);
+  margin-bottom: 0.5rem;
+}
+
+.mid-advisory-title {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 800;
+  color: var(--navy-900, #10262E);
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+.mid-advisory-desc {
+  font-size: 0.95rem;
+  color: var(--text-main, #243746);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.mid-advisory-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+.mid-btn-whatsapp {
+  background-color: var(--accent-green-primary, #247A62) !important;
+  color: #FFFFFF !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.mid-btn-whatsapp:hover {
+  background-color: #1B5E4B !important;
+  transform: translateY(-2px);
+}
+
+.mid-btn-intake {
+  background-color: #FFFFFF !important;
+  color: var(--navy-800, #193B46) !important;
+  border: 1.5px solid var(--border-color, #DCE8E5) !important;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.mid-btn-intake:hover {
+  background-color: var(--surface-mint-white, #F4FAF7) !important;
+  border-color: var(--accent-green-primary, #247A62) !important;
+  color: var(--accent-green-primary, #247A62) !important;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+  .mid-advisory-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.75rem 1.5rem;
+    gap: 1.25rem;
+  }
+  .mid-advisory-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .mid-advisory-actions .btn {
+    flex: 1 1 auto;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mid-advisory-section {
+    padding: 1.75rem 1rem;
+  }
+  .mid-advisory-card {
+    padding: 1.5rem 1.15rem;
+  }
+  .mid-advisory-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .mid-advisory-actions .btn {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   CARD HEIGHT NORMALIZATION & STRETCH (Tablets & Desktops)
+   ========================================================================== */
+.problems-grid,
+.knowledge-cards-grid,
+.diagnostic-tools-grid {
+  align-items: stretch;
+}
+
+.problem-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.problem-card-q {
+  min-height: 2.75rem;
+}
+
+.problem-card-a {
+  flex: 1 1 auto;
+}
+
+.problem-card-link {
+  margin-top: auto;
+}
+
+.knowledge-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.knowledge-card-title {
+  min-height: 2.85rem;
+}
+
+.knowledge-card-desc {
+  flex: 1 1 auto;
+}
+
+.knowledge-card-arrow {
+  margin-top: auto;
+}
+
+.diagnostic-tool-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.diagnostic-tool-desc {
+  flex: 1 1 auto;
+}
+
+.diagnostic-tool-action {
+  margin-top: auto;
+}

@@ -402,6 +402,20 @@ function initMobileNav() {
   }
 
   toggleBtn.addEventListener("click", openDrawer);
+  
+  const searchToggleBtn = document.getElementById("mobile-search-toggle");
+  if (searchToggleBtn) {
+    searchToggleBtn.addEventListener("click", function () {
+      openDrawer();
+      setTimeout(function () {
+        const searchInput = drawer.querySelector(".if-mobile-search-input");
+        if (searchInput) {
+          searchInput.focus();
+        }
+      }, 100);
+    });
+  }
+
   if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
   if (backdrop) backdrop.addEventListener("click", closeDrawer);
 
