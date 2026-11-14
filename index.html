@@ -1580,7 +1580,7 @@
           <div class="wizard-card-recommendation" id="wizard-output-card">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.4rem;">
-                <span style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #065F46; background: #ECFDF5; border: 1px solid rgba(16, 185, 129, 0.3); padding: 4px 10px; border-radius: 9999px;">🎯 100% STATUTORY FIT</span>
+                <span id="rec-badge" style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #065F46; background: #ECFDF5; border: 1px solid rgba(16, 185, 129, 0.3); padding: 4px 10px; border-radius: 9999px;">🎯 100% STATUTORY FIT • EQUITY FINANCING READY</span>
                 <span id="rec-tag" style="font-family: var(--font-mono, monospace); font-size: 0.72rem; font-weight: 600; color: var(--text-secondary, #52717A); background: #FFFFFF; border: 1px solid var(--border-soft, #DCE8E5); padding: 3px 8px; border-radius: 6px;">Companies Act 2013</span>
               </div>
 
@@ -1620,7 +1620,7 @@
               <a href="/services/pvt-ltd-registration.html" id="rec-cta" class="wizard-btn-primary">
                 <span>Incorporate Company</span> &rarr;
               </a>
-              <a href="https://wa.me/918606918247?text=Hello%20CraftEgon%20CCS,%20I%20used%20the%20Entity%20Selector%20and%20want%20to%20discuss%20incorporation" target="_blank" rel="noopener noreferrer" class="wizard-btn-secondary">
+              <a href="https://wa.me/918606918247?text=Hello%20CraftEgon%20CCS,%20I%20used%20the%20Entity%20Selector%20and%20want%20to%20discuss%20incorporation" target="_blank" rel="noopener noreferrer" id="rec-wa-btn" class="wizard-btn-secondary">
                 💬 WhatsApp Desk
               </a>
             </div>
@@ -1642,9 +1642,13 @@
           }
         });
 
-        var goal = document.querySelector('input[name="w-goal"]:checked') ? document.querySelector('input[name="w-goal"]:checked').value : 'vc';
-        var team = document.querySelector('input[name="w-team"]:checked') ? document.querySelector('input[name="w-team"]:checked').value : 'multiple';
-        var audit = document.querySelector('input[name="w-audit"]:checked') ? document.querySelector('input[name="w-audit"]:checked').value : 'institutional';
+        var goalInput = document.querySelector('input[name="w-goal"]:checked');
+        var teamInput = document.querySelector('input[name="w-team"]:checked');
+        var auditInput = document.querySelector('input[name="w-audit"]:checked');
+
+        var goal = goalInput ? goalInput.value : 'vc';
+        var team = teamInput ? teamInput.value : 'multiple';
+        var audit = auditInput ? auditInput.value : 'institutional';
 
         var titleEl = document.getElementById('rec-title');
         var tagEl = document.getElementById('rec-tag');
@@ -1655,68 +1659,147 @@
         var h2El = document.getElementById('rec-h2');
         var h3El = document.getElementById('rec-h3');
         var ctaEl = document.getElementById('rec-cta');
+        var waEl = document.getElementById('rec-wa-btn');
 
         if (!titleEl) return;
 
+        var rec = {
+          title: "Private Limited Company (SPICe+)",
+          tag: "Companies Act 2013",
+          badge: "🎯 100% STATUTORY FIT • EQUITY FINANCING READY",
+          desc: "India's standard corporate vehicle for high-growth ventures. Required by institutional angels and venture capital funds to issue preference shares, convertible debt, and employee stock ownership pools (ESOPs).",
+          price: "From ₹7,999",
+          sub: "+ Govt Fees & Stamp Duty",
+          h1: "Complete limited liability protection ring-fencing personal assets",
+          h2: "Zero MCA government filing fee for authorized capital up to ₹15 Lakhs",
+          h3: "3–5 working days turnaround supervised by practicing CS & CA",
+          url: "/services/pvt-ltd-registration.html",
+          ctaText: "Incorporate Company →",
+          waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended a Private Limited Company. I want to proceed with incorporation."
+        };
+
         if (goal === 'nonprofit') {
-          titleEl.textContent = 'Section 8 Non-Profit Company';
-          tagEl.textContent = 'Companies Act 2013';
-          descEl.textContent = 'The gold standard for charitable foundations, NGOs, and CSR implementation agencies. Unlocks Central Govt Section 8 License, Section 12AB tax exemption, and Section 80G donor deductions.';
-          priceEl.textContent = 'From ₹13,999';
-          subEl.textContent = '+ Govt Fees & Stamp Duty';
-          h1El.textContent = 'Eligible for Section 12AB income tax exemption & 80G donor deductions';
-          h2El.textContent = 'Central Government Section 8 License issued by CRC/MCA';
-          h3El.textContent = 'Complete statutory MOA/AOA drafting with mandatory non-profit clauses';
-          ctaEl.href = '/services/section-8-registration.html';
-          ctaEl.textContent = 'Register Section 8 Company →';
+          rec = {
+            title: "Section 8 Non-Profit Company",
+            tag: "Companies Act 2013",
+            badge: "🎯 100% STATUTORY FIT • NON-PROFIT ENTITY",
+            desc: "The gold standard for charitable foundations, NGOs, and CSR implementation agencies. Unlocks Central Govt Section 8 License, Section 12AB tax exemption, and Section 80G donor deductions.",
+            price: "From ₹13,999",
+            sub: "+ Govt Fees & Stamp Duty",
+            h1: "Eligible for Section 12AB income tax exemption & 80G donor deductions",
+            h2: "Central Government Section 8 License issued by CRC/MCA",
+            h3: "Complete statutory MOA/AOA drafting with mandatory non-profit clauses",
+            url: "/services/section-8-registration.html",
+            ctaText: "Register Section 8 Company →",
+            waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended a Section 8 Non-Profit Company. I want to discuss registration."
+          };
+        } else if (goal === 'vc') {
+          rec = {
+            title: "Private Limited Company (SPICe+)",
+            tag: "Companies Act 2013",
+            badge: "🎯 100% STATUTORY FIT • EQUITY FINANCING READY",
+            desc: "India's standard corporate vehicle for high-growth ventures. Required by institutional angels and venture capital funds to issue preference shares, convertible debt, and employee stock ownership pools (ESOPs).",
+            price: "From ₹7,999",
+            sub: "+ Govt Fees & Stamp Duty",
+            h1: "Complete limited liability protection ring-fencing personal assets",
+            h2: "Zero MCA government filing fee for authorized capital up to ₹15 Lakhs",
+            h3: "3–5 working days turnaround supervised by practicing CS & CA",
+            url: "/services/pvt-ltd-registration.html",
+            ctaText: "Incorporate Company →",
+            waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended a Private Limited Company. I want to proceed with incorporation."
+          };
         } else if (team === 'solo' && goal === 'solo') {
           if (audit === 'institutional') {
-            titleEl.textContent = 'One Person Company (OPC)';
-            tagEl.textContent = 'Section 2(62) Companies Act';
-            descEl.textContent = 'Full corporate veil and limited liability ring-fencing with 100% single-member equity control. Exempt from holding mandatory annual general meetings (AGMs).';
-            priceEl.textContent = 'From ₹6,999';
-            subEl.textContent = '+ Govt Fees & Stamp Duty';
-            h1El.textContent = '100% solo equity ownership with corporate limited liability';
-            h2El.textContent = 'Nominee director documentation (Form INC-3) included';
-            h3El.textContent = 'Statutory exemption from holding formal AGMs under Section 96';
-            ctaEl.href = '/services/opc-registration.html';
-            ctaEl.textContent = 'Incorporate OPC →';
+            rec = {
+              title: "One Person Company (OPC)",
+              tag: "Section 2(62) Companies Act",
+              badge: "🎯 100% STATUTORY FIT • 100% SOLO CONTROL",
+              desc: "Full corporate veil and limited liability ring-fencing with 100% single-member equity control. Exempt from holding mandatory annual general meetings (AGMs).",
+              price: "From ₹6,999",
+              sub: "+ Govt Fees & Stamp Duty",
+              h1: "100% solo equity ownership with corporate limited liability",
+              h2: "Nominee director documentation (Form INC-3) included",
+              h3: "Statutory exemption from holding formal AGMs under Section 96",
+              url: "/services/opc-registration.html",
+              ctaText: "Incorporate OPC →",
+              waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended an OPC. I want to discuss formation."
+            };
           } else {
-            titleEl.textContent = 'Sole Proprietorship Registration';
-            tagEl.textContent = 'MSMED Act & GSTN Network';
-            descEl.textContent = 'The fastest, most cost-effective path to launch a solo consultancy, agency, or retail operation. Zero MCA compliance, instant current account readiness, and MSME Udyam protection.';
-            priceEl.textContent = '₹2,999';
-            subEl.textContent = 'All Inclusive Advisory Fee';
-            h1El.textContent = 'Bank-ready current account kit with MSME Udyam URN certificate';
-            h2El.textContent = 'Zero MCA RoC annual filings or statutory audit requirements';
-            h3El.textContent = 'Section 43B(h) 45-day statutory payment protection under MSMED Act';
-            ctaEl.href = '/services/proprietorship-registration.html';
-            ctaEl.textContent = 'Register Proprietorship →';
+            rec = {
+              title: "Sole Proprietorship Registration",
+              tag: "MSMED Act & GSTN Network",
+              badge: "🎯 100% STATUTORY FIT • ZERO-COMPLIANCE FAST LAUNCH",
+              desc: "The fastest, most cost-effective path to launch a solo consultancy, agency, or retail operation. Zero MCA compliance, instant current account readiness, and MSME Udyam protection.",
+              price: "₹2,999",
+              sub: "All Inclusive Advisory Fee",
+              h1: "Bank-ready current account kit with MSME Udyam URN certificate",
+              h2: "Zero MCA RoC annual filings & zero statutory audit requirements",
+              h3: "Section 43B(h) 45-day statutory payment protection under MSMED Act",
+              url: "/services/proprietorship-registration.html",
+              ctaText: "Start Sole Proprietorship →",
+              waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended a Sole Proprietorship. I want to discuss registration."
+            };
           }
         } else if (goal === 'bootstrapped' || audit === 'lightweight') {
-          titleEl.textContent = 'Limited Liability Partnership (LLP)';
-          tagEl.textContent = 'LLP Act 2008';
-          descEl.textContent = 'The optimal hybrid structure for professional firms, consultancies, and profitable joint ventures. Partners enjoy limited liability without mandatory statutory audits up to ₹40 Lakhs turnover.';
-          priceEl.textContent = 'From ₹6,499';
-          subEl.textContent = '+ Govt Fees & Stamp Duty';
-          h1El.textContent = 'Audit exemption under ₹40 Lakhs turnover / ₹25 Lakhs partner capital';
-          h2El.textContent = 'Flexible profit distribution without corporate dividend distribution taxes';
-          h3El.textContent = 'Customized LLP Agreement drafting and Form 3 e-filing with RoC';
-          ctaEl.href = '/services/llp-registration.html';
-          ctaEl.textContent = 'Register LLP →';
-        } else {
-          titleEl.textContent = 'Private Limited Company (SPICe+)';
-          tagEl.textContent = 'Companies Act 2013';
-          descEl.textContent = 'India\\'s standard corporate vehicle for high-growth ventures. Required by institutional angels and venture capital funds to issue preference shares, convertible debt, and employee stock ownership pools (ESOPs).';
-          priceEl.textContent = 'From ₹7,999';
-          subEl.textContent = '+ Govt Fees & Stamp Duty at Actuals';
-          h1El.textContent = 'Complete limited liability protection ring-fencing personal assets';
-          h2El.textContent = 'Zero MCA government filing fee for capital up to ₹15 Lakhs';
-          h3El.textContent = '3–5 working days turnaround with practicing CS & CA supervision';
-          ctaEl.href = '/services/pvt-ltd-registration.html';
-          ctaEl.textContent = 'Incorporate Company →';
+          rec = {
+            title: "Limited Liability Partnership (LLP)",
+            tag: "LLP Act 2008",
+            badge: "🎯 100% STATUTORY FIT • AUDIT-EXEMPT PARTNERSHIP",
+            desc: "The optimal hybrid structure for professional firms, consultancies, and profitable joint ventures. Partners enjoy limited liability without mandatory statutory audits up to ₹40 Lakhs turnover.",
+            price: "From ₹6,499",
+            sub: "+ Govt Fees & Stamp Duty",
+            h1: "Audit exemption under ₹40 Lakhs turnover / ₹25 Lakhs partner capital",
+            h2: "Flexible profit distribution without corporate dividend distribution taxes",
+            h3: "Customized LLP Agreement drafting and Form 3 e-filing with RoC",
+            url: "/services/llp-registration.html",
+            ctaText: "Incorporate LLP →",
+            waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended an LLP. I want to discuss registration."
+          };
+        }
+
+        // Apply to DOM
+        titleEl.textContent = rec.title;
+        tagEl.textContent = rec.tag;
+        descEl.textContent = rec.desc;
+        priceEl.textContent = rec.price;
+        subEl.textContent = rec.sub;
+        h1El.textContent = rec.h1;
+        h2El.textContent = rec.h2;
+        h3El.textContent = rec.h3;
+        ctaEl.href = rec.url;
+        ctaEl.innerHTML = '<span>' + rec.ctaText + '</span>';
+
+        var badgeEl = document.getElementById('rec-badge');
+        if (badgeEl) badgeEl.textContent = rec.badge;
+
+        if (waEl) {
+          waEl.href = "https://wa.me/918606918247?text=" + encodeURIComponent(rec.waMsg);
+        }
+
+        // Subtle highlight animation on output card
+        var card = document.getElementById('wizard-output-card');
+        if (card) {
+          card.style.transition = 'box-shadow 0.25s ease, border-color 0.25s ease';
+          card.style.borderColor = 'var(--accent-emerald, #247A62)';
+          card.style.boxShadow = '0 0 0 3px rgba(36, 122, 98, 0.15), 0 8px 24px rgba(36, 122, 98, 0.12)';
+          setTimeout(function() {
+            card.style.borderColor = 'var(--accent-mint-vibrant, #75CDA9)';
+            card.style.boxShadow = '0 6px 24px rgba(36, 122, 98, 0.1)';
+          }, 400);
         }
       }
+
+      // Attach event listeners immediately on load
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.wizard-chip input[type="radio"]').forEach(function(radio) {
+          radio.addEventListener('change', updateEntityWizard);
+          radio.addEventListener('click', updateEntityWizard);
+        });
+        updateEntityWizard();
+      });
+
+      // Also expose globally for inline onchange attributes
+      window.updateEntityWizard = updateEntityWizard;
     </script>
 
 
