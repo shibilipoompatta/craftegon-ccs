@@ -59,7 +59,7 @@
       <p>Search by company name, CIN, LLPIN, or trademark application number. Benchmark examples are not live registry results.</p>
       <form data-entity-lookup data-results-target="trademark-intelligence-results" data-feedback-target="trademark-intelligence-feedback">
         <label for="entity-intelligence-query" class="visually-hidden">Company, LLP, or trademark lookup</label>
-        <select data-lookup-kind aria-label="Lookup category" style="padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font: inherit;">
+        <select id="entity-lookup-kind" name="lookup_kind" data-lookup-kind aria-label="Lookup category" style="padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font: inherit;">
           <option value="company">Company / LLP</option>
           <option value="trademark">Trademark</option>
         </select>

@@ -18,7 +18,7 @@
 
 ## 2. Canonical Business Contact Details
 
-Centralized in [`assets/js/config.js`](file:///c:/Users/shibi/OneDrive/Desktop/craftegon-ccs/assets/js/config.js) and rendered across header, mobile drawer, footer, forms, and JSON-LD schema:
+Centralized in [`assets/js/config.js`](file:///c:/Users/shibi/OneDrive/Desktop/craftegon-ccs-clean/assets/js/config.js) and rendered across header, mobile drawer, footer, forms, and JSON-LD schema:
 
 - **Entity**: CraftEgon Corporate Compliance Services, under CraftEgon LLP
 - **Headquarters**: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN: 690501
