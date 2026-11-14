@@ -10,6 +10,11 @@ let currentTab1Mode = 'formation'; // 'formation' or 'annual'
 // Attribution Engine: Capture, persist, and append UTM parameters
 function getStoredAttribution() {
   try {
+    const rawV1 = sessionStorage.getItem('craftegon_attribution_v1') || localStorage.getItem('craftegon_attribution_v1');
+    if (rawV1) {
+      const parsed = JSON.parse(rawV1);
+      if (parsed && typeof parsed === 'object') return parsed;
+    }
     const raw = sessionStorage.getItem('ccs_attribution');
     return raw ? JSON.parse(raw) : {};
   } catch (e) {
@@ -30,6 +35,7 @@ function captureAttribution() {
       }
     });
     if (updated) {
+      sessionStorage.setItem('craftegon_attribution_v1', JSON.stringify(stored));
       sessionStorage.setItem('ccs_attribution', JSON.stringify(stored));
     }
   } catch (e) {
@@ -45,7 +51,8 @@ function appendAttribution(url) {
       if (params.has(k)) stored[k] = params.get(k);
     });
     const u = new URL(url, window.location.origin);
-    Object.keys(stored).forEach(k => {
+    const keysToCopy = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'ref'];
+    keysToCopy.forEach(k => {
       if (!u.searchParams.has(k) && stored[k]) {
         u.searchParams.set(k, stored[k]);
       }
@@ -263,15 +270,30 @@ function calculateCost() {
     };
     const entityLabel = entityLabels[entityType] || 'Company';
 
+    let targetCheckoutUrl = `/conversion/ppc-company-registration.html?service=pvt-ltd&capital=${tier}&state=${state}&total=${total}`;
+    let targetButtonText = 'Proceed to Incorporation Desk →';
+
+    if (entityType === 'llp') {
+      targetCheckoutUrl = `/services/llp-registration.html?capital=${tier}&state=${state}&total=${total}`;
+      targetButtonText = 'Incorporate LLP (FiLLiP) →';
+    } else if (entityType === 'opc') {
+      targetCheckoutUrl = `/services/opc-registration.html?capital=${tier}&state=${state}&total=${total}`;
+      targetButtonText = 'Incorporate OPC (SPICe+) →';
+    } else if (entityType === 'section-8') {
+      targetCheckoutUrl = `/services/section-8-registration.html?capital=${tier}&state=${state}&total=${total}`;
+      targetButtonText = 'Incorporate Section 8 Non-Profit →';
+    } else if (entityType === 'public-ltd') {
+      targetCheckoutUrl = `/services.html?q=public-limited`;
+      targetButtonText = 'Inquire Public Limited Desk →';
+    }
+
     if (primaryCta) {
-      primaryCta.textContent = 'Proceed to Incorporation Checkout →';
-      primaryCta.href = appendAttribution(
-        `/conversion/post-incorporation-checkout.html?service=${entityType}&capital=${tier}&state=${state}&total=${total}`
-      );
+      primaryCta.textContent = targetButtonText;
+      primaryCta.href = appendAttribution(targetCheckoutUrl);
     }
     if (whatsappCta) {
       const waMsg = `Hello CraftEgon, I used your statutory outlay estimator for ${entityLabel} (Capital: ${tier}, State: ${state}, Outlay: ₹${total.toLocaleString('en-IN')}). I would like to proceed with incorporation.`;
-      whatsappCta.href = `https://wa.me/919946859555?text=${encodeURIComponent(waMsg)}`;
+      whatsappCta.href = `https://wa.me/918606918247?text=${encodeURIComponent(waMsg)}`;
       const waText = whatsappCta.querySelector('span');
       if (waText) waText.textContent = 'WhatsApp Incorporation Specialist';
     }
@@ -313,7 +335,7 @@ function calculateCost() {
     }
     if (whatsappCta) {
       const waMsg = `Hello CraftEgon, I calculated statutory late fee exposure for ${service} (${delayDays} days delay, Total Exposure: ₹${total.toLocaleString('en-IN')}). I would like to regularize statutory compliance.`;
-      whatsappCta.href = `https://wa.me/919946859555?text=${encodeURIComponent(waMsg)}`;
+      whatsappCta.href = `https://wa.me/918606918247?text=${encodeURIComponent(waMsg)}`;
       const waText = whatsappCta.querySelector('span');
       if (waText) waText.textContent = 'Consult Compliance Specialist';
     }

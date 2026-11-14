@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-14T18:56:51.632Z",
+  "buildTimestamp": "2026-11-14T19:10:35.680Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 175,
-    "totalOutputSizeBytes": 9347712,
-    "totalOutputSizeFormatted": "8.91 MB",
+    "totalOutputSizeBytes": 9348894,
+    "totalOutputSizeFormatted": "8.92 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 123,
     "filesByExtension": {
@@ -126,7 +126,7 @@
     },
     {
       "path": "assets/js/calculator.js",
-      "bytes": 36476
+      "bytes": 37671
     },
     {
       "path": "assets/js/campaign-pixels.js",
@@ -198,7 +198,7 @@
     },
     {
       "path": "conversion/calculator.html",
-      "bytes": 93167
+      "bytes": 93311
     },
     {
       "path": "conversion/contract-intake.html",
@@ -230,7 +230,7 @@
     },
     {
       "path": "conversion/index.html",
-      "bytes": 105312
+      "bytes": 105111
     },
     {
       "path": "conversion/license-qualification.html",
@@ -330,11 +330,11 @@
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
-      "bytes": 56390
+      "bytes": 56394
     },
     {
       "path": "knowledge/charitable-trust-deed-sro-sec332-handbook.html",
-      "bytes": 73579
+      "bytes": 73583
     },
     {
       "path": "knowledge/director-disqualification-guide.html",
@@ -342,7 +342,7 @@
     },
     {
       "path": "knowledge/dpiit-startup-india-gsr108e-sec140-handbook.html",
-      "bytes": 71389
+      "bytes": 71393
     },
     {
       "path": "knowledge/gst-einvoicing-compliance-mandate.html",
@@ -378,7 +378,7 @@
     },
     {
       "path": "knowledge/partnership-firm-deed-rof-handbook.html",
-      "bytes": 86582
+      "bytes": 86586
     },
     {
       "path": "knowledge/pas6-demat-audit-guide.html",
@@ -398,11 +398,11 @@
     },
     {
       "path": "knowledge/society-registration-kerala-act-2025-handbook.html",
-      "bytes": 79206
+      "bytes": 79210
     },
     {
       "path": "knowledge/sole-proprietorship-udyam-gst-banking-guide.html",
-      "bytes": 79903
+      "bytes": 79907
     },
     {
       "path": "knowledge/spice-plus-mca-v3-blueprint.html",
@@ -470,7 +470,7 @@
     },
     {
       "path": "services/dpiit-startup-india.html",
-      "bytes": 82058
+      "bytes": 82062
     },
     {
       "path": "services/fast-track-mergers.html",
@@ -606,7 +606,7 @@
     },
     {
       "path": "services/partnership-registration.html",
-      "bytes": 83178
+      "bytes": 83182
     },
     {
       "path": "services/pf-esic-compliance.html",
@@ -618,7 +618,7 @@
     },
     {
       "path": "services/proprietorship-registration.html",
-      "bytes": 86323
+      "bytes": 86327
     },
     {
       "path": "services/proprietorship-tax.html",
@@ -654,7 +654,7 @@
     },
     {
       "path": "services/society-registration.html",
-      "bytes": 81014
+      "bytes": 81018
     },
     {
       "path": "services/software-copyright-patents.html",
@@ -666,7 +666,7 @@
     },
     {
       "path": "services/trust-registration.html",
-      "bytes": 81106
+      "bytes": 81110
     },
     {
       "path": "services.html",
