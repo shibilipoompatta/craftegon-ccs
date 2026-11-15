@@ -293,9 +293,9 @@ a:hover {
 }
 
 .badge-gold {
-  background: rgba(197, 155, 39, 0.08);
-  color: var(--brand-gold-hover, #A37F1D);
-  border-color: rgba(197, 155, 39, 0.25);
+  background: var(--surface-mint-soft, #DDF5EA);
+  color: var(--accent-green-primary, #247A62);
+  border: 1px solid rgba(36, 122, 98, 0.25);
 }
 
 .badge-success {
@@ -481,9 +481,9 @@ label {
   letter-spacing: 0.05em;
   padding: 0.2rem 0.65rem;
   border-radius: 4px;
-  background: rgba(197, 155, 39, 0.08);
-  color: var(--brand-gold-hover, #A37F1D);
-  border: 1px solid rgba(197, 155, 39, 0.25);
+  background: var(--surface-mint-soft, #DDF5EA);
+  color: var(--accent-green-primary, #247A62);
+  border: 1px solid rgba(36, 122, 98, 0.25);
 }
 
 .tool-category-label {
@@ -617,6 +617,31 @@ h1, h2, h3, h4, h5, h6, p, .noble-heading, .section-heading, .tool-title, .key-s
 
 table {
   max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  table:not(.no-responsive) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* High-Contrast Accessible Input Placeholders (WCAG 2.2 AA SC 1.4.3) */
+::placeholder {
+  color: var(--text-secondary, #52717A) !important;
+  opacity: 0.88;
+}
+
+/* Accessible Modal & Dialog Viewport Containment */
+.modal-content,
+.dialog-content,
+.if-modal,
+.modal-box {
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* D. High-Contrast Focus Ring on Dark Surfaces & Interactive Controls (WCAG 2.2 AA SC 2.4.11) */

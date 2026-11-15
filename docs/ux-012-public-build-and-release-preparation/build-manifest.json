@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T16:33:50.276Z",
+  "buildTimestamp": "2026-11-15T16:49:01.549Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 179,
-    "totalOutputSizeBytes": 11594077,
+    "totalOutputSizeBytes": 11594634,
     "totalOutputSizeFormatted": "11.06 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
@@ -99,7 +99,7 @@
     },
     {
       "path": "assets/css/theme.css",
-      "bytes": 12362
+      "bytes": 12712
     },
     {
       "path": "assets/css/tokens.css",
@@ -179,7 +179,7 @@
     },
     {
       "path": "assets/js/home-interactive.js",
-      "bytes": 21709
+      "bytes": 21702
     },
     {
       "path": "assets/js/navigation.js",
@@ -191,7 +191,7 @@
     },
     {
       "path": "assets/js/search-index.js",
-      "bytes": 73913
+      "bytes": 73935
     },
     {
       "path": "assets/js/service-search.js",
@@ -327,7 +327,7 @@
     },
     {
       "path": "data/search-index.json",
-      "bytes": 85516
+      "bytes": 85538
     },
     {
       "path": "data/service-registry.json",
@@ -591,7 +591,7 @@
     },
     {
       "path": "services/llp-registration.html",
-      "bytes": 112942
+      "bytes": 113063
     },
     {
       "path": "services/master-service-agreements.html",
@@ -615,7 +615,7 @@
     },
     {
       "path": "services/opc-registration.html",
-      "bytes": 114256
+      "bytes": 114301
     },
     {
       "path": "services/oppression-mismanagement-petitions.html",
@@ -703,7 +703,7 @@
     },
     {
       "path": "verticals/04-statutory-licenses.html",
-      "bytes": 77225
+      "bytes": 77229
     },
     {
       "path": "verticals/05-contracts-legal.html",

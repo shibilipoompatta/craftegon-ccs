@@ -10,9 +10,9 @@
 window.CRAFTEGON_SERVICE_CATALOG = [
   {
     "id": "V01-SVC-001",
-    "name": "DPIIT Startup India Recognition & Section 56(2)(viib) Exemption",
+    "name": "DPIIT Startup India Recognition & Section 140 (80-IAC) Tax Holiday",
     "route": "/services/dpiit-startup-india.html",
-    "h1": "DPIIT Startup India Recognition & Section 56(2)(viib) Exemption",
+    "h1": "DPIIT Startup India Recognition (G.S.R. 108(E)), Sec 140 Tax Holiday & KSUM Growth",
     "vertical_id": "V01",
     "vertical_name": "Business Formation & Structuring",
     "status": "DIRECT_SERVICE",

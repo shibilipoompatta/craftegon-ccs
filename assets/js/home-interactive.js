@@ -33,7 +33,7 @@ const SERVICES_DATA = [
   { name: 'Partnership Firm Registration', code: 'Form A RoF', url: '/services/partnership-registration.html', tags: 'partnership deed firm' },
   { name: 'Sole Proprietorship Registration', code: 'SME / GST', url: '/services/proprietorship-registration.html', tags: 'proprietorship individual firm' },
   { name: 'MSME / Udyam Registration Online', code: 'Udyam Portal', url: '/services/msme-udyam.html', tags: 'udyam msme small business priority' },
-  { name: 'DPIIT Startup India Recognition', code: 'DPIIT & 56(2)(viib)', url: '/services/dpiit-startup-india.html', tags: 'startup india angel tax exemption dpiit' },
+  { name: 'DPIIT Startup India Recognition', code: 'DPIIT & Sec 140', url: '/services/dpiit-startup-india.html', tags: 'startup india tax holiday ksum dpiit' },
 
   { name: 'Form AOC-4 Financial Statements Filing', code: 'Section 137', url: '/services/form-aoc4.html', tags: 'aoc4 balance sheet financials roc annual' },
   { name: 'Form MGT-7 Annual Return Filing', code: 'Section 92', url: '/services/form-mgt7.html', tags: 'mgt7 annual return shareholders roc' },
