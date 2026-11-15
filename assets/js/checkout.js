@@ -41,7 +41,7 @@
       price: 4999,
       formatted: "₹4,999",
       sla: "3–5 Days Turnaround",
-      description: "Locks in SPICe+ drafting, Class-3 DSC allocation, digital MOA/AOA, and PAN/TAN processing."
+      description: "Locks in SPICe+ drafting, 2 Director DIN allocation, digital MOA/AOA, and PAN/TAN processing (DSC extra at actuals)."
     },
     "retainer-quarter": {
       id: "retainer-quarter",

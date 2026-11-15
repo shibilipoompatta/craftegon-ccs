@@ -4472,3 +4472,59 @@ a, button, input, select, textarea,
   color: #DC2626;
   font-weight: 600;
 }
+
+
+/* Flagship Addon Callout Box - Elegant & Eye-Appealing */
+.flagship-addon-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #475569;
+  transition: all 0.2s ease;
+}
+
+.flagship-card:hover .flagship-addon-box {
+  border-color: #CBD5E1;
+  background: #F1F5F9;
+}
+
+.flagship-addon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+  font-size: 0.67rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.addon-pill-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #D97706;
+}
+
+.flagship-addon-text {
+  flex-grow: 1;
+}
+
+.flagship-addon-text strong {
+  color: #0F172A;
+  font-weight: 700;
+}
