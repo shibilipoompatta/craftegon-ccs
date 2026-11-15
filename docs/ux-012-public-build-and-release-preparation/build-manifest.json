@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T15:50:53.245Z",
+  "buildTimestamp": "2026-11-15T16:13:10.403Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 179,
-    "totalOutputSizeBytes": 11594429,
+    "totalOutputSizeBytes": 11593412,
     "totalOutputSizeFormatted": "11.06 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
@@ -343,7 +343,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 162169
+      "bytes": 162103
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
@@ -367,7 +367,7 @@
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 84781
+      "bytes": 84420
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -567,7 +567,7 @@
     },
     {
       "path": "services/index.html",
-      "bytes": 122682
+      "bytes": 122597
     },
     {
       "path": "services/ip-enforcement-cease-desist.html",
@@ -687,19 +687,19 @@
     },
     {
       "path": "services.html",
-      "bytes": 123532
+      "bytes": 123447
     },
     {
       "path": "verticals/01-entity-formation.html",
-      "bytes": 73446
+      "bytes": 73477
     },
     {
       "path": "verticals/02-roc-compliance.html",
-      "bytes": 86679
+      "bytes": 86670
     },
     {
       "path": "verticals/03-tax-compliance.html",
-      "bytes": 70662
+      "bytes": 70660
     },
     {
       "path": "verticals/04-statutory-licenses.html",
@@ -707,51 +707,51 @@
     },
     {
       "path": "verticals/05-contracts-legal.html",
-      "bytes": 69790
+      "bytes": 69792
     },
     {
       "path": "verticals/06-ipr-protection.html",
-      "bytes": 69640
+      "bytes": 69638
     },
     {
       "path": "verticals/07-labour-hr.html",
-      "bytes": 69331
+      "bytes": 69322
     },
     {
       "path": "verticals/08-fundraising-investment.html",
-      "bytes": 70062
+      "bytes": 70056
     },
     {
       "path": "verticals/09-ma-restructuring.html",
-      "bytes": 69725
+      "bytes": 69720
     },
     {
       "path": "verticals/10-litigation-dispute.html",
-      "bytes": 71256
+      "bytes": 71229
     },
     {
       "path": "verticals/11-governance-audit.html",
-      "bytes": 69753
+      "bytes": 69767
     },
     {
       "path": "verticals/12-esg-csr.html",
-      "bytes": 68749
+      "bytes": 68694
     },
     {
       "path": "verticals/13-cross-border-fema.html",
-      "bytes": 69869
+      "bytes": 69855
     },
     {
       "path": "verticals/14-exit-insolvency.html",
-      "bytes": 69907
+      "bytes": 69838
     },
     {
       "path": "verticals/15-it-digital.html",
-      "bytes": 69282
+      "bytes": 68989
     },
     {
       "path": "verticals/index.html",
-      "bytes": 78819
+      "bytes": 78843
     },
     {
       "path": "_redirects",
