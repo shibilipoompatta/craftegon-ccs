@@ -1127,7 +1127,7 @@ function createWidget(){
   w.innerHTML=`<div class="cchat-header">
   <div class="cchat-brand-wrap">
     <div class="cchat-avatar-wrap">
-      <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon" class="cchat-avatar">
+      <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon" class="cchat-avatar" width="36" height="36">
       <span class="cchat-status-dot ai-active" id="cchat-status-dot"></span>
     </div>
     <div class="cchat-brand-info">

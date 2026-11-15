@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         <header class="if-header">
           <div class="if-header-inner">
             <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
-              <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
+              <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img" width="42" height="42">
               <div class="brand-text-block">
                 <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #193B46);">CRAFTEGON</span>
                 <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--accent-green-primary, #247A62); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           <div class="if-mobile-drawer" id="mobile-drawer" aria-hidden="true">
             <div class="if-mobile-drawer-header">
               <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
-                <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
+                <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img" width="42" height="42">
                 <div class="brand-text-block">
                   <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #193B46);">CRAFTEGON</span>
                   <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--accent-green-primary, #247A62); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             <div class="if-footer-grid">
               <div class="if-footer-col if-footer-brand">
                 <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
-                  <img src="/assets/images/craftegon-logo.jpg" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img">
+                  <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img" width="42" height="42">
                   <div class="brand-text-block">
                     <span class="brand-title">CRAFTEGON</span>
                     <span class="brand-subtitle">Corporate Services</span>
