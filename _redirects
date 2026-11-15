@@ -44,3 +44,5 @@
 
 # 3. GLOBAL CATCH-ALL (HTTP 404 Fallback)
 /*                 /404.html               404
+
+/conversion/trademark-search* /services/trademark-registration.html 301
