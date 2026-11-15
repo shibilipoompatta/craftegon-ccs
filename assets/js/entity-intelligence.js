@@ -9,9 +9,104 @@
     return element;
   }
 
-  function setFeedback(form, message) {
+  function setFeedback(form, message, extraNode = null) {
     const feedback = form.querySelector('[data-lookup-feedback]') || document.getElementById(form.dataset.feedbackTarget || 'lookup-feedback');
-    if (feedback) feedback.textContent = message;
+    if (!feedback) return;
+    feedback.replaceChildren();
+    const msgEl = document.createElement('div');
+    msgEl.className = 'lookup-feedback-msg';
+    msgEl.style.lineHeight = '1.5';
+    msgEl.textContent = message;
+    feedback.appendChild(msgEl);
+    if (extraNode) {
+      feedback.appendChild(extraNode);
+    }
+  }
+
+  function renderGatewayCard(query, isTrademark) {
+    const card = document.createElement('div');
+    card.className = 'registry-gateway-box';
+    card.style.cssText = 'margin-top: 1rem; padding: 1.25rem; background: #ffffff; border: 1.5px solid var(--accent-mint-vibrant, #75CDA9); border-radius: 10px; box-shadow: 0 4px 14px rgba(16, 38, 46, 0.06); text-align: left;';
+
+    const badgeRow = document.createElement('div');
+    badgeRow.style.cssText = 'display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;';
+
+    const badge = document.createElement('span');
+    badge.style.cssText = 'font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; padding: 3px 8px; border-radius: 4px;';
+    badge.textContent = isTrademark ? 'IP India Official Registry Gateway' : 'MCA V3 Official Registry Gateway';
+    badgeRow.appendChild(badge);
+
+    const statutoryRef = document.createElement('span');
+    statutoryRef.style.cssText = 'font-size: 0.72rem; color: #64748b; font-weight: 500;';
+    statutoryRef.textContent = isTrademark ? 'Trade Marks Act, 1999 (Sec 148)' : 'Companies Act, 2013 (Sec 399)';
+    badgeRow.appendChild(statutoryRef);
+    card.appendChild(badgeRow);
+
+    const title = document.createElement('h3');
+    title.style.cssText = 'margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 700; color: #0f172a;';
+    title.textContent = `Search "${query}" directly in Official Live Registries:`;
+    card.appendChild(title);
+
+    const note = document.createElement('p');
+    note.style.cssText = 'margin: 0 0 1rem 0; font-size: 0.825rem; color: #475569; line-height: 1.5;';
+    note.textContent = isTrademark
+      ? 'Under Section 148 of the Trade Marks Act 1999, registered trademarks are open to public inspection. Automated background scraping is restricted by government anti-bot controls (IT Act 2000). You can search this exact mark on the official government portal below:'
+      : 'Under Section 399 of the Companies Act 2013, company master data is public record. Public direct scraping is restricted by MCA V3 security controls (IT Act 2000). You can query live certified filings on the official government portal or indexed public records below:';
+    card.appendChild(note);
+
+    const btnRow = document.createElement('div');
+    btnRow.style.cssText = 'display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center;';
+
+    const officialBtn = document.createElement('a');
+    officialBtn.target = '_blank';
+    officialBtn.rel = 'noopener noreferrer';
+    officialBtn.style.cssText = 'display: inline-flex; align-items: center; gap: 0.4rem; background: var(--accent-green-primary, #247A62); color: #ffffff; padding: 0.6rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none;';
+    if (isTrademark) {
+      officialBtn.href = 'https://ipindiaservices.gov.in/tmrpublicsearch/frmathena.aspx';
+      officialBtn.textContent = '🏛️ Open IP India Public Search →';
+    } else {
+      officialBtn.href = 'https://www.mca.gov.in/content/mca/global/en/mca/fo-llp-services/company-llp-name-search.html';
+      officialBtn.textContent = '🏛️ Open MCA V3 Company Search →';
+    }
+    btnRow.appendChild(officialBtn);
+
+    if (!isTrademark) {
+      const zaubaBtn = document.createElement('a');
+      zaubaBtn.target = '_blank';
+      zaubaBtn.rel = 'noopener noreferrer';
+      zaubaBtn.href = `https://www.zaubacorp.com/companysearchresults/${encodeURIComponent(query)}`;
+      zaubaBtn.style.cssText = 'display: inline-flex; align-items: center; gap: 0.4rem; background: #f8fafc; color: #1e293b; border: 1.5px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none;';
+      zaubaBtn.textContent = '🔍 View Public Filings (ZaubaCorp) →';
+      btnRow.appendChild(zaubaBtn);
+    }
+
+    const copyBtn = document.createElement('button');
+    copyBtn.type = 'button';
+    copyBtn.style.cssText = 'display: inline-flex; align-items: center; gap: 0.4rem; background: #ffffff; color: #334155; border: 1.5px solid #cbd5e1; padding: 0.6rem 0.9rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer;';
+    copyBtn.textContent = '📋 Copy Query';
+    copyBtn.onclick = () => {
+      if (typeof navigator !== 'undefined' && navigator.clipboard) {
+        navigator.clipboard.writeText(query).then(() => {
+          copyBtn.textContent = '✅ Copied!';
+          setTimeout(() => { copyBtn.textContent = '📋 Copy Query'; }, 2500);
+        });
+      }
+    };
+    btnRow.appendChild(copyBtn);
+
+    const deskBtn = document.createElement('a');
+    deskBtn.target = '_blank';
+    deskBtn.rel = 'noopener noreferrer';
+    const waText = isTrademark
+      ? `Hello CraftEgon IP Desk, I would like to request an official trademark clearance search for: "${query}".`
+      : `Hello CraftEgon Compliance Desk, I would like to request official MCA master data & compliance verification for: "${query}".`;
+    deskBtn.href = `https://wa.me/918606918247?text=${encodeURIComponent(waText)}`;
+    deskBtn.style.cssText = 'display: inline-flex; align-items: center; gap: 0.4rem; background: #f0fdf4; color: #15803d; border: 1.5px solid #86efac; padding: 0.6rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none;';
+    deskBtn.textContent = '💬 Request Legal Desk Search (+91 86069 18247) →';
+    btnRow.appendChild(deskBtn);
+
+    card.appendChild(btnRow);
+    return card;
   }
 
   function getResultsTarget(form) {
@@ -174,7 +269,8 @@
         ? await window.searchTrademark(normalizedQuery)
         : await window.searchCompany(query);
       if (!result || !['live', 'benchmark'].includes(result.source)) {
-        setFeedback(form, 'No verified or benchmark record is available for that query. No company details were fabricated. Verify directly with the official registry.');
+        const gateway = renderGatewayCard(query, isTrademark);
+        setFeedback(form, 'No verified or benchmark record is available for that query. No company details were fabricated. Verify directly with the official registry.', gateway);
         output.hidden = true;
         return;
       }
@@ -182,7 +278,8 @@
       renderResult(form, result, query, isTrademark);
     } catch (error) {
       output.hidden = true;
-      setFeedback(form, 'Lookup unavailable. No registry result was returned. Try the official MCA or IP India portal.');
+      const gateway = renderGatewayCard(query, isTrademark);
+      setFeedback(form, 'Lookup unavailable. No registry result was returned. Try the official MCA or IP India portal.', gateway);
     }
   }
 
