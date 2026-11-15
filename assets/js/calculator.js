@@ -260,6 +260,7 @@ function setTab1Mode(mode) {
 
   const stampRow = document.getElementById('stamp-fee-row');
   const dscDinRow = document.getElementById('dsc-din-row');
+  const dscSeparateRow = document.getElementById('dsc-separate-row');
   const lateFeeRow = document.getElementById('late-fee-row');
   const ccfsRow = document.getElementById('ccfs-fee-row');
 
@@ -286,6 +287,7 @@ function setTab1Mode(mode) {
 
     if (stampRow) stampRow.style.display = 'flex';
     if (dscDinRow) dscDinRow.style.display = 'flex';
+    if (dscSeparateRow) dscSeparateRow.style.display = 'flex';
     if (lateFeeRow) lateFeeRow.style.display = 'none';
     if (ccfsRow) ccfsRow.style.display = 'none';
 
@@ -321,6 +323,7 @@ function setTab1Mode(mode) {
 
     if (stampRow) stampRow.style.display = 'none';
     if (dscDinRow) dscDinRow.style.display = 'none';
+    if (dscSeparateRow) dscSeparateRow.style.display = 'none';
     if (lateFeeRow) lateFeeRow.style.display = 'flex';
     if (ccfsRow) ccfsRow.style.display = 'flex';
 
@@ -1151,9 +1154,14 @@ function generateStatutoryMemo() {
       amt: stampFee
     });
     rows.push({
-      item: 'DSC & DIN Mandatory Allotment',
-      basis: '2x Class-3 Digital Signature Tokens & Director Identification Numbers',
+      item: 'Director Identification Number (DIN Allotment)',
+      basis: 'Allotment of up to 2 DINs via SPICe+ Part B integrated MCA application',
       amt: 'Included in Base'
+    });
+    rows.push({
+      item: 'Class-3 Digital Signature Certificate (DSC)',
+      basis: 'Cryptographic USB token & encryption key (Payable at actuals / Client\'s existing DSC accepted)',
+      amt: 'Separate (+)'
     });
 
     if (document.getElementById('f-addon-gst')?.checked) {

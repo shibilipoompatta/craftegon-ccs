@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T06:47:52.510Z",
+  "buildTimestamp": "2026-11-15T06:57:21.288Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 175,
-    "totalOutputSizeBytes": 9406979,
+    "totalOutputSizeBytes": 9408142,
     "totalOutputSizeFormatted": "8.97 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 123,
@@ -126,7 +126,7 @@
     },
     {
       "path": "assets/js/calculator.js",
-      "bytes": 57704
+      "bytes": 58103
     },
     {
       "path": "assets/js/campaign-pixels.js",
@@ -198,7 +198,7 @@
     },
     {
       "path": "conversion/calculator.html",
-      "bytes": 112279
+      "bytes": 112652
     },
     {
       "path": "conversion/contract-intake.html",
@@ -306,7 +306,7 @@
     },
     {
       "path": "data/pricing.json",
-      "bytes": 85150
+      "bytes": 85508
     },
     {
       "path": "data/search-index.json",
@@ -550,7 +550,7 @@
     },
     {
       "path": "services/index.html",
-      "bytes": 108221
+      "bytes": 108196
     },
     {
       "path": "services/ip-enforcement-cease-desist.html",
@@ -574,7 +574,7 @@
     },
     {
       "path": "services/llp-registration.html",
-      "bytes": 97991
+      "bytes": 98015
     },
     {
       "path": "services/master-service-agreements.html",
@@ -626,7 +626,7 @@
     },
     {
       "path": "services/pvt-ltd-registration.html",
-      "bytes": 102340
+      "bytes": 102399
     },
     {
       "path": "services/rbi-fla-return.html",
@@ -670,7 +670,7 @@
     },
     {
       "path": "services.html",
-      "bytes": 108601
+      "bytes": 108576
     },
     {
       "path": "verticals/01-entity-formation.html",

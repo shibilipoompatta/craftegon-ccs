@@ -52,13 +52,14 @@
     "package_title": "LLP Incorporation Package",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
-      "2 Designated Partner DPINs & DSC",
+      "2 Designated Partner DPINs",
       "FiLLiP Form Filing with MCA",
       "LLP Agreement Drafting",
       "PAN & TAN Issuance"
     ],
     "excluded_charges": [
-      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
+      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)",
+      "Class-3 Digital Signature Certificates (DSC tokens procured separately at actuals / client-provided)"
     ],
     "additional_tiers": [],
     "statutory_thresholds": [],
@@ -128,11 +129,12 @@
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
       "Nominee Director Consent (INC-3)",
-      "DSC & DIN for Sole Promoter",
+      "Director Identification Number (DIN for Sole Promoter)",
       "Incorporation Certificate & PAN/TAN"
     ],
     "excluded_charges": [
-      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
+      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)",
+      "Class-3 Digital Signature Certificate (DSC token procured separately at actuals / client-provided)"
     ],
     "additional_tiers": [],
     "statutory_thresholds": [],
@@ -239,14 +241,15 @@
     "package_title": "Standard SPICe+",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
-      "2 Digital Signature Certificates (DSC)",
-      "2 Director Identification Numbers (DIN)",
+      "2 Director Identification Numbers (DIN via SPICe+)",
       "Name Approval via SPICe+ Part A",
       "MoA & AoA Drafting",
-      "PAN & TAN Issuance"
+      "PAN & TAN Issuance",
+      "Bank Current Account Opening Support"
     ],
     "excluded_charges": [
-      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
+      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)",
+      "Class-3 Digital Signature Certificates (DSC tokens procured separately at actuals / client-provided)"
     ],
     "additional_tiers": [
       {
