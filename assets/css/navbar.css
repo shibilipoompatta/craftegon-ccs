@@ -134,7 +134,7 @@
   height: 48px;
   border-radius: 11px;
   padding: 2px;
-  background: rgba(255, 255, 255, 0.08);
+  background: #FFFFFF !important;
   border: 2px solid var(--brand-mint, #BCEBD5);
   box-shadow: 0 0 0 2px rgba(188, 235, 213, 0.35), 0 4px 16px rgba(0, 0, 0, 0.35);
   filter: drop-shadow(0 2px 6px rgba(117, 205, 169, 0.25));
@@ -142,7 +142,7 @@
 
 .if-footer .if-brand-logo:hover .brand-logo-img {
   border-color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.16);
+  background: #FFFFFF !important;
   box-shadow: 0 0 0 3px rgba(188, 235, 213, 0.5), 0 6px 20px rgba(188, 235, 213, 0.4);
 }
 
@@ -152,9 +152,10 @@
 }
 
 .if-footer .brand-subtitle {
-  color: var(--brand-mint, #BCEBD5) !important;
+  color: #FFFFFF !important;
   font-weight: 600;
   letter-spacing: 0.12em;
+  opacity: 0.92;
 }
 
 /* --- Navigation Links & Mega Menu --- */
