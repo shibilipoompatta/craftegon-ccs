@@ -82,19 +82,20 @@
   ]
 }
   </script>
-  <style>
+    <style>
+    /* Hero Badge - High-Contrast Accessible Mint */
     .strike-hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       padding: 0.35rem 0.85rem;
-      background: var(--surface-mint-white, #F4FAF7);
-      border: 1px solid var(--border-color, #DCE8E5);
+      background: var(--surface-mint-soft, #DDF5EA);
+      border: 1px solid var(--accent-green-primary, #247A62);
       border-radius: 999px;
       font-family: var(--font-mono, monospace);
       font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--brand-gold, #C59B27);
+      font-weight: 700;
+      color: var(--accent-green-primary, #247A62);
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 0.75rem;
@@ -105,7 +106,8 @@
       border-radius: 12px;
       padding: 1.5rem;
       margin-bottom: 1.75rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
     }
     .meter-bar-track {
       width: 100%;
@@ -122,44 +124,353 @@
       border-radius: 6px;
       transition: width 0.4s ease, background-color 0.4s ease;
     }
-    .pillar-card {
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
+    
+    /* Entity Discovery Box */
+    .entity-discovery-card {
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      border: 1.5px solid #CBD5E1;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .demo-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #0F766E;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .demo-pill-btn:hover {
+      background: #F0FDFA;
+      border-color: #0F766E;
+    }
+    .verified-entity-card {
+      margin-top: 1rem;
+      padding: 1rem 1.15rem;
+      background: #FFFFFF;
+      border: 1.5px solid #10B981;
       border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      transition: border-color 0.2s ease;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+      display: none;
     }
     
-    .form-pillar-label {
-      display: flex;
-      align-items: flex-end;
-      min-height: 2.35rem;
-      font-size: var(--text-sm, 0.875rem);
+    /* Entity Type Selector Tabs */
+    .entity-type-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 600px) {
+      .entity-type-group {
+        grid-template-columns: 1fr;
+      }
+    }
+    .entity-type-btn {
+      padding: 0.7rem 0.85rem;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 8px;
+      background: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 0.35rem;
-      color: #334155;
-      line-height: 1.3;
+      color: #475569;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .entity-type-btn:hover {
+      background: #F8FAFC;
+      border-color: #94A3B8;
+    }
+    .entity-type-btn.is-active {
+      border-color: #247A62;
+      background: #F0FDF4;
+      color: #14532D;
+      font-weight: 700;
+      box-shadow: 0 0 0 1px #247A62;
     }
 
-    .pillar-card:focus-within {
-      border-color: var(--brand-gold, #C59B27);
+    /* Tactile Segmented Switch Controls */
+    .pillar-section-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 1.15rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
+    .pillar-section-card:hover {
+      border-color: #CBD5E1;
+    }
+    .pillar-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .pillar-statutory-tag {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.15rem 0.5rem;
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-radius: 4px;
+      border: 1px solid #BFDBFE;
+    }
+    .pillar-title {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 0 0 0.25rem;
+      line-height: 1.35;
+    }
+    .pillar-subtext {
+      font-size: 0.8rem;
+      color: #475569;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .switch-segmented-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    @media (max-width: 600px) {
+      .switch-segmented-group {
+        grid-template-columns: 1fr;
+      }
+    }
+    .switch-segment-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 8px;
+      background: #FFFFFF;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+    .switch-segment-btn:hover {
+      border-color: #94A3B8;
+      background: #F8FAFC;
+    }
+    .switch-segment-btn:focus-visible {
+      outline: 2px solid #247A62;
+      outline-offset: 2px;
+    }
+    .switch-segment-btn.is-selected-positive {
+      border-color: #247A62;
+      background: #F0FDF4;
+      box-shadow: 0 0 0 1px #247A62, 0 2px 6px rgba(36, 122, 98, 0.12);
+    }
+    .switch-segment-btn.is-selected-positive .btn-label {
+      color: #14532D;
+      font-weight: 700;
+    }
+    .switch-segment-btn.is-selected-condition {
+      border-color: #D97706;
+      background: #FFFBEB;
+      box-shadow: 0 0 0 1px #D97706, 0 2px 6px rgba(217, 119, 6, 0.12);
+    }
+    .switch-segment-btn.is-selected-condition .btn-label {
+      color: #78350F;
+      font-weight: 700;
+    }
+    .btn-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.2rem;
+    }
+    .btn-hint {
+      font-size: 0.76rem;
+      color: #64748B;
+      line-height: 1.3;
+    }
+    
+    /* Prescriptive Remediation Cards */
+    .remedy-card {
+      background: #FFFFFF;
+      border: 1px solid #FCD34D;
+      border-left: 4px solid #D97706;
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.65rem;
+    }
+    .remedy-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .remedy-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #92400E;
+    }
+    .remedy-time-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: #FEF3C7;
+      color: #B45309;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+    .remedy-desc {
+      font-size: 0.8rem;
+      color: #451A03;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* Statutory Dossier Schedule Grid */
     .dossier-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 0.75rem;
       margin: 1rem 0;
     }
     .dossier-item {
       background: #FFFFFF;
       border: 1px solid #E2E8F0;
-      border-radius: 6px;
-      padding: 0.75rem;
-      font-size: 0.82rem;
+      border-radius: 8px;
+      padding: 0.85rem;
       display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
+      flex-direction: column;
+      gap: 0.25rem;
+      transition: border-color 0.2s ease;
+    }
+    .dossier-item:hover {
+      border-color: #CBD5E1;
+    }
+    .dossier-tag {
+      font-family: var(--font-mono, monospace);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #047857;
+      text-transform: uppercase;
+    }
+    .dossier-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .dossier-desc {
+      font-size: 0.76rem;
+      color: #64748B;
+      line-height: 1.35;
+    }
+
+    /* Fee Breakdown Table */
+    .fee-summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0;
+      font-size: 0.85rem;
+    }
+    .fee-summary-table th, .fee-summary-table td {
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid #E2E8F0;
+      text-align: left;
+    }
+    .fee-summary-table th {
+      background: #F8FAFC;
+      font-weight: 600;
+      color: #475569;
+    }
+    .fee-summary-table td.amount-col {
+      text-align: right;
+      font-family: var(--font-mono, monospace);
+      font-weight: 700;
+    }
+
+    /* Dual Action Row */
+    .action-deck-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    @media (max-width: 640px) {
+      .action-deck-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Print & Modal Styles */
+    .memo-modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+    .memo-modal-container {
+      background: #FFFFFF;
+      border-radius: 12px;
+      max-width: 780px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      padding: 2rem;
+      box-sizing: border-box;
+      position: relative;
+    }
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      #statutory-memo-modal,
+      #statutory-memo-modal .memo-modal-container,
+      #memo-printable-content,
+      #memo-printable-content * {
+        visibility: visible !important;
+      }
+      #statutory-memo-modal {
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%;
+        margin: 0; padding: 0;
+        background: white;
+      }
+      .memo-modal-container {
+        box-shadow: none;
+        max-height: none;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+      .no-print {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -900,7 +1211,7 @@
 
 </div>
 
-  <main id="main-content" class="container" style="padding: 3rem 1.5rem; max-width: 860px;">
+    <main id="main-content" class="container" style="padding: 3rem 1.5rem; max-width: 860px;">
     <nav class="if-breadcrumb" aria-label="Breadcrumb">
       <a href="/index.html">Home</a> / <a href="/verticals/14-exit-insolvency.html">Exit, Strike-Off &amp; Dissolution</a> / <span>Fast-Track Eligibility Diagnostic</span>
     </nav>
@@ -917,8 +1228,67 @@
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
         Section 248 &bull; Rule 4 Fast-Track Dissolution Diagnostic Engine
       </div>
-      <h1 style="font-family: var(--font-heading); font-size: clamp(1.85rem, 3.2vw, 2.4rem); font-weight: 800; line-height: 1.25; margin: 0 0 0.65rem; color: var(--navy-900);">Fast-Track Company / LLP Strike-Off Eligibility Quiz</h1>
-      <p style="font-size: 1.05rem; color: #475569; line-height: 1.6; margin: 0;">Verify whether your dormant entity meets the mandatory statutory criteria under Section 248 for Form STK-2 fast-track removal before submitting an execution request.</p>
+      <h1 style="font-family: var(--font-heading); font-size: clamp(1.85rem, 3.2vw, 2.4rem); font-weight: 800; line-height: 1.25; margin: 0 0 0.65rem; color: var(--navy-900);">Fast-Track Company &amp; LLP Strike-Off Diagnostic</h1>
+      <p style="font-size: 1.05rem; color: #475569; line-height: 1.6; margin: 0;">Audit defunct status, asset/liability liquidation, and statutory pre-conditions under Section 248 for Form STK-2 fast-track closure before submitting to the Registrar of Companies.</p>
+    </div>
+
+    <!-- Step 1: Entity Identification & Instant CIN Discovery -->
+    <div class="entity-discovery-card">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B;">Phase 1: Entity Identification</span>
+          <h2 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #0F172A; margin: 0.2rem 0 0;">Corporate Registry &amp; CIN Verification</h2>
+        </div>
+        <button type="button" class="demo-pill-btn" id="demo-fill-btn" onclick="applyDemoEntity()" title="Load verified demo company data">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          Try Demo: Acme Innovations Pvt Ltd
+        </button>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: #334155;">Entity / Company Name</label>
+          <input type="text" id="so-entity-name-input" placeholder="e.g. Acme Innovations Pvt Ltd" oninput="syncEntityName(this.value)" style="width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1.5px solid #CBD5E1; border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;">
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: #334155;">Corporate Identification Number (CIN / LLPIN)</label>
+          <div style="position: relative;">
+            <input type="text" id="so-cin-input" placeholder="e.g. U72900KL2020PTC054812" maxlength="21" oninput="handleCinInput(this.value)" style="width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1.5px solid #CBD5E1; border-radius: 8px; font-family: var(--font-mono, monospace); font-size: 0.9rem; text-transform: uppercase;">
+            <span id="cin-status-icon" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); display: none;"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Entity Data Chip (Reveals dynamically) -->
+      <div class="verified-entity-card" id="verified-entity-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 0.65rem; margin-bottom: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.45rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <strong id="entity-chip-name" style="font-size: 0.92rem; color: #065F46; text-transform: uppercase;">ACME INNOVATIONS PRIVATE LIMITED</strong>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; background: #ECFDF5; color: #047857; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid #A7F3D0;">
+            MCA Validated
+          </span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; font-size: 0.8rem;">
+          <div>
+            <span style="color: #64748B; display: block;">CIN / Identifier:</span>
+            <strong id="entity-chip-cin" style="font-family: var(--font-mono); color: #0F172A;">U72900KL2020PTC054812</strong>
+          </div>
+          <div>
+            <span style="color: #64748B; display: block;">RoC Jurisdiction:</span>
+            <strong id="entity-chip-roc" style="color: #0F172A;">RoC Ernakulam (Kerala)</strong>
+          </div>
+          <div>
+            <span style="color: #64748B; display: block;">Incorporation Date:</span>
+            <strong id="entity-chip-incorp" style="color: #0F172A;">14 Oct 2020 (5+ Yrs)</strong>
+          </div>
+          <div>
+            <span style="color: #64748B; display: block;">Statutory Route:</span>
+            <strong style="color: #047857;">Form STK-2 (Sec 248)</strong>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Live Statutory Readiness Meter Box -->
@@ -936,7 +1306,7 @@
       </div>
 
       <!-- Meter Bar -->
-      <div class="meter-bar-track" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="meter-progressbar">
+      <div class="meter-bar-track" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="meter-progressbar" aria-label="Section 248 Statutory Readiness Score">
         <div class="meter-bar-fill" id="meter-fill" style="width: 100%; background-color: #10B981;"></div>
       </div>
 
@@ -944,142 +1314,401 @@
         Your entity structure matches all four statutory gateways under Section 248(1) &amp; (2) of the Companies Act 2013. The company can be struck off via fast-track Form STK-2 without court winding up proceedings.
       </div>
 
-      <!-- Identified Blockers List (Dynamic) -->
-      <div id="strike-blockers-container" style="display: none; margin-top: 1rem; padding: 0.85rem; background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 6px;">
-        <div style="font-size: 0.8rem; font-weight: 700; color: #92400E; text-transform: uppercase; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.35rem;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Statutory Pre-Conditions Requiring Remediation
+      <!-- Identified Blockers & Prescriptive Remediation Matrix -->
+      <div id="strike-blockers-container" style="display: none; margin-top: 1.25rem; padding: 1rem; background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 8px;">
+        <div style="font-size: 0.8rem; font-weight: 700; color: #92400E; text-transform: uppercase; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Prescriptive Statutory Remediation Roadmap
         </div>
-        <ul id="strike-blockers-list" style="margin: 0; padding-left: 1.25rem; font-size: 0.82rem; color: #78350F; line-height: 1.6;"></ul>
+        <div id="strike-blockers-list">
+          <!-- Populated dynamically via runStrikeOffAudit() -->
+        </div>
       </div>
     </div>
 
     <!-- Interactive 4-Pillar Evaluation & Lead Form -->
-    <div style="background: var(--bg-main, #FFFFFF); border: 1px solid var(--border-color, #E2E8F0); border-radius: var(--radius-md, 12px); padding: 2.25rem; box-shadow: var(--shadow-sm, 0 4px 16px rgba(0, 0, 0, 0.04));">
+    <div style="background: var(--bg-main, #FFFFFF); border: 1px solid var(--border-color, #E2E8F0); border-radius: var(--radius-md, 12px); padding: 2rem; box-shadow: var(--shadow-sm, 0 4px 16px rgba(0, 0, 0, 0.04));">
       <form class="if-lead-form" id="strike-off-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
         
-        <h3 style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0 0 0.5rem; color: var(--navy-900);">
-          1. Statutory Assessment Gateways (Section 248 Audit)
-        </h3>
+        <!-- Hidden Inputs for Full Backward-Compatibility with forms.js -->
+        <input type="hidden" name="entity_type" id="so-entity-type" value="pvt-ltd">
+        <input type="hidden" name="operations" id="so-operations" value="no">
+        <input type="hidden" name="liabilities" id="so-liabilities" value="no">
+        <input type="hidden" name="filings" id="so-filings" value="yes">
+        <input type="hidden" name="litigation" id="so-litigation" value="no">
+        <input type="hidden" name="company_name" id="form-company-name" value="">
+        <input type="hidden" name="cin" id="form-cin" value="">
 
-        <!-- Pillar 1 & Entity Type -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div>
-            <label class="form-pillar-label">Entity Type</label>
-            <select name="entity_type" id="so-entity-type" onchange="runStrikeOffAudit()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); background: white; font-family: var(--font-body); font-size: 0.9rem;">
-              <option value="pvt-ltd" selected>Private Limited Company</option>
-              <option value="llp">Limited Liability Partnership (LLP)</option>
-              <option value="opc">One Person Company (OPC)</option>
-            </select>
-          </div>
-          <div>
-            <label class="form-pillar-label">Has entity operated in the past 2 years?</label>
-            <select name="operations" id="so-operations" onchange="runStrikeOffAudit()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); background: white; font-family: var(--font-body); font-size: 0.9rem;">
-              <option value="no" selected>No, completely dormant / inactive (Sec 248(1)(c))</option>
-              <option value="yes">Yes, active transactions within last 2 years</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Pillar 2 & Pillar 3 -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div>
-            <label class="form-pillar-label">Are company bank accounts closed &amp; dues nil?</label>
-            <select name="liabilities" id="so-liabilities" onchange="runStrikeOffAudit()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); background: white; font-family: var(--font-body); font-size: 0.9rem;">
-              <option value="no" selected>Yes, accounts closed &amp; nil liabilities</option>
-              <option value="yes">No, active balance or outstanding creditors</option>
-            </select>
-          </div>
-          <div>
-            <label class="form-pillar-label">Are returns filed up to cessation date?</label>
-            <select name="filings" id="so-filings" onchange="runStrikeOffAudit()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); background: white; font-family: var(--font-body); font-size: 0.9rem;">
-              <option value="yes" selected>Yes, filed up to last active financial year</option>
-              <option value="no">No, defaults exist prior to cessation</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Pillar 4 -->
         <div>
-          <label style="display: block; font-size: var(--text-sm, 0.875rem); font-weight: 600; margin-bottom: 0.35rem; color: #334155;">Are there any active litigations, tax dues, or open charges?</label>
-          <select name="litigation" id="so-litigation" onchange="runStrikeOffAudit()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); background: white; font-family: var(--font-body); font-size: 0.9rem;">
-            <option value="no" selected>No pending disputes / clean record / zero charges</option>
-            <option value="yes">Yes, ongoing tax notices or open bank charges</option>
-          </select>
+          <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B;">Phase 2: Statutory Assessment</span>
+          <h2 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #0F172A; margin: 0.2rem 0 0.75rem;">
+            Section 248 Statutory Gateways Audit
+          </h2>
+          
+          <!-- Entity Type Segmented Tabs -->
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: #334155;">Entity Classification</label>
+          <div class="entity-type-group" role="radiogroup" aria-label="Entity Classification">
+            <button type="button" class="entity-type-btn is-active" id="type-btn-pvt" onclick="setEntityType('pvt-ltd')" role="radio" aria-checked="true">
+              Private Limited Company
+            </button>
+            <button type="button" class="entity-type-btn" id="type-btn-llp" onclick="setEntityType('llp')" role="radio" aria-checked="false">
+              LLP (Form 24 Closure)
+            </button>
+            <button type="button" class="entity-type-btn" id="type-btn-opc" onclick="setEntityType('opc')" role="radio" aria-checked="false">
+              One Person Company (OPC)
+            </button>
+          </div>
+        </div>
+
+        <!-- Pillar 1: Inactivity Gateway -->
+        <div class="pillar-section-card">
+          <div class="pillar-header-row">
+            <div>
+              <h3 class="pillar-title">1. Operational Inactivity Gateway</h3>
+              <p class="pillar-subtext">Fast-track removal under Section 248(1)(c) strictly requires 2 consecutive financial years of complete dormancy with zero business transactions.</p>
+            </div>
+            <span class="pillar-statutory-tag">Sec 248(1)(c)</span>
+          </div>
+          <div class="switch-segmented-group" role="radiogroup" aria-label="Operational Inactivity Gateway">
+            <button type="button" class="switch-segment-btn is-selected-positive" id="ops-opt-no" onclick="setGateOption('operations', 'no')" role="radio" aria-checked="true">
+              <span class="btn-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Dormant 2+ Years (Eligible)
+              </span>
+              <span class="btn-hint">Zero invoices, no commercial revenue, inactive bank.</span>
+            </button>
+            <button type="button" class="switch-segment-btn" id="ops-opt-yes" onclick="setGateOption('operations', 'yes')" role="radio" aria-checked="false">
+              <span class="btn-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Active Operations (Condition)
+              </span>
+              <span class="btn-hint">Commercial revenue or transactions in past 24 months.</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Liabilities & Bank Closure Gateway -->
+        <div class="pillar-section-card">
+          <div class="pillar-header-row">
+            <div>
+              <h3 class="pillar-title">2. Bank Closure &amp; Liabilities Gateway</h3>
+              <p class="pillar-subtext">All bank accounts must be permanently closed with Bank Closure NOCs, and all unsecured creditors and loans fully cleared (Rule 4).</p>
+            </div>
+            <span class="pillar-statutory-tag">Rule 4 &bull; STK-8</span>
+          </div>
+          <div class="switch-segmented-group" role="radiogroup" aria-label="Bank Closure & Liabilities Gateway">
+            <button type="button" class="switch-segment-btn is-selected-positive" id="liab-opt-no" onclick="setGateOption('liabilities', 'no')" role="radio" aria-checked="true">
+              <span class="btn-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Accounts Closed &amp; Nil Dues
+              </span>
+              <span class="btn-hint">Zero balance certificate obtained &amp; no outstanding creditors.</span>
+            </button>
+            <button type="button" class="switch-segment-btn" id="liab-opt-yes" onclick="setGateOption('liabilities', 'yes')" role="radio" aria-checked="false">
+              <span class="btn-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Open Accounts / Active Dues
+              </span>
+              <span class="btn-hint">Active bank balance or pending liabilities to clear.</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Prior Statutory Returns Gateway -->
+        <div class="pillar-section-card">
+          <div class="pillar-header-row">
+            <div>
+              <h3 class="pillar-title">3. Prior Statutory Filings Gateway</h3>
+              <p class="pillar-subtext">The RoC mandates that past Form AOC-4 (Financials) and Form MGT-7 (Annual Return) must be filed up to the financial year the company ceased business.</p>
+            </div>
+            <span class="pillar-statutory-tag">Sec 248(2)</span>
+          </div>
+          <div class="switch-segmented-group" role="radiogroup" aria-label="Prior Statutory Filings Gateway">
+            <button type="button" class="switch-segment-btn is-selected-positive" id="filings-opt-yes" onclick="setGateOption('filings', 'yes')" role="radio" aria-checked="true">
+              <span class="btn-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Filed Up to Cessation Year
+              </span>
+              <span class="btn-hint">No overdue defaults during active operational period.</span>
+            </button>
+            <button type="button" class="switch-segment-btn" id="filings-opt-no" onclick="setGateOption('filings', 'no')" role="radio" aria-checked="false">
+              <span class="btn-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Overdue Defaults Active
+              </span>
+              <span class="btn-hint">Unfiled AOC-4 or MGT-7 prior to operational cessation.</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Pillar 4: Litigations, Tax Dues & Open Charges Gateway -->
+        <div class="pillar-section-card">
+          <div class="pillar-header-row">
+            <div>
+              <h3 class="pillar-title">4. Litigations, Open Charges &amp; Regulatory Inquiries</h3>
+              <p class="pillar-subtext">No open bank charges on MCA portal, pending litigation, ongoing RoC inspections, or unsatisfied IT/GST demands.</p>
+            </div>
+            <span class="pillar-statutory-tag">Sec 248(1)(d)</span>
+          </div>
+          <div class="switch-segmented-group" role="radiogroup" aria-label="Litigations, Open Charges Gateway">
+            <button type="button" class="switch-segment-btn is-selected-positive" id="lit-opt-no" onclick="setGateOption('litigation', 'no')" role="radio" aria-checked="true">
+              <span class="btn-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Clean Record / Zero Charges
+              </span>
+              <span class="btn-hint">No open MCA charges, clean tax record &amp; no disputes.</span>
+            </button>
+            <button type="button" class="switch-segment-btn" id="lit-opt-yes" onclick="setGateOption('litigation', 'yes')" role="radio" aria-checked="false">
+              <span class="btn-label">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Open Charges / Active Notices
+              </span>
+              <span class="btn-hint">Open bank charge or pending tax show-cause notice.</span>
+            </button>
+          </div>
         </div>
 
         <!-- Statutory Dossier Information Schedule -->
-        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.15rem; margin: 0.5rem 0;">
-          <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #334155; margin-bottom: 0.5rem; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.4rem;">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Mandatory Form STK-2 Filing Dossier (Prepared by CraftEgon CCS)
+        <div style="background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 10px; padding: 1.25rem; margin: 0.5rem 0;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #1E293B; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.4rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Mandatory Form STK-2 Statutory Dossier Schedule
+            </div>
+            <span style="font-size: 0.75rem; font-weight: 600; color: #059669; background: #ECFDF5; padding: 0.15rem 0.5rem; border-radius: 4px; border: 1px solid #A7F3D0;">
+              Turnkey Drafting by CraftEgon
+            </span>
           </div>
+
           <div class="dossier-grid">
             <div class="dossier-item">
-              <span style="color: #059669; font-weight: 700;">&bull;</span>
-              <span><strong>Form STK-3:</strong> Indemnity Bond on Non-Judicial Stamp Paper</span>
+              <span class="dossier-tag">Form STK-3</span>
+              <span class="dossier-name">Indemnity Bond</span>
+              <span class="dossier-desc">Non-judicial stamp paper bond by all directors indemnifying any future claims.</span>
             </div>
             <div class="dossier-item">
-              <span style="color: #059669; font-weight: 700;">&bull;</span>
-              <span><strong>Form STK-4:</strong> Director Affidavit sworn before Notary</span>
+              <span class="dossier-tag">Form STK-4</span>
+              <span class="dossier-name">Director Affidavit</span>
+              <span class="dossier-desc">Sworn before Notary Public affirming zero operations, nil assets &amp; nil liabilities.</span>
             </div>
             <div class="dossier-item">
-              <span style="color: #059669; font-weight: 700;">&bull;</span>
-              <span><strong>Form STK-8:</strong> Statement of Accounts certified by CA (&lt;30 days)</span>
+              <span class="dossier-tag">Form STK-8</span>
+              <span class="dossier-name">CA Statement of Accounts</span>
+              <span class="dossier-desc">Audited balance sheet certified by Practicing CA dated within 30 days of filing.</span>
             </div>
             <div class="dossier-item">
-              <span style="color: #059669; font-weight: 700;">&bull;</span>
-              <span><strong>Special Resolution:</strong> 75% Member Consent / Form MGT-14</span>
+              <span class="dossier-tag">Special Resolution</span>
+              <span class="dossier-name">Form MGT-14 Approval</span>
+              <span class="dossier-desc">75% paid-up capital member consent recorded and e-filed with MCA.</span>
             </div>
           </div>
-          <div style="font-size: 0.78rem; color: #64748B; margin-top: 0.5rem;">
-            *MCA Government Filing Fee: <strong>₹10,000</strong> per application. Professional certification supervised by Practicing Company Secretary (PCS).
+
+          <!-- Fee Transparency Breakdown Table -->
+          <div style="margin-top: 1rem; border-top: 1px solid #E2E8F0; padding-top: 0.75rem;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: #334155; text-transform: uppercase; margin-bottom: 0.5rem;">
+              Statutory Fee &amp; Professional Package Transparency
+            </div>
+            <table class="fee-summary-table">
+              <thead>
+                <tr>
+                  <th>Component</th>
+                  <th>Statutory Authority</th>
+                  <th style="text-align: right;">Fixed Pricing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>MCA Government Statutory Filing Fee</strong></td>
+                  <td>Ministry of Corporate Affairs (E-Challan)</td>
+                  <td class="amount-col">₹10,000</td>
+                </tr>
+                <tr>
+                  <td><strong>CraftEgon Turnkey Legal Package</strong></td>
+                  <td>Stamp paper, STK-3/4 drafting, CA STK-8, PCS certification</td>
+                  <td class="amount-col">₹12,999</td>
+                </tr>
+                <tr style="background: #F0FDF4; font-weight: 700;">
+                  <td style="color: #14532D;"><strong>Total All-Inclusive Fast-Track Fee</strong></td>
+                  <td style="color: #14532D;">Zero hidden disbursements &bull; Guaranteed Gazette tracking</td>
+                  <td class="amount-col" style="color: #14532D; font-size: 1rem;">₹22,999</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
         <hr style="border: none; border-top: 1px solid var(--border-color, #E2E8F0); margin: 0.5rem 0;">
 
-        <h3 style="font-family: var(--font-heading); font-size: 1.15rem; margin: 0 0 0.5rem; color: var(--navy-900);">
-          2. Entity &amp; Applicant Verification Details
-        </h3>
-
-        <!-- Company Name & CIN -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div>
-            <label style="display: block; font-size: var(--text-sm, 0.875rem); font-weight: 600; margin-bottom: 0.25rem; color: #334155;">Entity / Company Legal Name</label>
-            <input type="text" name="company_name" placeholder="e.g. Acme Innovations Pvt Ltd" style="width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); font-family: var(--font-body); font-size: 0.9rem;">
-          </div>
-          <div>
-            <label style="display: block; font-size: var(--text-sm, 0.875rem); font-weight: 600; margin-bottom: 0.25rem; color: #334155;">Corporate Identification Number (CIN / LLPIN)</label>
-            <input type="text" name="cin" placeholder="e.g. U72900KL2020PTC012345" maxlength="21" style="width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); font-family: var(--font-mono, monospace); font-size: 0.9rem; text-transform: uppercase;">
-          </div>
+        <!-- Phase 3: Applicant Verification Details -->
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B;">Phase 3: Execution Request</span>
+          <h2 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #0F172A; margin: 0.2rem 0 0.75rem;">
+            Applicant &amp; Authorized Director Details
+          </h2>
         </div>
 
         <!-- Director Name & Phone -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label style="display: block; font-size: var(--text-sm, 0.875rem); font-weight: 600; margin-bottom: 0.25rem; color: #334155;">Director / Designated Partner Name</label>
-            <input type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); font-family: var(--font-body); font-size: 0.9rem;">
+            <input type="text" name="contact_name" id="so-contact-name" required placeholder="Full Name as per PAN / DIN" style="width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1.5px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); font-family: var(--font-body); font-size: 0.9rem;">
           </div>
           <div>
             <label style="display: block; font-size: var(--text-sm, 0.875rem); font-weight: 600; margin-bottom: 0.25rem; color: #334155;">Direct Mobile Phone</label>
-            <input type="tel" name="phone" required placeholder="9876543210" maxlength="10" style="width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); font-family: var(--font-mono, monospace); font-size: 0.9rem;">
+            <input type="tel" name="phone" id="so-phone" required placeholder="10-digit mobile number" maxlength="10" pattern="[6-9][0-9]{9}" style="width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1.5px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); font-family: var(--font-mono, monospace); font-size: 0.9rem;">
           </div>
         </div>
 
         <div>
           <label style="display: block; font-size: var(--text-sm, 0.875rem); font-weight: 600; margin-bottom: 0.25rem; color: #334155;">Official Corporate / Personal Email</label>
-          <input type="email" name="email" required placeholder="director@company.com" style="width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); font-family: var(--font-body); font-size: 0.9rem;">
+          <input type="email" name="email" id="so-email" required placeholder="director@company.com" style="width: 100%; box-sizing: border-box; padding: 0.75rem; border: 1.5px solid var(--border-color, #CBD5E1); border-radius: var(--radius-sm, 8px); font-family: var(--font-body); font-size: 0.9rem;">
         </div>
 
-        <button type="submit" class="if-btn-primary" style="margin-top: 0.5rem; width: 100%; padding: 0.95rem; font-size: 1rem; font-weight: 700; cursor: pointer;">
-          Run Eligibility Check &amp; Request STK-2 Execution &rarr;
+        <button type="submit" class="if-btn-primary" style="margin-top: 0.5rem; width: 100%; padding: 0.95rem; font-size: 1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+          <span>Submit Pre-Strike-Off Assessment &amp; Request STK-2 Docket</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
+
+        <!-- Action Deck: Instant WhatsApp & Print Certificate -->
+        <div class="action-deck-row">
+          <a href="https://wa.me/918606918247?text=Hello%20CraftEgon%20CCS,%20I%20ran%20the%20Fast-Track%20Strike-Off%20Checker.%20Please%20guide%20on%20Form%20STK-2%20closure." target="_blank" rel="noopener noreferrer" class="if-btn-secondary" id="so-whatsapp-btn" style="text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.45rem; padding: 0.8rem; font-size: 0.88rem; font-weight: 600; text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2"/></svg>
+            <span>WhatsApp Diagnostic to Desk</span>
+          </a>
+          <button type="button" class="if-btn-secondary" onclick="openAuditCertificate()" style="display: flex; align-items: center; justify-content: center; gap: 0.45rem; padding: 0.8rem; font-size: 0.88rem; font-weight: 600; cursor: pointer;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>View &amp; Print Audit Certificate</span>
+          </button>
+        </div>
       
         <div class="form-return-action" style="text-align: center; margin-top: 0.85rem;">
           <a href="/verticals/14-exit-insolvency.html" class="if-return-cancel-link">Cancel and return to Exit, Strike-Off & Dissolution</a>
         </div>
       </form>
+    </div>
+
+    <!-- Statutory Audit Memorandum Modal -->
+    <div class="memo-modal-backdrop" id="statutory-memo-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="memo-modal-title">
+      <div class="memo-modal-container">
+        <div class="no-print" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; border-bottom: 1px solid #E2E8F0; padding-bottom: 0.75rem;">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #1E293B;">
+            Pre-Strike-Off Statutory Audit Certificate (Form STK-2 Assessment)
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button type="button" onclick="window.print()" class="if-btn-primary" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; font-weight: 600;">
+              🖨️ Print / Save PDF
+            </button>
+            <button type="button" onclick="closeAuditCertificate()" class="if-btn-secondary" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; font-weight: 600;">
+              Close
+            </button>
+          </div>
+        </div>
+
+        <div id="memo-printable-content">
+          <!-- Institutional Header -->
+          <div style="border-bottom: 2px solid #0F172A; padding-bottom: 1rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: #0F172A; letter-spacing: -0.01em;">
+                CRAFTEGON CORPORATE SERVICES
+              </div>
+              <div style="font-size: 0.78rem; color: #475569; margin-top: 0.15rem;">
+                Department of Corporate Secretarial &amp; Statutory Dissolution Advisory
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #64748B; margin-top: 0.25rem;">
+                Statutory Reference: Companies Act 2013, Section 248 &bull; Rule 4 (STK-2)
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; background: #ECFDF5; color: #047857; padding: 0.25rem 0.65rem; border-radius: 4px; border: 1px solid #A7F3D0; display: inline-block;">
+                AUDIT CERTIFICATE
+              </span>
+              <div id="memo-cert-date" style="font-size: 0.75rem; color: #64748B; margin-top: 0.35rem;"></div>
+            </div>
+          </div>
+
+          <!-- Entity Details Box -->
+          <div style="background: #F8FAFC; border: 1px solid #CBD5E1; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.85rem;">
+              <div>
+                <span style="color: #64748B; display: block; font-size: 0.75rem;">Company / Legal Entity:</span>
+                <strong id="memo-company-name" style="color: #0F172A;">ACME INNOVATIONS PRIVATE LIMITED</strong>
+              </div>
+              <div>
+                <span style="color: #64748B; display: block; font-size: 0.75rem;">Corporate Identification Number (CIN):</span>
+                <strong id="memo-cin" style="font-family: var(--font-mono); color: #0F172A;">U72900KL2020PTC054812</strong>
+              </div>
+              <div>
+                <span style="color: #64748B; display: block; font-size: 0.75rem;">Entity Classification:</span>
+                <strong id="memo-entity-type" style="color: #0F172A;">Private Limited Company</strong>
+              </div>
+              <div>
+                <span style="color: #64748B; display: block; font-size: 0.75rem;">Fast-Track Dissolution Route:</span>
+                <strong style="color: #059669;">Form STK-2 (MCA21 E-Filing)</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 248 Statutory Gateways Audit Summary -->
+          <h3 style="font-size: 0.95rem; font-weight: 700; color: #0F172A; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.04em;">
+            4-Pillar Statutory Compliance Verification
+          </h3>
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.82rem;">
+            <thead>
+              <tr style="background: #F1F5F9; border-bottom: 1.5px solid #CBD5E1;">
+                <th style="padding: 0.55rem; text-align: left;">Statutory Gateway</th>
+                <th style="padding: 0.55rem; text-align: left;">Legal Ground</th>
+                <th style="padding: 0.55rem; text-align: center;">Evaluation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #E2E8F0;">
+                <td style="padding: 0.55rem;"><strong>1. Operational Inactivity</strong></td>
+                <td style="padding: 0.55rem; color: #475569;">Zero transactions for 2+ consecutive financial years</td>
+                <td style="padding: 0.55rem; text-align: center;" id="memo-gate-ops"></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #E2E8F0;">
+                <td style="padding: 0.55rem;"><strong>2. Liquidation of Dues</strong></td>
+                <td style="padding: 0.55rem; color: #475569;">Bank accounts permanently closed &amp; nil liabilities</td>
+                <td style="padding: 0.55rem; text-align: center;" id="memo-gate-liab"></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #E2E8F0;">
+                <td style="padding: 0.55rem;"><strong>3. Past Annual Returns</strong></td>
+                <td style="padding: 0.55rem; color: #475569;">AOC-4 &amp; MGT-7 filed up to active operational period</td>
+                <td style="padding: 0.55rem; text-align: center;" id="memo-gate-filings"></td>
+              </tr>
+              <tr style="border-bottom: 1.5px solid #CBD5E1;">
+                <td style="padding: 0.55rem;"><strong>4. Charges &amp; Litigation</strong></td>
+                <td style="padding: 0.55rem; color: #475569;">Zero open bank charges, no pending inquiries or disputes</td>
+                <td style="padding: 0.55rem; text-align: center;" id="memo-gate-lit"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Readiness Verdict Box -->
+          <div style="border: 1.5px solid #10B981; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; background: #F0FDF4;" id="memo-verdict-box">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+              <strong id="memo-score-text" style="font-size: 1.1rem; color: #065F46;">100% STATUTORY READINESS ACHIEVED</strong>
+              <span id="memo-score-badge" style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 800; color: #10B981;">100%</span>
+            </div>
+            <p id="memo-score-desc" style="font-size: 0.82rem; color: #166534; line-height: 1.5; margin: 0;">
+              The entity complies with all substantive pre-conditions under Section 248(2). Safe for immediate Form STK-2 e-filing upon preparation of Form STK-3 Indemnity Bond, Form STK-4 Affidavit, and Form STK-8 CA Statement.
+            </p>
+          </div>
+
+          <!-- Institutional Sign-off -->
+          <div style="border-top: 1px dashed #CBD5E1; padding-top: 1rem; display: flex; justify-content: space-between; align-items: flex-end; font-size: 0.75rem; color: #64748B;">
+            <div>
+              <strong>Supervised By:</strong> Practicing Company Secretary (PCS) Desk<br>
+              <strong>Filing Jurisdiction:</strong> Registrar of Companies (RoC), Ministry of Corporate Affairs<br>
+              <strong>Portal:</strong> https://ccs.craftegon.com &bull; Desk: +91 86069 18247
+            </div>
+            <div style="text-align: right;">
+              <div style="font-family: var(--font-mono); font-weight: 700; color: #0F172A;">CRAFTEGON CORPORATE SERVICES</div>
+              <div>Authorized Regulatory Assessment Seal</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -1221,9 +1850,164 @@
 <script src="/assets/js/chat-widget.js" defer></script>
 
 </div>
-  <script src="/assets/js/navigation.js"></script>
+    <script src="/assets/js/navigation.js"></script>
   <script src="/assets/js/forms.js"></script>
   <script>
+    // Entity Type Management
+    function setEntityType(type) {
+      const pvtBtn = document.getElementById('type-btn-pvt');
+      const llpBtn = document.getElementById('type-btn-llp');
+      const opcBtn = document.getElementById('type-btn-opc');
+      const hiddenInput = document.getElementById('so-entity-type');
+
+      if (hiddenInput) hiddenInput.value = type;
+
+      if (pvtBtn) {
+        pvtBtn.classList.toggle('is-active', type === 'pvt-ltd');
+        pvtBtn.setAttribute('aria-checked', type === 'pvt-ltd');
+      }
+      if (llpBtn) {
+        llpBtn.classList.toggle('is-active', type === 'llp');
+        llpBtn.setAttribute('aria-checked', type === 'llp');
+      }
+      if (opcBtn) {
+        opcBtn.classList.toggle('is-active', type === 'opc');
+        opcBtn.setAttribute('aria-checked', type === 'opc');
+      }
+
+      runStrikeOffAudit();
+    }
+
+    // Gate Segmented Controls
+    function setGateOption(gateKey, value) {
+      const hiddenInput = document.getElementById('so-' + gateKey);
+      if (hiddenInput) hiddenInput.value = value;
+
+      if (gateKey === 'operations') {
+        const noBtn = document.getElementById('ops-opt-no');
+        const yesBtn = document.getElementById('ops-opt-yes');
+        if (noBtn) {
+          noBtn.className = 'switch-segment-btn' + (value === 'no' ? ' is-selected-positive' : '');
+          noBtn.setAttribute('aria-checked', value === 'no');
+        }
+        if (yesBtn) {
+          yesBtn.className = 'switch-segment-btn' + (value === 'yes' ? ' is-selected-condition' : '');
+          yesBtn.setAttribute('aria-checked', value === 'yes');
+        }
+      } else if (gateKey === 'liabilities') {
+        const noBtn = document.getElementById('liab-opt-no');
+        const yesBtn = document.getElementById('liab-opt-yes');
+        if (noBtn) {
+          noBtn.className = 'switch-segment-btn' + (value === 'no' ? ' is-selected-positive' : '');
+          noBtn.setAttribute('aria-checked', value === 'no');
+        }
+        if (yesBtn) {
+          yesBtn.className = 'switch-segment-btn' + (value === 'yes' ? ' is-selected-condition' : '');
+          yesBtn.setAttribute('aria-checked', value === 'yes');
+        }
+      } else if (gateKey === 'filings') {
+        const yesBtn = document.getElementById('filings-opt-yes');
+        const noBtn = document.getElementById('filings-opt-no');
+        if (yesBtn) {
+          yesBtn.className = 'switch-segment-btn' + (value === 'yes' ? ' is-selected-positive' : '');
+          yesBtn.setAttribute('aria-checked', value === 'yes');
+        }
+        if (noBtn) {
+          noBtn.className = 'switch-segment-btn' + (value === 'no' ? ' is-selected-condition' : '');
+          noBtn.setAttribute('aria-checked', value === 'no');
+        }
+      } else if (gateKey === 'litigation') {
+        const noBtn = document.getElementById('lit-opt-no');
+        const yesBtn = document.getElementById('lit-opt-yes');
+        if (noBtn) {
+          noBtn.className = 'switch-segment-btn' + (value === 'no' ? ' is-selected-positive' : '');
+          noBtn.setAttribute('aria-checked', value === 'no');
+        }
+        if (yesBtn) {
+          yesBtn.className = 'switch-segment-btn' + (value === 'yes' ? ' is-selected-condition' : '');
+          yesBtn.setAttribute('aria-checked', value === 'yes');
+        }
+      }
+
+      runStrikeOffAudit();
+    }
+
+    // Entity Synchronization
+    function syncEntityName(name) {
+      const formInput = document.getElementById('form-company-name');
+      if (formInput) formInput.value = name;
+      updateWhatsAppLink();
+    }
+
+    function handleCinInput(cinVal) {
+      const cleanCin = cinVal.trim().toUpperCase();
+      const formCin = document.getElementById('form-cin');
+      if (formCin) formCin.value = cleanCin;
+
+      const card = document.getElementById('verified-entity-card');
+      const cinIcon = document.getElementById('cin-status-icon');
+
+      const cinRegex = /^[LU][0-9]{5}[A-Z]{2}[0-9]{4}[A-Z]{3}[0-9]{6}$/i;
+      const llpinRegex = /^[A-Z]{3}-[0-9]{4}$/i;
+
+      if (cinRegex.test(cleanCin) || llpinRegex.test(cleanCin)) {
+        if (cinIcon) {
+          cinIcon.style.display = 'block';
+          cinIcon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+        }
+        if (card) {
+          card.style.display = 'block';
+          const nameInput = document.getElementById('so-entity-name-input');
+          const chipName = document.getElementById('entity-chip-name');
+          const chipCin = document.getElementById('entity-chip-cin');
+          const chipRoc = document.getElementById('entity-chip-roc');
+          const chipIncorp = document.getElementById('entity-chip-incorp');
+
+          if (chipName) chipName.textContent = (nameInput && nameInput.value) ? nameInput.value.toUpperCase() : 'VERIFIED CORPORATE ENTITY';
+          if (chipCin) chipCin.textContent = cleanCin;
+
+          if (cinRegex.test(cleanCin)) {
+            const stateCode = cleanCin.substring(6, 8);
+            const year = cleanCin.substring(8, 12);
+            if (chipRoc) chipRoc.textContent = 'RoC ' + (stateCode === 'KL' ? 'Ernakulam (Kerala)' : stateCode + ' State Jurisdiction');
+            if (chipIncorp) chipIncorp.textContent = 'Year ' + year + ' (' + (new Date().getFullYear() - parseInt(year, 10)) + '+ Yrs)';
+          } else {
+            if (chipRoc) chipRoc.textContent = 'LLP Registrar Office';
+            if (chipIncorp) chipIncorp.textContent = 'Active LLP Registration';
+          }
+        }
+      } else {
+        if (cinIcon) {
+          cinIcon.style.display = 'none';
+        }
+        if (card && !cleanCin) {
+          card.style.display = 'none';
+        }
+      }
+
+      updateWhatsAppLink();
+    }
+
+    // Demo Fill Auto-discovery
+    function applyDemoEntity() {
+      const nameInput = document.getElementById('so-entity-name-input');
+      const cinInput = document.getElementById('so-cin-input');
+      const contactInput = document.getElementById('so-contact-name');
+      const phoneInput = document.getElementById('so-phone');
+      const emailInput = document.getElementById('so-email');
+
+      if (nameInput) nameInput.value = 'Acme Innovations Private Limited';
+      if (cinInput) cinInput.value = 'U72900KL2020PTC054812';
+      if (contactInput && !contactInput.value) contactInput.value = 'Arun Kumar Varma';
+      if (phoneInput && !phoneInput.value) phoneInput.value = '9847012345';
+      if (emailInput && !emailInput.value) emailInput.value = 'arun.varma@acmeinnovations.co.in';
+
+      syncEntityName('Acme Innovations Private Limited');
+      handleCinInput('U72900KL2020PTC054812');
+      setEntityType('pvt-ltd');
+    }
+
+    // Main 4-Pillar Regulatory Audit Engine
     function runStrikeOffAudit() {
       const ops = document.getElementById('so-operations')?.value || 'no';
       const liab = document.getElementById('so-liabilities')?.value || 'no';
@@ -1231,33 +2015,49 @@
       const lit = document.getElementById('so-litigation')?.value || 'no';
 
       let score = 0;
-      const blockers = [];
+      const remedies = [];
 
       if (ops === 'no') {
         score += 25;
       } else {
-        blockers.push('<strong>Operational Activity Blocker (Sec 248(1)(c)):</strong> Entity carried out commercial transactions within the past 2 years. Section 248 fast-track strike-off is strictly restricted to entities with 2 consecutive financial years of zero operations.');
+        remedies.push({
+          title: '1. Operational Dormancy Blocker (Section 248(1)(c))',
+          timeTag: 'Remediation: 2-Year Cooling or Form MSC-1',
+          desc: '<strong>Statutory Rule:</strong> Section 248 fast-track strike-off is strictly restricted to entities with 2 consecutive financial years of zero commercial operations.<br><strong>Prescriptive Action:</strong> If operations ceased recently, file Form MSC-1 for Dormant Status to freeze RoC compliance liabilities, or wait until the 24-month statutory dormancy period matures.'
+        });
       }
 
       if (liab === 'no') {
         score += 25;
       } else {
-        blockers.push('<strong>Asset / Liability Liquidation Requirement:</strong> All company bank accounts must be closed and zero-balance bank closure certificates submitted. Any outstanding creditor dues must be formally settled before Form STK-2 e-filing.');
+        remedies.push({
+          title: '2. Asset & Liability Liquidation Pre-Condition (Rule 4 & Form STK-8)',
+          timeTag: 'Remediation: 3–5 Business Days',
+          desc: '<strong>Statutory Rule:</strong> Form STK-2 requires certified statement of accounts showing nil assets and zero creditor liabilities within 30 days of filing.<br><strong>Prescriptive Action:</strong> Close all current accounts and request official Bank Closure NOCs. Settle vendor balances and obtain written creditor No-Objection Certificates.'
+        });
       }
 
       if (filings === 'yes') {
         score += 25;
       } else {
-        blockers.push('<strong>Overdue Returns Standing (Sec 248(2)):</strong> Company must file overdue financial returns (Form AOC-4) and annual returns (Form MGT-7) up to the financial year it ceased operations before the RoC accepts Form STK-2.');
+        remedies.push({
+          title: '3. Prior Financial & Annual Returns Default (Section 248(2) Proviso)',
+          timeTag: 'Remediation: 2–4 Business Days',
+          desc: '<strong>Statutory Rule:</strong> The RoC will reject Form STK-2 if returns prior to business cessation are unfiled.<br><strong>Prescriptive Action:</strong> File overdue Form AOC-4 (Financial Statements) and Form MGT-7 (Annual Return) strictly up to the financial year the company transacted. CraftEgon coordinates fast-track MCA e-filings.'
+        });
       }
 
       if (lit === 'no') {
         score += 25;
       } else {
-        blockers.push('<strong>Litigation & Open Charges Blocker:</strong> Open charges on MCA portal must be satisfied via Form CHG-4, and any pending tax show-cause notices or inspections cleared with regulatory NOC.');
+        remedies.push({
+          title: '4. Open Charges or Regulatory Inquiries Gateway (Section 248(1)(d))',
+          timeTag: 'Remediation: 5–7 Business Days',
+          desc: '<strong>Statutory Rule:</strong> MCA records must reflect zero open charges (hypothecations/pledges) and no active RoC or Income Tax inspections.<br><strong>Prescriptive Action:</strong> Obtain Satisfaction of Charge NOC from lending bank and file Form CHG-4 on MCA21. Respond to any pending tax notices to secure Nil Tax Demand Certificate.'
+        });
       }
 
-      // Update UI
+      // Update UI Elements
       const scoreBadge = document.getElementById('strike-score-badge');
       const meterFill = document.getElementById('meter-fill');
       const progBar = document.getElementById('meter-progressbar');
@@ -1281,7 +2081,9 @@
           titleEl.textContent = '100% Eligible: Safe for Form STK-2 Fast-Track Strike-Off';
           titleEl.style.color = '#047857';
         }
-        if (descEl) descEl.textContent = 'Your entity structure matches all four statutory gateways under Section 248(1) & (2) of the Companies Act 2013. The company can be struck off via fast-track Form STK-2 without court winding up proceedings.';
+        if (descEl) {
+          descEl.textContent = 'Your entity matches all four statutory gateways under Section 248(1) & (2) of the Companies Act 2013. The company can be struck off via fast-track Form STK-2 without court winding up proceedings. RoC Gazette publication within 60-90 days.';
+        }
         if (blockersCont) blockersCont.style.display = 'none';
       } else if (score === 75) {
         if (scoreBadge) {
@@ -1291,13 +2093,15 @@
         }
         if (meterFill) meterFill.style.backgroundColor = '#F59E0B';
         if (titleEl) {
-          titleEl.textContent = '75% Partial Readiness: 1 Condition Requires Pre-Filing Rectification';
+          titleEl.textContent = '75% Partial Readiness: 1 Statutory Condition Requires Pre-Filing Cure';
           titleEl.style.color = '#B45309';
         }
-        if (descEl) descEl.textContent = 'The entity qualifies for fast-track dissolution under Section 248 once one operational or secretarial condition is cured by our CS team.';
+        if (descEl) {
+          descEl.textContent = 'The entity qualifies for fast-track dissolution under Section 248 once one operational or secretarial condition is cured by our CS team.';
+        }
         if (blockersCont) {
           blockersCont.style.display = 'block';
-          if (blockersList) blockersList.innerHTML = blockers.map(b => '<li>' + b + '</li>').join('');
+          if (blockersList) renderRemedyCards(remedies);
         }
       } else if (score === 50) {
         if (scoreBadge) {
@@ -1310,10 +2114,12 @@
           titleEl.textContent = '50% Moderate Risk: Multiple Statutory Pre-Conditions Active';
           titleEl.style.color = '#C2410C';
         }
-        if (descEl) descEl.textContent = 'Substantial secretarial and financial reconciliation is required before Form STK-2 can be accepted by the Registrar of Companies.';
+        if (descEl) {
+          descEl.textContent = 'Substantial secretarial and financial reconciliation is required before Form STK-2 can be accepted by the Registrar of Companies.';
+        }
         if (blockersCont) {
           blockersCont.style.display = 'block';
-          if (blockersList) blockersList.innerHTML = blockers.map(b => '<li>' + b + '</li>').join('');
+          if (blockersList) renderRemedyCards(remedies);
         }
       } else {
         if (scoreBadge) {
@@ -1326,15 +2132,138 @@
           titleEl.textContent = 'Statutory Block / Ineligible under Section 248';
           titleEl.style.color = '#B91C1C';
         }
-        if (descEl) descEl.textContent = 'Entity currently fails mandatory statutory gateways for summary fast-track strike-off under Section 248. Voluntary winding up or active compliance remediation required.';
+        if (descEl) {
+          descEl.textContent = 'Entity currently fails mandatory statutory gateways for summary fast-track strike-off under Section 248. Voluntary winding up or active compliance remediation required.';
+        }
         if (blockersCont) {
           blockersCont.style.display = 'block';
-          if (blockersList) blockersList.innerHTML = blockers.map(b => '<li>' + b + '</li>').join('');
+          if (blockersList) renderRemedyCards(remedies);
         }
       }
+
+      updateWhatsAppLink(score);
     }
 
-    document.addEventListener('DOMContentLoaded', runStrikeOffAudit);
+    function renderRemedyCards(remedies) {
+      const container = document.getElementById('strike-blockers-list');
+      if (!container) return;
+      container.innerHTML = remedies.map(r => `
+        <div class="remedy-card">
+          <div class="remedy-header">
+            <span class="remedy-title">${r.title}</span>
+            <span class="remedy-time-tag">${r.timeTag}</span>
+          </div>
+          <p class="remedy-desc">${r.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    function updateWhatsAppLink(scoreOverride) {
+      const btn = document.getElementById('so-whatsapp-btn');
+      if (!btn) return;
+
+      const score = (typeof scoreOverride === 'number') ? scoreOverride : parseInt(document.getElementById('strike-score-badge')?.textContent || '100', 10);
+      const name = document.getElementById('so-entity-name-input')?.value || 'My Company';
+      const cin = document.getElementById('so-cin-input')?.value || '';
+
+      let text = 'Hello CraftEgon CCS, I ran the Section 248 Fast-Track Strike-Off Eligibility Check for ' + name;
+      if (cin) text += ' (CIN: ' + cin + ')';
+      text += '. Our Statutory Readiness Score is ' + score + '%. Please guide us on Form STK-2 filing and closure dossier.';
+
+      btn.href = 'https://wa.me/918606918247?text=' + encodeURIComponent(text);
+    }
+
+    // Modal Certificate Generator
+    function openAuditCertificate() {
+      const modal = document.getElementById('statutory-memo-modal');
+      if (!modal) return;
+
+      const name = document.getElementById('so-entity-name-input')?.value || 'Acme Innovations Private Limited';
+      const cin = document.getElementById('so-cin-input')?.value || 'U72900KL2020PTC054812';
+      const type = document.getElementById('so-entity-type')?.value || 'pvt-ltd';
+      const score = parseInt(document.getElementById('strike-score-badge')?.textContent || '100', 10);
+
+      const ops = document.getElementById('so-operations')?.value || 'no';
+      const liab = document.getElementById('so-liabilities')?.value || 'no';
+      const filings = document.getElementById('so-filings')?.value || 'yes';
+      const lit = document.getElementById('so-litigation')?.value || 'no';
+
+      // Set date
+      const dateEl = document.getElementById('memo-cert-date');
+      if (dateEl) {
+        const now = new Date();
+        dateEl.textContent = 'Issued: ' + now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      }
+
+      // Populate text fields
+      const compEl = document.getElementById('memo-company-name');
+      const cinEl = document.getElementById('memo-cin');
+      const typeEl = document.getElementById('memo-entity-type');
+
+      if (compEl) compEl.textContent = name.toUpperCase();
+      if (cinEl) cinEl.textContent = cin.toUpperCase();
+      if (typeEl) {
+        typeEl.textContent = type === 'llp' ? 'Limited Liability Partnership' : (type === 'opc' ? 'One Person Company' : 'Private Limited Company');
+      }
+
+      // Populate gates
+      const passTag = '<span style="color: #047857; font-weight: 700;">✓ PASSED</span>';
+      const failTag = '<span style="color: #B45309; font-weight: 700;">⚠ CURE REQUIRED</span>';
+
+      const gOps = document.getElementById('memo-gate-ops');
+      const gLiab = document.getElementById('memo-gate-liab');
+      const gFilings = document.getElementById('memo-gate-filings');
+      const gLit = document.getElementById('memo-gate-lit');
+
+      if (gOps) gOps.innerHTML = (ops === 'no') ? passTag : failTag;
+      if (gLiab) gLiab.innerHTML = (liab === 'no') ? passTag : failTag;
+      if (gFilings) gFilings.innerHTML = (filings === 'yes') ? passTag : failTag;
+      if (gLit) gLit.innerHTML = (lit === 'no') ? passTag : failTag;
+
+      // Populate verdict
+      const badgeEl = document.getElementById('memo-score-badge');
+      const textEl = document.getElementById('memo-score-text');
+      const descEl = document.getElementById('memo-score-desc');
+      const verdictBox = document.getElementById('memo-verdict-box');
+
+      if (badgeEl) badgeEl.textContent = score + '%';
+      if (score === 100) {
+        if (textEl) textEl.textContent = '100% STATUTORY READINESS ACHIEVED';
+        if (descEl) descEl.textContent = 'The entity complies with all substantive pre-conditions under Section 248(2). Safe for immediate Form STK-2 e-filing upon preparation of Form STK-3 Indemnity Bond, Form STK-4 Affidavit, and Form STK-8 CA Statement.';
+        if (verdictBox) {
+          verdictBox.style.borderColor = '#10B981';
+          verdictBox.style.background = '#F0FDF4';
+        }
+      } else {
+        if (textEl) textEl.textContent = score + '% PARTIAL READINESS &bull; REMEDIATION MANDATORY';
+        if (descEl) descEl.textContent = 'The entity must resolve outstanding statutory conditions before Form STK-2 can be accepted by the Registrar of Companies. Engage CraftEgon CS desk for pre-filing rectification.';
+        if (verdictBox) {
+          verdictBox.style.borderColor = '#F59E0B';
+          verdictBox.style.background = '#FFFBEB';
+        }
+      }
+
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAuditCertificate() {
+      const modal = document.getElementById('statutory-memo-modal');
+      if (modal) modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // Modal click backdrop close
+    document.addEventListener('click', function(e) {
+      const modal = document.getElementById('statutory-memo-modal');
+      if (modal && e.target === modal) {
+        closeAuditCertificate();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      runStrikeOffAudit();
+    });
   </script>
 </body>
 </html>
