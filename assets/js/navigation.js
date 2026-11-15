@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   preserveConversionContext();
   injectServiceDiscoveryReciprocal();
+  injectContextualReturnTrail();
 
   // 1. Load and inject Navbar with graceful fallback (Skips fetch if pre-rendered)
   const navContainer = document.getElementById("global-navbar") || document.getElementById("global-header");
@@ -96,6 +97,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const navResponse = await fetch("/components/navbar.html");
         if (navResponse.ok) {
           navContainer.innerHTML = await navResponse.text();
+          preserveConversionContext();
         } else {
           throw new Error("Navbar component not found");
         }
@@ -461,18 +463,195 @@ function initMobileNav() {
   });
 }
 
+function trackNavigationHistory() {
+  try {
+    const currentPath = window.location.pathname;
+    if (!currentPath || currentPath === '/404.html') return;
+    const currentTitle = (document.querySelector('h1')?.textContent || document.title).split('|')[0].trim();
+
+    let history = [];
+    try {
+      history = JSON.parse(sessionStorage.getItem('ccs_nav_history') || '[]');
+    } catch (e) {
+      history = [];
+    }
+
+    const last = history[history.length - 1];
+    if (!last || last.path !== currentPath) {
+      const existingIdx = history.findIndex(h => h.path === currentPath);
+      if (existingIdx !== -1) {
+        history = history.slice(0, existingIdx + 1);
+      } else {
+        history.push({ path: currentPath, title: currentTitle });
+        if (history.length > 12) history.shift();
+      }
+      sessionStorage.setItem('ccs_nav_history', JSON.stringify(history));
+    }
+  } catch (e) {
+    // Non-blocking navigation history
+  }
+}
+
 function preserveConversionContext() {
   const pathParts = window.location.pathname.split("/").filter(Boolean);
-  const pageType = pathParts[0];
-  const pageId = pathParts[pathParts.length - 1]?.replace(/\.(html|htm)$/i, "");
-  if (!["services", "verticals"].includes(pageType) || !pageId) return;
+  const pageType = pathParts[0] || "home";
+  const pageId = pathParts[pathParts.length - 1]?.replace(/\.(html|htm)$/i, "") || "index";
 
-  document.querySelectorAll('main a[href^="/conversion/"]').forEach((link) => {
-    const destination = new URL(link.href, window.location.origin);
-    if (pageType === "services") destination.searchParams.set("service_id", pageId);
-    if (pageType === "verticals") destination.searchParams.set("service_category", pageId);
-    destination.searchParams.set("source_path", window.location.pathname);
-    link.href = destination.pathname + destination.search + destination.hash;
+  document.querySelectorAll('a').forEach((link) => {
+    try {
+      const rawHref = link.getAttribute('href') || link.href;
+      if (!rawHref || !rawHref.includes('/conversion/')) return;
+      const destination = new URL(link.href, window.location.origin);
+      if (destination.pathname === '/conversion/' || destination.pathname === '/conversion/index.html') return;
+      if (pageType === "services") destination.searchParams.set("service_id", pageId);
+      if (pageType === "verticals") destination.searchParams.set("service_category", pageId);
+      destination.searchParams.set("source_path", window.location.pathname);
+      const newUrl = destination.pathname + destination.search + destination.hash;
+      link.setAttribute("href", newUrl);
+    } catch (e) {}
+  });
+}
+
+function injectContextualReturnTrail() {
+  trackNavigationHistory();
+
+  const currentPath = window.location.pathname;
+  const isConversionPage = currentPath.includes('/conversion/') && !currentPath.endsWith('/conversion/index.html') && !currentPath.endsWith('/conversion/');
+
+  const params = new URLSearchParams(window.location.search);
+  let sourcePath = params.get('source_path');
+  const serviceId = params.get('service_id');
+
+  // Fallback to referrer if on same origin
+  if (!sourcePath && document.referrer) {
+    try {
+      const refUrl = new URL(document.referrer);
+      if (refUrl.origin === window.location.origin && refUrl.pathname !== currentPath) {
+        sourcePath = refUrl.pathname;
+      }
+    } catch (e) {}
+  }
+
+  // Fallback to session navigation history
+  if (!sourcePath && isConversionPage) {
+    try {
+      const history = JSON.parse(sessionStorage.getItem('ccs_nav_history') || '[]');
+      if (history.length >= 2) {
+        const prev = history[history.length - 2];
+        if (prev && prev.path !== currentPath) {
+          sourcePath = prev.path;
+        }
+      }
+    } catch (e) {}
+  }
+
+  // Default fallback for conversion pages
+  if (!sourcePath && isConversionPage) {
+    sourcePath = '/services.html';
+  }
+
+  if (!sourcePath) return;
+
+  ensureSearchScriptsLoaded().then(() => {
+    const catalog = window.CRAFTEGON_SERVICE_CATALOG || [];
+    let sourceTitle = '';
+    let parentVerticalRoute = '';
+    let parentVerticalName = '';
+
+    const cleanSource = sourcePath.split('?')[0].split('#')[0];
+    const serviceMatch = catalog.find(s => s.route === cleanSource || s.route.endsWith(cleanSource.split('/').pop()) || (serviceId && s.id === serviceId));
+    
+    if (serviceMatch) {
+      sourceTitle = serviceMatch.name;
+      parentVerticalRoute = serviceMatch.vertical_route || `/verticals/${serviceMatch.vertical_id}.html`;
+      parentVerticalName = serviceMatch.vertical_name;
+    } else {
+      const KNOWN_ROUTES = {
+        '/index.html': 'Home',
+        '/': 'Home',
+        '/services.html': 'All 57 Services Directory',
+        '/services/index.html': 'All 57 Services Directory',
+        '/verticals/index.html': '15 Practice Areas',
+        '/search/index.html': 'Corporate Intelligence Search Dossier',
+        '/knowledge/index.html': 'Knowledge Centre',
+        '/conversion/index.html': 'Diagnostic Tools & AI Suite',
+        '/verticals/01-entity-formation.html': 'Business Formation & Structuring',
+        '/verticals/02-roc-compliance.html': 'Corporate Governance & RoC Filings',
+        '/verticals/03-tax-compliance.html': 'Corporate Taxation & GST',
+        '/verticals/04-statutory-licenses.html': 'Statutory Licenses & Clearances',
+        '/verticals/05-contracts-legal.html': 'Commercial Contracts & Legal Drafting',
+        '/verticals/06-ipr-protection.html': 'Intellectual Property & Trademarks',
+        '/verticals/07-labour-hr.html': 'Labour Law & HR Compliance',
+        '/verticals/08-fundraising-investment.html': 'Fundraising & Investment Structuring',
+        '/verticals/09-ma-restructuring.html': 'M&A and Corporate Restructuring',
+        '/verticals/10-litigation-dispute.html': 'Dispute Resolution & Commercial Advisory',
+        '/verticals/11-governance-audit.html': 'Secretarial Audit & Governance',
+        '/verticals/12-esg-csr.html': 'ESG & CSR Advisory',
+        '/verticals/13-cross-border-fema.html': 'FEMA & Cross-Border Advisory',
+        '/verticals/14-exit-insolvency.html': 'Exit, Strike-Off & Dissolution',
+        '/verticals/15-it-digital.html': 'Tech & Digital Compliance'
+      };
+
+      sourceTitle = KNOWN_ROUTES[cleanSource];
+      if (!sourceTitle) {
+        const slug = cleanSource.split('/').pop().replace(/\.(html|htm)$/i, '');
+        sourceTitle = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      }
+    }
+
+    // 1. Dynamic Breadcrumb Trail
+    if (isConversionPage) {
+      const breadcrumb = document.querySelector('.if-breadcrumb');
+      if (breadcrumb) {
+        const currentPageSpan = breadcrumb.querySelector('span:last-of-type') || document.querySelector('h1');
+        const currentLabel = currentPageSpan ? currentPageSpan.textContent.trim() : (document.title.split('|')[0].trim());
+
+        let newBreadcrumbHtml = `<a href="/index.html">Home</a>`;
+        if (parentVerticalRoute && parentVerticalName) {
+          newBreadcrumbHtml += ` / <a href="${parentVerticalRoute}">${parentVerticalName}</a>`;
+        }
+        newBreadcrumbHtml += ` / <a href="${sourcePath}">${sourceTitle}</a>`;
+        newBreadcrumbHtml += ` / <span aria-current="page">${currentLabel}</span>`;
+
+        breadcrumb.innerHTML = newBreadcrumbHtml;
+      }
+
+      // 2. High-Visibility Return Bar
+      if (!document.getElementById('if-contextual-return-bar')) {
+        const returnBar = document.createElement('div');
+        returnBar.id = 'if-contextual-return-bar';
+        returnBar.className = 'if-contextual-return-bar';
+        returnBar.innerHTML = `
+          <a href="${sourcePath}" class="if-return-trail-link" id="contextual-return-link" aria-label="Return to ${sourceTitle}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+            <span>← Return to ${sourceTitle}</span>
+          </a>
+          <span class="if-return-badge">Referring Source Context</span>
+        `;
+
+        const breadcrumbEl = document.querySelector('.if-breadcrumb');
+        const mainEl = document.querySelector('main');
+        if (breadcrumbEl && breadcrumbEl.parentNode) {
+          breadcrumbEl.parentNode.insertBefore(returnBar, breadcrumbEl.nextSibling);
+        } else if (mainEl) {
+          mainEl.insertBefore(returnBar, mainEl.firstChild);
+        }
+      }
+
+      // 3. Cancel link in lead form
+      const forms = document.querySelectorAll('form.if-lead-form, form[data-conversion-form], form');
+      forms.forEach(form => {
+        if (!form.querySelector('.form-return-action') && !form.id?.includes('search') && !form.id?.includes('filter')) {
+          const cancelDiv = document.createElement('div');
+          cancelDiv.className = 'form-return-action';
+          cancelDiv.style.cssText = 'text-align: center; margin-top: 0.85rem;';
+          cancelDiv.innerHTML = `<a href="${sourcePath}" class="if-return-cancel-link">← Cancel and return to ${sourceTitle}</a>`;
+          form.appendChild(cancelDiv);
+        }
+      });
+    }
   });
 }
 

@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T10:32:57.322Z",
+  "buildTimestamp": "2026-11-15T11:01:09.578Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 179,
-    "totalOutputSizeBytes": 9680729,
-    "totalOutputSizeFormatted": "9.23 MB",
+    "totalOutputSizeBytes": 9690614,
+    "totalOutputSizeFormatted": "9.24 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 123,
     "filesByExtension": {
@@ -91,7 +91,7 @@
     },
     {
       "path": "assets/css/navbar.css",
-      "bytes": 35561
+      "bytes": 37699
     },
     {
       "path": "assets/css/service-page.css",
@@ -183,7 +183,7 @@
     },
     {
       "path": "assets/js/navigation.js",
-      "bytes": 23489
+      "bytes": 30066
     },
     {
       "path": "assets/js/search-engine.js",
@@ -215,7 +215,7 @@
     },
     {
       "path": "conversion/calculator.html",
-      "bytes": 113472
+      "bytes": 113681
     },
     {
       "path": "conversion/contract-intake.html",
@@ -263,7 +263,7 @@
     },
     {
       "path": "conversion/post-incorporation-checkout.html",
-      "bytes": 51810
+      "bytes": 51911
     },
     {
       "path": "conversion/ppc-annual-compliance.html",
@@ -279,7 +279,7 @@
     },
     {
       "path": "conversion/retainer-desk.html",
-      "bytes": 51468
+      "bytes": 51557
     },
     {
       "path": "conversion/secretarial-audit-scope.html",
@@ -287,7 +287,7 @@
     },
     {
       "path": "conversion/strike-off-checker.html",
-      "bytes": 66567
+      "bytes": 66579
     },
     {
       "path": "conversion/tax-intake.html",
@@ -567,7 +567,7 @@
     },
     {
       "path": "services/index.html",
-      "bytes": 108390
+      "bytes": 108643
     },
     {
       "path": "services/ip-enforcement-cease-desist.html",
@@ -687,7 +687,7 @@
     },
     {
       "path": "services.html",
-      "bytes": 108770
+      "bytes": 109023
     },
     {
       "path": "verticals/01-entity-formation.html",
@@ -751,7 +751,7 @@
     },
     {
       "path": "verticals/index.html",
-      "bytes": 64527
+      "bytes": 64780
     },
     {
       "path": "_redirects",
