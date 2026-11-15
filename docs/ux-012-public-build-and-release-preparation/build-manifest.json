@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T06:12:20.294Z",
+  "buildTimestamp": "2026-11-15T06:41:01.913Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 175,
-    "totalOutputSizeBytes": 9351927,
-    "totalOutputSizeFormatted": "8.92 MB",
+    "totalOutputSizeBytes": 9405389,
+    "totalOutputSizeFormatted": "8.97 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 123,
     "filesByExtension": {
@@ -126,7 +126,7 @@
     },
     {
       "path": "assets/js/calculator.js",
-      "bytes": 37671
+      "bytes": 57182
     },
     {
       "path": "assets/js/campaign-pixels.js",
@@ -198,7 +198,7 @@
     },
     {
       "path": "conversion/calculator.html",
-      "bytes": 93311
+      "bytes": 111096
     },
     {
       "path": "conversion/contract-intake.html",
@@ -270,7 +270,7 @@
     },
     {
       "path": "conversion/strike-off-checker.html",
-      "bytes": 50322
+      "bytes": 66488
     },
     {
       "path": "conversion/tax-intake.html",

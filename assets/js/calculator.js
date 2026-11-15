@@ -63,6 +63,167 @@ function appendAttribution(url) {
   }
 }
 
+// CIN & LLPIN Registry Mapping Dictionaries
+const CIN_STATE_MAP = {
+  'AP': { name: 'Andhra Pradesh', roc: 'RoC Vijayawada', dropdownVal: 'other' },
+  'AR': { name: 'Arunachal Pradesh', roc: 'RoC Shillong', dropdownVal: 'other' },
+  'AS': { name: 'Assam', roc: 'RoC Guwahati', dropdownVal: 'other' },
+  'BR': { name: 'Bihar', roc: 'RoC Patna', dropdownVal: 'other' },
+  'CH': { name: 'Chandigarh', roc: 'RoC Chandigarh', dropdownVal: 'other' },
+  'CT': { name: 'Chhattisgarh', roc: 'RoC Bilaspur', dropdownVal: 'other' },
+  'DL': { name: 'Delhi', roc: 'RoC Delhi & Haryana', dropdownVal: 'delhi' },
+  'GA': { name: 'Goa', roc: 'RoC Goa', dropdownVal: 'other' },
+  'GJ': { name: 'Gujarat', roc: 'RoC Ahmedabad', dropdownVal: 'other' },
+  'HR': { name: 'Haryana', roc: 'RoC Delhi & Haryana', dropdownVal: 'delhi' },
+  'HP': { name: 'Himachal Pradesh', roc: 'RoC Himachal Pradesh', dropdownVal: 'other' },
+  'JH': { name: 'Jharkhand', roc: 'RoC Ranchi', dropdownVal: 'other' },
+  'KA': { name: 'Karnataka', roc: 'RoC Bangalore', dropdownVal: 'karnataka' },
+  'KL': { name: 'Kerala', roc: 'RoC Ernakulam', dropdownVal: 'kerala' },
+  'MP': { name: 'Madhya Pradesh', roc: 'RoC Gwalior', dropdownVal: 'other' },
+  'MH': { name: 'Maharashtra', roc: 'RoC Mumbai / Pune', dropdownVal: 'maharashtra' },
+  'MN': { name: 'Manipur', roc: 'RoC Shillong', dropdownVal: 'other' },
+  'ML': { name: 'Meghalaya', roc: 'RoC Shillong', dropdownVal: 'other' },
+  'MZ': { name: 'Mizoram', roc: 'RoC Shillong', dropdownVal: 'other' },
+  'NL': { name: 'Nagaland', roc: 'RoC Shillong', dropdownVal: 'other' },
+  'OR': { name: 'Odisha', roc: 'RoC Cuttack', dropdownVal: 'other' },
+  'PB': { name: 'Punjab', roc: 'RoC Chandigarh', dropdownVal: 'other' },
+  'RJ': { name: 'Rajasthan', roc: 'RoC Jaipur', dropdownVal: 'other' },
+  'SK': { name: 'Sikkim', roc: 'RoC Kolkata', dropdownVal: 'other' },
+  'TN': { name: 'Tamil Nadu', roc: 'RoC Chennai / Coimbatore', dropdownVal: 'tamil-nadu' },
+  'TS': { name: 'Telangana', roc: 'RoC Hyderabad', dropdownVal: 'telangana' },
+  'TG': { name: 'Telangana', roc: 'RoC Hyderabad', dropdownVal: 'telangana' },
+  'TR': { name: 'Tripura', roc: 'RoC Shillong', dropdownVal: 'other' },
+  'UP': { name: 'Uttar Pradesh', roc: 'RoC Kanpur', dropdownVal: 'other' },
+  'UT': { name: 'Uttarakhand', roc: 'RoC Uttarakhand', dropdownVal: 'other' },
+  'WB': { name: 'West Bengal', roc: 'RoC Kolkata', dropdownVal: 'other' }
+};
+
+const CIN_TYPE_MAP = {
+  'PTC': { type: 'pvt-ltd', label: 'Private Limited Company' },
+  'PLC': { type: 'public-ltd', label: 'Public Limited Company' },
+  'OPC': { type: 'opc', label: 'One Person Company' },
+  'GAP': { type: 'section-8', label: 'Section 8 Guarantee Non-Profit' },
+  'NPL': { type: 'section-8', label: 'Section 8 Non-Profit Company' },
+  'SGC': { type: 'public-ltd', label: 'State Government Company' },
+  'GOI': { type: 'public-ltd', label: 'Central Government Company' },
+  'FTC': { type: 'public-ltd', label: 'Subsidiary of Foreign Company' },
+  'ULL': { type: 'public-ltd', label: 'Public Unlimited Company' },
+  'ULT': { type: 'pvt-ltd', label: 'Private Unlimited Company' }
+};
+
+function decryptCin(rawInput) {
+  if (!rawInput) return null;
+  const cleaned = rawInput.trim().toUpperCase().replace(/[^A-Z0-9-]/g, '');
+
+  if (/^[A-Z]{3}-[0-9]{4}$/.test(cleaned) || /^[A-Z]{2,3}[0-9]{4,5}$/.test(cleaned)) {
+    return {
+      isValid: true,
+      kind: 'LLPIN',
+      llpin: cleaned,
+      entityType: 'llp',
+      entityLabel: 'Limited Liability Partnership (LLP)',
+      chips: [
+        { label: 'LLP Structure', icon: '🏛️' },
+        { label: 'LLPIN: ' + cleaned, icon: '📋' },
+        { label: 'RoC FiLLiP Schedule', icon: '⚖️' }
+      ]
+    };
+  }
+
+  const cinRegex = /^([UL])(\d{5})([A-Z]{2})(\d{4})([A-Z]{3})(\d{6})$/;
+  const match = cleaned.match(cinRegex);
+  if (!match) {
+    return {
+      isValid: false,
+      cleaned,
+      length: cleaned.length
+    };
+  }
+
+  const [_, listingChar, nicCode, stateCode, yearStr, typeCode, regNo] = match;
+  const isListed = listingChar === 'L';
+  const stateInfo = CIN_STATE_MAP[stateCode] || { name: stateCode, roc: 'RoC ' + stateCode, dropdownVal: 'other' };
+  const typeInfo = CIN_TYPE_MAP[typeCode] || { type: 'pvt-ltd', label: typeCode + ' Corporate Entity' };
+  const year = parseInt(yearStr, 10);
+
+  return {
+    isValid: true,
+    kind: 'CIN',
+    cin: cleaned,
+    isListed,
+    listingStatus: isListed ? 'Listed Public' : 'Unlisted Corporate',
+    nicCode,
+    stateCode,
+    stateName: stateInfo.name,
+    rocOffice: stateInfo.roc,
+    dropdownState: stateInfo.dropdownVal,
+    year,
+    typeCode,
+    entityType: typeInfo.type,
+    entityLabel: typeInfo.label,
+    regNo,
+    chips: [
+      { label: isListed ? 'Listed Public' : 'Unlisted Corporate', icon: isListed ? '📈' : '🏢' },
+      { label: stateInfo.name + ' (' + stateInfo.roc + ')', icon: '📍' },
+      { label: 'Inc. ' + year, icon: '📅' },
+      { label: typeInfo.label, icon: '⚖️' },
+      { label: 'Reg #' + regNo, icon: '🔢' }
+    ]
+  };
+}
+
+function handleCinInput(val) {
+  const statusEl = document.getElementById('cin-decrypt-status');
+  if (!val || !val.trim()) {
+    if (statusEl) {
+      statusEl.style.display = 'none';
+      statusEl.innerHTML = '';
+    }
+    return;
+  }
+
+  const res = decryptCin(val);
+  if (!res || !res.isValid) {
+    if (statusEl) {
+      if (val.trim().length >= 4) {
+        statusEl.style.display = 'block';
+        statusEl.style.background = '#FFFBEB';
+        statusEl.style.border = '1px solid #FCD34D';
+        statusEl.style.color = '#92400E';
+        statusEl.innerHTML = '<span style="font-weight: 600;">Validating Corporate Identifier:</span> Format requires 21-character CIN (e.g. <code>U72900KL2026PTC012345</code>) or LLPIN (e.g. <code>AAA-1234</code>).';
+      } else {
+        statusEl.style.display = 'none';
+      }
+    }
+    return;
+  }
+
+  // Valid CIN or LLPIN parsed
+  const entityEl = document.getElementById('entity-type');
+  const stateEl = document.getElementById('formation-state');
+  if (entityEl && res.entityType) {
+    entityEl.value = res.entityType;
+  }
+  if (stateEl && res.dropdownState) {
+    stateEl.value = res.dropdownState;
+  }
+
+  if (statusEl) {
+    statusEl.style.display = 'block';
+    statusEl.style.background = '#ECFDF5';
+    statusEl.style.border = '1px solid #A7F3D0';
+    statusEl.style.color = '#065F46';
+    const chipsHtml = res.chips.map(c => '<span class="readout-pill" style="font-size: 0.72rem; background: #FFFFFF; border: 1px solid #A7F3D0; color: #065F46; margin: 0.15rem 0.25rem 0.15rem 0; display: inline-flex; align-items: center; gap: 0.25rem;">' + c.icon + ' ' + c.label + '</span>').join('');
+    statusEl.innerHTML = '<div style="font-weight: 700; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem;">' +
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' +
+      '<span>Statutory Registry Verified (' + res.kind + ' Decrypted)</span>' +
+      '</div>' +
+      '<div style="display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.25rem;">' + chipsHtml + '</div>';
+  }
+
+  calculateCost();
+}
+
 // Module 1: Tab 1 Mode Switcher (Formation vs Annual Late Fees)
 function setTab1Mode(mode) {
   currentTab1Mode = mode === 'annual' ? 'annual' : 'formation';
@@ -70,7 +231,10 @@ function setTab1Mode(mode) {
   const btnFormation = document.getElementById('btn-mode-formation');
   const btnAnnual = document.getElementById('btn-mode-annual');
   if (btnFormation && btnAnnual) {
-    if (currentTab1Mode === 'formation') {
+    const delayCardsEl = document.getElementById('cost-of-delay-cards');
+  if (delayCardsEl) delayCardsEl.style.display = currentTab1Mode === 'annual' ? 'block' : 'none';
+
+  if (currentTab1Mode === 'formation') {
       btnFormation.classList.add('active');
       btnFormation.setAttribute('aria-checked', 'true');
       btnAnnual.classList.remove('active');
@@ -326,6 +490,39 @@ function calculateCost() {
     }
 
     total = baseProf + baseGovt + rocLateFee + addonTotal;
+    // Update Cost of Delay Scenario Cards
+    const delayCardsEl = document.getElementById('cost-of-delay-cards');
+    if (delayCardsEl) {
+      delayCardsEl.style.display = 'block';
+      const curDaysEl = document.getElementById('delay-card-current-days');
+      const curCostEl = document.getElementById('delay-card-current-cost');
+      const curTagEl = document.getElementById('delay-card-current-tag');
+      
+      const p30DaysEl = document.getElementById('delay-card-30-days');
+      const p30CostEl = document.getElementById('delay-card-30-cost');
+      const p30TagEl = document.getElementById('delay-card-30-tag');
+      
+      const p90DaysEl = document.getElementById('delay-card-90-days');
+      const p90CostEl = document.getElementById('delay-card-90-cost');
+      const p90TagEl = document.getElementById('delay-card-90-tag');
+
+      const mult = Math.max(1, overdueFormsCount);
+      const cost30 = rocLateFee + (mult * 30 * 100);
+      const cost90 = rocLateFee + (mult * 90 * 100);
+
+      if (curDaysEl) curDaysEl.textContent = delayDays + ' Days Overdue';
+      if (curCostEl) curCostEl.textContent = '₹' + rocLateFee.toLocaleString('en-IN');
+      if (curTagEl) curTagEl.textContent = delayDays === 0 ? 'Compliant' : (delayDays > 90 ? 'High Default' : 'Sec 403 Default');
+
+      if (p30DaysEl) p30DaysEl.textContent = (delayDays + 30) + ' Days Overdue';
+      if (p30CostEl) p30CostEl.textContent = '₹' + cost30.toLocaleString('en-IN');
+      if (p30TagEl) p30TagEl.textContent = (delayDays + 30 > 90) ? 'Sec 454 Notice' : 'Scrutiny Warning';
+
+      if (p90DaysEl) p90DaysEl.textContent = (delayDays + 90) + ' Days Overdue';
+      if (p90CostEl) p90CostEl.textContent = '₹' + cost90.toLocaleString('en-IN');
+      if (p90TagEl) p90TagEl.textContent = 'Sec 164 Disqualification Risk';
+    }
+
 
     const primaryCta = document.getElementById('tab1-primary-cta');
     const whatsappCta = document.getElementById('tab1-whatsapp-cta');
@@ -672,7 +869,7 @@ function renderMsmVendors() {
     return;
   }
 
-  let overdueCount = 0, dueSoonCount = 0, compliantCount = 0, notApplicableCount = 0;
+  let overdueCount = 0, dueSoonCount = 0, compliantCount = 0, notApplicableCount = 0, overdueSum = 0;
   const rows = vendors.map(v => {
     const accepted = v.acceptanceDate || today;
     const { daysAllowed, date: deadline } = getMsmPaymentDeadline({ ...v, acceptanceDate: accepted });
@@ -682,7 +879,10 @@ function renderMsmVendors() {
     const isDueSoon = daysToDeadline >= 0 && daysToDeadline <= 7;
 
     if (!inScope) notApplicableCount++;
-    else if (isOverdue) overdueCount++;
+    else if (isOverdue) {
+      overdueCount++;
+      overdueSum += Number(v.amount) || 0;
+    }
     else if (isDueSoon) dueSoonCount++;
     else compliantCount++;
 
@@ -721,6 +921,22 @@ function renderMsmVendors() {
   });
 
   container.replaceChildren(...rows);
+  // Section 43B(h) Corporate Tax Shock Calculation
+  const corporateTaxShock = Math.round(overdueSum * 0.2517);
+
+  const shockBanner = document.getElementById('msme-tax-shock-banner');
+  const shockOverdueAmt = document.getElementById('msme-shock-overdue-amt');
+  const shockTaxAmt = document.getElementById('msme-shock-tax-amt');
+  if (shockBanner) {
+    if (overdueSum > 0) {
+      shockBanner.style.display = 'block';
+      if (shockOverdueAmt) shockOverdueAmt.textContent = '₹' + overdueSum.toLocaleString('en-IN');
+      if (shockTaxAmt) shockTaxAmt.textContent = '+₹' + corporateTaxShock.toLocaleString('en-IN') + ' Advance Tax';
+    } else {
+      shockBanner.style.display = 'none';
+    }
+  }
+
   if (summaryEl) {
     summaryEl.textContent = `Total tracked: ${vendors.length} | Overdue: ${overdueCount} | Due soon: ${dueSoonCount} | Compliant: ${compliantCount}`;
   }
@@ -848,6 +1064,234 @@ function mountStartupForecastControls() {
   card.appendChild(section);
 }
 
+
+// Executive Statutory Briefing Memorandum Engine
+function generateStatutoryMemo() {
+  const modal = document.getElementById('statutory-memo-modal');
+  if (!modal) return;
+
+  const entityType = document.getElementById('entity-type')?.value || 'pvt-ltd';
+  const tier = document.getElementById('capital-tier')?.value || 'tier-1';
+  const state = document.getElementById('formation-state')?.value || 'maharashtra';
+  const delayDays = parseInt(document.getElementById('roc-delay-days')?.value, 10) || 0;
+  const cinVal = document.getElementById('cin-quick-input')?.value?.trim() || '';
+
+  const entityLabels = {
+    'pvt-ltd': 'Private Limited Company (SPICe+ Part A/B)',
+    'llp': 'Limited Liability Partnership (LLP / FiLLiP)',
+    'opc': 'One Person Company (OPC / SPICe+)',
+    'section-8': 'Section 8 Non-Profit Company (INC-12)',
+    'public-ltd': 'Public Limited Company (Unlisted)'
+  };
+
+  const stateLabels = {
+    'delhi': 'NCT of Delhi (RoC Delhi & Haryana)',
+    'maharashtra': 'Maharashtra (RoC Mumbai / Pune)',
+    'karnataka': 'Karnataka (RoC Bangalore)',
+    'tamil-nadu': 'Tamil Nadu (RoC Chennai / Coimbatore)',
+    'kerala': 'Kerala (RoC Ernakulam)',
+    'telangana': 'Telangana (RoC Hyderabad)',
+    'other': 'Other Indian States / UTs'
+  };
+
+  const tierLabels = {
+    'tier-1': 'Up to ₹1 Lakh Authorized Nominal Capital',
+    'tier-2': '₹1 Lakh to ₹10 Lakhs Capital',
+    'tier-3': '₹10 Lakhs to ₹25 Lakhs Capital',
+    'tier-4': 'Above ₹25 Lakhs Capital'
+  };
+
+  const refCode = 'CCS-MEMO-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+  const todayStr = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date());
+
+  const refBadge = document.getElementById('memo-ref-badge');
+  const refEl = document.getElementById('memo-ref');
+  const dateEl = document.getElementById('memo-date');
+  const entityEl = document.getElementById('memo-entity-type');
+  const jurisdictionEl = document.getElementById('memo-jurisdiction');
+  const capitalEl = document.getElementById('memo-capital-tier');
+  const cinEl = document.getElementById('memo-cin');
+  const subjectEl = document.getElementById('memo-subject');
+  const tbody = document.getElementById('memo-ledger-rows');
+  const totalOutlayEl = document.getElementById('memo-total-outlay');
+  const govNotesEl = document.getElementById('memo-governance-notes');
+  const waBtn = document.getElementById('memo-whatsapp-btn');
+
+  if (refBadge) refBadge.textContent = 'REF: ' + refCode;
+  if (refEl) refEl.textContent = 'REF: ' + refCode;
+  if (dateEl) dateEl.textContent = 'DATE: ' + todayStr;
+  if (entityEl) entityEl.textContent = entityLabels[entityType] || entityType;
+  if (jurisdictionEl) jurisdictionEl.textContent = stateLabels[state] || state;
+  if (capitalEl) capitalEl.textContent = tierLabels[tier] || tier;
+  if (cinEl) cinEl.textContent = cinVal ? cinVal.toUpperCase() : 'PENDING FORMATION / BENCHMARK';
+
+  const rows = [];
+  if (currentTab1Mode === 'formation') {
+    if (subjectEl) subjectEl.textContent = 'EXECUTIVE STATUTORY OUTLAY MEMORANDUM: ' + (entityLabels[entityType] || entityType);
+
+    const profFee = document.getElementById('prof-fee')?.textContent || '₹4,999';
+    const govtFee = document.getElementById('govt-fee')?.textContent || '₹0';
+    const stampFee = document.getElementById('stamp-fee')?.textContent || '₹1,000';
+    const totalFee = document.getElementById('total-fee')?.textContent || '₹5,999';
+
+    rows.push({
+      item: 'Professional Secretarial & CS Retainer',
+      basis: 'Chartered Secretarial drafting of MoA, AoA, e-Form SPICe+ Part A & B certification',
+      amt: profFee
+    });
+    rows.push({
+      item: 'MCA V3 Government Filing Fee',
+      basis: 'Statutory Fee under MCA Rule 38 (Zero government fee for capital up to ₹15 Lakhs)',
+      amt: govtFee
+    });
+    rows.push({
+      item: 'State Stamp Duty on Constitution Documents',
+      basis: (stateLabels[state] || state) + ' Stamp Act schedules on Articles & Memorandum',
+      amt: stampFee
+    });
+    rows.push({
+      item: 'DSC & DIN Mandatory Allotment',
+      basis: '2x Class-3 Digital Signature Tokens & Director Identification Numbers',
+      amt: 'Included in Base'
+    });
+
+    if (document.getElementById('f-addon-gst')?.checked) {
+      rows.push({ item: 'GST Registration Expedited Filing', basis: 'Form GST REG-01 & ARN verification', amt: '₹999' });
+    }
+    if (document.getElementById('f-addon-dpiit')?.checked) {
+      rows.push({ item: 'Startup India DPIIT Recognition & Tax Exemption Kit', basis: 'Form 1 Section 80-IAC tax exemption & DPIIT certificate', amt: '₹2,499' });
+    }
+    if (document.getElementById('f-addon-tm')?.checked) {
+      rows.push({ item: 'Trademark Clearance & Form TM-A Filing', basis: 'NICE Class clearance & filing under Trade Marks Act 1999', amt: '₹3,999' });
+    }
+    if (document.getElementById('f-addon-governance')?.checked) {
+      rows.push({ item: 'Corporate Banking Resolution & Share Certificates Kit', basis: 'Form SH-1 share certificates and banking minutes', amt: '₹1,499' });
+    }
+
+    if (totalOutlayEl) totalOutlayEl.textContent = totalFee;
+
+    if (govNotesEl) {
+      govNotesEl.innerHTML = '<ul style="margin: 0; padding-left: 1.25rem; line-height: 1.65;">' +
+        '<li><strong>Form INC-20A Mandatory Requirement:</strong> Under Section 10A of Companies Act 2013, declaration of commencement of business must be filed within 180 days of incorporation with bank deposit verification proof.</li>' +
+        '<li><strong>Statutory Auditor Appointment (Form ADT-1):</strong> Board must appoint First Statutory Auditor within 30 days of incorporation under Section 139.</li>' +
+        '<li><strong>Registered Office Verification (Form INC-22):</strong> Formal physical address verification must be submitted within 30 days under Section 12.</li>' +
+        '<li><strong>All Filings Supervised:</strong> Work managed by Practicing Company Secretaries (PCS) and Chartered Accountants (FCA).</li>' +
+        '</ul>';
+    }
+  } else {
+    if (subjectEl) subjectEl.textContent = 'EXECUTIVE STATUTORY EXPOSURE & REGULARIZATION MEMO: ROC ANNUAL RETURNS';
+
+    const profFee = document.getElementById('prof-fee')?.textContent || '₹15,999';
+    const govtFee = document.getElementById('govt-fee')?.textContent || '₹1,200';
+    const lateFee = document.getElementById('roc-late-fee')?.textContent || '₹0';
+    const addonFee = document.getElementById('addon-fee')?.textContent || '₹0';
+    const totalFee = document.getElementById('total-fee')?.textContent || '₹17,199';
+
+    rows.push({
+      item: 'Annual Secretarial Retainer (Full-Scope)',
+      basis: 'Preparation of Board Report, Annual General Meeting (AGM), and Secretarial Records',
+      amt: profFee
+    });
+    rows.push({
+      item: 'Base MCA Challan Fee',
+      basis: 'Statutory filing fees under Companies (Registration Offices and Fees) Rules 2014',
+      amt: govtFee
+    });
+    rows.push({
+      item: 'Section 403 Default Late Filing Fees',
+      basis: delayDays + ' days overdue across defaulting forms @ ₹100/day per form',
+      amt: lateFee
+    });
+    if (addonFee !== '₹0') {
+      rows.push({
+        item: 'Selected Governance Add-ons',
+        basis: 'Register reconstruction, DIR-3 KYC, or PAS-6 reconciliation',
+        amt: addonFee
+      });
+    }
+
+    if (totalOutlayEl) totalOutlayEl.textContent = totalFee;
+
+    if (govNotesEl) {
+      govNotesEl.innerHTML = '<ul style="margin: 0; padding-left: 1.25rem; line-height: 1.65;">' +
+        '<li><strong>Section 403 Daily Late Fee Exposure:</strong> Statutory late filing fees compound daily at ₹100/day for each overdue form (AOC-4 and MGT-7). Immediate e-filing halts further financial leakage.</li>' +
+        '<li><strong>Section 164(2) Director Disqualification:</strong> Directors face immediate disqualification for 5 years if annual accounts or returns are not filed for three consecutive financial years.</li>' +
+        '<li><strong>Section 454 Adjudication Risk:</strong> RoC issues Section 454 show-cause notices for defaults exceeding 90 days, exposing company and officers to direct monetary penalties up to ₹5,00,000.</li>' +
+        '<li><strong>Regularization Roadmap:</strong> Immediate audit closure, DIN activation, and e-filing under certified PCS supervision recommended.</li>' +
+        '</ul>';
+    }
+  }
+
+  if (tbody) {
+    tbody.innerHTML = rows.map(r => '<tr>' +
+      '<td style="padding: 0.6rem 0.75rem; border: 1px solid #E2E8F0; font-weight: 600; color: #0F172A;">' + r.item + '</td>' +
+      '<td style="padding: 0.6rem 0.75rem; border: 1px solid #E2E8F0; color: #475569;">' + r.basis + '</td>' +
+      '<td style="padding: 0.6rem 0.75rem; border: 1px solid #E2E8F0; text-align: right; font-family: var(--font-mono); font-weight: 700; color: #0F172A;">' + r.amt + '</td>' +
+      '</tr>').join('');
+  }
+
+  if (waBtn) {
+    const totalOutlay = document.getElementById('total-fee')?.textContent || '₹0';
+    const waText = 'Hello CraftEgon CCS CS Desk, I generated Executive Statutory Memorandum ' + refCode + ' for ' + (entityLabels[entityType] || entityType) + ' (Estimated Outlay: ' + totalOutlay + '). I would like to schedule execution.';
+    waBtn.href = 'https://wa.me/918606918247?text=' + encodeURIComponent(waText);
+  }
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeStatutoryMemo() {
+  const modal = document.getElementById('statutory-memo-modal');
+  if (modal) modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function switchTab(tabIndex) {
+  for (let i = 1; i <= 4; i++) {
+    const btn = document.getElementById('tab-btn-' + i);
+    const content = document.getElementById('calc-tab-' + i);
+    if (btn && content) {
+      if (i === tabIndex) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        content.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+        content.classList.remove('active');
+      }
+    }
+  }
+}
+
+function handleHashRouting() {
+  try {
+    const hash = (window.location.hash || '').toLowerCase();
+    if (!hash) return;
+    if (hash.includes('tax') || hash.includes('msme') || hash === '#calc-tab-3' || hash === '#tab-3') {
+      switchTab(3);
+    } else if (hash.includes('gst') || hash === '#calc-tab-2' || hash === '#tab-2') {
+      switchTab(2);
+    } else if (hash.includes('startup') || hash.includes('cap-table') || hash.includes('emi') || hash === '#calc-tab-4' || hash === '#tab-4') {
+      switchTab(4);
+    } else if (hash.includes('annual') || hash.includes('roc') || hash.includes('penalty') || hash.includes('late-fee')) {
+      switchTab(1);
+      setTab1Mode('annual');
+    } else if (hash.includes('formation') || hash.includes('outlay') || hash === '#calc-tab-1' || hash === '#tab-1') {
+      switchTab(1);
+      setTab1Mode('formation');
+    } else if (hash.includes('cin')) {
+      switchTab(1);
+      const cinInput = document.getElementById('cin-quick-input');
+      if (cinInput) {
+        cinInput.focus();
+      }
+    }
+  } catch (e) {
+    // Non-blocking
+  }
+}
+
 function disableExpiredCcfsControl() {
   const checkbox = document.getElementById('ccfs-mode');
   if (!checkbox) return;
@@ -931,12 +1375,19 @@ document.addEventListener('DOMContentLoaded', () => {
   calculateCapTable();
   renderMsmVendors();
   decorateOutboundLinks();
+  handleHashRouting();
+  window.addEventListener('hashchange', handleHashRouting);
 });
 
 // Export for window
 window.CraftegonCalculator = {
   get currentTab1Mode() { return currentTab1Mode; },
   setTab1Mode,
+  switchTab,
+  decryptCin,
+  handleCinInput,
+  generateStatutoryMemo,
+  closeStatutoryMemo,
   onEntityTypeChange,
   calculateCost,
   calculateGst,
