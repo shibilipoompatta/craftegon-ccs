@@ -264,8 +264,21 @@
 
 @media (max-width: 1024px) {
   .service-layout-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
+  }
+
+  .service-sidebar-rail {
+    position: static !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .service-passport-card {
+    border-radius: 14px;
+    padding: 1.35rem 1.15rem;
   }
 }
 

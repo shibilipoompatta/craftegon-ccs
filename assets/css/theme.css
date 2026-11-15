@@ -589,11 +589,21 @@ h1, h2, h3, h4, h5, h6, p, .noble-heading, .section-heading, .tool-title, .key-s
   margin-bottom: 1.5rem;
 }
 
+.table-responsive table {
+  min-width: 520px;
+}
+
 table {
   max-width: 100%;
 }
 
-/* D. High-Contrast Focus Ring on Dark Surfaces */
+/* D. High-Contrast Focus Ring on Dark Surfaces & Interactive Controls (WCAG 2.2 AA SC 2.4.11) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible,
 .if-footer :focus-visible,
 .btn-primary:focus-visible,
 .if-btn-primary:focus-visible,

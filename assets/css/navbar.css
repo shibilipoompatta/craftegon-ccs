@@ -211,6 +211,16 @@
   pointer-events: none;
 }
 
+@media (min-width: 1024px) and (max-width: 1240px) {
+  .if-dropdown:has(.if-megamenu) .if-megamenu,
+  .if-megamenu {
+    left: auto !important;
+    right: -120px !important;
+    max-width: calc(100vw - 40px) !important;
+  }
+}
+
+
 /* Strictly click-activated state (.is-open) - No unwanted popups or flashes on load */
 .if-dropdown.is-open > .if-dropdown-content {
   display: flex !important;
@@ -824,8 +834,8 @@
   background: #FFFFFF;
   border: 1.5px solid var(--border-color);
   border-radius: var(--radius-sm);
-  width: 40px;
-  height: 40px;
+  width: 44px; min-width: 44px;
+  height: 44px; min-height: 44px;
   padding: 0;
   color: var(--text-dark, #193B46);
   cursor: pointer;
@@ -955,8 +965,8 @@ body.mobile-nav-open .if-header {
   background: #F8FAFC;
   border: 1px solid var(--border-color, #E2E8F0);
   border-radius: 8px;
-  width: 40px;
-  height: 40px;
+  width: 44px; min-width: 44px;
+  height: 44px; min-height: 44px;
   padding: 0;
   color: var(--navy-800, #0B2545);
   cursor: pointer;
@@ -1617,9 +1627,17 @@ body.mobile-nav-open .if-header {
   }
 }
 
-@media (max-width: 1023.98px) {
+@media (max-width: 767.98px) {
   .universal-search-container {
-    display: none;
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .universal-search-container {
+    display: flex !important;
+    flex: 0 1 200px !important;
+    min-width: 140px !important;
   }
 }
 
@@ -1716,8 +1734,17 @@ body.mobile-nav-open .if-header {
   /* Elevate AI chatbot toggle bubble so it never collides with sticky dock */
   .cchat-toggle,
   #ai-chat-bubble,
-  .chat-widget-toggle {
+  .chat-widget-toggle,
+  #craftegon-chat-trigger {
     bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+    right: calc(16px + env(safe-area-inset-right, 0px)) !important;
+    z-index: 860 !important;
+  }
+
+  #craftegon-chat-badge {
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 74px !important;
+    z-index: 859 !important;
   }
 }
 

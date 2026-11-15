@@ -305,6 +305,16 @@ body.mobile-nav-open #craftegon-chat-window {
   outline: none;
   padding: 0;
   flex-shrink: 0;
+  position: relative;
+}
+
+.cchat-btn-icon::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  left: -8px;
+  right: -8px;
 }
 
 .cchat-btn-icon:hover {
@@ -582,13 +592,13 @@ body.mobile-nav-open #craftegon-chat-window {
 }
 
 .cchat-input::placeholder {
-  color: #7D969F;
+  color: var(--text-secondary, #52717A);
   font-size: 0.82rem;
 }
 
 .cchat-send-btn {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   background: var(--accent-green-primary, #247A62);
   border: none;
   border-radius: 8px;
@@ -599,6 +609,16 @@ body.mobile-nav-open #craftegon-chat-window {
   justify-content: center;
   transition: all 0.15s ease;
   flex-shrink: 0;
+  position: relative;
+}
+
+.cchat-send-btn::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
 }
 
 .cchat-send-btn:hover {
@@ -715,7 +735,7 @@ body.mobile-nav-open #craftegon-chat-window {
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 480px) {
+@media (max-width: 767.98px) {
   #craftegon-chat-window {
     bottom: 0;
     right: 0;
@@ -726,16 +746,26 @@ body.mobile-nav-open #craftegon-chat-window {
     max-height: 85dvh;
     border-radius: 20px 20px 0 0;
     border-bottom: none;
+    z-index: 950 !important; /* Elevated safely above sticky mobile dock (z-index: 850) */
   }
   .cchat-input {
     font-size: 16px !important; /* Prevents iOS Safari auto-zoom */
   }
   #craftegon-chat-trigger {
-    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    right: calc(16px + env(safe-area-inset-right, 0px));
+    bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+    right: calc(16px + env(safe-area-inset-right, 0px)) !important;
     width: 48px;
     height: 48px;
+    z-index: 860 !important;
   }
+  #craftegon-chat-badge {
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 74px !important;
+    z-index: 859 !important;
+  }
+}
+
+@media (max-width: 480px) {
   #craftegon-chat-badge {
     display: none;
   }
