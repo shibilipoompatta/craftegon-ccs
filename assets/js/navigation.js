@@ -589,7 +589,6 @@ function injectContextualReturnTrail() {
         '/verticals/11-governance-audit.html': 'Governance, Audit & Risk',
         '/verticals/12-esg-csr.html': 'Data Privacy & Tech Law',
         '/verticals/13-cross-border-fema.html': 'FEMA & Cross-Border Advisory',
-        '/verticals/14-exit-insolvency.html': 'Exit, Strike-Off & Dissolution',
         '/verticals/15-it-digital.html': 'IT & Digital Infrastructure'
       };
 

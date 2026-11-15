@@ -132,12 +132,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://ccs.craftegon.com/conversion/strike-off-checker.html</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  
   <url>
     <loc>https://ccs.craftegon.com/conversion/tax-intake.html</loc>
     <lastmod>2026-10-15</lastmod>
@@ -691,12 +686,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://ccs.craftegon.com/verticals/14-exit-insolvency.html</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+  
   <url>
     <loc>https://ccs.craftegon.com/verticals/15-it-digital.html</loc>
     <lastmod>2026-10-15</lastmod>

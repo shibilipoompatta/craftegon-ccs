@@ -234,7 +234,7 @@ const KB=[
   r:`Under Section 248 of Companies Act 2013:<br>
   * <b>Form STK-2:</b> Fast-track closure for entities inactive for 2 financial years with zero assets/liabilities.<br>
   * <b>Form MSC-1:</b> Retain corporate name with minimal compliance via Dormant Status.`,
-  a:[['STK-2 Eligibility Checker','/conversion/strike-off-checker.html'],['Form STK-2 Strike-Off Service','/services/form-stk2-strike-off.html'],['Dormant Status (MSC-1) Filing','/services/form-msc1-dormant.html']]},
+  a:[['Form STK-2 Strike-Off Service','/services/form-stk2-strike-off.html'],['Dormant Status (MSC-1) Filing','/services/form-msc1-dormant.html']]},
 
   {k:['msme','43bh','45 day','vendor payment','msme-1','udyam','priority lending'],
   r:`MSME 43B(h) Payment Compliance:<br>
@@ -446,7 +446,7 @@ function inferActionPills(query, botText) {
     pills.push(['Trademark Clearance', '/conversion/trademark-search.html']);
   }
   if (combined.includes('strike off') || combined.includes('closure') || combined.includes('stk-2')) {
-    pills.push(['Strike-Off Checker', '/conversion/strike-off-checker.html']);
+    // Strike-off checker retired
   }
 
   // Always append primary conversion actions

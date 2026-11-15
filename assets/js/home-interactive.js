@@ -83,7 +83,6 @@ const SERVICES_DATA = [
   { name: 'AI Legal Document Drafter Online', code: 'Flagship AI Tool', url: '/conversion/ai-document-generator.html', tags: 'ai drafter board resolution agreement generate' },
   { name: 'MCA Late Fee & Retainer Computor', code: 'Interactive Tool', url: '/conversion/calculator.html', tags: 'calculator late fee mca penalty retainer' },
   { name: 'NICE Trademark Class Screener', code: 'IP Search Tool', url: '/conversion/trademark-search.html', tags: 'trademark search class 1 to 45' },
-  { name: 'STK-2 Fast-Track Strike-Off Checker', code: 'Diagnostic Tool', url: '/conversion/strike-off-checker.html', tags: 'strike off checker dissolution 248' }
 ];
 
 function initCommandSearch() {
