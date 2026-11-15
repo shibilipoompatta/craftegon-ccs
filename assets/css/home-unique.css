@@ -3830,6 +3830,8 @@ a, button, input, select, textarea,
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
   margin-bottom: 0.85rem;
   font-size: 0.75rem;
   font-weight: 700;

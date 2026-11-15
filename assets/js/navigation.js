@@ -599,75 +599,50 @@ function injectContextualReturnTrail() {
       }
     }
 
-    // 1. Dynamic Breadcrumb Trail
-    if (isConversionPage) {
-      const breadcrumb = document.querySelector('.if-breadcrumb');
-      if (breadcrumb) {
-        const currentPageSpan = breadcrumb.querySelector('span:last-of-type') || document.querySelector('h1');
-        let currentLabel = currentPageSpan ? currentPageSpan.textContent.trim() : (document.title.split('|')[0].trim());
+    // 1. Semantic Breadcrumb Integrity
+    // The breadcrumb strictly preserves the current document's authoritative structural hierarchy.
+    // It should never be overwritten with foreign referrer paths from previous sessions.
 
-        // Concise clamping for breadcrumb titles to prevent 3-line wrapping
-        let breadcrumbSourceTitle = sourceTitle;
-        if (serviceMatch && serviceMatch.aliases && serviceMatch.aliases[0] && serviceMatch.name.length > 30) {
-          breadcrumbSourceTitle = serviceMatch.aliases[0];
-        } else if (breadcrumbSourceTitle.length > 32) {
-          breadcrumbSourceTitle = breadcrumbSourceTitle.split('&')[0].trim();
-        }
-
-        if (currentLabel.length > 35) {
-          currentLabel = currentLabel.split('&')[0].trim();
-        }
-
-        let newBreadcrumbHtml = `<a href="/index.html">Home</a>`;
-        if (parentVerticalRoute && parentVerticalName) {
-          newBreadcrumbHtml += ` / <a href="${parentVerticalRoute}">${parentVerticalName}</a>`;
-        }
-        newBreadcrumbHtml += ` / <a href="${sourcePath}">${breadcrumbSourceTitle}</a>`;
-        newBreadcrumbHtml += ` / <span aria-current="page">${currentLabel}</span>`;
-
-        breadcrumb.innerHTML = newBreadcrumbHtml;
-      }
-
-      // 2. High-Visibility Return Bar (Synchronizes dynamic or existing static return bar)
-      let returnBar = document.getElementById('if-contextual-return-bar');
-      if (returnBar) {
-        const link = returnBar.querySelector('.if-return-trail-link') || returnBar.querySelector('a');
-        if (link) {
-          link.href = sourcePath;
-          link.setAttribute('aria-label', `Return to ${sourceTitle}`);
-          link.innerHTML = `
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            <span>Return to ${sourceTitle}</span>
-          `;
-        }
-        const badge = returnBar.querySelector('.if-return-badge');
-        if (badge) {
-          badge.textContent = 'Originating Desk';
-        }
-      } else {
-        returnBar = document.createElement('div');
-        returnBar.id = 'if-contextual-return-bar';
-        returnBar.className = 'if-contextual-return-bar';
-        returnBar.innerHTML = `
-          <a href="${sourcePath}" class="if-return-trail-link" id="contextual-return-link" aria-label="Return to ${sourceTitle}">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            <span>Return to ${sourceTitle}</span>
-          </a>
-          <span class="if-return-badge">Originating Desk</span>
+    // 2. High-Visibility Return Bar (Synchronizes dynamic or existing static return bar)
+    let returnBar = document.getElementById('if-contextual-return-bar');
+    if (returnBar) {
+      const link = returnBar.querySelector('.if-return-trail-link') || returnBar.querySelector('a');
+      if (link) {
+        link.href = sourcePath;
+        link.setAttribute('aria-label', `Return to ${sourceTitle}`);
+        link.innerHTML = `
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          <span>Return to ${sourceTitle}</span>
         `;
-
-        const breadcrumbEl = document.querySelector('.if-breadcrumb');
-        const mainEl = document.querySelector('main');
-        if (breadcrumbEl && breadcrumbEl.parentNode) {
-          breadcrumbEl.parentNode.insertBefore(returnBar, breadcrumbEl.nextSibling);
-        } else if (mainEl) {
-          mainEl.insertBefore(returnBar, mainEl.firstChild);
-        }
       }
+      const badge = returnBar.querySelector('.if-return-badge');
+      if (badge) {
+        badge.textContent = 'Previous Desk';
+      }
+    } else {
+      returnBar = document.createElement('div');
+      returnBar.id = 'if-contextual-return-bar';
+      returnBar.className = 'if-contextual-return-bar';
+      returnBar.innerHTML = `
+        <a href="${sourcePath}" class="if-return-trail-link" id="contextual-return-link" aria-label="Return to ${sourceTitle}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          <span>Return to ${sourceTitle}</span>
+        </a>
+        <span class="if-return-badge">Previous Desk</span>
+      `;
+
+      const breadcrumbEl = document.querySelector('.if-breadcrumb');
+      const mainEl = document.querySelector('main');
+      if (breadcrumbEl && breadcrumbEl.parentNode) {
+        breadcrumbEl.parentNode.insertBefore(returnBar, breadcrumbEl.nextSibling);
+      } else if (mainEl) {
+        mainEl.insertBefore(returnBar, mainEl.firstChild);
+      }
+    }
 
       // 3. Cancel link in lead form
       const forms = document.querySelectorAll('form.if-lead-form, form[data-conversion-form], form');
