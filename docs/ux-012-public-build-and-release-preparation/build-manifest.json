@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T14:47:40.023Z",
+  "buildTimestamp": "2026-11-15T15:19:37.892Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,10 +11,10 @@
   },
   "metrics": {
     "totalFilesIncluded": 179,
-    "totalOutputSizeBytes": 11475526,
-    "totalOutputSizeFormatted": "10.94 MB",
+    "totalOutputSizeBytes": 11602322,
+    "totalOutputSizeFormatted": "11.06 MB",
     "sanitizedResidualLinksCount": 1,
-    "preRenderedSSGPagesCount": 123,
+    "preRenderedSSGPagesCount": 126,
     "filesByExtension": {
       ".html": 131,
       ".css": 11,
@@ -99,7 +99,7 @@
     },
     {
       "path": "assets/css/theme.css",
-      "bytes": 12308
+      "bytes": 12362
     },
     {
       "path": "assets/css/tokens.css",
@@ -267,15 +267,15 @@
     },
     {
       "path": "conversion/ppc-annual-compliance.html",
-      "bytes": 30212
+      "bytes": 72468
     },
     {
       "path": "conversion/ppc-company-registration.html",
-      "bytes": 32414
+      "bytes": 74626
     },
     {
       "path": "conversion/ppc-trademark-registration.html",
-      "bytes": 31317
+      "bytes": 73591
     },
     {
       "path": "conversion/retainer-desk.html",
