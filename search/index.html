@@ -143,6 +143,31 @@
     .spinner { width: 32px; height: 32px; border: 3px solid var(--border-color); border-top-color: var(--brand-gold); border-radius: 50%; margin: 0 auto 1rem; animation: spin 1s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
     .error-msg { background: #FEF2F2; border: 1px solid #FECACA; color: #991B1B; padding: 1rem; border-radius: 8px; margin-top: 1rem; }
+    @media print {
+      #global-navbar, #global-footer, .search-hero, .search-tabs, .search-input-shell, .reg-card, .company-tabs-nav, .dossier-print-btn, .intelligence-benchmark-section, .disclaimer, .cta-bar, .if-header-actions, .search-preview-notice {
+        display: none !important;
+      }
+      body, main, #main-content {
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+      .comp-tab-panel {
+        display: block !important;
+        margin-bottom: 2rem !important;
+        page-break-inside: avoid;
+      }
+      .result-card {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+      .entity-name {
+        font-size: 2rem !important;
+        color: #0B2545 !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -192,11 +217,18 @@
         </form>
         <div class="preset-chips">
           <span>Quick lookups:</span>
-          <button type="button" class="preset-chip-btn" onclick="populateSearch('company', 'Reliance Industries Limited')">Reliance Industries Ltd</button>
+          <button type="button" class="preset-chip-btn" onclick="populateSearch('company', 'Tata Consultancy Services Limited')">TCS (Tata Consultancy)</button>
+          <button type="button" class="preset-chip-btn" onclick="populateSearch('company', 'Reliance Industries Limited')">Reliance Industries</button>
+          <button type="button" class="preset-chip-btn" onclick="populateSearch('company', 'Infosys Limited')">Infosys Ltd</button>
+          <button type="button" class="preset-chip-btn" onclick="populateSearch('company', 'Zomato Limited')">Zomato Ltd</button>
+          <button type="button" class="preset-chip-btn" onclick="populateSearch('company', 'Craftegon Technologies Private Limited')">Craftegon Technologies</button>
           <button type="button" class="preset-chip-btn" onclick="populateSearch('company', 'L17110MH1973PLC019786')">CIN: L17110MH1973PLC019786</button>
-          <button type="button" class="preset-chip-btn" onclick="populateSearch('company', 'AAB-9821')">LLPIN: AAB-9821 (Sample)</button>
+          <button type="button" class="preset-chip-btn" onclick="populateSearch('company', 'AAB-9821')">LLPIN: AAB-9821</button>
         </div>
       </div>
+
+      <!-- Company Results Container placed directly below search bar for immediate UX visibility -->
+      <div id="company-results" class="results-container"></div>
 
       <!-- Registration Cross-Sell Cards -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 2rem 0 3rem;">
@@ -219,8 +251,6 @@
           <a href="/services/cross-border-tech-transfer.html" class="reg-btn">Explore US Setup &rarr;</a>
         </article>
       </div>
-
-      <div id="company-results" class="results-container"></div>
     </div>
 
     <!-- Trademark Search Panel -->
@@ -291,6 +321,65 @@
 
       <div id="gstin-results" class="results-container"></div>
     </div>
+
+    <!-- ZaubaCorp 2.0 Architectural Comparison & Authority Matrix -->
+    <section class="intelligence-benchmark-section" style="margin-top: 3.5rem; border-top: 1px solid var(--border-color); padding-top: 3rem;">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem;">
+        <span style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-gold); background: rgba(197, 155, 39, 0.1); border: 1px solid rgba(197, 155, 39, 0.3); padding: 4px 12px; border-radius: 999px;">
+          Institutional Intelligence vs Public Aggregators
+        </span>
+        <h2 style="font-family: var(--font-heading, var(--font-heading)); font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--navy-800, #0B2545); margin: 0.75rem 0 0.5rem;">
+          How CraftEgon CCS Reinvents Corporate Intelligence (ZaubaCorp 2.0)
+        </h2>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+          Public aggregator directories like ZaubaCorp provide passive raw data dumps cluttered with third-party advertisements. CraftEgon transforms statutory MCA records into an autonomous compliance diagnostic and 1-click legal remediation desk.
+        </p>
+      </div>
+
+      <div style="overflow-x: auto; margin-bottom: 2.5rem; border: 1px solid var(--border-color); border-radius: 12px; background: #FFFFFF; box-shadow: 0 4px 16px rgba(11,37,69,0.04);">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left;">
+          <thead>
+            <tr style="background: #0B2545; color: #FFFFFF;">
+              <th style="padding: 14px 18px; font-weight: 700;">Evaluation Parameter</th>
+              <th style="padding: 14px 18px; font-weight: 700; width: 35%; background: #1e3a5f;">Legacy Directories (ZaubaCorp, Tofler)</th>
+              <th style="padding: 14px 18px; font-weight: 700; width: 40%; background: #047857; color: #FFFFFF;">CraftEgon Corporate Intelligence (CCS)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 18px; font-weight: 600; color: #0B2545;">User Interface &amp; Ads</td>
+              <td style="padding: 12px 18px; color: #64748b;">Cluttered, banner ads (Google AdSense), 2010-era rigid HTML tables, unoptimized mobile UX</td>
+              <td style="padding: 12px 18px; color: #166534; font-weight: 600; background: #f0fdf4;">100% ad-free institutional luxury UI, responsive multi-tab layout, executive typography</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 18px; font-weight: 600; color: #0B2545;">Data Actionability</td>
+              <td style="padding: 12px 18px; color: #64748b;">Passive "dead data"; reports overdue forms without penalty impact or actionable remedies</td>
+              <td style="padding: 12px 18px; color: #166534; font-weight: 600; background: #f0fdf4;">Autonomous Statutory Risk Engine with Compliance Health Score (0-100) &amp; Section 403 daily late fee projections</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 18px; font-weight: 600; color: #0B2545;">Compliance Remediation</td>
+              <td style="padding: 12px 18px; color: #64748b;">None. Dead-end after viewing data; cannot regularize filings or consult a Company Secretary</td>
+              <td style="padding: 12px 18px; color: #166534; font-weight: 600; background: #f0fdf4;">1-Click statutory filing links (AOC-4, MGT-7, DIR-3 KYC, CHG-4, STK-2) with licensed CS Legal Desk</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 18px; font-weight: 600; color: #0B2545;">Due Diligence Reports</td>
+              <td style="padding: 12px 18px; color: #64748b;">Pay ₹100 - ₹500 to download raw MCA PDF extracts; lacks executive summary or analysis</td>
+              <td style="padding: 12px 18px; color: #166534; font-weight: 600; background: #f0fdf4;">1-Click Instant Printable Executive Due Diligence Dossier with statutory checklist &amp; risk matrix</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 18px; font-weight: 600; color: #0B2545;">Official Live Gateway</td>
+              <td style="padding: 12px 18px; color: #64748b;">Cached data often months stale; no direct bridge to official government registries</td>
+              <td style="padding: 12px 18px; color: #166534; font-weight: 600; background: #f0fdf4;">Seamless 1-click bridge to MCA V3, IP India Trade Marks &amp; GSTN with 1-click query clipboard copy</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 18px; font-weight: 600; color: #0B2545;">Corporate Governance Radar</td>
+              <td style="padding: 12px 18px; color: #64748b;">Basic list of names; no director standing, KYC monitoring, or disqualification flags</td>
+              <td style="padding: 12px 18px; color: #166534; font-weight: 600; background: #f0fdf4;">Section 164(2) Director Disqualification check, Rule 12A DIR-3 KYC tracking, and MSME 43B(h) compliance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
     <p class="disclaimer">Search results are sourced from public MCA Master Data, IP India Trademark Registry, and GSTN APIs. Data freshness: MCA/IP India ~24hr cache; GSTIN ~1hr cache. This tool provides preliminary intelligence only. Certified extracts require official registry requests. <a href="/legal/disclaimer.html" style="color: var(--brand-gold);">Full Disclaimer</a></p>
   </main>
