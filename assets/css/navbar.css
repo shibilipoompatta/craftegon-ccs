@@ -58,13 +58,13 @@
   flex-wrap: nowrap;
 }
 
-/* --- Brand Logo & Official Image Integration --- */
+/* --- Brand Logo & Official Image Integration (Institutional Standard) --- */
 .if-brand-logo {
   display: flex;
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
   flex-shrink: 0;
   white-space: nowrap !important;
 }
@@ -78,17 +78,19 @@
   height: 38px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1.5px solid var(--brand-gold);
-  box-shadow: 0 0 10px rgba(197, 155, 39, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #FFFFFF;
+  border: 1.5px solid var(--accent-mint-vibrant, #75CDA9);
+  box-shadow: 0 2px 8px rgba(16, 38, 46, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   display: inline-block;
   vertical-align: middle;
   flex-shrink: 0;
 }
 
 .if-brand-logo:hover .brand-logo-img {
-  transform: scale(1.06);
-  box-shadow: 0 0 16px rgba(197, 155, 39, 0.45);
+  transform: scale(1.05);
+  border-color: var(--accent-green-primary, #247A62);
+  box-shadow: 0 4px 12px rgba(36, 122, 98, 0.2);
 }
 
 .brand-text-block {
@@ -101,10 +103,10 @@
 }
 
 .brand-title {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-dark);
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--navy-900, #10262E);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1.1;
@@ -113,11 +115,11 @@
 }
 
 .brand-subtitle {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--brand-gold);
-  letter-spacing: 0.08em;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-green-primary, #247A62);
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   line-height: 1.15;
   display: block;
@@ -125,13 +127,27 @@
   white-space: nowrap !important;
 }
 
-/* Footer Brand Lockup (White on Charcoal) */
+/* Footer Brand Lockup (High-Contrast Institutional Styling) */
+.if-footer .brand-logo-img {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(188, 235, 213, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.if-footer .if-brand-logo:hover .brand-logo-img {
+  border-color: var(--brand-mint, #BCEBD5);
+  box-shadow: 0 4px 16px rgba(188, 235, 213, 0.25);
+}
+
 .if-footer .brand-title {
-  color: #F8FAFC;
+  color: #FFFFFF !important;
+  font-weight: 800;
 }
 
 .if-footer .brand-subtitle {
-  color: var(--brand-gold);
+  color: var(--brand-mint, #BCEBD5) !important;
+  font-weight: 600;
+  letter-spacing: 0.12em;
 }
 
 /* --- Navigation Links & Mega Menu --- */
