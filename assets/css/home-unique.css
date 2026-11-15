@@ -3346,6 +3346,31 @@
   margin-top: 1px;
 }
 
+.flagship-plus-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #FEF3C7;
+  color: #B45309;
+  font-weight: 800;
+  font-size: 0.85rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.flagship-checklist-item.is-separate {
+  color: #475569;
+}
+
+.flagship-checklist-item.is-separate .separate-highlight {
+  color: #B45309;
+  font-weight: 600;
+}
+
 .flagship-btn {
   display: inline-flex;
   align-items: center;
