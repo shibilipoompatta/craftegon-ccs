@@ -506,6 +506,13 @@ function showNotFound(containerId, query, type) {
         2. <strong>Compliance Advisory:</strong> Connect with our corporate desk for manual statutory search, entity standing verification, or incorporation assistance.
       </div>
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="${registryUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-primary" style="padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; border-radius: 6px; font-weight: 600;">
+          🏛️ Open ${registryName} &rarr;
+        </a>
+        ${type === 'company' ? `
+        <a href="https://www.zaubacorp.com/companysearchresults/${encodeURIComponent(query)}" target="_blank" rel="noopener noreferrer" class="btn-royal-outline" style="padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; border-radius: 6px;">
+          🔍 View Public Filings (ZaubaCorp) &rarr;
+        </a>` : ''}
         <a href="https://wa.me/918606918247?text=${encodeURIComponent('Hello CraftEgon Compliance Desk, I would like to verify entity/trademark records for: ' + query)}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
           💬 Request Desk Search (+91 86069 18247) &rarr;
         </a>

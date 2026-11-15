@@ -359,6 +359,74 @@ async function routeRequest(req, res, config) {
     return await handleTrademarkSearch(req, res, config);
   }
 
+  // 8b. Universal Live/Fallback Registry Search Routes
+  if (pathname === '/api/v1/search/company') {
+    if (method !== 'GET') {
+      res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET' });
+      return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+    }
+    const q = (parsedUrl.searchParams.get('q') || '').trim();
+    if (!q) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ success: false, error: 'Query parameter q is required' }));
+    }
+
+    const liveApiKey = process.env.MCA_LIVE_API_KEY || process.env.CORPORATE_API_KEY;
+    const liveApiUrl = process.env.MCA_LIVE_API_URL || process.env.CORPORATE_API_URL;
+
+    if (liveApiKey && liveApiUrl) {
+      try {
+        const upstreamRes = await fetch(`${liveApiUrl}?q=${encodeURIComponent(q)}`, {
+          headers: { 'Authorization': `Bearer ${liveApiKey}`, 'Accept': 'application/json' }
+        });
+        if (upstreamRes.ok) {
+          const liveData = await upstreamRes.json();
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ success: true, entity: liveData.entity || liveData, source: 'live' }));
+        }
+      } catch (err) {
+        // Fall through to official gateway metadata
+      }
+    }
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+      success: false,
+      notFound: true,
+      query: q,
+      message: 'Direct background scraping of MCA V3 is restricted by government IT security controls (IT Act 2000). Official live deep-links are provided below.',
+      official_gateway: {
+        mca_url: 'https://www.mca.gov.in/content/mca/global/en/mca/fo-llp-services/company-llp-name-search.html',
+        zauba_url: `https://www.zaubacorp.com/companysearchresults/${encodeURIComponent(q)}`,
+        desk_phone: '+91 86069 18247'
+      }
+    }));
+  }
+
+  if (pathname === '/api/v1/search/trademark') {
+    if (method !== 'GET') {
+      res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'GET' });
+      return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+    }
+    const q = (parsedUrl.searchParams.get('q') || '').trim();
+    if (!q) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ success: false, error: 'Query parameter q is required' }));
+    }
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify({
+      success: false,
+      notFound: true,
+      query: q,
+      message: 'Direct background scraping of IP India is restricted by CAPTCHA and government anti-bot controls. Official live deep-links are provided below.',
+      official_gateway: {
+        ipindia_url: 'https://ipindiaservices.gov.in/tmrpublicsearch/frmathena.aspx',
+        desk_phone: '+91 86069 18247'
+      }
+    }));
+  }
+
   // 9. Alert & Notification Routes
   if (pathname === '/api/v1/alerts/preferences') {
     if (method === 'GET') {
