@@ -1160,7 +1160,7 @@ function generateStatutoryMemo() {
     });
     rows.push({
       item: 'Class-3 Digital Signature Certificate (DSC)',
-      basis: 'Cryptographic USB token & encryption key (Payable at actuals / Client\'s existing DSC accepted)',
+      basis: 'Cryptographic USB token (Not included in package. Use existing DSC at no extra cost, or pay extra for new DSC)',
       amt: 'Extra at actuals (Separate)'
     });
 

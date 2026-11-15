@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T12:07:38.388Z",
+  "buildTimestamp": "2026-11-15T12:45:11.974Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 179,
-    "totalOutputSizeBytes": 9719325,
+    "totalOutputSizeBytes": 9723500,
     "totalOutputSizeFormatted": "9.27 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 123,
@@ -143,7 +143,7 @@
     },
     {
       "path": "assets/js/calculator.js",
-      "bytes": 58118
+      "bytes": 58133
     },
     {
       "path": "assets/js/campaign-pixels.js",
@@ -155,7 +155,7 @@
     },
     {
       "path": "assets/js/checkout.js",
-      "bytes": 14701
+      "bytes": 14772
     },
     {
       "path": "assets/js/config.js",
@@ -191,7 +191,7 @@
     },
     {
       "path": "assets/js/search-index.js",
-      "bytes": 73869
+      "bytes": 73913
     },
     {
       "path": "assets/js/service-search.js",
@@ -215,7 +215,7 @@
     },
     {
       "path": "conversion/calculator.html",
-      "bytes": 114505
+      "bytes": 115488
     },
     {
       "path": "conversion/contract-intake.html",
@@ -271,7 +271,7 @@
     },
     {
       "path": "conversion/ppc-company-registration.html",
-      "bytes": 32316
+      "bytes": 32414
     },
     {
       "path": "conversion/ppc-trademark-registration.html",
@@ -327,7 +327,7 @@
     },
     {
       "path": "data/search-index.json",
-      "bytes": 83411
+      "bytes": 85516
     },
     {
       "path": "data/service-registry.json",
@@ -343,7 +343,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 161434
+      "bytes": 161644
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
@@ -591,7 +591,7 @@
     },
     {
       "path": "services/llp-registration.html",
-      "bytes": 98735
+      "bytes": 98903
     },
     {
       "path": "services/master-service-agreements.html",
@@ -615,7 +615,7 @@
     },
     {
       "path": "services/opc-registration.html",
-      "bytes": 100022
+      "bytes": 100217
     },
     {
       "path": "services/oppression-mismanagement-petitions.html",
@@ -643,7 +643,7 @@
     },
     {
       "path": "services/pvt-ltd-registration.html",
-      "bytes": 103197
+      "bytes": 103445
     },
     {
       "path": "services/rbi-fla-return.html",
@@ -663,7 +663,7 @@
     },
     {
       "path": "services/section-8-registration.html",
-      "bytes": 97736
+      "bytes": 97774
     },
     {
       "path": "services/slump-sale-asset-purchase.html",
