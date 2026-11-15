@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T08:10:26.959Z",
+  "buildTimestamp": "2026-11-15T08:32:11.165Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 175,
-    "totalOutputSizeBytes": 9414730,
+    "totalOutputSizeBytes": 9414919,
     "totalOutputSizeFormatted": "8.98 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 123,
@@ -62,7 +62,7 @@
     },
     {
       "path": "about.html",
-      "bytes": 56398
+      "bytes": 56402
     },
     {
       "path": "assets/css/article-navigation.css",
@@ -190,7 +190,7 @@
     },
     {
       "path": "contact.html",
-      "bytes": 55108
+      "bytes": 55109
     },
     {
       "path": "conversion/ai-document-generator.html",
@@ -198,7 +198,7 @@
     },
     {
       "path": "conversion/calculator.html",
-      "bytes": 113063
+      "bytes": 113068
     },
     {
       "path": "conversion/contract-intake.html",
@@ -254,7 +254,7 @@
     },
     {
       "path": "conversion/ppc-company-registration.html",
-      "bytes": 31161
+      "bytes": 31221
     },
     {
       "path": "conversion/ppc-trademark-registration.html",
@@ -326,7 +326,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 152631
+      "bytes": 152668
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
@@ -354,7 +354,7 @@
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
-      "bytes": 49823
+      "bytes": 49819
     },
     {
       "path": "knowledge/llp-compliance-solvency-guide.html",
@@ -362,7 +362,7 @@
     },
     {
       "path": "knowledge/llp-incorporation-fillip-guide.html",
-      "bytes": 90424
+      "bytes": 90433
     },
     {
       "path": "knowledge/mca-adjudication-penalties.html",
@@ -386,7 +386,7 @@
     },
     {
       "path": "knowledge/rbi-fla-return-blueprint.html",
-      "bytes": 48783
+      "bytes": 48773
     },
     {
       "path": "knowledge/sbo-ben2-guide.html",
@@ -406,7 +406,7 @@
     },
     {
       "path": "knowledge/spice-plus-mca-v3-blueprint.html",
-      "bytes": 94081
+      "bytes": 94078
     },
     {
       "path": "knowledge/transfer-pricing-guide.html",
@@ -562,7 +562,7 @@
     },
     {
       "path": "services/labour-code-handbooks.html",
-      "bytes": 57976
+      "bytes": 57994
     },
     {
       "path": "services/llp-compliance-forms.html",
@@ -574,7 +574,7 @@
     },
     {
       "path": "services/llp-registration.html",
-      "bytes": 98538
+      "bytes": 98541
     },
     {
       "path": "services/master-service-agreements.html",
@@ -610,7 +610,7 @@
     },
     {
       "path": "services/pf-esic-compliance.html",
-      "bytes": 57908
+      "bytes": 57942
     },
     {
       "path": "services/posh-compliance.html",
@@ -626,7 +626,7 @@
     },
     {
       "path": "services/pvt-ltd-registration.html",
-      "bytes": 102968
+      "bytes": 103003
     },
     {
       "path": "services/rbi-fla-return.html",
