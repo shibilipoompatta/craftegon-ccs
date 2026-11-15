@@ -22,6 +22,7 @@
 # 1.1 RETIRED CATEGORY & TOOL REDIRECTS (HTTP 301)
 /verticals/14-exit-insolvency*  /verticals/index.html   301
 /conversion/strike-off-checker* /services.html          301
+/conversion/trademark-search*   /services/trademark-registration.html 301
 
 # 2. CLEAN URL REWRITES (Status 200 for internal mapping)
 /services        /services/index.html    200
@@ -33,8 +34,6 @@
 /verticals/*       /verticals/:splat       200
 /knowledge         /knowledge/index.html   200
 /knowledge/*       /knowledge/:splat       200
-/conversion/calculator   /conversion/calculator.html 200
-/conversion/calculator/  /conversion/calculator.html 200
 /conversion              /conversion/index.html      200
 /conversion/             /conversion/index.html      200
 /conversion/*            /conversion/:splat          200
@@ -44,5 +43,3 @@
 
 # 3. GLOBAL CATCH-ALL (HTTP 404 Fallback)
 /*                 /404.html               404
-
-/conversion/trademark-search* /services/trademark-registration.html 301
