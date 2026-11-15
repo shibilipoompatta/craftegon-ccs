@@ -253,20 +253,31 @@
   max-width: 1240px;
   margin: 0 auto;
   padding: 2.25rem 1.5rem 5rem;
+  box-sizing: border-box;
 }
 
 .service-layout-grid {
   display: grid;
-  grid-template-columns: 1fr 360px;
+  grid-template-columns: minmax(0, 1fr) 360px;
   gap: 2.5rem;
   align-items: start;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 @media (max-width: 1024px) {
+  .service-layout-container {
+    padding: 1.75rem 1.25rem 4rem;
+  }
+
   .service-layout-grid {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
   }
 
   .service-sidebar-rail {
@@ -282,9 +293,44 @@
   }
 }
 
+@media (max-width: 768px) {
+  .service-layout-container {
+    padding: 1.25rem 1rem 3rem;
+  }
+
+  .service-hero-card {
+    padding: 1.5rem 1.15rem !important;
+    border-radius: 14px !important;
+  }
+
+  .service-panel-card {
+    padding: 1.35rem 1.1rem !important;
+    border-radius: 14px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .service-layout-container {
+    padding: 1rem 0.75rem 2.5rem;
+  }
+
+  .service-hero-card {
+    padding: 1.25rem 0.85rem !important;
+    border-radius: 12px !important;
+  }
+
+  .service-panel-card {
+    padding: 1.15rem 0.8rem !important;
+    border-radius: 12px !important;
+  }
+}
+
 /* Left Column: Rich Regulatory Content */
 .service-main-content {
   min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 2.25rem;

@@ -958,7 +958,7 @@ body.mobile-nav-open .if-header {
   border-left: none;
   z-index: 2010;
   box-shadow: -8px 0 36px rgba(16, 38, 46, 0.28);
-  display: flex;
+  display: none !important;
   flex-direction: column;
   transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
   padding-block-end: env(safe-area-inset-bottom);
@@ -968,6 +968,7 @@ body.mobile-nav-open .if-header {
 }
 
 .if-mobile-drawer.active {
+  display: flex !important;
   right: 0 !important;
   visibility: visible !important;
   pointer-events: auto !important;
@@ -976,6 +977,7 @@ body.mobile-nav-open .if-header {
 /* Enforce 100% width on all mobile and tablet viewports to prevent split-drawer glitches */
 @media (max-width: 1023.98px) {
   .if-mobile-drawer {
+    display: none !important;
     width: 100% !important;
     max-width: 100vw !important;
     right: -100% !important;
@@ -983,6 +985,7 @@ body.mobile-nav-open .if-header {
     pointer-events: none;
   }
   .if-mobile-drawer.active {
+    display: flex !important;
     right: 0 !important;
     visibility: visible !important;
     pointer-events: auto !important;

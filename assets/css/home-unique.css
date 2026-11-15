@@ -2178,10 +2178,11 @@
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
     scrollbar-width: none !important;
-    padding: 0.35rem 1rem 0.75rem !important;
+    padding: 0.35rem 0.5rem 0.75rem !important;
     justify-content: flex-start !important;
-    margin-inline: -1rem !important;
-    width: calc(100% + 2rem) !important;
+    margin-inline: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   .stages-tabs-nav::-webkit-scrollbar { display: none !important; }
   .stage-tab-btn {
@@ -3202,32 +3203,49 @@
   border-top: 1px solid var(--border-color, #DCE8E5);
   border-bottom: 1px solid var(--border-color, #DCE8E5);
   padding: 5.5rem 1.5rem;
+  overflow-x: clip;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .popular-services-section {
+    padding: 4rem 1.25rem;
+  }
 }
 
 @media (max-width: 768px) {
   .popular-services-section {
-    padding: 3.75rem 1rem;
+    padding: 3.25rem 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .popular-services-section {
+    padding: 2.5rem 0.75rem;
   }
 }
 
 .flagship-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   margin-top: 1rem;
+  width: 100%;
+  min-width: 0;
 }
 
 @media (max-width: 1024px) {
   .flagship-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767.98px) {
   .flagship-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 }
 
@@ -3235,14 +3253,29 @@
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
   border-radius: 16px;
-  padding: 2.25rem 2rem 2rem;
+  padding: 2.25rem 1.75rem 2rem;
   display: flex;
   flex-direction: column;
   position: relative;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
               box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.25s ease;
+}
+
+@media (max-width: 1024px) {
+  .flagship-card {
+    padding: 1.75rem 1.35rem 1.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .flagship-card {
+    padding: 1.4rem 1rem 1.25rem;
+  }
 }
 
 .flagship-card:hover {
@@ -3821,18 +3854,20 @@ a, button, input, select, textarea,
 }
 .hero-quick-channels {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.85rem;
+  width: 100%;
+  min-width: 0;
 }
 @media (max-width: 1200px) {
   .hero-quick-channels {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.75rem;
   }
 }
 @media (max-width: 768px) {
   .hero-quick-channels {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.65rem;
   }
 }

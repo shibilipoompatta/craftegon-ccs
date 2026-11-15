@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T13:08:40.469Z",
+  "buildTimestamp": "2026-11-15T14:17:24.163Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 179,
-    "totalOutputSizeBytes": 9723917,
-    "totalOutputSizeFormatted": "9.27 MB",
+    "totalOutputSizeBytes": 9726979,
+    "totalOutputSizeFormatted": "9.28 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 123,
     "filesByExtension": {
@@ -79,7 +79,7 @@
     },
     {
       "path": "assets/css/conversion-desks.css",
-      "bytes": 4465
+      "bytes": 5036
     },
     {
       "path": "assets/css/home-animations.css",
@@ -87,19 +87,19 @@
     },
     {
       "path": "assets/css/home-unique.css",
-      "bytes": 78703
+      "bytes": 79204
     },
     {
       "path": "assets/css/navbar.css",
-      "bytes": 38009
+      "bytes": 38092
     },
     {
       "path": "assets/css/service-page.css",
-      "bytes": 14006
+      "bytes": 14710
     },
     {
       "path": "assets/css/theme.css",
-      "bytes": 11542
+      "bytes": 12308
     },
     {
       "path": "assets/css/tokens.css",
@@ -279,7 +279,7 @@
     },
     {
       "path": "conversion/retainer-desk.html",
-      "bytes": 52398
+      "bytes": 52299
     },
     {
       "path": "conversion/secretarial-audit-scope.html",
@@ -343,7 +343,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 162062
+      "bytes": 162128
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
@@ -687,7 +687,7 @@
     },
     {
       "path": "services.html",
-      "bytes": 109023
+      "bytes": 109493
     },
     {
       "path": "verticals/01-entity-formation.html",
