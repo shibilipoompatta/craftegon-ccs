@@ -142,7 +142,8 @@ function decryptCin(rawInput) {
 
   const [_, listingChar, nicCode, stateCode, yearStr, typeCode, regNo] = match;
   const isListed = listingChar === 'L';
-  const stateInfo = CIN_STATE_MAP[stateCode] || { name: stateCode, roc: 'RoC ' + stateCode, dropdownVal: 'other' };
+  const isKnownState = Boolean(CIN_STATE_MAP[stateCode]);
+  const stateInfo = isKnownState ? CIN_STATE_MAP[stateCode] : { name: stateCode, roc: 'RoC ' + stateCode, dropdownVal: 'other', isUnrecognized: true };
   const typeInfo = CIN_TYPE_MAP[typeCode] || { type: 'pvt-ltd', label: typeCode + ' Corporate Entity' };
   const year = parseInt(yearStr, 10);
 
@@ -164,7 +165,7 @@ function decryptCin(rawInput) {
     regNo,
     chips: [
       { label: isListed ? 'Listed Public' : 'Unlisted Corporate', icon: isListed ? '📈' : '🏢' },
-      { label: stateInfo.name + ' (' + stateInfo.roc + ')', icon: '📍' },
+      { label: stateInfo.isUnrecognized ? 'Non-Standard RoC (' + stateCode + ')' : stateInfo.name + ' (' + stateInfo.roc + ')', icon: stateInfo.isUnrecognized ? '⚠️' : '📍' },
       { label: 'Inc. ' + year, icon: '📅' },
       { label: typeInfo.label, icon: '⚖️' },
       { label: 'Reg #' + regNo, icon: '🔢' }
@@ -389,24 +390,24 @@ function calculateCost() {
     else stampDuty = 1000;
 
     if (entityType === 'pvt-ltd') {
-      baseProf = 4999;
-      baseGovt = 0; // MCA fee exempt up to 15L capital
-      if (tier === 'tier-3') { baseProf = 5499; stampDuty += 500; }
-      else if (tier === 'tier-4') { baseProf = 5999; baseGovt = 1000; stampDuty += 1500; }
+      baseProf = 7999; // Harmonized with services/pvt-ltd-registration.html & pricing.json
+      baseGovt = 0; // MCA fee exempt up to 15L capital under Rule 38
+      if (tier === 'tier-3') { baseProf = 8499; stampDuty += 500; }
+      else if (tier === 'tier-4') { baseProf = 9999; baseGovt = 1000; stampDuty += 1500; }
     } else if (entityType === 'llp') {
-      baseProf = 4499;
+      baseProf = 6499; // Harmonized with services/llp-registration.html & pricing.json
       baseGovt = 500; // FiLLiP statutory fee
       stampDuty = 500; // LLP Agreement stamp duty baseline
-      if (tier === 'tier-3') { baseProf = 4999; stampDuty += 500; }
-      else if (tier === 'tier-4') { baseProf = 5499; baseGovt = 1000; stampDuty += 1000; }
+      if (tier === 'tier-3') { baseProf = 6999; stampDuty += 500; }
+      else if (tier === 'tier-4') { baseProf = 7999; baseGovt = 1000; stampDuty += 1000; }
     } else if (entityType === 'opc') {
-      baseProf = 4499;
-      baseGovt = 0;
-      if (tier === 'tier-3') { baseProf = 4999; stampDuty += 500; }
-      else if (tier === 'tier-4') { baseProf = 5499; baseGovt = 1000; stampDuty += 1000; }
+      baseProf = 6999; // Harmonized with services/opc-registration.html & pricing.json
+      baseGovt = 0; // MCA fee exempt under Rule 38
+      if (tier === 'tier-3') { baseProf = 7499; stampDuty += 500; }
+      else if (tier === 'tier-4') { baseProf = 8499; baseGovt = 1000; stampDuty += 1000; }
     } else if (entityType === 'section-8') {
-      baseProf = 14999;
-      baseGovt = 2000; // INC-12 license fee
+      baseProf = 13999; // Harmonized with services/section-8-registration.html & pricing.json
+      baseGovt = 2000; // INC-12 central license fee
       stampDuty = 1000;
     } else if (entityType === 'public-ltd') {
       baseProf = 19999;
@@ -1129,10 +1130,10 @@ function generateStatutoryMemo() {
   if (currentTab1Mode === 'formation') {
     if (subjectEl) subjectEl.textContent = 'EXECUTIVE STATUTORY OUTLAY MEMORANDUM: ' + (entityLabels[entityType] || entityType);
 
-    const profFee = document.getElementById('prof-fee')?.textContent || '₹4,999';
+    const profFee = document.getElementById('prof-fee')?.textContent || '₹7,999';
     const govtFee = document.getElementById('govt-fee')?.textContent || '₹0';
     const stampFee = document.getElementById('stamp-fee')?.textContent || '₹1,000';
-    const totalFee = document.getElementById('total-fee')?.textContent || '₹5,999';
+    const totalFee = document.getElementById('total-fee')?.textContent || '₹8,999';
 
     rows.push({
       item: 'Professional Secretarial & CS Retainer',
