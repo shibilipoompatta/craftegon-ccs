@@ -144,19 +144,59 @@
 
 @media (max-width: 640px) {
   .vertical-grid,
-  .v01-grid {
+  .v01-grid,
+  .v04-grid {
     grid-template-columns: 1fr;
+    gap: 1.15rem;
   }
 }
 
-/* Fluid Typography for Vertical Hub Headers */
+/* Fluid Typography & Spacing for Vertical Hub Headers */
 header h1,
-.v01-main header h1 {
+.v01-main header h1,
+.v04-main header h1,
+.if-service-hero h1,
+.vertical-hero h1 {
   font-family: var(--font-heading, 'Manrope', sans-serif);
-  font-size: clamp(1.85rem, 4.5vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.25;
-  color: var(--navy-900, #10262E);
-  margin-bottom: 0.85rem;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  color: var(--navy-900, #10262E) !important;
+  margin-bottom: 0.85rem !important;
+  letter-spacing: -0.02em !important;
+}
+
+.if-service-hero p,
+.vertical-hero p,
+.v01-intro,
+.v04-intro {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.92rem, 0.85rem + 0.3vw, 1.05rem);
+  color: var(--text-secondary, #52717A) !important;
+  line-height: 1.6;
+  max-width: 860px;
+  margin: 0 0 2rem 0;
+}
+
+.if-breadcrumb {
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #52717A);
+}
+
+.if-breadcrumb a {
+  color: var(--accent-green-primary, #247A62);
+  text-decoration: none;
+}
+
+.if-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .vertical-card,
+  .v01-card,
+  .v04-card {
+    padding: 1.2rem;
+  }
 }

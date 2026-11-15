@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T16:13:10.403Z",
+  "buildTimestamp": "2026-11-15T16:33:50.276Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 179,
-    "totalOutputSizeBytes": 11593412,
+    "totalOutputSizeBytes": 11594077,
     "totalOutputSizeFormatted": "11.06 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
@@ -107,7 +107,7 @@
     },
     {
       "path": "assets/css/vertical-hub.css",
-      "bytes": 2878
+      "bytes": 3569
     },
     {
       "path": "assets/images/craftegon-logo-tight.png",
@@ -183,7 +183,7 @@
     },
     {
       "path": "assets/js/navigation.js",
-      "bytes": 30180
+      "bytes": 30211
     },
     {
       "path": "assets/js/search-engine.js",
@@ -691,7 +691,7 @@
     },
     {
       "path": "verticals/01-entity-formation.html",
-      "bytes": 73477
+      "bytes": 73451
     },
     {
       "path": "verticals/02-roc-compliance.html",
@@ -703,7 +703,7 @@
     },
     {
       "path": "verticals/04-statutory-licenses.html",
-      "bytes": 77260
+      "bytes": 77225
     },
     {
       "path": "verticals/05-contracts-legal.html",
@@ -743,7 +743,7 @@
     },
     {
       "path": "verticals/14-exit-insolvency.html",
-      "bytes": 69838
+      "bytes": 69842
     },
     {
       "path": "verticals/15-it-digital.html",

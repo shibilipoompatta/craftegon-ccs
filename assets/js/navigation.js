@@ -517,6 +517,7 @@ function injectContextualReturnTrail() {
 
   const currentPath = window.location.pathname;
   const isConversionPage = currentPath.includes('/conversion/') && !currentPath.endsWith('/conversion/index.html') && !currentPath.endsWith('/conversion/');
+  if (!isConversionPage) return;
 
   const params = new URLSearchParams(window.location.search);
   let sourcePath = params.get('source_path');

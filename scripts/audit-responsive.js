@@ -64,6 +64,7 @@ const testPages = [
   '/',
   '/services.html',
   '/verticals/01-entity-formation.html',
+  '/verticals/07-labour-hr.html',
   '/services/pvt-ltd-registration.html',
   '/conversion/calculator.html',
   '/conversion/retainer-desk.html',
