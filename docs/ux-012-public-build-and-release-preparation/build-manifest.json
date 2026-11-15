@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T06:57:21.288Z",
+  "buildTimestamp": "2026-11-15T07:00:22.068Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 175,
-    "totalOutputSizeBytes": 9408142,
+    "totalOutputSizeBytes": 9408319,
     "totalOutputSizeFormatted": "8.97 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 123,
@@ -306,7 +306,7 @@
     },
     {
       "path": "data/pricing.json",
-      "bytes": 85508
+      "bytes": 85618
     },
     {
       "path": "data/search-index.json",
@@ -598,7 +598,7 @@
     },
     {
       "path": "services/opc-registration.html",
-      "bytes": 99364
+      "bytes": 99397
     },
     {
       "path": "services/oppression-mismanagement-petitions.html",
@@ -646,7 +646,7 @@
     },
     {
       "path": "services/section-8-registration.html",
-      "bytes": 97144
+      "bytes": 97178
     },
     {
       "path": "services/slump-sale-asset-purchase.html",

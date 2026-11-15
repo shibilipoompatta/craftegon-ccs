@@ -302,7 +302,8 @@
       "80G & 12A Guidance Package"
     ],
     "excluded_charges": [
-      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
+      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)",
+      "Class-3 Digital Signature Certificates (DSC tokens procured separately at actuals / client-provided)"
     ],
     "additional_tiers": [],
     "statutory_thresholds": [],
