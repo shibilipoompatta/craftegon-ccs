@@ -85,7 +85,741 @@
   </script>
 </head>
 <body>
-  <div id="global-navbar"></div>
+  <div id="global-navbar">
+<header class="if-header">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="if-header-inner">
+    <!-- Brand Logo and Descriptor -->
+    <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services (CCS) Home">
+      <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img" width="42" height="42" loading="eager">
+      <div class="brand-text-block">
+        <span class="brand-title">CRAFTEGON</span>
+        <span class="brand-subtitle">Corporate Services</span>
+      </div>
+    </a>
+
+    <!-- Compact Universal Service Search -->
+    <div class="universal-search-container" id="universal-search-container">
+      <form class="universal-search-form" id="universal-search-form" action="/services.html" method="GET" role="search">
+        <span class="universal-search-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+        <input 
+          type="text" 
+          id="universal-search-input" 
+          name="q" 
+          class="universal-search-input" 
+          placeholder="Search services or forms..." 
+          autocomplete="off" 
+          spellcheck="false" 
+          aria-label="Universal Service Search"
+          aria-expanded="false" 
+          aria-haspopup="listbox" 
+          aria-controls="universal-search-results"
+          role="combobox"
+        >
+        <button type="button" class="universal-search-clear" id="universal-search-clear" aria-label="Clear Search Input">&times;</button>
+        <span class="universal-search-shortcut" aria-hidden="true" title="Press forward slash to focus search">/</span>
+      </form>
+      
+      <div class="universal-search-dropdown" id="universal-search-dropdown" role="region" aria-label="Search Results">
+        <div id="universal-search-results">
+          <!-- Populated dynamically via assets/js/service-search.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Primary Navigation -->
+    <nav class="if-nav" aria-label="Main Navigation">
+      <!-- 1. Home -->
+      <a href="/index.html" class="if-nav-link">Home</a>
+
+      <!-- 2. Services Dropdown -->
+      <div class="if-dropdown" id="services-dropdown-container">
+        <a href="/services.html" class="if-nav-link" id="services-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="services-megamenu">
+          Services <span class="nav-count-badge">57</span>
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+        
+        <div class="if-dropdown-content if-megamenu" id="services-megamenu" role="menu" aria-label="Services Directory Menu">
+          <!-- Column 1: Core Categories -->
+          <div class="megamenu-col">
+            <div class="dropdown-heading">
+              <span>Key Categories</span>
+              <span class="heading-tag">Primary</span>
+            </div>
+            <ul class="dropdown-list" role="none">
+              <li role="none">
+                <a href="/verticals/01-entity-formation.html" class="menu-item-card" role="menuitem">
+                  <div class="menu-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 11h2M9 15h2M13 11h2M13 15h2"/></svg>
+                  </div>
+                  <div class="menu-item-body">
+                    <strong class="item-title">1. Business Registration</strong>
+                    <span class="item-desc">Company, LLP &amp; Entity Structuring</span>
+                  </div>
+                </a>
+              </li>
+              <li role="none">
+                <a href="/verticals/02-roc-compliance.html" class="menu-item-card" role="menuitem">
+                  <div class="menu-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  </div>
+                  <div class="menu-item-body">
+                    <strong class="item-title">2. Corporate Compliance</strong>
+                    <span class="item-desc">ROC Annual Filings &amp; Secretarial</span>
+                  </div>
+                </a>
+              </li>
+              <li role="none">
+                <a href="/verticals/03-tax-compliance.html" class="menu-item-card" role="menuitem">
+                  <div class="menu-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  </div>
+                  <div class="menu-item-body">
+                    <strong class="item-title">3. Tax &amp; GST</strong>
+                    <span class="item-desc">GST Returns &amp; Corporate Taxation</span>
+                  </div>
+                </a>
+              </li>
+              <li role="none">
+                <a href="/verticals/04-statutory-licenses.html" class="menu-item-card" role="menuitem">
+                  <div class="menu-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="16" x2="11" y2="16"/></svg>
+                  </div>
+                  <div class="menu-item-body">
+                    <strong class="item-title">4. Licences &amp; Statutory</strong>
+                    <span class="item-desc">FSSAI, Shop Act &amp; Registrations</span>
+                  </div>
+                </a>
+              </li>
+              <li role="none">
+                <a href="/verticals/06-ipr-protection.html" class="menu-item-card" role="menuitem">
+                  <div class="menu-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
+                  <div class="menu-item-body">
+                    <strong class="item-title">5. Trademarks &amp; IPR</strong>
+                    <span class="item-desc">Brand Protection &amp; Form TM-A</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 2: Explore by Category -->
+          <div class="megamenu-col">
+            <div class="dropdown-heading">
+              <span>Explore by Category</span>
+              <span class="heading-tag">All Verticals</span>
+            </div>
+            <ul class="dropdown-list" role="none">
+              <li role="none"><a href="/verticals/05-contracts-legal.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Commercial Contracts &amp; Drafting</a></li>
+              <li role="none"><a href="/verticals/07-labour-hr.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Employment &amp; HR Compliance</a></li>
+              <li role="none"><a href="/verticals/08-fundraising-investment.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Banking &amp; Fundraising Support</a></li>
+              <li role="none"><a href="/verticals/09-ma-restructuring.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Corporate Transactions &amp; M&amp;A</a></li>
+              <li role="none"><a href="/verticals/10-litigation-dispute.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Dispute Avoidance (Non-Litigation)</a></li>
+              <li role="none"><a href="/verticals/11-governance-audit.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Governance, Audit &amp; Risk</a></li>
+              <li role="none"><a href="/verticals/12-esg-csr.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Data Privacy &amp; Tech Law</a></li>
+              <li role="none"><a href="/verticals/13-cross-border-fema.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Cross-Border FDI &amp; FEMA</a></li>
+              <li role="none"><a href="/verticals/14-exit-insolvency.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Restructuring, Insolvency &amp; Exit</a></li>
+              <li role="none"><a href="/verticals/15-it-digital.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> IT &amp; Digital Infrastructure</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: By Business Stage & Directory Callout -->
+          <div class="megamenu-col megamenu-col-stage">
+            <div class="dropdown-heading">
+              <span>By Business Stage</span>
+              <span class="heading-tag">Lifecycle</span>
+            </div>
+            <ul class="dropdown-list" role="none">
+              <li role="none"><a href="/services.html?stage=formation" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-formation"></span> Early Stage &amp; Incorporation</a></li>
+              <li role="none"><a href="/services.html?stage=compliance" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-compliance"></span> Growth &amp; Annual Compliance</a></li>
+              <li role="none"><a href="/services.html?stage=governance" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-governance"></span> Governance, Audits &amp; Risk</a></li>
+              <li role="none"><a href="/services.html?stage=restructuring" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-restructuring"></span> Restructuring &amp; Entity Exit</a></li>
+              <li role="none"><a href="/services.html?stage=dispute" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-dispute"></span> Dispute Triage &amp; Advisory</a></li>
+            </ul>
+            <div class="megamenu-directory-callout" style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <a href="/services.html" class="megamenu-directory-btn" role="menuitem">
+                <span>Complete 57-Service Directory</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+              <a href="/verticals/index.html" class="megamenu-directory-btn" style="background: var(--navy-800); color: #FFFFFF;" role="menuitem">
+                <span>Browse 15 Practice Verticals Hub</span>
+                <span class="btn-arrow">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. About -->
+      <a href="/about.html" class="if-nav-link">About</a>
+
+      <!-- 4. Resources Dropdown -->
+      <div class="if-dropdown" id="resources-dropdown-container">
+        <a href="/knowledge/index.html" class="if-nav-link" id="resources-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="resources-dropdown-menu">
+          Resources
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+        <div class="if-dropdown-content resources-dropdown-menu" id="resources-dropdown-menu" role="menu" aria-label="Resources &amp; Diagnostic Tools Menu">
+          <div class="dropdown-heading">
+            <span>Tools &amp; Intelligence</span>
+            <span class="heading-tag">Portal</span>
+          </div>
+          <ul class="dropdown-list" role="none">
+            <li role="none">
+              <a href="/knowledge/index.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Compliance Knowledge Centre</strong>
+                  <span class="item-desc">Regulatory circulars &amp; filing guides</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/conversion/calculator.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">RoC Late Fee Calculator</strong>
+                  <span class="item-desc">Statutory penalty &amp; additional fee calculator</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/conversion/trademark-search.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">NICE Trademark Screener</strong>
+                  <span class="item-desc">Class 1-45 search &amp; clearance tool</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/conversion/index.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Diagnostic Tools &amp; Checkers</strong>
+                  <span class="item-desc">Entity health &amp; compliance assessments</span>
+                </div>
+              </a>
+            </li>
+            <li role="none" class="dropdown-divider-item" aria-hidden="true"><hr class="dropdown-divider"></li>
+            <li role="none"><a href="/search/" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Corporate &amp; IP Registry Search</a></li>
+            <li role="none">
+              <a href="/verticals/index.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">15 Practice Verticals Hub</strong>
+                  <span class="item-desc">Corporate legal &amp; regulatory directory</span>
+                </div>
+              </a>
+            </li>
+            <li role="none" class="dropdown-divider-item" aria-hidden="true"><hr class="dropdown-divider"></li>
+            <li role="none"><a href="/search/" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Corporate &amp; IP Registry Search</a></li>
+            <li role="none"><a href="/search/index.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> CIN &amp; LLPIN Master Lookup</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5. Contact -->
+      <a href="/contact.html" class="if-nav-link">Contact</a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="if-header-actions">
+      <a href="/services/" class="if-btn-secondary portal-nav-link" title="Universal Services Directory">Services</a>
+      <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-primary btn-talk-expert">
+        Talk to an Expert
+      </a>
+      <button type="button" class="if-mobile-search-toggle" id="mobile-search-toggle" aria-label="Quick Search Services">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      <button type="button" class="if-mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Overlay & Backdrop -->
+  <div class="if-mobile-backdrop" id="mobile-drawer-backdrop"></div>
+  <div class="if-mobile-drawer" id="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <div class="if-mobile-drawer-header">
+      <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services (CCS) Home">
+        <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img" width="42" height="42" loading="eager">
+        <div class="brand-text-block">
+          <span class="brand-title">CRAFTEGON</span>
+          <span class="brand-subtitle">Corporate Services</span>
+        </div>
+      </a>
+      <button type="button" class="if-mobile-drawer-close" id="mobile-drawer-close" aria-label="Close Navigation Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Search Form -->
+    <div class="if-mobile-search-box">
+      <form action="/services.html" method="GET">
+        <span class="if-mobile-search-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input type="text" name="q" class="if-mobile-search-input" placeholder="Search 57+ services or forms..." aria-label="Search services on mobile">
+      </form>
+    </div>
+
+    <div class="if-mobile-drawer-body">
+      <div class="if-mobile-nav-group">
+        <a href="/index.html" class="if-mobile-nav-link">Home</a>
+        <a href="/services.html" class="if-mobile-nav-link" style="font-weight: 700; color: var(--navy-800, #0B2545);">Services Directory (57 Services)</a>
+        <a href="/verticals/index.html" class="if-mobile-nav-link" style="font-weight: 700; color: var(--navy-800, #0B2545);">15 Practice Verticals Hub</a>
+        <a href="/about.html" class="if-mobile-nav-link">About CraftEgon</a>
+      </div>
+
+      
+      <!-- Fast-Track Popular Services Micro-Grid -->
+      <div class="mobile-fasttrack-section">
+        <div class="mobile-fasttrack-header">
+          <span>⚡ POPULAR FAST-TRACK SERVICES</span>
+        </div>
+        <div class="mobile-fasttrack-grid">
+          <a href="/services/pvt-ltd-registration.html" class="fasttrack-pill">
+            <span class="fasttrack-name">Pvt Ltd Company</span>
+            <span class="fasttrack-price">From ₹7,999</span>
+          </a>
+          <a href="/services/llp-registration.html" class="fasttrack-pill">
+            <span class="fasttrack-name">LLP Formation</span>
+            <span class="fasttrack-price">From ₹6,499</span>
+          </a>
+          <a href="/services/roc-annual-compliance.html" class="fasttrack-pill">
+            <span class="fasttrack-name">RoC Retainer</span>
+            <span class="fasttrack-price">₹15,999/yr</span>
+          </a>
+          <a href="/services/dir3-kyc.html" class="fasttrack-pill">
+            <span class="fasttrack-name">DIR-3 KYC</span>
+            <span class="fasttrack-price">₹1,099</span>
+          </a>
+          <a href="/services/trademark-registration.html" class="fasttrack-pill">
+            <span class="fasttrack-name">Trademark TM-A</span>
+            <span class="fasttrack-price">From ₹4,999</span>
+          </a>
+          <a href="/services/gst-annual.html" class="fasttrack-pill">
+            <span class="fasttrack-name">GST Annual</span>
+            <span class="fasttrack-price">₹13,999</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Practice Areas Accordions: Customer-First Categorization Matching & Exceeding IndiaFilings -->
+      <!-- 1. Startup & Entity Formation Accordion (10 Services) -->
+      <details class="if-mobile-accordion" id="mobile-startup-accordion">
+        <summary>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 11h2M9 15h2M13 11h2M13 15h2"/></svg>
+            </span>
+            <span class="accordion-title-text">Startup &amp; Company Setup (10)</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <a href="/services/pvt-ltd-registration.html">
+            <span>Private Limited Company (SPICe+)</span>
+            <span class="sublink-tag">From ₹7,999</span>
+          </a>
+          <a href="/services/llp-registration.html">
+            <span>Limited Liability Partnership (LLP)</span>
+            <span class="sublink-tag">From ₹6,499</span>
+          </a>
+          <a href="/services/opc-registration.html">
+            <span>One Person Company (OPC)</span>
+            <span class="sublink-tag">From ₹6,999</span>
+          </a>
+          <a href="/services/section-8-registration.html">
+            <span>Section 8 Non-Profit Company</span>
+            <span class="sublink-tag">₹11,999</span>
+          </a>
+          <a href="/services/partnership-registration.html">
+            <span>Partnership Firm Registration</span>
+            <span class="sublink-tag">₹4,999</span>
+          </a>
+          <a href="/services/proprietorship-registration.html">
+            <span>Sole Proprietorship Registration</span>
+            <span class="sublink-tag">₹2,999</span>
+          </a>
+          <a href="/services/trust-registration.html">
+            <span>Charitable Trust Registration</span>
+            <span class="sublink-tag">₹14,999</span>
+          </a>
+          <a href="/services/society-registration.html">
+            <span>Society Registration Online</span>
+            <span class="sublink-tag">₹14,999</span>
+          </a>
+          <a href="/services/dpiit-startup-india.html">
+            <span>Startup India DPIIT Recognition</span>
+            <span class="sublink-tag">From ₹4,999</span>
+          </a>
+          <a href="/services/msme-udyam.html">
+            <span>MSME / Udyam Registration</span>
+            <span class="sublink-tag">₹1,499</span>
+          </a>
+          <a href="/verticals/01-entity-formation.html" class="sublink-view-all">
+            <span>Explore All 10 Formation Services &rarr;</span>
+          </a>
+        </div>
+      </details>
+
+      <!-- 2. RoC Compliance & Secretarial (12 Services) -->
+      <details class="if-mobile-accordion" id="mobile-roc-accordion">
+        <summary>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </span>
+            <span class="accordion-title-text">RoC Compliance &amp; Filings (12)</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <a href="/services/roc-annual-compliance.html">
+            <span>Annual Secretarial Retainers</span>
+            <span class="sublink-tag">₹15,999/yr</span>
+          </a>
+          <a href="/services/form-aoc4.html">
+            <span>Form AOC-4 Financial Statements</span>
+            <span class="sublink-tag">₹2,999</span>
+          </a>
+          <a href="/services/aoc4-xbrl.html">
+            <span>AOC-4 XBRL Tagging &amp; Filing</span>
+            <span class="sublink-tag">₹4,999</span>
+          </a>
+          <a href="/services/form-mgt7.html">
+            <span>Form MGT-7 Annual Return</span>
+            <span class="sublink-tag">₹2,999</span>
+          </a>
+          <a href="/services/dir3-kyc.html">
+            <span>DIR-3 KYC Director Verification</span>
+            <span class="sublink-tag">₹1,099</span>
+          </a>
+          <a href="/services/form-adt1.html">
+            <span>Form ADT-1 Auditor Appointment</span>
+            <span class="sublink-tag">₹1,999</span>
+          </a>
+          <a href="/services/form-dpt3.html">
+            <span>Form DPT-3 Return of Deposits</span>
+            <span class="sublink-tag">₹2,499</span>
+          </a>
+          <a href="/services/form-pas6.html">
+            <span>Form PAS-6 Demat Reconciliation</span>
+            <span class="sublink-tag">₹3,499</span>
+          </a>
+          <a href="/services/form-ben2.html">
+            <span>Form BEN-2 SBO Disclosures</span>
+            <span class="sublink-tag">₹3,999</span>
+          </a>
+          <a href="/services/form-mgt14.html">
+            <span>Form MGT-14 Special Resolutions</span>
+            <span class="sublink-tag">₹2,499</span>
+          </a>
+          <a href="/services/form-msc1-dormant.html">
+            <span>Form MSC-1 Dormant Status</span>
+            <span class="sublink-tag">₹4,999</span>
+          </a>
+          <a href="/services/llp-compliance-forms.html">
+            <span>LLP Form 11 &amp; Form 8 Filings</span>
+            <span class="sublink-tag">₹4,999</span>
+          </a>
+          <a href="/verticals/02-roc-compliance.html" class="sublink-view-all">
+            <span>Explore All 18 RoC Filings &rarr;</span>
+          </a>
+        </div>
+      </details>
+
+      <!-- 3. Corporate Tax, GST & Audits (5 Services) -->
+      <details class="if-mobile-accordion" id="mobile-tax-accordion">
+        <summary>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </span>
+            <span class="accordion-title-text">Corporate Tax &amp; GST (5)</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <a href="/services/gst-annual.html">
+            <span>GST Annual Return (GSTR-9/9C)</span>
+            <span class="sublink-tag">₹13,999</span>
+          </a>
+          <a href="/services/itr7.html">
+            <span>Corporate Tax Return (ITR-7)</span>
+            <span class="sublink-tag">₹14,999</span>
+          </a>
+          <a href="/services/proprietorship-tax.html">
+            <span>Proprietorship &amp; SME Tax Filing</span>
+            <span class="sublink-tag">₹2,999</span>
+          </a>
+          <a href="/services/form-3ceb.html">
+            <span>Form 3CEB Transfer Pricing</span>
+            <span class="sublink-tag">₹24,999</span>
+          </a>
+          <a href="/services/form-10b.html">
+            <span>Form 10B / 10BB Trust Audit</span>
+            <span class="sublink-tag">₹7,999</span>
+          </a>
+          <a href="/verticals/03-tax-compliance.html" class="sublink-view-all">
+            <span>Explore All Tax &amp; GST Solutions &rarr;</span>
+          </a>
+        </div>
+      </details>
+
+      <!-- 4. Intellectual Property & Trademarks (3 Services) -->
+      <details class="if-mobile-accordion" id="mobile-ipr-accordion">
+        <summary>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span class="accordion-title-text">Trademarks &amp; Patents (3)</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <a href="/services/trademark-registration.html">
+            <span>Trademark Registration (TM-A)</span>
+            <span class="sublink-tag">From ₹4,999</span>
+          </a>
+          <a href="/services/software-copyright-patents.html">
+            <span>Software Copyright &amp; Patents</span>
+            <span class="sublink-tag">₹6,999</span>
+          </a>
+          <a href="/services/ip-enforcement-cease-desist.html">
+            <span>IP Enforcement &amp; Infringement</span>
+            <span class="sublink-tag">₹4,999</span>
+          </a>
+          <a href="/verticals/06-ipr-protection.html" class="sublink-view-all">
+            <span>Explore All IPR Services &rarr;</span>
+          </a>
+        </div>
+      </details>
+
+      <!-- 5. Workforce, POSH & Digital Governance (6 Services) -->
+      <details class="if-mobile-accordion" id="mobile-workforce-accordion">
+        <summary>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <span class="accordion-title-text">Workforce, POSH &amp; Digital (6)</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <a href="/services/posh-compliance.html">
+            <span>POSH Policy &amp; IC Constitution</span>
+            <span class="sublink-tag">₹9,999</span>
+          </a>
+          <a href="/services/pf-esic-compliance.html">
+            <span>PF &amp; ESIC Monthly Compliance</span>
+            <span class="sublink-tag">₹3,999</span>
+          </a>
+          <a href="/services/labour-code-handbooks.html">
+            <span>Labour Code Audits &amp; Handbooks</span>
+            <span class="sublink-tag">₹7,999</span>
+          </a>
+          <a href="/services/dpdp-compliance-audit.html">
+            <span>DPDP Act 2023 Readiness Audit</span>
+            <span class="sublink-tag">₹19,999</span>
+          </a>
+          <a href="/services/cyber-incident-reporting.html">
+            <span>Cyber Incident CERT-In Mandates</span>
+            <span class="sublink-tag">₹9,999</span>
+          </a>
+          <a href="/services/saas-terms-privacy-architecture.html">
+            <span>SaaS Terms &amp; Privacy Policies</span>
+            <span class="sublink-tag">₹9,999</span>
+          </a>
+          <a href="/verticals/07-labour-hr.html" class="sublink-view-all">
+            <span>Explore All Workforce Services &rarr;</span>
+          </a>
+        </div>
+      </details>
+
+      <!-- 6. Contracts, Transactions & FEMA (6 Services) -->
+      <details class="if-mobile-accordion" id="mobile-contracts-accordion">
+        <summary>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            </span>
+            <span class="accordion-title-text">Contracts, M&amp;A &amp; FEMA (6)</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <a href="/services/founder-shareholder-agreements.html">
+            <span>Founder Pacts &amp; SHAs</span>
+            <span class="sublink-tag">₹14,999</span>
+          </a>
+          <a href="/services/master-service-agreements.html">
+            <span>Commercial MSAs &amp; Vendor SOWs</span>
+            <span class="sublink-tag">₹7,999</span>
+          </a>
+          <a href="/services/fast-track-mergers.html">
+            <span>Section 233 Fast-Track Mergers</span>
+            <span class="sublink-tag">Advisory</span>
+          </a>
+          <a href="/services/slump-sale-asset-purchase.html">
+            <span>Corporate Slump Sale Governance</span>
+            <span class="sublink-tag">Advisory</span>
+          </a>
+          <a href="/services/rbi-fla-return.html">
+            <span>RBI FLA Return (FDI / ODI)</span>
+            <span class="sublink-tag">₹7,999</span>
+          </a>
+          <a href="/services/form-fc3-fc4.html">
+            <span>Foreign Branch &amp; Liaison Office</span>
+            <span class="sublink-tag">₹19,999</span>
+          </a>
+          <a href="/verticals/05-contracts-legal.html" class="sublink-view-all">
+            <span>Explore All Legal Drafting &rarr;</span>
+          </a>
+        </div>
+      </details>
+
+      <!-- 7. Fast-Track Company Strike-Off & Restructuring (4 Services) -->
+      <details class="if-mobile-accordion" id="mobile-closure-accordion">
+        <summary>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            </span>
+            <span class="accordion-title-text">Closure, Strike-Off &amp; NCLT (4)</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <a href="/services/form-stk2-strike-off.html">
+            <span>Fast-Track Company Strike-Off (STK-2)</span>
+            <span class="sublink-tag">₹12,999</span>
+          </a>
+          <a href="/services/llp-form24-strike-off.html">
+            <span>LLP Form 24 Fast-Track Closure</span>
+            <span class="sublink-tag">₹9,999</span>
+          </a>
+          <a href="/services/oppression-mismanagement-petitions.html">
+            <span>Oppression &amp; Mismanagement (Sec 241)</span>
+            <span class="sublink-tag">Advisory</span>
+          </a>
+          <a href="/services/nclt-insolvency-defense.html">
+            <span>NCLT CIRP Insolvency Defense</span>
+            <span class="sublink-tag">Advisory</span>
+          </a>
+          <a href="/verticals/14-exit-insolvency.html" class="sublink-view-all">
+            <span>Explore All Closure Solutions &rarr;</span>
+          </a>
+        </div>
+      </details>
+
+      <!-- 8. Diagnostic Tools & Regulatory Calculators (6 Tools) -->
+      <details class="if-mobile-accordion" id="mobile-tools-accordion">
+        <summary>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </span>
+            <span class="accordion-title-text">Diagnostic Tools &amp; Intelligence (6)</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <a href="/conversion/calculator.html">
+            <span>RoC Late Fee &amp; Penalty Calculator</span>
+            <span class="sublink-tag">Free Tool</span>
+          </a>
+          <a href="/conversion/trademark-search.html">
+            <span>NICE Trademark Screener</span>
+            <span class="sublink-tag">Free Tool</span>
+          </a>
+          <a href="/search/">
+            <span>Corporate &amp; Master Search</span>
+            <span class="sublink-tag">Registry</span>
+          </a>
+          <a href="/search/index.html">
+            <span>CIN, LLPIN &amp; DIN Master Lookup</span>
+            <span class="sublink-tag">Intelligence</span>
+          </a>
+          <a href="/knowledge/index.html">
+            <span>Compliance Knowledge Centre</span>
+            <span class="sublink-tag">Library</span>
+          </a>
+          <a href="/verticals/index.html">
+            <span>All 15 Practice Verticals Master Hub</span>
+            <span class="sublink-tag">Directory</span>
+          </a>
+          <a href="/conversion/index.html" class="sublink-view-all">
+            <span>Open All Diagnostic Tools &rarr;</span>
+          </a>
+        </div>
+      </details>
+
+      <a href="/contact.html" class="if-mobile-nav-link">Contact</a>
+
+      <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem;">
+        <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center;">
+          💬 WhatsApp Live Desk
+        </a>
+        <a href="tel:+918606918247" class="btn btn-secondary" style="width: 100%; text-align: center;">
+          📞 Call: +91 86069 18247
+        </a>
+        <a href="mailto:admin@craftegon.com" class="btn btn-secondary" style="width: 100%; text-align: center; font-size: 0.85rem;">
+          ✉️ admin@craftegon.com
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+</div>
 
   <main id="main-content" class="container" style="padding: 3rem 1.5rem; max-width: 860px;">
     <nav class="if-breadcrumb" aria-label="Breadcrumb">
@@ -186,7 +920,144 @@
     </div>
   </main>
 
-  <div id="global-footer"></div>
+  <div id="global-footer">
+<footer class="if-footer">
+  <div class="if-footer-inner">
+    <div class="if-footer-grid">
+      <!-- Column 1: Brand & Service Desk -->
+      <div class="if-footer-col if-footer-brand">
+        <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services (CCS) Home">
+          <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img" width="42" height="42" loading="eager">
+          <div class="brand-text-block">
+            <span class="brand-title">CRAFTEGON</span>
+            <span class="brand-subtitle">Corporate Services</span>
+          </div>
+        </a>
+        <p class="if-footer-desc">
+          Building business and statutory compliance infrastructure for India's modern enterprises — fixed transparent pricing, dedicated desk support, and institutional speed.
+        </p>
+        <div class="if-footer-contact">
+          <p class="if-contact-item"><strong>Direct Phone:</strong> <a href="tel:+918606918247">+91 86069 18247</a></p>
+          <p class="if-contact-item"><strong>Official Email:</strong> <a href="mailto:admin@craftegon.com">admin@craftegon.com</a></p>
+          <p class="if-contact-item"><strong>Operating Desk:</strong> Alappuzha, Kerala &bull; Pan-India Coverage</p>
+        </div>
+        <div class="if-footer-social">
+          <a href="https://www.linkedin.com/company/craftegon" target="_blank" rel="noopener noreferrer" class="if-social-link" aria-label="CraftEgon on LinkedIn" title="LinkedIn Corporate Profile">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://x.com/craftegon" target="_blank" rel="noopener noreferrer" class="if-social-link" aria-label="CraftEgon on X" title="X Updates">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>X</span>
+          </a>
+          <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-social-link" aria-label="CraftEgon WhatsApp Desk" title="WhatsApp Business Desk">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.39-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.42 1.44.54.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.23-.19-.48-.32z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Formation & Registrations (9 items) -->
+      <div class="if-footer-col">
+        <h4 class="if-footer-heading">Start &amp; Register</h4>
+        <ul class="if-footer-list">
+          <li><a href="/services/pvt-ltd-registration.html">Private Limited (SPICe+)</a></li>
+          <li><a href="/services/llp-registration.html">Limited Liability Partnership (LLP)</a></li>
+          <li><a href="/services/opc-registration.html">One Person Company (OPC)</a></li>
+          <li><a href="/services/section-8-registration.html">Section 8 Non-Profit Company</a></li>
+          <li><a href="/services/trademark-registration.html">Trademark Registration (TM-A)</a></li>
+          <li><a href="/services/dpiit-startup-india.html">Startup India DPIIT Recognition</a></li>
+          <li><a href="/services/msme-udyam.html">MSME / Udyam Registration</a></li>
+          <li><a href="/services/form-fc3-fc4.html">Foreign Branch &amp; Liaison Office</a></li>
+          <li class="if-footer-all-link"><a href="/verticals/01-entity-formation.html">All Formation Services &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: RoC & Tax Compliance (9 items) -->
+      <div class="if-footer-col">
+        <h4 class="if-footer-heading">RoC &amp; Tax Compliance</h4>
+        <ul class="if-footer-list">
+          <li><a href="/services/roc-annual-compliance.html">Annual Secretarial Retainers</a></li>
+          <li><a href="/services/form-aoc4.html">Form AOC-4 Financial Statements</a></li>
+          <li><a href="/services/form-mgt7.html">Form MGT-7 Annual Return</a></li>
+          <li><a href="/services/dir3-kyc.html">DIR-3 KYC Director Verification</a></li>
+          <li><a href="/services/gst-annual.html">GST Annual Return (GSTR-9)</a></li>
+          <li><a href="/services/itr7.html">Corporate Tax (ITR-7)</a></li>
+          <li><a href="/services/form-3ceb.html">Transfer Pricing (Form 3CEB)</a></li>
+          <li><a href="/services/form-stk2-strike-off.html">Fast-Track Strike-Off (STK-2)</a></li>
+          <li class="if-footer-all-link"><a href="/verticals/02-roc-compliance.html">All RoC Practice Areas &rarr;</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Practice Areas & Tools (9 items) -->
+      <div class="if-footer-col">
+        <h4 class="if-footer-heading">Practice Areas &amp; Tools</h4>
+        <ul class="if-footer-list">
+          <li><a href="/conversion/calculator.html">RoC Late Fee Calculator</a></li>
+          <li><a href="/conversion/trademark-search.html">NICE Trademark Screener</a></li>
+          <li><a href="/search/">Corporate &amp; Master Search</a></li>
+          <li><a href="/search/index.html">CIN, LLPIN &amp; Entity Lookup</a></li>
+          <li><a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law</a></li>
+          <li><a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a></li>
+          <li><a href="/knowledge/index.html">Compliance Knowledge Centre</a></li>
+          <li><a href="/about.html">About CraftEgon CCS</a></li>
+          <li><a href="/contact.html">Contact &amp; Service Desk</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Legal Policy Links Row -->
+    <div class="if-footer-legal-row">
+      <nav class="if-footer-legal-nav" aria-label="Legal and Policy Links">
+        <a href="/legal/terms.html">Terms &amp; Conditions</a>
+        <span class="if-legal-sep">&bull;</span>
+        <a href="/legal/privacy.html">Privacy Policy</a>
+        <span class="if-legal-sep">&bull;</span>
+        <a href="/legal/refund.html">Refund Policy</a>
+        <span class="if-legal-sep">&bull;</span>
+        <a href="/legal/disclaimer.html">Professional Disclaimer</a>
+        <span class="if-legal-sep">&bull;</span>
+        <a href="/legal/confidentiality.html">Confidentiality Policy</a>
+      </nav>
+    </div>
+
+    <!-- Statutory Disclaimer & Copyright -->
+    <div class="if-footer-bottom">
+      <div class="if-footer-disclaimer">
+        <strong>Statutory Disclosure:</strong> CraftEgon CCS provides corporate secretarial, regulatory compliance, and statutory documentation infrastructure under Indian corporate law. In compliance with the Advocates Act, 1961 and Bar Council of India regulations, CraftEgon CCS does not provide courtroom appearances, tribunal advocacy, or contentious litigation representation before the NCLT, ITAT, or High Courts. Formal legal representation and tribunal pleadings must be conducted by independent practicing advocates engaged directly on a separate vakalatnama. <a href="/legal/disclaimer.html">Read full professional disclaimer &rarr;</a>
+      </div>
+      <p class="if-footer-copy">
+        &copy; 2026 CraftEgon Corporate Services (CCS). All rights reserved. Operational Service Desk: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN 690501. Operating across all RoC Jurisdictions nationwide.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile Sticky Action Dock (Appears on Screens < 768px) -->
+<nav class="if-mobile-bottom-bar" id="mobile-sticky-dock" aria-label="Mobile Quick Contacts">
+  <a href="https://wa.me/918606918247?text=Hello%20CraftEgon%20CCS,%20I%20would%20like%20guidance%20on%20corporate%20services" target="_blank" rel="noopener noreferrer" class="dock-btn dock-btn-whatsapp" aria-label="WhatsApp Compliance Desk">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <a href="tel:+918606918247" class="dock-btn dock-btn-call" aria-label="Call Operational Desk">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Call Desk</span>
+  </a>
+  <a href="/conversion/calculator.html" class="dock-btn dock-btn-calc" aria-label="Calculate Fees &amp; Penalties">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+    <span>Estimator</span>
+  </a>
+  <a href="/services.html" class="dock-btn dock-btn-services" aria-label="Browse Complete 57 Services Directory">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+    <span>57 Services</span>
+  </a>
+</nav>
+
+<script src="/assets/js/search-index.js" defer></script>
+<script src="/assets/js/service-search.js" defer></script>
+<script src="/assets/js/chat-widget.js" defer></script>
+
+</div>
   <script src="/assets/js/navigation.js"></script>
   <script src="/assets/js/forms.js"></script>
 </body>
