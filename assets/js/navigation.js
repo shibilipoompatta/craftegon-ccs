@@ -584,12 +584,12 @@ function injectContextualReturnTrail() {
         '/verticals/07-labour-hr.html': 'Labour Law & HR Compliance',
         '/verticals/08-fundraising-investment.html': 'Fundraising & Investment Structuring',
         '/verticals/09-ma-restructuring.html': 'M&A and Corporate Restructuring',
-        '/verticals/10-litigation-dispute.html': 'Dispute Resolution & Commercial Advisory',
-        '/verticals/11-governance-audit.html': 'Secretarial Audit & Governance',
-        '/verticals/12-esg-csr.html': 'ESG & CSR Advisory',
+        '/verticals/10-litigation-dispute.html': 'Dispute Avoidance (Non-Litigation)',
+        '/verticals/11-governance-audit.html': 'Governance, Audit & Risk',
+        '/verticals/12-esg-csr.html': 'Data Privacy & Tech Law',
         '/verticals/13-cross-border-fema.html': 'FEMA & Cross-Border Advisory',
         '/verticals/14-exit-insolvency.html': 'Exit, Strike-Off & Dissolution',
-        '/verticals/15-it-digital.html': 'Tech & Digital Compliance'
+        '/verticals/15-it-digital.html': 'IT & Digital Infrastructure'
       };
 
       sourceTitle = KNOWN_ROUTES[cleanSource];

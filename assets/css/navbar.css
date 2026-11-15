@@ -567,6 +567,10 @@
   height: 75px;
 }
 
+body:not(.home-page) {
+  padding-top: 74px;
+}
+
 /* --- Breadcrumb Navigation --- */
 .if-breadcrumb {
   display: flex;

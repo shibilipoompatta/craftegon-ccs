@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T11:01:09.578Z",
+  "buildTimestamp": "2026-11-15T11:14:56.495Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 179,
-    "totalOutputSizeBytes": 9690614,
-    "totalOutputSizeFormatted": "9.24 MB",
+    "totalOutputSizeBytes": 9709752,
+    "totalOutputSizeFormatted": "9.26 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 123,
     "filesByExtension": {
@@ -63,7 +63,7 @@
     },
     {
       "path": "about.html",
-      "bytes": 56541
+      "bytes": 56768
     },
     {
       "path": "assets/css/article-navigation.css",
@@ -91,7 +91,7 @@
     },
     {
       "path": "assets/css/navbar.css",
-      "bytes": 37699
+      "bytes": 37738
     },
     {
       "path": "assets/css/service-page.css",
@@ -183,7 +183,7 @@
     },
     {
       "path": "assets/js/navigation.js",
-      "bytes": 30066
+      "bytes": 30061
     },
     {
       "path": "assets/js/search-engine.js",
@@ -207,43 +207,43 @@
     },
     {
       "path": "contact.html",
-      "bytes": 55247
+      "bytes": 55483
     },
     {
       "path": "conversion/ai-document-generator.html",
-      "bytes": 72603
+      "bytes": 73468
     },
     {
       "path": "conversion/calculator.html",
-      "bytes": 113681
+      "bytes": 114518
     },
     {
       "path": "conversion/contract-intake.html",
-      "bytes": 51060
+      "bytes": 51925
     },
     {
       "path": "conversion/cross-border-retainer.html",
-      "bytes": 51261
+      "bytes": 52103
     },
     {
       "path": "conversion/csr-audit-form.html",
-      "bytes": 51157
+      "bytes": 51997
     },
     {
       "path": "conversion/dispute-consultation.html",
-      "bytes": 52894
+      "bytes": 53756
     },
     {
       "path": "conversion/dpdp-audit-request.html",
-      "bytes": 51718
+      "bytes": 52537
     },
     {
       "path": "conversion/fema-consultation.html",
-      "bytes": 51186
+      "bytes": 52028
     },
     {
       "path": "conversion/hr-audit.html",
-      "bytes": 51172
+      "bytes": 51992
     },
     {
       "path": "conversion/index.html",
@@ -251,55 +251,55 @@
     },
     {
       "path": "conversion/license-qualification.html",
-      "bytes": 51730
+      "bytes": 52583
     },
     {
       "path": "conversion/ma-advisory-enquiry.html",
-      "bytes": 51440
+      "bytes": 52289
     },
     {
       "path": "conversion/partner-ecosystems.html",
-      "bytes": 95487
+      "bytes": 96324
     },
     {
       "path": "conversion/post-incorporation-checkout.html",
-      "bytes": 51911
+      "bytes": 52763
     },
     {
       "path": "conversion/ppc-annual-compliance.html",
-      "bytes": 29371
+      "bytes": 30225
     },
     {
       "path": "conversion/ppc-company-registration.html",
-      "bytes": 31477
+      "bytes": 32329
     },
     {
       "path": "conversion/ppc-trademark-registration.html",
-      "bytes": 30476
+      "bytes": 31330
     },
     {
       "path": "conversion/retainer-desk.html",
-      "bytes": 51557
+      "bytes": 52411
     },
     {
       "path": "conversion/secretarial-audit-scope.html",
-      "bytes": 51238
+      "bytes": 52084
     },
     {
       "path": "conversion/strike-off-checker.html",
-      "bytes": 66579
+      "bytes": 67423
     },
     {
       "path": "conversion/tax-intake.html",
-      "bytes": 51355
+      "bytes": 52179
     },
     {
       "path": "conversion/trademark-search.html",
-      "bytes": 61173
+      "bytes": 62027
     },
     {
       "path": "conversion/venture-deal-booking.html",
-      "bytes": 51229
+      "bytes": 52105
     },
     {
       "path": "data/ccfs-2026.json",
