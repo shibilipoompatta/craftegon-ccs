@@ -1161,7 +1161,7 @@ function generateStatutoryMemo() {
     rows.push({
       item: 'Class-3 Digital Signature Certificate (DSC)',
       basis: 'Cryptographic USB token & encryption key (Payable at actuals / Client\'s existing DSC accepted)',
-      amt: 'Separate (+)'
+      amt: 'Not Included (Separate)'
     });
 
     if (document.getElementById('f-addon-gst')?.checked) {

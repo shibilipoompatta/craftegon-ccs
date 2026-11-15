@@ -4445,3 +4445,30 @@ a, button, input, select, textarea,
   gap: 0.4rem !important;
   white-space: nowrap !important;
 }
+
+
+.flagship-cross-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #FEE2E2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
+  font-weight: 800;
+  font-size: 0.72rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.flagship-checklist-item.is-excluded {
+  color: #64748B;
+}
+
+.flagship-checklist-item.is-excluded .excluded-highlight {
+  color: #DC2626;
+  font-weight: 600;
+}

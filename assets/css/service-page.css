@@ -724,3 +724,24 @@
   align-items: center;
   gap: 0.35rem;
 }
+
+
+.if-feature-item.is-excluded {
+  color: var(--text-secondary);
+}
+
+.if-feature-item.is-excluded::before {
+  content: "✕";
+  color: #DC2626;
+  font-weight: 800;
+}
+
+.passport-feature-item.is-excluded {
+  color: var(--text-secondary);
+}
+
+.passport-feature-item.is-excluded::before {
+  content: "✕";
+  color: #DC2626;
+  font-weight: 800;
+}
