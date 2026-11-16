@@ -85,17 +85,17 @@
   },
   {
     "source_id": "SRC-RBI-001",
-    "source_title": "Reserve Bank of India — FIRMS & FLAIR Reporting Systems",
-    "issuing_authority": "Reserve Bank of India (RBI), Foreign Exchange Department",
-    "official_url": "https://firms.rbi.org.in/",
-    "source_type": "OFFICIAL_PORTAL",
+    "source_title": "RBI Master Directions — Priority Sector Lending (PSL) Targets and Classification",
+    "issuing_authority": "Reserve Bank of India (RBI)",
+    "official_url": "https://www.rbi.org.in/",
+    "source_type": "REGULATORY_NOTIFICATION",
     "jurisdiction": "IN-CENTRAL",
-    "publication_date": "1999-12-29",
-    "accessed_date": "2026-10-17",
-    "last_verified_at": "2026-10-17",
+    "publication_date": "2020-09-04",
+    "accessed_date": "2026-11-16",
+    "last_verified_at": "2026-11-16",
     "next_review_at": "2027-04-01",
     "reliability_classification": "PRIMARY_STATUTORY",
-    "access_restrictions_notes": "Entity and AD Bank two-factor authentication required for Foreign Liabilities & Assets (FLA) and FC-GPR/FC-TRS submissions."
+    "access_restrictions_notes": "Mandatory banking directions mandating 40% priority sector lending allocation for commercial banks, with 7.5% specific sub-target for Micro Enterprises, and prescribing credit eligibility for Udyam-registered manufacturing, service, and retail/wholesale trading units."
   },
   {
     "source_id": "SRC-DPDP-001",
@@ -127,17 +127,17 @@
   },
   {
     "source_id": "SRC-MSME-001",
-    "source_title": "Ministry of MSME — Udyam Registration Portal",
-    "issuing_authority": "Ministry of Micro, Small and Medium Enterprises",
+    "source_title": "Ministry of MSME Notification S.O. 2119(E) — Composite Criteria & Udyam Portal Framework",
+    "issuing_authority": "Ministry of Micro, Small and Medium Enterprises, Government of India",
     "official_url": "https://udyamregistration.gov.in/",
-    "source_type": "OFFICIAL_PORTAL",
+    "source_type": "REGULATORY_NOTIFICATION",
     "jurisdiction": "IN-CENTRAL",
     "publication_date": "2020-06-26",
-    "accessed_date": "2026-10-17",
-    "last_verified_at": "2026-10-17",
+    "accessed_date": "2026-11-16",
+    "last_verified_at": "2026-11-16",
     "next_review_at": "2027-04-01",
     "reliability_classification": "PRIMARY_STATUTORY",
-    "access_restrictions_notes": "Paperless official registration portal integrated with CBDT and GSTN database."
+    "access_restrictions_notes": "Official Gazette notification establishing Udyam registration, composite investment and turnover classification thresholds, export turnover exclusion, and PAN-based aggregation."
   },
   {
     "source_id": "SRC-DPIIT-001",
@@ -460,5 +460,61 @@
     "next_review_at": "2027-04-01",
     "reliability_classification": "REGULATORY_AGENCY",
     "access_restrictions_notes": "Statutory secretarial standards specified by ICSI and approved by Central Government, compliance with which is mandatory under Section 118(10) of Companies Act, 2013."
+  },
+  {
+    "source_id": "SRC-MSME-002",
+    "source_title": "Micro, Small and Medium Enterprises Development Act, 2006 (Act No. 27 of 2006) — Chapter V Delayed Payments",
+    "issuing_authority": "Parliament of India / Ministry of Law and Justice",
+    "official_url": "https://www.indiacode.nic.in/handle/123456789/2012",
+    "source_type": "STATUTE",
+    "jurisdiction": "IN-CENTRAL",
+    "publication_date": "2006-06-16",
+    "accessed_date": "2026-11-16",
+    "last_verified_at": "2026-11-16",
+    "next_review_at": "2027-04-01",
+    "reliability_classification": "PRIMARY_STATUTORY",
+    "access_restrictions_notes": "Primary statutory enactment providing 15/45-day payment liabilities (Section 15), 3x RBI Bank Rate compound interest (Section 16), MSEFC arbitration (Section 18), 75% pre-deposit (Section 19), balance sheet disclosures (Section 22), and tax non-deductibility of interest (Section 23)."
+  },
+  {
+    "source_id": "SRC-MSME-003",
+    "source_title": "Ministry of MSME Office Memorandum No. 5/2(2)/2021-E/P & G/Policy — Retail and Wholesale Trade Inclusion under Udyam",
+    "issuing_authority": "Ministry of Micro, Small and Medium Enterprises, Policy Division",
+    "official_url": "https://msme.gov.in/",
+    "source_type": "REGULATORY_NOTIFICATION",
+    "jurisdiction": "IN-CENTRAL",
+    "publication_date": "2021-07-02",
+    "accessed_date": "2026-11-16",
+    "last_verified_at": "2026-11-16",
+    "next_review_at": "2027-04-01",
+    "reliability_classification": "PRIMARY_STATUTORY",
+    "access_restrictions_notes": "Official circular allowing retail and wholesale traders (NIC Codes 45, 46, 47) to register on Udyam strictly for Priority Sector Lending (PSL) credit benefits, with subsequent clarification excluding traders from Chapter V delayed payment remedies and Section 43B(h) tax disallowances."
+  },
+  {
+    "source_id": "SRC-TAX-001",
+    "source_title": "Income-tax Act, 1961 — Section 43B(h) (Finance Act, 2023 Amendment)",
+    "issuing_authority": "Central Board of Direct Taxes (CBDT), Ministry of Finance, Government of India",
+    "official_url": "https://incometaxindia.gov.in/",
+    "source_type": "STATUTE",
+    "jurisdiction": "IN-CENTRAL",
+    "publication_date": "2023-03-31",
+    "accessed_date": "2026-11-16",
+    "last_verified_at": "2026-11-16",
+    "next_review_at": "2027-04-01",
+    "reliability_classification": "PRIMARY_STATUTORY",
+    "access_restrictions_notes": "Statutory amendment effective 1 April 2024 (AY 2024-25) disallowing business expense deductions for delayed payments to registered Micro and Small enterprises not cleared within Section 15 MSMED Act timelines. Explicitly excludes return-filing grace period."
+  },
+  {
+    "source_id": "SRC-TAX-002",
+    "source_title": "Income-tax Act, 2025 — Section 37(2)(g) Actual-Payment MSME Timing Provisions",
+    "issuing_authority": "Parliament of India / Ministry of Finance",
+    "official_url": "https://incometaxindia.gov.in/",
+    "source_type": "STATUTE",
+    "jurisdiction": "IN-CENTRAL",
+    "publication_date": "2025-09-15",
+    "accessed_date": "2026-11-16",
+    "last_verified_at": "2026-11-16",
+    "next_review_at": "2027-04-01",
+    "reliability_classification": "PRIMARY_STATUTORY",
+    "access_restrictions_notes": "Successor statutory provision under the Income-tax Act, 2025 (in force 1 April 2026) codifying actual-payment disallowance for overdue Micro and Small enterprise payables, continuing the 15-day / 45-day MSMED Act alignment."
   }
 ]

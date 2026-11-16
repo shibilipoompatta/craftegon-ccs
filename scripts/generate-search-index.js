@@ -125,12 +125,17 @@ const ENRICHMENTS = {
       'Udyam Registration',
       'Udyam Certificate',
       'Small business registration',
-      'MSME Certificate Online'
+      'MSME Certificate Online',
+      'Section 43B(h) MSME',
+      'MSME 45-day payment',
+      'MSME Samadhaan delayed payment',
+      'MSEFC arbitration recovery',
+      'Retail wholesale trader udyam'
     ],
     forms: ['Udyam Portal e-Filing'],
     entity_types: ['Micro', 'Small', 'Medium Enterprises'],
     business_stage: 'Formation & Startup',
-    keywords: ['msme', 'udyam', 'priority lending', 'collateral free', 'subsidies', 'nic code']
+    keywords: ['msme', 'udyam', 'priority lending', 'collateral free', 'subsidies', 'nic code', '43b(h)', 'section 37(2)(g)', 'delayed payment', 'samadhaan', 'msefc', 'export deduction', 'cgtmse', 'trader udyam']
   },
   '/services/dpiit-startup-india.html': {
     aliases: [

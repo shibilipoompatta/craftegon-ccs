@@ -699,4 +699,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/msme-udyam-registration-complete-guide.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/msme-section-43bh-section-37-2g-tax-guide.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/msme-delayed-payment-protection-samadhaan-handbook.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/msme-udyam-retail-wholesale-traders-guide.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>

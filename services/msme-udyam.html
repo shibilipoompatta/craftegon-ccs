@@ -865,6 +865,383 @@
       </div>
     </section>
 
+    <!-- Interactive MSME Statutory & Compliance Diagnostic Suite -->
+    <section id="compliance-suite" style="margin-bottom: 3rem; scroll-margin-top: 5rem;">
+      <div style="background: linear-gradient(135deg, #0B2545 0%, #133E68 100%); border-radius: 12px; padding: 2rem; color: #FFFFFF; box-shadow: 0 4px 20px rgba(11, 37, 69, 0.12); margin-bottom: 1.5rem;">
+        <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+          <span style="font-size: 0.75rem; font-weight: 700; background: rgba(197, 155, 39, 0.25); color: #FCD34D; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(197, 155, 39, 0.4);">Interactive Statutory Engines</span>
+          <span style="font-size: 0.75rem; font-family: var(--font-mono, monospace); color: #94A3B8; background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 4px;">MSMED Act &bull; S.O. 2119(E) &bull; Sec 43B(h)</span>
+        </div>
+        <h2 style="font-size: 1.75rem; font-weight: 800; color: #FFFFFF; margin: 0 0 0.5rem; line-height: 1.3;">
+          MSME Statutory Intelligence &amp; Compliance Diagnostic Suite
+        </h2>
+        <p style="font-size: 0.95rem; color: #CBD5E1; margin: 0; max-width: 850px; line-height: 1.6;">
+          Real-time algorithmic tools to determine composite enterprise classification with export deduction, simulate 20.25% p.a. delayed payment penal interest, test Section 43B(h) / Section 37(2)(g) corporate tax disallowances, and audit retail/wholesale trader privileges.
+        </p>
+
+        <!-- Navigation Tabs -->
+        <div class="calc-tabs" style="display: flex; gap: 0.5rem; margin-top: 1.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15); overflow-x: auto; padding-bottom: 2px;">
+          <button type="button" class="msme-tab-btn active" onclick="switchMsmeTab('classification', this)" style="background: transparent; border: none; border-bottom: 3px solid #FCD34D; color: #FCD34D; padding: 0.65rem 1rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
+            🧮 1. Composite Classification
+          </button>
+          <button type="button" class="msme-tab-btn" onclick="switchMsmeTab('delayed-payment', this)" style="background: transparent; border: none; border-bottom: 3px solid transparent; color: #94A3B8; padding: 0.65rem 1rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
+            ⚖️ 2. 20.25% Interest &amp; Sec 43B(h)
+          </button>
+          <button type="button" class="msme-tab-btn" onclick="switchMsmeTab('trader-matrix', this)" style="background: transparent; border: none; border-bottom: 3px solid transparent; color: #94A3B8; padding: 0.65rem 1rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
+            🏪 3. Trader Eligibility Matrix
+          </button>
+          <button type="button" class="msme-tab-btn" onclick="switchMsmeTab('doc-checklist', this)" style="background: transparent; border: none; border-bottom: 3px solid transparent; color: #94A3B8; padding: 0.65rem 1rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
+            📋 4. Entity Document Checklist
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 1: Composite Classification Calculator -->
+      <div id="msme-tab-classification" class="msme-tab-pane" style="display: block;">
+        <div style="background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 12px; padding: 1.75rem; box-shadow: 0 4px 16px rgba(11, 37, 69, 0.04);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start;">
+            <!-- Inputs -->
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--navy-800); margin: 0 0 1rem;">Enter Enterprise Financial Parameters</h3>
+
+              <div style="margin-bottom: 1.25rem;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Constitution / Business Structure</label>
+                <select id="calc-structure" onchange="runClassificationCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+                  <option value="proprietorship">Sole Proprietorship</option>
+                  <option value="partnership">Partnership Firm</option>
+                  <option value="llp">Limited Liability Partnership (LLP)</option>
+                  <option value="pvt_ltd" selected>Private Limited Company</option>
+                  <option value="opc">One Person Company (OPC)</option>
+                  <option value="public_ltd">Public Limited Company</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom: 1.25rem;">
+                <label style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">
+                  <span>Investment in Plant &amp; Machinery (WDV)</span>
+                  <span id="label-inv-display" style="color: var(--brand-primary); font-family: var(--font-mono, monospace); font-weight: 700;">₹50 Lakhs</span>
+                </label>
+                <input type="range" id="calc-inv-range" min="1" max="6000" step="5" value="50" oninput="syncInvFromSlider(this.value)" style="width: 100%; accent-color: var(--brand-gold);">
+                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+                  <span>₹1 Lakh</span>
+                  <span>₹1 Cr (Micro Limit)</span>
+                  <span>₹10 Cr (Small)</span>
+                  <span>₹50 Cr (Med)</span>
+                  <span>₹60 Cr+</span>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 1.25rem;">
+                <label style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">
+                  <span>Total Gross Turnover (₹ Lakhs)</span>
+                  <span id="label-to-display" style="color: var(--brand-primary); font-family: var(--font-mono, monospace); font-weight: 700;">₹200 Lakhs (₹2 Cr)</span>
+                </label>
+                <input type="range" id="calc-to-range" min="5" max="30000" step="25" value="200" oninput="syncToFromSlider(this.value)" style="width: 100%; accent-color: var(--brand-gold);">
+                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+                  <span>₹5 L</span>
+                  <span>₹5 Cr (Micro)</span>
+                  <span>₹50 Cr (Small)</span>
+                  <span>₹250 Cr (Med)</span>
+                  <span>₹300 Cr+</span>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 1.25rem;">
+                <label style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">
+                  <span>Export Turnover of Goods &amp; Services (₹ Lakhs)</span>
+                  <span id="label-exp-display" style="color: #065F46; font-family: var(--font-mono, monospace); font-weight: 700;">₹50 Lakhs (Exempted)</span>
+                </label>
+                <input type="range" id="calc-exp-range" min="0" max="20000" step="25" value="50" oninput="syncExpFromSlider(this.value)" style="width: 100%; accent-color: #10B981;">
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0.35rem 0 0;">
+                  ⚡ <em>Section 7(1) Explanation 1:</em> Exports are statutorily excluded from turnover for classification.
+                </p>
+              </div>
+            </div>
+
+            <!-- Dynamic Classification Results Card -->
+            <div style="background: #F8FAFC; border: 1.5px solid var(--border-color); border-radius: 10px; padding: 1.5rem;">
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Statutory Assessment</span>
+              <div id="class-badge-container" style="margin: 0.6rem 0 1rem;">
+                <span id="class-tier-badge" style="font-size: 1.25rem; font-weight: 800; background: #DCFCE7; color: #166534; padding: 6px 14px; border-radius: 6px; border: 1.5px solid #86EFAC; display: inline-block;">
+                  MICRO ENTERPRISE
+                </span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 0.65rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 0.85rem 0; margin-bottom: 1rem; font-size: 0.88rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-muted);">Plant &amp; Machinery Investment:</span>
+                  <strong id="res-inv-val" style="color: var(--text-dark); font-family: var(--font-mono);">₹50.00 Lakhs</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-muted);">Gross Annual Turnover:</span>
+                  <span id="res-gross-to" style="color: var(--text-dark); font-family: var(--font-mono);">₹200.00 Lakhs</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; color: #065F46;">
+                  <span>(-) Export Turnover Deducted:</span>
+                  <strong id="res-exp-deduct" style="font-family: var(--font-mono);">- ₹50.00 Lakhs</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-weight: 700; background: #FFFFFF; padding: 0.4rem 0.6rem; border-radius: 4px; border: 1px solid var(--border-color);">
+                  <span style="color: var(--navy-800);">Net Turnover for MSME Audit:</span>
+                  <strong id="res-net-to" style="color: var(--navy-800); font-family: var(--font-mono);">₹150.00 Lakhs (₹1.5 Cr)</strong>
+                </div>
+              </div>
+
+              <div id="class-status-summary" style="font-size: 0.84rem; line-height: 1.55; color: var(--text-main);">
+                Satisfies both Micro criteria: Investment is under ₹1 Crore and Net Turnover is under ₹5 Crore. Eligible for full Chapter V delayed payment protection, priority sector lending, and 50% trademark discount.
+              </div>
+
+              <div style="margin-top: 1.25rem;">
+                <a href="#intake-form" class="if-btn-primary" style="display: block; text-align: center; text-decoration: none; padding: 0.75rem; font-size: 0.9rem;">
+                  Register This Enterprise as MSME &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Delayed Payment 20.25% Interest & Tax Disallowance Calculator -->
+      <div id="msme-tab-delayed-payment" class="msme-tab-pane" style="display: none;">
+        <div style="background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 12px; padding: 1.75rem; box-shadow: 0 4px 16px rgba(11, 37, 69, 0.04);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start;">
+            <!-- Inputs -->
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--navy-800); margin: 0 0 1rem;">Delayed Payment Parameters (Sec 15 &amp; 16)</h3>
+
+              <div style="margin-bottom: 1rem;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Invoice Principal Amount (₹)</label>
+                <input type="number" id="calc-inv-amount" value="500000" step="10000" oninput="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.92rem; font-family: var(--font-mono);">
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <label style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Invoice / Delivery Date</label>
+                  <input type="date" id="calc-inv-date" value="2026-01-10" onchange="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
+                </div>
+                <div>
+                  <label style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Actual / Expected Payment Date</label>
+                  <input type="date" id="calc-pay-date" value="2026-04-15" onchange="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
+                </div>
+              </div>
+
+              <div style="margin-bottom: 1rem;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Credit Terms Agreement</label>
+                <select id="calc-terms-type" onchange="toggleCreditAgreementInput()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+                  <option value="written" selected>Written Agreement (Statutory Cap: 45 Days)</option>
+                  <option value="none">No Written Agreement (Default: 15 Days)</option>
+                </select>
+              </div>
+
+              <div id="agreed-days-container" style="margin-bottom: 1rem;">
+                <label style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">
+                  <span>Agreed Credit Days (Max 45 days)</span>
+                  <span id="agreed-days-label" style="font-family: var(--font-mono); color: var(--brand-primary); font-weight: 700;">45 Days</span>
+                </label>
+                <input type="range" id="calc-agreed-days" min="1" max="45" value="45" oninput="document.getElementById('agreed-days-label').innerText = this.value + ' Days'; runDelayedPaymentCalc();" style="width: 100%; accent-color: var(--brand-gold);">
+              </div>
+
+              <div style="margin-bottom: 1rem;">
+                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Buyer Income Tax Slab Rate</label>
+                <select id="calc-buyer-tax" onchange="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+                  <option value="0.2517" selected>Corporate Concessional Rate (22% + 10% Surch + Cess = 25.17%)</option>
+                  <option value="0.312">Standard Corporate / Firm Rate (30% + Cess = 31.2%)</option>
+                  <option value="0.3494">Highest Individual / LLP Slab (30% + 15% Surch + Cess = 34.94%)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Dynamic Delayed Payment & Tax Results -->
+            <div style="background: #F8FAFC; border: 1.5px solid var(--border-color); border-radius: 10px; padding: 1.5rem;">
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Section 16 &amp; Section 43B(h) Audit</span>
+              
+              <div id="delay-status-badge" style="margin: 0.6rem 0 1rem;">
+                <span style="font-size: 1.05rem; font-weight: 800; background: #FEE2E2; color: #991B1B; padding: 6px 12px; border-radius: 6px; border: 1.5px solid #FCA5A5; display: inline-block;">
+                  ⚠️ STATUTORY DELAY DETECTED (52 DAYS OVERDUE)
+                </span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 0.65rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 0.85rem 0; margin-bottom: 1rem; font-size: 0.88rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-muted);">Statutory Due Date (Sec 15):</span>
+                  <strong id="res-due-date" style="color: var(--text-dark); font-family: var(--font-mono);">24 Feb 2026</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-muted);">Statutory Interest Rate:</span>
+                  <strong style="color: #991B1B; font-family: var(--font-mono);">20.25% p.a. (3x Bank Rate)</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; color: #991B1B;">
+                  <span>Compound Penal Interest (Sec 16):</span>
+                  <strong id="res-penal-interest" style="font-family: var(--font-mono);">₹14,842</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; color: #B91C1C; font-weight: 700; background: #FFF1F2; padding: 0.4rem 0.6rem; border-radius: 4px; border: 1px solid #FECDD3;">
+                  <span>Sec 43B(h) / 37(2)(g) Tax Disallowance:</span>
+                  <strong id="res-tax-disallowance" style="font-family: var(--font-mono);">₹5,00,000 Disallowed in FY25-26</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; color: #7F1D1D;">
+                  <span>Immediate Extra Tax Cashflow Impact:</span>
+                  <strong id="res-tax-cashflow" style="font-family: var(--font-mono);">₹1,25,850 Extra Tax</strong>
+                </div>
+              </div>
+
+              <div id="delay-explanation" style="font-size: 0.82rem; line-height: 1.55; color: var(--text-main);">
+                <strong>Audit Finding:</strong> Payment fell due on 24 Feb 2026 and remained unpaid as of 31 March 2026. Under Section 43B(h), the entire ₹5,00,000 is disallowed in FY 2025-26, increasing taxable profit. Penal interest of 20.25% p.a. compounds with monthly rests and is non-deductible under Section 23.
+              </div>
+
+              <div style="margin-top: 1.25rem;">
+                <a href="/knowledge/msme-section-43bh-section-37-2g-tax-guide.html" class="if-btn-secondary" style="display: block; text-align: center; text-decoration: none; padding: 0.65rem; font-size: 0.85rem;">
+                  Read Complete Section 43B(h) Audit Guide &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Trader Eligibility Matrix -->
+      <div id="msme-tab-trader-matrix" class="msme-tab-pane" style="display: none;">
+        <div style="background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 12px; padding: 1.75rem; box-shadow: 0 4px 16px rgba(11, 37, 69, 0.04);">
+          <div style="margin-bottom: 1.25rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--navy-800); margin: 0 0 0.4rem;">Retail &amp; Wholesale Traders Statutory Rights Matrix</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">
+              Comparing statutory rights of Manufacturers, Service Providers, and Traders (NIC 45, 46, 47) under Ministry OMs dated 2 July 2021 &amp; 1 Sept 2021.
+            </p>
+          </div>
+
+          <div style="overflow-x: auto; border: 1px solid var(--border-color); border-radius: 8px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left;">
+              <thead>
+                <tr style="background: #0B2545; color: #FFFFFF;">
+                  <th style="padding: 0.75rem 1rem;">Statutory Benefit / Legal Provision</th>
+                  <th style="padding: 0.75rem 1rem;">Manufacturing (NIC 10-33)</th>
+                  <th style="padding: 0.75rem 1rem;">Services (NIC 58-99)</th>
+                  <th style="padding: 0.75rem 1rem;">Retail / Wholesale (NIC 45-47)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-color); background: #FFFFFF;">
+                  <td style="padding: 0.75rem 1rem; font-weight: 600;">Priority Sector Lending (PSL Credit)</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Fully Eligible</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Fully Eligible</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Fully Eligible (OM 2 July 2021)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color); background: #F8FAFC;">
+                  <td style="padding: 0.75rem 1rem; font-weight: 600;">CGTMSE Collateral-Free Loans (up to ₹5 Cr)</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Fully Eligible</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Fully Eligible</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Eligible (Per Bank Limits)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color); background: #FFFFFF;">
+                  <td style="padding: 0.75rem 1rem; font-weight: 600;">50% Trademark Govt Fee Subsidy (TM-A)</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ ₹4,500 (vs ₹9,000)</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ ₹4,500 (vs ₹9,000)</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ ₹4,500 (Valid URN Holder)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color); background: #FEF2F2;">
+                  <td style="padding: 0.75rem 1rem; font-weight: 600;">Chapter V Delayed Payments (MSEFC / Samadhaan)</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Protected (Sec 15-24)</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Protected (Sec 15-24)</td>
+                  <td style="padding: 0.75rem 1rem; color: #DC2626; font-weight: 700;">❌ STRICTLY EXCLUDED</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color); background: #FEF2F2;">
+                  <td style="padding: 0.75rem 1rem; font-weight: 600;">Sec 43B(h) / Sec 37(2)(g) Tax Disallowance on Buyers</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Applicable (Buyer Disallowed)</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Applicable (Buyer Disallowed)</td>
+                  <td style="padding: 0.75rem 1rem; color: #DC2626; font-weight: 700;">❌ EXCLUDED (No Disallowance)</td>
+                </tr>
+                <tr style="background: #FFFFFF;">
+                  <td style="padding: 0.75rem 1rem; font-weight: 600;">GeM Tender EMD Waivers &amp; Purchase Quotas</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Fully Eligible</td>
+                  <td style="padding: 0.75rem 1rem; color: #166534; font-weight: 700;">✅ Fully Eligible</td>
+                  <td style="padding: 0.75rem 1rem; color: #D97706; font-weight: 700;">⚠️ Restricted (Pure Resellers Excluded)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin: 0; max-width: 650px;">
+              Read the full judicial and regulatory rationale in our dedicated handbook:
+            </p>
+            <a href="/knowledge/msme-udyam-retail-wholesale-traders-guide.html" class="if-btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem; text-decoration: none;">
+              Read Complete Trader Regulatory Guide &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: Interactive Document & Prerequisite Generator -->
+      <div id="msme-tab-doc-checklist" class="msme-tab-pane" style="display: none;">
+        <div style="background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 12px; padding: 1.75rem; box-shadow: 0 4px 16px rgba(11, 37, 69, 0.04);">
+          <div style="margin-bottom: 1.25rem;">
+            <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--navy-800); margin-bottom: 0.35rem;">Select Your Entity Structure to Generate Tailored Checklist:</label>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" class="checklist-type-btn active" onclick="switchChecklistType('proprietorship', this)" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--brand-primary); background: var(--brand-primary); color: #FFFFFF; cursor: pointer;">Sole Proprietorship</button>
+              <button type="button" class="checklist-type-btn" onclick="switchChecklistType('partnership', this)" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); cursor: pointer;">Partnership Firm</button>
+              <button type="button" class="checklist-type-btn" onclick="switchChecklistType('llp', this)" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); cursor: pointer;">LLP</button>
+              <button type="button" class="checklist-type-btn" onclick="switchChecklistType('company', this)" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); cursor: pointer;">Pvt Ltd / OPC</button>
+            </div>
+          </div>
+
+          <div id="checklist-items-container" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+            <!-- Rendered dynamically via JavaScript -->
+          </div>
+
+          <div style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <strong style="color: var(--text-dark); font-size: 0.9rem;">Ready to file with zero errors?</strong>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.15rem 0 0;">Our corporate secretarial team validates all details with CBDT &amp; CBIC before submission.</p>
+            </div>
+            <a href="#intake-form" class="if-btn-primary" style="text-decoration: none; padding: 0.6rem 1.25rem; font-size: 0.88rem;">Proceed to Application &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Regulatory Intelligence & Dedicated MSME Knowledge Centre -->
+    <section style="margin-bottom: 2.75rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--gold-primary, #9E7D17); text-transform: uppercase; letter-spacing: 0.05em;">Institutional Library</span>
+          <h2 style="font-size: 1.45rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0.25rem 0 0;">Dedicated MSME Regulatory Blueprints</h2>
+        </div>
+        <a href="/knowledge/index.html" style="font-size: 0.85rem; color: var(--brand-primary); font-weight: 600; text-decoration: none;">Browse Full Knowledge Centre &rarr;</a>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+        <!-- Card 1 -->
+        <a href="/knowledge/msme-udyam-registration-complete-guide.html" style="text-decoration: none; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;">
+          <span style="font-size: 0.7rem; font-weight: 700; color: #166534; background: #DCFCE7; padding: 2px 6px; border-radius: 4px; align-self: flex-start; margin-bottom: 0.5rem;">S.O. 2119(E) &bull; Core Guide</span>
+          <strong style="color: var(--navy-800); font-size: 0.95rem; line-height: 1.35; margin-bottom: 0.4rem;">Complete Statutory Guide to Udyam Registration</strong>
+          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0 0 0.85rem; flex-grow: 1;">Composite classification criteria, export turnover exclusion, PAN-Aadhaar linking, and official portal procedures.</p>
+          <span style="font-size: 0.8rem; color: var(--gold-primary); font-weight: 700;">Read Complete Guide &rarr;</span>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="/knowledge/msme-section-43bh-section-37-2g-tax-guide.html" style="text-decoration: none; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;">
+          <span style="font-size: 0.7rem; font-weight: 700; color: #1E40AF; background: #DBEAFE; padding: 2px 6px; border-radius: 4px; align-self: flex-start; margin-bottom: 0.5rem;">Direct Tax &bull; Sec 43B(h)</span>
+          <strong style="color: var(--navy-800); font-size: 0.95rem; line-height: 1.35; margin-bottom: 0.4rem;">Section 43B(h) to Sec 37(2)(g) Tax Disallowance</strong>
+          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0 0 0.85rem; flex-grow: 1;">The 45-day payment rule, actual-payment disallowances, exclusion of return filing provisos, and Form 3CD Clause 22.</p>
+          <span style="font-size: 0.8rem; color: var(--gold-primary); font-weight: 700;">Read Tax Guide &rarr;</span>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="/knowledge/msme-delayed-payment-protection-samadhaan-handbook.html" style="text-decoration: none; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;">
+          <span style="font-size: 0.7rem; font-weight: 700; color: #9A3412; background: #FFEDD5; padding: 2px 6px; border-radius: 4px; align-self: flex-start; margin-bottom: 0.5rem;">Chapter V &bull; MSEFC</span>
+          <strong style="color: var(--navy-800); font-size: 0.95rem; line-height: 1.35; margin-bottom: 0.4rem;">MSME Delayed Payment Protection &amp; Samadhaan</strong>
+          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0 0 0.85rem; flex-grow: 1;">3x RBI Bank Rate compounding monthly interest, Samadhaan portal filing, Section 18 arbitration, and 75% pre-deposit.</p>
+          <span style="font-size: 0.8rem; color: var(--gold-primary); font-weight: 700;">Read Recovery Handbook &rarr;</span>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="/knowledge/msme-udyam-retail-wholesale-traders-guide.html" style="text-decoration: none; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s;">
+          <span style="font-size: 0.7rem; font-weight: 700; color: #6B21A8; background: #F3E8FF; padding: 2px 6px; border-radius: 4px; align-self: flex-start; margin-bottom: 0.5rem;">Traders &bull; NIC 45-47</span>
+          <strong style="color: var(--navy-800); font-size: 0.95rem; line-height: 1.35; margin-bottom: 0.4rem;">Traders Udyam: PSL Benefits vs Chapter V Exclusions</strong>
+          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0 0 0.85rem; flex-grow: 1;">Why retail and wholesale traders qualify for banking credit &amp; CGTMSE but are statutorily barred from Samadhaan &amp; 43B(h).</p>
+          <span style="font-size: 0.8rem; color: var(--gold-primary); font-weight: 700;">Read Trader Handbook &rarr;</span>
+        </a>
+      </div>
+    </section>
+
     <!-- Section 3: Statutory Benefits & Commercial Advantages -->
     <section style="margin-bottom: 2.5rem;">
       <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--navy-800, #0B2545); margin-bottom: 1rem;">Key Statutory &amp; Commercial Benefits of Udyam</h2>
@@ -1322,6 +1699,260 @@
 <script src="/assets/js/chat-widget.js" defer></script>
 
 </div>
+  <script>
+    // Tab Switching Logic
+    function switchMsmeTab(tabId, btn) {
+      document.querySelectorAll('.msme-tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.style.color = '#94A3B8';
+        b.style.borderBottomColor = 'transparent';
+        b.style.fontWeight = '600';
+      });
+      btn.classList.add('active');
+      btn.style.color = '#FCD34D';
+      btn.style.borderBottomColor = '#FCD34D';
+      btn.style.fontWeight = '700';
+
+      document.querySelectorAll('.msme-tab-pane').forEach(p => p.style.display = 'none');
+      const activePane = document.getElementById('msme-tab-' + tabId);
+      if (activePane) activePane.style.display = 'block';
+    }
+
+    // TAB 1: Composite Classification Calculations
+    function syncInvFromSlider(val) {
+      let text = '₹' + val + ' Lakhs';
+      if (val >= 100) {
+        text = '₹' + (val / 100).toFixed(2) + ' Crore';
+      }
+      document.getElementById('label-inv-display').innerText = text;
+      runClassificationCalc();
+    }
+
+    function syncToFromSlider(val) {
+      let text = '₹' + val + ' Lakhs';
+      if (val >= 100) {
+        text = '₹' + (val / 100).toFixed(2) + ' Crore';
+      }
+      document.getElementById('label-to-display').innerText = text;
+      runClassificationCalc();
+    }
+
+    function syncExpFromSlider(val) {
+      let text = '₹' + val + ' Lakhs (Exempted)';
+      if (val >= 100) {
+        text = '₹' + (val / 100).toFixed(2) + ' Crore (Exempted)';
+      }
+      document.getElementById('label-exp-display').innerText = text;
+      runClassificationCalc();
+    }
+
+    function runClassificationCalc() {
+      const invLakhs = parseFloat(document.getElementById('calc-inv-range').value);
+      const grossToLakhs = parseFloat(document.getElementById('calc-to-range').value);
+      const expLakhs = parseFloat(document.getElementById('calc-exp-range').value);
+
+      const netToLakhs = Math.max(0, grossToLakhs - expLakhs);
+
+      const invCr = invLakhs / 100;
+      const netToCr = netToLakhs / 100;
+      const grossToCr = grossToLakhs / 100;
+      const expCr = expLakhs / 100;
+
+      document.getElementById('res-inv-val').innerText = '₹' + invCr.toFixed(2) + ' Cr (₹' + invLakhs + ' L)';
+      document.getElementById('res-gross-to').innerText = '₹' + grossToCr.toFixed(2) + ' Cr';
+      document.getElementById('res-exp-deduct').innerText = '- ₹' + expCr.toFixed(2) + ' Cr';
+      document.getElementById('res-net-to').innerText = '₹' + netToCr.toFixed(2) + ' Cr (₹' + netToLakhs + ' L)';
+
+      const badge = document.getElementById('class-tier-badge');
+      const summary = document.getElementById('class-status-summary');
+
+      // Classification Logic (S.O. 2119(E)):
+      // Micro: Inv <= 1 Cr AND Net Turnover <= 5 Cr
+      // Small: Inv <= 10 Cr AND Net Turnover <= 50 Cr
+      // Medium: Inv <= 50 Cr AND Net Turnover <= 250 Cr
+      if (invCr <= 1.0 && netToCr <= 5.0) {
+        badge.innerText = 'MICRO ENTERPRISE';
+        badge.style.background = '#DCFCE7';
+        badge.style.color = '#166534';
+        badge.style.borderColor = '#86EFAC';
+        summary.innerHTML = '<strong>Micro Classification Verified:</strong> Both criteria satisfied (Investment &le; ₹1 Cr &amp; Net Turnover &le; ₹5 Cr). Eligible for full Section 15-24 delayed payment protection, priority sector lending (PSL), and 50% trademark fee discount.';
+      } else if (invCr <= 10.0 && netToCr <= 50.0) {
+        badge.innerText = 'SMALL ENTERPRISE';
+        badge.style.background = '#DBEAFE';
+        badge.style.color = '#1E40AF';
+        badge.style.borderColor = '#93C5FD';
+        summary.innerHTML = '<strong>Small Classification Verified:</strong> Investment is &le; ₹10 Cr and Net Turnover is &le; ₹50 Cr. Qualifies for Chapter V statutory payment protections, Section 43B(h) / Section 37(2)(g) buyer disallowances, and CGTMSE coverage up to ₹5 Crore.';
+      } else if (invCr <= 50.0 && netToCr <= 250.0) {
+        badge.innerText = 'MEDIUM ENTERPRISE';
+        badge.style.background = '#FEF3C7';
+        badge.style.color = '#92400E';
+        badge.style.borderColor = '#FCD34D';
+        summary.innerHTML = '<strong>Medium Classification:</strong> Investment &le; ₹50 Cr and Net Turnover &le; ₹250 Cr. Eligible for priority sector lending and TReDS. <em>Note:</em> Medium enterprises are statutorily excluded from Section 43B(h) / Section 37(2)(g) buyer expense disallowance.';
+      } else {
+        badge.innerText = 'BEYOND MSME LIMITS (LARGE ENTERPRISE)';
+        badge.style.background = '#F1F5F9';
+        badge.style.color = '#475569';
+        badge.style.borderColor = '#CBD5E1';
+        summary.innerHTML = '<strong>Exceeds MSME Thresholds:</strong> Enterprise investment exceeds ₹50 Crore or Net Turnover exceeds ₹250 Crore. Does not qualify for MSME statutory status under S.O. 2119(E).';
+      }
+    }
+
+    // TAB 2: Delayed Payment Penal Interest & Section 43B(h) Calculations
+    function toggleCreditAgreementInput() {
+      const type = document.getElementById('calc-terms-type').value;
+      const wrap = document.getElementById('agreed-days-container');
+      if (type === 'none') {
+        wrap.style.display = 'none';
+      } else {
+        wrap.style.display = 'block';
+      }
+      runDelayedPaymentCalc();
+    }
+
+    function runDelayedPaymentCalc() {
+      const amount = parseFloat(document.getElementById('calc-inv-amount').value) || 0;
+      const invDateStr = document.getElementById('calc-inv-date').value;
+      const payDateStr = document.getElementById('calc-pay-date').value;
+      const termsType = document.getElementById('calc-terms-type').value;
+      const agreedDays = (termsType === 'none') ? 15 : parseInt(document.getElementById('calc-agreed-days').value);
+      const taxRate = parseFloat(document.getElementById('calc-buyer-tax').value);
+
+      if (!invDateStr || !payDateStr) return;
+
+      const invDate = new Date(invDateStr);
+      const payDate = new Date(payDateStr);
+
+      // Section 15 Due Date
+      const dueDate = new Date(invDate);
+      dueDate.setDate(dueDate.getDate() + agreedDays);
+
+      const resDueDate = document.getElementById('res-due-date');
+      resDueDate.innerText = dueDate.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+
+      // Calculate days delayed
+      const diffMs = payDate - dueDate;
+      const daysOverdue = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+
+      const badge = document.getElementById('delay-status-badge');
+      const resInterest = document.getElementById('res-penal-interest');
+      const resDisallow = document.getElementById('res-tax-disallowance');
+      const resCashflow = document.getElementById('res-tax-cashflow');
+      const explanation = document.getElementById('delay-explanation');
+
+      if (daysOverdue <= 0) {
+        badge.innerHTML = '<span style="font-size: 1rem; font-weight: 800; background: #DCFCE7; color: #166534; padding: 6px 12px; border-radius: 6px; border: 1.5px solid #86EFAC; display: inline-block;">✅ TIMELY PAYMENT &bull; FULL DEDUCTION ALLOWED</span>';
+        resInterest.innerText = '₹0 (No Delay)';
+        resInterest.style.color = '#166534';
+        resDisallow.innerText = 'Deduction Validly Allowed in Same FY';
+        resDisallow.parentElement.style.background = '#F0FDF4';
+        resDisallow.parentElement.style.color = '#166534';
+        resDisallow.parentElement.style.borderColor = '#86EFAC';
+        resCashflow.innerText = '₹0 Extra Tax';
+        explanation.innerHTML = '<strong>Compliant:</strong> Payment made on or before statutory due date (' + agreedDays + ' days under Section 15). Zero penal interest and no Section 43B(h) / Section 37(2)(g) disallowance.';
+      } else {
+        // Section 16 Interest: 3x RBI Bank Rate (6.75% * 3 = 20.25% p.a.) compounded monthly
+        // Monthly rate r = 0.2025 / 12
+        const annualRate = 0.2025;
+        const monthlyRate = annualRate / 12;
+        const months = daysOverdue / 30.416; // approx monthly periods
+        const compoundFactor = Math.pow(1 + monthlyRate, months);
+        const penalInterest = Math.round(amount * (compoundFactor - 1));
+
+        badge.innerHTML = '<span style="font-size: 1rem; font-weight: 800; background: #FEE2E2; color: #991B1B; padding: 6px 12px; border-radius: 6px; border: 1.5px solid #FCA5A5; display: inline-block;">⚠️ ' + daysOverdue + ' DAYS STATUTORY DELAY DETECTED</span>';
+        resInterest.innerText = '₹' + penalInterest.toLocaleString('en-IN');
+        resInterest.style.color = '#991B1B';
+
+        // Check if invoice crossed 31st March year-end
+        const invFYYear = (invDate.getMonth() >= 3) ? invDate.getFullYear() : invDate.getFullYear() - 1;
+        const payFYYear = (payDate.getMonth() >= 3) ? payDate.getFullYear() : payDate.getFullYear() - 1;
+
+        if (payFYYear > invFYYear) {
+          // Delayed into next FY! Disallowance triggered!
+          const extraTax = Math.round(amount * taxRate);
+          resDisallow.innerText = '₹' + amount.toLocaleString('en-IN') + ' DISALLOWED in FY' + invFYYear + '-' + (invFYYear + 1).toString().slice(-2);
+          resDisallow.parentElement.style.background = '#FFF1F2';
+          resDisallow.parentElement.style.color = '#B91C1C';
+          resDisallow.parentElement.style.borderColor = '#FECDD3';
+          resCashflow.innerText = '₹' + extraTax.toLocaleString('en-IN') + ' Extra Tax Cash Outflow';
+          explanation.innerHTML = '<strong>Disallowance Triggered:</strong> Payment delayed beyond 31st March into the next FY. Section 43B(h) / Section 37(2)(g) disallows the expense in FY' + invFYYear + '-' + (invFYYear + 1).toString().slice(-2) + ', requiring an extra cash tax payment of ₹' + extraTax.toLocaleString('en-IN') + '. In addition, Section 16 penal interest of ₹' + penalInterest.toLocaleString('en-IN') + ' is non-deductible under Section 23.';
+        } else {
+          // Delayed within same financial year
+          resDisallow.innerText = 'Deduction Allowed in Same FY (Paid before 31 Mar)';
+          resDisallow.parentElement.style.background = '#FEF3C7';
+          resDisallow.parentElement.style.color = '#92400E';
+          resDisallow.parentElement.style.borderColor = '#FCD34D';
+          resCashflow.innerText = '₹0 (Paid within FY)';
+          explanation.innerHTML = '<strong>Delayed within Financial Year:</strong> While the invoice breached the ' + agreedDays + '-day limit under Section 15, it was paid before 31st March of the same financial year. Deduction is retained in the same FY, but Section 16 penal interest of ₹' + penalInterest.toLocaleString('en-IN') + ' remains legally payable to the MSE supplier and non-deductible under Section 23.';
+        }
+      }
+    }
+
+    // TAB 4: Checklist Generation
+    const entityChecklists = {
+      proprietorship: [
+        { title: 'Aadhaar Card of Proprietor', desc: 'Must be linked with active mobile number to receive UIDAI OTP verification.' },
+        { title: 'PAN Card of Proprietor', desc: 'Personal PAN card is used for sole proprietorship classification & CBDT integration.' },
+        { title: 'Active Current / Savings Bank Account', desc: 'Bank account number and IFSC code under the enterprise or proprietor name.' },
+        { title: 'GSTIN (If Registered / Applicable)', desc: 'Mandatory if business turnover exceeds statutory GST registration thresholds.' },
+        { title: 'Description of Operations & NIC Codes', desc: 'Summary of trading, manufacturing, or service activities for 5-digit NIC-2008 mapping.' }
+      ],
+      partnership: [
+        { title: 'Aadhaar Card of Managing Partner', desc: 'UIDAI OTP verification for authorized managing partner.' },
+        { title: 'Partnership Firm PAN Card', desc: 'Distinct 10-digit entity PAN issued by Income Tax Department.' },
+        { title: 'Registered Partnership Deed', desc: 'Executed partnership deed demonstrating partner profit-sharing ratios and authorized signatory.' },
+        { title: 'Bank Account Statement & IFSC', desc: 'Current account maintained in the partnership firm legal name.' },
+        { title: 'GSTIN Registration Details', desc: 'Active GST identification number linked with firm PAN.' }
+      ],
+      llp: [
+        { title: 'Aadhaar Card of Designated Partner', desc: 'Authorized Designated Partner holding valid DPIN for OTP authentication.' },
+        { title: 'LLP PAN Card & Incorporation Certificate', desc: 'Form 16 Certificate of Incorporation issued by Registrar of Companies (ROC).' },
+        { title: 'Executed LLP Agreement', desc: 'Registered Form 3 initial or amended LLP agreement.' },
+        { title: 'Written Down Value (WDV) from latest ITR-5', desc: 'Plant & machinery WDV figures for statutory classification verification.' },
+        { title: 'Active Current Bank Account & IFSC', desc: 'Scheduled commercial bank current account in the registered LLP name.' }
+      ],
+      company: [
+        { title: 'Aadhaar of Authorized Director', desc: 'Director holding valid DIN and authorized by Board Resolution for OTP verification.' },
+        { title: 'Company PAN Card & Certificate of Incorporation', desc: 'Issued by Ministry of Corporate Affairs (MCA SPICe+ / INC-11).' },
+        { title: 'Board Resolution for Udyam Signatory', desc: 'Formal board resolution authorizing director to execute MSME Udyam registration.' },
+        { title: 'Latest Corporate Tax Return (ITR-6) WDV', desc: 'Official Written Down Value of plant, machinery and equipment excluding land/buildings.' },
+        { title: 'GSTIN & Active Company Bank Account', desc: 'CBIC portal GSTIN and scheduled commercial bank current account details.' }
+      ]
+    };
+
+    function switchChecklistType(type, btn) {
+      document.querySelectorAll('.checklist-type-btn').forEach(b => {
+        b.style.background = '#FFFFFF';
+        b.style.color = 'var(--text-dark)';
+        b.style.borderColor = 'var(--border-color)';
+      });
+      btn.style.background = 'var(--brand-primary)';
+      btn.style.color = '#FFFFFF';
+      btn.style.borderColor = 'var(--brand-primary)';
+
+      renderChecklist(type);
+    }
+
+    function renderChecklist(type) {
+      const container = document.getElementById('checklist-items-container');
+      const items = entityChecklists[type] || entityChecklists.company;
+      container.innerHTML = items.map((item, idx) => `
+        <label style="display: flex; gap: 0.75rem; align-items: flex-start; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 6px; padding: 0.75rem 1rem; cursor: pointer;">
+          <input type="checkbox" style="margin-top: 0.25rem; accent-color: var(--brand-primary);">
+          <div>
+            <strong style="color: var(--navy-800); font-size: 0.9rem; display: block;">${idx + 1}. ${item.title}</strong>
+            <span style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; display: block;">${item.desc}</span>
+          </div>
+        </label>
+      `).join('');
+    }
+
+    // Initialize on DOM Load
+    document.addEventListener('DOMContentLoaded', () => {
+      runClassificationCalc();
+      runDelayedPaymentCalc();
+      renderChecklist('company');
+    });
+  </script>
   <script src="/assets/js/navigation.js"></script>
   <script src="/assets/js/forms.js"></script>
 </body>

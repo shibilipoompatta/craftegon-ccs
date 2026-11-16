@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-15T18:13:59.135Z",
+  "buildTimestamp": "2026-11-16T10:19:56.627Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 177,
-    "totalOutputSizeBytes": 11162236,
-    "totalOutputSizeFormatted": "10.65 MB",
+    "totalFilesIncluded": 181,
+    "totalOutputSizeBytes": 11550986,
+    "totalOutputSizeFormatted": "11.02 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
     "filesByExtension": {
-      ".html": 129,
+      ".html": 133,
       ".css": 11,
       ".png": 4,
       ".jpg": 1,
@@ -191,7 +191,7 @@
     },
     {
       "path": "assets/js/search-index.js",
-      "bytes": 73935
+      "bytes": 76930
     },
     {
       "path": "assets/js/service-search.js",
@@ -323,7 +323,7 @@
     },
     {
       "path": "data/search-index.json",
-      "bytes": 85538
+      "bytes": 89553
     },
     {
       "path": "data/service-registry.json",
@@ -331,7 +331,7 @@
     },
     {
       "path": "data/sources.json",
-      "bytes": 25307
+      "bytes": 28646
     },
     {
       "path": "data/verticals.json",
@@ -363,7 +363,7 @@
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 82233
+      "bytes": 85560
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -384,6 +384,22 @@
     {
       "path": "knowledge/mca-v3-filing-guide.html",
       "bytes": 72360
+    },
+    {
+      "path": "knowledge/msme-delayed-payment-protection-samadhaan-handbook.html",
+      "bytes": 81263
+    },
+    {
+      "path": "knowledge/msme-section-43bh-section-37-2g-tax-guide.html",
+      "bytes": 83516
+    },
+    {
+      "path": "knowledge/msme-udyam-registration-complete-guide.html",
+      "bytes": 88225
+    },
+    {
+      "path": "knowledge/msme-udyam-retail-wholesale-traders-guide.html",
+      "bytes": 72902
     },
     {
       "path": "knowledge/opc-incorporation-nominee-guide.html",
@@ -599,7 +615,7 @@
     },
     {
       "path": "services/msme-udyam.html",
-      "bytes": 95460
+      "bytes": 143762
     },
     {
       "path": "services/nclt-insolvency-defense.html",
@@ -759,7 +775,7 @@
     },
     {
       "path": "sitemap.xml",
-      "bytes": 22720
+      "bytes": 23586
     },
     {
       "path": "build-manifest.json",
