@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-16T10:40:01.680Z",
+  "buildTimestamp": "2026-11-16T11:16:12.978Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 181,
-    "totalOutputSizeBytes": 11556301,
-    "totalOutputSizeFormatted": "11.02 MB",
+    "totalFilesIncluded": 189,
+    "totalOutputSizeBytes": 12235076,
+    "totalOutputSizeFormatted": "11.67 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
     "filesByExtension": {
-      ".html": 133,
+      ".html": 141,
       ".css": 11,
       ".png": 4,
       ".jpg": 1,
@@ -331,7 +331,7 @@
     },
     {
       "path": "data/sources.json",
-      "bytes": 32994
+      "bytes": 38468
     },
     {
       "path": "data/verticals.json",
@@ -358,12 +358,28 @@
       "bytes": 83439
     },
     {
+      "path": "knowledge/gst-annual-return-turnover-reconciliation-handbook.html",
+      "bytes": 77435
+    },
+    {
       "path": "knowledge/gst-einvoicing-compliance-mandate.html",
       "bytes": 70120
     },
     {
+      "path": "knowledge/gst-itc-reconciliation-gstr2b-gstr3b-guide.html",
+      "bytes": 79092
+    },
+    {
+      "path": "knowledge/gstr9-annual-return-complete-guide.html",
+      "bytes": 84566
+    },
+    {
+      "path": "knowledge/gstr9c-reconciliation-statement-handbook.html",
+      "bytes": 79625
+    },
+    {
       "path": "knowledge/index.html",
-      "bytes": 85560
+      "bytes": 92049
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -436,6 +452,22 @@
     {
       "path": "knowledge/spice-plus-mca-v3-blueprint.html",
       "bytes": 106124
+    },
+    {
+      "path": "knowledge/trademark-nice-classification-45-classes-handbook.html",
+      "bytes": 80551
+    },
+    {
+      "path": "knowledge/trademark-objection-reply-section-9-11-handbook.html",
+      "bytes": 74067
+    },
+    {
+      "path": "knowledge/trademark-opposition-procedure-tm-o-handbook.html",
+      "bytes": 71160
+    },
+    {
+      "path": "knowledge/trademark-registration-complete-guide.html",
+      "bytes": 82561
     },
     {
       "path": "knowledge/transfer-pricing-guide.html",
@@ -691,7 +723,7 @@
     },
     {
       "path": "services/trademark-registration.html",
-      "bytes": 95302
+      "bytes": 131298
     },
     {
       "path": "services/trust-registration.html",
@@ -763,7 +795,7 @@
     },
     {
       "path": "_redirects",
-      "bytes": 1831
+      "bytes": 1854
     },
     {
       "path": "_headers",
@@ -775,7 +807,7 @@
     },
     {
       "path": "sitemap.xml",
-      "bytes": 23586
+      "bytes": 25322
     },
     {
       "path": "build-manifest.json",

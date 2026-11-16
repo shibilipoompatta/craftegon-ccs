@@ -326,18 +326,19 @@ const publicRedirects = `# =====================================================
 # 2. CLEAN URL REWRITES (Status 200)
 /services        /services/index.html    200
 /services/       /services/index.html    200
-/services.html     /services/index.html    200
-/services/*        /services/:splat        200
-/verticals        /verticals/index.html   200
-/verticals/       /verticals/index.html   200
-/verticals/*       /verticals/:splat       200
-/knowledge         /knowledge/index.html   200
-/knowledge/*       /knowledge/:splat       200
-/conversion        /conversion/index.html  200
-/conversion/*      /conversion/:splat      200
-/legal/*           /legal/:splat           200
-/search            /search/index.html      200
-/search/           /search/index.html      200
+/services.html   /services/index.html    200
+/services/*      /services/:splat        200
+/verticals       /verticals/index.html   200
+/verticals/      /verticals/index.html   200
+/verticals/*     /verticals/:splat       200
+/knowledge       /knowledge/index.html   200
+/knowledge/*     /knowledge/:splat       200
+/conversion      /conversion/index.html  200
+/conversion/     /conversion/index.html  200
+/conversion/*    /conversion/:splat      200
+/legal/*         /legal/:splat           200
+/search          /search/index.html      200
+/search/         /search/index.html      200
 
 # 3. GLOBAL CATCH-ALL (HTTP 404 Fallback)
 /*                 /404.html               404

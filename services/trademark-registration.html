@@ -1084,6 +1084,363 @@
       </div>
     </section>
 
+    
+    <!-- ======================================================================
+         SECTION 11.5: INTERACTIVE TRADEMARK COMPLIANCE & CLASSIFICATION SUITE
+         ====================================================================== -->
+    <section id="tm-compliance-suite" style="margin-bottom: 3rem; scroll-margin-top: 5rem;">
+      <div style="background: linear-gradient(135deg, #0B2545 0%, #133E68 100%); border-radius: 12px; padding: 2rem; color: #FFFFFF; box-shadow: 0 4px 20px rgba(11, 37, 69, 0.12); margin-bottom: 1.5rem;">
+        <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+          <span style="font-size: 0.75rem; font-weight: 700; background: rgba(197, 155, 39, 0.25); color: #FCD34D; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(197, 155, 39, 0.4);">Interactive Statutory Suite</span>
+          <span style="font-size: 0.75rem; font-family: var(--font-mono, monospace); color: #94A3B8; background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 4px;">Trade Marks Act, 1999 &bull; Nice 12th Ed.</span>
+        </div>
+        <h2 style="font-size: 1.6rem; font-weight: 800; color: #FFFFFF; margin: 0 0 0.5rem 0;">Trademark Statutory Intelligence &amp; Clearance Suite</h2>
+        <p style="font-size: 0.92rem; color: #CBD5E1; margin: 0; max-width: 780px; line-height: 1.6;">
+          Execute client-side Nice classification lookups, compute official Form TM-A government fees with MSME/Startup statutory subsidies, and evaluate trademark distinctiveness across Section 9 and Section 11 grounds before filing.
+        </p>
+
+        <!-- Tool Navigation Tabs -->
+        <div style="display: flex; gap: 0.5rem; margin-top: 1.5rem; flex-wrap: wrap;" role="tablist">
+          <button type="button" class="tm-tab-btn active" onclick="switchTmTab('nice-finder')" id="tab-btn-nice" style="background: var(--gold-primary, #C59B27); color: #0B2545; border: none; padding: 0.55rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease;">1. 45-Class Nice Finder</button>
+          <button type="button" class="tm-tab-btn" onclick="switchTmTab('fee-calc')" id="tab-btn-fee" style="background: rgba(255,255,255,0.12); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.2); padding: 0.55rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">2. Statutory Fee Calculator</button>
+          <button type="button" class="tm-tab-btn" onclick="switchTmTab('risk-screener')" id="tab-btn-risk" style="background: rgba(255,255,255,0.12); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.2); padding: 0.55rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">3. Distinctiveness Screener</button>
+          <button type="button" class="tm-tab-btn" onclick="switchTmTab('timeline-nav')" id="tab-btn-timeline" style="background: rgba(255,255,255,0.12); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.2); padding: 0.55rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">4. Lifecycle Navigator</button>
+          <button type="button" class="tm-tab-btn" onclick="switchTmTab('pre-filing-checklist')" id="tab-btn-check" style="background: rgba(255,255,255,0.12); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.2); padding: 0.55rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">5. Pre-Filing Checklist</button>
+        </div>
+      </div>
+
+      <!-- Tab 1: 45-Class Nice Finder -->
+      <div id="pane-nice-finder" class="tm-pane" style="background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 16px rgba(11, 37, 69, 0.04);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0 0 0.35rem 0;">Nice Classification Interactive Class Scoper</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Search across all 45 Nice classes (Classes 1–34 Goods, Classes 35–45 Services) to identify applicable classes for your mark.</p>
+          </div>
+          <span style="font-size: 0.78rem; font-weight: 700; background: #ECFDF5; color: #065F46; padding: 4px 10px; border-radius: 20px; border: 1px solid #A7F3D0;">Updated: Nice 12th Edition</span>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <input type="text" id="tm-nice-search" oninput="filterNiceClasses()" placeholder="Search industry, product, or service (e.g. software, clothing, restaurant, consulting, cosmetics)..." style="width: 100%; padding: 0.85rem 1.2rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-primary, #C59B27)'" onblur="this.style.borderColor='var(--border-color)'">
+        </div>
+
+        <div id="nice-results-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-height: 420px; overflow-y: auto; padding-right: 0.5rem;">
+          <!-- Dynamically populated or static cards -->
+          <div class="nice-class-card" data-class="9" data-type="goods" data-keywords="software mobile app computer hardware electronics iot ai saas" style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 8px; padding: 1.1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.78rem; font-weight: 800; background: #0B2545; color: #FFFFFF; padding: 2px 7px; border-radius: 4px;">Class 9 (Goods)</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Technology &bull; Software</span>
+            </div>
+            <h4 style="font-size: 0.95rem; font-weight: 700; margin: 0 0 0.35rem 0; color: var(--navy-800, #0B2545);">Downloadable Software &amp; Electronics</h4>
+            <p style="font-size: 0.82rem; color: var(--text-main); margin: 0; line-height: 1.5;">Computer programs, mobile applications, downloadable software, IoT smart devices, batteries, wearable tech, and digital apparatus.</p>
+          </div>
+
+          <div class="nice-class-card" data-class="35" data-type="services" data-keywords="advertising e-commerce business management consulting retail marketplace hr accounting" style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 8px; padding: 1.1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.78rem; font-weight: 800; background: #0B2545; color: #FFFFFF; padding: 2px 7px; border-radius: 4px;">Class 35 (Services)</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Business &bull; Retail</span>
+            </div>
+            <h4 style="font-size: 0.95rem; font-weight: 700; margin: 0 0 0.35rem 0; color: var(--navy-800, #0B2545);">Advertising, E-Commerce &amp; Retail Services</h4>
+            <p style="font-size: 0.82rem; color: var(--text-main); margin: 0; line-height: 1.5;">Online retail stores, marketplaces, digital marketing, corporate business management, professional consulting, and office functions.</p>
+          </div>
+
+          <div class="nice-class-card" data-class="42" data-type="services" data-keywords="software development saas cloud computing it consulting web design cybersecurity" style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 8px; padding: 1.1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.78rem; font-weight: 800; background: #0B2545; color: #FFFFFF; padding: 2px 7px; border-radius: 4px;">Class 42 (Services)</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">SaaS &bull; IT Development</span>
+            </div>
+            <h4 style="font-size: 0.95rem; font-weight: 700; margin: 0 0 0.35rem 0; color: var(--navy-800, #0B2545);">Software as a Service &amp; Technology R&amp;D</h4>
+            <p style="font-size: 0.82rem; color: var(--text-main); margin: 0; line-height: 1.5;">Cloud computing, non-downloadable SaaS platforms, custom software development, IT architecture, website hosting, and scientific research.</p>
+          </div>
+
+          <div class="nice-class-card" data-class="25" data-type="goods" data-keywords="clothing fashion footwear headwear apparel garments shoes" style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 8px; padding: 1.1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.78rem; font-weight: 800; background: #0B2545; color: #FFFFFF; padding: 2px 7px; border-radius: 4px;">Class 25 (Goods)</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Apparel &bull; Fashion</span>
+            </div>
+            <h4 style="font-size: 0.95rem; font-weight: 700; margin: 0 0 0.35rem 0; color: var(--navy-800, #0B2545);">Clothing, Footwear &amp; Headwear</h4>
+            <p style="font-size: 0.82rem; color: var(--text-main); margin: 0; line-height: 1.5;">Ready-made garments, t-shirts, dresses, sportswear, formal clothing, shoes, sneakers, boots, caps, hats, and fashion accessories.</p>
+          </div>
+
+          <div class="nice-class-card" data-class="41" data-type="services" data-keywords="education training entertainment coaching publishing media streaming" style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 8px; padding: 1.1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.78rem; font-weight: 800; background: #0B2545; color: #FFFFFF; padding: 2px 7px; border-radius: 4px;">Class 41 (Services)</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Education &bull; Media</span>
+            </div>
+            <h4 style="font-size: 0.95rem; font-weight: 700; margin: 0 0 0.35rem 0; color: var(--navy-800, #0B2545);">Education, Training &amp; Entertainment</h4>
+            <p style="font-size: 0.82rem; color: var(--text-main); margin: 0; line-height: 1.5;">EdTech academies, online courses, vocational training, film/video production, media broadcasting, gaming entertainment, and publishing.</p>
+          </div>
+
+          <div class="nice-class-card" data-class="43" data-type="services" data-keywords="restaurant food services catering hotel hospitality cafe cloud kitchen" style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 8px; padding: 1.1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <span style="font-size: 0.78rem; font-weight: 800; background: #0B2545; color: #FFFFFF; padding: 2px 7px; border-radius: 4px;">Class 43 (Services)</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Food &bull; Hospitality</span>
+            </div>
+            <h4 style="font-size: 0.95rem; font-weight: 700; margin: 0 0 0.35rem 0; color: var(--navy-800, #0B2545);">Food, Drink &amp; Temporary Accommodation</h4>
+            <p style="font-size: 0.82rem; color: var(--text-main); margin: 0; line-height: 1.5;">Restaurants, cafes, cloud kitchens, fast food chains, catering services, bar services, hotels, guest houses, and banquet accommodation.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.25rem; padding: 0.9rem 1.25rem; background: #F1F5F9; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <span style="font-size: 0.85rem; color: var(--text-dark);">Need all 45 Nice classes analyzed for multi-class coverage?</span>
+          <a href="/knowledge/trademark-nice-classification-45-classes-handbook.html" style="font-size: 0.85rem; font-weight: 700; color: var(--navy-800, #0B2545); text-decoration: none;">Read 45-Class Nice Classification Handbook &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Tab 2: Statutory Fee Calculator -->
+      <div id="pane-fee-calc" class="tm-pane" style="display: none; background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 16px rgba(11, 37, 69, 0.04);">
+        <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0 0 0.35rem 0;">Official Government Fee &amp; MSME Concession Calculator</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0 0 1.5rem 0;">Calculate statutory fees payable under Trade Marks Rules, 2017 (First Schedule) for Form TM-A filings.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem;">Applicant Legal Structure</label>
+            <select id="tm-applicant-type" onchange="calculateTmGovFee()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+              <option value="individual">Individual / Sole Proprietor (50% Concession)</option>
+              <option value="startup">DPIIT Recognized Startup (50% Concession)</option>
+              <option value="msme">MSME Udyam Registered Enterprise (50% Concession)</option>
+              <option value="company">Company / LLP / Partnership without MSME (Standard)</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem;">Filing Method</label>
+            <select id="tm-filing-mode" onchange="calculateTmGovFee()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+              <option value="e-filing">Electronic Filing via IP India Portal (10% Discount)</option>
+              <option value="physical">Physical Paper Filing at Trade Marks Registry</option>
+            </select>
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem;">Number of Nice Classes</label>
+            <input type="number" id="tm-class-count" value="1" min="1" max="45" oninput="calculateTmGovFee()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+          </div>
+        </div>
+
+        <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 8px; padding: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Statutory Government Filing Fee (IP India)</div>
+            <div id="tm-fee-display" style="font-size: 1.8rem; font-weight: 800; color: var(--navy-800, #0B2545);">&#8377;4,500</div>
+            <div id="tm-fee-savings" style="font-size: 0.8rem; color: #059669; font-weight: 700;">&#10003; 50% Statutory Subsidy Applied (Saved &#8377;4,500/class)</div>
+          </div>
+          <div>
+            <a href="#intake-form" class="btn btn-primary" style="padding: 0.75rem 1.4rem; font-size: 0.88rem; font-weight: 700;">Proceed to Form TM-A Filing &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Distinctiveness & Conflict Risk Screener -->
+      <div id="pane-risk-screener" class="tm-pane" style="display: none; background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 16px rgba(11, 37, 69, 0.04);">
+        <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0 0 0.35rem 0;">Trademark Distinctiveness &amp; Objection Risk Screener</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0 0 1.25rem 0;">Audit your proposed brand name against statutory grounds for refusal under Section 9 (Absolute Grounds) and Section 11 (Relative Grounds).</p>
+
+        <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.5rem;">
+          <label style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer; background: #F8FAFC; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-color);">
+            <input type="checkbox" id="chk-invented" onchange="auditTmDistinctiveness()" style="margin-top: 0.2rem;">
+            <div>
+              <strong style="font-size: 0.88rem; color: var(--text-dark);">Mark is an invented, fanciful, or coined word (e.g. KODAK, XEROX)</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Highest legal protection under Abercrombie spectrum; virtually zero Section 9 descriptiveness objection risk.</div>
+            </div>
+          </label>
+          <label style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer; background: #F8FAFC; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-color);">
+            <input type="checkbox" id="chk-descriptive" onchange="auditTmDistinctiveness()" style="margin-top: 0.2rem;">
+            <div>
+              <strong style="font-size: 0.88rem; color: var(--text-dark);">Mark describes the quality, purpose, quantity, or geographic origin of goods (e.g. BEST, SUPER, SPEEDY)</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">High Section 9(1)(b) objection exposure unless acquired distinctiveness through long prior use is proven via User Affidavit.</div>
+            </div>
+          </label>
+          <label style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer; background: #F8FAFC; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-color);">
+            <input type="checkbox" id="chk-phonetic" onchange="auditTmDistinctiveness()" style="margin-top: 0.2rem;">
+            <div>
+              <strong style="font-size: 0.88rem; color: var(--text-dark);">Mark sounds similar to an existing registered brand in the same or allied class</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Triggers Section 11(1) objection under Cadila Healthcare deceptions test; requires phonetic clearance search.</div>
+            </div>
+          </label>
+        </div>
+
+        <div id="tm-risk-verdict" style="background: #EFF6FF; border-left: 4px solid #3B82F6; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0;">
+          <div style="font-size: 0.82rem; font-weight: 700; color: #1E40AF; text-transform: uppercase;">Diagnostic Assessment</div>
+          <div id="tm-risk-text" style="font-size: 0.9rem; color: #1E3A8A; margin-top: 0.25rem; line-height: 1.5;">
+            Select the statutory attributes above to evaluate pre-filing distinctiveness and objection probabilities.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Procedural Lifecycle Navigator -->
+      <div id="pane-timeline-nav" class="tm-pane" style="display: none; background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 16px rgba(11, 37, 69, 0.04);">
+        <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0 0 0.35rem 0;">Form TM-A to Registration Certificate (Form RG-2) Lifecycle</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0 0 1.5rem 0;">Statutory milestones, official response windows, and legal timelines under the Trade Marks Act, 1999.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div style="background: #F8FAFC; border-left: 3px solid #0B2545; padding: 1rem; border-radius: 0 6px 6px 0;">
+            <div style="font-size: 0.72rem; font-weight: 800; color: #0B2545; text-transform: uppercase;">Stage 1 &bull; Day 1</div>
+            <h4 style="font-size: 0.92rem; font-weight: 700; margin: 0.3rem 0; color: var(--navy-800, #0B2545);">Filing &amp; TM Symbol</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Form TM-A filed online. Instant official application number generated; applicant immediately authorized to use &#8482; symbol.</p>
+          </div>
+          <div style="background: #F8FAFC; border-left: 3px solid #C59B27; padding: 1rem; border-radius: 0 6px 6px 0;">
+            <div style="font-size: 0.72rem; font-weight: 800; color: #C59B27; text-transform: uppercase;">Stage 2 &bull; Months 1–3</div>
+            <h4 style="font-size: 0.92rem; font-weight: 700; margin: 0.3rem 0; color: var(--navy-800, #0B2545);">Examination Report</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Registry issues Examination Report. If objections under Sec 9 or 11 are raised, formal reply must be submitted within 30 days.</p>
+          </div>
+          <div style="background: #F8FAFC; border-left: 3px solid #3B82F6; padding: 1rem; border-radius: 0 6px 6px 0;">
+            <div style="font-size: 0.72rem; font-weight: 800; color: #3B82F6; text-transform: uppercase;">Stage 3 &bull; Months 4–6</div>
+            <h4 style="font-size: 0.92rem; font-weight: 700; margin: 0.3rem 0; color: var(--navy-800, #0B2545);">Journal Publication</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Mark accepted and published in the Trade Marks Journal. Opens statutory 4-month window for third-party oppositions (Form TM-O).</p>
+          </div>
+          <div style="background: #F8FAFC; border-left: 3px solid #059669; padding: 1rem; border-radius: 0 6px 6px 0;">
+            <div style="font-size: 0.72rem; font-weight: 800; color: #059669; text-transform: uppercase;">Stage 4 &bull; Months 7–10</div>
+            <h4 style="font-size: 0.92rem; font-weight: 700; margin: 0.3rem 0; color: var(--navy-800, #0B2545);">Certificate &amp; &reg; Rights</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Form RG-2 Registration Certificate issued. Exclusive statutory monopoly granted for 10 years; applicant authorized to use &reg; symbol.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 5: Pre-Filing Checklist -->
+      <div id="pane-pre-filing-checklist" class="tm-pane" style="display: none; background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 16px rgba(11, 37, 69, 0.04);">
+        <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0 0 0.35rem 0;">14-Point Statutory Pre-Filing Dossier Checklist</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0 0 1.25rem 0;">Verify these mandatory documents and evidence before Form TM-A submission to eliminate Formality Check Failures.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem;">
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> Exact Wordmark / High-Resolution Logo (JPEG/PNG)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> Applicant Identity Proof (PAN Card / Aadhaar / Passport)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> MSME Udyam Certificate / DPIIT Recognition (for 50% fee discount)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> Executed Power of Attorney (Form TM-48)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> User Affidavit with Prior Invoices (if claiming use date)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> Accurate Nice Class Specification (Goods / Services)</label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11.6: Trademark Knowledge Blueprints -->
+    <section style="margin-bottom: 3rem;">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--gold-primary, #9E7D17); letter-spacing: 0.06em;">Authoritative Legal Intelligence</span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--navy-800, #0B2545); margin: 0.35rem 0 0.5rem;">Trademark &amp; Brand Protection Knowledge Blueprints</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; max-width: 650px; margin: 0 auto;">In-depth statutory handbooks on Nice classifications, objection replies, hearing precedents, and opposition defense.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+        <a href="/knowledge/trademark-registration-complete-guide.html" style="background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 10px; padding: 1.3rem; text-decoration: none; display: flex; flex-direction: column; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--gold-primary, #C59B27)'" onmouseout="this.style.borderColor='var(--border-color)'">
+          <span style="font-size: 0.72rem; font-weight: 700; color: var(--gold-primary, #9E7D17); text-transform: uppercase;">Statutory Guide</span>
+          <h3 style="font-size: 1rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0.4rem 0;">Trademark Registration Complete Guide</h3>
+          <p style="font-size: 0.82rem; color: var(--text-main); margin: 0 0 1rem 0; flex: 1; line-height: 1.5;">Comprehensive step-by-step statutory filing manual covering Form TM-A, MSME concession, and timeline.</p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--navy-800, #0B2545);">Read Full Blueprint &rarr;</span>
+        </a>
+
+        <a href="/knowledge/trademark-nice-classification-45-classes-handbook.html" style="background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 10px; padding: 1.3rem; text-decoration: none; display: flex; flex-direction: column; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--gold-primary, #C59B27)'" onmouseout="this.style.borderColor='var(--border-color)'">
+          <span style="font-size: 0.72rem; font-weight: 700; color: var(--gold-primary, #9E7D17); text-transform: uppercase;">Classification Manual</span>
+          <h3 style="font-size: 1rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0.4rem 0;">Nice Classification 45 Classes Handbook</h3>
+          <p style="font-size: 0.82rem; color: var(--text-main); margin: 0 0 1rem 0; flex: 1; line-height: 1.5;">Exhaustive guide to all 45 Nice classes, cross-class overlaps, and goods vs services boundary rules.</p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--navy-800, #0B2545);">Read Full Blueprint &rarr;</span>
+        </a>
+
+        <a href="/knowledge/trademark-objection-reply-section-9-11-handbook.html" style="background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 10px; padding: 1.3rem; text-decoration: none; display: flex; flex-direction: column; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--gold-primary, #C59B27)'" onmouseout="this.style.borderColor='var(--border-color)'">
+          <span style="font-size: 0.72rem; font-weight: 700; color: var(--gold-primary, #9E7D17); text-transform: uppercase;">Litigation Defense</span>
+          <h3 style="font-size: 1rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0.4rem 0;">Section 9 &amp; 11 Objection Reply Handbook</h3>
+          <p style="font-size: 0.82rem; color: var(--text-main); margin: 0 0 1rem 0; flex: 1; line-height: 1.5;">Drafting professional objection replies against absolute and relative grounds with judicial precedents.</p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--navy-800, #0B2545);">Read Full Blueprint &rarr;</span>
+        </a>
+
+        <a href="/knowledge/trademark-opposition-procedure-tm-o-handbook.html" style="background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 10px; padding: 1.3rem; text-decoration: none; display: flex; flex-direction: column; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--gold-primary, #C59B27)'" onmouseout="this.style.borderColor='var(--border-color)'">
+          <span style="font-size: 0.72rem; font-weight: 700; color: var(--gold-primary, #9E7D17); text-transform: uppercase;">Tribunal Procedure</span>
+          <h3 style="font-size: 1rem; font-weight: 700; color: var(--navy-800, #0B2545); margin: 0.4rem 0;">Form TM-O Opposition &amp; Counterstatement</h3>
+          <p style="font-size: 0.82rem; color: var(--text-main); margin: 0 0 1rem 0; flex: 1; line-height: 1.5;">Rules 42–51 tribunal procedures, evidence on affidavit (Rule 45/46), and interlocutory hearings.</p>
+          <span style="font-size: 0.8rem; font-weight: 700; color: var(--navy-800, #0B2545);">Read Full Blueprint &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <script>
+      function switchTmTab(tabKey) {
+        document.querySelectorAll('.tm-tab-btn').forEach(btn => {
+          btn.style.background = 'rgba(255,255,255,0.12)';
+          btn.style.color = '#FFFFFF';
+          btn.classList.remove('active');
+        });
+        document.querySelectorAll('.tm-pane').forEach(p => p.style.display = 'none');
+        
+        const activeBtn = document.getElementById('tab-btn-' + (tabKey === 'nice-finder' ? 'nice' : tabKey === 'fee-calc' ? 'fee' : tabKey === 'risk-screener' ? 'risk' : tabKey === 'timeline-nav' ? 'timeline' : 'check'));
+        if (activeBtn) {
+          activeBtn.style.background = 'var(--gold-primary, #C59B27)';
+          activeBtn.style.color = '#0B2545';
+          activeBtn.classList.add('active');
+        }
+        const activePane = document.getElementById('pane-' + tabKey);
+        if (activePane) activePane.style.display = 'block';
+      }
+
+      function filterNiceClasses() {
+        const q = (document.getElementById('tm-nice-search')?.value || '').toLowerCase().trim();
+        const cards = document.querySelectorAll('.nice-class-card');
+        cards.forEach(c => {
+          const text = (c.getAttribute('data-keywords') + ' ' + c.innerText).toLowerCase();
+          c.style.display = !q || text.includes(q) ? 'block' : 'none';
+        });
+      }
+
+      function calculateTmGovFee() {
+        const applicant = document.getElementById('tm-applicant-type')?.value || 'individual';
+        const mode = document.getElementById('tm-filing-mode')?.value || 'e-filing';
+        const count = Math.max(1, parseInt(document.getElementById('tm-class-count')?.value || '1', 10));
+
+        let basePerClass = 9000;
+        let isSubsidized = false;
+
+        if (applicant === 'individual' || applicant === 'startup' || applicant === 'msme') {
+          basePerClass = 4500;
+          isSubsidized = true;
+        }
+
+        if (mode === 'physical') {
+          basePerClass = isSubsidized ? 5000 : 10000;
+        }
+
+        const total = basePerClass * count;
+        const display = document.getElementById('tm-fee-display');
+        const savings = document.getElementById('tm-fee-savings');
+
+        if (display) display.innerHTML = '&#8377;' + total.toLocaleString('en-IN');
+        if (savings) {
+          if (isSubsidized) {
+            const saved = (mode === 'physical' ? 5000 : 4500) * count;
+            savings.style.display = 'block';
+            savings.innerHTML = '&#10003; 50% Statutory Subsidy Applied (Saved &#8377;' + saved.toLocaleString('en-IN') + ')';
+          } else {
+            savings.style.display = 'block';
+            savings.innerHTML = '<span style="color: var(--gold-primary, #C59B27);">&#9432; Standard Corporate Rate (Attach MSME Udyam to save 50%)</span>';
+          }
+        }
+      }
+
+      function auditTmDistinctiveness() {
+        const invented = document.getElementById('chk-invented')?.checked;
+        const descriptive = document.getElementById('chk-descriptive')?.checked;
+        const phonetic = document.getElementById('chk-phonetic')?.checked;
+        const verdictBox = document.getElementById('tm-risk-verdict');
+        const verdictText = document.getElementById('tm-risk-text');
+
+        if (descriptive && phonetic) {
+          verdictBox.style.background = '#FEF2F2';
+          verdictBox.style.borderLeftColor = '#EF4444';
+          verdictText.innerHTML = '<strong style="color: #991B1B;">CRITICAL OBJECTION EXPOSURE:</strong> High vulnerability to refusal under both Section 9(1)(b) (descriptiveness) and Section 11(1) (relative conflict). Strongly recommend coining a distinct composite or fanciful mark.';
+        } else if (descriptive) {
+          verdictBox.style.background = '#FFFBEB';
+          verdictBox.style.borderLeftColor = '#F59E0B';
+          verdictText.innerHTML = '<strong style="color: #92400E;">SECTION 9(1)(b) DESCRIPTIVENESS RISK:</strong> Descriptive marks face provisional refusal. To secure registration, you must file a User Affidavit under Rule 25 evidencing extensive prior commercial use and acquired secondary meaning.';
+        } else if (phonetic) {
+          verdictBox.style.background = '#FFFBEB';
+          verdictBox.style.borderLeftColor = '#F59E0B';
+          verdictText.innerHTML = '<strong style="color: #92400E;">SECTION 11(1) SIMILARITY RISK:</strong> Potential conflict with prior registered or pending marks in allied classes. A certified phonetic clearance search across IP India records is required before Form TM-A submission.';
+        } else if (invented) {
+          verdictBox.style.background = '#ECFDF5';
+          verdictBox.style.borderLeftColor = '#10B981';
+          verdictText.innerHTML = '<strong style="color: #065F46;">HIGH DISTINCTIVENESS (PRIMA FACIE REGISTRABLE):</strong> Fanciful/coined terms enjoy the highest legal protection. Low probability of statutory objections under Section 9; smooth pathway to Trade Marks Journal publication.';
+        } else {
+          verdictBox.style.background = '#EFF6FF';
+          verdictBox.style.borderLeftColor = '#3B82F6';
+          verdictText.innerHTML = 'Select the statutory attributes above to evaluate pre-filing distinctiveness and objection probabilities.';
+        }
+      }
+    </script>
+
+
     <!-- Section 12: Frequently Asked Questions -->
     <section style="margin-bottom: 2.5rem;">
       <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--navy-800, #0B2545); margin-bottom: 1rem;">Frequently Asked Questions (Trademark FAQs)</h2>

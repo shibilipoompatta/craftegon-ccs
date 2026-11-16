@@ -723,4 +723,53 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
+
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/trademark-registration-complete-guide.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/trademark-nice-classification-45-classes-handbook.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/trademark-objection-reply-section-9-11-handbook.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/trademark-opposition-procedure-tm-o-handbook.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/gstr9-annual-return-complete-guide.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/gstr9c-reconciliation-statement-handbook.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/gst-itc-reconciliation-gstr2b-gstr3b-guide.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ccs.craftegon.com/knowledge/gst-annual-return-turnover-reconciliation-handbook.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>
