@@ -495,6 +495,7 @@ function trackNavigationHistory() {
 function preserveConversionContext() {
   const pathParts = window.location.pathname.split("/").filter(Boolean);
   const pageType = pathParts[0] || "home";
+  if (pageType === "conversion") return;
   const pageId = pathParts[pathParts.length - 1]?.replace(/\.(html|htm)$/i, "") || "index";
 
   document.querySelectorAll('a').forEach((link) => {
@@ -517,7 +518,11 @@ function injectContextualReturnTrail() {
 
   const currentPath = window.location.pathname;
   const isConversionPage = currentPath.includes('/conversion/') && !currentPath.endsWith('/conversion/index.html') && !currentPath.endsWith('/conversion/');
-  if (!isConversionPage) return;
+  if (!isConversionPage) {
+    const strayBar = document.getElementById('if-contextual-return-bar');
+    if (strayBar) strayBar.remove();
+    return;
+  }
 
   const params = new URLSearchParams(window.location.search);
   let sourcePath = params.get('source_path');
@@ -559,43 +564,61 @@ function injectContextualReturnTrail() {
     let parentVerticalRoute = '';
     let parentVerticalName = '';
 
-    const cleanSource = sourcePath.split('?')[0].split('#')[0];
-    const serviceMatch = catalog.find(s => s.route === cleanSource || s.route.endsWith(cleanSource.split('/').pop()) || (serviceId && s.id === serviceId));
-    
-    if (serviceMatch) {
-      sourceTitle = serviceMatch.name;
-      parentVerticalRoute = serviceMatch.vertical_route || `/verticals/${serviceMatch.vertical_id}.html`;
-      parentVerticalName = serviceMatch.vertical_name;
-    } else {
-      const KNOWN_ROUTES = {
-        '/index.html': 'Home',
-        '/': 'Home',
-        '/services.html': 'All 57 Services Directory',
-        '/services/index.html': 'All 57 Services Directory',
-        '/verticals/index.html': '15 Practice Areas',
-        '/search/index.html': 'Corporate Intelligence Search Dossier',
-        '/knowledge/index.html': 'Knowledge Centre',
-        '/conversion/index.html': 'Diagnostic Tools & AI Suite',
-        '/verticals/01-entity-formation.html': 'Business Formation & Structuring',
-        '/verticals/02-roc-compliance.html': 'Corporate Governance & RoC Filings',
-        '/verticals/03-tax-compliance.html': 'Corporate Taxation & GST',
-        '/verticals/04-statutory-licenses.html': 'Statutory Licenses & Clearances',
-        '/verticals/05-contracts-legal.html': 'Commercial Contracts & Legal Drafting',
-        '/verticals/06-ipr-protection.html': 'Intellectual Property & Trademarks',
-        '/verticals/07-labour-hr.html': 'Labour Law & HR Compliance',
-        '/verticals/08-fundraising-investment.html': 'Fundraising & Investment Structuring',
-        '/verticals/09-ma-restructuring.html': 'M&A and Corporate Restructuring',
-        '/verticals/10-litigation-dispute.html': 'Dispute Avoidance (Non-Litigation)',
-        '/verticals/11-governance-audit.html': 'Governance, Audit & Risk',
-        '/verticals/12-esg-csr.html': 'Data Privacy & Tech Law',
-        '/verticals/13-cross-border-fema.html': 'FEMA & Cross-Border Advisory',
-        '/verticals/15-it-digital.html': 'IT & Digital Infrastructure'
-      };
+    const cleanSource = (sourcePath || '').split('?')[0].split('#')[0];
+    const sourceSlug = cleanSource.split('/').filter(Boolean).pop() || '';
 
+    const KNOWN_ROUTES = {
+      '/': 'Home',
+      '/index.html': 'Home',
+      '/services.html': 'All 57 Services Directory',
+      '/services/': 'All 57 Services Directory',
+      '/services/index.html': 'All 57 Services Directory',
+      '/verticals/index.html': '14 Practice Areas Hub',
+      '/verticals/': '14 Practice Areas Hub',
+      '/search/': 'Corporate Intelligence Search Dossier',
+      '/search/index.html': 'Corporate Intelligence Search Dossier',
+      '/knowledge/': 'Knowledge Centre',
+      '/knowledge/index.html': 'Knowledge Centre',
+      '/conversion/': 'Diagnostic Tools & AI Suite',
+      '/conversion/index.html': 'Diagnostic Tools & AI Suite',
+      '/verticals/01-entity-formation.html': 'Business Formation & Structuring',
+      '/verticals/02-roc-compliance.html': 'Corporate Governance & RoC Filings',
+      '/verticals/03-tax-compliance.html': 'Corporate Taxation & GST',
+      '/verticals/04-statutory-licenses.html': 'Statutory Licenses & Clearances',
+      '/verticals/05-contracts-legal.html': 'Commercial Contracts & Legal Drafting',
+      '/verticals/06-ipr-protection.html': 'Intellectual Property & Trademarks',
+      '/verticals/07-labour-hr.html': 'Labour Law & HR Compliance',
+      '/verticals/08-fundraising-investment.html': 'Fundraising & Investment Structuring',
+      '/verticals/09-ma-restructuring.html': 'M&A and Corporate Restructuring',
+      '/verticals/10-litigation-dispute.html': 'Dispute Avoidance (Non-Litigation)',
+      '/verticals/11-governance-audit.html': 'Governance, Audit & Risk',
+      '/verticals/12-esg-csr.html': 'Data Privacy & Tech Law',
+      '/verticals/13-cross-border-fema.html': 'FEMA & Cross-Border Advisory',
+      '/verticals/15-it-digital.html': 'IT & Digital Infrastructure'
+    };
+
+    if (KNOWN_ROUTES[cleanSource]) {
       sourceTitle = KNOWN_ROUTES[cleanSource];
-      if (!sourceTitle) {
-        const slug = cleanSource.split('/').pop().replace(/\.(html|htm)$/i, '');
-        sourceTitle = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      if (cleanSource === '/' || cleanSource === '/index.html') {
+        sourcePath = '/index.html';
+      }
+    } else {
+      const serviceMatch = (sourceSlug && catalog.length) ? catalog.find(s => {
+        if (serviceId && s.id === serviceId) return true;
+        if (s.route === cleanSource) return true;
+        if (sourceSlug.endsWith('.html') && s.route.endsWith('/' + sourceSlug)) return true;
+        return false;
+      }) : null;
+
+      if (serviceMatch) {
+        sourceTitle = serviceMatch.name;
+        parentVerticalRoute = serviceMatch.vertical_route || `/verticals/${serviceMatch.vertical_id}.html`;
+        parentVerticalName = serviceMatch.vertical_name;
+      } else if (sourceSlug) {
+        sourceTitle = sourceSlug.replace(/\.(html|htm)$/i, '').split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      } else {
+        sourceTitle = 'Home';
+        sourcePath = '/index.html';
       }
     }
 

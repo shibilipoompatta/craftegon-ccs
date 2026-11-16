@@ -7,6 +7,9 @@
 /assets/images/*
   Cache-Control: public, max-age=86400
 
+/conversion/*
+  Cache-Control: public, max-age=0, must-revalidate
+
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff

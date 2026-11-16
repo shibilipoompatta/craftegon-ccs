@@ -318,6 +318,11 @@ const publicRedirects = `# =====================================================
 /data/regulatory-claims.json /404.html     404
 /data/backups/*    /404.html               404
 
+# 1.1 RETIRED CATEGORY & TOOL REDIRECTS (HTTP 301)
+/verticals/14-exit-insolvency*  /verticals/index.html   301
+/conversion/strike-off-checker* /services.html          301
+/conversion/trademark-search*   /services/trademark-registration.html 301
+
 # 2. CLEAN URL REWRITES (Status 200)
 /services        /services/index.html    200
 /services/       /services/index.html    200
