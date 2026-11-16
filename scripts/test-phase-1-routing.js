@@ -94,6 +94,20 @@ function resolveRoute(urlPath, options = { prettyUrls: true }) {
     }
   }
 
+  // Cloudflare Pretty URLs: strip trailing slash from non-directory file routes (308)
+  if (options.prettyUrls && urlPath.endsWith('/') && urlPath !== '/' && (!fs.existsSync(localTarget) || !fs.statSync(localTarget).isDirectory())) {
+    const trimmed = urlPath.slice(0, -1);
+    const trimmedRelative = trimmed.startsWith('/') ? trimmed.slice(1) : trimmed;
+    if (fs.existsSync(path.join(ROOT, trimmedRelative) + '.html')) {
+      return { type: 'redirect', target: trimmed, status: 308 };
+    }
+  }
+
+  // Cloudflare Pages Asset Serving: if extensionless path exists with .html, serve that html file
+  if (!path.extname(urlPath) && fs.existsSync(localTarget + '.html') && fs.statSync(localTarget + '.html').isFile()) {
+    return { type: 'file', target: urlPath + '.html', status: 200 };
+  }
+
   return { type: 'file', target: urlPath, status: 200 };
 }
 
@@ -111,7 +125,13 @@ const server = http.createServer((req, res) => {
   // Rewrite or file
   let filePath = decision.target;
   if (filePath.startsWith('/')) filePath = filePath.slice(1);
-  const diskPath = path.join(ROOT, filePath);
+  let diskPath = path.join(ROOT, filePath);
+
+  // Cloudflare Pages resolves extensionless paths to .html automatically
+  let cleanPath = diskPath.replace(/[/\\]+$/, '');
+  if (!fs.existsSync(diskPath) && fs.existsSync(cleanPath + '.html')) {
+    diskPath = cleanPath + '.html';
+  }
 
   if (fs.existsSync(diskPath) && fs.statSync(diskPath).isFile()) {
     const content = fs.readFileSync(diskPath);
