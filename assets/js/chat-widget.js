@@ -228,7 +228,7 @@ const KB=[
   * <b>Document Drafter:</b> Standard NDAs, Founder Agreements, SaaS MSAs & Employment Handbooks.<br>
   * <b>Trademark Search:</b> Clearance search across all 45 NICE classes to avoid opposition.<br>
   * <b>Contract Review:</b> Comprehensive legal redlining within 24 business hours.`,
-  a:[['Document Drafter','/conversion/ai-document-generator.html'],['Trademark Clearance Search','/conversion/trademark-search.html'],['Upload Contract for Legal Review','/conversion/contract-intake.html']]},
+  a:[['Document Drafter','/conversion/ai-document-generator.html'],['Trademark Clearance Search','/services/trademark-registration.html#tm-compliance-suite'],['Upload Contract for Legal Review','/conversion/contract-intake.html']]},
 
   {k:['strike off','stk-2','stk2','close company','shut down','dormant','msc-1','exit','winding up'],
   r:`Under Section 248 of Companies Act 2013:<br>
@@ -361,7 +361,7 @@ function getReferenceLinks(query){
     {terms:['fema','fla','rbi','fdi','fc-gpr'],link:['RBI FLA Return Blueprint','/knowledge/rbi-fla-return-blueprint.html']},
     {terms:['msme','43b','vendor payment'],link:['MSME Payment Tracker','/conversion/calculator.html#calc-tab-3']},
     {terms:['dpdp','privacy','cyber'],link:['DPDP Compliance Audit','/services/dpdp-compliance-audit.html']},
-    {terms:['trademark','tm-a','nice class','ipr'],link:['Trademark Clearance Intake','/conversion/trademark-search.html']},
+    {terms:['trademark','tm-a','nice class','ipr'],link:['Trademark Registration Desk','/services/trademark-registration.html#tm-compliance-suite']},
     {terms:['llp','limited liability partnership','fillip','form 3','run-llp'],link:['LLP Registration Service','/services/llp-registration.html']},
     {terms:['partnership firm','partnership deed','rof','registrar of firms','section 69','egroops'],link:['Partnership Registration Service','/services/partnership-registration.html']},
     {terms:['proprietor','proprietorship','sole proprietor','udyam','kerala shops','shop act'],link:['Proprietorship Registration Service','/services/proprietorship-registration.html']},
@@ -443,7 +443,7 @@ function inferActionPills(query, botText) {
     pills.push(['FEMA Consultation', '/conversion/fema-consultation.html']);
   }
   if (combined.includes('trademark') || combined.includes('brand') || combined.includes('ipr')) {
-    pills.push(['Trademark Clearance', '/conversion/trademark-search.html']);
+    pills.push(['Trademark Registration', '/services/trademark-registration.html#tm-compliance-suite']);
   }
   if (combined.includes('strike off') || combined.includes('closure') || combined.includes('stk-2')) {
     // Strike-off checker retired

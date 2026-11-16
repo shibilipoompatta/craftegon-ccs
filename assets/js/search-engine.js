@@ -1048,7 +1048,7 @@ function renderCompanyResult(entity) {
             <strong style="display: block; font-size: 0.82rem; color: #0B2545; margin-bottom: 0.2rem;">🏦 Satisfy Open Bank Charge</strong>
             <span style="font-size: 0.75rem; color: #64748b;">Section 82 Form CHG-4 Satisfaction</span>
           </a>
-          <a href="/conversion/strike-off-checker.html" style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.75rem 1rem; text-decoration: none; color: #1e293b; display: block; transition: all 0.2s ease;">
+          <a href="/services/form-stk2-strike-off.html" style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.75rem 1rem; text-decoration: none; color: #1e293b; display: block; transition: all 0.2s ease;">
             <strong style="display: block; font-size: 0.82rem; color: #0B2545; margin-bottom: 0.2rem;">🚪 Fast-Track Strike-Off</strong>
             <span style="font-size: 0.75rem; color: #64748b;">Section 248 Form STK-2 Entity Exit</span>
           </a>

@@ -82,7 +82,7 @@ const SERVICES_DATA = [
 
   { name: 'AI Legal Document Drafter Online', code: 'Flagship AI Tool', url: '/conversion/ai-document-generator.html', tags: 'ai drafter board resolution agreement generate' },
   { name: 'MCA Late Fee & Retainer Computor', code: 'Interactive Tool', url: '/conversion/calculator.html', tags: 'calculator late fee mca penalty retainer' },
-  { name: 'NICE Trademark Class Screener', code: 'IP Search Tool', url: '/conversion/trademark-search.html', tags: 'trademark search class 1 to 45' },
+  { name: 'NICE Trademark Class Screener', code: 'IP Search Tool', url: '/services/trademark-registration.html#tm-compliance-suite', tags: 'trademark search class 1 to 45' },
 ];
 
 function initCommandSearch() {
@@ -338,7 +338,7 @@ function initTrademarkScreener() {
     if (filtered.length === 0) {
       container.innerHTML = `
         <div style="grid-column: 1 / -1; padding: 2rem; text-align: center; color: var(--text-secondary);">
-          No matching Nice classes found. Check spelling or consult our <a href="/conversion/trademark-search.html" style="color: var(--brand-gold);">Comprehensive IP Screener</a>.
+          No matching Nice classes found. Check spelling or consult our <a href="/services/trademark-registration.html#tm-compliance-suite" style="color: var(--brand-gold);">Comprehensive IP Screener</a>.
         </div>
       `;
       return;

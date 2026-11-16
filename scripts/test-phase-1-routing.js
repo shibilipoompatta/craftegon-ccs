@@ -209,6 +209,20 @@ function requestFollow(initialPath, maxRedirects = 10) {
   assert(resSubPage.status === 200, '/services/pvt-ltd-registration.html resolves with HTTP 200 OK');
   assert(resSubPage.body.includes('Private Limited Company Registration'), '/services/pvt-ltd-registration.html serves canonical service content');
 
+  // Test 5: Resolution of /conversion/calculator (Clean URL)
+  console.log('\n--- Test 5: Resolution of /conversion/calculator ---');
+  const resCalc = await requestFollow('/conversion/calculator');
+  assert(!resCalc.loopDetected, '/conversion/calculator does not enter redirect loop', `History: ${resCalc.history.join(' -> ')}`);
+  assert(resCalc.status === 200, '/conversion/calculator resolves with HTTP 200 OK');
+  assert(resCalc.body.includes('Statutory Fee & Late Fee Calculator') || resCalc.body.includes('calculator'), '/conversion/calculator serves calculator content');
+
+  // Test 6: Resolution of /conversion/calculator/ (Clean URL with Trailing Slash)
+  console.log('\n--- Test 6: Resolution of /conversion/calculator/ ---');
+  const resCalcSlash = await requestFollow('/conversion/calculator/');
+  assert(!resCalcSlash.loopDetected, '/conversion/calculator/ does not enter redirect loop', `History: ${resCalcSlash.history.join(' -> ')}`);
+  assert(resCalcSlash.status === 200, '/conversion/calculator/ resolves with HTTP 200 OK');
+  assert(resCalcSlash.body.includes('Statutory Fee & Late Fee Calculator') || resCalcSlash.body.includes('calculator'), '/conversion/calculator/ serves calculator content');
+
   server.close();
 
   console.log('\n============================================================');
