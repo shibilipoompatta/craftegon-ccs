@@ -167,7 +167,7 @@
 .desk-form-card input:focus,
 .desk-form-card select:focus,
 .desk-form-card textarea:focus {
-  outline: none;
+  outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   border-color: var(--desk-mint-primary);
   box-shadow: 0 0 0 3.5px rgba(117, 205, 169, 0.28);
   background: #FFFFFF;

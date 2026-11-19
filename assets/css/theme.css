@@ -321,7 +321,7 @@ textarea {
   border: 1px solid var(--border-color, #E2E8F0);
   border-radius: var(--radius-md, 8px);
   padding: 0.75rem 1rem;
-  outline: none;
+  outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   transition: all 0.2s ease;
   width: 100%;
 }
@@ -809,4 +809,19 @@ table {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+
+/* WCAG 2.4.7 Universal Focus Indicator */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible,
+.btn:focus-visible,
+.if-btn-primary:focus-visible,
+.if-btn-secondary:focus-visible {
+  outline: 2px solid var(--teal, #247A62) !important;
+  outline-offset: 2px !important;
 }

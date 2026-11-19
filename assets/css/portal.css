@@ -91,7 +91,7 @@
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
   font-size: 0.95rem;
-  outline: none;
+  outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   transition: all 0.25s ease;
 }
 
@@ -696,7 +696,7 @@ input:checked + .slider:before {
   border-radius: var(--radius-sm);
   font-size: 0.88rem;
   margin-bottom: 0.85rem;
-  outline: none;
+  outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   transition: border-color 0.2s ease;
 }
 

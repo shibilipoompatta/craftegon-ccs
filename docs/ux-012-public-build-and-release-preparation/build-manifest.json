@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-19T16:18:03.475Z",
+  "buildTimestamp": "2026-11-19T16:32:46.522Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 189,
-    "totalOutputSizeBytes": 12258036,
+    "totalOutputSizeBytes": 12258798,
     "totalOutputSizeFormatted": "11.69 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
@@ -71,7 +71,7 @@
     },
     {
       "path": "assets/css/chat-widget.css",
-      "bytes": 13500
+      "bytes": 13602
     },
     {
       "path": "assets/css/checkout.css",
@@ -79,7 +79,7 @@
     },
     {
       "path": "assets/css/conversion-desks.css",
-      "bytes": 5036
+      "bytes": 5053
     },
     {
       "path": "assets/css/home-animations.css",
@@ -87,11 +87,11 @@
     },
     {
       "path": "assets/css/home-unique.css",
-      "bytes": 79235
+      "bytes": 79303
     },
     {
       "path": "assets/css/navbar.css",
-      "bytes": 39704
+      "bytes": 39976
     },
     {
       "path": "assets/css/service-page.css",
@@ -99,7 +99,7 @@
     },
     {
       "path": "assets/css/theme.css",
-      "bytes": 13720
+      "bytes": 14023
     },
     {
       "path": "assets/css/tokens.css",

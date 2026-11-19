@@ -1975,7 +1975,7 @@
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.95rem;
   color: var(--navy-900, #10262E);
-  outline: none;
+  outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   min-width: 0;
 }
 
@@ -2542,7 +2542,7 @@
   font-size: 0.95rem;
   color: var(--navy-900, #10262E);
   padding: 0.75rem 0;
-  outline: none;
+  outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
 }
 
 .discovery-input::placeholder {
@@ -2972,7 +2972,7 @@
 .intake-field input:focus,
 .intake-field select:focus,
 .intake-field textarea:focus {
-  outline: none;
+  outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   border-color: var(--accent-green-primary, #247A62);
   box-shadow: 0 0 0 3px rgba(36, 122, 98, 0.15);
 }
@@ -4034,7 +4034,7 @@ a, button, input, select, textarea,
   flex-grow: 1;
   border: none;
   background: transparent;
-  outline: none;
+  outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 15px;
   color: var(--navy-900, #10262E);

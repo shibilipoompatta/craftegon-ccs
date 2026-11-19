@@ -137,7 +137,7 @@ body.admin-login-body {
   color: #F8FAFC;
   font-family: var(--font-body);
   font-size: 0.88rem;
-  outline: none;
+  outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   transition: all 0.2s ease;
 }
 
@@ -482,7 +482,7 @@ body.admin-login-body {
   font-size: 0.82rem;
   padding: 0.6rem 0.85rem;
   border-radius: 6px;
-  outline: none;
+  outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   cursor: pointer;
 }
 
