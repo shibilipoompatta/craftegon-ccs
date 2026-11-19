@@ -10,6 +10,12 @@
 /conversion/*
   Cache-Control: public, max-age=0, must-revalidate
 
+/conversion/calculator
+  Cache-Control: public, max-age=0, must-revalidate
+
+/conversion/calculator.html
+  Cache-Control: public, max-age=0, must-revalidate
+
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff

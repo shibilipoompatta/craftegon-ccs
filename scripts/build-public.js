@@ -320,12 +320,12 @@ const publicRedirects = `# =====================================================
 
 # 1.1 RETIRED CATEGORY & TOOL REDIRECTS (HTTP 301)
 /verticals/14-exit-insolvency*  /verticals/index.html   301
-/conversion/strike-off-checker* /services/form-stk2-strike-off.html 301
-/conversion/trademark-search*   /services/trademark-registration.html 301
+/conversion/strike-off-checker* /services/form-stk2-strike-off 301
+/conversion/trademark-search*   /services/trademark-registration 301
 
 # 1.2 TRADEMARK SUB-SERVICE ALIASES (HTTP 301)
-/services/trademark-examination* /knowledge/trademark-objection-reply-section-9-11-handbook.html 301
-/services/trademark-opposition*  /knowledge/trademark-opposition-procedure-tm-o-handbook.html 301
+/services/trademark-examination* /knowledge/trademark-objection-reply-section-9-11-handbook 301
+/services/trademark-opposition*  /knowledge/trademark-opposition-procedure-tm-o-handbook 301
 
 # 2. CLEAN URL REWRITES (Status 200)
 /services                /services/index.html    200
@@ -373,6 +373,15 @@ const publicHeaders = `/*
 
 /data/*.json
   Cache-Control: public, max-age=3600, must-revalidate
+
+/conversion/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/conversion/calculator
+  Cache-Control: public, max-age=0, must-revalidate
+
+/conversion/calculator.html
+  Cache-Control: public, max-age=0, must-revalidate
 
 /build-manifest.json
   Cache-Control: public, max-age=300

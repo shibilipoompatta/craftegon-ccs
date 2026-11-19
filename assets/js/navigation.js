@@ -504,6 +504,8 @@ function preserveConversionContext() {
       if (!rawHref || !rawHref.includes('/conversion/')) return;
       const destination = new URL(link.href, window.location.origin);
       if (destination.pathname === '/conversion/' || destination.pathname === '/conversion/index.html') return;
+      // Strip .html for clean URLs on Cloudflare Pages to prevent 308 redirect roundtrips & loops
+      destination.pathname = destination.pathname.replace(/\.html$/i, '');
       if (pageType === "services") destination.searchParams.set("service_id", pageId);
       if (pageType === "verticals") destination.searchParams.set("service_category", pageId);
       destination.searchParams.set("source_path", window.location.pathname);
