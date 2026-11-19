@@ -838,7 +838,7 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>Entity / Parent MNC Name</label>
-            <input type="text" name="entity_name" required placeholder="e.g. Global Holdings Inc." >
+            <input aria-label="Company or Entity Name" type="text" name="entity_name" required placeholder="e.g. Global Holdings Inc." >
           </div>
           <div>
             <label>Primary Cross-Border Requirement</label>
@@ -859,17 +859,17 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>Director / Legal Counsel Name</label>
-            <input type="text" name="contact_name" required placeholder="Full Name & Title" >
+            <input aria-label="Contact Person Full Name" type="text" name="contact_name" required placeholder="Full Name & Title" >
           </div>
           <div>
             <label>Direct Phone Number</label>
-            <input type="tel" name="phone" required placeholder="+1 or +91..." >
+            <input aria-label="Phone Number" type="tel" name="phone" required placeholder="+1 or +91..." >
           </div>
         </div>
 
         <div>
           <label>Official Corporate Email</label>
-          <input type="email" name="email" required placeholder="legal@parentmnc.com" >
+          <input aria-label="Email Address" type="email" name="email" required placeholder="legal@parentmnc.com" >
         </div>
 
         <button type="submit" class="desk-btn-submit">

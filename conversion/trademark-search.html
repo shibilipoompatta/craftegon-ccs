@@ -781,7 +781,7 @@
         <div>
           <label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Enter Brand Name / Wordmark</label>
           <div class="trademark-search-row" style="display: flex; gap: 0.75rem;">
-            <input type="text" id="brand-query" placeholder="e.g. Craftegon" style="flex: 1; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+            <input aria-label="Brand name or wordmark search query" type="text" id="brand-query" placeholder="e.g. Craftegon" style="flex: 1; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
             <select id="trademark-class" style="width: 140px; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;">
               <option value="class-09">Class 09 (Software)</option>
               <option value="class-35">Class 35 (Business)</option>
@@ -801,14 +801,14 @@
       <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Ready to file your trademark application?</h3>
       <form class="if-lead-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div><label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Applicant / Entity Name</label><input type="text" name="applicant_name" required placeholder="Full Name or Company Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);"></div>
+          <div><label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Applicant / Entity Name</label><input aria-label="Applicant Full Name" type="text" name="applicant_name" required placeholder="Full Name or Company Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);"></div>
           <div><label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Trademark Type</label><select name="mark_type" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: white;"><option value="wordmark">Wordmark (Text Only)</option><option value="logo">Logo / Device Mark</option><option value="tagline">Tagline / Slogan</option></select></div>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div><label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Contact Person Name</label><input type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);"></div>
-          <div><label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Mobile Number</label><input type="tel" name="phone" required placeholder="9876543210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);"></div>
+          <div><label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Contact Person Name</label><input aria-label="Contact Person Full Name" type="text" name="contact_name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);"></div>
+          <div><label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Mobile Number</label><input aria-label="Phone Number" type="tel" name="phone" required placeholder="9876543210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);"></div>
         </div>
-        <div><label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Email Address</label><input type="email" name="email" required placeholder="brand@company.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);"></div>
+        <div><label style="display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem;">Email Address</label><input aria-label="Email Address" type="email" name="email" required placeholder="brand@company.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm);"></div>
         <button type="submit" class="if-btn-primary" style="margin-top: 1rem; width: 100%; padding: 0.85rem; font-size: 1rem;">Submit Application Intake for Clearance & Filing</button>
       
         <div class="form-return-action" style="text-align: center; margin-top: 0.85rem;">

@@ -838,11 +838,11 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>Entity / Business Name</label>
-            <input type="text" name="entity_name" required placeholder="e.g. Acme Enterprises LLP" >
+            <input aria-label="Company or Entity Name" type="text" name="entity_name" required placeholder="e.g. Acme Enterprises LLP" >
           </div>
           <div>
             <label>PAN Number <span style="font-weight: normal; color: var(--text-muted);">(Optional for preliminary inquiry)</span></label>
-            <input type="text" name="pan" placeholder="ABCDE1234F" >
+            <input aria-label="Permanent Account Number (PAN)" type="text" name="pan" placeholder="ABCDE1234F" >
           </div>
         </div>
 
@@ -871,17 +871,17 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>Contact Person Name</label>
-            <input type="text" name="contact_name" required placeholder="Full Name" >
+            <input aria-label="Contact Person Full Name" type="text" name="contact_name" required placeholder="Full Name" >
           </div>
           <div>
             <label>Mobile Number</label>
-            <input type="tel" name="phone" required placeholder="9876543210" >
+            <input aria-label="Phone Number" type="tel" name="phone" required placeholder="9876543210" >
           </div>
         </div>
 
         <div>
           <label>Email Address</label>
-          <input type="email" name="email" required placeholder="finance@company.com" >
+          <input aria-label="Email Address" type="email" name="email" required placeholder="finance@company.com" >
         </div>
 
         <button type="submit" class="desk-btn-submit">

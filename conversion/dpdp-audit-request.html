@@ -838,7 +838,7 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>Platform / Company Name</label>
-            <input type="text" name="platform_name" required placeholder="e.g. SaaS Platform Inc." >
+            <input aria-label="Company or Entity Name" type="text" name="platform_name" required placeholder="e.g. SaaS Platform Inc." >
           </div>
           <div>
             <label>Data Volume Handled (Monthly Active Users)</label>
@@ -873,17 +873,17 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>CTO / CISO / Contact Name</label>
-            <input type="text" name="contact_name" required placeholder="Full Name & Title" >
+            <input aria-label="Contact Person Full Name" type="text" name="contact_name" required placeholder="Full Name & Title" >
           </div>
           <div>
             <label>Direct Phone Number</label>
-            <input type="tel" name="phone" required placeholder="9876543210" >
+            <input aria-label="Phone Number" type="tel" name="phone" required placeholder="9876543210" >
           </div>
         </div>
 
         <div>
           <label>Official Email Address</label>
-          <input type="email" name="email" required placeholder="security@platform.com" >
+          <input aria-label="Email Address" type="email" name="email" required placeholder="security@platform.com" >
         </div>
 
         <button type="submit" class="desk-btn-submit">

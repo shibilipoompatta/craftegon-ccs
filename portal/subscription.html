@@ -93,7 +93,7 @@
       <div class="billing-toggle-container">
         <span id="lbl-monthly" class="billing-lbl" onclick="setBillingCycle('monthly')">Monthly Billing</span>
         <label class="switch" aria-label="Toggle Annual Billing">
-          <input type="checkbox" id="billing-switch" onchange="toggleBillingSwitch(this)">
+          <input aria-label="Billing frequency toggle" type="checkbox" id="billing-switch" onchange="toggleBillingSwitch(this)">
           <span class="slider"></span>
         </label>
         <span id="lbl-annual" class="billing-lbl active" onclick="setBillingCycle('annual')">

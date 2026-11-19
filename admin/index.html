@@ -112,7 +112,7 @@
           <div class="toolbar-filters">
             <div class="search-input-wrap">
               <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <input type="text" id="search-cases" class="form-control" placeholder="Search cases by reference or title..." oninput="filterAdminCases()">
+              <input aria-label="Search cases by reference or title" type="text" id="search-cases" class="form-control" placeholder="Search cases by reference or title..." oninput="filterAdminCases()">
             </div>
             <select id="filter-case-status" class="select-filter" onchange="filterAdminCases()">
               <option value="">All Statuses</option>
@@ -205,7 +205,7 @@
         <div class="toolbar-filters">
           <div class="search-input-wrap">
             <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="search-services" class="form-control" placeholder="Search by name, ID, form, or alias...">
+            <input aria-label="Search services by name, ID, or form" type="text" id="search-services" class="form-control" placeholder="Search by name, ID, form, or alias...">
           </div>
 
           <select id="filter-vertical" class="select-filter">
@@ -310,11 +310,11 @@
         <div class="modal-body">
           <div class="form-group" style="margin-bottom: 1rem;">
             <label class="form-label">Case Reference</label>
-            <input type="text" id="manage-case-ref" class="form-control" readonly style="background: rgba(255,255,255,0.05); cursor: not-allowed;">
+            <input aria-label="Case reference number" type="text" id="manage-case-ref" class="form-control" readonly style="background: rgba(255,255,255,0.05); cursor: not-allowed;">
           </div>
           <div class="form-group" style="margin-bottom: 1rem;">
             <label class="form-label">Service &amp; Title</label>
-            <input type="text" id="manage-case-title-display" class="form-control" readonly style="background: rgba(255,255,255,0.05); cursor: not-allowed;">
+            <input aria-label="Case title" type="text" id="manage-case-title-display" class="form-control" readonly style="background: rgba(255,255,255,0.05); cursor: not-allowed;">
           </div>
           <div class="form-group" style="margin-bottom: 1rem;">
             <label for="manage-case-status" class="form-label">Update Lifecycle Status</label>
@@ -516,11 +516,11 @@
             <label class="form-label">Select Action</label>
             <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.35rem;">
               <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: #CBD5E1;">
-                <input type="radio" name="delete_action_type" value="deactivate" checked style="accent-color: var(--admin-gold);">
+                <input aria-label="Deactivate case only" type="radio" name="delete_action_type" value="deactivate" checked style="accent-color: var(--admin-gold);">
                 <span><strong>Deactivate Service (Recommended):</strong> Keeps record intact, marks inactive, hides from search.</span>
               </label>
               <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: #FCA5A5;">
-                <input type="radio" name="delete_action_type" value="hard_delete" style="accent-color: #EF4444;">
+                <input aria-label="Hard delete case permanently" type="radio" name="delete_action_type" value="hard_delete" style="accent-color: #EF4444;">
                 <span><strong>Permanent Deletion:</strong> Irreversibly deletes from service registry and pricing.</span>
               </label>
             </div>

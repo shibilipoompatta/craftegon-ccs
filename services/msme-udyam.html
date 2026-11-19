@@ -921,7 +921,7 @@
                   <span>Investment in Plant &amp; Machinery (WDV)</span>
                   <span id="label-inv-display" style="color: var(--brand-primary); font-family: var(--font-mono, monospace); font-weight: 700;">₹50 Lakhs</span>
                 </label>
-                <input type="range" id="calc-inv-range" min="1" max="6000" step="5" value="50" oninput="syncInvFromSlider(this.value)" style="width: 100%; accent-color: var(--brand-gold);">
+                <input aria-label="Plant and machinery investment in Lakhs" type="range" id="calc-inv-range" min="1" max="6000" step="5" value="50" oninput="syncInvFromSlider(this.value)" style="width: 100%; accent-color: var(--brand-gold);">
                 <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
                   <span>₹1 Lakh</span>
                   <span>₹1 Cr (Micro Limit)</span>
@@ -936,7 +936,7 @@
                   <span>Total Gross Turnover (₹ Lakhs)</span>
                   <span id="label-to-display" style="color: var(--brand-primary); font-family: var(--font-mono, monospace); font-weight: 700;">₹200 Lakhs (₹2 Cr)</span>
                 </label>
-                <input type="range" id="calc-to-range" min="5" max="30000" step="25" value="200" oninput="syncToFromSlider(this.value)" style="width: 100%; accent-color: var(--brand-gold);">
+                <input aria-label="Annual turnover in Lakhs" type="range" id="calc-to-range" min="5" max="30000" step="25" value="200" oninput="syncToFromSlider(this.value)" style="width: 100%; accent-color: var(--brand-gold);">
                 <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
                   <span>₹5 L</span>
                   <span>₹5 Cr (Micro)</span>
@@ -951,7 +951,7 @@
                   <span>Export Turnover of Goods &amp; Services (₹ Lakhs)</span>
                   <span id="label-exp-display" style="color: #065F46; font-family: var(--font-mono, monospace); font-weight: 700;">₹50 Lakhs (Exempted)</span>
                 </label>
-                <input type="range" id="calc-exp-range" min="0" max="20000" step="25" value="50" oninput="syncExpFromSlider(this.value)" style="width: 100%; accent-color: #10B981;">
+                <input aria-label="Direct export turnover in Lakhs" type="range" id="calc-exp-range" min="0" max="20000" step="25" value="50" oninput="syncExpFromSlider(this.value)" style="width: 100%; accent-color: #10B981;">
                 <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0.35rem 0 0;">
                   ⚡ <em>Section 7(1) Explanation 1:</em> Exports are statutorily excluded from turnover for classification.
                 </p>
@@ -1010,17 +1010,17 @@
 
               <div style="margin-bottom: 1rem;">
                 <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Invoice Principal Amount (₹)</label>
-                <input type="number" id="calc-inv-amount" value="500000" step="10000" oninput="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.92rem; font-family: var(--font-mono);">
+                <input aria-label="Invoice amount in Rupees" type="number" id="calc-inv-amount" value="500000" step="10000" oninput="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.92rem; font-family: var(--font-mono);">
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                 <div>
                   <label style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Invoice / Delivery Date</label>
-                  <input type="date" id="calc-inv-date" value="2026-01-10" onchange="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
+                  <input aria-label="Invoice date" type="date" id="calc-inv-date" value="2026-01-10" onchange="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
                 </div>
                 <div>
                   <label style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Actual / Expected Payment Date</label>
-                  <input type="date" id="calc-pay-date" value="2026-04-15" onchange="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
+                  <input aria-label="Actual payment date" type="date" id="calc-pay-date" value="2026-04-15" onchange="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
                 </div>
               </div>
 
@@ -1037,7 +1037,7 @@
                   <span>Agreed Credit Days (Max 45 days)</span>
                   <span id="agreed-days-label" style="font-family: var(--font-mono); color: var(--brand-primary); font-weight: 700;">45 Days</span>
                 </label>
-                <input type="range" id="calc-agreed-days" min="1" max="45" value="45" oninput="document.getElementById('agreed-days-label').innerText = this.value + ' Days'; runDelayedPaymentCalc();" style="width: 100%; accent-color: var(--brand-gold);">
+                <input aria-label="Agreed statutory payment credit window in days" type="range" id="calc-agreed-days" min="1" max="45" value="45" oninput="document.getElementById('agreed-days-label').innerText = this.value + ' Days'; runDelayedPaymentCalc();" style="width: 100%; accent-color: var(--brand-gold);">
               </div>
 
               <div style="margin-bottom: 1rem;">
@@ -1499,28 +1499,28 @@
 
         <div>
           <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Enterprise / Business Legal Name</label>
-          <input type="text" name="company_name" required placeholder="e.g. Acme Enterprises / Acme Technologies Pvt Ltd" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+          <input aria-label="Company or Entity Name" type="text" name="company_name" required placeholder="e.g. Acme Enterprises / Acme Technologies Pvt Ltd" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
           <div>
             <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Applicant / Signatory Name</label>
-            <input type="text" name="name" required placeholder="Proprietor / Partner / Director Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+            <input aria-label="Contact Person Full Name" type="text" name="name" required placeholder="Proprietor / Partner / Director Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
           </div>
           <div>
             <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Email Address</label>
-            <input type="email" name="email" required placeholder="contact@business.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+            <input aria-label="Email Address" type="email" name="email" required placeholder="contact@business.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
           <div>
             <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Mobile / WhatsApp (Aadhaar linked)</label>
-            <input type="tel" name="phone" required placeholder="+91 98765 43210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+            <input aria-label="Phone Number" type="tel" name="phone" required placeholder="+91 98765 43210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
           </div>
           <div>
             <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Business Structure</label>
-            <input type="text" name="entity_type" placeholder="e.g. Proprietorship, LLP, Pvt Ltd" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+            <input aria-label="Entity Legal Structure" type="text" name="entity_type" placeholder="e.g. Proprietorship, LLP, Pvt Ltd" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
           </div>
         </div>
 
@@ -1937,7 +1937,7 @@
       const items = entityChecklists[type] || entityChecklists.company;
       container.innerHTML = items.map((item, idx) => `
         <label style="display: flex; gap: 0.75rem; align-items: flex-start; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 6px; padding: 0.75rem 1rem; cursor: pointer;">
-          <input type="checkbox" style="margin-top: 0.25rem; accent-color: var(--brand-primary);">
+          <input aria-label="checkbox" type="checkbox" style="margin-top: 0.25rem; accent-color: var(--brand-primary);">
           <div>
             <strong style="color: var(--navy-800); font-size: 0.9rem; display: block;">${idx + 1}. ${item.title}</strong>
             <span style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; display: block;">${item.desc}</span>

@@ -838,7 +838,7 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>Corporate Entity Name</label>
-            <input type="text" name="entity_name" required placeholder="e.g. Enterprise Ltd">
+            <input aria-label="Company or Entity Name" type="text" name="entity_name" required placeholder="e.g. Enterprise Ltd">
           </div>
           <div>
             <label>Applicability Criteria Met</label>
@@ -854,28 +854,28 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>Average Net Profit (Last 3 Years)</label>
-            <input type="text" name="net_profit" required placeholder="e.g. ₹25 Crores">
+            <input aria-label="Average Net Profit in Rupees" type="text" name="net_profit" required placeholder="e.g. ₹25 Crores">
           </div>
           <div>
             <label>Estimated 2% Obligation</label>
-            <input type="text" name="obligation" placeholder="Auto-calculated on submission" readonly>
+            <input aria-label="Mandatory CSR Obligation in Rupees" type="text" name="obligation" placeholder="Auto-calculated on submission" readonly>
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>CSR Committee Chair / Contact Name</label>
-            <input type="text" name="contact_name" required placeholder="Full Name">
+            <input aria-label="Contact Person Full Name" type="text" name="contact_name" required placeholder="Full Name">
           </div>
           <div>
             <label>Direct Phone Number</label>
-            <input type="tel" name="phone" required placeholder="9876543210">
+            <input aria-label="Phone Number" type="tel" name="phone" required placeholder="9876543210">
           </div>
         </div>
 
         <div>
           <label>Official Email Address</label>
-          <input type="email" name="email" required placeholder="csr@enterprise.com">
+          <input aria-label="Email Address" type="email" name="email" required placeholder="csr@enterprise.com">
         </div>
 
         <button type="submit" class="desk-btn-submit">

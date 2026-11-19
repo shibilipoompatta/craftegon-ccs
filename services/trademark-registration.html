@@ -1120,7 +1120,7 @@
         </div>
 
         <div style="margin-bottom: 1.5rem;">
-          <input type="text" id="tm-nice-search" oninput="filterNiceClasses()" placeholder="Search industry, product, or service (e.g. software, clothing, restaurant, consulting, cosmetics)..." style="width: 100%; padding: 0.85rem 1.2rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-primary, #C59B27)'" onblur="this.style.borderColor='var(--border-color)'">
+          <input aria-label="Search Nice classification classes by industry or product" type="text" id="tm-nice-search" oninput="filterNiceClasses()" placeholder="Search industry, product, or service (e.g. software, clothing, restaurant, consulting, cosmetics)..." style="width: 100%; padding: 0.85rem 1.2rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--gold-primary, #C59B27)'" onblur="this.style.borderColor='var(--border-color)'">
         </div>
 
         <div id="nice-results-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-height: 420px; overflow-y: auto; padding-right: 0.5rem;">
@@ -1210,7 +1210,7 @@
           </div>
           <div>
             <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.4rem;">Number of Nice Classes</label>
-            <input type="number" id="tm-class-count" value="1" min="1" max="45" oninput="calculateTmGovFee()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+            <input aria-label="Number of trademark classes (1 to 45)" type="number" id="tm-class-count" value="1" min="1" max="45" oninput="calculateTmGovFee()" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
           </div>
         </div>
 
@@ -1233,21 +1233,21 @@
 
         <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.5rem;">
           <label style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer; background: #F8FAFC; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-color);">
-            <input type="checkbox" id="chk-invented" onchange="auditTmDistinctiveness()" style="margin-top: 0.2rem;">
+            <input aria-label="Coined or fanciful distinctive brand name" type="checkbox" id="chk-invented" onchange="auditTmDistinctiveness()" style="margin-top: 0.2rem;">
             <div>
               <strong style="font-size: 0.88rem; color: var(--text-dark);">Mark is an invented, fanciful, or coined word (e.g. KODAK, XEROX)</strong>
               <div style="font-size: 0.8rem; color: var(--text-muted);">Highest legal protection under Abercrombie spectrum; virtually zero Section 9 descriptiveness objection risk.</div>
             </div>
           </label>
           <label style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer; background: #F8FAFC; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-color);">
-            <input type="checkbox" id="chk-descriptive" onchange="auditTmDistinctiveness()" style="margin-top: 0.2rem;">
+            <input aria-label="Descriptive or dictionary word mark" type="checkbox" id="chk-descriptive" onchange="auditTmDistinctiveness()" style="margin-top: 0.2rem;">
             <div>
               <strong style="font-size: 0.88rem; color: var(--text-dark);">Mark describes the quality, purpose, quantity, or geographic origin of goods (e.g. BEST, SUPER, SPEEDY)</strong>
               <div style="font-size: 0.8rem; color: var(--text-muted);">High Section 9(1)(b) objection exposure unless acquired distinctiveness through long prior use is proven via User Affidavit.</div>
             </div>
           </label>
           <label style="display: flex; gap: 0.75rem; align-items: flex-start; cursor: pointer; background: #F8FAFC; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-color);">
-            <input type="checkbox" id="chk-phonetic" onchange="auditTmDistinctiveness()" style="margin-top: 0.2rem;">
+            <input aria-label="Similar to existing registered trademarks" type="checkbox" id="chk-phonetic" onchange="auditTmDistinctiveness()" style="margin-top: 0.2rem;">
             <div>
               <strong style="font-size: 0.88rem; color: var(--text-dark);">Mark sounds similar to an existing registered brand in the same or allied class</strong>
               <div style="font-size: 0.8rem; color: var(--text-muted);">Triggers Section 11(1) objection under Cadila Healthcare deceptions test; requires phonetic clearance search.</div>
@@ -1298,12 +1298,12 @@
         <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0 0 1.25rem 0;">Verify these mandatory documents and evidence before Form TM-A submission to eliminate Formality Check Failures.</p>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem;">
-          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> Exact Wordmark / High-Resolution Logo (JPEG/PNG)</label>
-          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> Applicant Identity Proof (PAN Card / Aadhaar / Passport)</label>
-          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> MSME Udyam Certificate / DPIIT Recognition (for 50% fee discount)</label>
-          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> Executed Power of Attorney (Form TM-48)</label>
-          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> User Affidavit with Prior Invoices (if claiming use date)</label>
-          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input type="checkbox" checked disabled> Accurate Nice Class Specification (Goods / Services)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input aria-label="Exact Wordmark / High-Resolution Logo (JPEG/PNG)" type="checkbox" checked disabled> Exact Wordmark / High-Resolution Logo (JPEG/PNG)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input aria-label="Applicant Identity Proof (PAN Card / Aadhaar / Passport)" type="checkbox" checked disabled> Applicant Identity Proof (PAN Card / Aadhaar / Passport)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input aria-label="MSME Udyam Certificate / DPIIT Recognition (for 50% fee discount)" type="checkbox" checked disabled> MSME Udyam Certificate / DPIIT Recognition (for 50% fee discount)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input aria-label="Executed Power of Attorney (Form TM-48)" type="checkbox" checked disabled> Executed Power of Attorney (Form TM-48)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input aria-label="User Affidavit with Prior Invoices (if claiming use date)" type="checkbox" checked disabled> User Affidavit with Prior Invoices (if claiming use date)</label>
+          <label style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.85rem; color: var(--text-dark); background: #F8FAFC; padding: 0.75rem; border-radius: 6px;"><input aria-label="Accurate Nice Class Specification (Goods / Services)" type="checkbox" checked disabled> Accurate Nice Class Specification (Goods / Services)</label>
         </div>
       </div>
     </section>
@@ -1482,24 +1482,24 @@
 
         <div>
           <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Brand Name / Wordmark to Register</label>
-          <input type="text" name="company_name" required placeholder="e.g. CraftEgon / MyBrand" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+          <input aria-label="Company or Entity Name" type="text" name="company_name" required placeholder="e.g. CraftEgon / MyBrand" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
           <div>
             <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Applicant / Founder Name</label>
-            <input type="text" name="name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+            <input aria-label="Contact Person Full Name" type="text" name="name" required placeholder="Full Name" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
           </div>
           <div>
             <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Email Address</label>
-            <input type="email" name="email" required placeholder="founder@brand.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+            <input aria-label="Email Address" type="email" name="email" required placeholder="founder@brand.com" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
           <div>
             <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Mobile / WhatsApp Number</label>
-            <input type="tel" name="phone" required placeholder="+91 98765 43210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+            <input aria-label="Phone Number" type="tel" name="phone" required placeholder="+91 98765 43210" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
           </div>
           <div>
             <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Do you have an MSME Udyam Certificate?</label>

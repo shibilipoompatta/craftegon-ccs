@@ -838,7 +838,7 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>Organization Name</label>
-            <input type="text" name="org_name" required placeholder="e.g. CraftEgon Technologies" >
+            <input aria-label="Company or Entity Name" type="text" name="org_name" required placeholder="e.g. CraftEgon Technologies" >
           </div>
           <div>
             <label>Total Employee Headcount</label>
@@ -854,27 +854,27 @@
         <div>
           <label>Primary Compliance Requirements</label>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem;">
-            <label><input type="checkbox" name="service_posh" value="yes"> POSH Act IC Setup & Policy</label>
-            <label><input type="checkbox" name="service_pf_esic" value="yes"> PF & ESIC Registration/Filings</label>
-            <label><input type="checkbox" name="service_handbook" value="yes"> Employee Handbook Drafting</label>
-            <label><input type="checkbox" name="service_audit" value="yes"> Full Labour Code Healthcheck</label>
+            <label><input aria-label="POSH Act Internal Committee Setup and Policy" type="checkbox" name="service_posh" value="yes"> POSH Act IC Setup & Policy</label>
+            <label><input aria-label="Provident Fund and ESIC Registration and Filings" type="checkbox" name="service_pf_esic" value="yes"> PF & ESIC Registration/Filings</label>
+            <label><input aria-label="Employee Handbook Drafting" type="checkbox" name="service_handbook" value="yes"> Employee Handbook Drafting</label>
+            <label><input aria-label="Full Labour Code Healthcheck" type="checkbox" name="service_audit" value="yes"> Full Labour Code Healthcheck</label>
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div>
             <label>Contact Person Name</label>
-            <input type="text" name="contact_name" required placeholder="Full Name" >
+            <input aria-label="Contact Person Full Name" type="text" name="contact_name" required placeholder="Full Name" >
           </div>
           <div>
             <label>Mobile Number</label>
-            <input type="tel" name="phone" required placeholder="9876543210" >
+            <input aria-label="Phone Number" type="tel" name="phone" required placeholder="9876543210" >
           </div>
         </div>
 
         <div>
           <label>Email Address</label>
-          <input type="email" name="email" required placeholder="hr@company.com" >
+          <input aria-label="Email Address" type="email" name="email" required placeholder="hr@company.com" >
         </div>
 
         <button type="submit" class="desk-btn-submit">

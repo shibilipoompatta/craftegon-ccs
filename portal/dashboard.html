@@ -131,7 +131,7 @@
 
       <form id="cin-lookup-form" class="lookup-form" onsubmit="handleCinLookup(event)">
         <div class="lookup-input-wrap">
-          <input type="text" id="cin-input" class="lookup-input" placeholder="CIN or LLPIN (sample / local lookup only)" value="U72900KL2023PTC078912" required>
+          <input aria-label="Corporate Identification Number (CIN)" type="text" id="cin-input" class="lookup-input" placeholder="CIN or LLPIN (sample / local lookup only)" value="U72900KL2023PTC078912" required>
         </div>
         <div class="calendar-reference-dates">
           <label for="agm-date">Annual General Meeting date <input type="date" id="agm-date"></label>
@@ -547,7 +547,7 @@
         <p style="margin: 0 0 0.85rem 0; font-size: 0.78rem; color: var(--text-muted);">
           Permitted: PDF, DOCX, PNG, JPEG (Max 15 MB).<br>Files are quarantined and scanned prior to verification.
         </p>
-        <input type="file" id="doc-file-input" accept=".pdf,.docx,.png,.jpg,.jpeg" required style="font-size: 0.82rem; margin-bottom: 0.85rem; width: 100%; max-width: 320px;">
+        <input aria-label="Upload statutory documents" type="file" id="doc-file-input" accept=".pdf,.docx,.png,.jpg,.jpeg" required style="font-size: 0.82rem; margin-bottom: 0.85rem; width: 100%; max-width: 320px;">
         <div>
           <button type="submit" id="doc-upload-btn" class="if-btn-primary" style="padding: 0.45rem 1.25rem; font-size: 0.82rem;">
             Upload &amp; Scan Document
