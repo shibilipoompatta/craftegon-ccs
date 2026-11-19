@@ -525,17 +525,23 @@ for (const file of htmlFiles) {
     }
 
     // 7. Hardcoded fixed container widths (>360px) risking horizontal mobile scroll
-    const fixedWidthMatch = lineText.match(/style=["'][^"']*width:\s*([4-9]\d{2,}|[1-9]\d{3,})px/i);
-    if (fixedWidthMatch) {
+    const isFluidContainer = /style=["'][^"']*width:\s*100%[^"']*max-width:\s*([4-9]\d{2,}|[1-9]\d{3,})px/i.test(lineText) ||
+                             /style=["'][^"']*max-width:\s*([4-9]\d{2,}|[1-9]\d{3,})px[^"']*width:\s*100%/i.test(lineText) ||
+                             /style=["'][^"']*min-width:\s*([4-9]\d{2,}|[1-9]\d{3,})px/i.test(lineText);
+    const fixedWidthMatch = !isFluidContainer && lineText.match(/style=["'][^"']*(?<!max-|min-)width:\s*([4-9]\d{2,}|[1-9]\d{3,})px/i);
+    const unconstrainedMaxWidthMatch = !isFluidContainer && lineText.match(/style=["'][^"']*max-width:\s*([4-9]\d{2,}|[1-9]\d{3,})px/i);
+
+    if (fixedWidthMatch || unconstrainedMaxWidthMatch) {
+      const matchVal = (fixedWidthMatch || unconstrainedMaxWidthMatch)[1];
       addFault({
         severity: 'High',
         category: 'UI-UX',
         subcategory: 'Mobile Horizontal Overflow Risk',
         file,
         line: lineNum,
-        fault: `Hardcoded rigid width (${fixedWidthMatch[1]}px) will cause horizontal overflow on mobile screens (<375px).`,
-        recommendation: 'Use max-width: 100% or fluid responsive grid/flexbox containers.',
-        urgentSolution: 'Change width to max-width: 100% or use responsive CSS utility class.'
+        fault: `Hardcoded rigid width (${matchVal}px) without fluid width: 100% will cause horizontal overflow on mobile screens (<375px).`,
+        recommendation: 'Use width: 100%; max-width: ...px; box-sizing: border-box; or fluid responsive grid/flexbox containers.',
+        urgentSolution: 'Convert to fluid container: width: 100%; max-width: ...px; box-sizing: border-box; and wrap tables in .table-responsive.'
       });
     }
   });
