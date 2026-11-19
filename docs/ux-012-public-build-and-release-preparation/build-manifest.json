@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-19T11:24:32.568Z",
+  "buildTimestamp": "2026-11-19T13:00:38.653Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 189,
-    "totalOutputSizeBytes": 12239280,
+    "totalOutputSizeBytes": 12240250,
     "totalOutputSizeFormatted": "11.67 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
@@ -167,7 +167,7 @@
     },
     {
       "path": "assets/js/forms.js",
-      "bytes": 35033
+      "bytes": 35206
     },
     {
       "path": "assets/js/home-3d.js",
@@ -187,7 +187,7 @@
     },
     {
       "path": "assets/js/search-engine.js",
-      "bytes": 70698
+      "bytes": 70905
     },
     {
       "path": "assets/js/search-index.js",
@@ -799,7 +799,7 @@
     },
     {
       "path": "_headers",
-      "bytes": 1269
+      "bytes": 1859
     },
     {
       "path": "robots.txt",

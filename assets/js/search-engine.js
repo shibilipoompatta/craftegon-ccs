@@ -645,14 +645,17 @@ function showLoading(containerId) {
 
 function showError(containerId, message) {
   const container = document.getElementById(containerId);
+  if (!container) return;
   container.style.display = 'block';
   container.innerHTML = `
     <div class="error-msg">
-      <strong>Search Unavailable:</strong> ${escapeHtml(message)}
+      <strong>Search Unavailable:</strong> <span class="error-msg-text"></span>
       <br><br>
       <a href="/search/" class="btn-royal-outline" style="margin-top: 0.5rem; display: inline-block;">Try Again &rarr;</a>
     </div>
   `;
+  const textSpan = container.querySelector('.error-msg-text');
+  if (textSpan) textSpan.textContent = String(message || '');
 }
 
 function showNotFound(containerId, query, type) {
@@ -687,12 +690,12 @@ function showNotFound(containerId, query, type) {
       </p>
       <div style="background: var(--bg-slate, #F8FAFC); border: 1px solid var(--border-color, #E2E8F0); border-radius: 6px; padding: 1rem; margin-bottom: 1.25rem; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
         <strong style="color: var(--navy-800, #0B2545); display: block; margin-bottom: 0.25rem;">How to obtain verified registry data:</strong>
-        1. <strong>Official Verification:</strong> Inspect certified records directly on the <a href="${registryUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--text-dark-gold, #8C6D14); text-decoration: underline;">${registryName} &rarr;</a>.<br>
+        1. <strong>Official Verification:</strong> Inspect certified records directly on the <a href="${escapeHtml(registryUrl)}" target="_blank" rel="noopener noreferrer" style="color: var(--text-dark-gold, #8C6D14); text-decoration: underline;">${escapeHtml(registryName)} &rarr;</a>.<br>
         2. <strong>Compliance Advisory:</strong> Connect with our corporate desk for manual statutory search, entity standing verification, or incorporation assistance.
       </div>
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-        <a href="${registryUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-primary" style="padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; border-radius: 6px; font-weight: 600;">
-          🏛️ Open ${registryName} &rarr;
+        <a href="${escapeHtml(registryUrl)}" target="_blank" rel="noopener noreferrer" class="if-btn-primary" style="padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; border-radius: 6px; font-weight: 600;">
+          🏛️ Open ${escapeHtml(registryName)} &rarr;
         </a>
         ${type === 'company' ? `
         <a href="https://www.zaubacorp.com/companysearchresults/${encodeURIComponent(query)}" target="_blank" rel="noopener noreferrer" class="btn-royal-outline" style="padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; border-radius: 6px;">

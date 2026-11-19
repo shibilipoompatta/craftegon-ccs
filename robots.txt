@@ -6,5 +6,6 @@ Disallow: /scratch/
 Disallow: /data/
 Disallow: /api/
 Disallow: /admin/
+Disallow: /portal/
 
 Sitemap: https://ccs.craftegon.com/sitemap.xml

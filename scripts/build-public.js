@@ -352,12 +352,20 @@ fs.writeFileSync(path.join(DIST, '_redirects'), publicRedirects, 'utf8');
 includedFiles.push({ path: '_redirects', size: Buffer.byteLength(publicRedirects), ext: 'config' });
 
 // 5. Generate Hardened Security Headers (_headers)
-const publicHeaders = `/*
+const publicHeaders = `/api/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization
+
+/*
+  Access-Control-Allow-Origin: https://ccs.craftegon.com
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://api.craftegon.com https://generativelanguage.googleapis.com https://docs.google.com https://forms.google.com; frame-src 'self' https://docs.google.com https://forms.google.com; frame-ancestors 'none';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'sha256-yTmufg+v35rh18GsJENkghSbcYvNQDpA7fDT24X8qGo=' 'sha256-LuoDWPMFm9g04DP+/b//FqutLSVZuOnlS8Egxm99vNU=' 'sha256-gcX253xEUTPsslr4goetqaF37T1qjh2qLr0SnzVYapo=' 'sha256-LWQ6Tv/QO+UN7W1kU3fVhDxdLjM880RfS0BbTpaCrNY=' 'sha256-0fPuRfE7yalwaG6q8l53WeehKhVnibM9c5fi3keprm8=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://api.craftegon.com https://generativelanguage.googleapis.com https://docs.google.com https://forms.google.com; frame-src 'self' https://docs.google.com https://forms.google.com; frame-ancestors 'none';
 
 /assets/css/*
   Cache-Control: public, max-age=0, must-revalidate

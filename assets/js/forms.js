@@ -140,7 +140,9 @@ function showFieldError(input, message) {
   errorDiv.className = "if-field-error";
   errorDiv.setAttribute("role", "alert");
   errorDiv.style.cssText = "color: var(--danger); font-size: var(--text-xs); margin-top: 4px; display: flex; align-items: center; gap: 4px;";
-  errorDiv.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>${message}`;
+  errorDiv.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg><span class="if-err-text"></span>';
+  const errText = errorDiv.querySelector('.if-err-text');
+  if (errText) errText.textContent = String(message || '');
   input.parentNode.appendChild(errorDiv);
   input.setAttribute("aria-describedby", errId);
 }
@@ -780,13 +782,13 @@ function showFormFallbackNotice(form, data, options = {}) {
       <em>Privacy note:</em> Selecting an alternative channel opens your external WhatsApp application, default email composer, or Google Workspace intake with your pre-filled inquiry. Your details are only sent when you choose to transmit the message.
     </p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-      <a href="${googleFormUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-primary" style="background: #1A73E8; border: 1px solid #1557b0; color: #FFFFFF; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
+      <a href="${escapeHtml(googleFormUrl)}" target="_blank" rel="noopener noreferrer" class="if-btn-primary" style="background: #1A73E8; border: 1px solid #1557b0; color: #FFFFFF; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
         📋 Submit via Google Workspace Form &rarr;
       </a>
-      <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
+      <a href="${escapeHtml(waUrl)}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
         💬 Chat on WhatsApp (${phoneDisplay}) &rarr;
       </a>
-      <a href="${mailUrl}" class="if-btn-secondary" style="border: 1px solid var(--gold-border, rgba(197, 155, 39, 0.28)); color: var(--text-dark-gold, #785B0D); background: #fefce8; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
+      <a href="${escapeHtml(mailUrl)}" class="if-btn-secondary" style="border: 1px solid var(--gold-border, rgba(197, 155, 39, 0.28)); color: var(--text-dark-gold, #785B0D); background: #fefce8; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
         ✉️ Email Desk (${emailDisplay})
       </a>
       <button type="button" class="if-btn-secondary" data-checkout="true" data-client-name="${escapeHtml(contactName)}" style="border: 1px solid #247A62; color: #247A62; background: rgba(36, 122, 98, 0.06); padding: 0.55rem 1rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;">
