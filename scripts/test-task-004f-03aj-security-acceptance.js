@@ -1,6 +1,6 @@
 const crypto = require('node:crypto');
 /**
- * CraftEgon CCS — Master Task 004F-03AJ: Complete Database Authorization Hardening & Security Acceptance Test Suite
+ * CraftEgon CCS: Master Task 004F-03AJ: Complete Database Authorization Hardening & Security Acceptance Test Suite
  * 
  * Tests three verification levels:
  * Level 1: Static verification (source, permissions, schema integrity)
@@ -61,7 +61,7 @@ function makeRequest(options, postData = null) {
 
 async function runSecurityAcceptanceSuite() {
   console.log('======================================================================');
-  console.log('CraftEgon CCS — Master Task 004F-03AJ: Security Acceptance Test Suite');
+  console.log('CraftEgon CCS: Master Task 004F-03AJ: Security Acceptance Test Suite');
   console.log('Target Database: ' + TEST_DB);
   console.log('======================================================================\n');
 

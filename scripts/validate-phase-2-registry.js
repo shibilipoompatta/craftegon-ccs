@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * CRAFTEGON CCS — PHASE 2 MASTER SERVICE REGISTRY VALIDATOR & TEST SUITE
+ * CRAFTEGON CCS: PHASE 2 MASTER SERVICE REGISTRY VALIDATOR & TEST SUITE
  * ============================================================================
  * Task: Phase 2, Task 2: Define and Validate the Seven Data Files and Schemas
  * 
@@ -730,13 +730,13 @@ function runTestSuite() {
       console.log(`  ✅ PASS: ${name}`);
       passCount++;
     } else {
-      console.error(`  ❌ FAIL: ${name} ${details ? '— ' + details : ''}`);
+      console.error(`  ❌ FAIL: ${name} ${details ? ' -  ' + details : ''}`);
       failCount++;
     }
   }
 
   console.log('\n==================================================');
-  console.log('CRAFTEGON CCS — PHASE 2 REGISTRY VALIDATOR SUITE');
+  console.log('CRAFTEGON CCS: PHASE 2 REGISTRY VALIDATOR SUITE');
   console.log('==================================================\n');
 
   // --- POSITIVE TESTS ---

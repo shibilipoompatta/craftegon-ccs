@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                   </div>
                 </a>
                 <p class="if-footer-desc">
-                  Building Business Infrastructure — Your Business Infrastructure Partner. From business formation to compliance, protection and growth — coordinated corporate services supported by professional expertise and technology.
+                  Building Business Infrastructure: Your Business Infrastructure Partner. From business formation to compliance, protection and growth: coordinated corporate services supported by professional expertise and technology.
                 </p>
                 <div class="if-footer-contact">
                   <p class="if-contact-item"><strong>Service Desk:</strong> CraftEgon Corporate Services (CCS)</p>

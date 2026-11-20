@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 5: Retrieval Corpus Manager
+ * CraftEgon CCS: Phase 5: Retrieval Corpus Manager
  * 
  * Manages curated, versioned statutory corpora with structured source citations,
  * token-based inverted indexing, keyword overlap, BM25-style relevance scoring,

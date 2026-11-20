@@ -1,8 +1,8 @@
 /**
- * ==========================================================================
+ * 
  * CRAFTEGON CORPORATE SERVICES (CCS) - NAVBAR & INSTITUTIONAL FOOTER
  * Premium Corporate Ivory, Gold & Charcoal Design Specification
- * ==========================================================================
+ * 
  */
 
 /* --- Accessible Skip-to-Content Link (WCAG 2.2 AA) --- */
@@ -863,9 +863,9 @@ body:not(.home-page) {
   max-width: 100%;
 }
 
-/* ==========================================================================
+/* 
    MOBILE NAVIGATION DRAWER & TOGGLE (Clean Light Styling)
-   ========================================================================== */
+    */
 .if-mobile-toggle {
   display: flex;
   align-items: center;
@@ -1432,9 +1432,9 @@ body.mobile-nav-open .if-header {
   .if-mobile-toggle { display: flex; }
 }
 
-/* ==========================================================================
+/* 
    UNIVERSAL SERVICE SEARCH & NAVIGATION STYLES
-   ========================================================================== */
+    */
 .universal-search-container {
   position: relative;
   flex: 0 1 260px;
@@ -1776,10 +1776,10 @@ body.mobile-nav-open .if-header {
   }
 }
 
-/* ==========================================================================
+/* 
    CONTEXTUAL NAVIGATION & RETURN TRAIL SYSTEM
    Guarantees bi-directional navigation trail across services, tools & forms
-   ========================================================================== */
+    */
 .if-contextual-return-bar {
   display: flex;
   align-items: center;
@@ -1898,9 +1898,9 @@ body.mobile-nav-open .if-header {
   }
 }
 
-/* ==========================================================================
+/* 
    MOBILE STICKY ACTION DOCK (< 768px)
-   ========================================================================== */
+    */
 .if-mobile-bottom-bar {
   display: none;
 }

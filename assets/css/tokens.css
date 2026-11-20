@@ -1,9 +1,9 @@
 /**
- * ==========================================================================
+ * 
  * CRAFTEGON CORPORATE SERVICES (CCS) - GLOBAL DESIGN TOKENS
  * Light Mint Green (#BCEBD5) & Light Sky Blue (#B8E3F7) Visual Identity
  * High-Legibility Dark Typography (#193B46 / #243746) - WCAG 2.2 AA
- * ==========================================================================
+ * 
  */
 
 
@@ -53,7 +53,7 @@
   --text-main: #243746;              /* High-legibility Body Text (10.1:1 contrast) */
   --text-secondary: #52717A;         /* Slate Teal Sub-labels (5.1:1 contrast) */
   --text-muted: #52717A;             /* Muted Labels & Captions (5.1:1 contrast) */
-  --text-light: #708A93;             /* Placeholder / Subtle Slate */
+  --text-light: #4A636B;             /* Placeholder / Subtle Slate */
 
   /* --- Structural Borders & Dividers --- */
   --border-color: #DCE8E5;           /* Clean Soft Mint Border */

@@ -1,12 +1,10 @@
-/* ==========================================================================
-   Craftegon Corporate Services (CCS) — Master Corporate Theme
+/* 
+   Craftegon Corporate Services (CCS): Master Corporate Theme
    Professional Corporate Navy, White & Slate Visual Identity
    Path: assets/css/theme.css
-   ========================================================================== */
+    */
 
-/* --------------------------------------------------------------------------
-   1. Base & Global Resets
-   -------------------------------------------------------------------------- */
+/* 1. Base & Global Resets */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -60,9 +58,7 @@ img, svg, video, canvas {
   color: var(--text-dark, #193B46);
 }
 
-/* --------------------------------------------------------------------------
-   2. Typography System
-   -------------------------------------------------------------------------- */
+/* 2. Typography System */
 h1, h2, h3, h4, h5, h6, .noble-heading {
   font-family: var(--font-heading);
   color: var(--text-dark, #0A192F);
@@ -112,9 +108,7 @@ a:hover {
   font-family: var(--font-mono);
 }
 
-/* --------------------------------------------------------------------------
-   3. Predictable Containers & Sections
-   -------------------------------------------------------------------------- */
+/* 3. Predictable Containers & Sections */
 .container {
   max-width: var(--container-max, 1200px);
   margin: 0 auto;
@@ -158,9 +152,7 @@ a:hover {
   margin: 0;
 }
 
-/* --------------------------------------------------------------------------
-   4. Buttons & Interactive Controls
-   -------------------------------------------------------------------------- */
+/* 4. Buttons & Interactive Controls */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -243,9 +235,7 @@ a:hover {
   transform: translateY(-1px);
 }
 
-/* --------------------------------------------------------------------------
-   5. Standard Card System
-   -------------------------------------------------------------------------- */
+/* 5. Standard Card System */
 .card,
 .noble-card,
 .vertical-card,
@@ -270,9 +260,7 @@ a:hover {
   transform: translateY(-2px);
 }
 
-/* --------------------------------------------------------------------------
-   6. Badges & Chips
-   -------------------------------------------------------------------------- */
+/* 6. Badges & Chips */
 .noble-badge,
 .badge,
 .gov-statute-tag {
@@ -302,9 +290,7 @@ a:hover {
   border-color: rgba(5, 150, 105, 0.2);
 }
 
-/* --------------------------------------------------------------------------
-   7. Form Inputs & Elements
-   -------------------------------------------------------------------------- */
+/* 7. Form Inputs & Elements */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -339,9 +325,7 @@ label {
   display: block;
 }
 
-/* --------------------------------------------------------------------------
-   8. Responsive Form Layouts & Touch Ergonomics
-   -------------------------------------------------------------------------- */
+/* 8. Responsive Form Layouts & Touch Ergonomics */
 @media (max-width: 640px) {
   .if-lead-form div[style*="grid-template-columns"],
   form div[style*="grid-template-columns"] {
@@ -349,9 +333,7 @@ label {
   }
 }
 
-/* --------------------------------------------------------------------------
-   9. Standardized Filter Chips & Category Selectors
-   -------------------------------------------------------------------------- */
+/* 9. Standardized Filter Chips & Category Selectors */
 .filter-chips-group,
 .conv-filter-bar {
   display: flex;
@@ -393,9 +375,7 @@ label {
   box-shadow: 0 1px 4px rgba(36, 122, 98, 0.2);
 }
 
-/* --------------------------------------------------------------------------
-   10. Reusable Statutory Notice & Disclosure Panels
-   -------------------------------------------------------------------------- */
+/* 10. Reusable Statutory Notice & Disclosure Panels */
 .statutory-notice-box,
 .statutory-disclosure-panel {
   background: var(--bg-secondary, #F8FAFC);
@@ -420,9 +400,7 @@ label {
   font-weight: 600;
 }
 
-/* --------------------------------------------------------------------------
-   11. Unified Diagnostic Tools Card System
-   -------------------------------------------------------------------------- */
+/* 11. Unified Diagnostic Tools Card System */
 .tools-hub-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -565,9 +543,7 @@ label {
   transform: translateX(2px);
 }
 
-/* --------------------------------------------------------------------------
-   12. Priority 6: Mobile Refinements, Accessibility Polish & QA Controls
-   -------------------------------------------------------------------------- */
+/* 12. Priority 6: Mobile Refinements, Accessibility Polish & QA Controls */
 
 /* A. Skip to Main Content Link (WCAG 2.2 AA Bypass Block) */
 .skip-link {
@@ -822,4 +798,12 @@ textarea:focus-visible,
 .if-btn-secondary:focus-visible {
   outline: 2px solid var(--teal, #247A62) !important;
   outline-offset: 2px !important;
+}
+
+
+/* Mobile Sticky Dock Bottom Clearance (Antislop Layoutmobile R-03) */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+  }
 }

@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 5 AI Capabilities Test Suite
+ * CraftEgon CCS: Phase 5 AI Capabilities Test Suite
  * 
  * Verifies:
  * 1. Curated, versioned retrieval corpus with source citations & refusal thresholds
@@ -52,7 +52,7 @@ async function itAsync(name, fn) {
 
 async function runPhase5TestSuite() {
   console.log('\n======================================================');
-  console.log('   CRAFTEGON CCS — PHASE 5 PRODUCTION AI TEST SUITE   ');
+  console.log('   CRAFTEGON CCS: PHASE 5 PRODUCTION AI TEST SUITE   ');
   console.log('======================================================\n');
 
   // -----------------------------------------------------------------

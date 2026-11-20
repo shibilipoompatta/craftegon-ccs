@@ -74,7 +74,7 @@ function renderPasswordRecovery({ name, resetUrl, token, expiresAt }) {
   const safeToken = sanitizeHtml(token);
   const expiryMins = expiresAt ? Math.round((new Date(expiresAt).getTime() - Date.now()) / 60000) : 60;
 
-  const subject = 'Password Recovery Request — CraftEgon Corporate Services';
+  const subject = 'Password Recovery Request: CraftEgon Corporate Services';
 
   const text = [
     `Dear ${name || 'Valued Client'},`,
@@ -127,7 +127,7 @@ function renderEnquiryReceipt({ name, leadReference, serviceId, verticalId }) {
   const safeService = sanitizeHtml(serviceId || 'General Corporate Advisory');
   const safeVertical = sanitizeHtml(verticalId || 'V01');
 
-  const subject = `Corporate Compliance Enquiry Received — [${leadReference}]`;
+  const subject = `Corporate Compliance Enquiry Received: [${leadReference}]`;
 
   const text = [
     `Dear ${name || 'Valued Client'},`,
@@ -180,7 +180,7 @@ function renderStaffEnquiryNotification({ leadReference, serviceId, verticalId, 
   const safeVertical = sanitizeHtml(verticalId || 'V01');
   const safeName = sanitizeHtml(contactName || 'Corporate Client');
 
-  const subject = `[ACTION REQUIRED] New Corporate Compliance Enquiry — ${leadReference}`;
+  const subject = `[ACTION REQUIRED] New Corporate Compliance Enquiry: ${leadReference}`;
 
   const text = [
     'CraftEgon Compliance Operations Desk Notification:',

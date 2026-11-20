@@ -71,7 +71,7 @@ function request(options, body = null) {
 
 async function runTask03AISuite() {
   console.log('======================================================================');
-  console.log('CraftEgon CCS — Task 004F-03AI: Runtime Security & Tenant Boundary');
+  console.log('CraftEgon CCS: Task 004F-03AI: Runtime Security & Tenant Boundary');
   console.log('======================================================================\n');
 
   const creds = getPostgresCredentials();
@@ -350,7 +350,7 @@ async function runTask03AISuite() {
   assert.strictEqual(deleteBlocked, true, 'craftegon_app_user has NO DELETE privilege on cases table');
   pass('Test 4.3: Direct SQL delete strictly blocked by least-privilege database grants (zero DELETE permission)');
 
-  // Test 4.4: Trust Boundary Analysis — GUC Capability on Connected Role
+  // Test 4.4: Trust Boundary Analysis: GUC Capability on Connected Role
   // Demonstrate that any code with raw SQL access on the connected role CAN execute set_config
   await appDbClient.query('BEGIN');
   // Role initially has Client B

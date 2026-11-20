@@ -9,7 +9,7 @@ const OUT_SERVICE_REG = path.join(ROOT, 'review-output', 'phase-2-service-regist
 const reg = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'service-registry.json'), 'utf8'));
 const verticals = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'verticals.json'), 'utf8'));
 
-let md = '# CraftEgon CCS — Phase 2 Service-ID Assignment and Reconciliation Report\n\n';
+let md = '# CraftEgon CCS: Phase 2 Service-ID Assignment and Reconciliation Report\n\n';
 md += '**Document ID**: `CRAFTEGON-DOC-P2-RECON-001`  \n';
 md += '**Milestone**: Phase 2, Workstream A: Reconcile All 57 Service Routes  \n';
 md += '**Classification**: Canonical Service Architecture & Route Ownership  \n';

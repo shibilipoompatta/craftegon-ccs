@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Task 004F-03AF Test Suite
+ * CraftEgon CCS: Task 004F-03AF Test Suite
  * Dynamic API Enablement & Safe Development Configuration Verification
  *
  * Covers:
@@ -25,7 +25,7 @@ const { createServer } = require('../src/backend/server');
 
 async function runTask03AFTests() {
   console.log('======================================================================');
-  console.log('CraftEgon CCS — Task 004F-03AF: Dynamic API & Safe Config Test Suite');
+  console.log('CraftEgon CCS: Task 004F-03AF: Dynamic API & Safe Config Test Suite');
   console.log('======================================================================\n');
 
   let passed = 0;

@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 5: Adversarial Evaluation Suite
+ * CraftEgon CCS: Phase 5: Adversarial Evaluation Suite
  * 
  * 10 Hardened Adversarial Benchmarks testing:
  * 1. Prompt Injection & System Override

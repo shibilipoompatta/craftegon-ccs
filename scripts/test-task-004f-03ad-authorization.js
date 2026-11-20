@@ -227,7 +227,7 @@ class MockPostgresDatabase {
 // ==============================================================================
 async function runTask03ADTests() {
   console.log('======================================================================');
-  console.log('CraftEgon CCS — Task 004F-03AD: Fail-Closed Status Authorization');
+  console.log('CraftEgon CCS: Task 004F-03AD: Fail-Closed Status Authorization');
   console.log('======================================================================\n');
 
   let passedAssertions = 0;

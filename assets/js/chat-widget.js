@@ -58,7 +58,7 @@ REGULATORY GROUNDING:
    - Form MSC-1: Application for obtaining Dormant Company status under Section 455.
 
 COMMUNICATION PRINCIPLES & GUARDRAILS:
-- CONVERSATIONAL TONE & IDENTITY: You are Jinu. Speak naturally, realistically, politely, and authoritatively like an experienced corporate compliance co-pilot at CraftEgon LLP. Be normal, helpful, and direct—zero promotional sycophancy or robotic formulas.
+- CONVERSATIONAL TONE & IDENTITY: You are Jinu. Speak naturally, realistically, politely, and authoritatively like an experienced corporate compliance co-pilot at CraftEgon LLP. Be normal, helpful, and direct - zero promotional sycophancy or robotic formulas.
 - DO NOT REPEAT BOILERPLATE DISCLAIMERS: Do NOT append or prepend long legal disclaimers, statutory notices, or 'brakes' to every conversational message. The permanent statutory notice is already clearly visible in the UI footer and modal.
 - STATUTORY BOUNDARIES (BRING UP ONLY WHEN RELEVANT):
   * Advocates Act 1961: If asked for courtroom advocacy or NCLT litigation representation, state that court pleadings are handled by independent practicing advocates on separate vakalatnama.
@@ -79,22 +79,22 @@ const KB=[
 
   {k:['llp','limited liability partnership','fillip','form 3','run-llp','dpin','incorporate llp','llp formation','register llp','start llp'],
   r:`Incorporating a <b>Limited Liability Partnership (LLP)</b> under the <b>LLP Act, 2008</b> &amp; MCA V3:<br>
-  * <b>Step 1 — Name Reservation:</b> File web-form <b>RUN-LLP</b> (Reserve Unique Name - LLP) or apply directly in FiLLiP.<br>
-  * <b>Step 2 — Digital Signatures:</b> Class-3 DSC for all proposed Designated Partners (min. 2; at least 1 resident in India).<br>
-  * <b>Step 3 — Form FiLLiP:</b> File integrated Form for Incorporation of LLP with subscriber sheets, partner consent (Form 9), and registered office proof.<br>
-  * <b>Step 4 — DPIN Allocation:</b> Designated Partner Identification Numbers (DPIN) are allotted directly via FiLLiP.<br>
-  * <b>Step 5 — Certificate of Incorporation:</b> Issued by the Central Registration Centre (CRC) with unique LLPIN.<br>
-  * <b>Step 6 — Form 3 (Mandatory Agreement):</b> Draft and execute the LLP Agreement on required state stamp paper and file in <b>Form 3 within 30 days</b> of incorporation (late filing incurs daily statutory additional fees).`,
+  * <b>Step 1: Name Reservation:</b> File web-form <b>RUN-LLP</b> (Reserve Unique Name - LLP) or apply directly in FiLLiP.<br>
+  * <b>Step 2: Digital Signatures:</b> Class-3 DSC for all proposed Designated Partners (min. 2; at least 1 resident in India).<br>
+  * <b>Step 3: Form FiLLiP:</b> File integrated Form for Incorporation of LLP with subscriber sheets, partner consent (Form 9), and registered office proof.<br>
+  * <b>Step 4: DPIN Allocation:</b> Designated Partner Identification Numbers (DPIN) are allotted directly via FiLLiP.<br>
+  * <b>Step 5: Certificate of Incorporation:</b> Issued by the Central Registration Centre (CRC) with unique LLPIN.<br>
+  * <b>Step 6: Form 3 (Mandatory Agreement):</b> Draft and execute the LLP Agreement on required state stamp paper and file in <b>Form 3 within 30 days</b> of incorporation (late filing incurs daily statutory additional fees).`,
   a:[['LLP Registration Service','/services/llp-registration.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['partnership','partnership firm','indian partnership act','register partnership','partnership deed','rof','registrar of firms','section 58','section 59','section 69','egroops'],
   r:`Registering a <b>Partnership Firm</b> under the <b>Indian Partnership Act, 1932</b> &amp; State RoF:<br>
-  * <b>Step 1 — Deed Drafting:</b> Draft customized Partnership Deed with Section 40(b) remuneration formulas, 12% interest on capital, and Section 42(c) non-dissolution covenants.<br>
-  * <b>Step 2 — State Stamp Duty:</b> Execute on required state stamp paper (e.g., ₹1,000 under Kerala Stamp Act Art 44).<br>
-  * <b>Step 3 — Professional Attestation:</b> Attestation of Form A by an Authorized Attesting Officer (Advocate, Practicing CA, or Gazetted Officer).<br>
-  * <b>Step 4 — RoF Registration:</b> File under Section 58 with the Registrar of Firms (via Kerala eGroops 2.0 under S.R.O. 255/2025 or respective State RoF).<br>
-  * <b>Step 5 — Form C Certificate:</b> Official entry in Register of Firms under Section 59, eliminating Section 69 civil litigation disabilities.<br>
-  * <b>Step 6 — Tax &amp; Banking:</b> Entity PAN, Bank Current Account, and GST registration.`,
+  * <b>Step 1: Deed Drafting:</b> Draft customized Partnership Deed with Section 40(b) remuneration formulas, 12% interest on capital, and Section 42(c) non-dissolution covenants.<br>
+  * <b>Step 2: State Stamp Duty:</b> Execute on required state stamp paper (e.g., ₹1,000 under Kerala Stamp Act Art 44).<br>
+  * <b>Step 3: Professional Attestation:</b> Attestation of Form A by an Authorized Attesting Officer (Advocate, Practicing CA, or Gazetted Officer).<br>
+  * <b>Step 4: RoF Registration:</b> File under Section 58 with the Registrar of Firms (via Kerala eGroops 2.0 under S.R.O. 255/2025 or respective State RoF).<br>
+  * <b>Step 5: Form C Certificate:</b> Official entry in Register of Firms under Section 59, eliminating Section 69 civil litigation disabilities.<br>
+  * <b>Step 6: Tax &amp; Banking:</b> Entity PAN, Bank Current Account, and GST registration.`,
   a:[['Partnership Registration Service','/services/partnership-registration.html'],['Partnership RoF Handbook','/knowledge/partnership-firm-deed-rof-handbook.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['incorporat','pvt ltd','private limited','spice+','spice plus','inc-32','inc-33','inc-34','agile-pro-s','inc-20a','incorporate pvt','company registration','register company','form company','formation','director','shareholder','din','dsc','pan','tan'],
@@ -135,7 +135,7 @@ const KB=[
   * <b>MSME Udyam (2025 Limits):</b> Free (₹0 govt fee) on <code>udyamregistration.gov.in</code>. Effective April 1, 2025: Micro &le; ₹2.5Cr Inv / ₹10Cr Turnover.<br>
   * <b>Kerala Shops Act 1960:</b> Mandatory via <code>lcas.kerala.gov.in</code> <b>even with zero employees</b>.<br>
   * <b>RBI Current Account Rules:</b> Requires any <b>TWO official business proofs</b> (e.g., Udyam + Shop Act / GSTIN). Banks may accept 1 proof upon physical Contact Point Verification (CPV).<br>
-  * <b>GST Applicability:</b> Conditional—triggers above ₹40L (goods) / ₹20L (services) or immediately under Section 24 for interstate supply.`,
+  * <b>GST Applicability:</b> Conditional: triggers above ₹40L (goods) / ₹20L (services) or immediately under Section 24 for interstate supply.`,
   a:[['Proprietorship Service','/services/proprietorship-registration.html'],['Proprietorship &amp; RBI Handbook','/knowledge/sole-proprietorship-udyam-gst-banking-guide.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['society','society registration','kerala societies act','travancore-cochin','1860 act','ngo darpan','bye-laws','society moa','charitable society'],
@@ -143,7 +143,7 @@ const KB=[
   * <b>Kerala Unified Act (Act 14 of 2025):</b> Commenced <b>Jan 1, 2026</b> (<i>S.R.O. 1435/2025</i>), repealing the split 1860 (Malabar) &amp; 1955 Travancore-Cochin Acts. Administered by <b>District Registrars (General)</b>.<br>
   * <b>Minimum Founders:</b> Minimum <b>7 adult members</b> (Indian citizens under Kerala Act Sec 4) signing the MoA and Bye-Laws.<br>
   * <b>Annual Filings &amp; Audits:</b> File Governing Body list &amp; audited accounts within <b>21 days of AGM</b> (Kerala Sec 19). CA audit mandatory unless annual income &lt; ₹1 Lakh (Sec 18).<br>
-  * <b>Tax &amp; Foreign Funding:</b> Society registration does NOT grant tax exemption or FCRA access—apply separately for <b>12AB/80G / Sec 332/354</b>, <b>NGO Darpan</b>, and <b>MHA FCRA</b>.`,
+  * <b>Tax &amp; Foreign Funding:</b> Society registration does NOT grant tax exemption or FCRA access - apply separately for <b>12AB/80G / Sec 332/354</b>, <b>NGO Darpan</b>, and <b>MHA FCRA</b>.`,
   a:[['Society Registration Service','/services/society-registration.html'],['Kerala Act 2025 Handbook','/knowledge/society-registration-kerala-act-2025-handbook.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['trust','charitable trust','trust deed','public trust','section 332','section 354','form 105','form 107','indian trusts act','pearl kerala'],
@@ -158,7 +158,7 @@ const KB=[
   r:`<b>DPIIT Startup India Recognition</b> under Notification <b>G.S.R. 108(E)</b> (4 Feb 2026):<br>
   * <b>Revised Thresholds:</b> Standard startups qualify up to <b>10 years &amp; ₹200 Cr</b> turnover (doubled from ₹100 Cr); <b>Deep Tech Startups</b> qualify up to <b>20 years &amp; ₹300 Cr</b> turnover. Eligible structures include Pvt Ltd, LLP, Regd Partnership, and <b>Cooperative Societies</b> (via <code>nsws.gov.in</code>, ₹0 govt fee).<br>
   * <b>Angel Tax Repealed:</b> Section 56(2)(viib) was prospectively <b>abolished effective 1 April 2025</b>; historical Form 2 is obsolete for current rounds (though Section 68 &amp; FEMA pricing floors remain active).<br>
-  * <b>3-Year Tax Holiday (Sec 140, Income-tax Act 2025):</b> Successor to Sec 80-IAC—requires separate <b>IMB Certification</b> and is strictly limited to Pvt Ltd Companies &amp; LLPs (subject to MAT).<br>
+  * <b>3-Year Tax Holiday (Sec 140, Income-tax Act 2025):</b> Successor to Sec 80-IAC - requires separate <b>IMB Certification</b> and is strictly limited to Pvt Ltd Companies &amp; LLPs (subject to MAT).<br>
   * <b>IPR, GeM &amp; KSUM Grants:</b> Unlocks 80% Patent rebate, 50% Trademark rebate, GeM waivers, Central SISFS (₹50L), and <b>Kerala Startup Mission (KSUM)</b> Idea Grants (₹3L+).`,
   a:[['DPIIT Startup Service','/services/dpiit-startup-india.html'],['G.S.R. 108(E) &amp; Sec 140 Handbook','/knowledge/dpiit-startup-india-gsr108e-sec140-handbook.html'],['Angel Tax Abolition Brief','/knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html']]},
 
@@ -714,7 +714,7 @@ async function callCoPilotEngine(userQuery) {
       }
     }
   } catch (proxyErr) {
-    // Server proxy not available (static showcase host or offline) — proceed to client Gemini
+    // Server proxy not available (static showcase host or offline): proceed to client Gemini
   }
 
   // 2. Direct Gemini API invocation (requires configured key)
@@ -1308,7 +1308,7 @@ async function handleQuery(q){
     return;
   }
 
-  // Step 3: Default AI Mode — Attempt Server-Side Model Gateway or Direct Gemini API
+  // Step 3: Default AI Mode: Attempt Server-Side Model Gateway or Direct Gemini API
   showTyping("Consulting CraftEgon Co-Pilot (Jinu)...");
   try {
     const aiResponse = await callCoPilotEngine(userText);

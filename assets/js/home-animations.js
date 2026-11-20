@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Homepage Scroll Reveal Animations
+ * CraftEgon CCS: Homepage Scroll Reveal Animations
  * Lightweight IntersectionObserver-based reveals with reduced-motion support
  */
 (function() {

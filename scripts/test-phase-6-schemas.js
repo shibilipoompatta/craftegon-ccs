@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 6: JSON Schemas & JSON-LD Structured Data Test Suite
+ * CraftEgon CCS: Phase 6: JSON Schemas & JSON-LD Structured Data Test Suite
  * 
  * Verifies:
  * 1. Strict schema compliance for all 7 platform datasets using Ajv & ajv-formats
@@ -31,7 +31,7 @@ function it(name, fn) {
 
 function runSchemaTestSuite() {
   console.log('\n======================================================');
-  console.log('   CRAFTEGON CCS — PHASE 6 SCHEMA & STRUCTURED DATA   ');
+  console.log('   CRAFTEGON CCS: PHASE 6 SCHEMA & STRUCTURED DATA   ');
   console.log('======================================================\n');
 
   // -----------------------------------------------------------------

@@ -49,7 +49,7 @@ function makeRequest(options, body = null) {
 
 async function runAdminTests() {
   console.log('======================================================');
-  console.log('   CRAFTEGON CCS — ADMIN DASHBOARD TEST SUITE        ');
+  console.log('   CRAFTEGON CCS: ADMIN DASHBOARD TEST SUITE        ');
   console.log('======================================================');
 
   const instance = createServer({

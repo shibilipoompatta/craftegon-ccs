@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * CRAFTEGON CCS — PHASE 1 REMEDIATION AUTOMATED TEST SUITE
+ * CRAFTEGON CCS: PHASE 1 REMEDIATION AUTOMATED TEST SUITE
  * ============================================================================
  * Tests:
  * 1. Service ID coverage & uniqueness against authoritative CSV register
@@ -33,7 +33,7 @@ function assert(condition, testName, details = '') {
 }
 
 console.log('\n==================================================');
-console.log('CRAFTEGON CCS — PHASE 1 REMEDIATION TEST SUITE');
+console.log('CRAFTEGON CCS: PHASE 1 REMEDIATION TEST SUITE');
 console.log('==================================================\n');
 
 // ----------------------------------------------------

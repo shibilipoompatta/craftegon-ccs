@@ -92,7 +92,7 @@ p1Rows.forEach((row, idx) => {
     classification,
     route,
     label,
-    vertical: isReferral ? '*(None — Referral Only)*' : `${vCode} — ${vName}`,
+    vertical: isReferral ? '*(None: Referral Only)*' : `${vCode}: ${vName}`,
     relLinks,
     scopeBoundary
   });
@@ -124,7 +124,7 @@ fs.writeFileSync(outCsvPath, csvContent, 'utf8');
 console.log(`Generated Phase 2 Review CSV: ${outCsvPath}`);
 
 // Write Phase 2 Markdown Table
-let mdContent = `# CraftEgon CCS — Phase 2 Service-ID Assignment Review Table
+let mdContent = `# CraftEgon CCS: Phase 2 Service-ID Assignment Review Table
 
 **Document ID**: \`CRAFTEGON-DOC-P2-001\`  
 **Milestone**: Phase 2, Task 1: Registry and Service-ID Reconciliation  

@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 6: Production Smoke Test Runner
+ * CraftEgon CCS: Phase 6: Production Smoke Test Runner
  * 
  * Executes an automated, end-to-end smoke test validating all critical production paths:
  * 1. Health & Infrastructure Readiness
@@ -109,7 +109,7 @@ async function dispatchRequest({ method, path: reqPath, headers = {}, body = nul
 
 async function runProductionSmokeTest() {
   console.log('\n======================================================');
-  console.log('   CRAFTEGON CCS — PHASE 6 PRODUCTION SMOKE TEST      ');
+  console.log('   CRAFTEGON CCS: PHASE 6 PRODUCTION SMOKE TEST      ');
   console.log('======================================================\n');
 
   // -----------------------------------------------------------------

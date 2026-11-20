@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Task 004F-03AB Remediation Test Suite
+ * CraftEgon CCS: Task 004F-03AB Remediation Test Suite
  * Validates DEF-007 (Account Deactivation Lifecycle),
  * DEF-008 (Postgres Repository-Level Privilege Enforcement),
  * and DEF-009 (Admin Bearer & Cookie Logout Revocation).
@@ -38,7 +38,7 @@ function request(options, body = null) {
 
 async function runTask03ABTests() {
   console.log('======================================================================');
-  console.log('CraftEgon CCS — Task 004F-03AB Remediation Test Suite');
+  console.log('CraftEgon CCS: Task 004F-03AB Remediation Test Suite');
   console.log('======================================================================\n');
 
   let passedAssertions = 0;

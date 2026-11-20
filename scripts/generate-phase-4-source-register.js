@@ -126,12 +126,12 @@ fs.writeFileSync(path.join(__dirname, '../review-output/phase-4-regulatory-tools
 console.log(`Generated phase-4-regulatory-source-register.csv with ${sourcesData.length} canonical sources.`);
 
 // Generate Markdown report
-const mdContent = `# CraftEgon CCS — Phase 4 Regulatory Source Coverage Report
+const mdContent = `# CraftEgon CCS: Phase 4 Regulatory Source Coverage Report
 
 **Document Reference:** CRAFTEGON-DOC-P4-003  
 **Audit Date:** 2026-10-20  
 **Status:** CANONICAL REGULATORY SOURCE INVENTORY  
-**Phase:** 4 — Trustworthy Regulatory Tools  
+**Phase:** 4: Trustworthy Regulatory Tools  
 
 ---
 

@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * CRAFTEGON CCS — UNIVERSAL CANONICAL SERVICE SEARCH & DISCOVERY TEST SUITE
+ * CRAFTEGON CCS: UNIVERSAL CANONICAL SERVICE SEARCH & DISCOVERY TEST SUITE
  * ============================================================================
  * Tests:
  * 1. Search Index Coverage (All 57 services accounted for)
@@ -43,7 +43,7 @@ function assert(condition, message, details = '') {
 }
 
 console.log('\n============================================================');
-console.log('CRAFTEGON CCS — UNIVERSAL SERVICE SEARCH & DISCOVERY TESTS');
+console.log('CRAFTEGON CCS: UNIVERSAL SERVICE SEARCH & DISCOVERY TESTS');
 console.log('============================================================\n');
 
 // ----------------------------------------------------

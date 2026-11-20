@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 6: Browser & Client Interaction Test Suite
+ * CraftEgon CCS: Phase 6: Browser & Client Interaction Test Suite
  * 
  * Uses JSDOM to simulate realistic browser interaction:
  * 1. Navigation bar & active state highlighting
@@ -56,7 +56,7 @@ function loadPageDom(relativeHtmlPath) {
 
 async function runBrowserTestSuite() {
   console.log('\n======================================================');
-  console.log('   CRAFTEGON CCS — PHASE 6 BROWSER & CLIENT TESTS     ');
+  console.log('   CRAFTEGON CCS: PHASE 6 BROWSER & CLIENT TESTS     ');
   console.log('======================================================\n');
 
   // -----------------------------------------------------------------

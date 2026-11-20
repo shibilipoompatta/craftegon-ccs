@@ -465,7 +465,7 @@ async function routeRequest(req, res, config) {
     return await handleListDeliveryLogs(req, res, config);
   }
 
-  // 10. Phase 5 — AI & Legal Reasoner Routes
+  // 10. Phase 5: AI & Legal Reasoner Routes
   if (pathname === '/api/v1/ai/query' || pathname === '/api/chat' || pathname === '/api/v1/chat') {
     if (method !== 'POST') {
       res.writeHead(405, { 'Content-Type': 'application/json', 'Allow': 'POST' });

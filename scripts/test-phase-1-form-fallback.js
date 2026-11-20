@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * CRAFTEGON CCS — PHASE 1 ENQUIRY FORM HONEST FALLBACK & RETRY TEST SUITE
+ * CRAFTEGON CCS: PHASE 1 ENQUIRY FORM HONEST FALLBACK & RETRY TEST SUITE
  * ============================================================================
  * Verifies that:
  * 1. Form submission fallback is honest, truthful, and makes NO false claim of lead receipt.
@@ -30,7 +30,7 @@ function assert(condition, testName, detail = '') {
 }
 
 console.log('\n============================================================');
-console.log('CRAFTEGON CCS — ENQUIRY FORM FALLBACK & RETRY TEST SUITE');
+console.log('CRAFTEGON CCS: ENQUIRY FORM FALLBACK & RETRY TEST SUITE');
 console.log('============================================================\n');
 
 const formsJsCode = fs.readFileSync(path.join(__dirname, '..', 'assets', 'js', 'forms.js'), 'utf8');

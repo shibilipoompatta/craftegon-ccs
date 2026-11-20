@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * CRAFTEGON CCS — DETERMINISTIC PUBLIC RELEASE ARTIFACT BUILD ENGINE
+ * CRAFTEGON CCS: DETERMINISTIC PUBLIC RELEASE ARTIFACT BUILD ENGINE
  * ============================================================================
  * Generates an isolated, verified, production-ready public website artifact in:
  * `dist-public/`
@@ -23,7 +23,7 @@ const DIST = path.join(ROOT, 'dist-public');
 const DOCS_DIR = path.join(ROOT, 'docs', 'ux-012-public-build-and-release-preparation');
 
 console.log('================================================================');
-console.log('CRAFTEGON CCS — ASSEMBLING PUBLIC PRODUCTION RELEASE ARTIFACT');
+console.log('CRAFTEGON CCS: ASSEMBLING PUBLIC PRODUCTION RELEASE ARTIFACT');
 console.log('================================================================\n');
 
 // 1. Wipe & Recreate Target Distribution Directory
@@ -303,8 +303,8 @@ copyAndSanitize(ROOT, DIST);
 
 // 4. Generate Hardened Edge Routing Configuration (_redirects)
 const publicRedirects = `# ==============================================================================
-# CRAFTEGON CCS — HARDENED CLOUDFLARE PAGES EDGE ROUTING (_redirects)
-# Production Distribution Edge Rules — Zero Internal Exposure Policy
+# CRAFTEGON CCS: HARDENED CLOUDFLARE PAGES EDGE ROUTING (_redirects)
+# Production Distribution Edge Rules: Zero Internal Exposure Policy
 # ==============================================================================
 
 # 1. HARD SECURITY GATES: Internal Applications & Secrets (Return HTTP 404)
@@ -400,7 +400,7 @@ includedFiles.push({ path: '_headers', size: Buffer.byteLength(publicHeaders), e
 
 // 6. Generate Clean Public Robots Configuration (robots.txt)
 const publicRobots = `# ==============================================================================
-# CRAFTEGON CORPORATE SERVICES — PRODUCTION ROBOTS.TXT
+# CRAFTEGON CORPORATE SERVICES: PRODUCTION ROBOTS.TXT
 # ==============================================================================
 User-agent: *
 Allow: /

@@ -9,7 +9,7 @@
 }
 /**
  * ==========================================================================
- * CRAFTEGON CORPORATE SERVICES (CCS) — HOMEPAGE 3D & MODERN LAYOUT STYLES
+ * CRAFTEGON CORPORATE SERVICES (CCS): HOMEPAGE 3D & MODERN LAYOUT STYLES
  * Approved Visual Identity: Mint Green (#BCEBD5), Light Sky Blue (#B8E3F7),
  * Deep Teal Charcoal (#193B46 / #10262E) & High-Legibility Typography
  * Path: assets/css/home-unique.css
@@ -151,8 +151,8 @@
   height: 8px;
   background: var(--accent-green-primary, #247A62);
   border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(36, 122, 98, 0.25);
-  animation: pulseDot 2s infinite ease-in-out;
+  box-shadow: none;
+  /* pulse removed */
 }
 
 @keyframes pulseDot {
@@ -623,7 +623,7 @@
   background: var(--accent-green-primary, #247A62);
   border-radius: 50%;
   box-shadow: 0 0 6px rgba(36, 122, 98, 0.6);
-  animation: pulseDot 2s infinite ease-in-out;
+  /* pulse removed */
 }
 
 /* Health Score Strip */
@@ -2974,7 +2974,7 @@
 .intake-field textarea:focus {
   outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   border-color: var(--accent-green-primary, #247A62);
-  box-shadow: 0 0 0 3px rgba(36, 122, 98, 0.15);
+  box-shadow: none;
 }
 
 .intake-submit-btn {

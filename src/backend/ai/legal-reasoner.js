@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 5: Legal Reasoner Orchestrator
+ * CraftEgon CCS: Phase 5: Legal Reasoner Orchestrator
  * 
  * Orchestrates the full AI query lifecycle:
  * 1. Privacy Safeguards (DPDP Act 2023 masking)

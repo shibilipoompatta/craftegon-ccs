@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 6: Synthetic Integration Monitor
+ * CraftEgon CCS: Phase 6: Synthetic Integration Monitor
  * 
  * Executes synthetic pings, latency measurements, and health checks across
  * all platform subsystems and external regulatory integrations:

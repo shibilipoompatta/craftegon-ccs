@@ -48,7 +48,7 @@ function parseCSV(content) {
 const sources = [
   {
     source_id: 'SRC-MCA-001',
-    source_title: 'Ministry of Corporate Affairs — Companies Act, 2013 & LLP Act, 2008 Statutory Portals',
+    source_title: 'Ministry of Corporate Affairs: Companies Act, 2013 & LLP Act, 2008 Statutory Portals',
     issuing_authority: 'Ministry of Corporate Affairs (MCA), Government of India',
     official_url: 'https://www.mca.gov.in/',
     source_type: 'OFFICIAL_PORTAL',
@@ -62,7 +62,7 @@ const sources = [
   },
   {
     source_id: 'SRC-CBDT-001',
-    source_title: 'Income Tax Department — Income-tax Act, 1961 & E-Filing System',
+    source_title: 'Income Tax Department: Income-tax Act, 1961 & E-Filing System',
     issuing_authority: 'Central Board of Direct Taxes (CBDT), Ministry of Finance',
     official_url: 'https://eportal.incometax.gov.in/',
     source_type: 'OFFICIAL_PORTAL',
@@ -76,7 +76,7 @@ const sources = [
   },
   {
     source_id: 'SRC-CBIC-001',
-    source_title: 'GST Network — Central Goods and Services Tax Act, 2017 & Portal',
+    source_title: 'GST Network: Central Goods and Services Tax Act, 2017 & Portal',
     issuing_authority: 'Goods and Services Tax Network (GSTN) / CBIC',
     official_url: 'https://www.gst.gov.in/',
     source_type: 'OFFICIAL_PORTAL',
@@ -104,7 +104,7 @@ const sources = [
   },
   {
     source_id: 'SRC-EPFO-001',
-    source_title: "Employees' Provident Fund Organisation — Unified Shram Suvidha Portal",
+    source_title: "Employees' Provident Fund Organisation: Unified Shram Suvidha Portal",
     issuing_authority: 'Ministry of Labour and Employment, Government of India',
     official_url: 'https://unifiedportal-emp.epfindia.gov.in/',
     source_type: 'OFFICIAL_PORTAL',
@@ -118,7 +118,7 @@ const sources = [
   },
   {
     source_id: 'SRC-ESIC-001',
-    source_title: "Employees' State Insurance Corporation — Employer Portal",
+    source_title: "Employees' State Insurance Corporation: Employer Portal",
     issuing_authority: 'Ministry of Labour and Employment, Government of India',
     official_url: 'https://www.esic.gov.in/',
     source_type: 'OFFICIAL_PORTAL',
@@ -132,7 +132,7 @@ const sources = [
   },
   {
     source_id: 'SRC-RBI-001',
-    source_title: 'Reserve Bank of India — FIRMS & FLAIR Reporting Systems',
+    source_title: 'Reserve Bank of India: FIRMS & FLAIR Reporting Systems',
     issuing_authority: 'Reserve Bank of India (RBI), Foreign Exchange Department',
     official_url: 'https://firms.rbi.org.in/',
     source_type: 'OFFICIAL_PORTAL',
@@ -174,7 +174,7 @@ const sources = [
   },
   {
     source_id: 'SRC-MSME-001',
-    source_title: 'Ministry of MSME — Udyam Registration Portal',
+    source_title: 'Ministry of MSME: Udyam Registration Portal',
     issuing_authority: 'Ministry of Micro, Small and Medium Enterprises',
     official_url: 'https://udyamregistration.gov.in/',
     source_type: 'OFFICIAL_PORTAL',
@@ -188,7 +188,7 @@ const sources = [
   },
   {
     source_id: 'SRC-DPIIT-001',
-    source_title: 'DPIIT — Startup India Gazette Notifications & Recognition Portal',
+    source_title: 'DPIIT: Startup India Gazette Notifications & Recognition Portal',
     issuing_authority: 'Department for Promotion of Industry and Internal Trade (DPIIT)',
     official_url: 'https://www.startupindia.gov.in/',
     source_type: 'OFFICIAL_PORTAL',
@@ -202,7 +202,7 @@ const sources = [
   },
   {
     source_id: 'SRC-BAR-001',
-    source_title: 'Bar Council of India — Advocates Act, 1961 Statutory Representation Framework',
+    source_title: 'Bar Council of India: Advocates Act, 1961 Statutory Representation Framework',
     issuing_authority: 'Bar Council of India / Parliament of India',
     official_url: 'https://www.barcouncilofindia.org/',
     source_type: 'STATUTE',
@@ -769,22 +769,22 @@ const regulatoryClaims = p1ClaimsRows.map(r => {
     reviewOutcome = 'PENDING';
     lastReviewedAt = null;
   } else if (['CLM-016', 'CLM-017'].includes(claimId)) {
-    // Technical UI accessibility attributes — false positive as regulatory claims
+    // Technical UI accessibility attributes: false positive as regulatory claims
     requiresProfReview = false;
     verificationStatus = 'REJECTED_OR_OUTDATED';
     reviewOutcome = 'REJECTED';
   } else if (claimId === 'CLM-018') {
-    // Descriptive UI label — false positive as regulatory claim
+    // Descriptive UI label: false positive as regulatory claim
     requiresProfReview = false;
     verificationStatus = 'REJECTED_OR_OUTDATED';
     reviewOutcome = 'REJECTED';
   } else if (claimId === 'CLM-019') {
-    // Cloudflare Worker backend plan — gated for future phase
+    // Cloudflare Worker backend plan: gated for future phase
     verificationStatus = 'SOURCE_NEEDED';
     reviewOutcome = 'PENDING';
     lastReviewedAt = null;
   } else if (claimId === 'CLM-020') {
-    // Indicative commercial fee statement — unverified baseline
+    // Indicative commercial fee statement: unverified baseline
     serviceId = 'V01-SVC-007';
     verticalId = 'V01';
     sourceId = 'SRC-INT-PRC-001';

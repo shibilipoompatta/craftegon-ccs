@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Task 004F-03AC: PostgreSQL Account-State Verification & Privilege Audit
+ * CraftEgon CCS: Task 004F-03AC: PostgreSQL Account-State Verification & Privilege Audit
  * Focused automated test suite verifying PostgresAccountStorage against simulated PostgreSQL engine.
  * Asserts SQL statements, parameters, column joining, session invalidation, and role boundaries.
  * Pure Node.js built-ins. Zero external dependencies. Zero live database connections.
@@ -217,7 +217,7 @@ class MockPostgresDatabase {
 // ==============================================================================
 async function runTask03ACTests() {
   console.log('======================================================================');
-  console.log('CraftEgon CCS — Task 004F-03AC: PostgreSQL Account & Privilege Audit');
+  console.log('CraftEgon CCS: Task 004F-03AC: PostgreSQL Account & Privilege Audit');
   console.log('======================================================================\n');
 
   let passedAssertions = 0;

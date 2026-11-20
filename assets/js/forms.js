@@ -760,7 +760,7 @@ function showFormFallbackNotice(form, data, options = {}) {
     : `https://docs.google.com/forms/d/e/1FAIpQLSd-DERFEEOwSOs15bPuiCjc-eMFvKaAEVkKixDwjbPa1OKdfg/viewform`;
 
   const isUnconfirmed = options.reason === "unconfirmed";
-  const noticeTitle = isUnconfirmed ? "Submission Unconfirmed — Direct Engagement" : "Notice: Direct Engagement Channel";
+  const noticeTitle = isUnconfirmed ? "Submission Unconfirmed: Direct Engagement" : "Notice: Direct Engagement Channel";
   const noticeBody = isUnconfirmed
     ? `<strong>Submission Status:</strong> Online transmission could not be confirmed by the server (${escapeHtml(options.detail || "Connection disrupted")}). To prevent delayed compliance or duplicate submissions, please connect directly with our compliance desk:`
     : `<strong>Submission Notice:</strong> Online form transmission to a backend server is not active in this static environment. Details entered in this form are not stored or transmitted to CraftEgon CCS.`;

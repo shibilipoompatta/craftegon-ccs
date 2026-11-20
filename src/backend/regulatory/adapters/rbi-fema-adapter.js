@@ -10,7 +10,7 @@ class RbiFemaSourceAdapter extends BaseSourceAdapter {
   constructor() {
     super({
       sourceId: 'SRC-RBI-001',
-      sourceName: 'Reserve Bank of India — FIRMS & FLAIR Reporting Systems',
+      sourceName: 'Reserve Bank of India: FIRMS & FLAIR Reporting Systems',
       authority: 'Reserve Bank of India (RBI), Foreign Exchange Department',
       jurisdiction: 'IN-CENTRAL',
       officialUrl: 'https://firms.rbi.org.in/',

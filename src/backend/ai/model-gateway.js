@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 5: Server-Side Model Gateway
+ * CraftEgon CCS: Phase 5: Server-Side Model Gateway
  * 
  * Provides a secure, server-side abstraction over Google Gemini models
  * and an offline deterministic statutory reasoning engine.

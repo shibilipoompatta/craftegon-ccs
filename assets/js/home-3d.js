@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * CRAFTEGON CORPORATE SERVICES (CCS) — HOMEPAGE 3D INTERACTIVE SCRIPT
+ * CRAFTEGON CORPORATE SERVICES (CCS): HOMEPAGE 3D INTERACTIVE SCRIPT
  * Hardware-accelerated 3D tilt, parallax physics & interactive calculators
  * Path: assets/js/home-3d.js
  * ==========================================================================

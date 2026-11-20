@@ -10,7 +10,7 @@ class McaSourceAdapter extends BaseSourceAdapter {
   constructor() {
     super({
       sourceId: 'SRC-MCA-001',
-      sourceName: 'Ministry of Corporate Affairs — Companies Act 2013 Statutory Portal',
+      sourceName: 'Ministry of Corporate Affairs: Companies Act 2013 Statutory Portal',
       authority: 'Ministry of Corporate Affairs (MCA), Government of India',
       jurisdiction: 'IN-CENTRAL',
       officialUrl: 'https://www.mca.gov.in/',

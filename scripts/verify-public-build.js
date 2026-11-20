@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * CRAFTEGON CCS — PUBLIC RELEASE ARTIFACT VERIFICATION SUITE
+ * CRAFTEGON CCS: PUBLIC RELEASE ARTIFACT VERIFICATION SUITE
  * ============================================================================
  * Independent verification of dist-public/ directory:
  * 1. Portal & Admin complete exclusion verification
@@ -34,7 +34,7 @@ function assert(condition, message, details = '') {
 }
 
 console.log('================================================================');
-console.log('CRAFTEGON CCS — VERIFYING PUBLIC RELEASE ARTIFACT (dist-public/)');
+console.log('CRAFTEGON CCS: VERIFYING PUBLIC RELEASE ARTIFACT (dist-public/)');
 console.log('================================================================\n');
 
 // 1. Directory Existence & Manifest

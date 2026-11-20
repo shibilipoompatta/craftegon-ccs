@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 6: SEO, Sitemap, Redirects & Accessibility (a11y) Test Suite
+ * CraftEgon CCS: Phase 6: SEO, Sitemap, Redirects & Accessibility (a11y) Test Suite
  * 
  * Verifies:
  * 1. 100% of HTML files have valid canonical links, titles, descriptions & OpenGraph metadata
@@ -31,7 +31,7 @@ function it(name, fn) {
 
 function runSeoAndA11yTestSuite() {
   console.log('\n======================================================');
-  console.log('   CRAFTEGON CCS — PHASE 6 SEO, SITEMAP & A11Y TESTS  ');
+  console.log('   CRAFTEGON CCS: PHASE 6 SEO, SITEMAP & A11Y TESTS  ');
   console.log('======================================================\n');
 
   const rootDir = path.resolve(__dirname, '..');

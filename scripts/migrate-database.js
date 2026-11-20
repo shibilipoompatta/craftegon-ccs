@@ -10,7 +10,7 @@ const { getPostgresCredentials, PostgresClient } = require('../src/backend/stora
 
 async function migrateDatabase(targetDb = 'craftegon_ccs_dev') {
   console.log('======================================================================');
-  console.log(`CraftEgon CCS — Database Migration: ${targetDb}`);
+  console.log(`CraftEgon CCS: Database Migration: ${targetDb}`);
   console.log('======================================================================\n');
 
   const creds = getPostgresCredentials();

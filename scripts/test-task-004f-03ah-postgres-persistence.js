@@ -75,7 +75,7 @@ function request(options, body = null) {
 
 async function runTask03AHSuite() {
   console.log('======================================================================');
-  console.log('CraftEgon CCS — Task 004F-03AH: PostgreSQL Persistence Test Suite');
+  console.log('CraftEgon CCS: Task 004F-03AH: PostgreSQL Persistence Test Suite');
   console.log('======================================================================\n');
 
   loadConfig();

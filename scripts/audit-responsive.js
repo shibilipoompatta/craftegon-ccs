@@ -119,7 +119,7 @@ server.listen(httpPort, async () => {
     await send('DOM.enable');
 
     console.log('\n======================================================');
-    console.log('CRAFTEGON CCS — FORENSIC CROSS-DEVICE RESPONSIVE AUDIT');
+    console.log('CRAFTEGON CCS: FORENSIC CROSS-DEVICE RESPONSIVE AUDIT');
     console.log('======================================================\n');
 
     let totalOverflows = 0;
@@ -194,7 +194,7 @@ server.listen(httpPort, async () => {
           });
           overflowDetails.push({ pageUrl, vp: vp.name, width: vp.w, culprits: data.overflowingElements });
         } else {
-          console.log(`  ✅ [PASS] ${vp.name} (${vp.w}px) — No overflow (docWidth=${data.docWidth}px <= ${vp.w}px)`);
+          console.log(`  ✅ [PASS] ${vp.name} (${vp.w}px): No overflow (docWidth=${data.docWidth}px <= ${vp.w}px)`);
         }
       }
     }

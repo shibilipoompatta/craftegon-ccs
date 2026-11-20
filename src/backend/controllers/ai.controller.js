@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 5: AI & Regulatory Reasoner Controller
+ * CraftEgon CCS: Phase 5: AI & Regulatory Reasoner Controller
  * 
  * Exposes server-side AI endpoints with:
  * - PII masking & DPDP compliance

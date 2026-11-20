@@ -47,7 +47,7 @@ function verify(condition, message) {
 
 async function runBrowserAcceptance() {
   console.log('======================================================================');
-  console.log('CraftEgon CCS — Task 004F-03Z Browser Acceptance Test Suite');
+  console.log('CraftEgon CCS: Task 004F-03Z Browser Acceptance Test Suite');
   console.log('Test Environment: JSDOM Realistic Browser DOM Simulation');
   console.log('======================================================================\n');
 

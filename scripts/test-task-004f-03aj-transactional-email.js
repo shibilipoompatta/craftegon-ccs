@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Task 004F-03AJ: Transactional Email & Customer Lifecycle Test Suite
+ * CraftEgon CCS: Task 004F-03AJ: Transactional Email & Customer Lifecycle Test Suite
  * Pure Node.js built-ins. Zero external runtime dependencies.
  *
  * Verifies:
@@ -76,7 +76,7 @@ function request(options, body = null) {
 
 async function runTests() {
   console.log('======================================================================');
-  console.log('CraftEgon CCS — Task 004F-03AJ: Transactional Email & Account Lifecycle');
+  console.log('CraftEgon CCS: Task 004F-03AJ: Transactional Email & Account Lifecycle');
   console.log('======================================================================\n');
 
   // ==========================================================================

@@ -5,7 +5,7 @@ const ROOT = path.resolve(__dirname, '..');
 const ARTIFACT_DIR = 'C:\\Users\\shibi\\.gemini\\antigravity\\brain\\1acf7afd-9935-40c0-b541-16571d62db3c';
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs', 'comprehensive-fault-audit-1000.json'), 'utf8'));
 
-let md = `# CRAFTEGON CCS — FORENSIC COMPREHENSIVE FAULT AUDIT (1000+ ISSUES)
+let md = `# CRAFTEGON CCS: FORENSIC COMPREHENSIVE FAULT AUDIT (1000+ ISSUES)
 ## Systematic Architecture, Security, WCAG 2.2 AA, SEO, Performance & Design System Audit
 
 **Audit Target:** CraftEgon Corporate Services (CCS)  
@@ -25,7 +25,7 @@ A forensic automated and static analysis of the entire production repository and
 | **Tier 1: URGENT IMMEDIATE (Critical & High)** | **593** | Security vulnerabilities, mobile layout breaks, inaccessible forms, focus suppression, render blocking | **Immediate (Within 24-48h)** |
 | **Tier 2: HIGH PRIORITY (Medium)** | **233** | Inline event handlers, unhandled JSON parsing, missing OpenGraph & Structured Data, skip links | **Next Sprint (3-5 days)** |
 | **Tier 3: STANDARDIZATION (Low)** | **2,411** | Hardcoded colors, legacy \`var\` syntax, production console statements, title/meta length tweaks | **Continuous Refactoring** |
-| **TOTAL** | **3,237** | **Complete Codebase & Edge Runtime** | — |
+| **TOTAL** | **3,237** | **Complete Codebase & Edge Runtime** |: |
 
 ### Category Breakdown Matrix
 
@@ -41,7 +41,7 @@ pie title Faults by Category (Total: 3,237)
 
 ---
 
-## 2. Tier 1: Urgent Immediate Actions (Critical & High Severity — 593 Faults)
+## 2. Tier 1: Urgent Immediate Actions (Critical & High Severity: 593 Faults)
 
 > [!CAUTION]
 > **Tier 1 faults directly impact end-user experience, device usability, search indexing, or security.** These require immediate remediation in code and edge configuration.
@@ -129,7 +129,7 @@ pie title Faults by Category (Total: 3,237)
 
 ---
 
-## 3. Tier 2: High Priority Structural Improvements (Medium Severity — 233 Faults)
+## 3. Tier 2: High Priority Structural Improvements (Medium Severity: 233 Faults)
 
 > [!NOTE]
 > Tier 2 faults represent architectural, programmatic, or accessibility standards non-compliances that should be resolved in the next release cycle.
@@ -164,7 +164,7 @@ pie title Faults by Category (Total: 3,237)
 
 ---
 
-## 4. Tier 3: Design System & Code Quality Standardization (Low Severity — 2,411 Faults)
+## 4. Tier 3: Design System & Code Quality Standardization (Low Severity: 2,411 Faults)
 
 ### 4.1 Design System Color Inconsistencies (2,145 Instances)
 * **Fault:** Direct hex codes (\`#1e293b\`, \`#0f766e\`, \`#64748b\`) and RGB strings embedded in inline \`style="..."\` attributes across cards, tables, and badges.

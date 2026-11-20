@@ -129,7 +129,7 @@ function testPartnerDesk() {
   document.getElementById('account-purpose').value = 'Current account';
   document.getElementById('generated-resolution').scrollIntoView = () => {};
   window.generateResolution(new window.Event('submit', { cancelable: true }));
-  assert(document.getElementById('generated-resolution').textContent.startsWith('DRAFT TEMPLATE — REVIEW REQUIRED'), 'Generated resolution must be labeled as a review-required draft');
+  assert(document.getElementById('generated-resolution').textContent.startsWith('DRAFT TEMPLATE: REVIEW REQUIRED'), 'Generated resolution must be labeled as a review-required draft');
   dom.window.close();
 }
 

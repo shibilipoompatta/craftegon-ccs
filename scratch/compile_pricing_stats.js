@@ -59,7 +59,7 @@ pricing.forEach((p, idx) => {
   const thresholds = (p.statutory_thresholds || []).map(t => `${t.monetary_expression} (${t.threshold_type})`).join('; ') || 'None';
   const penalties = (p.statutory_penalties || []).map(pen => `${pen.monetary_expression} (${pen.penalty_type})`).join('; ') || 'None';
 
-  mdRows.push(`| ${idx + 1} | \`${p.service_id}\` | [${p.service_name}](file:///c:/Users/shibi/OneDrive/Desktop/craftegon-ccs${p.canonical_route}) | \`${p.primary_vertical_id}\` | ${p.website_displayed_price} | ${tiersDesc} | \`${p.pricing_basis}\` | ${thresholds !== 'None' ? thresholds : (penalties !== 'None' ? penalties : '—')} | \`${p.verification_status}\` | \`${p.commercial_approval_state}\` |`);
+  mdRows.push(`| ${idx + 1} | \`${p.service_id}\` | [${p.service_name}](file:///c:/Users/shibi/OneDrive/Desktop/craftegon-ccs${p.canonical_route}) | \`${p.primary_vertical_id}\` | ${p.website_displayed_price} | ${tiersDesc} | \`${p.pricing_basis}\` | ${thresholds !== 'None' ? thresholds : (penalties !== 'None' ? penalties : ' - ')} | \`${p.verification_status}\` | \`${p.commercial_approval_state}\` |`);
 });
 
 fs.writeFileSync(path.join(__dirname, 'pricing_table_rows.txt'), mdRows.join('\n'));

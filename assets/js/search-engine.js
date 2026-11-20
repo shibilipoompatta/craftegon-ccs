@@ -497,7 +497,7 @@ async function searchCompany(query) {
   } catch (err) {
     console.warn('Live company search unavailable, using fallback:', err);
   }
-  // Return transparent unverified notice — do not fabricate synthetic records
+  // Return transparent unverified notice: do not fabricate synthetic records
   return { notFound: true, query: query, type: 'company' };
 }
 
@@ -519,7 +519,7 @@ async function searchTrademark(query) {
   } catch (err) {
     console.warn('Live trademark search unavailable:', err);
   }
-  // Return transparent unverified notice — do not fabricate synthetic records
+  // Return transparent unverified notice: do not fabricate synthetic records
   return { notFound: true, query: query, type: 'trademark' };
 }
 
@@ -539,7 +539,7 @@ async function searchGstin(query) {
   } catch (err) {
     console.warn('Live GSTIN search unavailable:', err);
   }
-  // Return transparent unverified notice — do not fabricate synthetic records
+  // Return transparent unverified notice: do not fabricate synthetic records
   return { notFound: true, query: query, type: 'gstin' };
 }
 

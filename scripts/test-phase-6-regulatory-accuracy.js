@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS — Phase 6: Regulatory Accuracy & Statutory Grounding Test Suite
+ * CraftEgon CCS: Phase 6: Regulatory Accuracy & Statutory Grounding Test Suite
  * 
  * Verifies that all statutory metrics, penalty equations, filing deadlines,
  * and corporate thresholds across the system reflect authoritative Indian law.
@@ -27,7 +27,7 @@ function it(name, fn) {
 
 function runRegulatoryAccuracyTestSuite() {
   console.log('\n======================================================');
-  console.log('   CRAFTEGON CCS — PHASE 6 REGULATORY ACCURACY TESTS  ');
+  console.log('   CRAFTEGON CCS: PHASE 6 REGULATORY ACCURACY TESTS  ');
   console.log('======================================================\n');
 
   // Load datasets

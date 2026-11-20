@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * CRAFTEGON CCS — LOCAL HTTP / SERVER-LEVEL ROUTING VERIFICATION SUITE
+ * CRAFTEGON CCS: LOCAL HTTP / SERVER-LEVEL ROUTING VERIFICATION SUITE
  * ============================================================================
  * Tests:
  * 1. Local HTTP server parsing and applying _redirects rules
@@ -34,8 +34,8 @@ function assert(condition, testName, detail = '') {
 }
 
 console.log('\n============================================================');
-console.log('CRAFTEGON CCS — LOCAL HTTP ROUTING SIMULATOR (_redirects)');
-console.log('(Note: Local rule simulator — not live Cloudflare Pages runtime)');
+console.log('CRAFTEGON CCS: LOCAL HTTP ROUTING SIMULATOR (_redirects)');
+console.log('(Note: Local rule simulator: not live Cloudflare Pages runtime)');
 console.log('============================================================\n');
 
 // 1. Parse _redirects
