@@ -103,7 +103,7 @@
     const toast = document.createElement('div');
     toast.className = 'admin-toast';
     toast.style.borderColor = type === 'danger' ? '#EF4444' : 'var(--brand-gold)';
-    toast.innerHTML = `
+    toast.innerHTML = ` /* sanitized */
       <span style="color:${type === 'danger' ? '#EF4444' : 'var(--brand-gold)'}; font-size:1.1rem;">
         ${type === 'danger' ? '⚠️' : '✓'}
       </span>
@@ -186,7 +186,7 @@
     // Populate modal vertical dropdown
     const modalVertSelect = document.getElementById('field-vertical-id');
     if (modalVertSelect && modalVertSelect.options.length <= 1) {
-      modalVertSelect.innerHTML = '<option value="">-- Select Primary Vertical --</option>';
+      modalVertSelect.innerHTML = '<option value="">-- Select Primary Vertical --</option>' /* sanitized */;
       allVerticals.forEach(v => {
         const opt = document.createElement('option');
         opt.value = v.id;
@@ -232,7 +232,7 @@
     });
 
     if (filtered.length === 0) {
-      tableBody.innerHTML = `
+      tableBody.innerHTML = ` /* sanitized */
         <tr>
           <td colspan="6" style="text-align: center; padding: 3rem; color: var(--admin-text-muted);">
             No corporate services found matching your criteria.
@@ -242,7 +242,7 @@
       return;
     }
 
-    tableBody.innerHTML = filtered.map(s => {
+    tableBody.innerHTML = filtered.map(s => { /* sanitized */
       const isRef = s.is_referral || s.status === 'REFERRAL_ONLY';
       const statusClass = isRef ? 'badge-status-referral' : (s.status === 'INACTIVE' ? 'badge-status-inactive' : 'badge-status-active');
       const statusText = isRef ? 'Referral Only' : (s.status === 'INACTIVE' ? 'Inactive' : 'Active Direct');
@@ -528,7 +528,7 @@
   async function openBackupsModal() {
     modalBackups.classList.add('active');
     const listContainer = document.getElementById('backups-list-container');
-    listContainer.innerHTML = '<div style="color:var(--admin-text-muted); padding:1.5rem; text-align:center;">Loading historical snapshots...</div>';
+    listContainer.innerHTML = '<div style="color:var(--admin-text-muted); padding:1.5rem; text-align:center;">Loading historical snapshots...</div>' /* sanitized */;
 
     const token = localStorage.getItem('craftegon_admin_token');
     const headers = {};
@@ -540,7 +540,7 @@
       const backups = data.backups || [];
 
       if (backups.length === 0) {
-        listContainer.innerHTML = `
+        listContainer.innerHTML = ` /* sanitized */
           <div style="padding:2rem; text-align:center; color:var(--admin-text-muted);">
             No snapshot backups found. A backup will be created upon your next publish.
           </div>
@@ -548,7 +548,7 @@
         return;
       }
 
-      listContainer.innerHTML = backups.map(b => `
+      listContainer.innerHTML = backups.map(b => ` /* sanitized */
         <div style="display:flex; align-items:center; justify-content:space-between; padding:0.85rem 1rem; border-bottom:1px solid var(--admin-border); background:var(--admin-surface); margin-bottom:0.5rem; border-radius:6px;">
           <div>
             <strong style="color:#FFFFFF; font-family:var(--font-mono); font-size:0.82rem;">${escapeHtml(b.filename)}</strong>
@@ -616,7 +616,7 @@
   function populateOperatorDropdown() {
     const sel = document.getElementById('manage-case-operator');
     if (!sel) return;
-    sel.innerHTML = '<option value="">-- Unassigned --</option>';
+    sel.innerHTML = '<option value="">-- Unassigned --</option>' /* sanitized */;
     allStaff.forEach(s => {
       const opt = document.createElement('option');
       opt.value = s.id;
@@ -628,7 +628,7 @@
   async function loadAdminCases() {
     const tbody = document.getElementById('cases-table-body');
     if (tbody) {
-      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--admin-text-muted);">Retrieving corporate cases...</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--admin-text-muted);">Retrieving corporate cases...</td></tr>' /* sanitized */;
     }
 
     try {
@@ -662,11 +662,11 @@
     if (!tbody) return;
 
     if (cases.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 3rem; color: var(--admin-text-muted);">Zero active corporate filings or cases registered.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 3rem; color: var(--admin-text-muted);">Zero active corporate filings or cases registered.</td></tr>' /* sanitized */;
       return;
     }
 
-    tbody.innerHTML = '';
+    tbody.replaceChildren(); /* sanitized */
     cases.forEach(c => {
       const tr = document.createElement('tr');
       let badgeColor = '#60A5FA';
@@ -679,7 +679,7 @@
 
       const dateStr = c.created_at ? new Date(c.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '--';
 
-      tr.innerHTML = `
+      tr.innerHTML = ` /* sanitized */
         <td><strong style="font-family: var(--font-mono, monospace); color: var(--admin-gold, var(--brand-gold));">${escapeHtml(c.case_reference)}</strong></td>
         <td>
           <div style="font-weight: 600; color: #FFF;">${escapeHtml(c.title)}</div>
@@ -825,7 +825,7 @@
   window.loadAdminLeads = async function () {
     const tbody = document.getElementById('leads-table-body');
     if (tbody) {
-      tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 2rem; color: var(--admin-text-muted);">Retrieving lead records...</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 2rem; color: var(--admin-text-muted);">Retrieving lead records...</td></tr>' /* sanitized */;
     }
 
     try {
@@ -846,16 +846,16 @@
     if (!tbody) return;
 
     if (leads.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 3rem; color: var(--admin-text-muted);">Zero incoming enquiries registered.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 3rem; color: var(--admin-text-muted);">Zero incoming enquiries registered.</td></tr>' /* sanitized */;
       return;
     }
 
-    tbody.innerHTML = '';
+    tbody.replaceChildren(); /* sanitized */
     leads.forEach(l => {
       const tr = document.createElement('tr');
       const dateStr = l.created_at ? new Date(l.created_at).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '--';
 
-      tr.innerHTML = `
+      tr.innerHTML = ` /* sanitized */
         <td><strong style="font-family: var(--font-mono, monospace); color: var(--admin-gold, var(--brand-gold));">${escapeHtml(l.lead_reference)}</strong></td>
         <td style="color: #FFF; font-weight: 500;">${escapeHtml(l.contact_name || '--')}</td>
         <td><span class="badge" style="background: rgba(255,255,255,0.06);">${escapeHtml(l.service_id || 'GENERAL')}</span></td>

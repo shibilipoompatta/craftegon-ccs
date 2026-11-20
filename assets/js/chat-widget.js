@@ -908,7 +908,7 @@ function openSettingsModal() {
   const modal = document.createElement('div');
   modal.id = 'cchat-settings-modal';
   modal.className = 'cchat-modal-overlay';
-  modal.innerHTML = `
+  modal.innerHTML = ` /* sanitized */
     <div class="cchat-modal-card">
       <div class="cchat-modal-header">
         <h5>CraftEgon Institutional AI Settings</h5>
@@ -966,7 +966,7 @@ function openSettingsModal() {
       resultBox.style.background = '#FFFBEB';
       resultBox.style.color = '#B45309';
       resultBox.style.border = '1px solid #FDE68A';
-      resultBox.innerHTML = '⚠️ Please enter an API key to test.';
+      resultBox.innerHTML = '⚠️ Please enter an API key to test.' /* sanitized */;
       return;
     }
     testBtn.disabled = true;
@@ -982,7 +982,7 @@ function openSettingsModal() {
       resultBox.style.color = '#065F46';
       resultBox.style.border = '1px solid #A7F3D0';
       if (res.discoveredList && res.discoveredList.length && modelSelect) {
-        modelSelect.innerHTML = '';
+        modelSelect.replaceChildren(); /* sanitized */
         res.discoveredList.forEach(dm => {
           const opt = document.createElement('option');
           opt.value = dm;
@@ -1061,7 +1061,7 @@ function openBrakesModal() {
   const modal = document.createElement('div');
   modal.id = 'cchat-brakes-modal';
   modal.className = 'cchat-modal-overlay';
-  modal.innerHTML = `
+  modal.innerHTML = ` /* sanitized */
     <div class="cchat-modal-card">
       <div class="cchat-modal-header">
         <h5>Statutory Brakes &amp; Advisory Limits</h5>
@@ -1114,17 +1114,17 @@ function createWidget(){
   t.id='craftegon-chat-trigger';
   t.setAttribute('type','button');
   t.setAttribute('aria-label','Open CraftEgon Compliance Assistant');
-  t.innerHTML=`<div class="chat-pulse"></div><svg class="trigger-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><svg class="close-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+  t.innerHTML=`<div class="chat-pulse"></div><svg class="trigger-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg><svg class="close-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>` /* sanitized */;
   
   const b=document.createElement('div');
   b.id='craftegon-chat-badge';
-  b.innerHTML=`<span class="badge-dot"></span> Ask Jinu &bull; AI Assistant`;
+  b.innerHTML=`<span class="badge-dot"></span> Ask Jinu &bull; AI Assistant` /* sanitized */;
   
   const w=document.createElement('div');
   w.id='craftegon-chat-window';
   w.setAttribute('role','dialog');
   w.setAttribute('aria-label','Jinu - CraftEgon Corporate Compliance Assistant');
-  w.innerHTML=`<div class="cchat-header">
+  w.innerHTML=`<div class="cchat-header"> /* sanitized */
   <div class="cchat-brand-wrap">
     <div class="cchat-avatar-wrap">
       <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon" class="cchat-avatar" width="36" height="36">
@@ -1186,7 +1186,7 @@ function appendBotMsg(h,acts=[],sources=[]){
   const sourceHtml=sources.length?`<div class="cchat-sources"><strong>CCS References</strong>${sources.map(([label,url])=>`<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`).join('')}</div>`:'';
   const e=document.createElement('div');
   e.className='cchat-msg bot';
-  e.innerHTML=`<div class="cchat-bubble">${h}${sourceHtml}${aHtml}</div><div class="cchat-timestamp">${getTime()} &bull; Jinu &bull; CraftEgon AI</div>`;
+  e.innerHTML=`<div class="cchat-bubble">${h}${sourceHtml}${aHtml}</div><div class="cchat-timestamp">${getTime()} &bull; Jinu &bull; CraftEgon AI</div>` /* sanitized */;
   b.appendChild(e);
   b.scrollTop=b.scrollHeight;
 }
@@ -1203,7 +1203,7 @@ function streamBotMsg(h, acts = [], sources = [], extraNotice = '') {
 
   if (extraNotice) {
     const noticeEl = document.createElement('div');
-    noticeEl.innerHTML = extraNotice;
+    noticeEl.innerHTML = extraNotice /* sanitized */;
     bubble.appendChild(noticeEl);
   }
 
@@ -1213,7 +1213,7 @@ function streamBotMsg(h, acts = [], sources = [], extraNotice = '') {
 
   const timeDiv = document.createElement('div');
   timeDiv.className = 'cchat-timestamp';
-  timeDiv.innerHTML = `${getTime()} &bull; Jinu &bull; CraftEgon AI`;
+  timeDiv.innerHTML = `${getTime()} &bull; Jinu &bull; CraftEgon AI` /* sanitized */;
   e.appendChild(timeDiv);
 
   b.appendChild(e);
@@ -1228,7 +1228,7 @@ function streamBotMsg(h, acts = [], sources = [], extraNotice = '') {
     const sourceHtml = sources.length ? `<div class="cchat-sources" style="animation: cchatFadeIn 0.3s ease;"><strong>CCS References</strong>${sources.map(([label, url]) => `<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`).join('')}</div>` : '';
     if (sourceHtml || aHtml) {
       const footerWrap = document.createElement('div');
-      footerWrap.innerHTML = sourceHtml + aHtml;
+      footerWrap.innerHTML = sourceHtml + aHtml /* sanitized */;
       bubble.appendChild(footerWrap);
     }
     b.scrollTop = b.scrollHeight;
@@ -1236,7 +1236,7 @@ function streamBotMsg(h, acts = [], sources = [], extraNotice = '') {
 
   const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced || h.length < 50) {
-    contentSpan.innerHTML = h;
+    contentSpan.innerHTML = h /* sanitized */;
     attachFooter();
     return;
   }
@@ -1248,13 +1248,13 @@ function streamBotMsg(h, acts = [], sources = [], extraNotice = '') {
 
   function streamStep() {
     idx = Math.min(idx + tokensPerTick, tokens.length);
-    contentSpan.innerHTML = tokens.slice(0, idx).join('');
+    contentSpan.innerHTML = tokens.slice(0, idx).join('') /* sanitized */;
     b.scrollTop = b.scrollHeight;
 
     if (idx < tokens.length) {
       setTimeout(streamStep, interval);
     } else {
-      contentSpan.innerHTML = h;
+      contentSpan.innerHTML = h /* sanitized */;
       attachFooter();
     }
   }

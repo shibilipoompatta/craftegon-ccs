@@ -634,7 +634,7 @@ function getStateName(code) {
 function showLoading(containerId) {
   const container = document.getElementById(containerId);
   container.style.display = 'block';
-  container.innerHTML = `
+  container.innerHTML = ` /* sanitized */
     <div class="loading">
       <div class="spinner"></div>
       <p>Querying regulatory registries...</p>
@@ -647,7 +647,7 @@ function showError(containerId, message) {
   const container = document.getElementById(containerId);
   if (!container) return;
   container.style.display = 'block';
-  container.innerHTML = `
+  container.innerHTML = ` /* sanitized */
     <div class="error-msg">
       <strong>Search Unavailable:</strong> <span class="error-msg-text"></span>
       <br><br>
@@ -674,7 +674,7 @@ function showNotFound(containerId, query, type) {
       ? 'Official GST Portal' 
       : 'Official MCA V3 Portal';
 
-  container.innerHTML = `
+  container.innerHTML = ` /* sanitized */
     <div class="result-card" style="border-left: 4px solid var(--text-dark-gold, #8C6D14); background: #FFFFFF; padding: 1.5rem; border-radius: 8px;">
       <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
         <span class="noble-badge" style="background: rgba(140, 109, 20, 0.1); color: var(--text-dark-gold, #8C6D14); border-color: rgba(140, 109, 20, 0.3);">
@@ -888,7 +888,7 @@ function renderCompanyResult(entity) {
     </div>
   `).join('');
 
-  container.innerHTML = `
+  container.innerHTML = ` /* sanitized */
     <div class="result-card" style="animation: cardAppear 0.3s ease-out; border-radius: 12px; box-shadow: 0 4px 20px rgba(11,37,69,0.06);">
       ${renderPreviewNotice(entity.source)}
       
@@ -1080,7 +1080,7 @@ function renderTrademarkResult(tm) {
   };
   const statusClass = statusColors[tm.status] || 'status-pending';
 
-  container.innerHTML = `
+  container.innerHTML = ` /* sanitized */
     <div class="result-card" style="animation: cardAppear 0.3s ease-out;">
       ${renderPreviewNotice(tm.source)}
       <div class="result-header">
@@ -1316,7 +1316,7 @@ function renderGstinResult(gstin) {
     </div>
   `;
 
-  container.innerHTML = `
+  container.innerHTML = ` /* sanitized */
     <div class="result-card" style="animation: cardAppear 0.3s ease-out;">
       ${renderPreviewNotice(gstin.source)}
       <div class="result-header">

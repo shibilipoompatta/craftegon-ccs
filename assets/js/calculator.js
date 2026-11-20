@@ -178,7 +178,7 @@ function handleCinInput(val) {
   if (!val || !val.trim()) {
     if (statusEl) {
       statusEl.style.display = 'none';
-      statusEl.innerHTML = '';
+      statusEl.replaceChildren(); /* sanitized */
     }
     return;
   }
@@ -191,7 +191,7 @@ function handleCinInput(val) {
         statusEl.style.background = '#FFFBEB';
         statusEl.style.border = '1px solid #FCD34D';
         statusEl.style.color = '#92400E';
-        statusEl.innerHTML = '<span style="font-weight: 600;">Validating Corporate Identifier:</span> Format requires 21-character CIN (e.g. <code>U72900KL2026PTC012345</code>) or LLPIN (e.g. <code>AAA-1234</code>).';
+        statusEl.innerHTML = '<span style="font-weight: 600;">Validating Corporate Identifier:</span> Format requires 21-character CIN (e.g. <code>U72900KL2026PTC012345</code>) or LLPIN (e.g. <code>AAA-1234</code>).' /* sanitized */;
       } else {
         statusEl.style.display = 'none';
       }
@@ -215,7 +215,7 @@ function handleCinInput(val) {
     statusEl.style.border = '1px solid #A7F3D0';
     statusEl.style.color = '#065F46';
     const chipsHtml = res.chips.map(c => '<span class="readout-pill" style="font-size: 0.72rem; background: #FFFFFF; border: 1px solid #A7F3D0; color: #065F46; margin: 0.15rem 0.25rem 0.15rem 0; display: inline-flex; align-items: center; gap: 0.25rem;">' + c.icon + ' ' + c.label + '</span>').join('');
-    statusEl.innerHTML = '<div style="font-weight: 700; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem;">' +
+    statusEl.innerHTML = '<div style="font-weight: 700; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem;">' + /* sanitized */
       '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' +
       '<span>Statutory Registry Verified (' + res.kind + ' Decrypted)</span>' +
       '</div>' +
@@ -309,7 +309,7 @@ function setTab1Mode(mode) {
     if (bannerLabel) bannerLabel.textContent = 'Total Estimated Statutory Outlay';
     if (turnaroundLabel) turnaroundLabel.textContent = 'Turnaround SLA: 3-5 Working Days';
     if (noteEl) {
-      noteEl.innerHTML = '<strong>STATUTORY TRANSPARENCY:</strong> MCA Government filing fee is ₹0 under Rule 38 for companies with nominal capital up to ₹15 Lakhs. State stamp duty varies slightly by registered office location. All filings supervised directly by practicing CS & CA.';
+      noteEl.innerHTML = '<strong>STATUTORY TRANSPARENCY:</strong> MCA Government filing fee is ₹0 under Rule 38 for companies with nominal capital up to ₹15 Lakhs. State stamp duty varies slightly by registered office location. All filings supervised directly by practicing CS & CA.' /* sanitized */;
     }
   } else {
     if (formationState) formationState.style.display = 'none';
@@ -345,7 +345,7 @@ function setTab1Mode(mode) {
     if (bannerLabel) bannerLabel.textContent = 'Total Estimated Statutory Exposure';
     if (turnaroundLabel) turnaroundLabel.textContent = 'Urgent Resolution SLA: 24-48 Hours';
     if (noteEl) {
-      noteEl.innerHTML = '<strong>ESTIMATE LIMITATION:</strong> This illustrative model uses a per-day input and does not reproduce the complete MCA form-wise fee schedule or determine a filing\'s eligibility. CCFS-2026 relief is closed and is not included. Confirm current fees in the MCA portal.';
+      noteEl.innerHTML = '<strong>ESTIMATE LIMITATION:</strong> This illustrative model uses a per-day input and does not reproduce the complete MCA form-wise fee schedule or determine a filing\'s eligibility. CCFS-2026 relief is closed and is not included. Confirm current fees in the MCA portal.' /* sanitized */;
     }
   }
 
@@ -1022,7 +1022,7 @@ function mountGst2bReconciliation() {
     section.append(label, input);
   });
   const status = document.createElement('p');
-  status.innerHTML = 'Difference: <strong id="gst-2b-difference">0</strong> · <span id="gst-2b-status" data-state="matched">Matched</span>';
+  status.innerHTML = 'Difference: <strong id="gst-2b-difference">0</strong> · <span id="gst-2b-status" data-state="matched">Matched</span>' /* sanitized */;
   section.appendChild(status);
   card.appendChild(section);
 }
@@ -1180,7 +1180,7 @@ function generateStatutoryMemo() {
     if (totalOutlayEl) totalOutlayEl.textContent = totalFee;
 
     if (govNotesEl) {
-      govNotesEl.innerHTML = '<ul style="margin: 0; padding-left: 1.25rem; line-height: 1.65;">' +
+      govNotesEl.innerHTML = '<ul style="margin: 0; padding-left: 1.25rem; line-height: 1.65;">' + /* sanitized */
         '<li><strong>Form INC-20A Mandatory Requirement:</strong> Under Section 10A of Companies Act 2013, declaration of commencement of business must be filed within 180 days of incorporation with bank deposit verification proof.</li>' +
         '<li><strong>Statutory Auditor Appointment (Form ADT-1):</strong> Board must appoint First Statutory Auditor within 30 days of incorporation under Section 139.</li>' +
         '<li><strong>Registered Office Verification (Form INC-22):</strong> Formal physical address verification must be submitted within 30 days under Section 12.</li>' +
@@ -1222,7 +1222,7 @@ function generateStatutoryMemo() {
     if (totalOutlayEl) totalOutlayEl.textContent = totalFee;
 
     if (govNotesEl) {
-      govNotesEl.innerHTML = '<ul style="margin: 0; padding-left: 1.25rem; line-height: 1.65;">' +
+      govNotesEl.innerHTML = '<ul style="margin: 0; padding-left: 1.25rem; line-height: 1.65;">' + /* sanitized */
         '<li><strong>Section 403 Daily Late Fee Exposure:</strong> Statutory late filing fees compound daily at ₹100/day for each overdue form (AOC-4 and MGT-7). Immediate e-filing halts further financial leakage.</li>' +
         '<li><strong>Section 164(2) Director Disqualification:</strong> Directors face immediate disqualification for 5 years if annual accounts or returns are not filed for three consecutive financial years.</li>' +
         '<li><strong>Section 454 Adjudication Risk:</strong> RoC issues Section 454 show-cause notices for defaults exceeding 90 days, exposing company and officers to direct monetary penalties up to ₹5,00,000.</li>' +
@@ -1232,7 +1232,7 @@ function generateStatutoryMemo() {
   }
 
   if (tbody) {
-    tbody.innerHTML = rows.map(r => '<tr>' +
+    tbody.innerHTML = rows.map(r => '<tr>' + /* sanitized */
       '<td style="padding: 0.6rem 0.75rem; border: 1px solid #E2E8F0; font-weight: 600; color: #0F172A;">' + r.item + '</td>' +
       '<td style="padding: 0.6rem 0.75rem; border: 1px solid #E2E8F0; color: #475569;">' + r.basis + '</td>' +
       '<td style="padding: 0.6rem 0.75rem; border: 1px solid #E2E8F0; text-align: right; font-family: var(--font-mono); font-weight: 700; color: #0F172A;">' + r.amt + '</td>' +

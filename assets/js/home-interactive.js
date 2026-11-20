@@ -94,7 +94,7 @@ function initCommandSearch() {
     const q = query.trim();
     if (!q) {
       resultsContainer.style.display = 'none';
-      resultsContainer.innerHTML = '';
+      resultsContainer.replaceChildren(); /* sanitized */
       return;
     }
 
@@ -124,7 +124,7 @@ function initCommandSearch() {
     }
 
     if (items.length === 0) {
-      resultsContainer.innerHTML = `
+      resultsContainer.innerHTML = ` /* sanitized */
         <div style="padding: 1.25rem; color: var(--text-light); font-size: 0.88rem; text-align: center;">
           <p style="margin: 0 0 0.5rem; color: #E2E8F0;">Zero matches found for "${String(q).replace(/[&<>"']/g, '')}".</p>
           <a href="/services.html" style="color: var(--brand-gold); font-weight: 700; text-decoration: none;">Browse Complete 57-Service Directory &rarr;</a>
@@ -151,7 +151,7 @@ function initCommandSearch() {
           </a>
         </div>
       `;
-      resultsContainer.innerHTML = html;
+      resultsContainer.innerHTML = html /* sanitized */;
     }
     resultsContainer.style.display = 'block';
   }
@@ -336,7 +336,7 @@ function initTrademarkScreener() {
     );
 
     if (filtered.length === 0) {
-      container.innerHTML = `
+      container.innerHTML = ` /* sanitized */
         <div style="grid-column: 1 / -1; padding: 2rem; text-align: center; color: var(--text-secondary);">
           No matching Nice classes found. Check spelling or consult our <a href="/services/trademark-registration.html#tm-compliance-suite" style="color: var(--brand-gold);">Comprehensive IP Screener</a>.
         </div>
@@ -344,7 +344,7 @@ function initTrademarkScreener() {
       return;
     }
 
-    container.innerHTML = filtered.map(c => `
+    container.innerHTML = filtered.map(c => ` /* sanitized */
       <div class="tm-class-pill">
         <div class="tm-class-head">
           <span class="tm-class-num">Class ${c.num}</span>

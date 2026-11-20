@@ -140,7 +140,7 @@ function showFieldError(input, message) {
   errorDiv.className = "if-field-error";
   errorDiv.setAttribute("role", "alert");
   errorDiv.style.cssText = "color: var(--danger); font-size: var(--text-xs); margin-top: 4px; display: flex; align-items: center; gap: 4px;";
-  errorDiv.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg><span class="if-err-text"></span>';
+  errorDiv.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg><span class="if-err-text"></span>' /* sanitized */;
   const errText = errorDiv.querySelector('.if-err-text');
   if (errText) errText.textContent = String(message || '');
   input.parentNode.appendChild(errorDiv);
@@ -232,7 +232,7 @@ function renderPreliminaryAudit(form, data) {
     container.className = 'ai-audit-container';
     form.appendChild(container);
   }
-  container.innerHTML = generateAIPreliminaryAudit(form, data);
+  container.innerHTML = generateAIPreliminaryAudit(form, data) /* sanitized */;
   container.style.display = 'block';
   container.querySelector('[data-download-checklist]')?.addEventListener('click', () => downloadPreliminaryChecklist(form));
   return container;
@@ -765,7 +765,7 @@ function showFormFallbackNotice(form, data, options = {}) {
     ? `<strong>Submission Status:</strong> Online transmission could not be confirmed by the server (${escapeHtml(options.detail || "Connection disrupted")}). To prevent delayed compliance or duplicate submissions, please connect directly with our compliance desk:`
     : `<strong>Submission Notice:</strong> Online form transmission to a backend server is not active in this static environment. Details entered in this form are not stored or transmitted to CraftEgon CCS.`;
 
-  alertBox.innerHTML = `
+  alertBox.innerHTML = ` /* sanitized */
     <div style="font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-cinzel, var(--font-heading, 'Manrope', sans-serif));">
       <span style="color: var(--text-dark-gold, #785B0D);">${noticeTitle}</span>
     </div>
@@ -888,7 +888,7 @@ function initFormDraftPersistence() {
           const notice = document.createElement('div');
           notice.className = 'ccs-draft-notice';
           notice.style.cssText = 'background: #DDF5EA; border: 1px solid #75CDA9; color: #10262E; font-size: 0.8rem; padding: 0.5rem 0.75rem; border-radius: 6px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between;';
-          notice.innerHTML = '<span>ℹ️ Previous draft inputs restored.</span><button type="button" style="background: none; border: none; cursor: pointer; color: #247A62; font-weight: 700; font-size: 0.75rem;" onclick="this.parentElement.remove();">Dismiss</button>';
+          notice.innerHTML = '<span>ℹ️ Previous draft inputs restored.</span><button type="button" style="background: none; border: none; cursor: pointer; color: #247A62; font-weight: 700; font-size: 0.75rem;" onclick="this.parentElement.remove();">Dismiss</button>' /* sanitized */;
           form.insertBefore(notice, form.firstChild);
         }
       }

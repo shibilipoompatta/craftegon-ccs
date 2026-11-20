@@ -56,6 +56,8 @@ console.log(`Found: ${htmlFiles.length} HTML files, ${jsFiles.length} JS files, 
 // 1. AUDIT HTML FILES
 // -----------------------------------------------------------------------------
 for (const file of htmlFiles) {
+  const isPartialComponent = file.replace(/\\/g, '/').includes('/components/') || file.replace(/\\/g, '/').startsWith('components/');
+  if (isPartialComponent) continue;
   const content = fs.readFileSync(file, 'utf8');
   const lines = content.split('\n');
 

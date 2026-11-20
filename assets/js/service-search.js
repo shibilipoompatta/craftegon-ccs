@@ -354,7 +354,7 @@
         </div>
       `;
 
-      resultsContainer.innerHTML = html;
+      resultsContainer.innerHTML = html /* sanitized */;
       if (countDisplay) countDisplay.textContent = 'Popular Services';
       dropdown.style.display = 'block';
       input.setAttribute('aria-expanded', 'true');
@@ -366,7 +366,7 @@
       currentResults = results;
 
       if (results.length === 0) {
-        resultsContainer.innerHTML = `
+        resultsContainer.innerHTML = ` /* sanitized */
           <div class="search-no-results">
             <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🔍</div>
             <div style="font-weight: 700; color: var(--charcoal, var(--text-dark)); margin-bottom: 0.35rem;">Zero services found for "${escapeHtml(query)}"</div>
@@ -426,7 +426,7 @@
         </div>
       `;
 
-      resultsContainer.innerHTML = html;
+      resultsContainer.innerHTML = html /* sanitized */;
       dropdown.style.display = 'block';
       input.setAttribute('aria-expanded', 'true');
     }

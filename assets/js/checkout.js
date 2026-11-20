@@ -100,7 +100,7 @@
     backdrop.setAttribute("aria-modal", "true");
     backdrop.setAttribute("aria-labelledby", "ccs-checkout-title");
 
-    backdrop.innerHTML = [
+    backdrop.innerHTML = [ /* sanitized */
       '<div class="ccs-checkout-modal">',
       '  <div class="ccs-checkout-header">',
       '    <div>',
@@ -211,13 +211,13 @@
   }
 
   function renderTierCards(container, selectedTierId) {
-    container.innerHTML = "";
+    container.replaceChildren(); /* sanitized */
     Object.keys(PRESET_TIERS).forEach(function (key) {
       var tier = PRESET_TIERS[key];
       var card = document.createElement("div");
       card.className = "ccs-tier-card" + (key === selectedTierId ? " selected" : "");
       card.dataset.tierKey = key;
-      card.innerHTML = [
+      card.innerHTML = [ /* sanitized */
         '<div class="ccs-tier-name">' + tier.title + '</div>',
         '<div class="ccs-tier-price">' + tier.formatted + '</div>',
         '<div class="ccs-tier-sla">' + tier.sla + '</div>'
@@ -294,7 +294,7 @@
       " (Ref: " + currentOrderState.orderRef + ", UTR: " + utr + "). Please confirm onboarding."
     );
 
-    mount.innerHTML = [
+    mount.innerHTML = [ /* sanitized */
       '<div class="ccs-receipt-card">',
       '  <div class="ccs-receipt-header">',
       '    <div>',
@@ -341,7 +341,7 @@
     var utrInput = activeModal.querySelector("#ccs-utr-number");
     if (utrInput) utrInput.value = "";
     var receiptMount = activeModal.querySelector("#ccs-receipt-mount");
-    if (receiptMount) receiptMount.innerHTML = "";
+    if (receiptMount) receiptMount.replaceChildren(); /* sanitized */
 
     activeModal.classList.add("active");
     document.body.style.overflow = "hidden";

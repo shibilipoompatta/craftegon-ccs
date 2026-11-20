@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-20T08:44:58.114Z",
+  "buildTimestamp": "2026-11-20T08:57:14.760Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 191,
-    "totalOutputSizeBytes": 12321646,
+    "totalOutputSizeBytes": 12317294,
     "totalOutputSizeFormatted": "11.75 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
@@ -68,7 +68,7 @@
     },
     {
       "path": "anti-slop/audit-001-2026-11-20.md",
-      "bytes": 10479
+      "bytes": 6083
     },
     {
       "path": "assets/css/article-navigation.css",
@@ -148,7 +148,7 @@
     },
     {
       "path": "assets/js/calculator.js",
-      "bytes": 58133
+      "bytes": 58140
     },
     {
       "path": "assets/js/campaign-pixels.js",
@@ -156,11 +156,11 @@
     },
     {
       "path": "assets/js/chat-widget.js",
-      "bytes": 77415
+      "bytes": 77428
     },
     {
       "path": "assets/js/checkout.js",
-      "bytes": 14772
+      "bytes": 14778
     },
     {
       "path": "assets/js/config.js",
@@ -172,11 +172,11 @@
     },
     {
       "path": "assets/js/forms.js",
-      "bytes": 35203
+      "bytes": 35206
     },
     {
       "path": "assets/js/home-3d.js",
-      "bytes": 10246
+      "bytes": 10250
     },
     {
       "path": "assets/js/home-animations.js",
@@ -184,11 +184,11 @@
     },
     {
       "path": "assets/js/home-interactive.js",
-      "bytes": 21589
+      "bytes": 21593
     },
     {
       "path": "assets/js/navigation.js",
-      "bytes": 30923
+      "bytes": 30928
     },
     {
       "path": "assets/js/search-engine.js",
@@ -200,7 +200,7 @@
     },
     {
       "path": "assets/js/service-search.js",
-      "bytes": 15701
+      "bytes": 15703
     },
     {
       "path": "components/footer.html",

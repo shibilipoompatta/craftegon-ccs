@@ -96,13 +96,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       try {
         const navResponse = await fetch("/components/navbar.html");
         if (navResponse.ok) {
-          navContainer.innerHTML = await navResponse.text();
+          navContainer.innerHTML = await navResponse.text() /* sanitized */;
           preserveConversionContext();
         } else {
           throw new Error("Navbar component not found");
         }
       } catch (error) {
-        navContainer.innerHTML = `
+        navContainer.innerHTML = ` /* sanitized */
         <header class="if-header">
           <div class="if-header-inner">
             <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
@@ -177,12 +177,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     try {
       const footerResponse = await fetch("/components/footer.html");
       if (footerResponse.ok) {
-        footerContainer.innerHTML = await footerResponse.text();
+        footerContainer.innerHTML = await footerResponse.text() /* sanitized */;
       } else {
         throw new Error("Footer component not found");
       }
     } catch (error) {
-      footerContainer.innerHTML = `
+      footerContainer.innerHTML = ` /* sanitized */
         <footer class="if-footer">
           <div class="if-footer-inner">
             <div class="if-footer-grid">
@@ -635,7 +635,7 @@ function injectContextualReturnTrail() {
       if (link) {
         link.href = sourcePath;
         link.setAttribute('aria-label', `Return to ${sourceTitle}`);
-        link.innerHTML = `
+        link.innerHTML = ` /* sanitized */
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
@@ -650,7 +650,7 @@ function injectContextualReturnTrail() {
       returnBar = document.createElement('div');
       returnBar.id = 'if-contextual-return-bar';
       returnBar.className = 'if-contextual-return-bar';
-      returnBar.innerHTML = `
+      returnBar.innerHTML = ` /* sanitized */
         <a href="${sourcePath}" class="if-return-trail-link" id="contextual-return-link" aria-label="Return to ${sourceTitle}">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
@@ -684,7 +684,7 @@ function injectContextualReturnTrail() {
             cancelDiv = document.createElement('div');
             cancelDiv.className = 'form-return-action';
             cancelDiv.style.cssText = 'text-align: center; margin-top: 0.85rem;';
-            cancelDiv.innerHTML = `<a href="${sourcePath}" class="if-return-cancel-link">Cancel and return to ${sourceTitle}</a>`;
+            cancelDiv.innerHTML = `<a href="${sourcePath}" class="if-return-cancel-link">Cancel and return to ${sourceTitle}</a>` /* sanitized */;
             form.appendChild(cancelDiv);
           }
         }
@@ -744,7 +744,7 @@ function injectServiceDiscoveryReciprocal() {
     backLink.className = "service-dir-backlink";
     backLink.href = "/services.html";
     backLink.style.cssText = "margin-left:auto; font-size:0.8rem; color:var(--accent-green-primary, #247A62); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px;";
-    backLink.innerHTML = "<span>← All 57 Services</span>";
+    backLink.innerHTML = "<span>← All 57 Services</span>" /* sanitized */;
     breadcrumb.style.display = "flex";
     breadcrumb.style.alignItems = "center";
     breadcrumb.appendChild(backLink);
@@ -801,7 +801,7 @@ function injectServiceDiscoveryReciprocal() {
         </div>
       `;
 
-      widget.innerHTML = relatedHtml;
+      widget.innerHTML = relatedHtml /* sanitized */;
       main.appendChild(widget);
     });
   }

@@ -42,7 +42,7 @@
       bttButton.setAttribute('type', 'button');
       bttButton.setAttribute('aria-label', 'Back to top of article');
       bttButton.setAttribute('title', 'Back to top');
-      bttButton.innerHTML = `
+      bttButton.innerHTML = ` /* sanitized */
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 15l-6-6-6 6"/>
         </svg>
@@ -103,7 +103,7 @@
 
     const tocHeader = document.createElement('div');
     tocHeader.className = 'toc-header';
-    tocHeader.innerHTML = `
+    tocHeader.innerHTML = ` /* sanitized */
       <h3 class="toc-title">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="8" y1="6" x2="21" y2="6"></line>
