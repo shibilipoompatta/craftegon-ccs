@@ -118,6 +118,66 @@ function cleanPortalLinks(raw) {
 const ssgNavbar = cleanPortalLinks(rawNavbar);
 const ssgFooter = cleanPortalLinks(rawFooter);
 
+
+/**
+ * Remove unapproved commercial prices from the public artifact.
+ * Source HTML remains intact for internal review; public output uses enquiry CTAs
+ * until the business owner records formal approval in the commercial register.
+ */
+function sanitizePublicCommercialPricing(html, relPath) {
+  let maskedElements = 0;
+  let strippedStructuredData = 0;
+
+  html = html.replace(/<(span|div)\b(?=[^>]*\bclass=(["'])[^"']*\b(?:fasttrack-price|sublink-tag|if-pricing-price)\b[^"']*\2)[^>]*>([\s\S]*?)<\/\1>/gi,
+    (match, tag, quote, inner) => {
+      const isExplicitPriceCard = /\bclass=(["'])[^"']*\bif-pricing-price\b[^"']*\1/i.test(match.slice(0, match.indexOf('>') + 1));
+      const containsCurrencyAmount = /₹|\bINR\s*[\d,]+|[\d,]+(?:\.\d{1,2})?\s*INR/i.test(inner);
+      if (!isExplicitPriceCard && !containsCurrencyAmount) return match;
+
+      maskedElements++;
+      const openingTag = match.slice(0, match.indexOf('>') + 1);
+      return openingTag + 'Request quote</' + tag + '>';
+    }
+  );
+
+  html = html.replace(
+    /(<script\b(?=[^>]*\btype=["']application\/ld\+json["'])[^>]*>)([\s\S]*?)(<\/script>)/gi,
+    (match, opening, jsonText, closing) => {
+      let data;
+      try {
+        data = JSON.parse(jsonText);
+      } catch (error) {
+        throw new Error('Cannot safely sanitize malformed JSON-LD in ' + relPath + ': ' + error.message);
+      }
+
+      let removed = 0;
+      function stripCommercialOfferData(value) {
+        if (Array.isArray(value)) {
+          value.forEach(stripCommercialOfferData);
+          return;
+        }
+        if (!value || typeof value !== 'object') return;
+
+        for (const key of Object.keys(value)) {
+          if (key === 'offers' || key === 'hasOfferCatalog' || key === 'price' || key === 'priceCurrency') {
+            delete value[key];
+            removed++;
+          } else {
+            stripCommercialOfferData(value[key]);
+          }
+        }
+      }
+
+      stripCommercialOfferData(data);
+      if (!removed) return match;
+      strippedStructuredData += removed;
+      return opening + JSON.stringify(data, null, 2) + closing;
+    }
+  );
+
+  return { html, maskedElements, strippedStructuredData };
+}
+
 function minifyCSS(css) {
   return css
     .replace(/\/\*[\s\S]*?\*\//g, '')
@@ -156,6 +216,8 @@ function minifyJS(js) {
 const includedFiles = [];
 let sanitizedLinksCount = 0;
 let preRenderedPagesCount = 0;
+let sanitizedCommercialPriceElementsCount = 0;
+let sanitizedCommercialStructuredDataCount = 0;
 
 function copyAndSanitize(srcDir, destDir, currentRel = '') {
   if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
@@ -239,6 +301,12 @@ function copyAndSanitize(srcDir, destDir, currentRel = '') {
             sanitizedLinksCount++;
             return 'href="/404.html"';
           });
+          // Mask hard-coded, unapproved service prices in the public artifact.
+          // Statutory amounts in explanatory content are intentionally preserved.
+          const commercialPricing = sanitizePublicCommercialPricing(text, relPosix);
+          text = commercialPricing.html;
+          sanitizedCommercialPriceElementsCount += commercialPricing.maskedElements;
+          sanitizedCommercialStructuredDataCount += commercialPricing.strippedStructuredData;
         }
 
         // JS Processing: Sanitize residual portal links & Minify
@@ -289,6 +357,7 @@ function copyAndSanitize(srcDir, destDir, currentRel = '') {
 
 // Execute File Assembly
 copyAndSanitize(ROOT, DIST);
+console.log('Masked ' + sanitizedCommercialPriceElementsCount + ' unapproved commercial price elements and removed ' + sanitizedCommercialStructuredDataCount + ' structured-data price/offer fields from the public artifact.');
 
 // 4. Generate Hardened Edge Routing Configuration (_redirects)
 const publicRedirects = `# ==============================================================================

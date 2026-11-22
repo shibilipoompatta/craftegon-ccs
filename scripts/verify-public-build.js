@@ -150,12 +150,50 @@ console.log('\n--- Test Suite 5: Link Integrity & Zero Portal Links in Public Bu
 let residualPortalLinks = 0;
 let residualAdminLinks = 0;
 let brokenLinksCount = 0;
+let commercialPriceLeaks = 0;
+let structuredPricingLeaks = 0;
+let invalidJsonLdBlocks = 0;
 
 const linkRegex = /href=["'](\/[^"'#?]*)/g;
 
 for (const file of htmlFiles) {
   const content = fs.readFileSync(file, 'utf8');
   const rel = path.relative(DIST, file).replace(/\\/g, '/');
+
+
+  // Verify unapproved commercial prices are absent from the public HTML.
+  const controlledPriceMarkup = /<(span|div)\b[^>]*\bclass=["'][^"']*\b(?:fasttrack-price|sublink-tag|if-pricing-price)\b[^"']*["'][^>]*>([\s\S]*?)<\/\1>/gi;
+  let priceMatch;
+  while ((priceMatch = controlledPriceMarkup.exec(content)) !== null) {
+    if (/₹|\bINR\s*[\d,]+|[\d,]+(?:\.\d{1,2})?\s*INR/i.test(priceMatch[2])) {
+      console.error('  Unapproved price remains in public markup: ' + rel);
+      commercialPriceLeaks++;
+    }
+  }
+
+  // Structured data must not publish Offer prices or price-bearing catalogs.
+  const jsonLdBlocks = content.match(/<script\b(?=[^>]*\btype=["']application\/ld\+json["'])[^>]*>[\s\S]*?<\/script>/gi) || [];
+  for (const block of jsonLdBlocks) {
+    const jsonText = block.replace(/^<script\b[^>]*>/i, '').replace(/<\/script>$/i, '');
+    try {
+      const data = JSON.parse(jsonText);
+      function hasCommercialOfferData(value) {
+        if (Array.isArray(value)) return value.some(hasCommercialOfferData);
+        if (!value || typeof value !== 'object') return false;
+        return Object.entries(value).some(([key, child]) =>
+          key === 'offers' || key === 'hasOfferCatalog' || key === 'price' || key === 'priceCurrency' ||
+          hasCommercialOfferData(child)
+        );
+      }
+      if (hasCommercialOfferData(data)) {
+        console.error('  Unapproved price/offer metadata remains in public structured data: ' + rel);
+        structuredPricingLeaks++;
+      }
+    } catch (error) {
+      console.error('  Invalid JSON-LD in public page: ' + rel);
+      invalidJsonLdBlocks++;
+    }
+  }
 
   // Check for residual portal / admin links
   if (/href=["']\/(?:portal|admin)[\/"']/i.test(content)) {
@@ -189,6 +227,9 @@ for (const file of htmlFiles) {
 
 assert(residualPortalLinks === 0, 'Zero residual portal links across all public HTML pages');
 assert(brokenLinksCount === 0, 'Zero broken internal links across public distribution build');
+assert(commercialPriceLeaks === 0, 'Zero unapproved commercial price amounts in public service/navigation markup');
+assert(structuredPricingLeaks === 0, 'Zero unapproved Offer/price metadata in public structured data');
+assert(invalidJsonLdBlocks === 0, 'All public JSON-LD blocks remain valid after pricing sanitization');
 
 console.log('\n================================================================');
 console.log(`TOTAL PUBLIC BUILD TESTS: ${totalTests} | PASSED: ${passedTests} | FAILED: ${failedTests}`);
