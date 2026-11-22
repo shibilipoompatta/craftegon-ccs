@@ -3279,21 +3279,21 @@
 }
 
 .flagship-card:hover {
-  transform: translateY(-4px);
-  border-color: #0F766E;
-  box-shadow: 0 20px 35px -8px rgba(15, 23, 42, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--accent-green-primary, #247A62);
+  box-shadow: 0 4px 14px rgba(25, 59, 70, 0.08);
 }
 
 /* Featured Premier Tier (Private Limited) */
 .flagship-card-featured {
-  border: 2px solid #0F766E;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8FCF9 100%);
-  box-shadow: 0 8px 30px -4px rgba(15, 118, 110, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1.5px solid var(--accent-green-primary, #247A62);
+  background: #FFFFFF;
+  box-shadow: 0 4px 16px -2px rgba(36, 122, 98, 0.1);
 }
 
 .flagship-card-featured:hover {
-  border-color: #0D655E;
-  box-shadow: 0 22px 42px -6px rgba(15, 118, 110, 0.22);
+  border-color: var(--brand-gold-hover, #1B5E4B);
+  box-shadow: 0 6px 20px -2px rgba(36, 122, 98, 0.16);
 }
 
 .flagship-featured-badge {
@@ -3901,9 +3901,20 @@ a, button, input, select, textarea,
   box-shadow: 0 8px 24px rgba(36, 122, 98, 0.12);
 }
 .channel-icon {
-  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--surface-mint-soft, #DDF5EA);
+  color: var(--accent-green-primary, #247A62);
   flex-shrink: 0;
-  line-height: 1;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.channel-card:hover .channel-icon {
+  background: var(--accent-green-primary, #247A62);
+  color: #FFFFFF;
 }
 .channel-text {
   display: flex;

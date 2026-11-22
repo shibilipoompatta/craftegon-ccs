@@ -48,7 +48,7 @@
     var rec = {
       title: "Private Limited Company (SPICe+)",
       tag: "Companies Act 2013",
-      badge: "🎯 100% STATUTORY FIT • EQUITY FINANCING READY",
+      badge: "100% STATUTORY FIT • EQUITY FINANCING READY",
       desc: "India's standard corporate vehicle for high-growth ventures. Required by institutional angels and venture capital funds to issue preference shares, convertible debt, and employee stock option pools (ESOPs).",
       price: "From ₹7,499",
       sub: "+ Govt Fees & Stamp Duty",
@@ -65,7 +65,7 @@
       rec = {
         title: "Section 8 Non-Profit Company",
         tag: "Companies Act 2013",
-        badge: "🎯 100% STATUTORY FIT • NON-PROFIT ENTITY",
+        badge: "100% STATUTORY FIT • NON-PROFIT ENTITY",
         desc: "The gold standard for charitable foundations, NGOs, and CSR implementation agencies. Unlocks Central Govt Section 8 License, Section 12AB tax exemption, and Section 80G donor deductions.",
         price: "From ₹18,999",
         sub: "+ Govt Fees & Stamp Duty",
@@ -80,7 +80,7 @@
       rec = {
         title: "Private Limited Company (SPICe+)",
         tag: "Companies Act 2013",
-        badge: "🎯 100% STATUTORY FIT • EQUITY FINANCING READY",
+        badge: "100% STATUTORY FIT • EQUITY FINANCING READY",
         desc: "India's standard corporate vehicle for high-growth ventures. Required by institutional angels and venture capital funds to issue preference shares, convertible debt, and employee stock option pools (ESOPs).",
         price: "From ₹7,499",
         sub: "+ Govt Fees & Stamp Duty",
@@ -98,7 +98,7 @@
         rec = {
           title: "One Person Company (OPC)",
           tag: "Section 2(62) Companies Act",
-          badge: "🎯 100% STATUTORY FIT • 100% SOLO CONTROL",
+          badge: "100% STATUTORY FIT • 100% SOLO CONTROL",
           desc: "Full corporate veil and limited liability ring-fencing with 100% single-member equity control. Exempt from holding mandatory annual general meetings (AGMs).",
           price: "From ₹5,999",
           sub: "+ Govt Fees & Stamp Duty",
@@ -113,7 +113,7 @@
         rec = {
           title: "Sole Proprietorship Registration",
           tag: "MSMED Act & GSTN Network",
-          badge: "🎯 100% STATUTORY FIT • ZERO-COMPLIANCE FAST LAUNCH",
+          badge: "100% STATUTORY FIT • ZERO-COMPLIANCE FAST LAUNCH",
           desc: "The fastest, most cost-effective path to launch a solo consultancy, agency, or retail operation. Zero MCA compliance, instant current account readiness, and MSME Udyam protection.",
           price: "₹2,999",
           sub: "All Inclusive Advisory Fee",
@@ -131,7 +131,7 @@
         rec = {
           title: "Limited Liability Partnership (LLP)",
           tag: "LLP Act 2008",
-          badge: "🎯 100% STATUTORY FIT • AUDIT-EXEMPT PARTNERSHIP",
+          badge: "100% STATUTORY FIT • AUDIT-EXEMPT PARTNERSHIP",
           desc: "The optimal hybrid structure for professional firms, consultancies, and profitable joint ventures. Partners enjoy limited liability without mandatory statutory audits up to ₹40 Lakhs turnover.",
           price: "From ₹5,999",
           sub: "+ Govt Fees & Stamp Duty",
@@ -147,7 +147,7 @@
         rec = {
           title: "Private Limited Company (SPICe+)",
           tag: "Companies Act 2013",
-          badge: "🎯 100% STATUTORY FIT • CORPORATE ENTERPRISE",
+          badge: "100% STATUTORY FIT • CORPORATE ENTERPRISE",
           desc: "India's standard corporate vehicle for institutional credibility, multi-founder equity split, and structured board governance with statutory audits.",
           price: "From ₹7,499",
           sub: "+ Govt Fees & Stamp Duty",
