@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node scripts/build-public.js",
     "test:build": "node scripts/verify-public-build.js && node scripts/test-foundation-guardrails.js --built",
-    "test": "node scripts/test-foundation-guardrails.js && node scripts/verify-links.js && node scripts/check-orphans.js && node scripts/audit-seo.js && npm run test:schemas && node scripts/test-search-engine.js && node scripts/test-round-3-utilities.js && node scripts/test-chat-engine.js && node scripts/test-trademark-search.js && node scripts/test-phase-1-remediation.js && node scripts/test-phase-1-form-fallback.js && node scripts/test-phase-1-routing.js && node scripts/validate-phase-2-registry.js && node scripts/test-service-search.js && node scripts/audit-all-navigation-trails.js && node -c assets/js/config.js assets/js/attribution.js assets/js/campaign-pixels.js assets/js/checkout.js assets/js/navigation.js assets/js/forms.js assets/js/calculator.js assets/js/chat-widget.js assets/js/search-index.js assets/js/service-search.js admin/admin.js && node -c assets/js/chat-widget.js && node -c assets/js/search-engine.js && node -c assets/js/entity-intelligence.js && npm run test:pricing-review && npm run test:packages",
+    "test": "node scripts/test-foundation-guardrails.js && node scripts/verify-links.js && node scripts/check-orphans.js && node scripts/audit-seo.js && npm run test:schemas && node scripts/test-search-engine.js && node scripts/test-round-3-utilities.js && node scripts/test-chat-engine.js && node scripts/test-trademark-search.js && node scripts/test-phase-1-remediation.js && node scripts/test-phase-1-form-fallback.js && node scripts/test-phase-1-routing.js && node scripts/validate-phase-2-registry.js && node scripts/test-service-search.js && node scripts/audit-all-navigation-trails.js && node -c assets/js/config.js assets/js/attribution.js assets/js/campaign-pixels.js assets/js/checkout.js assets/js/navigation.js assets/js/forms.js assets/js/calculator.js assets/js/chat-widget.js assets/js/search-index.js assets/js/service-search.js admin/admin.js && node -c assets/js/chat-widget.js && node -c assets/js/search-engine.js && node -c assets/js/entity-intelligence.js && npm run test:pricing-review && npm run test:packages && npm run test:package-pilot",
     "test:links": "node scripts/verify-links.js",
     "test:orphans": "node scripts/check-orphans.js",
     "test:seo": "node scripts/audit-seo.js",
@@ -39,7 +39,8 @@
     "review:pricing": "node scripts/generate-phase-2-commercial-review.js",
     "test:pricing-review": "node scripts/test-phase-2-commercial-review.js",
     "review:packages": "node scripts/generate-phase-2-service-packages.js",
-    "test:packages": "node scripts/test-phase-2-service-packages.js"
+    "test:packages": "node scripts/test-phase-2-service-packages.js",
+    "test:package-pilot": "node scripts/test-phase-2-package-pilot.js"
   },
   "keywords": [
     "craftegon",
