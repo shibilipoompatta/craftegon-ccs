@@ -36,7 +36,7 @@ for (const s of active) {
   if (!s.service_id || seen.has(s.service_id)) throw new Error('Missing or duplicate active service_id: ' + s.service_id);
   seen.add(s.service_id);
   const p = pricingByService.get(s.service_id);
-  if (!p || p.canonical_route !== s.canonical_route || p.service_name !== s.service_name) {
+  if (!p || p.canonical_route !== s.canonical_route) {
     throw new Error('Pricing/service registry mismatch for ' + s.service_id);
   }
   if (p.commercial_approval_state !== 'PENDING_COMMERCIAL_APPROVAL' ||
@@ -47,7 +47,7 @@ for (const s of active) {
 if (pricingByService.size !== active.length) throw new Error('Pricing records do not map one-to-one to active services');
 
 const headers = [
-  'Service ID', 'Service Name', 'Canonical Route', 'Vertical ID',
+  'Service ID', 'Canonical Service Name', 'Pricing Record Service Name (Evidence Only)', 'Canonical Route', 'Vertical ID',
   'Existing Package Label (Evidence Only)', 'Historical Website Deliverables (Evidence Only)',
   'Historical Website Exclusions (Evidence Only)', 'Historical Pricing Basis (Evidence Only)',
   'Historical Fee Amount (INR; Not Approved)', 'Historical Website Price Wording (Evidence Only)',
@@ -65,7 +65,7 @@ const rows = [headers.map(csv).join(',')];
 for (const s of active) {
   const p = pricingByService.get(s.service_id);
   rows.push([
-    s.service_id, s.service_name, s.canonical_route, s.primary_vertical_id,
+    s.service_id, s.service_name, p.service_name, s.canonical_route, s.primary_vertical_id,
     p.package_title, p.included_charges, p.excluded_charges, p.pricing_basis,
     p.amount, p.website_displayed_price, p.tax_inclusion_status, s.scope_boundary,
     'PENDING_OWNER_REVIEW', '', '', '', '', '', '', '', '', '',
