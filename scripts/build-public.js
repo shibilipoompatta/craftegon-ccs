@@ -128,20 +128,15 @@ function sanitizePublicCommercialPricing(html, relPath) {
   let maskedElements = 0;
   let strippedStructuredData = 0;
 
-  html = html.replace(/<(span|div)\b([^>]*\bclass=(["'])([^"']*)\3[^>]*)>([\s\S]*?)<\/\1>/gi,
-    (match, tag, attrs, quote, classNames, inner) => {
-      const tokens = classNames.split(/\s+/);
-      const controlledPriceElement = tokens.some(token =>
-        token === 'fasttrack-price' || token === 'sublink-tag' || token === 'if-pricing-price'
-      );
-      if (!controlledPriceElement) return match;
-
-      const isExplicitPriceCard = tokens.includes('if-pricing-price');
+  html = html.replace(/<(span|div)\b(?=[^>]*\bclass=(["'])[^"']*\b(?:fasttrack-price|sublink-tag|if-pricing-price)\b[^"']*\2)[^>]*>([\s\S]*?)<\/\1>/gi,
+    (match, tag, quote, inner) => {
+      const isExplicitPriceCard = /\bclass=(["'])[^"']*\bif-pricing-price\b[^"']*\1/i.test(match.slice(0, match.indexOf('>') + 1));
       const containsCurrencyAmount = /₹|\bINR\s*[\d,]+|[\d,]+(?:\.\d{1,2})?\s*INR/i.test(inner);
       if (!isExplicitPriceCard && !containsCurrencyAmount) return match;
 
       maskedElements++;
-      return '<' + tag + attrs + '>Request quote</' + tag + '>';
+      const openingTag = match.slice(0, match.indexOf('>') + 1);
+      return openingTag + 'Request quote</' + tag + '>';
     }
   );
 
