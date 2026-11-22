@@ -200,3 +200,156 @@ header h1,
     padding: 1.2rem;
   }
 }
+
+
+/* ==========================================================================
+   STAGE 3: ARCHETYPE & CATEGORY PILLAR INTEGRATION STYLES
+   ========================================================================== */
+
+.vertical-meta-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.archetype-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: var(--surface-mint-soft, #DDF5EA);
+  color: var(--accent-green-primary, #247A62);
+  border: 1px solid rgba(36, 122, 98, 0.25);
+}
+
+.archetype-pill.advisory {
+  background: #EBF5FB;
+  color: #196F97;
+  border-color: rgba(40, 125, 168, 0.25);
+}
+
+.archetype-pill.infrastructure {
+  background: #F4EFFC;
+  color: #5B2C6F;
+  border-color: rgba(91, 44, 111, 0.25);
+}
+
+.parent-pillar-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary, #52717A);
+  background: #FFFFFF;
+  border: 1px solid var(--border-color, #DCE8E5);
+  border-radius: 6px;
+  padding: 0.3rem 0.75rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.parent-pillar-pill:hover {
+  border-color: var(--accent-green-primary, #247A62);
+  color: var(--navy-900, #10262E);
+  background: var(--surface-mint-soft, #DDF5EA);
+}
+
+/* Category Bridge Banner in Directory */
+.category-bridge-banner {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color, #DCE8E5);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 12px rgba(16, 38, 46, 0.03);
+}
+
+.category-bridge-content h3 {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy-900, #10262E);
+  margin: 0 0 0.35rem;
+}
+
+.category-bridge-content p {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #52717A);
+  margin: 0;
+}
+
+.category-bridge-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-bridge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy-900, #10262E);
+  background: var(--surface-mint-soft, #DDF5EA);
+  border: 1px solid rgba(36, 122, 98, 0.2);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.category-bridge-pill:hover {
+  background: var(--accent-green-primary, #247A62);
+  color: #FFFFFF;
+}
+
+/* Archetype Section Headers in Directory */
+.archetype-section {
+  margin-bottom: 3.5rem;
+}
+
+.archetype-section-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-color, #DCE8E5);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.archetype-header-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.archetype-section-title {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--navy-900, #10262E);
+  margin: 0;
+}
+
+.archetype-section-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #52717A);
+  margin: 0;
+}
