@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-22T16:05:52.991Z",
+  "buildTimestamp": "2026-11-22T17:15:24.287Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,13 +10,13 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 200,
-    "totalOutputSizeBytes": 12480648,
-    "totalOutputSizeFormatted": "11.90 MB",
+    "totalFilesIncluded": 203,
+    "totalOutputSizeBytes": 12535507,
+    "totalOutputSizeFormatted": "11.95 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
     "filesByExtension": {
-      ".html": 149,
+      ".html": 151,
       ".md": 2,
       ".css": 11,
       ".png": 4,
@@ -24,6 +24,7 @@
       ".bak": 1,
       ".js": 18,
       ".json": 10,
+      ".sql": 1,
       "config": 2,
       ".txt": 1,
       ".xml": 1
@@ -165,7 +166,7 @@
     },
     {
       "path": "assets/js/config.js",
-      "bytes": 6206
+      "bytes": 7225
     },
     {
       "path": "assets/js/entity-intelligence.js",
@@ -237,7 +238,7 @@
     },
     {
       "path": "components/footer.html",
-      "bytes": 12019
+      "bytes": 12304
     },
     {
       "path": "components/navbar.html",
@@ -357,7 +358,7 @@
     },
     {
       "path": "data/search-index.json",
-      "bytes": 89553
+      "bytes": 89549
     },
     {
       "path": "data/service-registry.json",
@@ -377,11 +378,11 @@
     },
     {
       "path": "functions/api/v1/enquiries.js",
-      "bytes": 4565
+      "bytes": 7585
     },
     {
       "path": "index.html",
-      "bytes": 149267
+      "bytes": 149904
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
@@ -525,7 +526,7 @@
     },
     {
       "path": "legal/disclaimer.html",
-      "bytes": 62618
+      "bytes": 65658
     },
     {
       "path": "legal/privacy.html",
@@ -537,7 +538,19 @@
     },
     {
       "path": "legal/terms.html",
-      "bytes": 64458
+      "bytes": 67427
+    },
+    {
+      "path": "locations/kozhikode-corporate-services.html",
+      "bytes": 18892
+    },
+    {
+      "path": "locations/malappuram-nri-business-desk.html",
+      "bytes": 19173
+    },
+    {
+      "path": "schema/d1-compliance-schema.sql",
+      "bytes": 5828
     },
     {
       "path": "search/index.html",

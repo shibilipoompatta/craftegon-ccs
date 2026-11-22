@@ -166,12 +166,27 @@
     apiEndpoint: "/api/v1/enquiries",
     apiBaseUrl: "",
 
-    // Quick-action prefilled inquiry generator
+    // Quick-action prefilled inquiry generator with pilot triage routing
     getWhatsAppUrl: function (topic) {
-      const text = topic
-        ? encodeURIComponent(`Hello CraftEgon Compliance Desk, I would like to consult on: ${topic}.`)
-        : encodeURIComponent("Hello CraftEgon Compliance Desk, I would like to consult on corporate compliance services.");
-      return `${this.whatsappUrl}?text=${text}`;
+      if (!topic) {
+        return `${this.whatsappUrl}?text=${encodeURIComponent("Hello CraftEgon Compliance Desk, I would like to consult on corporate compliance services.")}`;
+      }
+      const lower = String(topic).toLowerCase();
+      let msg = `Hello CraftEgon Compliance Desk, I would like to consult on: ${topic}.`;
+
+      if (lower.includes("pvt") || lower.includes("private limited")) {
+        msg = "Hi CraftEgon CCS, I want to incorporate a Private Limited Company. Please share the SPICe+ checklist and onboarding steps.";
+      } else if (lower.includes("llp") || lower.includes("limited liability")) {
+        msg = "Hi CraftEgon CCS, I want to register an LLP. Please guide me on the FiLLiP requirements.";
+      } else if (lower.includes("trademark") || lower.includes("tm-a") || lower.includes("ipr")) {
+        msg = "Hi CraftEgon CCS, I want to file a Trademark application (TM-A). Please conduct a preliminary clearance check for my brand.";
+      } else if (lower.includes("udyam") || lower.includes("msme")) {
+        msg = "Hi CraftEgon CCS, I need assisted MSME Udyam registration for my business.";
+      } else if (lower.includes("roc") || lower.includes("annual") || lower.includes("aoc-4")) {
+        msg = "Hi CraftEgon CCS, I need annual RoC secretarial compliance and corporate filing support.";
+      }
+
+      return `${this.whatsappUrl}?text=${encodeURIComponent(msg)}`;
     },
 
     getEmailUrl: function (subject) {
