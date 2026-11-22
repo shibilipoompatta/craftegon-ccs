@@ -134,8 +134,9 @@
     liveUrl: "https://ccs.craftegon.com",
 
     // Paid Campaign Tracking & Conversion Pixels
+    // Disabled until real vendor IDs and a verified consent-management gate are configured.
     advertising: {
-      enabled: true,
+      enabled: false,
       googleAdsId: "AW-11500000000",
       metaPixelId: "1234567890123456",
       linkedInPartnerId: "1234567",
