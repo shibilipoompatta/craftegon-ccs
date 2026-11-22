@@ -172,6 +172,7 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   // Trigger retry submission to confirm handler remains active
   form2.dispatchEvent(new win2.Event('submit', { bubbles: true, cancelable: true }));
   await new Promise(r => setTimeout(r, 80));
+  console.log('DEBUG 404 retry', { fetchCalls2, submitting: form2.dataset.submitting, submitted: form2.dataset.submitted, staticFallback: form2.dataset.staticFallback });
   assert(fetchCalls2 === 2, 'Subsequent submission retry invokes normal online submission handler (fetch called twice)');
 
   // ----------------------------------------------------
@@ -469,17 +470,20 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   // Attempt 1: First failure
   form6.dispatchEvent(new win6.Event('submit', { bubbles: true, cancelable: true }));
   await new Promise(r => setTimeout(r, 80));
+  console.log('DEBUG form6 first', { submitting: form6.dataset.submitting, submitted: form6.dataset.submitted, staticFallback: form6.dataset.staticFallback });
   assert(form6.querySelectorAll('.if-form-alert').length === 1, 'Single alert present after first failure');
 
   // Attempt 2: Repeated failure (must not stack alerts)
   form6.dispatchEvent(new win6.Event('submit', { bubbles: true, cancelable: true }));
   await new Promise(r => setTimeout(r, 80));
+  console.log('DEBUG form6 second', { submitting: form6.dataset.submitting, submitted: form6.dataset.submitted, staticFallback: form6.dataset.staticFallback });
   assert(form6.querySelectorAll('.if-form-alert').length === 1, 'Repeated failure does NOT accumulate duplicate alerts (found exactly 1)');
 
   // Attempt 3: Subsequent confirmed success (must replace failure alert with single success alert)
   shouldFail = false;
   form6.dispatchEvent(new win6.Event('submit', { bubbles: true, cancelable: true }));
   await new Promise(r => setTimeout(r, 80));
+  console.log('DEBUG form6 success', { submitting: form6.dataset.submitting, submitted: form6.dataset.submitted, staticFallback: form6.dataset.staticFallback });
 
   const alertsAfterSuccess = form6.querySelectorAll('.if-form-alert');
   assert(alertsAfterSuccess.length === 1, 'Transition from failure to success leaves exactly 1 alert box');
