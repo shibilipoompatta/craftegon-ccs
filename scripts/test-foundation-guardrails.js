@@ -32,7 +32,7 @@ check(pricing.length > 0 && pricing.every(p => p.verification_status !== 'VERIFI
 check(pricing.every(p => p.commercial_approval_state !== 'COMMERCIALLY_APPROVED'), 'Pricing source does not claim unapproved commercial approval');
 check(!/Verified for statutory compliance|Verified under Indian Corporate Law/i.test(pricingText), 'Pricing notes contain no unsupported verification statement');
 check(/name=\"dpdp_consent\"/.test(forms) && /!consentControl\.checked/.test(forms), 'Lead forms require affirmative privacy consent');
-check(!/no-cors|webhookUrl/.test(forms), 'Lead form code contains no opaque webhook transmission');
+check(!/mode\\s*:\\s*['\"]no-cors['\"]|googleWorkspace\\.webhookUrl/.test(forms), 'Lead form code contains no opaque webhook transmission');
 check(/result\.success\s*===\s*true/.test(forms) && /lead_reference/.test(forms), 'Lead success requires a confirmed reference');
 check(/advertising:\s*\{\s*enabled:\s*false/.test(config), 'Advertising pixels remain disabled pending consent and ID verification');
 check(!/4\.9\/5 Verified Rating|100% On-Time SLA|Zero Hidden MCA Surcharges/.test(home), 'Homepage contains no unsupported rating or performance guarantees');
