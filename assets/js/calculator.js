@@ -1226,7 +1226,7 @@ function generateStatutoryMemo() {
     if (govNotesEl) {
       govNotesEl.innerHTML = '<ul style="margin: 0; padding-left: 1.25rem; line-height: 1.65;">' + /* sanitized */
         '<li><strong>Section 403 Daily Late Fee Exposure:</strong> Statutory late filing fees compound daily at ₹100/day for each overdue form (AOC-4 and MGT-7). Immediate e-filing halts further financial leakage.</li>' +
-        '<li><strong>Section 164(2) Director Disqualification:</strong> Directors face immediate disqualification for 5 years if annual accounts or returns are not filed for three consecutive financial years.</li>' +
+        '<li><strong>Section 164(2) Director Disqualification:</strong> Non-filing of annual financial statements or annual returns for three consecutive financial years may trigger director disqualification consequences under Section 164(2), subject to statutory conditions and exceptions.</li>' +
         '<li><strong>Section 454 Adjudication Risk:</strong> RoC issues Section 454 show-cause notices for defaults exceeding 90 days, exposing company and officers to direct monetary penalties up to ₹5,00,000.</li>' +
         '<li><strong>Regularization Roadmap:</strong> Immediate audit closure, DIN activation, and e-filing under certified PCS supervision recommended.</li>' +
         '</ul>';
