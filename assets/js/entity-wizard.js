@@ -173,7 +173,10 @@
     if (h3El) h3El.textContent = rec.h3;
     if (ctaEl) {
       ctaEl.href = rec.url;
-      ctaEl.innerHTML = '<span>' + rec.ctaText + '</span>';
+      while (ctaEl.firstChild) ctaEl.removeChild(ctaEl.firstChild);
+      var span = document.createElement('span');
+      span.textContent = rec.ctaText;
+      ctaEl.appendChild(span);
     }
     if (waEl) {
       waEl.href = "https://wa.me/918606918247?text=" + encodeURIComponent(rec.waMsg);
