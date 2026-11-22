@@ -31,6 +31,8 @@ const privacy = read('legal/privacy.html');
 const about = read('about.html');
 
 check(build.includes("'data/pricing.json'"), 'Unapproved pricing source is excluded from public build');
+check(build.includes('sanitizePublicCommercialPricing') && build.includes('Request quote'), 'Public build masks hard-coded unapproved service prices');
+check(verify.includes('Zero unapproved commercial price amounts') && verify.includes('Zero unapproved Offer/price metadata'), 'Public build verifier enforces commercial pricing leakage checks');
 check(!/item\.verification_status\s*=\s*['"]VERIFIED['"]/.test(build), 'Build does not rewrite verification status');
 check(!/item\.commercial_approval_state\s*=\s*['"]COMMERCIALLY_APPROVED['"]/.test(build), 'Build does not invent commercial approval');
 check(verify.includes("'data/pricing.json'"), 'Public build verifier explicitly forbids pricing source file');
