@@ -26,9 +26,15 @@
 
   /* --- Accents & Interactive Controls --- */
   --accent-green-primary: #247A62;   /* Primary Dark Green Accent (Buttons, Active) - 5.4:1 on White */
+  --accent-emerald: #247A62;         /* Canonical Emerald Accent */
+  --accent-emerald-hover: #1B5E4B;   /* Deep Emerald Hover */
   --accent-blue-secondary: #287DA8;  /* Secondary Ocean Blue Accent - 4.8:1 on White */
+  --accent-ocean: #287DA8;           /* Canonical Secondary Ocean Blue */
   --accent-mint-vibrant: #75CDA9;    /* Mid Mint Accent */
   --accent-sky-vibrant: #79C5E8;     /* Mid Sky Accent */
+  --surface-canvas: #F4FAF7;         /* Canonical Soft Canvas Surface */
+  --border-hairline: #DCE8E5;        /* Canonical Hairline Architectural Border */
+  --measure-prose: 68ch;             /* Ergonomic reading width constraint */
 
   /* --- Deep Corporate Navy / Teal Scale --- */
   --navy-900: #10262E;               /* Deepest Teal Charcoal */
@@ -113,6 +119,16 @@
   --text-fluid-xl: clamp(1.35rem, 1.2rem + 0.75vw, 1.75rem);     /* 21.6px -> 28px */
   --text-fluid-2xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);     /* 28px -> 40px */
   --text-fluid-3xl: clamp(2.25rem, 1.8rem + 2.25vw, 3.5rem);     /* 36px -> 56px */
+
+  /* Semantic Fluid Headings & Prose Measure (Design System Spec) */
+  --text-display: clamp(2.5rem, 5vw, 3.75rem);   /* Hero Display Titles */
+  --text-h1:      clamp(2.0rem, 3.8vw, 2.75rem);  /* Page Main Headings */
+  --text-h2:      clamp(1.5rem, 2.6vw, 2.0rem);   /* Major Section Titles */
+  --text-h3:      clamp(1.2rem, 1.8vw, 1.5rem);   /* Subsection & Feature Titles */
+  --text-h4:      clamp(1.05rem, 1.4vw, 1.25rem); /* Card Titles & Modal Headers */
+  --text-body:    clamp(0.95rem, 1.1vw, 1.05rem); /* Standard Prose Body */
+  --text-small:   0.875rem;                       /* Metadata, Captions, Labels */
+  --text-micro:   0.75rem;                        /* Uppercase Tags & Eyebrows */
 
   /* Tabular Figures for High-Precision Financials */
   --font-tabular: 'DM Mono', monospace;

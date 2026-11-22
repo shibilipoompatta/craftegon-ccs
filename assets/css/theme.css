@@ -152,7 +152,8 @@ a:hover {
   margin: 0;
 }
 
-/* 4. Buttons & Interactive Controls */
+/* 4. Canonical Button System (Design System Standard)
+   Consolidates 79 fragmented classes into 4 canonical variants with full backward compatibility */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -161,25 +162,54 @@ a:hover {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.95rem;
-  line-height: 1.2;
-  padding: 0.8rem 1.6rem;
-  border-radius: var(--radius-md, 8px);
+  line-height: 1.25;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm, 6px);
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
   border: 1.5px solid transparent;
   white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .btn:hover {
   text-decoration: none;
 }
 
-/* Primary Button: Forest Emerald Accent (#247A62) with White Text */
+.btn:focus-visible {
+  outline: 2px solid var(--accent-green-primary, #247A62);
+  outline-offset: 2px;
+}
+
+/* Button Sizing */
+.btn-sm {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm, 6px);
+}
+
+.btn-md {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+.btn-lg {
+  padding: 0.95rem 2rem;
+  font-size: 1.05rem;
+}
+
+/* Canonical Variant 1: Primary Action Button (Forest Emerald Accent #247A62 with White Text) */
 .btn-primary,
+.btn-hero-primary,
 .btn-navy,
 .btn-sovereign-gold,
-.if-btn-primary {
+.if-btn-primary,
+.wizard-btn-primary,
+.flagship-btn-featured,
+.hero-cta-primary,
+.conv-submit-btn,
+.calc-btn-primary {
   background-color: var(--accent-green-primary, #247A62) !important;
   color: #FFFFFF !important;
   border-color: var(--accent-green-primary, #247A62) !important;
@@ -187,9 +217,15 @@ a:hover {
 }
 
 .btn-primary:hover,
+.btn-hero-primary:hover,
 .btn-navy:hover,
 .btn-sovereign-gold:hover,
-.if-btn-primary:hover {
+.if-btn-primary:hover,
+.wizard-btn-primary:hover,
+.flagship-btn-featured:hover,
+.hero-cta-primary:hover,
+.conv-submit-btn:hover,
+.calc-btn-primary:hover {
   background-color: var(--brand-gold-hover, #1B5E4B) !important;
   border-color: var(--brand-gold-hover, #1B5E4B) !important;
   color: #FFFFFF !important;
@@ -197,29 +233,73 @@ a:hover {
   box-shadow: 0 4px 12px rgba(36, 122, 98, 0.28);
 }
 
-/* Secondary Button: Clean Crisp Outline with Deep Teal Typography */
+/* Canonical Variant 2: Secondary Action Button (Crisp White/Surface with Sovereign Navy Text & Hairline Border) */
 .btn-secondary,
-.btn-outline,
+.btn-hero-secondary,
 .btn-sovereign-glass,
-.btn-royal-outline,
-.if-btn-secondary {
+.if-btn-secondary,
+.wizard-btn-secondary,
+.flagship-btn-secondary,
+.hero-cta-secondary,
+.calc-btn-secondary {
   background-color: #FFFFFF !important;
   color: var(--text-dark, #193B46) !important;
-  border-color: var(--border-hover, #B5CDC7) !important;
+  border-color: var(--border-color, #DCE8E5) !important;
+  box-shadow: 0 1px 2px rgba(25, 59, 70, 0.04);
 }
 
 .btn-secondary:hover,
-.btn-outline:hover,
+.btn-hero-secondary:hover,
 .btn-sovereign-glass:hover,
-.btn-royal-outline:hover,
-.if-btn-secondary:hover {
+.if-btn-secondary:hover,
+.wizard-btn-secondary:hover,
+.flagship-btn-secondary:hover,
+.hero-cta-secondary:hover,
+.calc-btn-secondary:hover {
   background-color: var(--surface-mint-white, #F4FAF7) !important;
   border-color: var(--accent-green-primary, #247A62) !important;
   color: var(--accent-green-primary, #247A62) !important;
   transform: translateY(-1px);
 }
 
-/* Accent Button: Secondary Ocean Blue Accent (#287DA8) with White Text */
+/* Canonical Variant 3: Clean Outline Button */
+.btn-outline,
+.btn-royal-outline {
+  background-color: transparent !important;
+  color: var(--navy-800, #193B46) !important;
+  border-color: var(--navy-800, #193B46) !important;
+}
+
+.btn-outline:hover,
+.btn-royal-outline:hover {
+  background-color: rgba(25, 59, 70, 0.04) !important;
+  border-color: var(--accent-green-primary, #247A62) !important;
+  color: var(--accent-green-primary, #247A62) !important;
+  transform: translateY(-1px);
+}
+
+/* Canonical Variant 4: Text Link Button */
+.btn-text,
+.btn-link,
+.btn-ghost {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: var(--accent-green-primary, #247A62) !important;
+  padding: 0.5rem 0.75rem;
+  box-shadow: none !important;
+  font-weight: 600;
+}
+
+.btn-text:hover,
+.btn-link:hover,
+.btn-ghost:hover {
+  background-color: var(--surface-mint-white, #F4FAF7) !important;
+  color: var(--brand-gold-hover, #1B5E4B) !important;
+  text-decoration: underline;
+  transform: none;
+}
+
+/* Auxiliary Brand Blue Accent Button */
 .btn-accent,
 .btn-royal-gold {
   background-color: var(--accent-blue-secondary, #287DA8) !important;
@@ -233,6 +313,111 @@ a:hover {
   border-color: #1F6487 !important;
   color: #FFFFFF !important;
   transform: translateY(-1px);
+}
+
+/* 4B. Institutional Architectural Data Table System */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid var(--border-color, #DCE8E5);
+  background: #FFFFFF;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-main, #243746);
+  background: #FFFFFF;
+}
+
+.data-table th {
+  background-color: var(--surface-mint-white, #F4FAF7);
+  color: var(--text-secondary, #52717A);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1.5px solid var(--border-color, #DCE8E5);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color, #DCE8E5);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:hover td {
+  background-color: rgba(244, 250, 247, 0.6);
+}
+
+.data-table .col-mono,
+.data-table .col-amount,
+.data-table .col-date {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.data-table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(244, 250, 247, 0.35);
+}
+
+/* 4C. Semantic Layout Utility Classes */
+.measure-prose {
+  max-width: var(--measure-prose, 68ch);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prose-left {
+  max-width: var(--measure-prose, 68ch);
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.architectural-border {
+  border: 1px solid var(--border-color, #DCE8E5) !important;
+}
+
+.architectural-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color, #DCE8E5);
+  border-radius: var(--radius-sm, 6px);
+  padding: 1.75rem;
+  box-shadow: 0 1px 3px rgba(25, 59, 70, 0.04);
+}
+
+.split-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border-color, #DCE8E5);
+}
+
+.split-feature-row:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .split-feature-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 /* 5. Standard Card System */
