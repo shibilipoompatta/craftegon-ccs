@@ -1,17 +1,17 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-22T07:50:47.465Z",
+  "buildTimestamp": "2026-11-22T08:07:59.803Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
     "platform": "win32",
-    "sourceDirectory": "c:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean",
-    "outputDirectory": "c:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
+    "sourceDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean",
+    "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 191,
-    "totalOutputSizeBytes": 12327888,
+    "totalFilesIncluded": 192,
+    "totalOutputSizeBytes": 12327084,
     "totalOutputSizeFormatted": "11.76 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
@@ -22,7 +22,7 @@
       ".png": 4,
       ".jpg": 1,
       ".bak": 1,
-      ".js": 16,
+      ".js": 17,
       ".json": 11,
       "config": 2,
       ".txt": 1,
@@ -169,6 +169,10 @@
     {
       "path": "assets/js/entity-intelligence.js",
       "bytes": 13683
+    },
+    {
+      "path": "assets/js/entity-wizard.js",
+      "bytes": 9809
     },
     {
       "path": "assets/js/forms.js",
@@ -348,7 +352,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 159574
+      "bytes": 148961
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
