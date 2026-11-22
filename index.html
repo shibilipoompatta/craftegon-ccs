@@ -1797,15 +1797,42 @@
         }
       }
 
-      // Attach event listeners on DOM ready
-      document.addEventListener('DOMContentLoaded', function() {
+      // Comprehensive event bindings: direct listeners + document delegation + immediate init
+      function bindEntityWizardListeners() {
         document.querySelectorAll('.wizard-chip input[type="radio"]').forEach(function(radio) {
           radio.addEventListener('change', updateEntityWizard);
+          radio.addEventListener('click', function() { setTimeout(updateEntityWizard, 10); });
         });
-        updateEntityWizard();
+        document.querySelectorAll('.wizard-chip').forEach(function(chip) {
+          chip.addEventListener('click', function() { setTimeout(updateEntityWizard, 10); });
+        });
+      }
+
+      // 1. Delegated document listeners (catches all clicks/changes even across re-renders or touch events)
+      document.addEventListener('change', function(e) {
+        if (e.target && e.target.name && e.target.name.indexOf('w-') === 0) {
+          updateEntityWizard();
+        }
+      });
+      document.addEventListener('click', function(e) {
+        if (e.target && e.target.closest && e.target.closest('.wizard-chip')) {
+          setTimeout(updateEntityWizard, 10);
+        }
       });
 
-      // Also expose globally for inline onchange attributes
+      // 2. Direct listeners & immediate initial execution
+      bindEntityWizardListeners();
+      updateEntityWizard();
+
+      // 3. Backup on DOMContentLoaded
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          bindEntityWizardListeners();
+          updateEntityWizard();
+        });
+      }
+
+      // Also expose globally
       window.updateEntityWizard = updateEntityWizard;
     </script>
 

@@ -2766,7 +2766,7 @@
     "category": "Performance",
     "subcategory": "Offscreen Image Deferral",
     "file": "index.html",
-    "line": 2756,
+    "line": 2783,
     "fault": "Below-the-fold <img> missing loading=\"lazy\" attribute.",
     "recommendation": "Defer loading of non-critical images to improve Initial Page Load & LCP.",
     "urgentSolution": "Add loading=\"lazy\" attribute."
