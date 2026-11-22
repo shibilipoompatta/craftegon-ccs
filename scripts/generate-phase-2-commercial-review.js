@@ -15,7 +15,7 @@ function csv(value) {
   if (value === null || value === undefined) return '""';
   let text = typeof value === 'string' ? value : JSON.stringify(value);
   // Prevent spreadsheet formula execution when a reviewer opens the CSV.
-  if (/^[=+@\\-\\t\\r]/.test(text)) text = "'" + text;
+  if (/^[=+@-]/.test(text)) text = "'" + text;
   return '"' + text.replace(/"/g, '""') + '"';
 }
 
