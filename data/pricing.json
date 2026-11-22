@@ -438,7 +438,7 @@
   {
     "pricing_id": "PRC-V02-SVC-002",
     "service_id": "V02-SVC-002",
-    "service_name": "DIR-3 KYC Annual Director Verification",
+    "service_name": "DIR-3 KYC and Director Particulars Update",
     "canonical_route": "/services/dir3-kyc.html",
     "primary_vertical_id": "V02",
     "currency": "INR",
@@ -457,16 +457,7 @@
     "excluded_charges": [],
     "additional_tiers": [],
     "statutory_thresholds": [],
-    "statutory_penalties": [
-      {
-        "penalty_type": "STATUTORY_LATE_FILING_FEE",
-        "monetary_expression": "₹5,000",
-        "amount_inr": 5000,
-        "description": "Mandatory government late filing penalty for annual DIR-3 KYC submitted after the statutory September 30 deadline, leading to DIN deactivation.",
-        "statutory_citation": "Rule 12A of Companies (Appointment and Qualification of Directors) Rules, 2014 & MCA Fee Rules",
-        "source_id": "SRC-MCA-001"
-      }
-    ],
+    "statutory_penalties": [],
     "effective_from": "2026-10-15",
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
