@@ -329,9 +329,9 @@ function setTab1Mode(mode) {
     if (ccfsRow) ccfsRow.style.display = 'flex';
 
     if (cardTitle) cardTitle.textContent = 'RoC Statutory Late Fee & Retainer Estimate';
-    if (cardSubtitle) cardSubtitle.textContent = 'Indicative estimate for overdue annual returns (AOC-4, MGT-7, DIR-3 KYC). CCFS-2026 closed on 15 September 2026.';
+    if (cardSubtitle) cardSubtitle.textContent = 'Indicative Section 403 estimate for overdue company annual returns (Section 92) and financial statements (Section 137) only. Other forms are excluded; confirm current MCA fees.';
     if (cardBadge) {
-      cardBadge.textContent = 'Section 403: ₹100/Day';
+      cardBadge.textContent = 'Section 403: AOC-4 / MGT-7 only';
       cardBadge.style.color = '#B45309';
       cardBadge.style.background = '#FEF3C7';
     }
@@ -481,13 +481,13 @@ function calculateCost() {
     if (document.getElementById('addon-sha')?.checked) addonTotal += 4999;
     if (document.getElementById('addon-current-ac')?.checked) addonTotal += 1499;
 
+    // Section 403's first proviso applies the not-less-than ₹100/day additional-fee rule to Sections 92 and 137 filings.
+    // This illustrative model therefore counts only MGT-7 (Section 92) and AOC-4 (Section 137).
     let overdueFormsCount = 0;
     if (document.getElementById('form-aoc4')?.checked) overdueFormsCount++;
     if (document.getElementById('form-mgt7')?.checked) overdueFormsCount++;
 
     rocLateFee = overdueFormsCount * delayDays * 100;
-    if (document.getElementById('form-dir3kyc')?.checked && delayDays > 0) rocLateFee += 5000;
-    if (document.getElementById('form-pas6')?.checked && delayDays > 0) rocLateFee += 1000;
 
     if (ccfsMode && rocLateFee > 0) {
       ccfsFee = Math.round(rocLateFee * 0.9);
@@ -511,9 +511,9 @@ function calculateCost() {
       const p90CostEl = document.getElementById('delay-card-90-cost');
       const p90TagEl = document.getElementById('delay-card-90-tag');
 
-      const mult = Math.max(1, overdueFormsCount);
-      const cost30 = rocLateFee + (mult * 30 * 100);
-      const cost90 = rocLateFee + (mult * 90 * 100);
+      const mult = overdueFormsCount;
+      const cost30 = mult * (delayDays + 30) * 100;
+      const cost90 = mult * (delayDays + 90) * 100;
 
       if (curDaysEl) curDaysEl.textContent = delayDays + ' Days Overdue';
       if (curCostEl) curCostEl.textContent = '₹' + rocLateFee.toLocaleString('en-IN');
@@ -1226,7 +1226,7 @@ function generateStatutoryMemo() {
     if (govNotesEl) {
       govNotesEl.innerHTML = '<ul style="margin: 0; padding-left: 1.25rem; line-height: 1.65;">' + /* sanitized */
         '<li><strong>Section 403 Daily Late Fee Exposure:</strong> Statutory late filing fees compound daily at ₹100/day for each overdue form (AOC-4 and MGT-7). Immediate e-filing halts further financial leakage.</li>' +
-        '<li><strong>Section 164(2) Director Disqualification:</strong> Directors face immediate disqualification for 5 years if annual accounts or returns are not filed for three consecutive financial years.</li>' +
+        '<li><strong>Section 164(2) Director Disqualification:</strong> Non-filing of annual financial statements or annual returns for three consecutive financial years may trigger director disqualification consequences under Section 164(2), subject to statutory conditions and exceptions.</li>' +
         '<li><strong>Section 454 Adjudication Risk:</strong> RoC issues Section 454 show-cause notices for defaults exceeding 90 days, exposing company and officers to direct monetary penalties up to ₹5,00,000.</li>' +
         '<li><strong>Regularization Roadmap:</strong> Immediate audit closure, DIN activation, and e-filing under certified PCS supervision recommended.</li>' +
         '</ul>';

@@ -67,6 +67,7 @@ const forbiddenPaths = [
   'node_modules',
   'package.json',
   'package-lock.json',
+  'data/pricing.json',
   '.gitignore',
   'README.md',
   'MERGE_BLUEPRINT.md',

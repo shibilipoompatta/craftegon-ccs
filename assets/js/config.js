@@ -117,7 +117,7 @@
     brandName: "CraftEgon Corporate Services",
     brandShort: "CraftEgon CCS",
     brandSubtitle: "Corporate Services",
-    legalEntity: "CraftEgon Corporate Services (CCS)",
+    legalEntity: "CraftEgon LLP",
     operationalDesk: "Operational Service Desk, Alappuzha, Kerala, India • PIN: 690501",
     statutoryReg: "MCA V3 • RBI FIRMS • IP India",
 
@@ -134,11 +134,12 @@
     liveUrl: "https://ccs.craftegon.com",
 
     // Paid Campaign Tracking & Conversion Pixels
+    // Disabled until real vendor IDs and a verified consent-management gate are configured.
     advertising: {
-      enabled: true,
-      googleAdsId: "AW-11500000000",
-      metaPixelId: "1234567890123456",
-      linkedInPartnerId: "1234567",
+      enabled: false,
+      googleAdsId: "",
+      metaPixelId: "",
+      linkedInPartnerId: "",
       currency: "INR"
     },
 
