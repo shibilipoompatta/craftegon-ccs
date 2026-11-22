@@ -47,9 +47,9 @@ check(!/form-dir3kyc|form-pas6/.test(calculator), 'Section 403 calculator logic 
 check(!home.includes('AOC-4, MGT-7, and DIR-3 KYC filings') && !home.includes('DIR-3 KYC</strong> for all board directors by September 30'), 'Homepage does not apply Section 403 or the old annual deadline to DIR-3 KYC');
 check(!/content=[\"'][^\"']*[\"']>>/.test(contact) && !/content=[\"'][^\"']*[\"']>>/.test(calculatorHtml) && !/content=[\"'][^\"']*[\"']>>/.test(dir3) && !/content=[\"'][^\"']*[\"']>>/.test(knowledge), 'Key page meta descriptions contain no malformed trailing angle bracket');
 check(/Annual ROC Compliance in India: Private Limited Companies &amp; LLPs/.test(knowledge), 'Annual ROC guide social metadata matches its page topic');
-check(/legalEntity:\\s*\"CraftEgon LLP\"/.test(config) && /CraftEgon LLP, operating through its CraftEgon Corporate Services/.test(privacy), 'Legal entity and CCS business vertical are distinguished in public disclosures');
+check(config.includes('legalEntity: "CraftEgon LLP"') && privacy.includes('CraftEgon LLP, operating through its CraftEgon Corporate Services'), 'Legal entity and CCS business vertical are distinguished in public disclosures');
 check(terms.includes('does not currently offer an online SaaS subscription') && !/Starter at ₹1,499|Growth at ₹4,999|Subscriptions auto-renew/i.test(terms), 'Terms do not promise unverified SaaS subscriptions or auto-renewals');
-check(!/Outcome:<\\/strong>/.test(about) && about.includes('not client testimonials or independently verified case outcomes'), 'About page does not present unsupported case outcomes as track record');
+check(!about.includes('Outcome:</strong>') && about.includes('not client testimonials or independently verified case outcomes'), 'About page does not present unsupported case outcomes as track record');
 check(!/id=\"form-dir3kyc\"|id=\"form-pas6\"/.test(calculatorHtml), 'Section 403 calculator UI excludes DIR-3 KYC and PAS-6');
 
 if (process.argv.includes('--built')) {
