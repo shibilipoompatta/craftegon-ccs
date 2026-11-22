@@ -388,7 +388,6 @@ function initLeadCaptureForms() {
         phone: data.phone ? String(data.phone).trim() : "",
         company_name: (data.company_name || data.entity_name || data.startup_name || data.org_name || data.platform_name || "").trim(),
         entity_type: (data.entity_type || data.entityType || data.state || "").trim(),
-        reg_number: (data.cin || data.gstin || data.pan || data.din || data.llpin || data.reg_number || "").trim(),
         service_name: (data.service_name || data.service || data.service_id || routeContext.service_id || "Corporate Compliance").trim(),
         service_id: data.service_id || form.dataset.serviceId || routeContext.service_id || "V01-SVC-007",
         vertical_id: data.vertical_id || data.service_category || form.dataset.verticalId || routeContext.vertical_id || "V01",
