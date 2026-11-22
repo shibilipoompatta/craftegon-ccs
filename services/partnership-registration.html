@@ -1028,7 +1028,7 @@
           </select>
         </div>
 
-        <button type="button" onclick="runStructureEvaluation()" style="width: 100%; padding: 0.65rem; font-size: 0.9rem; font-weight: 700; background: var(--accent-green-primary, #247A62); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
+        <button type="button" id="btn-run-eval" style="width: 100%; padding: 0.65rem; font-size: 0.9rem; font-weight: 700; background: var(--accent-green-primary, #247A62); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
           Evaluate Optimal Entity Structure &rarr;
         </button>
 
@@ -1053,7 +1053,7 @@
           <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--navy-800); margin-bottom: 0.35rem;">
             Select State of Principal Business:
           </label>
-          <select id="calc-state-select" onchange="updateStampDutyCalculation()" style="width: 100%; padding: 0.5rem; font-size: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem;">
+          <select id="calc-state-select" style="width: 100%; padding: 0.5rem; font-size: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem;">
             <option value="kerala">Kerala (Kerala Stamp Act Art 44)</option>
             <option value="maharashtra">Maharashtra (Maharashtra Stamp Act Art 47)</option>
             <option value="karnataka">Karnataka (Karnataka Stamp Act Art 40)</option>
@@ -1064,7 +1064,7 @@
           <label style="display: block; font-size: 0.82rem; font-weight: 700; color: var(--navy-800); margin-bottom: 0.35rem;">
             Total Contributed Capital (₹):
           </label>
-          <input aria-label="Authorized share capital in Rupees" type="number" id="calc-capital-input" value="100000" oninput="updateStampDutyCalculation()" style="width: 100%; padding: 0.5rem; font-size: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem;">
+          <input aria-label="Authorized share capital in Rupees" type="number" id="calc-capital-input" value="100000" style="width: 100%; padding: 0.5rem; font-size: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem;">
         </div>
 
         <div id="calc-stamp-output" style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 1.25rem; font-size: 0.85rem; line-height: 1.6;">
@@ -1403,5 +1403,16 @@
       updateStampDutyCalculation();
     });
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('btn-run-eval');
+  if (btn) btn.addEventListener('click', function() { if (typeof runStructureEvaluation === 'function') runStructureEvaluation(); });
+  var state = document.getElementById('part-state');
+  if (state) state.addEventListener('change', function() { if (typeof updateStampDutyCalculation === 'function') updateStampDutyCalculation(); });
+  var cap = document.getElementById('part-capital');
+  if (cap) cap.addEventListener('input', function() { if (typeof updateStampDutyCalculation === 'function') updateStampDutyCalculation(); });
+});
+</script>
 </body>
 </html>

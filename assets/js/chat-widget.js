@@ -613,7 +613,8 @@ async function callGeminiApi(userQuery) {
 
         // If HTTP 400 (which may occur if systemInstruction proto is rejected), retry with instruction prepended to contents
         if (response.status === 400) {
-          const fallbackContents = JSON.parse(JSON.stringify(contents));
+          let fallbackContents = [];
+        try { fallbackContents = JSON.parse(JSON.stringify(contents)); } catch (_e) { fallbackContents = contents; }
           fallbackContents[0].parts[0].text = `[SYSTEM INSTRUCTION: ${CRAFTEGON_SYSTEM_INSTRUCTION}]\n\nUser Question:\n${fallbackContents[0].parts[0].text}`;
           response = await fetch(endpoint, {
             method: 'POST',
@@ -636,7 +637,8 @@ async function callGeminiApi(userQuery) {
           const errText = await response.text();
           let parsedErrMsg = `HTTP ${response.status} (${cleanModel})`;
           try {
-            const errJson = JSON.parse(errText);
+            let errJson = null;
+          try { errJson = JSON.parse(errText); } catch (_e) { errJson = null; }
             if (errJson && errJson.error && errJson.error.message) {
               parsedErrMsg += `: ${errJson.error.message}`;
             }
@@ -790,7 +792,8 @@ async function testGeminiConnection(key, model) {
           const errText = await res.text();
           let msg = `HTTP ${res.status}`;
           try {
-            const j = JSON.parse(errText);
+            let j = null;
+        try { j = JSON.parse(errText); } catch (_e) { j = null; }
             if (j.error && j.error.message) msg = j.error.message;
           } catch(e) {
             msg += `: ${errText.substring(0, 100)}`;

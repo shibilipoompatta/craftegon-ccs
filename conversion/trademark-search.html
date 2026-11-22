@@ -791,7 +791,7 @@
               <option value="class-42">Class 42 (IT/Legal)</option>
               <option value="all">All Classes</option>
             </select>
-            <button type="button" id="search-btn" class="if-btn-primary" onclick="executeTrademarkSearch()" style="padding: 0.75rem 1.5rem;">Check Trademark Clearance</button>
+            <button type="button" id="search-btn" class="if-btn-primary" style="padding: 0.75rem 1.5rem;">Check Trademark Clearance</button>
           </div>
         </div>
       </div>
@@ -1014,5 +1014,16 @@
     }
     function simulateSearch() { executeTrademarkSearch(); }
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('search-btn');
+  if (btn) {
+    btn.addEventListener('click', function() {
+      if (typeof executeTrademarkSearch === 'function') executeTrademarkSearch();
+    });
+  }
+});
+</script>
 </body>
 </html>

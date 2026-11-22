@@ -1087,11 +1087,11 @@
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Total Proposed Designated Partners:</label>
-              <input aria-label="Total number of proposed directors" type="number" id="diag-total-dp" value="2" min="2" max="20" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" oninput="calculateDPINPath()">
+              <input aria-label="Total number of proposed directors" type="number" id="diag-total-dp" value="2" min="2" max="20" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
             </div>
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Partners who ALREADY have a valid DIN/DPIN:</label>
-              <input aria-label="Number of directors with existing DIN" type="number" id="diag-existing-din" value="0" min="0" max="20" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" oninput="calculateDPINPath()">
+              <input aria-label="Number of directors with existing DIN" type="number" id="diag-existing-din" value="0" min="0" max="20" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
             </div>
             <div id="diag-dpin-result" style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 6px; padding: 0.85rem; font-size: 0.85rem; color: var(--text-dark); margin-top: 0.25rem;">
               <strong>Result:</strong> 2 new DPINs needed. Both can be processed directly inside Form FiLLiP without prior filings.
@@ -1109,7 +1109,7 @@
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Registered Office State:</label>
-              <select id="calc-state" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" onchange="estimateStampDuty()">
+              <select id="calc-state" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
                 <option value="MH">Maharashtra (1% max ₹15k)</option>
                 <option value="DL">Delhi (₹500 flat)</option>
                 <option value="KA">Karnataka (Tiered max ₹10k)</option>
@@ -1121,7 +1121,7 @@
             </div>
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Total Agreed Capital Contribution (₹):</label>
-              <input aria-label="Authorized share capital in Rupees" type="number" id="calc-capital" value="100000" step="10000" min="10000" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" oninput="estimateStampDuty()">
+              <input aria-label="Authorized share capital in Rupees" type="number" id="calc-capital" value="100000" step="10000" min="10000" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
             </div>
             <div id="calc-stamp-result" style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 6px; padding: 0.85rem; font-size: 0.85rem; color: var(--text-dark); margin-top: 0.25rem;">
               <strong>Estimated Stamp Duty:</strong> ₹1,000 (Maharashtra 1% on ₹1,00,000).<br>

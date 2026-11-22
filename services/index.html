@@ -1671,7 +1671,7 @@
 
         <!-- Prominent Universal Search Box -->
         <div class="hero-search-wrapper">
-          <form id="directory-search-form" class="hero-search-box" role="search" onsubmit="event.preventDefault();">
+          <form id="directory-search-form" class="hero-search-box" role="search">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-muted); margin-right: 0.5rem; flex-shrink: 0;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <input
               type="text"
@@ -1969,11 +1969,11 @@
         <div style="margin-bottom: 1.5rem;">
           <div style="font-size: 0.76rem; font-weight: 700; color: var(--text-dark, #193B46); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">Suggested Searches:</div>
           <div style="display: flex; gap: 0.45rem; justify-content: center; flex-wrap: wrap;" id="empty-suggestions-list">
-            <button type="button" class="filter-chip" onclick="applySuggestion('Private Limited')">Private Limited</button>
-            <button type="button" class="filter-chip" onclick="applySuggestion('GST')">GST Returns</button>
-            <button type="button" class="filter-chip" onclick="applySuggestion('Trademark')">Trademark</button>
-            <button type="button" class="filter-chip" onclick="applySuggestion('DIR-3 KYC')">DIR-3 KYC</button>
-            <button type="button" class="filter-chip" onclick="applySuggestion('LLP')">LLP Formation</button>
+            <button type="button" class="filter-chip" data-suggestion="Private Limited">Private Limited</button>
+            <button type="button" class="filter-chip" data-suggestion="GST">GST Returns</button>
+            <button type="button" class="filter-chip" data-suggestion="Trademark">Trademark</button>
+            <button type="button" class="filter-chip" data-suggestion="DIR-3 KYC">DIR-3 KYC</button>
+            <button type="button" class="filter-chip" data-suggestion="LLP">LLP Formation</button>
           </div>
         </div>
         <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
@@ -2582,5 +2582,19 @@
       renderCatalog();
     });
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('directory-search-form');
+  if (form) form.addEventListener('submit', function(e) { e.preventDefault(); });
+  document.querySelectorAll('.filter-chip[data-suggestion]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof applySuggestion === 'function') {
+        applySuggestion(this.getAttribute('data-suggestion'));
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>

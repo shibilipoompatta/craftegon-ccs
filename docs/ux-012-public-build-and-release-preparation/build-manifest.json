@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-22T07:17:58.017Z",
+  "buildTimestamp": "2026-11-22T07:42:35.988Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 191,
-    "totalOutputSizeBytes": 12316961,
-    "totalOutputSizeFormatted": "11.75 MB",
+    "totalOutputSizeBytes": 12326698,
+    "totalOutputSizeFormatted": "11.76 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
     "filesByExtension": {
@@ -148,7 +148,7 @@
     },
     {
       "path": "assets/js/calculator.js",
-      "bytes": 58140
+      "bytes": 58272
     },
     {
       "path": "assets/js/campaign-pixels.js",
@@ -156,7 +156,7 @@
     },
     {
       "path": "assets/js/chat-widget.js",
-      "bytes": 77428
+      "bytes": 77595
     },
     {
       "path": "assets/js/checkout.js",
@@ -216,11 +216,11 @@
     },
     {
       "path": "conversion/ai-document-generator.html",
-      "bytes": 85694
+      "bytes": 86893
     },
     {
       "path": "conversion/calculator.html",
-      "bytes": 128485
+      "bytes": 127238
     },
     {
       "path": "conversion/contract-intake.html",
@@ -252,7 +252,7 @@
     },
     {
       "path": "conversion/index.html",
-      "bytes": 116011
+      "bytes": 116614
     },
     {
       "path": "conversion/license-qualification.html",
@@ -264,7 +264,7 @@
     },
     {
       "path": "conversion/partner-ecosystems.html",
-      "bytes": 108621
+      "bytes": 108951
     },
     {
       "path": "conversion/post-incorporation-checkout.html",
@@ -296,7 +296,7 @@
     },
     {
       "path": "conversion/trademark-search.html",
-      "bytes": 74392
+      "bytes": 74645
     },
     {
       "path": "conversion/venture-deal-booking.html",
@@ -388,7 +388,7 @@
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 92550
+      "bytes": 92930
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
@@ -504,7 +504,7 @@
     },
     {
       "path": "search/index.html",
-      "bytes": 85115
+      "bytes": 86352
     },
     {
       "path": "services/aoc4-xbrl.html",
@@ -540,7 +540,7 @@
     },
     {
       "path": "services/dpiit-startup-india.html",
-      "bytes": 94810
+      "bytes": 95424
     },
     {
       "path": "services/fast-track-mergers.html",
@@ -620,7 +620,7 @@
     },
     {
       "path": "services/index.html",
-      "bytes": 120785
+      "bytes": 121191
     },
     {
       "path": "services/ip-enforcement-cease-desist.html",
@@ -644,7 +644,7 @@
     },
     {
       "path": "services/llp-registration.html",
-      "bytes": 111639
+      "bytes": 111518
     },
     {
       "path": "services/master-service-agreements.html",
@@ -656,7 +656,7 @@
     },
     {
       "path": "services/msme-udyam.html",
-      "bytes": 144811
+      "bytes": 146622
     },
     {
       "path": "services/nclt-insolvency-defense.html",
@@ -668,7 +668,7 @@
     },
     {
       "path": "services/opc-registration.html",
-      "bytes": 112730
+      "bytes": 113119
     },
     {
       "path": "services/oppression-mismanagement-petitions.html",
@@ -676,7 +676,7 @@
     },
     {
       "path": "services/partnership-registration.html",
-      "bytes": 95836
+      "bytes": 96405
     },
     {
       "path": "services/pf-esic-compliance.html",
@@ -688,7 +688,7 @@
     },
     {
       "path": "services/proprietorship-registration.html",
-      "bytes": 99314
+      "bytes": 99903
     },
     {
       "path": "services/proprietorship-tax.html",
@@ -716,7 +716,7 @@
     },
     {
       "path": "services/section-8-registration.html",
-      "bytes": 110296
+      "bytes": 110875
     },
     {
       "path": "services/slump-sale-asset-purchase.html",
@@ -724,7 +724,7 @@
     },
     {
       "path": "services/society-registration.html",
-      "bytes": 93617
+      "bytes": 94038
     },
     {
       "path": "services/software-copyright-patents.html",
@@ -732,15 +732,15 @@
     },
     {
       "path": "services/trademark-registration.html",
-      "bytes": 132606
+      "bytes": 133045
     },
     {
       "path": "services/trust-registration.html",
-      "bytes": 94049
+      "bytes": 94630
     },
     {
       "path": "services.html",
-      "bytes": 121316
+      "bytes": 121722
     },
     {
       "path": "verticals/01-entity-formation.html",

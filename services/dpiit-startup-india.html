@@ -980,7 +980,7 @@
           </div>
         </div>
 
-        <button type="button" onclick="evaluateDpiit2026()" style="width: 100%; padding: 0.65rem; font-size: 0.9rem; font-weight: 700; background: var(--accent-green-primary, #247A62); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
+        <button type="button" id="btn-eval-dpiit" style="width: 100%; padding: 0.65rem; font-size: 0.9rem; font-weight: 700; background: var(--accent-green-primary, #247A62); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
           Evaluate DPIIT &amp; Sec 140 Eligibility &rarr;
         </button>
 
@@ -1001,10 +1001,10 @@
         </p>
 
         <label style="display: block; font-size: 0.8rem; font-weight: 700; color: var(--navy-800); margin-bottom: 0.3rem;">Year of Incorporation:</label>
-        <input aria-label="Year of incorporation" type="number" id="sec140-inc-yr" value="2025" min="2017" max="2026" oninput="updateSec140Planner()" style="width: 100%; padding: 0.45rem; font-size: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 0.75rem;">
+        <input aria-label="Year of incorporation" type="number" id="sec140-inc-yr" value="2025" min="2017" max="2026" style="width: 100%; padding: 0.45rem; font-size: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 0.75rem;">
 
         <label style="display: block; font-size: 0.8rem; font-weight: 700; color: var(--navy-800); margin-bottom: 0.3rem;">Start Year of Consecutive Profit Claim (Year 1 to Year 8):</label>
-        <input aria-label="Tax holiday block start offset year" type="number" id="sec140-start-offset" value="4" min="1" max="8" oninput="updateSec140Planner()" style="width: 100%; padding: 0.45rem; font-size: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem;">
+        <input aria-label="Tax holiday block start offset year" type="number" id="sec140-start-offset" value="4" min="1" max="8" style="width: 100%; padding: 0.45rem; font-size: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem;">
 
         <div id="sec140-output" style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 6px; padding: 1rem; font-size: 0.84rem; color: #065F46;"></div>
       </div>
@@ -1019,7 +1019,7 @@
           Select your venture's current stage to inspect matching Kerala and Central funding tracks.
         </p>
 
-        <select id="scheme-stage" onchange="updateSchemeFinder()" style="width: 100%; padding: 0.5rem; font-size: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem;">
+        <select id="scheme-stage" style="width: 100%; padding: 0.5rem; font-size: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem;">
           <option value="idea">Stage 1: Ideation / Proof of Concept (PoC) / MVP</option>
           <option value="prod">Stage 2: Validated MVP / Commercial Launch (&le; 2 yrs)</option>
           <option value="scale">Stage 3: Revenue Growth / Deep Tech R&amp;D Scaling</option>
@@ -1361,5 +1361,18 @@
       updateSchemeFinder();
     });
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var evalBtn = document.getElementById('btn-eval-dpiit');
+  if (evalBtn) evalBtn.addEventListener('click', function() { if (typeof evaluateDpiit2026 === 'function') evaluateDpiit2026(); });
+  ['sec140-inc-yr', 'sec140-start-offset'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', function() { if (typeof updateSec140Planner === 'function') updateSec140Planner(); });
+  });
+  var schemeStage = document.getElementById('scheme-stage');
+  if (schemeStage) schemeStage.addEventListener('change', function() { if (typeof updateSchemeFinder === 'function') updateSchemeFinder(); });
+});
+</script>
 </body>
 </html>

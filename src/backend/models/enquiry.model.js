@@ -23,7 +23,8 @@ function loadPhase2Registry() {
 
   try {
     if (fs.existsSync(serviceRegPath)) {
-      const data = JSON.parse(fs.readFileSync(serviceRegPath, 'utf8'));
+      let data = [];
+    try { data = JSON.parse(fs.readFileSync(serviceRegPath, 'utf8')); } catch (_e) { data = []; }
       if (Array.isArray(data)) {
         for (const item of data) {
           if (item.canonical_route) {
@@ -44,7 +45,8 @@ function loadPhase2Registry() {
     }
 
     if (fs.existsSync(verticalsPath)) {
-      const vData = JSON.parse(fs.readFileSync(verticalsPath, 'utf8'));
+      let vData = [];
+    try { vData = JSON.parse(fs.readFileSync(verticalsPath, 'utf8')); } catch (_e) { vData = []; }
       if (Array.isArray(vData)) {
         for (const v of vData) {
           if (v.vertical_id) verticals.add(v.vertical_id);

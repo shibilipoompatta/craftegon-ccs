@@ -76,9 +76,9 @@ class PostgresEnquiryStorage {
         const start = str.indexOf('[');
         const end = str.lastIndexOf(']');
         if (start !== -1 && end !== -1 && end >= start) {
-          return JSON.parse(str.slice(start, end + 1));
+          try { return JSON.parse(str.slice(start, end + 1)); } catch (_e) { return []; }
         }
-        return JSON.parse(str);
+        try { return JSON.parse(str); } catch (_e) { return []; }
       } catch (e) {
         return [];
       }

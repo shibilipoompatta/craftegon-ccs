@@ -1131,7 +1131,7 @@
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Core Proposed Object:</label>
-              <select id="diag-object" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" onchange="evaluateSection8Eligibility()">
+              <select id="diag-object" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
                 <option value="VALID_CHARITY">Education, Healthcare, Relief, Environment, Art, Science</option>
                 <option value="COMMERCIAL_PROFIT">Commercial Trade, Manufacturing, Software Distribution</option>
                 <option value="DIVIDEND_SHARING">Commercial Venture with Equity Dividend Sharing</option>
@@ -1139,7 +1139,7 @@
             </div>
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Proposed Members / Promoters Count:</label>
-              <input aria-label="Number of founding promoters or partners" type="number" id="diag-promoters" value="2" min="1" max="50" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" oninput="evaluateSection8Eligibility()">
+              <input aria-label="Number of founding promoters or partners" type="number" id="diag-promoters" value="2" min="1" max="50" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
             </div>
             <div id="diag-sec8-result" style="background: #ECFDF5; border: 1px solid #10B981; border-radius: 6px; padding: 0.85rem; font-size: 0.85rem; color: var(--text-dark); margin-top: 0.25rem;">
               <strong>Eligible for Section 8:</strong> Meets statutory non-profit objects under Section 8(1)(a) with minimum 2 promoters for a private non-profit structure.
@@ -1157,7 +1157,7 @@
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Entity Status:</label>
-              <select id="route-entity-status" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" onchange="determineLicensingRoute()">
+              <select id="route-entity-status" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
                 <option value="NEW_INCORP">Incorporating a New Non-Profit Entity from Scratch</option>
                 <option value="EXISTING_CONV">Converting an Existing Commercial Private/Public Company</option>
               </select>
@@ -1554,5 +1554,19 @@
       }
     }
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  ['sec8-object-cat', 'sec8-directors'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('change', function() { if (typeof evaluateSection8Eligibility === 'function') evaluateSection8Eligibility(); });
+      el.addEventListener('input', function() { if (typeof evaluateSection8Eligibility === 'function') evaluateSection8Eligibility(); });
+    }
+  });
+  var objType = document.getElementById('sec8-object-type');
+  if (objType) objType.addEventListener('change', function() { if (typeof determineLicensingRoute === 'function') determineLicensingRoute(); });
+});
+</script>
 </body>
 </html>

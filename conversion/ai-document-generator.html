@@ -990,11 +990,11 @@
           <span class="badge-status badge-ready" id="status-badge">Engine Ready</span>
         </div>
 
-        <form id="ai-drafter-form" onsubmit="event.preventDefault(); executeDocumentGeneration();">
+        <form id="ai-drafter-form">
           
           <div class="form-group">
             <label class="form-label" for="doc-template">Legal Instrument Template</label>
-            <select id="doc-template" class="form-control" onchange="handleTemplateChange()">
+            <select id="doc-template" class="form-control">
               <option value="board-resolution-bank">Board Resolution: Current Bank Account Opening</option>
               <option value="board-resolution-director">Board Resolution: Appointment of Additional Director (Sec 161)</option>
               <option value="board-resolution-mgt14">Board Resolution: Approval of Annual Accounts (Form MGT-14)</option>
@@ -1046,8 +1046,8 @@
       <div class="panel-card" style="position: sticky; top: 100px;">
         <div class="panel-header">
           <div class="tab-bar">
-            <button type="button" class="tab-btn active" id="tab-draft" onclick="switchView('draft')">Instrument Draft</button>
-            <button type="button" class="tab-btn" id="tab-checklist" onclick="switchView('checklist')">Statutory RoC Checklist</button>
+            <button type="button" class="tab-btn active" id="tab-draft">Instrument Draft</button>
+            <button type="button" class="tab-btn" id="tab-checklist">Statutory RoC Checklist</button>
           </div>
           <div style="font-size: 0.8rem; color: var(--text-muted); font-family: monospace;">
             TEMPLATE · NOT CERTIFIED
@@ -1062,15 +1062,15 @@
 
         <!-- Action Bar -->
         <div class="action-bar" id="output-actions" style="display: none;">
-          <button type="button" class="btn-action btn-outline" onclick="copyDocumentToClipboard()">
+          <button type="button" class="btn-action btn-outline" id="btn-copy-doc">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
             Copy Text
           </button>
-          <button type="button" class="btn-action btn-outline" onclick="downloadDocument()">
+          <button type="button" class="btn-action btn-outline" id="btn-download-doc">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download Markdown
           </button>
-          <button type="button" class="btn-action btn-outline" onclick="window.print()">
+          <button type="button" class="btn-action btn-outline" id="btn-print-doc">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
             Print / Save PDF
           </button>
@@ -1476,5 +1476,27 @@ Director / Authorized Representative`;
 
     document.addEventListener("DOMContentLoaded", applyDocumentRequest);
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('ai-drafter-form');
+  if (form) form.addEventListener('submit', function(e) { e.preventDefault(); if (typeof executeDocumentGeneration === 'function') executeDocumentGeneration(); });
+
+  var tpl = document.getElementById('doc-template');
+  if (tpl) tpl.addEventListener('change', function() { if (typeof handleTemplateChange === 'function') handleTemplateChange(); });
+
+  var tabDraft = document.getElementById('tab-draft');
+  if (tabDraft) tabDraft.addEventListener('click', function() { if (typeof switchView === 'function') switchView('draft'); });
+  var tabCheck = document.getElementById('tab-checklist');
+  if (tabCheck) tabCheck.addEventListener('click', function() { if (typeof switchView === 'function') switchView('checklist'); });
+
+  var copyBtn = document.getElementById('btn-copy-doc');
+  if (copyBtn) copyBtn.addEventListener('click', function() { if (typeof copyDocumentToClipboard === 'function') copyDocumentToClipboard(); });
+  var dlBtn = document.getElementById('btn-download-doc');
+  if (dlBtn) dlBtn.addEventListener('click', function() { if (typeof downloadDocument === 'function') downloadDocument(); });
+  var printBtn = document.getElementById('btn-print-doc');
+  if (printBtn) printBtn.addEventListener('click', function() { window.print(); });
+});
+</script>
 </body>
 </html>

@@ -1311,8 +1311,7 @@
           type="text" 
           id="conv-search-input" 
           class="conv-search-input" 
-          placeholder="Search by need (e.g. late fees, stamp duty, STK-2, NDA, trademark, CSR, FEMA)..."
-          onkeyup="filterConvCards()" 
+          placeholder="Search by need (e.g. late fees, stamp duty, STK-2, NDA, trademark, CSR, FEMA)..." data-conv-filter-input 
           aria-label="Search diagnostic tools and desks"
         >
       </div>
@@ -1336,12 +1335,12 @@
 
     <!-- Category Filter Bar -->
     <div class="conv-filter-bar" role="tablist" aria-label="Tool Categories">
-      <button type="button" class="conv-filter-chip active" onclick="filterCategory('all', this)">🌟 All Engines (24)</button>
-      <button type="button" class="conv-filter-chip" onclick="filterCategory('calc', this)">🧮 Fee Calculators (4)</button>
-      <button type="button" class="conv-filter-chip" onclick="filterCategory('drafting', this)">✍️ Legal Drafters &amp; Setup (4)</button>
-      <button type="button" class="conv-filter-chip" onclick="filterCategory('search', this)">🔍 Trademark &amp; Registry (3)</button>
-      <button type="button" class="conv-filter-chip" onclick="filterCategory('eligibility', this)">🛡️ Audits &amp; Governance (3)</button>
-      <button type="button" class="conv-filter-chip" onclick="filterCategory('intake', this)">🏛️ Corporate Desks (10)</button>
+      <button type="button" class="conv-filter-chip active" data-filter-cat="all">🌟 All Engines (24)</button>
+      <button type="button" class="conv-filter-chip" data-filter-cat="calc">🧮 Fee Calculators (4)</button>
+      <button type="button" class="conv-filter-chip" data-filter-cat="drafting">✍️ Legal Drafters &amp; Setup (4)</button>
+      <button type="button" class="conv-filter-chip" data-filter-cat="search">🔍 Trademark &amp; Registry (3)</button>
+      <button type="button" class="conv-filter-chip" data-filter-cat="eligibility">🛡️ Audits &amp; Governance (3)</button>
+      <button type="button" class="conv-filter-chip" data-filter-cat="intake">🏛️ Corporate Desks (10)</button>
     </div>
 
     <!-- Empty Search State -->
@@ -1351,7 +1350,7 @@
       <p style="width: 100%; font-size: 0.92rem; color: var(--text-secondary); max-width: 480px; margin: 0 auto 1.5rem; box-sizing: border-box;">
         Try refining your search keyword or browse the full 57-service regulatory directory.
       </p>
-      <button type="button" class="btn-action-tool" onclick="resetFilters()" style="max-width: 220px; margin: 0 auto;">
+      <button type="button" class="btn-action-tool" data-reset-filters style="max-width: 220px; margin: 0 auto;">
         Reset Search Filters
       </button>
     </div>
@@ -2195,5 +2194,19 @@
       applyFilters();
     }
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var input = document.querySelector('[data-conv-filter-input]');
+  if (input) input.addEventListener('input', function() { if (typeof filterConvCards === 'function') filterConvCards(); });
+  document.querySelectorAll('.conv-filter-chip[data-filter-cat]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof filterCategory === 'function') filterCategory(this.getAttribute('data-filter-cat'), this);
+    });
+  });
+  var resetBtn = document.querySelector('[data-reset-filters]');
+  if (resetBtn) resetBtn.addEventListener('click', function() { if (typeof resetFilters === 'function') resetFilters(); });
+});
+</script>
 </body>
 </html>

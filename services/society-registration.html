@@ -984,7 +984,7 @@
           </div>
         </div>
 
-        <button type="button" onclick="evaluateSocietyStructure()" style="width: 100%; padding: 0.65rem; font-size: 0.9rem; font-weight: 700; background: var(--accent-green-primary, #247A62); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
+        <button type="button" id="btn-eval-society" style="width: 100%; padding: 0.65rem; font-size: 0.9rem; font-weight: 700; background: var(--accent-green-primary, #247A62); color: #fff; border: none; border-radius: 6px; cursor: pointer;">
           Evaluate Society Jurisdiction &amp; Roadmap &rarr;
         </button>
 
@@ -1005,7 +1005,7 @@
       </div>
 
       <div style="width: 100%; max-width: 740px; margin: 0 auto; box-sizing: border-box;">
-        <select id="soc-cal-state" onchange="updateSocietyCalendar()" style="width: 100%; padding: 0.55rem; font-size: 0.88rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem;">
+        <select id="soc-cal-state" style="width: 100%; padding: 0.55rem; font-size: 0.88rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem;">
           <option value="kerala">Kerala: Kerala Societies Registration Act, 2025 (Act 14 of 2025)</option>
           <option value="tn">Tamil Nadu: Tamil Nadu Societies Registration Act, 1975</option>
           <option value="ka">Karnataka: Karnataka Societies Registration Act, 1960</option>
@@ -1363,5 +1363,14 @@
       updateSocietyCalendar();
     });
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('btn-eval-society');
+  if (btn) btn.addEventListener('click', function() { if (typeof evaluateSocietyStructure === 'function') evaluateSocietyStructure(); });
+  var state = document.getElementById('soc-cal-state');
+  if (state) state.addEventListener('change', function() { if (typeof updateSocietyCalendar === 'function') updateSocietyCalendar(); });
+});
+</script>
 </body>
 </html>

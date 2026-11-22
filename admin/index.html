@@ -15,8 +15,25 @@
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link rel="stylesheet" href="/admin/admin.css">
+  <meta property="og:title" content="Administrative Control Desk | CraftEgon CCS">
+  <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Administrative Control Desk | CraftEgon CCS",
+    "description": "CraftEgon CCS administrative console for operations, regulatory filings, and case workflow.",
+    "url": "https://ccs.craftegon.com/admin/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "CraftEgon CCS",
+      "url": "https://ccs.craftegon.com/"
+    }
+  }
+  </script>
 </head>
 <body class="admin-body">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- Top Navigation Bar -->
   <header class="admin-topbar">
     <div class="admin-brand-lockup">
@@ -47,7 +64,7 @@
   </header>
 
   <!-- Main Container -->
-  <main class="admin-container">
+  <main id="main-content" class="admin-container">
     <!-- Admin Prototype & Demonstration Notice -->
     <div class="admin-demo-alert" role="status" style="background: #193B46; border: 1px solid #75CDA9; border-left: 4px solid #75CDA9; padding: 0.85rem 1.25rem; border-radius: 6px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; color: #FFFFFF;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#75CDA9" stroke-width="2" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
@@ -60,13 +77,13 @@
     </div>
     <!-- Top Section Navigation Tabs -->
     <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--admin-border, #334155); padding-bottom: 0.75rem;">
-      <button type="button" id="tab-nav-cases" class="admin-btn admin-btn-primary admin-btn-sm" onclick="switchAdminSection('cases')">
+      <button type="button" id="tab-nav-cases" class="admin-btn admin-btn-primary admin-btn-sm">
         📁 Corporate Cases &amp; Filings
       </button>
-      <button type="button" id="tab-nav-services" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="switchAdminSection('services')">
+      <button type="button" id="tab-nav-services" class="admin-btn admin-btn-secondary admin-btn-sm">
         📋 Services Directory
       </button>
-      <button type="button" id="tab-nav-leads" class="admin-btn admin-btn-secondary admin-btn-sm" onclick="switchAdminSection('leads')">
+      <button type="button" id="tab-nav-leads" class="admin-btn admin-btn-secondary admin-btn-sm">
         📥 Incoming Leads
       </button>
     </div>
@@ -81,7 +98,7 @@
           </p>
         </div>
         <div class="admin-header-buttons">
-          <button type="button" id="btn-refresh-cases" class="admin-btn admin-btn-secondary" onclick="loadAdminCases()">
+          <button type="button" id="btn-refresh-cases" class="admin-btn admin-btn-secondary">
             ↻ Refresh Cases
           </button>
         </div>
@@ -117,9 +134,9 @@
           <div class="toolbar-filters">
             <div class="search-input-wrap">
               <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <input aria-label="Search cases by reference or title" type="text" id="search-cases" class="form-control" placeholder="Search cases by reference or title..." oninput="filterAdminCases()">
+              <input aria-label="Search cases by reference or title" type="text" id="search-cases" class="form-control" placeholder="Search cases by reference or title...">
             </div>
-            <select id="filter-case-status" class="select-filter" onchange="filterAdminCases()">
+            <select id="filter-case-status" class="select-filter">
               <option value="">All Statuses</option>
               <option value="IN_PROGRESS">IN_PROGRESS</option>
               <option value="AWAITING_CUSTOMER_ACTION">AWAITING_CUSTOMER_ACTION</option>
@@ -159,7 +176,7 @@
     <div id="section-services" style="display: none;">
       <div class="admin-header-row">
       <div>
-        <h1 class="admin-page-title">Services &amp; Pricing Directory</h1>
+        <h2 class="admin-page-title">Services &amp; Pricing Directory</h2>
         <p class="admin-page-desc">
           Manage canonical corporate services, pricing structures, deliverables, and publishing pipelines without touching website source code.
         </p>
@@ -263,13 +280,13 @@
     <div id="section-leads" style="display: none;">
       <div class="admin-header-row">
         <div>
-          <h1 class="admin-page-title">Incoming Lead Enquiries</h1>
+          <h2 class="admin-page-title">Incoming Lead Enquiries</h2>
           <p class="admin-page-desc">
             Public enquiries submitted through canonical service pages and practice vertical forms.
           </p>
         </div>
         <div class="admin-header-buttons">
-          <button type="button" id="btn-refresh-leads" class="admin-btn admin-btn-secondary" onclick="loadAdminLeads()">
+          <button type="button" id="btn-refresh-leads" class="admin-btn admin-btn-secondary">
             ↻ Refresh Leads
           </button>
         </div>
@@ -308,10 +325,10 @@
     <div class="admin-modal" style="width: 100%; max-width: 520px; box-sizing: border-box;">
       <div class="modal-header">
         <h3 class="modal-title" id="modal-case-title">Manage Case</h3>
-        <button type="button" class="modal-close" onclick="closeCaseModal()" aria-label="Close Modal">&times;</button>
+        <button type="button" class="modal-close" id="btn-close-case-modal" aria-label="Close Modal">&times;</button>
       </div>
 
-      <form id="case-manage-form" onsubmit="handleCaseUpdateSubmit(event)">
+      <form id="case-manage-form">
         <div class="modal-body">
           <div class="form-group" style="margin-bottom: 1rem;">
             <label class="form-label">Case Reference</label>
@@ -341,7 +358,7 @@
           <div id="case-manage-feedback" style="display: none; padding: 0.65rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-size: 0.8rem;"></div>
         </div>
         <div class="modal-footer" style="padding: 1rem 1.5rem; display: flex; justify-content: flex-end; gap: 0.75rem; border-top: 1px solid var(--admin-border, #334155);">
-          <button type="button" class="admin-btn admin-btn-secondary" onclick="closeCaseModal()">Cancel</button>
+          <button type="button" class="admin-btn admin-btn-secondary" id="btn-cancel-case-modal">Cancel</button>
           <button type="submit" id="btn-save-case" class="admin-btn admin-btn-primary">Save Changes</button>
         </div>
       </form>
@@ -573,5 +590,34 @@
   <div class="admin-toast-container" id="toast-container"></div>
 
   <script src="/admin/admin.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var tabCases = document.getElementById('tab-nav-cases');
+  if (tabCases) tabCases.addEventListener('click', function() { if (typeof switchAdminSection === 'function') switchAdminSection('cases'); });
+  var tabServices = document.getElementById('tab-nav-services');
+  if (tabServices) tabServices.addEventListener('click', function() { if (typeof switchAdminSection === 'function') switchAdminSection('services'); });
+  var tabLeads = document.getElementById('tab-nav-leads');
+  if (tabLeads) tabLeads.addEventListener('click', function() { if (typeof switchAdminSection === 'function') switchAdminSection('leads'); });
+
+  var refreshCases = document.getElementById('btn-refresh-cases');
+  if (refreshCases) refreshCases.addEventListener('click', function() { if (typeof loadAdminCases === 'function') loadAdminCases(); });
+  var refreshLeads = document.getElementById('btn-refresh-leads');
+  if (refreshLeads) refreshLeads.addEventListener('click', function() { if (typeof loadAdminLeads === 'function') loadAdminLeads(); });
+
+  var searchCases = document.getElementById('search-cases');
+  if (searchCases) searchCases.addEventListener('input', function() { if (typeof filterAdminCases === 'function') filterAdminCases(); });
+  var filterStatus = document.getElementById('filter-case-status');
+  if (filterStatus) filterStatus.addEventListener('change', function() { if (typeof filterAdminCases === 'function') filterAdminCases(); });
+
+  ['btn-close-case-modal', 'btn-cancel-case-modal'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('click', function() { if (typeof closeCaseModal === 'function') closeCaseModal(); });
+  });
+
+  var caseForm = document.getElementById('case-manage-form');
+  if (caseForm) caseForm.addEventListener('submit', function(e) { if (typeof handleCaseUpdateSubmit === 'function') handleCaseUpdateSubmit(e); });
+});
+</script>
 </body>
 </html>

@@ -884,16 +884,16 @@
 
         <!-- Navigation Tabs -->
         <div class="calc-tabs" style="display: flex; gap: 0.5rem; margin-top: 1.75rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15); overflow-x: auto; padding-bottom: 2px;">
-          <button type="button" class="msme-tab-btn active" onclick="switchMsmeTab('classification', this)" style="background: transparent; border: none; border-bottom: 3px solid #FCD34D; color: #FCD34D; padding: 0.65rem 1rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
+          <button type="button" class="msme-tab-btn active" data-msme-tab="classification" style="background: transparent; border: none; border-bottom: 3px solid #FCD34D; color: #FCD34D; padding: 0.65rem 1rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
             🧮 1. Composite Classification
           </button>
-          <button type="button" class="msme-tab-btn" onclick="switchMsmeTab('delayed-payment', this)" style="background: transparent; border: none; border-bottom: 3px solid transparent; color: #94A3B8; padding: 0.65rem 1rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
+          <button type="button" class="msme-tab-btn" data-msme-tab="delayed-payment" style="background: transparent; border: none; border-bottom: 3px solid transparent; color: #94A3B8; padding: 0.65rem 1rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
             ⚖️ 2. 20.25% Interest &amp; Sec 43B(h)
           </button>
-          <button type="button" class="msme-tab-btn" onclick="switchMsmeTab('trader-matrix', this)" style="background: transparent; border: none; border-bottom: 3px solid transparent; color: #94A3B8; padding: 0.65rem 1rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
+          <button type="button" class="msme-tab-btn" data-msme-tab="trader-matrix" style="background: transparent; border: none; border-bottom: 3px solid transparent; color: #94A3B8; padding: 0.65rem 1rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
             🏪 3. Trader Eligibility Matrix
           </button>
-          <button type="button" class="msme-tab-btn" onclick="switchMsmeTab('doc-checklist', this)" style="background: transparent; border: none; border-bottom: 3px solid transparent; color: #94A3B8; padding: 0.65rem 1rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
+          <button type="button" class="msme-tab-btn" data-msme-tab="doc-checklist" style="background: transparent; border: none; border-bottom: 3px solid transparent; color: #94A3B8; padding: 0.65rem 1rem; font-weight: 600; font-size: 0.9rem; cursor: pointer; white-space: nowrap;">
             📋 4. Entity Document Checklist
           </button>
         </div>
@@ -909,7 +909,7 @@
 
               <div style="margin-bottom: 1.25rem;">
                 <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Constitution / Business Structure</label>
-                <select id="calc-structure" onchange="runClassificationCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+                <select id="calc-structure" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
                   <option value="proprietorship">Sole Proprietorship</option>
                   <option value="partnership">Partnership Firm</option>
                   <option value="llp">Limited Liability Partnership (LLP)</option>
@@ -924,7 +924,7 @@
                   <span>Investment in Plant &amp; Machinery (WDV)</span>
                   <span id="label-inv-display" style="color: var(--brand-primary); font-family: var(--font-mono, monospace); font-weight: 700;">₹50 Lakhs</span>
                 </label>
-                <input aria-label="Plant and machinery investment in Lakhs" type="range" id="calc-inv-range" min="1" max="6000" step="5" value="50" oninput="syncInvFromSlider(this.value)" style="width: 100%; accent-color: var(--brand-gold);">
+                <input aria-label="Plant and machinery investment in Lakhs" type="range" id="calc-inv-range" min="1" max="6000" step="5" value="50" style="width: 100%; accent-color: var(--brand-gold);">
                 <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
                   <span>₹1 Lakh</span>
                   <span>₹1 Cr (Micro Limit)</span>
@@ -939,7 +939,7 @@
                   <span>Total Gross Turnover (₹ Lakhs)</span>
                   <span id="label-to-display" style="color: var(--brand-primary); font-family: var(--font-mono, monospace); font-weight: 700;">₹200 Lakhs (₹2 Cr)</span>
                 </label>
-                <input aria-label="Annual turnover in Lakhs" type="range" id="calc-to-range" min="5" max="30000" step="25" value="200" oninput="syncToFromSlider(this.value)" style="width: 100%; accent-color: var(--brand-gold);">
+                <input aria-label="Annual turnover in Lakhs" type="range" id="calc-to-range" min="5" max="30000" step="25" value="200" style="width: 100%; accent-color: var(--brand-gold);">
                 <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
                   <span>₹5 L</span>
                   <span>₹5 Cr (Micro)</span>
@@ -954,7 +954,7 @@
                   <span>Export Turnover of Goods &amp; Services (₹ Lakhs)</span>
                   <span id="label-exp-display" style="color: #065F46; font-family: var(--font-mono, monospace); font-weight: 700;">₹50 Lakhs (Exempted)</span>
                 </label>
-                <input aria-label="Direct export turnover in Lakhs" type="range" id="calc-exp-range" min="0" max="20000" step="25" value="50" oninput="syncExpFromSlider(this.value)" style="width: 100%; accent-color: #10B981;">
+                <input aria-label="Direct export turnover in Lakhs" type="range" id="calc-exp-range" min="0" max="20000" step="25" value="50" style="width: 100%; accent-color: #10B981;">
                 <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0.35rem 0 0;">
                   ⚡ <em>Section 7(1) Explanation 1:</em> Exports are statutorily excluded from turnover for classification.
                 </p>
@@ -1013,23 +1013,23 @@
 
               <div style="margin-bottom: 1rem;">
                 <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Invoice Principal Amount (₹)</label>
-                <input aria-label="Invoice amount in Rupees" type="number" id="calc-inv-amount" value="500000" step="10000" oninput="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.92rem; font-family: var(--font-mono);">
+                <input aria-label="Invoice amount in Rupees" type="number" id="calc-inv-amount" value="500000" step="10000" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.92rem; font-family: var(--font-mono);">
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                 <div>
                   <label style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Invoice / Delivery Date</label>
-                  <input aria-label="Invoice date" type="date" id="calc-inv-date" value="2026-01-10" onchange="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
+                  <input aria-label="Invoice date" type="date" id="calc-inv-date" value="2026-01-10" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
                 </div>
                 <div>
                   <label style="display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Actual / Expected Payment Date</label>
-                  <input aria-label="Actual payment date" type="date" id="calc-pay-date" value="2026-04-15" onchange="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
+                  <input aria-label="Actual payment date" type="date" id="calc-pay-date" value="2026-04-15" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.85rem;">
                 </div>
               </div>
 
               <div style="margin-bottom: 1rem;">
                 <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Credit Terms Agreement</label>
-                <select id="calc-terms-type" onchange="toggleCreditAgreementInput()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+                <select id="calc-terms-type" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
                   <option value="written" selected>Written Agreement (Statutory Cap: 45 Days)</option>
                   <option value="none">No Written Agreement (Default: 15 Days)</option>
                 </select>
@@ -1040,12 +1040,12 @@
                   <span>Agreed Credit Days (Max 45 days)</span>
                   <span id="agreed-days-label" style="font-family: var(--font-mono); color: var(--brand-primary); font-weight: 700;">45 Days</span>
                 </label>
-                <input aria-label="Agreed statutory payment credit window in days" type="range" id="calc-agreed-days" min="1" max="45" value="45" oninput="document.getElementById('agreed-days-label').innerText = this.value + ' Days'; runDelayedPaymentCalc();" style="width: 100%; accent-color: var(--brand-gold);">
+                <input aria-label="Agreed statutory payment credit window in days" type="range" id="calc-agreed-days" min="1" max="45" value="45" data-agreed-days-slider style="width: 100%; accent-color: var(--brand-gold);">
               </div>
 
               <div style="margin-bottom: 1rem;">
                 <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem;">Buyer Income Tax Slab Rate</label>
-                <select id="calc-buyer-tax" onchange="runDelayedPaymentCalc()" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
+                <select id="calc-buyer-tax" style="width: 100%; padding: 0.65rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.9rem;">
                   <option value="0.2517" selected>Corporate Concessional Rate (22% + 10% Surch + Cess = 25.17%)</option>
                   <option value="0.312">Standard Corporate / Firm Rate (30% + Cess = 31.2%)</option>
                   <option value="0.3494">Highest Individual / LLP Slab (30% + 15% Surch + Cess = 34.94%)</option>
@@ -1178,10 +1178,10 @@
           <div style="margin-bottom: 1.25rem;">
             <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--navy-800); margin-bottom: 0.35rem;">Select Your Entity Structure to Generate Tailored Checklist:</label>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <button type="button" class="checklist-type-btn active" onclick="switchChecklistType('proprietorship', this)" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--brand-primary); background: var(--brand-primary); color: #FFFFFF; cursor: pointer;">Sole Proprietorship</button>
-              <button type="button" class="checklist-type-btn" onclick="switchChecklistType('partnership', this)" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); cursor: pointer;">Partnership Firm</button>
-              <button type="button" class="checklist-type-btn" onclick="switchChecklistType('llp', this)" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); cursor: pointer;">LLP</button>
-              <button type="button" class="checklist-type-btn" onclick="switchChecklistType('company', this)" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); cursor: pointer;">Pvt Ltd / OPC</button>
+              <button type="button" class="checklist-type-btn active" data-checklist-type="proprietorship" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--brand-primary); background: var(--brand-primary); color: #FFFFFF; cursor: pointer;">Sole Proprietorship</button>
+              <button type="button" class="checklist-type-btn" data-checklist-type="partnership" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); cursor: pointer;">Partnership Firm</button>
+              <button type="button" class="checklist-type-btn" data-checklist-type="llp" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); cursor: pointer;">LLP</button>
+              <button type="button" class="checklist-type-btn" data-checklist-type="company" style="padding: 0.5rem 0.85rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); cursor: pointer;">Pvt Ltd / OPC</button>
             </div>
           </div>
 
@@ -1958,5 +1958,49 @@
   </script>
   <script src="/assets/js/navigation.js"></script>
   <script src="/assets/js/forms.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.msme-tab-btn[data-msme-tab]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof switchMsmeTab === 'function') switchMsmeTab(this.getAttribute('data-msme-tab'), this);
+    });
+  });
+  var cStruct = document.getElementById('calc-structure');
+  if (cStruct) cStruct.addEventListener('change', function() { if (typeof runClassificationCalc === 'function') runClassificationCalc(); });
+  var invR = document.getElementById('calc-inv-range');
+  if (invR) invR.addEventListener('input', function() { if (typeof syncInvFromSlider === 'function') syncInvFromSlider(this.value); });
+  var toR = document.getElementById('calc-to-range');
+  if (toR) toR.addEventListener('input', function() { if (typeof syncToFromSlider === 'function') syncToFromSlider(this.value); });
+  var expR = document.getElementById('calc-exp-range');
+  if (expR) expR.addEventListener('input', function() { if (typeof syncExpFromSlider === 'function') syncExpFromSlider(this.value); });
+
+  ['calc-inv-amount', 'calc-inv-date', 'calc-pay-date', 'calc-buyer-type'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', function() { if (typeof runDelayedPaymentCalc === 'function') runDelayedPaymentCalc(); });
+      el.addEventListener('change', function() { if (typeof runDelayedPaymentCalc === 'function') runDelayedPaymentCalc(); });
+    }
+  });
+
+  var creditAgree = document.getElementById('calc-has-agreement');
+  if (creditAgree) creditAgree.addEventListener('change', function() { if (typeof toggleCreditAgreementInput === 'function') toggleCreditAgreementInput(); });
+
+  var daysSlider = document.querySelector('[data-agreed-days-slider]');
+  if (daysSlider) {
+    daysSlider.addEventListener('input', function() {
+      var label = document.getElementById('agreed-days-label');
+      if (label) label.innerText = this.value + ' Days';
+      if (typeof runDelayedPaymentCalc === 'function') runDelayedPaymentCalc();
+    });
+  }
+
+  document.querySelectorAll('[data-checklist-type]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof switchChecklistType === 'function') switchChecklistType(this.getAttribute('data-checklist-type'), this);
+    });
+  });
+});
+</script>
 </body>
 </html>

@@ -22,11 +22,12 @@ class RegulatoryService {
 
     // Load canonical sources
     const sourcesPath = path.join(__dirname, '../../../data/sources.json');
-    this.sources = JSON.parse(fs.readFileSync(sourcesPath, 'utf8'));
+    try { this.sources = JSON.parse(fs.readFileSync(sourcesPath, 'utf8')); } catch (_e) { this.sources = []; }
 
     // Load and validate canonical seed events
     const eventsPath = path.join(__dirname, 'canonical-events.json');
-    const rawEvents = JSON.parse(fs.readFileSync(eventsPath, 'utf8'));
+    let rawEvents = [];
+    try { rawEvents = JSON.parse(fs.readFileSync(eventsPath, 'utf8')); } catch (_e) { rawEvents = []; }
     this.events = new Map();
     for (const raw of rawEvents) {
       const validated = validateComplianceEvent(raw);

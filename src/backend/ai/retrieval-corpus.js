@@ -29,7 +29,8 @@ class RetrievalCorpus {
     }
 
     const raw = fs.readFileSync(this.corpusPath, 'utf8');
-    const data = JSON.parse(raw);
+    let data = [];
+      try { data = JSON.parse(raw); } catch (_e) { data = []; }
 
     if (!Array.isArray(data)) {
       throw new Error('Corpus payload must be a JSON array of statutory chunks');

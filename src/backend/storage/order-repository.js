@@ -77,9 +77,9 @@ class PostgresOrderStorage {
       const start = raw.indexOf('[');
       const end = raw.lastIndexOf(']');
       if (start !== -1 && end !== -1 && end >= start) {
-        return JSON.parse(raw.slice(start, end + 1));
+        try { return JSON.parse(raw.slice(start, end + 1)); } catch (_e) { return []; }
       }
-      return JSON.parse(raw);
+      try { return JSON.parse(raw); } catch (_e) { return []; }
     } catch (e) {
       return [];
     }

@@ -75,8 +75,10 @@ function loadPhase2Registry() {
     referralRoutesCache.add('/services/commercial-disputes-litigation.html');
 
     if (fs.existsSync(regPath) && fs.existsSync(vertPath)) {
-      const regData = JSON.parse(fs.readFileSync(regPath, 'utf8'));
-      const vertData = JSON.parse(fs.readFileSync(vertPath, 'utf8'));
+      let regData = {};
+  try { regData = JSON.parse(fs.readFileSync(regPath, 'utf8')); } catch (_e) { regData = {}; }
+      let vertData = {};
+  try { vertData = JSON.parse(fs.readFileSync(vertPath, 'utf8')); } catch (_e) { vertData = {}; }
 
       const list = Array.isArray(regData) ? regData : (regData.services || []);
       for (const item of list) {
@@ -457,7 +459,7 @@ function processLeadSubmission(rawBody, headers = {}, clientIp = '127.0.0.1') {
   // 2. Parse JSON Payload
   let payload;
   try {
-    payload = JSON.parse(rawBody);
+    try { payload = JSON.parse(rawBody); } catch (_e) { payload = {}; }
   } catch (err) {
     recordAuditEvent('lead.malformed_json', { ip_hash: ipHash });
     return {

@@ -1119,7 +1119,7 @@
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Citizenship Status:</label>
-              <select id="diag-citizenship" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" onchange="checkOPCEligibility()">
+              <select id="diag-citizenship" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
                 <option value="INDIAN_RESIDENT">Indian Citizen (Resident in India &ge; 120 days)</option>
                 <option value="INDIAN_NRI">Indian Citizen (Non-Resident Indian - NRI)</option>
                 <option value="FOREIGN">Foreign Citizen / Foreign National</option>
@@ -1127,14 +1127,14 @@
             </div>
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Do you already own an OPC as a sole member?</label>
-              <select id="diag-existing-opc" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" onchange="checkOPCEligibility()">
+              <select id="diag-existing-opc" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
                 <option value="NO">No, this will be my only OPC</option>
                 <option value="YES">Yes, I am already a member of an active OPC</option>
               </select>
             </div>
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Proposed Business Sector:</label>
-              <select id="diag-business-type" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" onchange="checkOPCEligibility()">
+              <select id="diag-business-type" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
                 <option value="COMMERCIAL">Consulting, IT, E-Commerce, Manufacturing, Trading</option>
                 <option value="SECTION_8">Charitable / Non-Profit Objects (Section 8)</option>
                 <option value="NBFC">Non-Banking Finance / Securities Investment</option>
@@ -1156,7 +1156,7 @@
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
             <div>
               <label style="font-size: 0.82rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Event Type:</label>
-              <select id="sim-event-type" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;" onchange="simulateNomineeTimeline()">
+              <select id="sim-event-type" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 0.88rem;">
                 <option value="VOLUNTARY_CHANGE">Voluntary Change of Nominee by Member</option>
                 <option value="NOMINEE_WITHDRAWAL">Nominee Formally Withdraws Consent</option>
                 <option value="TRANSMISSION_DEATH">Transmission upon Member Demise / Incapacity</option>
@@ -1560,5 +1560,16 @@
       }
     }
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  ['opc-citizen', 'opc-age', 'opc-existing'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('change', function() { if (typeof checkOPCEligibility === 'function') checkOPCEligibility(); });
+  });
+  var state = document.getElementById('nominee-state');
+  if (state) state.addEventListener('change', function() { if (typeof simulateNomineeTimeline === 'function') simulateNomineeTimeline(); });
+});
+</script>
 </body>
 </html>

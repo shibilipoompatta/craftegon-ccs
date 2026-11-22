@@ -65,9 +65,10 @@
   </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="global-navbar"></div>
 
-  <main class="portal-container">
+  <main id="main-content" class="portal-container">
     <!-- Breadcrumb -->
     <nav class="if-breadcrumb" aria-label="Breadcrumb" style="margin-bottom: 1.5rem;">
       <a href="/index.html">Home</a> / <a href="/portal/dashboard.html">Client Portal</a> / <span>SaaS Subscriptions</span>
@@ -94,12 +95,12 @@
 
       <!-- Billing Frequency Toggle -->
       <div class="billing-toggle-container">
-        <span id="lbl-monthly" class="billing-lbl" onclick="setBillingCycle('monthly')">Monthly Billing</span>
+        <span id="lbl-monthly" class="billing-lbl">Monthly Billing</span>
         <label class="switch" aria-label="Toggle Annual Billing">
-          <input aria-label="Billing frequency toggle" type="checkbox" id="billing-switch" onchange="toggleBillingSwitch(this)">
+          <input aria-label="Billing frequency toggle" type="checkbox" id="billing-switch">
           <span class="slider"></span>
         </label>
-        <span id="lbl-annual" class="billing-lbl active" onclick="setBillingCycle('annual')">
+        <span id="lbl-annual" class="billing-lbl active">
           Annual Billing <span class="discount-badge">Save 17% &bull; 2 Months Free</span>
         </span>
       </div>
@@ -134,7 +135,7 @@
           <li class="tier-feature-item">Standard Email Support Desk</li>
         </ul>
 
-        <button type="button" class="if-btn-secondary" style="width:100%; justify-content:center; padding:0.85rem;" onclick="openCheckoutModal('Starter Tier', 14990, 1499)">
+        <button type="button" class="if-btn-secondary" style="width:100%; justify-content:center; padding:0.85rem;" data-checkout-tier="Starter Tier" data-checkout-annual="14990" data-checkout-monthly="1499">
           Enquire on Starter Tier
         </button>
       </div>
@@ -160,7 +161,7 @@
           <li class="tier-feature-item">Priority Practicing CS Review (24-Hour SLA)</li>
         </ul>
 
-        <button type="button" class="if-btn-primary" style="width:100%; justify-content:center; padding:0.85rem;" onclick="openCheckoutModal('Growth Tier', 49990, 4999)">
+        <button type="button" class="if-btn-primary" style="width:100%; justify-content:center; padding:0.85rem;" data-checkout-tier="Growth Tier" data-checkout-annual="49990" data-checkout-monthly="4999">
           Enquire on Growth Tier
         </button>
       </div>
@@ -185,7 +186,7 @@
           <li class="tier-feature-item">NCLT Pre-Dispute Secretarial Dossier Compilation</li>
         </ul>
 
-        <button type="button" class="if-btn-secondary" style="width:100%; justify-content:center; padding:0.85rem;" onclick="openCheckoutModal('Enterprise Tier', 149990, 14999)">
+        <button type="button" class="if-btn-secondary" style="width:100%; justify-content:center; padding:0.85rem;" data-checkout-tier="Enterprise Tier" data-checkout-annual="149990" data-checkout-monthly="14999">
           Enquire on Enterprise Tier
         </button>
       </div>
@@ -265,7 +266,7 @@
   <!-- Retainer Scope & WhatsApp Enquiry Modal -->
   <div id="checkout-modal-backdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-tier-title" aria-describedby="modal-notice-text">
     <div class="checkout-modal">
-      <button type="button" class="modal-close" onclick="closeCheckoutModal()" aria-label="Close Enquiry Modal">&times;</button>
+      <button type="button" class="modal-close" id="btn-close-checkout-modal" aria-label="Close Enquiry Modal">&times;</button>
 
       <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;">
         <span class="noble-badge"><span class="noble-badge-dot"></span> Institutional Retainer</span>
@@ -307,7 +308,7 @@
       </div>
 
       <!-- Enquiry Details Form -->
-      <form id="checkout-form" onsubmit="handleEnquiryDispatch(event)">
+      <form id="checkout-form">
         <div style="margin-bottom: 0.75rem;">
           <label for="co-company" style="display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem;">Entity Legal Name (Optional for Email)</label>
           <input type="text" class="checkout-input" id="co-company" placeholder="e.g. CraftEgon Technologies Pvt Ltd" style="margin-bottom: 0;">
@@ -338,7 +339,7 @@
           Connect on WhatsApp to Confirm Scope &rarr;
         </button>
 
-        <button type="button" id="email-dispatch-btn" onclick="handleEmailDispatch()" class="if-btn-secondary" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 0.85rem;">
+        <button type="button" id="email-dispatch-btn" class="if-btn-secondary" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 0.85rem;">
           Send Email Enquiry &rarr;
         </button>
       </form>

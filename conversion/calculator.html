@@ -950,10 +950,10 @@
   <main id="main-content" class="calc-container">
     <div class="calc-tabs-wrap">
     <div class="calc-tabs" role="tablist" aria-label="Statutory Calculators">
-      <button type="button" class="calc-tab-btn active" id="tab-btn-1" onclick="switchTab(1)" role="tab" aria-selected="true" aria-controls="calc-tab-1">1. Entity Outlay &amp; RoC Fee Suite</button>
-      <button type="button" class="calc-tab-btn" id="tab-btn-2" onclick="switchTab(2)" role="tab" aria-selected="false" aria-controls="calc-tab-2">2. GST Rate &amp; ITC / GSTR-2B Reconciler</button>
-      <button type="button" class="calc-tab-btn" id="tab-btn-3" onclick="switchTab(3)" role="tab" aria-selected="false" aria-controls="calc-tab-3">3. Income Tax Regime & Sec 44AD/ADA + MSME 43B(h)</button>
-      <button type="button" class="calc-tab-btn" id="tab-btn-4" onclick="switchTab(4)" role="tab" aria-selected="false" aria-controls="calc-tab-4">4. Startup EMI, Cap Table &amp; Treasury</button>
+      <button type="button" class="calc-tab-btn active" id="tab-btn-1" data-calc-tab="1" role="tab" aria-selected="true" aria-controls="calc-tab-1">1. Entity Outlay &amp; RoC Fee Suite</button>
+      <button type="button" class="calc-tab-btn" id="tab-btn-2" data-calc-tab="2" role="tab" aria-selected="false" aria-controls="calc-tab-2">2. GST Rate &amp; ITC / GSTR-2B Reconciler</button>
+      <button type="button" class="calc-tab-btn" id="tab-btn-3" data-calc-tab="3" role="tab" aria-selected="false" aria-controls="calc-tab-3">3. Income Tax Regime & Sec 44AD/ADA + MSME 43B(h)</button>
+      <button type="button" class="calc-tab-btn" id="tab-btn-4" data-calc-tab="4" role="tab" aria-selected="false" aria-controls="calc-tab-4">4. Startup EMI, Cap Table &amp; Treasury</button>
     </div>
     </div>
 
@@ -963,10 +963,10 @@
       <div id="annual"></div>
       <!-- Mode Switcher -->
       <div class="calc-mode-switcher" role="radiogroup" aria-label="Calculator Mode">
-        <button type="button" class="mode-btn active" id="btn-mode-formation" onclick="setTab1Mode('formation')" role="radio" aria-checked="true">
+        <button type="button" class="mode-btn active" id="btn-mode-formation" data-calc-mode="formation" role="radio" aria-checked="true">
           🏢 New Entity Formation Outlay
         </button>
-        <button type="button" class="mode-btn" id="btn-mode-annual" onclick="setTab1Mode('annual')" role="radio" aria-checked="false">
+        <button type="button" class="mode-btn" id="btn-mode-annual" data-calc-mode="annual" role="radio" aria-checked="false">
           ⚠️ RoC Annual Compliance & Late Fees
         </button>
       </div>
@@ -981,7 +981,7 @@
             <span id="tab1-card-badge" class="readout-pill" style="color: #065F46; background: #D1FAE5;">MCA V3 Rule 38: ₹0 Filing Fee</span>
           </div>
 
-          <form id="estimator-form" onsubmit="event.preventDefault();">
+          <form id="estimator-form">
             <!-- Instant CIN / LLPIN Micro-Decryptor -->
             <div class="form-group cin-decryptor-box" id="group-cin-decryptor">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
@@ -994,8 +994,7 @@
               <p style="font-size: 0.78rem; color: #64748B; margin: 0 0 0.65rem; line-height: 1.45;">Enter an Indian 21-digit CIN (e.g. <code>U72900KL2026PTC012345</code>) or LLPIN to instantly decode industry code, jurisdiction RoC, year, and auto-select your statutory schedule.</p>
               <div style="position: relative;">
                 <input type="text" id="cin-quick-input" placeholder="e.g. U72900KL2026PTC012345 or AAA-1234" maxlength="21" autocomplete="off" spellcheck="false"
-                  style="width: 100%; box-sizing: border-box; padding: 0.75rem 1rem; border: 1.5px solid #94A3B8; border-radius: 8px; font-family: var(--font-mono); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; background: #FFFFFF; color: #0F172A;"
-                  oninput="CraftegonCalculator.handleCinInput(this.value)">
+                  style="width: 100%; box-sizing: border-box; padding: 0.75rem 1rem; border: 1.5px solid #94A3B8; border-radius: 8px; font-family: var(--font-mono); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; background: #FFFFFF; color: #0F172A;" data-cin-input>
               </div>
               <div id="cin-decrypt-status" style="display: none; margin-top: 0.65rem; padding: 0.65rem 0.85rem; border-radius: 6px; font-size: 0.82rem; line-height: 1.5;"></div>
             </div>
@@ -1006,7 +1005,7 @@
                 <span>Select Legal Entity Classification</span>
                 <span style="font-size: 0.75rem; color: var(--text-secondary);" id="entity-mca-label">MCA V3 Structure</span>
               </label>
-              <select id="entity-type" name="entity_type" onchange="onEntityTypeChange()">
+              <select id="entity-type" name="entity_type">
                 <option value="pvt-ltd" selected>Private Limited Company (SPICe+)</option>
                 <option value="llp">Limited Liability Partnership (FiLLiP)</option>
                 <option value="opc">One Person Company (OPC)</option>
@@ -1021,7 +1020,7 @@
                 <span>Core Statutory Service / Annual Return Scope</span>
                 <span style="font-size: 0.75rem; color: var(--text-secondary);">Secretarial Retainer</span>
               </label>
-              <select id="service-type" name="service_type" onchange="calculateCost()">
+              <select id="service-type" name="service_type">
                 <option value="roc-retainer" selected>RoC Annual Compliance Retainer (Standard Full-Scope)</option>
                 <option value="pvt-ltd">Private Limited Company Incorporation (SPICe+ Part A/B)</option>
                 <option value="llp">Limited Liability Partnership Setup (FiLLiP)</option>
@@ -1036,7 +1035,7 @@
                 <span id="capital-tier-label">Authorized Nominal Capital Tier</span>
                 <span style="font-size: 0.75rem; color: var(--text-secondary);">RoC Slab Schedule</span>
               </label>
-              <select id="capital-tier" name="capital_tier" onchange="calculateCost()">
+              <select id="capital-tier" name="capital_tier">
                 <option value="tier-1" selected>Standard Tier: Up to ₹1 Lakh Capital (₹0 MCA Fee)</option>
                 <option value="tier-2">Growth Tier: ₹1 Lakh to ₹10 Lakhs Capital (₹0 MCA Fee)</option>
                 <option value="tier-3">Scale Tier: ₹10 Lakhs to ₹25 Lakhs Capital (₹0 MCA Fee up to ₹15L)</option>
@@ -1050,7 +1049,7 @@
                 <span>State of Registered Office</span>
                 <span style="font-size: 0.75rem; color: var(--text-secondary);">State Stamp Duty</span>
               </label>
-              <select id="formation-state" name="formation_state" onchange="calculateCost()">
+              <select id="formation-state" name="formation_state">
                 <option value="delhi">National Capital Territory of Delhi (₹1,000 Stamp)</option>
                 <option value="maharashtra" selected>Maharashtra (₹1,000 Articles Stamp)</option>
                 <option value="karnataka">Karnataka (₹1,500 Stamp)</option>
@@ -1088,16 +1087,16 @@
               </label>
               <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="GST Registration Expedited Filing (+₹999)" type="checkbox" id="f-addon-gst" value="999" onchange="calculateCost()"> GST Registration Expedited Filing (+₹999)
+                  <input aria-label="GST Registration Expedited Filing (+₹999)" type="checkbox" id="f-addon-gst" value="999"> GST Registration Expedited Filing (+₹999)
                 </label>
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="Startup India DPIIT Recognition & Tax Exemption Kit (+₹2,499)" type="checkbox" id="f-addon-dpiit" value="2499" onchange="calculateCost()"> Startup India DPIIT Recognition & Tax Exemption Kit (+₹2,499)
+                  <input aria-label="Startup India DPIIT Recognition & Tax Exemption Kit (+₹2,499)" type="checkbox" id="f-addon-dpiit" value="2499"> Startup India DPIIT Recognition & Tax Exemption Kit (+₹2,499)
                 </label>
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="Trademark TM-A 1-Class Clearance & Filing (+₹3,999)" type="checkbox" id="f-addon-tm" value="3999" onchange="calculateCost()"> Trademark TM-A 1-Class Clearance & Filing (+₹3,999)
+                  <input aria-label="Trademark TM-A 1-Class Clearance & Filing (+₹3,999)" type="checkbox" id="f-addon-tm" value="3999"> Trademark TM-A 1-Class Clearance & Filing (+₹3,999)
                 </label>
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="Corporate Banking Board Resolution & Share Certificates Kit (+₹1,499)" type="checkbox" id="f-addon-governance" value="1499" onchange="calculateCost()"> Corporate Banking Board Resolution & Share Certificates Kit (+₹1,499)
+                  <input aria-label="Corporate Banking Board Resolution & Share Certificates Kit (+₹1,499)" type="checkbox" id="f-addon-governance" value="1499"> Corporate Banking Board Resolution & Share Certificates Kit (+₹1,499)
                 </label>
               </div>
             </div>
@@ -1109,7 +1108,7 @@
                 <span class="readout-pill" id="roc-delay-val">45 Days Overdue</span>
               </label>
               <div class="range-wrap">
-                <input type="range" class="range-slider" id="roc-delay-days" min="0" max="365" value="45" step="5" oninput="updateDelayReadout(); calculateCost();">
+                <input type="range" class="range-slider" id="roc-delay-days" min="0" max="365" value="45" step="5" data-delay-slider>
                 <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-light); font-family: var(--font-mono);">
                   <span>0 Days (On-Time)</span><span>60 Days</span><span>180 Days</span><span>365 Days</span>
                 </div>
@@ -1151,16 +1150,16 @@
               </label>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="Form AOC-4 Financial Statements Filing" type="checkbox" id="form-aoc4" checked onchange="calculateCost()"> Form AOC-4 (Financials)
+                  <input aria-label="Form AOC-4 Financial Statements Filing" type="checkbox" id="form-aoc4" checked> Form AOC-4 (Financials)
                 </label>
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="Form MGT-7 Annual Return Filing" type="checkbox" id="form-mgt7" checked onchange="calculateCost()"> Form MGT-7 (Annual Return)
+                  <input aria-label="Form MGT-7 Annual Return Filing" type="checkbox" id="form-mgt7" checked> Form MGT-7 (Annual Return)
                 </label>
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="DIR-3 KYC Director Rule 12A Filing" type="checkbox" id="form-dir3kyc" onchange="calculateCost()"> DIR-3 KYC (Director Rule 12A)
+                  <input aria-label="DIR-3 KYC Director Rule 12A Filing" type="checkbox" id="form-dir3kyc"> DIR-3 KYC (Director Rule 12A)
                 </label>
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="Form PAS-6 Demat Share Reconciliation Filing" type="checkbox" id="form-pas6" onchange="calculateCost()"> Form PAS-6 (Demat Share Audit)
+                  <input aria-label="Form PAS-6 Demat Share Reconciliation Filing" type="checkbox" id="form-pas6"> Form PAS-6 (Demat Share Audit)
                 </label>
               </div>
             </div>
@@ -1170,7 +1169,7 @@
               <label style="margin-bottom: 0.5rem;"><span>CCFS-2026 historical relief</span></label>
               <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500;">
-                  <input aria-label="Company Compliance Fast-Track Scheme Relief Mode" type="checkbox" id="ccfs-mode" onchange="calculateCost()" disabled> Closed 15 September 2026; no relief applied
+                  <input aria-label="Company Compliance Fast-Track Scheme Relief Mode" type="checkbox" id="ccfs-mode" disabled> Closed 15 September 2026; no relief applied
                 </label>
               </div>
             </div>
@@ -1180,13 +1179,13 @@
               <label style="margin-bottom: 0.5rem;"><span>Optional Governance Add-ons</span></label>
               <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="MSME Udyam Registration (+₹1,999)" type="checkbox" id="addon-msme" value="999" onchange="calculateCost()"> MSME Form MSME-1 Bi-Annual Return (+₹999)
+                  <input aria-label="MSME Udyam Registration (+₹1,999)" type="checkbox" id="addon-msme" value="999"> MSME Form MSME-1 Bi-Annual Return (+₹999)
                 </label>
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="Founder Shareholder Agreement Drafting (+₹4,999)" type="checkbox" id="addon-sha" value="4999" onchange="calculateCost()"> Board Minutes & Statutory Register Reconstruction (+₹4,999)
+                  <input aria-label="Founder Shareholder Agreement Drafting (+₹4,999)" type="checkbox" id="addon-sha" value="4999"> Board Minutes & Statutory Register Reconstruction (+₹4,999)
                 </label>
                 <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; cursor: pointer;">
-                  <input aria-label="Zero-Balance Corporate Current Bank Account Setup (Free)" type="checkbox" id="addon-current-ac" value="1499" onchange="calculateCost()"> Corporate Banking Board Resolution Kit (+₹1,499)
+                  <input aria-label="Zero-Balance Corporate Current Bank Account Setup (Free)" type="checkbox" id="addon-current-ac" value="1499"> Corporate Banking Board Resolution Kit (+₹1,499)
                 </label>
               </div>
             </div>
@@ -1247,7 +1246,7 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
             <span>WhatsApp Incorporation Specialist</span>
           </a>
-          <button type="button" id="btn-export-statutory-memo" onclick="CraftegonCalculator.generateStatutoryMemo()" style="width: 100%; box-sizing: border-box; margin-top: 0.75rem; padding: 0.75rem; border: 1.5px solid #CBD5E1; background: #FFFFFF; color: var(--navy-900); font-family: var(--font-body); font-weight: 600; font-size: 0.88rem; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.45rem; transition: all 0.2s ease;">
+          <button type="button" id="btn-export-statutory-memo" style="width: 100%; box-sizing: border-box; margin-top: 0.75rem; padding: 0.75rem; border: 1.5px solid #CBD5E1; background: #FFFFFF; color: var(--navy-900); font-family: var(--font-body); font-weight: 600; font-size: 0.88rem; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.45rem; transition: all 0.2s ease;">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             <span>Export Statutory Briefing Memo (PDF)</span>
           </button>
@@ -1277,7 +1276,7 @@
               <span class="readout-pill" id="gst-turnover-val">₹25,00,000</span>
             </label>
             <div class="range-wrap">
-              <input type="range" class="range-slider" id="gst-turnover" min="100000" max="20000000" value="2500000" step="100000" oninput="calculateGst()">
+              <input type="range" class="range-slider" id="gst-turnover" min="100000" max="20000000" value="2500000" step="100000">
               <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-light); font-family: var(--font-mono);">
                 <span>₹1 Lakh</span><span>₹50 Lakhs</span><span>₹1 Crore</span><span>₹2 Crores</span>
               </div>
@@ -1288,7 +1287,7 @@
               <span>Primary HSN / SAC Goods & Services Tax Slab</span>
               <span style="font-size: 0.75rem; color: var(--text-secondary);">HSN Schedule</span>
             </label>
-            <select id="gst-slab" onchange="calculateGst()">
+            <select id="gst-slab">
               <option value="0.18" selected>18% Standard (SAC 9983 Tech, Consulting, Legal, SaaS)</option>
               <option value="0.12">12% Reduced (SAC 9985 Construction, Transport)</option>
               <option value="0.05">5% Essential / E-Commerce Transport & Packaged Goods</option>
@@ -1301,7 +1300,7 @@
               <span class="readout-pill" id="gst-procurement-val">₹15,00,000</span>
             </label>
             <div class="range-wrap">
-              <input type="range" class="range-slider" id="gst-procurement" min="50000" max="15000000" value="1500000" step="50000" oninput="calculateGst()">
+              <input type="range" class="range-slider" id="gst-procurement" min="50000" max="15000000" value="1500000" step="50000">
               <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-light); font-family: var(--font-mono);">
                 <span>₹50,000</span><span>₹25 Lakhs</span><span>₹75 Lakhs</span><span>₹1.5 Crores</span>
               </div>
@@ -1313,7 +1312,7 @@
               <span class="readout-pill" id="gst-blocked-val">10% Disallowed</span>
             </label>
             <div class="range-wrap">
-              <input type="range" class="range-slider" id="gst-blocked-itc" min="0" max="40" value="10" step="5" oninput="calculateGst()">
+              <input type="range" class="range-slider" id="gst-blocked-itc" min="0" max="40" value="10" step="5">
               <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0.25rem 0 0;">Includes food & beverage, passenger motor vehicles, club memberships, employee insurance unless statutorily mandated.</p>
             </div>
           </div>
@@ -1351,7 +1350,7 @@
               <span class="readout-pill" id="tax-gross-income-val">₹30,00,000</span>
             </label>
             <div class="range-wrap">
-              <input type="range" class="range-slider" id="tax-gross-income" min="500000" max="10000000" value="3000000" step="100000" oninput="calculateTaxRegime()">
+              <input type="range" class="range-slider" id="tax-gross-income" min="500000" max="10000000" value="3000000" step="100000">
               <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-light); font-family: var(--font-mono);">
                 <span>₹5 Lakhs</span><span>₹25 Lakhs</span><span>₹50 Lakhs</span><span>₹1 Crore</span>
               </div>
@@ -1362,7 +1361,7 @@
               <span>Business / Professional Category</span>
               <span style="font-size: 0.75rem; color: var(--text-secondary);">Presumptive Eligibility</span>
             </label>
-            <select id="tax-business-type" onchange="calculateTaxRegime()">
+            <select id="tax-business-type">
               <option value="44ada">Professional Services (Sec 44ADA: 50% Deemed Profit - Tech, Legal, CA, Med)</option>
               <option value="44ad-digital">Eligible Business (Sec 44AD: 6% Deemed Profit - Digital/Bank Receipts)</option>
               <option value="44ad-cash">Eligible Business (Sec 44AD: 8% Deemed Profit - Non-Digital Receipts)</option>
@@ -1375,7 +1374,7 @@
               <span class="readout-pill" id="tax-deductions-val">₹2,50,000</span>
             </label>
             <div class="range-wrap">
-              <input type="range" class="range-slider" id="tax-deductions" min="0" max="600000" value="250000" step="25000" oninput="calculateTaxRegime()">
+              <input type="range" class="range-slider" id="tax-deductions" min="0" max="600000" value="250000" step="25000">
               <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0.25rem 0 0;">Note: Most Chapter VI-A deductions are disallowed under the default Section 115BAC New Tax Regime.</p>
             </div>
           </div>
@@ -1411,7 +1410,7 @@
               *Disallowed under Section 43B(h) for FY 2025-26 unless paid before 31 March.
             </div>
           </div>
-          <a href="#msme-vendor-list" onclick="const el = document.getElementById('msme-vendor-list'); if (el) { el.scrollIntoView({behavior:'smooth'}); } return false;" class="if-btn-secondary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700; margin-top: 1rem;">Scroll to Vendor Tracker</a>
+          <a href="#msme-vendor-list" id="btn-scroll-msme-vendor" class="if-btn-secondary" style="text-align: center; display: block; width: 100%; box-sizing: border-box; text-decoration: none; padding: 0.85rem; font-weight: 700; margin-top: 1rem;">Scroll to Vendor Tracker</a>
           <div class="ai-optimization-note"><strong>TRACKER LIMITATION:</strong> Supplier status is entered by the user and is not verified against Udyam. Confirm applicability and disallowance treatment under Section 43B(h) with your statutory auditor.</div>
         </div>
       </div>
@@ -1436,7 +1435,7 @@
               <span class="readout-pill" id="cap-pre-val">₹15.00 Crores</span>
             </label>
             <div class="range-wrap">
-              <input type="range" class="range-slider" id="cap-pre-money" min="20000000" max="1000000000" value="150000000" step="10000000" oninput="calculateCapTable()">
+              <input type="range" class="range-slider" id="cap-pre-money" min="20000000" max="1000000000" value="150000000" step="10000000">
               <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-light); font-family: var(--font-mono);">
                 <span>₹2 Cr</span><span>₹25 Cr</span><span>₹50 Cr</span><span>₹100 Cr</span>
               </div>
@@ -1448,7 +1447,7 @@
               <span class="readout-pill" id="cap-raise-val">₹3.00 Crores</span>
             </label>
             <div class="range-wrap">
-              <input type="range" class="range-slider" id="cap-raise-amount" min="5000000" max="300000000" value="30000000" step="5000000" oninput="calculateCapTable()">
+              <input type="range" class="range-slider" id="cap-raise-amount" min="5000000" max="300000000" value="30000000" step="5000000">
               <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-light); font-family: var(--font-mono);">
                 <span>₹50 Lakhs</span><span>₹5 Cr</span><span>₹15 Cr</span><span>₹30 Cr</span>
               </div>
@@ -1460,7 +1459,7 @@
               <span class="readout-pill" id="cap-esop-val">10.0% Post-Round</span>
             </label>
             <div class="range-wrap">
-              <input type="range" class="range-slider" id="cap-esop-target" min="0" max="20" value="10" step="1" oninput="calculateCapTable()">
+              <input type="range" class="range-slider" id="cap-esop-target" min="0" max="20" value="10" step="1">
             </div>
           </div>
           <div class="form-group" style="margin-bottom: 0;">
@@ -1469,7 +1468,7 @@
               <span class="readout-pill" id="treasury-cash-val">₹1.50 Crores</span>
             </label>
             <div class="range-wrap">
-              <input type="range" class="range-slider" id="treasury-idle-cash" min="1000000" max="100000000" value="15000000" step="1000000" oninput="calculateCapTable()">
+              <input type="range" class="range-slider" id="treasury-idle-cash" min="1000000" max="100000000" value="15000000" step="1000000">
               <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0.25rem 0 0;">Yield is an assumed model rate, not a guaranteed bank interest quote.</p>
             </div>
           </div>
@@ -1496,7 +1495,7 @@
         <div style="font-size: 0.7rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">Estimated Outlay</div>
         <div style="font-family: var(--font-mono); font-weight: 800; font-size: 1.25rem; color: var(--brand-gold);" id="mobile-dock-total">₹5,999</div>
       </div>
-      <a href="#calc-summary-anchor" onclick="const el = document.getElementById('calc-summary-anchor'); if (el) { el.scrollIntoView({behavior:'smooth'}); } return false;" class="if-btn-primary" style="padding: 0.5rem 1.15rem; font-size: 0.85rem; text-decoration: none;">View Breakdown</a>
+      <a href="#calc-summary-anchor" id="btn-scroll-calc-summary" class="if-btn-primary" style="padding: 0.5rem 1.15rem; font-size: 0.85rem; text-decoration: none;">View Breakdown</a>
     </div>
   </div>
 
@@ -1510,11 +1509,11 @@
           <span id="memo-ref-badge" style="font-family: var(--font-mono); font-size: 0.75rem; color: #64748B;">REF: CCS-MEMO-2026-X</span>
         </div>
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <button type="button" class="if-btn-secondary" onclick="window.print()" style="padding: 0.45rem 0.85rem; font-size: 0.82rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+          <button type="button" class="if-btn-secondary" data-calc-print style="padding: 0.45rem 0.85rem; font-size: 0.82rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
             Print / PDF
           </button>
-          <button type="button" onclick="CraftegonCalculator.closeStatutoryMemo()" style="background: none; border: none; font-size: 1.5rem; line-height: 1; cursor: pointer; color: #64748B; padding: 0 0.5rem;" aria-label="Close Memorandum">&times;</button>
+          <button type="button" data-close-statutory-memo style="background: none; border: none; font-size: 1.5rem; line-height: 1; cursor: pointer; color: #64748B; padding: 0 0.5rem;" aria-label="Close Memorandum">&times;</button>
         </div>
       </div>
 
@@ -1587,8 +1586,8 @@
 
       <!-- Modal Actions (Screen Only) -->
       <div class="memo-modal-footer no-print" style="margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: flex-end; border-top: 1px solid #E2E8F0; padding-top: 1rem; flex-wrap: wrap;">
-        <button type="button" class="if-btn-secondary" onclick="CraftegonCalculator.closeStatutoryMemo()" style="padding: 0.65rem 1.25rem; cursor: pointer;">Close</button>
-        <button type="button" class="if-btn-primary" onclick="window.print()" style="padding: 0.65rem 1.25rem; display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+        <button type="button" class="if-btn-secondary" data-close-statutory-memo style="padding: 0.65rem 1.25rem; cursor: pointer;">Close</button>
+        <button type="button" class="if-btn-primary" data-calc-print style="padding: 0.65rem 1.25rem; display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer;">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
           Print / Save Official PDF
         </button>

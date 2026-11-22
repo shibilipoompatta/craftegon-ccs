@@ -81,8 +81,9 @@
   </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="global-navbar"></div>
-  <main class="lookup-container">
+  <main id="main-content" class="lookup-container">
     <nav class="if-breadcrumb" aria-label="Breadcrumb" style="margin-bottom: 2rem;">
       <a href="/index.html">Home</a> / <a href="/portal/index.html">Client Portal</a> / <span>Entity & IP Intelligence</span>
     </nav>
@@ -100,10 +101,10 @@
         </div>
         <div class="preset-chips">
           <span>Sample benchmark lookups:</span>
-          <button type="button" class="preset-chip-btn" onclick="populateAndSearch('Craftegon Technologies Private Limited')">Craftegon Technologies (Pvt Ltd)</button>
-          <button type="button" class="preset-chip-btn" onclick="populateAndSearch('U72900KA2021PTC148562')">CIN: U72900KA2021PTC148562</button>
-          <button type="button" class="preset-chip-btn" onclick="populateAndSearch('AAB-9821')">LLPIN: AAB-9821 (sample format)</button>
-          <button type="button" class="preset-chip-btn" onclick="populateAndSearch('TM-5829104')">Trademark No: 5829104 (sample)</button>
+          <button type="button" class="preset-chip-btn" data-preset-query="Craftegon Technologies Private Limited">Craftegon Technologies (Pvt Ltd)</button>
+          <button type="button" class="preset-chip-btn" data-preset-query="U72900KA2021PTC148562">CIN: U72900KA2021PTC148562</button>
+          <button type="button" class="preset-chip-btn" data-preset-query="AAB-9821">LLPIN: AAB-9821 (sample format)</button>
+          <button type="button" class="preset-chip-btn" data-preset-query="TM-5829104">Trademark No: 5829104 (sample)</button>
         </div>
       </form>
     </div>

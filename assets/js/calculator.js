@@ -12,11 +12,12 @@ function getStoredAttribution() {
   try {
     const rawV1 = sessionStorage.getItem('craftegon_attribution_v1') || localStorage.getItem('craftegon_attribution_v1');
     if (rawV1) {
-      const parsed = JSON.parse(rawV1);
+      let parsed = null;
+    try { parsed = JSON.parse(rawV1); } catch (_e) { parsed = null; }
       if (parsed && typeof parsed === 'object') return parsed;
     }
     const raw = sessionStorage.getItem('ccs_attribution');
-    return raw ? JSON.parse(raw) : {};
+    try { return raw ? JSON.parse(raw) : {}; } catch (_e) { return {}; }
   } catch (e) {
     return {};
   }
@@ -690,7 +691,8 @@ const MSME_VENDORS_KEY = 'ccs_msme_vendors';
 function loadMsmVendors() {
   try {
     const raw = localStorage.getItem(MSME_VENDORS_KEY);
-    const parsed = raw ? JSON.parse(raw) : [];
+    let parsed = [];
+      try { parsed = raw ? JSON.parse(raw) : []; } catch (_e) { parsed = []; }
     return Array.isArray(parsed) ? parsed : [];
   } catch (error) {
     console.warn('MSME tracker could not load from local storage.', error);

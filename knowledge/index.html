@@ -927,8 +927,7 @@
         Institutional walkthroughs, statutory filing architectures, compliance formulas, and procedural roadmaps compiled by senior corporate secretarial and legal practitioners.
       </p>
       <div style="width: 100%; max-width: 500px; margin: 0 auto; box-sizing: border-box;">
-        <input type="text" id="kb-search-input" placeholder="Search blueprints (e.g. SBO, PAS-6, SPICe+, FLA, Late fees)..." 
-               onkeyup="filterKnowledgeCards()" 
+        <input type="text" id="kb-search-input" placeholder="Search blueprints (e.g. SBO, PAS-6, SPICe+, FLA, Late fees)..." data-kb-filter-input 
                style="width: 100%; padding: 0.85rem 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: #FFFFFF; color: var(--text-dark); font-size: 0.95rem; box-shadow: var(--shadow-standard);">
       </div>
     </div>
@@ -942,12 +941,12 @@
 
     <!-- Category Filters -->
     <div class="kb-filter-bar">
-      <button type="button" class="kb-filter-btn active" onclick="filterCategory('all', this)">All Blueprints (32)</button>
-      <button type="button" class="kb-filter-btn" onclick="filterCategory('incorporation', this)">Entity Formation &amp; MCA V3</button>
-      <button type="button" class="kb-filter-btn" onclick="filterCategory('roc-governance', this)">RoC, SBO &amp; Share Capital</button>
-      <button type="button" class="kb-filter-btn" onclick="filterCategory('tax-crossborder', this)">Tax &amp; Cross-Border FEMA</button>
-      <button type="button" class="kb-filter-btn" onclick="filterCategory('llp-directors', this)">LLP &amp; Director Compliance</button>
-      <button type="button" class="kb-filter-btn" onclick="filterCategory('ipr-protection', this)">Trademarks &amp; IPR</button>
+      <button type="button" class="kb-filter-btn active" data-kb-cat="all">All Blueprints (32)</button>
+      <button type="button" class="kb-filter-btn" data-kb-cat="incorporation">Entity Formation &amp; MCA V3</button>
+      <button type="button" class="kb-filter-btn" data-kb-cat="roc-governance">RoC, SBO &amp; Share Capital</button>
+      <button type="button" class="kb-filter-btn" data-kb-cat="tax-crossborder">Tax &amp; Cross-Border FEMA</button>
+      <button type="button" class="kb-filter-btn" data-kb-cat="llp-directors">LLP &amp; Director Compliance</button>
+      <button type="button" class="kb-filter-btn" data-kb-cat="ipr-protection">Trademarks &amp; IPR</button>
     </div>
 
     <!-- Blueprints Grid -->
@@ -1557,5 +1556,17 @@
       });
     }
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var input = document.querySelector('[data-kb-filter-input]');
+  if (input) input.addEventListener('input', function() { if (typeof filterKnowledgeCards === 'function') filterKnowledgeCards(); });
+  document.querySelectorAll('.kb-filter-btn[data-kb-cat]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof filterCategory === 'function') filterCategory(this.getAttribute('data-kb-cat'), this);
+    });
+  });
+});
+</script>
 </body>
 </html>
