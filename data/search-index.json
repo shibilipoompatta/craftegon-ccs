@@ -1,7 +1,7 @@
 [
   {
     "id": "V01-SVC-001",
-    "name": "DPIIT Startup India Recognition & Section 56(2)(viib) Exemption",
+    "name": "DPIIT Startup India Recognition & Section 140 Tax Holiday",
     "route": "/services/dpiit-startup-india.html",
     "h1": "DPIIT Startup India Recognition (G.S.R. 108(E)), Sec 140 Tax Holiday & KSUM Growth",
     "vertical_id": "V01",
@@ -15,15 +15,15 @@
       "LLP"
     ],
     "forms": [
-      "Form 1",
-      "Form 2 (Angel Tax)",
-      "DPIIT Portal"
+      "Form 1 (IMB Tax Holiday)",
+      "DPIIT Portal",
+      "NSWS Portal"
     ],
     "aliases": [
       "DPIIT Startup India Recognition",
       "Startup India Certificate",
-      "Section 56(2)(viib) Angel Tax Exemption",
-      "Section 80-IAC Tax Holiday",
+      "Section 140 Tax Holiday",
+      "Section 80-IAC Legacy Tax Holiday",
       "Find a service for my startup",
       "Startup Recognition"
     ],
