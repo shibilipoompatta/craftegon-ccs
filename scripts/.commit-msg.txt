@@ -1,1 +1,7 @@
-fix(security): sanitize ctaEl text node to eliminate innerHTML assignment
+perf(media): add loading="lazy" to 304 below-the-fold images across 140 HTML pages
+
+- Remediate Category 8 Performance faults (303 instances down to 0)
+- Convert below-the-fold logo and icon instances from eager to lazy loading
+- Preserve eager loading on above-the-fold primary hero and navbar brand marks
+- Update comprehensive fault audit JSON (Performance faults: 0)
+- 100% test pass rate across 75 test suites and 51 public release build checks
