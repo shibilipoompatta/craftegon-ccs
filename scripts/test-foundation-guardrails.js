@@ -42,7 +42,7 @@ check(!/30th September|September 30|Sept 30|1st October|mandatory annual verific
 check(/30th June/i.test(dir3) && /third consecutive financial year/i.test(dir3) && /30[- ]days?/i.test(dir3), 'DIR-3 KYC page reflects triennial cycle and 30-day change reporting');
 check(!/form-dir3kyc|form-pas6/.test(calculator), 'Section 403 calculator logic excludes DIR-3 KYC and PAS-6');
 check(!/DIR-3 KYC.{0,160}(September 30|100\/day)|Section 403.{0,160}DIR-3 KYC/i.test(home), 'Homepage does not conflate DIR-3 KYC with Section 403 late fees');
-check(!/content=[\"'][^\"']*>[\"']/.test(contact) && !/content=[\"'][^\"']*>[\"']/.test(calculatorHtml) && !/content=[\"'][^\"']*>[\"']/.test(dir3) && !/content=[\"'][^\"']*>[\"']/.test(knowledge), 'Key page meta descriptions contain no malformed trailing angle bracket');
+check(!/content=[\"'][^\"']*[\"']>>/.test(contact) && !/content=[\"'][^\"']*[\"']>>/.test(calculatorHtml) && !/content=[\"'][^\"']*[\"']>>/.test(dir3) && !/content=[\"'][^\"']*[\"']>>/.test(knowledge), 'Key page meta descriptions contain no malformed trailing angle bracket');
 check(/Annual ROC Compliance in India: Private Limited Companies &amp; LLPs/.test(knowledge), 'Annual ROC guide social metadata matches its page topic');
 check(!/id=\"form-dir3kyc\"|id=\"form-pas6\"/.test(calculatorHtml), 'Section 403 calculator UI excludes DIR-3 KYC and PAS-6');
 
