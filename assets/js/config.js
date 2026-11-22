@@ -183,8 +183,6 @@
       domain: "craftegon.com",
       organization: "CraftEgon Corporate Services",
       deskEmail: "admin@craftegon.com",
-      // Optional Google Apps Script Webhook URL for direct silent submission into Google Drive / Google Sheets
-      webhookUrl: "https://script.google.com/macros/s/AKfycbx2wvkEVj9AAV3Mnn8rNbFYlTp8O1IopRfoZ1Vtu7gh1xI_j1HCYtKlxorVytYUPn18/exec",
       forms: {
         enabled: true,
         intakeFormId: "16e0rbSymnw47arIdFu3Fzya3rbhrKGQp-vh5gth0t7k",
