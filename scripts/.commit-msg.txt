@@ -1,7 +1,1 @@
-fix(entity-wizard): externalize wizard to comply with CSP and resolve statutory fit logic
-
-- Extract inline wizard script to assets/js/entity-wizard.js to comply with production CSP Level 2/3 (which blocked inline script due to sha256 hash restrictions)
-- Refine statutory decision matrix for Indian corporate law (Section 8, OPC, Sole Proprietorship, LLP, Pvt Ltd)
-- Support multi-layer click events, keyboard events, and direct radio change dispatch
-- Add regression test script in scripts/test-entity-wizard.js (100% passing)
-- Recompile dist-public/ production release artifact (51/51 tests passing)
+fix(security): sanitize ctaEl text node to eliminate innerHTML assignment
