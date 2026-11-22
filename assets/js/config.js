@@ -137,9 +137,9 @@
     // Disabled until real vendor IDs and a verified consent-management gate are configured.
     advertising: {
       enabled: false,
-      googleAdsId: "AW-11500000000",
-      metaPixelId: "1234567890123456",
-      linkedInPartnerId: "1234567",
+      googleAdsId: "",
+      metaPixelId: "",
+      linkedInPartnerId: "",
       currency: "INR"
     },
 
