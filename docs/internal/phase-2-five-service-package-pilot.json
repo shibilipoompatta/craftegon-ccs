@@ -1,0 +1,351 @@
+{
+  "title": "Phase 2 — Five-Service Package Pilot",
+  "classification": "INTERNAL / DRAFT / NOT APPROVED FOR PUBLICATION",
+  "created_from": "main",
+  "services": [
+    {
+      "service_id": "V01-SVC-002",
+      "service_name": "Limited Liability Partnership (LLP) Registration",
+      "canonical_route": "/services/llp-registration.html",
+      "service_page": "/services/llp-registration.html",
+      "draft_package_name": "LLP Incorporation — Standard",
+      "review_status": "DRAFT_FOR_OWNER_AND_PROFESSIONAL_REVIEW",
+      "package_outcome_draft": "Prepare and submit the LLP incorporation application and prepare the LLP agreement using client-approved partner, contribution and governance instructions.",
+      "scope_evidence_items": [
+        "2 Designated Partner DPINs (historical pricing evidence)",
+        "FiLLiP form filing with MCA (historical pricing evidence)",
+        "LLP Agreement drafting (historical pricing evidence)",
+        "PAN and TAN issuance (historical pricing evidence)"
+      ],
+      "known_exclusions_evidence_only": [
+        "Government statutory portal filing fees payable at actuals (historical pricing record).",
+        "Class-3 DSC tokens procured separately at actuals or client-provided (historical pricing record)."
+      ],
+      "eligibility_entity_types": [
+        "LLP"
+      ],
+      "eligibility_prerequisites_evidence": [
+        "Minimum two designated partners who are natural persons, with at least one designated partner resident in India (Section 7 LLP Act, 2008)",
+        "Valid DPIN/DIN and Class 3 Digital Signature Certificate (DSC) for designated partners",
+        "Proposed LLP name complying with name reservation guidelines under Rule 18 of LLP Rules, 2009",
+        "Registered office premises located in India (Section 13)"
+      ],
+      "client_documents_evidence": [
+        "PAN cards and identity proofs (Passport / Voter ID / DL) of all partners",
+        "Residential address proofs (< 2 months old: bank statement / utility bill) of all partners",
+        "Registered office utility bill (< 2 months old) and signed owner No Objection Certificate (NOC)",
+        "Executed LLP Agreement stamped per state stamp act and filed in Form 3 within 30 days of incorporation"
+      ],
+      "eligibility_exceptions_evidence": [
+        "Bodies corporate acting as partner must appoint an individual natural person as their designated partner nominee",
+        "Non-profit or charitable objects are prohibited; LLPs must be formed with a view to profit"
+      ],
+      "eligibility_verification_status": "SOURCE_IDENTIFIED",
+      "eligibility_source_id": "SRC-MCA-001",
+      "historical_pricing_basis_evidence": "STARTING_FROM",
+      "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+      "gst_treatment": "UNCONFIRMED",
+      "government_disbursement_treatment": "VERIFY_CURRENT_OFFICIAL_FEE_AND_COLLECT_AT_ACTUALS_IF_APPLICABLE",
+      "turnaround_sla": "NOT_APPROVED",
+      "revisions": "NOT_DEFINED",
+      "ongoing_support": "NOT_DEFINED",
+      "scope_exclusions_decision": "PENDING_OWNER_REVIEW",
+      "professional_review": "REQUIRED_BEFORE_APPROVAL",
+      "owner_decisions_and_risks": [
+        "Pricing evidence lists 2 DPINs, FiLLiP, LLP Agreement, PAN and TAN; service-page copy also refers to RUN-LLP and Form 3 filing. These must be reconciled before a package scope is approved.",
+        "The eligibility record says Form 3 is to be filed within 30 days, but pricing inclusions do not clearly state whether Form 3 filing is included. Owner must decide and confirm delivery capacity."
+      ],
+      "approval": {
+        "owner": null,
+        "professional_reviewer": null,
+        "reference": null,
+        "date": null
+      },
+      "source_evidence": {
+        "service_registry": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 3); docs/phase-1-route-register.csv; services/llp-registration.html",
+        "pricing_id": "PRC-V01-SVC-002",
+        "pricing_evidence_source": "WEBSITE_PAGE_AUDIT",
+        "eligibility_id": "ELG-V01-SVC-002"
+      }
+    },
+    {
+      "service_id": "V01-SVC-003",
+      "service_name": "MSME / Udyam Registration Online",
+      "canonical_route": "/services/msme-udyam.html",
+      "service_page": "/services/msme-udyam.html",
+      "draft_package_name": "Udyam Registration — Assisted Filing",
+      "review_status": "DRAFT_FOR_OWNER_AND_PROFESSIONAL_REVIEW",
+      "package_outcome_draft": "Review the applicant's enterprise details and activity classification, prepare the Udyam application and deliver the generated certificate if the portal accepts the application.",
+      "scope_evidence_items": [
+        "Aadhaar and PAN verification (historical pricing evidence)",
+        "NIC code classification and mapping (historical pricing evidence)",
+        "Official Udyam certificate delivery (historical pricing evidence)"
+      ],
+      "known_exclusions_evidence_only": [],
+      "eligibility_entity_types": [
+        "PVT_LTD",
+        "PUBLIC_UNLISTED",
+        "OPC",
+        "LLP",
+        "PARTNERSHIP",
+        "PROPRIETORSHIP",
+        "TRUST",
+        "SOCIETY"
+      ],
+      "eligibility_prerequisites_evidence": [
+        "Enterprise falls within Micro, Small, or Medium classification thresholds based on composite investment and turnover criteria under MSMED Act, 2006",
+        "Valid Aadhaar number of proprietor (for proprietorship), managing partner (for partnership), or authorized signatory (for company/LLP)",
+        "PAN of the enterprise linked with Aadhaar, and GSTIN (where GST registration is legally mandatory)"
+      ],
+      "client_documents_evidence": [
+        "Aadhaar number and PAN of the applicant / enterprise",
+        "Bank account number and IFSC code of the business entity",
+        "National Industry Classification (NIC) 2-digit, 4-digit, and 5-digit business activity codes",
+        "Investment and turnover figures matching Income Tax and GST returns"
+      ],
+      "eligibility_exceptions_evidence": [
+        "Enterprises engaged exclusively in speculative, gambling, or negative-list activities are ineligible",
+        "A single enterprise cannot obtain more than one Udyam registration; multiple units must be added under one Udyam number"
+      ],
+      "eligibility_verification_status": "SOURCE_IDENTIFIED",
+      "eligibility_source_id": "SRC-MSME-001",
+      "historical_pricing_basis_evidence": "FIXED",
+      "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+      "gst_treatment": "UNCONFIRMED",
+      "government_disbursement_treatment": "VERIFY_CURRENT_OFFICIAL_FEE_AND_COLLECT_AT_ACTUALS_IF_APPLICABLE",
+      "turnaround_sla": "NOT_APPROVED",
+      "revisions": "NOT_DEFINED",
+      "ongoing_support": "NOT_DEFINED",
+      "scope_exclusions_decision": "PENDING_OWNER_REVIEW",
+      "professional_review": "REQUIRED_BEFORE_APPROVAL",
+      "owner_decisions_and_risks": [
+        "The page/package wording uses 'Instant' and historical 'All Inclusive' pricing language; no turnaround guarantee or tax-inclusive fee should be assumed.",
+        "Eligibility and NIC activity classification must be checked against current official portal requirements; source record remains SOURCE_IDENTIFIED, not legally verified."
+      ],
+      "approval": {
+        "owner": null,
+        "professional_reviewer": null,
+        "reference": null,
+        "date": null
+      },
+      "source_evidence": {
+        "service_registry": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 4); docs/phase-1-route-register.csv; services/msme-udyam.html",
+        "pricing_id": "PRC-V01-SVC-003",
+        "pricing_evidence_source": "WEBSITE_PAGE_AUDIT",
+        "eligibility_id": "ELG-V01-SVC-003"
+      }
+    },
+    {
+      "service_id": "V01-SVC-007",
+      "service_name": "Private Limited Company Registration (SPICe+)",
+      "canonical_route": "/services/pvt-ltd-registration.html",
+      "service_page": "/services/pvt-ltd-registration.html",
+      "draft_package_name": "Private Limited Incorporation — Standard SPICe+",
+      "review_status": "DRAFT_FOR_OWNER_AND_PROFESSIONAL_REVIEW",
+      "package_outcome_draft": "Coordinate the incorporation dossier and submit the applicable MCA incorporation forms using client-approved company, subscriber, director and registered-office information.",
+      "scope_evidence_items": [
+        "2 DINs via SPICe+ (historical pricing record; page states up to 3 directors — discrepancy)",
+        "Name approval via SPICe+ Part A (historical pricing evidence)",
+        "MoA and AoA drafting (historical pricing evidence)",
+        "PAN and TAN issuance (historical pricing evidence)",
+        "Bank current account opening support (historical pricing evidence; outcome not guaranteed)"
+      ],
+      "known_exclusions_evidence_only": [
+        "Government statutory portal filing fees payable at actuals (historical pricing record).",
+        "Class-3 DSC tokens procured separately at actuals or client-provided (historical pricing record)."
+      ],
+      "eligibility_entity_types": [
+        "PVT_LTD"
+      ],
+      "eligibility_prerequisites_evidence": [
+        "Minimum 2 subscribers/directors (maximum 200 members under Section 2(68) Companies Act, 2013)",
+        "At least one director must be resident in India (stayed in India for ≥ 182 days during the financial year per Section 149(3))",
+        "Director Identification Number (DIN) or allotment via SPICe+ Part B, and Class 3 Digital Signature Certificate (DSC)",
+        "Approved company name reservation via SPICe+ Part A (valid for 20 days per Rule 9A)",
+        "Registered office premises located in India"
+      ],
+      "client_documents_evidence": [
+        "PAN cards and government identity proofs (Passport / Voter ID / DL) of all subscribers and directors",
+        "Residential address proofs (< 2 months old: bank statement / utility bill) of all subscribers and directors",
+        "Registered office utility bill (< 2 months old) and signed owner No Objection Certificate (NOC)",
+        "Electronic Memorandum of Association (e-MoA INC-33) and Articles of Association (e-AoA INC-34)",
+        "Declarations in Form INC-9 by subscribers/directors and Form DIR-2 consent"
+      ],
+      "eligibility_exceptions_evidence": [
+        "Foreign nationals acting as subscribers/directors must have identity and address documents apostilled or notarized in home jurisdiction",
+        "Cannot invite the public to subscribe for any securities of the company"
+      ],
+      "eligibility_verification_status": "SOURCE_IDENTIFIED",
+      "eligibility_source_id": "SRC-RULE-SPICE-2020",
+      "historical_pricing_basis_evidence": "STARTING_FROM",
+      "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+      "gst_treatment": "UNCONFIRMED",
+      "government_disbursement_treatment": "VERIFY_CURRENT_OFFICIAL_FEE_AND_COLLECT_AT_ACTUALS_IF_APPLICABLE",
+      "turnaround_sla": "NOT_APPROVED",
+      "revisions": "NOT_DEFINED",
+      "ongoing_support": "NOT_DEFINED",
+      "scope_exclusions_decision": "PENDING_OWNER_REVIEW",
+      "professional_review": "REQUIRED_BEFORE_APPROVAL",
+      "owner_decisions_and_risks": [
+        "Pricing record includes 2 DINs, while service-page scope refers to DIN allocation for up to 3 directors. Confirm exact cap and price basis before approval.",
+        "Service page includes professional certification/pre-scrutiny and AGILE-PRO-S components; confirm named qualified professionals, scope and delivery responsibility.",
+        "Bank account opening support must not be represented as guaranteed bank account approval."
+      ],
+      "approval": {
+        "owner": null,
+        "professional_reviewer": null,
+        "reference": null,
+        "date": null
+      },
+      "source_evidence": {
+        "service_registry": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 8); docs/phase-1-route-register.csv; services/pvt-ltd-registration.html",
+        "pricing_id": "PRC-V01-SVC-007",
+        "pricing_evidence_source": "WEBSITE_PAGE_AUDIT",
+        "eligibility_id": "ELG-V01-SVC-007"
+      }
+    },
+    {
+      "service_id": "V01-SVC-001",
+      "service_name": "DPIIT Startup India Recognition & Section 140 Tax Holiday Assessment",
+      "canonical_route": "/services/dpiit-startup-india.html",
+      "service_page": "/services/dpiit-startup-india.html",
+      "draft_package_name": "DPIIT Recognition — Application Support",
+      "review_status": "DRAFT_HOLD_FOR_REGULATORY_REVIEW",
+      "package_outcome_draft": "Assess the applicant's startup profile against the current recognition framework, organise the evidence dossier and assist with the relevant portal application; any tax-incentive or IMB work must be separately scoped.",
+      "scope_evidence_items": [
+        "Innovation and scalability letter drafting (historical pricing evidence)",
+        "DPIIT portal application and follow-up (historical pricing evidence)",
+        "IMB tax exemption guidance (historical pricing evidence; separate scope boundary to be decided)"
+      ],
+      "known_exclusions_evidence_only": [
+        "Government statutory portal filing fees described as payable at actuals in historical pricing record; confirm whether any portal charge currently applies."
+      ],
+      "eligibility_entity_types": [
+        "PVT_LTD",
+        "LLP",
+        "PARTNERSHIP"
+      ],
+      "eligibility_prerequisites_evidence": [
+        "Entity incorporated as Private Limited Company, LLP, or registered Partnership Firm within the preceding 10 years",
+        "Turnover has not exceeded ₹100 crore in any preceding financial year since incorporation",
+        "Entity is working towards innovation, development, or improvement of products, processes, or services, or scalable business model with high employment/wealth potential",
+        "Entity was not formed by splitting up or reconstruction of a business already in existence"
+      ],
+      "client_documents_evidence": [
+        "Certificate of Incorporation / Registration Certificate",
+        "Pitch deck and write-up on innovation/scalability with website or mobile application links",
+        "CA certified net worth certificate (mandatory for Section 56(2)(viib) angel tax exemption Form 2)"
+      ],
+      "eligibility_exceptions_evidence": [
+        "Sole proprietorships, public limited companies, and trusts are ineligible for DPIIT recognition",
+        "Entities formed by splitting up or reconstruction of an existing business are ineligible"
+      ],
+      "eligibility_verification_status": "SOURCE_IDENTIFIED",
+      "eligibility_source_id": "SRC-DPIIT-001",
+      "historical_pricing_basis_evidence": "STARTING_FROM",
+      "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+      "gst_treatment": "UNCONFIRMED",
+      "government_disbursement_treatment": "VERIFY_CURRENT_OFFICIAL_FEE_AND_COLLECT_AT_ACTUALS_IF_APPLICABLE",
+      "turnaround_sla": "NOT_APPROVED",
+      "revisions": "NOT_DEFINED",
+      "ongoing_support": "NOT_DEFINED",
+      "scope_exclusions_decision": "PENDING_OWNER_REVIEW",
+      "professional_review": "REQUIRED_BEFORE_APPROVAL",
+      "owner_decisions_and_risks": [
+        "The eligibility dataset still reflects older turnover and Section 56(2)(viib) language and is not legally verified, while the current service page refers to 2026 G.S.R. 108(E) and Income-tax Act 2025 Section 140. A full legal/regulatory reconciliation is mandatory before offering this package.",
+        "DPIIT recognition does not itself establish entitlement to a separate tax benefit. Do not promise a tax holiday, grant, subsidy, IPR rebate or recognition outcome.",
+        "Pricing evidence bundles recognition drafting, portal follow-up and IMB guidance; separate recognition-only and tax/IMB advisory scopes and fees."
+      ],
+      "approval": {
+        "owner": null,
+        "professional_reviewer": null,
+        "reference": null,
+        "date": null
+      },
+      "source_evidence": {
+        "service_registry": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 2); docs/phase-1-route-register.csv; services/dpiit-startup-india.html",
+        "pricing_id": "PRC-V01-SVC-001",
+        "pricing_evidence_source": "WEBSITE_PAGE_AUDIT",
+        "eligibility_id": "ELG-V01-SVC-001"
+      }
+    },
+    {
+      "service_id": "V06-SVC-003",
+      "service_name": "Brand Name, Logo & Slogan Trademark Registration (Form TM-A)",
+      "canonical_route": "/services/trademark-registration.html",
+      "service_page": "/services/trademark-registration.html",
+      "draft_package_name": "Trademark Filing — One Mark / Defined Class Scope",
+      "review_status": "DRAFT_FOR_OWNER_AND_QUALIFIED_AGENT_REVIEW",
+      "package_outcome_draft": "Conduct a documented preliminary search and classification exercise, prepare the application and submit the agreed mark/application particulars to the Trade Marks Registry.",
+      "scope_evidence_items": [
+        "Phonetic and wordmark similarity search (historical pricing evidence)",
+        "Nice Classification mapping (historical pricing evidence)",
+        "Form TM-A drafting and Form 48 authorisation (historical pricing evidence)",
+        "Digital e-filing and official receipt/application number (service-page evidence)",
+        "Application status tracking through examination report generation (service-page evidence)"
+      ],
+      "known_exclusions_evidence_only": [
+        "Government statutory filing fees payable at actuals (historical pricing record)."
+      ],
+      "eligibility_entity_types": [
+        "PVT_LTD",
+        "PUBLIC_UNLISTED",
+        "OPC",
+        "LLP",
+        "PARTNERSHIP",
+        "PROPRIETORSHIP",
+        "INDIVIDUAL"
+      ],
+      "eligibility_prerequisites_evidence": [
+        "Distinctive brand name, logo, slogan, or mark used or proposed to be used in commerce in relation to goods or services",
+        "Mark is not devoid of distinctive character (Section 9 Trade Marks Act, 1999) and not deceptively similar to prior registered marks (Section 11)"
+      ],
+      "client_documents_evidence": [
+        "Form TM-48 Power of Attorney authorizing Trademark Agent / Advocate",
+        "Logo / wordmark graphic representation in high-resolution format",
+        "User affidavit with documentary proof where prior use is claimed",
+        "Udyam registration or startup certificate for 50% government fee concession"
+      ],
+      "eligibility_exceptions_evidence": [
+        "Generic, descriptive, scandalous, or prohibited marks under the Emblems and Names Act cannot be registered"
+      ],
+      "eligibility_verification_status": "SOURCE_IDENTIFIED",
+      "eligibility_source_id": "SRC-CGPDTM-001",
+      "historical_pricing_basis_evidence": "STARTING_FROM",
+      "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+      "gst_treatment": "UNCONFIRMED",
+      "government_disbursement_treatment": "VERIFY_CURRENT_OFFICIAL_FEE_AND_COLLECT_AT_ACTUALS_IF_APPLICABLE",
+      "turnaround_sla": "NOT_APPROVED",
+      "revisions": "NOT_DEFINED",
+      "ongoing_support": "NOT_DEFINED",
+      "scope_exclusions_decision": "PENDING_OWNER_REVIEW",
+      "professional_review": "REQUIRED_BEFORE_APPROVAL",
+      "owner_decisions_and_risks": [
+        "Clarify whether package unit means one mark, one applicant, one class, or another defined filing unit; historical pricing is 'starting from'.",
+        "No guarantee of acceptance, registration, exclusivity, or successful opposition/examination outcome. Filing acknowledgement is not registration.",
+        "Confirm who is legally authorised and professionally responsible for search opinion, Form 48 execution, filing and any response to examination/opposition."
+      ],
+      "approval": {
+        "owner": null,
+        "professional_reviewer": null,
+        "reference": null,
+        "date": null
+      },
+      "source_evidence": {
+        "service_registry": "review-output/phase-1-foundations/phase-1-service-ownership-review.csv (Row 40); docs/phase-1-route-register.csv; services/trademark-registration.html",
+        "pricing_id": "PRC-V06-SVC-003",
+        "pricing_evidence_source": "WEBSITE_PAGE_AUDIT",
+        "eligibility_id": "ELG-V06-SVC-003"
+      }
+    }
+  ],
+  "global_guardrails": [
+    "No pricing amount is included in this pilot file.",
+    "All package scopes are draft proposals derived from existing repository evidence, not approved service promises.",
+    "Eligibility records marked SOURCE_IDENTIFIED are not treated as legally verified.",
+    "Government fees, stamp duty, taxes, penalties and third-party disbursements must be separately verified and itemised.",
+    "No filing, registration, tax benefit, grant, trademark acceptance or other authority outcome is guaranteed.",
+    "Reserved professional certification, legal representation, tax opinions and audit functions require confirmation of the appropriately qualified professional and delivery model.",
+    "No public website or structured-data change is authorised by this file."
+  ]
+}
