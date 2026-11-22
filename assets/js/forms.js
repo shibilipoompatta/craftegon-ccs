@@ -258,6 +258,23 @@ function downloadPreliminaryChecklist(form) {
   URL.revokeObjectURL(url);
 }
 
+
+function ensureLeadFormConsent(form) {
+  let consent=form.querySelector('input[type="checkbox"][name="dpdp_consent"]');
+  if(!consent){
+    const wrapper=document.createElement("div");wrapper.className="if-consent-field";
+    wrapper.style.cssText="display:flex;align-items:flex-start;gap:.65rem;margin:1rem 0;padding:.85rem;border:1px solid var(--border-color,#DCE8E5);border-radius:6px;background:#F8FAFC;";
+    consent=document.createElement("input");consent.type="checkbox";consent.id=(form.id||"lead-form")+"-privacy-consent";consent.name="dpdp_consent";consent.value="yes";consent.required=true;consent.style.cssText="margin-top:.25rem;flex:0 0 auto;";
+    const label=document.createElement("label");label.htmlFor=consent.id;label.style.cssText="font-size:.82rem;line-height:1.5;color:var(--text-main,#334155);";
+    label.append("I consent to CraftEgon CCS using the details I choose to submit to respond to this enquiry, as explained in the ");
+    const link=document.createElement("a");link.href="/legal/privacy.html";link.textContent="Privacy Policy";link.style.color="var(--accent-green-primary,#247A62)";label.appendChild(link);
+    label.append(". If I choose WhatsApp or email, the information is shared with that provider only when I send the message.");
+    wrapper.append(consent,label);const submit=form.querySelector('button[type="submit"],input[type="submit"]');
+    if(submit&&submit.parentNode)submit.parentNode.insertBefore(wrapper,submit);else form.appendChild(wrapper);
+  }else{consent.required=true;consent.checked=false;}
+  return consent;
+}
+
 /**
  * Handles validation and submission for general lead capture & contact forms
  */
@@ -265,6 +282,7 @@ function initLeadCaptureForms() {
   const forms = document.querySelectorAll(".if-lead-form");
 
   forms.forEach(form => {
+    ensureLeadFormConsent(form);
     addFunnelContext(form);
     
     // Add AI Audit container placeholder
@@ -277,6 +295,13 @@ function initLeadCaptureForms() {
       e.preventDefault();
 
       if (form.dataset.submitting === "true" || form.dataset.submitted === "true") return;
+
+      const consentControl = form.querySelector('input[type="checkbox"][name="dpdp_consent"]');
+      if (!consentControl || !consentControl.checked) {
+        showFormError(form, "Please tick the privacy consent box before continuing. No enquiry details have been sent.");
+        if (consentControl) consentControl.focus();
+        return;
+      }
 
       // Validate all fields first
       let isValid = true;
@@ -363,7 +388,6 @@ function initLeadCaptureForms() {
         phone: data.phone ? String(data.phone).trim() : "",
         company_name: (data.company_name || data.entity_name || data.startup_name || data.org_name || data.platform_name || "").trim(),
         entity_type: (data.entity_type || data.entityType || data.state || "").trim(),
-        reg_number: (data.cin || data.gstin || data.pan || data.din || data.llpin || data.reg_number || "").trim(),
         service_name: (data.service_name || data.service || data.service_id || routeContext.service_id || "Corporate Compliance").trim(),
         service_id: data.service_id || form.dataset.serviceId || routeContext.service_id || "V01-SVC-007",
         vertical_id: data.vertical_id || data.service_category || form.dataset.verticalId || routeContext.vertical_id || "V01",
@@ -378,51 +402,13 @@ function initLeadCaptureForms() {
         gclid: utmParams.gclid,
         fbclid: utmParams.fbclid,
         msclkid: utmParams.msclkid,
-        dpdp_consent: form.querySelector('input[name*="dpdp"], input[name*="consent"]')
-          ? Boolean(form.querySelector('input[name*="dpdp"]:checked, input[name*="consent"]:checked'))
-          : true,
+        dpdp_consent: Boolean(form.querySelector('input[type="checkbox"][name="dpdp_consent"]:checked')),
         _hp_website: data._hp_website || "",
         _render_time: form.dataset.renderTime || (Date.now() - 3000)
       };
 
       const cfg = window.CRAFTEGON_CONFIG || {};
-      const webhookUrl = (cfg.googleWorkspace && cfg.googleWorkspace.webhookUrl) ||
-                         (typeof window !== "undefined" && window.__CRAFTEGON_WEBHOOK_URL__) ||
-                         (typeof window !== "undefined" && window.localStorage && window.localStorage.getItem("craftegon_webhook_url")) || "";
-
-      // 1. Direct Silent Webhook to Google Drive / Sheets (if configured)
-      if (webhookUrl) {
-        const submitBtn = form.querySelector("button[type='submit']");
-        form.dataset.submitting = "true";
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = "Recording to Google Drive...";
-        }
-        try {
-          await fetch(webhookUrl, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-          });
-          showFormSuccess(form, "✓ Your compliance inquiry has been recorded directly to our CraftEgon Compliance Desk ledger in Google Drive. A compliance officer will contact you within 2–4 business hours.");
-          form.dataset.submitted = "true";
-          if (typeof window !== "undefined" && window.CraftegonPixels && typeof window.CraftegonPixels.trackLead === "function") {
-            window.CraftegonPixels.trackLead({
-              service_id: payload.service_id,
-              service_name: payload.service_name,
-              lead_ref: "DRIVE-" + Date.now(),
-              value: 0
-            });
-          }
-          if (submitBtn) {
-            submitBtn.textContent = "Inquiry Recorded ✓";
-          }
-          return;
-        } catch (wbErr) {
-          console.warn("Google Drive webhook transmission fallback", wbErr);
-        }
-      }
+      // Unverified Google Apps Script / Drive webhooks are disabled. Do not use no-cors for enquiries because receipt cannot be confirmed.
 
       const endpoint = form.dataset.endpoint || cfg.apiEndpoint || "/api/v1/enquiries";
 
@@ -713,51 +699,32 @@ function showFormFallbackNotice(form, data, options = {}) {
   const email = (data && data.email) || "";
   const company = (data && (data.company_name || data.entity_name || data.startup_name || data.org_name || data.platform_name)) || "";
   const entityType = (data && (data.entity_type || data.entityType || data.state)) || "";
-  const regNumber = (data && (data.cin || data.gstin || data.pan || data.din || data.llpin || data.reg_number)) || "";
+
   const scope = (data && (data.scope || data.scope_description || data.incident_summary || data.context || data.custom_clauses || data.notes || data.message)) || "";
 
   let waText = `Hello CraftEgon Compliance Desk, I would like to consult on: ${serviceName}.`;
   if (contactName) waText += `\nName: ${contactName}`;
   if (company) waText += `\nEntity: ${company}`;
-  if (regNumber) waText += `\nRegistration ID: ${regNumber}`;
+
   if (phone) waText += `\nPhone: ${phone}`;
   if (email) waText += `\nEmail: ${email}`;
   if (scope) waText += `\nRequirement: ${scope}`;
 
   const prefill = encodeURIComponent(waText);
-  const waUrl = (typeof cfg.getWhatsAppUrl === "function") 
-    ? cfg.getWhatsAppUrl(serviceName) 
-    : `https://wa.me/918606918247?text=${prefill}`;
+  const waUrl = `https://wa.me/918606918247?text=${prefill}`;
 
   let mailBody = `Hello CraftEgon Compliance Desk,\n\nI would like to consult on: ${serviceName}.\n\n`;
   if (contactName) mailBody += `Name: ${contactName}\n`;
   if (company) mailBody += `Entity: ${company}\n`;
-  if (regNumber) mailBody += `Registration ID: ${regNumber}\n`;
+
   if (phone) mailBody += `Phone: ${phone}\n`;
   if (email) mailBody += `Email: ${email}\n`;
   if (scope) mailBody += `Requirement: ${scope}\n`;
 
-  const mailUrl = (typeof cfg.getEmailUrl === "function") 
-    ? cfg.getEmailUrl("Compliance Inquiry: " + serviceName) 
-    : `mailto:admin@craftegon.com?subject=${encodeURIComponent("Compliance Inquiry: " + serviceName)}&body=${encodeURIComponent(mailBody)}`;
+  const mailUrl = `mailto:admin@craftegon.com?subject=${encodeURIComponent("Compliance Inquiry: " + serviceName)}&body=${encodeURIComponent(mailBody)}`;
 
   const phoneDisplay = cfg.phoneDisplay || "+91 86069 18247";
   const emailDisplay = cfg.email || "admin@craftegon.com";
-
-  const gw = cfg.googleWorkspace;
-  const googleFormUrl = (gw && typeof gw.getIntakeUrl === "function")
-    ? gw.getIntakeUrl({
-        name: contactName,
-        email: email,
-        phone: phone,
-        company: company,
-        entityType: entityType,
-        regNumber: regNumber,
-        service: serviceName,
-        scope: scope,
-        sourceUrl: window.location.pathname
-      })
-    : `https://docs.google.com/forms/d/e/1FAIpQLSd-DERFEEOwSOs15bPuiCjc-eMFvKaAEVkKixDwjbPa1OKdfg/viewform`;
 
   const isUnconfirmed = options.reason === "unconfirmed";
   const noticeTitle = isUnconfirmed ? "Submission Unconfirmed: Direct Engagement" : "Notice: Direct Engagement Channel";
@@ -773,18 +740,15 @@ function showFormFallbackNotice(form, data, options = {}) {
       ${noticeBody}
     </div>
     <p style="font-size: 0.85rem; color: var(--text-main, #334155); margin: 0 0 0.5rem 0; line-height: 1.5; font-family: var(--font-body, 'Manrope', sans-serif);">
-      To consult with our corporate compliance desk regarding <strong>${escapeHtml(serviceName)}</strong>, please connect directly using our verified WhatsApp, Email, or official Google Workspace Form channels:
+      To consult with our corporate compliance desk regarding <strong>${escapeHtml(serviceName)}</strong>, please connect directly using WhatsApp or email:
     </p>
     <p style="font-size: 0.8rem; color: #475569; margin: 0 0 0.5rem 0; line-height: 1.45; font-family: var(--font-body, 'Manrope', sans-serif);">
       <strong>Review &amp; Response Expectation:</strong> Our corporate compliance desk reviews enquiries during regular business hours (Monday – Saturday, 9:00 AM – 7:00 PM IST) to understand statutory scope, jurisdiction, and filing timeline.
     </p>
     <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0 0 1rem 0; line-height: 1.45; font-family: var(--font-body, 'Manrope', sans-serif);">
-      <em>Privacy note:</em> Selecting an alternative channel opens your external WhatsApp application, default email composer, or Google Workspace intake with your pre-filled inquiry. Your details are only sent when you choose to transmit the message.
+      <em>Privacy note:</em> Selecting an alternative channel opens your external WhatsApp application or default email composer with a pre-filled enquiry. Your details are sent only if you choose to press Send in that application.
     </p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-      <a href="${escapeHtml(googleFormUrl)}" target="_blank" rel="noopener noreferrer" class="if-btn-primary" style="background: #1A73E8; border: 1px solid #1557b0; color: #FFFFFF; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
-        📋 Submit via Google Workspace Form &rarr;
-      </a>
       <a href="${escapeHtml(waUrl)}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
         💬 Chat on WhatsApp (${phoneDisplay}) &rarr;
       </a>
@@ -860,7 +824,12 @@ window.CraftegonForms = {
 function initFormDraftPersistence() {
   if (typeof window === 'undefined' || !window.sessionStorage) return;
 
-  const forms = document.querySelectorAll('form[id], form.if-lead-form');
+  document.querySelectorAll("form.if-lead-form").forEach(form => {
+    const formId=form.id||form.getAttribute("name")||window.location.pathname;
+    const key="ccs_draft_"+String(formId).replace(/[^a-zA-Z0-9_]/g,"_");
+    try{sessionStorage.removeItem(key);}catch(e){}
+  });
+  const forms = document.querySelectorAll('form[id]:not(.if-lead-form)');
   forms.forEach(form => {
     const formId = form.id || form.getAttribute('name') || window.location.pathname;
     const storageKey = 'ccs_draft_' + String(formId).replace(/[^a-zA-Z0-9_]/g, '_');
