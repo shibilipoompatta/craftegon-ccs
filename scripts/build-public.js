@@ -80,6 +80,7 @@ const EXCLUDED_FILE_PATTERNS = [
 function shouldExclude(relPath) {
   const normalized = relPath.replace(/\\/g, '/');
   const segments = normalized.split('/');
+  if (normalized === 'data/pricing.json') return true;
   
   // Check directory exclusion
   for (const seg of segments) {
