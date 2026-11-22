@@ -23,6 +23,8 @@ const dir3 = read('services/dir3-kyc.html');
 const calculator = read('assets/js/calculator.js');
 const calculatorHtml = read('conversion/calculator.html');
 const home = read('index.html');
+const contact = read('contact.html');
+const knowledge = read('knowledge/roc-annual-compliance-india-guide.html');
 
 check(build.includes("'data/pricing.json'"), 'Unapproved pricing source is excluded from public build');
 check(!/item\.verification_status\s*=\s*['"]VERIFIED['"]/.test(build), 'Build does not rewrite verification status');
@@ -36,9 +38,12 @@ check(!/mode\s*:\s*['"]no-cors['"]|googleWorkspace\.webhookUrl/.test(forms), 'Le
 check(/result\.success\s*===\s*true/.test(forms) && /lead_reference/.test(forms), 'Lead success requires a confirmed reference');
 check(/advertising:\s*\{\s*enabled:\s*false/.test(config), 'Advertising pixels remain disabled pending consent and ID verification');
 check(!/4\.9\/5 Verified Rating|100% On-Time SLA|Zero Hidden MCA Surcharges/.test(home), 'Homepage contains no unsupported rating or performance guarantees');
-check(!/30th September|September 30|1st October|mandatory annual verification|annual KYC must be filed/i.test(dir3), 'DIR-3 KYC page contains no obsolete annual deadline or flat penalty');
+check(!/30th September|September 30|Sept 30|1st October|mandatory annual verification|annual KYC must be filed|₹5,000|₹1,099|₹1,999/i.test(dir3), 'DIR-3 KYC page contains no obsolete deadline, fixed penalty or unapproved fee');
 check(/30th June/i.test(dir3) && /third consecutive financial year/i.test(dir3) && /30[- ]days?/i.test(dir3), 'DIR-3 KYC page reflects triennial cycle and 30-day change reporting');
 check(!/form-dir3kyc|form-pas6/.test(calculator), 'Section 403 calculator logic excludes DIR-3 KYC and PAS-6');
+check(!/DIR-3 KYC.{0,160}(September 30|100\/day)|Section 403.{0,160}DIR-3 KYC/i.test(home), 'Homepage does not conflate DIR-3 KYC with Section 403 late fees');
+check(!/content=[\"'][^\"']*>[\"']/.test(contact) && !/content=[\"'][^\"']*>[\"']/.test(calculatorHtml) && !/content=[\"'][^\"']*>[\"']/.test(dir3) && !/content=[\"'][^\"']*>[\"']/.test(knowledge), 'Key page meta descriptions contain no malformed trailing angle bracket');
+check(/Annual ROC Compliance in India: Private Limited Companies &amp; LLPs/.test(knowledge), 'Annual ROC guide social metadata matches its page topic');
 check(!/id=\"form-dir3kyc\"|id=\"form-pas6\"/.test(calculatorHtml), 'Section 403 calculator UI excludes DIR-3 KYC and PAS-6');
 
 if (process.argv.includes('--built')) {
