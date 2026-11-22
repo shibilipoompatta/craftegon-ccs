@@ -53,6 +53,7 @@ const EXCLUDED_DIRS = new Set([
 const EXCLUDED_FILES = new Set([
   'package.json',
   'package-lock.json',
+  'data/pricing.json', // Internal source data; publish only after explicit commercial approval.
   'MERGE_BLUEPRINT.md',
   'README.md',
   '.gitignore',
@@ -263,19 +264,6 @@ function copyAndSanitize(srcDir, destDir, currentRel = '') {
           });
 
           text = minifyJS(text);
-        }
-
-        // JSON Processing: Sanitize pricing.json for public distribution
-        if (relPosix === 'data/pricing.json') {
-          try {
-            const pricingData = JSON.parse(text);
-            pricingData.forEach(item => {
-              item.notes = `Statutory fee schedule and professional compliance retainer for ${item.service_name || 'corporate services'}. Verified under Indian Corporate Law.`;
-              if (item.commercial_approval_state) item.commercial_approval_state = 'COMMERCIALLY_APPROVED';
-              if (item.verification_status) item.verification_status = 'VERIFIED';
-            });
-            text = JSON.stringify(pricingData, null, 2);
-          } catch (e) {}
         }
 
         // CSS Processing: Minify
