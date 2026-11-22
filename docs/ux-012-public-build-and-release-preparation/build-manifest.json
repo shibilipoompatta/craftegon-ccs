@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-22T17:15:24.287Z",
+  "buildTimestamp": "2026-11-22T17:42:58.786Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 203,
-    "totalOutputSizeBytes": 12535507,
-    "totalOutputSizeFormatted": "11.95 MB",
+    "totalOutputSizeBytes": 12559310,
+    "totalOutputSizeFormatted": "11.98 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
     "filesByExtension": {
@@ -286,7 +286,7 @@
     },
     {
       "path": "conversion/index.html",
-      "bytes": 116756
+      "bytes": 116805
     },
     {
       "path": "conversion/license-qualification.html",
@@ -302,23 +302,23 @@
     },
     {
       "path": "conversion/post-incorporation-checkout.html",
-      "bytes": 65189
+      "bytes": 65218
     },
     {
       "path": "conversion/ppc-annual-compliance.html",
-      "bytes": 70711
+      "bytes": 70892
     },
     {
       "path": "conversion/ppc-company-registration.html",
-      "bytes": 72834
+      "bytes": 73008
     },
     {
       "path": "conversion/ppc-trademark-registration.html",
-      "bytes": 71821
+      "bytes": 72369
     },
     {
       "path": "conversion/retainer-desk.html",
-      "bytes": 64780
+      "bytes": 64856
     },
     {
       "path": "conversion/secretarial-audit-scope.html",
@@ -558,7 +558,7 @@
     },
     {
       "path": "services/aoc4-xbrl.html",
-      "bytes": 69924
+      "bytes": 70450
     },
     {
       "path": "services/board-governance-risk-assessment.html",
@@ -586,7 +586,7 @@
     },
     {
       "path": "services/dpdp-compliance-audit.html",
-      "bytes": 70464
+      "bytes": 71167
     },
     {
       "path": "services/dpiit-startup-india.html",
@@ -594,7 +594,7 @@
     },
     {
       "path": "services/fast-track-mergers.html",
-      "bytes": 70732
+      "bytes": 71397
     },
     {
       "path": "services/form-10b.html",
@@ -602,7 +602,7 @@
     },
     {
       "path": "services/form-3ceb.html",
-      "bytes": 70361
+      "bytes": 70958
     },
     {
       "path": "services/form-adt1.html",
@@ -662,7 +662,7 @@
     },
     {
       "path": "services/founder-shareholder-agreements.html",
-      "bytes": 70786
+      "bytes": 71362
     },
     {
       "path": "services/gst-annual.html",
@@ -694,7 +694,7 @@
     },
     {
       "path": "services/llp-registration.html",
-      "bytes": 110594
+      "bytes": 111219
     },
     {
       "path": "services/master-service-agreements.html",
@@ -706,7 +706,7 @@
     },
     {
       "path": "services/msme-udyam.html",
-      "bytes": 146681
+      "bytes": 150228
     },
     {
       "path": "services/nclt-insolvency-defense.html",
@@ -746,7 +746,7 @@
     },
     {
       "path": "services/pvt-ltd-registration.html",
-      "bytes": 115796
+      "bytes": 120890
     },
     {
       "path": "services/rbi-fla-return.html",
@@ -754,7 +754,7 @@
     },
     {
       "path": "services/roc-annual-compliance.html",
-      "bytes": 83898
+      "bytes": 92297
     },
     {
       "path": "services/rof-maintenance.html",
@@ -770,7 +770,7 @@
     },
     {
       "path": "services/slump-sale-asset-purchase.html",
-      "bytes": 70588
+      "bytes": 71124
     },
     {
       "path": "services/society-registration.html",
@@ -782,7 +782,7 @@
     },
     {
       "path": "services/trademark-registration.html",
-      "bytes": 133128
+      "bytes": 134592
     },
     {
       "path": "services/trust-registration.html",
@@ -794,7 +794,7 @@
     },
     {
       "path": "verticals/01-entity-formation.html",
-      "bytes": 71893
+      "bytes": 71907
     },
     {
       "path": "verticals/02-roc-compliance.html",

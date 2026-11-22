@@ -44,22 +44,25 @@
     "canonical_route": "/services/llp-registration.html",
     "primary_vertical_id": "V01",
     "currency": "INR",
-    "amount": 6499,
+    "amount": 5999,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹6,499 + Govt. Fees",
+    "website_displayed_price": "₹5,999 + Govt. Fees",
     "package_title": "LLP Incorporation Package",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
       "2 Designated Partner DPINs",
-      "FiLLiP Form Filing with MCA",
-      "LLP Agreement Drafting",
-      "PAN & TAN Issuance"
+      "RUN-LLP / FiLLiP Name Approval",
+      "FiLLiP Form Filing with MCA CRC",
+      "Standard LLP Agreement Drafting",
+      "Form 3 Drafting & Filing within 30 days",
+      "PAN & TAN Issuance",
+      "Practicing CS / CA Statutory Certification under Section 11(1)(c)"
     ],
     "excluded_charges": [
-      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)",
-      "Class-3 Digital Signature Certificates (DSC tokens procured separately at actuals / client-provided)"
+      "MCA portal statutory fees for FiLLiP & Form 3 (~₹500 for contribution up to ₹1L)",
+      "State Stamp Duty on LLP Agreement (payable directly to State Treasury at actuals)"
     ],
     "additional_tiers": [],
     "statutory_thresholds": [],
@@ -73,7 +76,7 @@
     "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
     "last_verified_at": null,
     "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹7,000). Updated from ₹5,999 + Govt. Fees to ₹6,499 + Govt. Fees. Verification pending; not approved for publication.",
+    "notes": "Market calibrated fee: ₹5,999. Class-3 DSC tokens cost extra (₹1,500/token); client-provided valid DSC accepted at no extra cost.",
     "tax_inclusion_status": "UNCONFIRMED",
     "commercial_package_caps": []
   },
@@ -84,19 +87,23 @@
     "canonical_route": "/services/msme-udyam.html",
     "primary_vertical_id": "V01",
     "currency": "INR",
-    "amount": 1399,
+    "amount": 1499,
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹1,399 All Inclusive",
+    "website_displayed_price": "₹1,499 All Inclusive",
     "package_title": "Instant Udyam Registration",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
-      "Aadhaar & PAN Verification",
-      "NIC Code Classification & Mapping",
-      "Official Udyam Certificate Delivery"
+      "Aadhaar & PAN Data Verification",
+      "NIC-2008 5-digit Classification & Activity Mapping",
+      "Plant & Machinery WDV and Turnover Reconciliation",
+      "Official Udyam Registration Certificate (URN) Delivery",
+      "Permanent Compliance Dossier Archive"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Government Portal Filing Fee is ₹0 (Ministry of MSME charges NIL portal fee; fee is purely for professional assisted filing)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -109,7 +116,7 @@
     "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
     "last_verified_at": null,
     "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹1,500). Updated from ₹999 All Inclusive to ₹1,399 All Inclusive. Verification pending; not approved for publication.",
+    "notes": "Market calibrated assisted fee: ₹1,499. Govt portal fee is ₹0. Section 43B(h) compliance pack costs extra.",
     "tax_inclusion_status": "UNCONFIRMED",
     "commercial_package_caps": []
   },
@@ -233,37 +240,40 @@
     "canonical_route": "/services/pvt-ltd-registration.html",
     "primary_vertical_id": "V01",
     "currency": "INR",
-    "amount": 7999,
+    "amount": 7499,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹7,999 + Govt. Fees",
+    "website_displayed_price": "₹7,499 + Govt. Fees",
     "package_title": "Standard SPICe+",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
-      "2 Director Identification Numbers (DIN via SPICe+)",
-      "Name Approval via SPICe+ Part A",
-      "MoA & AoA Drafting",
-      "PAN & TAN Issuance",
-      "Bank Current Account Opening Support"
+      "2 Director Identification Numbers (DIN)",
+      "SPICe+ Part A Name Reservation (RUN Protocol)",
+      "SPICe+ Part B Incorporation Filing",
+      "e-MOA & e-AOA Drafting with Standard Objects",
+      "PAN, TAN & EPFO/ESIC Allocations",
+      "Zero-Balance Bank Current Account Opening Facilitation",
+      "Practicing CS / CA Pre-Scrutiny & CRC Portal Filing"
     ],
     "excluded_charges": [
-      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)",
-      "Class-3 Digital Signature Certificates (DSC tokens procured separately at actuals / client-provided)"
+      "MCA Government filing fee (₹0 up to ₹15L authorized capital)",
+      "MCA PAN/TAN statutory fee (₹131 at actuals)",
+      "State Stamp Duty on MoA/AoA (paid directly to State Treasury per state rates)"
     ],
     "additional_tiers": [
       {
         "tier_index": 2,
         "package_title": "Startup Growth Bundle",
-        "website_displayed_price": "₹11,999 + Govt. Fees",
-        "amount": 11999,
+        "website_displayed_price": "₹12,499 + Govt. Fees",
+        "amount": 12499,
         "pricing_basis": "STARTING_FROM",
-        "description": "Comprehensive incorporation plus initial founder agreements and MSME registration.",
+        "description": "Comprehensive incorporation plus initial founder agreements, Form INC-20A, and MSME registration.",
         "features": [
           "Everything in Standard SPICe+",
+          "Form INC-20A Commencement of Business Filing",
           "Customized Shareholder Agreement (SHA)",
-          "MSME Udyam Registration",
-          "1 Year Statutory Register Maintenance"
+          "MSME Udyam Registration"
         ]
       }
     ],
@@ -278,7 +288,7 @@
     "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
     "last_verified_at": null,
     "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹8,800). Updated from ₹7,499 + Govt. Fees to ₹7,999 + Govt. Fees. Verification pending; not approved for publication.",
+    "notes": "Market calibrated fee: ₹7,499. Includes full transparency: DSC tokens (₹1,500/token) and INC-20A (₹1,999) cost extra if not in bundle; client-provided valid DSC accepted at no extra cost.",
     "tax_inclusion_status": "UNCONFIRMED",
     "commercial_package_caps": []
   },
@@ -404,20 +414,25 @@
     "canonical_route": "/services/aoc4-xbrl.html",
     "primary_vertical_id": "V02",
     "currency": "INR",
-    "amount": 8499,
+    "amount": 14999,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹8,499 + Govt. Fees",
+    "website_displayed_price": "₹14,999 / year",
     "package_title": "XBRL Conversion & Filing",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
-      "Financial Data Taxonomy Mapping",
-      "XBRL Instance Document Generation",
-      "Validation Tool Error Rectification & Filing"
+      "Annual Compliance Calendar & Milestone Tracking",
+      "Form AOC-4 (Financial Statements) Filing",
+      "Form MGT-7 / MGT-7A (Annual Return) Filing",
+      "DIR-3 KYC Filing for 2 Directors",
+      "Preparation of AGM Notices, Board Minutes & Resolutions",
+      "Statutory Register Maintenance Review"
     ],
     "excluded_charges": [
-      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
+      "MCA Statutory Portal Filing Fees (~₹300-₹600/form at actuals)",
+      "Late Filing Penalties (₹100/day under Section 403 if client delays financials)",
+      "Statutory Financial Auditor Audit Fees"
     ],
     "additional_tiers": [],
     "statutory_thresholds": [],
@@ -431,7 +446,7 @@
     "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
     "last_verified_at": null,
     "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹9,500). Updated from ₹7,999 + Govt. Fees to ₹8,499 + Govt. Fees. Verification pending; not approved for publication.",
+    "notes": "Market calibrated retainer: ₹14,999/yr for small companies. Event-based filings (DIR-12, PAS-3) cost extra at ₹2,499/form.",
     "tax_inclusion_status": "UNCONFIRMED",
     "commercial_package_caps": []
   },
@@ -478,11 +493,11 @@
     "canonical_route": "/services/form-adt1.html",
     "primary_vertical_id": "V02",
     "currency": "INR",
-    "amount": 1599,
+    "amount": 12499,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹1,599 + Govt. Fees",
+    "website_displayed_price": "₹12,499 + Govt. Fees",
     "package_title": "ADT-1 Filing Service",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -505,7 +520,7 @@
     "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
     "last_verified_at": null,
     "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹1,800). Updated from ₹1,499 + Govt. Fees to ₹1,599 + Govt. Fees. Verification pending; not approved for publication.",
+    "notes": "AOC-4 XBRL. Included: Taxonomy mapping & validation. Excluded: ROC filing fee & late penalties. Costs extra: Foreign/domestic subsidiary consolidation (+₹4,500/sub).",
     "tax_inclusion_status": "UNCONFIRMED",
     "commercial_package_caps": []
   },
@@ -1016,11 +1031,11 @@
     "canonical_route": "/services/roc-annual-compliance.html",
     "primary_vertical_id": "V02",
     "currency": "INR",
-    "amount": 15999,
+    "amount": 14999,
     "pricing_basis": "ANNUAL",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹15,999 / year",
+    "website_displayed_price": "₹14,999 / year",
     "package_title": "Standard Startup Retainer",
     "website_price_type": "ANNUAL_RETAINER",
     "included_charges": [
@@ -1034,16 +1049,16 @@
       {
         "tier_index": 2,
         "package_title": "Enterprise Annual Retainer",
-        "website_displayed_price": "₹29,999 / year",
-        "amount": 29999,
+        "website_displayed_price": "₹24,999 / year",
+        "amount": 24999,
         "pricing_basis": "ANNUAL",
-        "description": "For growing companies requiring XBRL, DPT-3, MSME-1, and event-based filings.",
+        "description": "For growing companies requiring full MGT-7, DPT-3, MSME-1, and 4 director KYCs.",
         "features": [
           "Everything in Standard Retainer",
-          "Form AOC-4 XBRL Tagging & Filing",
+          "Form MGT-7 with PCS Certification",
           "Form DPT-3 Return of Deposits",
           "Half-Yearly MSME-1 Compliance Filings",
-          "Board Meeting Minutes & Resolutions (Up to 4)"
+          "Statutory Registers & Board Minutes"
         ]
       }
     ],
@@ -1189,11 +1204,11 @@
     "canonical_route": "/services/gst-annual.html",
     "primary_vertical_id": "V03",
     "currency": "INR",
-    "amount": 13999,
+    "amount": 34999,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹13,999 + Govt. Fees",
+    "website_displayed_price": "₹34,999 + Govt. Fees",
     "package_title": "GSTR-9 & 9C Reconciliation Package",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -1225,7 +1240,7 @@
     "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
     "last_verified_at": null,
     "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹15,500). Updated from ₹12,999 + Govt. Fees to ₹13,999 + Govt. Fees. Verification pending; not approved for publication.",
+    "notes": "Form 3CEB International Transfer Pricing. Included: Section 92E report, FAR analysis, ALP benchmarking, CA digital signature. Excluded: IT portal fee is ₹0. Costs extra: Master File Form 3CEAA (+₹25,000).",
     "tax_inclusion_status": "UNCONFIRMED",
     "commercial_package_caps": []
   },
@@ -1346,11 +1361,11 @@
     "canonical_route": "/services/founder-shareholder-agreements.html",
     "primary_vertical_id": "V05",
     "currency": "INR",
-    "amount": 15999,
+    "amount": 21999,
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹15,999 All Inclusive",
+    "website_displayed_price": "₹21,999 All Inclusive",
     "package_title": "Founder & SHA Custom Drafting",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1371,7 +1386,7 @@
     "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
     "last_verified_at": null,
     "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹18,000). Updated from ₹14,999 All Inclusive to ₹15,999 All Inclusive. Verification pending; not approved for publication.",
+    "notes": "Section 233 Fast-Track Merger. Included: Scheme drafting, CAA-9, CAA-10, CAA-11, RD filings. Excluded: CAA-11 fee (₹2,000), INC-28 fee, stamp duty. Costs extra: Registered Valuer report (~₹25k-₹40k) & newspaper ads.",
     "tax_inclusion_status": "UNCONFIRMED",
     "commercial_package_caps": []
   },
@@ -1382,11 +1397,11 @@
     "canonical_route": "/services/master-service-agreements.html",
     "primary_vertical_id": "V05",
     "currency": "INR",
-    "amount": 10999,
+    "amount": 39999,
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹10,999 All Inclusive",
+    "website_displayed_price": "₹39,999 All Inclusive",
     "package_title": "Enterprise MSA & SOW Package",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1407,7 +1422,7 @@
     "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
     "last_verified_at": null,
     "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹12,000). Updated from ₹9,999 All Inclusive to ₹10,999 All Inclusive. Verification pending; not approved for publication.",
+    "notes": "Slump Sale BTA. Included: Section 50B agreement, net worth schedules, employee novation covenants. Excluded: State conveyance stamp duty. Costs extra: Form 3CEA CA certification (+₹9,999).",
     "tax_inclusion_status": "UNCONFIRMED",
     "commercial_package_caps": []
   },
@@ -1426,11 +1441,15 @@
     "package_title": "Legal Notice & Infringement Enforcement",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
-      "Infringement Evidence Compilation",
-      "Custom Cease and Desist Notice Draft",
-      "E-commerce / App Store Takedown Support"
+      "Trademark Registry Pre-Search across 45 classes",
+      "NICE Class & Goods/Services Specification Drafting",
+      "Form TM-A Electronic Drafting & Portal Upload",
+      "Official Filing Receipt & Application Number Generation",
+      "24/7 Status Monitoring until Examination Report"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Statutory Registry Filing Fee: ₹4,500 for Individual / MSME / Startup; ₹9,000 for Non-MSME Corporate bodies"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1443,7 +1462,7 @@
     "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
     "last_verified_at": null,
     "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹7,200). Updated from ₹5,999 All Inclusive to ₹6,499 All Inclusive. Verification pending; not approved for publication.",
+    "notes": "Market calibrated fee: ₹3,999. Show-cause hearings (₹4,500/hearing) and opposition proceedings cost extra.",
     "tax_inclusion_status": "UNCONFIRMED",
     "commercial_package_caps": []
   },
@@ -1492,11 +1511,11 @@
     "canonical_route": "/services/trademark-registration.html",
     "primary_vertical_id": "V06",
     "currency": "INR",
-    "amount": 4999,
+    "amount": 3999,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹4,999 + Govt. Fees",
+    "website_displayed_price": "₹3,999 + Govt. Fees",
     "package_title": "Instant Trademark Filing (Form TM-A)",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -1519,7 +1538,7 @@
     "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
     "last_verified_at": null,
     "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹5,400). Updated from ₹4,499 + Govt. Fees to ₹4,999 + Govt. Fees. Verification pending; not approved for publication.",
+    "notes": "Founder SHA. Included: Reverse vesting, Drag/Tag, ROFR, ROFO, dispute framework. Excluded: State stamp duty (~₹200-₹1000). Costs extra: VC counsel negotiation (+₹7,500/session).",
     "tax_inclusion_status": "UNCONFIRMED",
     "commercial_package_caps": []
   },
@@ -1602,11 +1621,11 @@
     "canonical_route": "/services/fast-track-mergers.html",
     "primary_vertical_id": "V09",
     "currency": "INR",
-    "amount": 32999,
+    "amount": 69999,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹32,999 + Govt. Fees",
+    "website_displayed_price": "₹69,999 + Govt. Fees",
     "package_title": "Fast-Track Merger Execution (Sec 233)",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
