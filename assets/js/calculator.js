@@ -329,9 +329,9 @@ function setTab1Mode(mode) {
     if (ccfsRow) ccfsRow.style.display = 'flex';
 
     if (cardTitle) cardTitle.textContent = 'RoC Statutory Late Fee & Retainer Estimate';
-    if (cardSubtitle) cardSubtitle.textContent = 'Indicative estimate for overdue annual returns (AOC-4, MGT-7, DIR-3 KYC). CCFS-2026 closed on 15 September 2026.';
+    if (cardSubtitle) cardSubtitle.textContent = 'Indicative Section 403 estimate for overdue company annual returns (Section 92) and financial statements (Section 137) only. Other forms are excluded; confirm current MCA fees.';
     if (cardBadge) {
-      cardBadge.textContent = 'Section 403: ₹100/Day';
+      cardBadge.textContent = 'Section 403: AOC-4 / MGT-7 only';
       cardBadge.style.color = '#B45309';
       cardBadge.style.background = '#FEF3C7';
     }
@@ -481,13 +481,13 @@ function calculateCost() {
     if (document.getElementById('addon-sha')?.checked) addonTotal += 4999;
     if (document.getElementById('addon-current-ac')?.checked) addonTotal += 1499;
 
+    // Section 403's first proviso applies the not-less-than ₹100/day additional-fee rule to Sections 92 and 137 filings.
+    // This illustrative model therefore counts only MGT-7 (Section 92) and AOC-4 (Section 137).
     let overdueFormsCount = 0;
     if (document.getElementById('form-aoc4')?.checked) overdueFormsCount++;
     if (document.getElementById('form-mgt7')?.checked) overdueFormsCount++;
 
     rocLateFee = overdueFormsCount * delayDays * 100;
-    if (document.getElementById('form-dir3kyc')?.checked && delayDays > 0) rocLateFee += 5000;
-    if (document.getElementById('form-pas6')?.checked && delayDays > 0) rocLateFee += 1000;
 
     if (ccfsMode && rocLateFee > 0) {
       ccfsFee = Math.round(rocLateFee * 0.9);
@@ -511,9 +511,9 @@ function calculateCost() {
       const p90CostEl = document.getElementById('delay-card-90-cost');
       const p90TagEl = document.getElementById('delay-card-90-tag');
 
-      const mult = Math.max(1, overdueFormsCount);
-      const cost30 = rocLateFee + (mult * 30 * 100);
-      const cost90 = rocLateFee + (mult * 90 * 100);
+      const mult = overdueFormsCount;
+      const cost30 = mult * (delayDays + 30) * 100;
+      const cost90 = mult * (delayDays + 90) * 100;
 
       if (curDaysEl) curDaysEl.textContent = delayDays + ' Days Overdue';
       if (curCostEl) curCostEl.textContent = '₹' + rocLateFee.toLocaleString('en-IN');
