@@ -35,6 +35,14 @@ console.log('============================================================\n');
 
 const formsJsCode = fs.readFileSync(path.join(__dirname, '..', 'assets', 'js', 'forms.js'), 'utf8');
 
+// The production form requires an affirmative privacy-consent action.
+// Dynamic submission tests must simulate a user checking that box.
+function grantTestConsent(form) {
+  const consent = form.querySelector('input[name="dpdp_consent"]');
+  if (consent) consent.checked = true;
+  return Boolean(consent);
+}
+
 // ----------------------------------------------------
 // Test Suite 1: Static Code Inspection
 // ----------------------------------------------------
@@ -146,6 +154,7 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   win2.document.dispatchEvent(event);
 
   const form2 = doc2.querySelector('.if-lead-form');
+  assert(grantTestConsent(form2), 'Test fixture grants explicit privacy consent');
   const submitBtn2 = form2.querySelector('button[type="submit"]');
 
   // Trigger first submit event
@@ -202,6 +211,7 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   win3.document.dispatchEvent(event3);
 
   const form3 = doc3.querySelector('.if-lead-form');
+  assert(grantTestConsent(form3), 'Test fixture grants explicit privacy consent');
   const submitBtn3 = form3.querySelector('button[type="submit"]');
 
   form3.dispatchEvent(new win3.Event('submit', { bubbles: true, cancelable: true }));
@@ -243,6 +253,7 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   win4.document.dispatchEvent(event4);
 
   const form4 = doc4.querySelector('.if-lead-form');
+  assert(grantTestConsent(form4), 'Test fixture grants explicit privacy consent');
   const submitBtn4 = form4.querySelector('button[type="submit"]');
 
   form4.dispatchEvent(new win4.Event('submit', { bubbles: true, cancelable: true }));
@@ -290,6 +301,7 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   win5A.document.dispatchEvent(event5A);
 
   const form5A = dom5A.window.document.querySelector('.if-lead-form');
+  assert(grantTestConsent(form5A), 'Test fixture grants explicit privacy consent');
   form5A.dispatchEvent(new win5A.Event('submit', { bubbles: true, cancelable: true }));
   await new Promise(r => setTimeout(r, 80));
 
@@ -322,6 +334,7 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   win5B.document.dispatchEvent(event5B);
 
   const form5B = dom5B.window.document.querySelector('.if-lead-form');
+  assert(grantTestConsent(form5B), 'Test fixture grants explicit privacy consent');
   form5B.dispatchEvent(new win5B.Event('submit', { bubbles: true, cancelable: true }));
   await new Promise(r => setTimeout(r, 80));
 
@@ -351,6 +364,7 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   win5C.document.dispatchEvent(event5C);
 
   const form5C = dom5C.window.document.querySelector('.if-lead-form');
+  assert(grantTestConsent(form5C), 'Test fixture grants explicit privacy consent');
   form5C.dispatchEvent(new win5C.Event('submit', { bubbles: true, cancelable: true }));
   await new Promise(r => setTimeout(r, 80));
 
@@ -394,6 +408,7 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   win5D.document.dispatchEvent(event5D);
 
   const form5D = doc5D.querySelector('.if-lead-form');
+  assert(grantTestConsent(form5D), 'Test fixture grants explicit privacy consent');
   const submitBtn5D = form5D.querySelector('button[type="submit"]');
 
   form5D.dispatchEvent(new win5D.Event('submit', { bubbles: true, cancelable: true }));
@@ -448,6 +463,7 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   win6.document.dispatchEvent(event6);
 
   const form6 = doc6.querySelector('.if-lead-form');
+  assert(grantTestConsent(form6), 'Test fixture grants explicit privacy consent');
   const submitBtn6 = form6.querySelector('button[type="submit"]');
 
   // Attempt 1: First failure
@@ -503,6 +519,7 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   win7.document.dispatchEvent(event7);
 
   const form7 = win7.document.querySelector('.if-lead-form');
+  assert(grantTestConsent(form7), 'Test fixture grants explicit privacy consent');
 
   // Fire two rapid submit events concurrently
   form7.dispatchEvent(new win7.Event('submit', { bubbles: true, cancelable: true }));
