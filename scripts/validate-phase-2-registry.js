@@ -939,9 +939,9 @@ function runTestSuite() {
   assertTest(
     dataLayerMap.pricing.some(p => p.service_id === 'V03-SVC-003' && p.statutory_thresholds && p.statutory_thresholds.length > 0) &&
     dataLayerMap.pricing.some(p => p.service_id === 'V02-SVC-017' && p.commercial_package_caps && p.commercial_package_caps.length > 0 && p.statutory_thresholds.length === 0) &&
-    dataLayerMap.pricing.some(p => p.service_id === 'V02-SVC-002' && p.statutory_penalties && p.statutory_penalties.length > 0) &&
+    dataLayerMap.pricing.some(p => p.service_id === 'V02-SVC-002' && Array.isArray(p.statutory_penalties) && p.statutory_penalties.length === 0) &&
     dataLayerMap.pricing.every(p => p.amount !== 50000000 && p.amount !== 1000000),
-    'Statutory thresholds (₹5 Crores turnover), commercial package caps (₹10 Lakhs capital), and statutory penalties (₹5,000) are cleanly separated from service prices'
+    'Statutory thresholds and commercial package caps are separated from service prices; DIR-3 KYC carries no obsolete fixed ₹5,000 penalty'
   );
 
   const allInclusiveCards = dataLayerMap.pricing.filter(p => p.website_displayed_price && p.website_displayed_price.includes('All Inclusive'));

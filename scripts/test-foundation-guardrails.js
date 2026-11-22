@@ -17,6 +17,7 @@ const build = read('scripts/build-public.js');
 const verify = read('scripts/verify-public-build.js');
 const pricingText = read('data/pricing.json');
 const pricing = JSON.parse(pricingText);
+const dir3Pricing = pricing.find(p => p.service_id === 'V02-SVC-002');
 const forms = read('assets/js/forms.js');
 const config = read('assets/js/config.js');
 const dir3 = read('services/dir3-kyc.html');
@@ -35,6 +36,7 @@ check(!/item\.commercial_approval_state\s*=\s*['"]COMMERCIALLY_APPROVED['"]/.tes
 check(verify.includes("'data/pricing.json'"), 'Public build verifier explicitly forbids pricing source file');
 check(pricing.length > 0 && pricing.every(p => p.verification_status !== 'VERIFIED'), 'Pricing source does not claim unsupported verification');
 check(pricing.every(p => p.commercial_approval_state !== 'COMMERCIALLY_APPROVED'), 'Pricing source does not claim unapproved commercial approval');
+check(dir3Pricing && Array.isArray(dir3Pricing.statutory_penalties) && dir3Pricing.statutory_penalties.length === 0, 'DIR-3 KYC pricing record contains no obsolete fixed ₹5,000 penalty');
 check(!/Verified for statutory compliance|Verified under Indian Corporate Law/i.test(pricingText), 'Pricing notes contain no unsupported verification statement');
 check(/name=\"dpdp_consent\"/.test(forms) && /!consentControl\.checked/.test(forms), 'Lead forms require affirmative privacy consent');
 check(!/mode\s*:\s*['"]no-cors['"]|googleWorkspace\.webhookUrl/.test(forms), 'Lead form code contains no opaque webhook transmission');
