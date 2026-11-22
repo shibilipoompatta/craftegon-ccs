@@ -746,7 +746,7 @@ function showFormFallbackNotice(form, data, options = {}) {
       <strong>Review &amp; Response Expectation:</strong> Our corporate compliance desk reviews enquiries during regular business hours (Monday – Saturday, 9:00 AM – 7:00 PM IST) to understand statutory scope, jurisdiction, and filing timeline.
     </p>
     <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0 0 1rem 0; line-height: 1.45; font-family: var(--font-body, 'Manrope', sans-serif);">
-      <em>Privacy note:</em> Selecting an alternative channel opens your external WhatsApp application, default email composer, or Google Workspace intake with your pre-filled inquiry. Your details are only sent when you choose to transmit the message.
+      <em>Privacy note:</em> Selecting an alternative channel opens your external WhatsApp application or default email composer with a pre-filled enquiry. Your details are sent only if you choose to press Send in that application.
     </p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
       <a href="${escapeHtml(waUrl)}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
