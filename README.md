@@ -12,7 +12,7 @@
 - **Repository**: `shibilipoompatta/craftegon-ccs`
 - **Architecture**: Pure static-first web platform (HTML5, Vanilla CSS3 with Custom Tokens, ES6+ JavaScript).
 - **Edge Deployment**: Optimized for **Cloudflare Pages** CDN.
-- **Dependencies**: **Zero third-party npm runtime dependencies** for maximum security, sub-second edge paint times, and complete auditability.
+- **Dependencies**: Uses a static-first HTML/CSS/JavaScript frontend with a small Node.js toolchain and a PostgreSQL client dependency for backend components.
 
 ---
 
@@ -72,12 +72,12 @@ craftegon-ccs/
 │   └── test-trademark-search.js# Real DOM-level XSS regression & false-claim test suite (40 checks)
 ├── services/                   # 57 Specialized commercial & educational service landing pages
 ├── verticals/                  # 15 Practice area hubs (01 Entity Formation to 15 IT & Digital)
-├── _redirects                  # Cloudflare Pages edge routing rules (/portal/* 200, /* /404.html 404)
+├── _redirects                  # Cloudflare Pages edge routing rules; internal portal/admin routes are blocked from public static release
 ├── 404.html                    # Branded 404 error page with quick recovery triggers
 ├── index.html                  # Root corporate gateway & interactive portal showcase
 ├── package.json                # Standard npm test runner definitions
 ├── robots.txt                  # Search engine crawl directives & sitemap location
-└── sitemap.xml                 # XML sitemap indexing all 110 content routes
+└── sitemap.xml                 # XML sitemap for the current public route inventory
 ```
 
 ---
@@ -122,20 +122,17 @@ npm run test:tm        # Real DOM-level XSS regression & claim integrity suite (
 
 ---
 
-## 6. Deployment Workflow (Cloudflare Pages)
+## 6. Safe Release Workflow
 
 > [!IMPORTANT]
-> Non-production working tree only. Production deployment must remain disabled until Phase 1 review sign-off and deployment-owner DNS verification.
+> Do not push implementation work directly to `main`. Use a feature branch and a reviewed pull request. A GitHub merge does not prove that Cloudflare Pages deployed the expected artifact.
 
-1. **Pre-flight Checks**: Execute `npm test` to verify in-tree test pass.
-2. **Production Review & Git Push**:
-   ```bash
-   git status
-   git push origin main
-   ```
-3. **Automated Edge Build**: Cloudflare Pages automatically detects changes on `main` and deploys the static bundle globally in < 30 seconds.
-4. **Smoke Test**: Visit [https://ccs.craftegon.com](https://ccs.craftegon.com/) and verify headers, forms, calculators, and contact links.
-
+1. Create a feature branch from the latest `main`.
+2. Run `npm ci`, `npm test`, `npm run test:accuracy`, `npm run build`, and `npm run test:build`.
+3. Open a pull request to `main`; inspect the complete diff and wait for all required checks.
+4. Obtain business-owner approval for prices and claims, and appropriate professional review for legal content.
+5. Merge only after review and passing checks.
+6. Verify the exact commit deployed to Cloudflare Pages and perform production smoke tests.
 ---
 
 ## 7. Statutory Disclaimer & Regulatory Framework
