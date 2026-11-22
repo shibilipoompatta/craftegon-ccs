@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>The 6 Core Corporate Services Pillars | CraftEgon CCS</title>
+  <meta name="description" content="Explore the 6 core practice categories of CraftEgon Corporate Services: business setup, RoC compliance, tax filings, statutory licences, legal contracts, and workforce governance.">
+  <link rel="canonical" href="https://ccs.craftegon.com/categories/index.html">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="The 6 Core Corporate Services Pillars | CraftEgon CCS">
+  <meta property="og:description" content="Explore the 6 core corporate practices of CraftEgon CCS: entity incorporation, RoC secretarial compliance, taxation, licensing, commercial contracts, and workforce governance.">
+  <meta property="og:url" content="https://ccs.craftegon.com/categories/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@craftegon">
+  <meta name="twitter:title" content="The 6 Core Corporate Services Pillars | CraftEgon CCS">
+  <meta name="twitter:description" content="Explore the 6 core corporate practices of CraftEgon CCS: entity incorporation, RoC secretarial compliance, taxation, licensing, commercial contracts, and workforce governance.">
+  <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Design System Tokens & Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/home-unique.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+
+  <style>
+    body {
+      background-color: var(--bg-secondary, #F4FAF7);
+      color: var(--text-main, #243746);
+      font-family: var(--font-body, 'Inter', -apple-system, sans-serif);
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .cat-hero {
+      padding: 6.5rem 1.5rem 3.5rem;
+      background: var(--mint-sky-hero, linear-gradient(135deg, #F4FAF7 0%, #DDF5EA 45%, #DDF2FC 100%));
+      border-bottom: 1px solid var(--border-color, #DCE8E5);
+      text-align: center;
+    }
+    .cat-hero-inner {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .cat-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary, #52717A);
+      margin-bottom: 1.25rem;
+    }
+    .cat-breadcrumb a {
+      color: var(--accent-green-primary, #247A62);
+      text-decoration: none;
+    }
+    .cat-title {
+      font-family: var(--font-heading, 'Manrope', sans-serif);
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      font-weight: 800;
+      color: var(--text-dark, #193B46);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin: 0 0 1rem;
+    }
+    .cat-subtitle {
+      font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+      color: var(--text-secondary, #52717A);
+      max-width: 780px;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
+    }
+    .cat-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.75rem;
+    }
+    .cat-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color, #DCE8E5);
+      border-radius: 14px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 16px rgba(25, 59, 70, 0.04);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(25, 59, 70, 0.08);
+      border-color: var(--accent-green-primary, #247A62);
+    }
+    .cat-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.65rem;
+      background: var(--surface-mint-soft, #DDF5EA);
+      color: var(--accent-green-primary, #247A62);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+    .cat-card-title {
+      font-family: var(--font-heading, 'Manrope', sans-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-dark, #193B46);
+      margin: 0 0 0.75rem;
+      line-height: 1.35;
+    }
+    .cat-card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .cat-card-title a:hover {
+      color: var(--accent-green-primary, #247A62);
+    }
+    .cat-card-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary, #52717A);
+      line-height: 1.6;
+      margin: 0 0 1.25rem;
+      flex-grow: 1;
+    }
+    .cat-service-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      border-top: 1px dashed var(--border-color, #DCE8E5);
+      padding-top: 1rem;
+    }
+    .cat-service-list li {
+      margin-bottom: 0.5rem;
+      font-size: 0.88rem;
+    }
+    .cat-service-list a {
+      color: var(--text-main, #243746);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .cat-service-list a:hover {
+      color: var(--accent-green-primary, #247A62);
+      text-decoration: underline;
+    }
+    .cat-card-footer {
+      border-top: 1px solid var(--border-color, #DCE8E5);
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cat-cta-btn {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent-green-primary, #247A62);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .cat-cta-btn:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .cat-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ccs.craftegon.com/categories/index.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ccs.craftegon.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Core Service Categories",
+            "item": "https://ccs.craftegon.com/categories/index.html"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://ccs.craftegon.com/categories/index.html#webpage",
+        "url": "https://ccs.craftegon.com/categories/index.html",
+        "name": "The 6 Core Corporate Services Pillars | CraftEgon CCS",
+        "description": "Comprehensive index of the 6 core corporate service practice categories offered by CraftEgon Corporate Services.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://ccs.craftegon.com/#website",
+          "name": "CraftEgon CCS",
+          "url": "https://ccs.craftegon.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://ccs.craftegon.com/#organization",
+          "name": "CraftEgon CCS",
+          "logo": "https://ccs.craftegon.com/assets/images/craftegon-logo.jpg"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ccs.craftegon.com/categories/index.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How are CraftEgon CCS services organized?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CraftEgon CCS organizes its client-facing portfolio into 6 clear core categories: Business Setup, Corporate Compliance, Tax & GST, Licences & Registrations, Legal Contracts & IPR, and Workforce & Governance Support."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are corporate filings supervised by qualified professionals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. All corporate filings, statutory returns, and secretarial reviews are managed and supervised by practicing Company Secretaries and Chartered Accountants in accordance with Indian statutory requirements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can an enterprise engage CCS on an ongoing compliance retainer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. CCS provides integrated annual compliance retainers covering ROC annual filings (AOC-4, MGT-7), monthly GST returns, and corporate secretarial governance under fixed, transparent scopes."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Global Navigation Header -->
+  <header class="if-header">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="if-header-inner">
+      <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services (CCS) Home">
+        <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img" width="42" height="42" loading="eager">
+        <div class="brand-text-block">
+          <span class="brand-title">CRAFTEGON</span>
+          <span class="brand-subtitle">Corporate Services</span>
+        </div>
+      </a>
+      <nav class="if-nav" aria-label="Main Navigation">
+        <a href="/index.html" class="if-nav-link">Home</a>
+        <a href="/services.html" class="if-nav-link">Services</a>
+        <a href="/categories/index.html" class="if-nav-link" aria-current="page" style="color: var(--accent-green-primary);">Categories</a>
+        <a href="/about.html" class="if-nav-link">About</a>
+        <a href="/contact.html" class="if-nav-link">Contact</a>
+      </nav>
+      <div class="if-header-actions">
+        <a href="/contact.html" class="if-btn-primary">Schedule Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="cat-hero">
+      <div class="cat-hero-inner">
+        <nav class="if-breadcrumb cat-breadcrumb" aria-label="Breadcrumb Navigation">
+          <a href="/index.html">Home</a>
+          <span aria-hidden="true">&rsaquo;</span>
+          <span aria-current="page">Core Service Categories</span>
+        </nav>
+        <h1 class="cat-title">The 6 Core Corporate Services Pillars</h1>
+        <p class="cat-subtitle">
+          From legal incorporation and ROC secretarial compliance to taxation, statutory licensing, commercial contracts, and workforce governance. Coordinated business infrastructure supervised by practicing professionals.
+        </p>
+        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+          <a href="/services.html" class="if-btn-secondary">Browse Complete 57-Service Directory &rarr;</a>
+          <a href="/conversion/retainer-desk.html" class="if-btn-primary">Request Compliance Retainer</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cat-container">
+      <div class="cat-grid">
+        <!-- Category 1: Business Setup & Entity Structuring -->
+        <article class="cat-card">
+          <span class="cat-badge">CATEGORY 01</span>
+          <h2 class="cat-card-title"><a href="/categories/business-setup.html">Business Setup &amp; Entity Structuring</a></h2>
+          <p class="cat-card-desc">
+            End-to-end entity formation, legal structuring, and post-incorporation statutory commencement under MCA SPICe+ and state rules.
+          </p>
+          <ul class="cat-service-list">
+            <li><a href="/services/pvt-ltd-registration.html">&bull; Private Limited Company (SPICe+)</a></li>
+            <li><a href="/services/llp-registration.html">&bull; Limited Liability Partnership (LLP)</a></li>
+            <li><a href="/services/opc-registration.html">&bull; One Person Company (OPC)</a></li>
+            <li><a href="/services/section-8-registration.html">&bull; Section 8 Non-Profit Company</a></li>
+            <li><a href="/services/partnership-registration.html">&bull; Partnership Firm Registration</a></li>
+          </ul>
+          <div class="cat-card-footer">
+            <span style="font-size:0.8rem; color:var(--text-muted);">MCA V3 Process</span>
+            <a href="/categories/business-setup.html" class="cat-cta-btn">Explore Category &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Category 2: Corporate Compliance & ROC Secretarial -->
+        <article class="cat-card">
+          <span class="cat-badge">CATEGORY 02</span>
+          <h2 class="cat-card-title"><a href="/categories/corporate-compliance.html">Corporate Compliance &amp; ROC Secretarial</a></h2>
+          <p class="cat-card-desc">
+            Annual secretarial compliance retainers, mandatory statutory filings, director verification, and closure procedures.
+          </p>
+          <ul class="cat-service-list">
+            <li><a href="/services/roc-annual-compliance.html">&bull; Annual Secretarial Retainers</a></li>
+            <li><a href="/services/form-aoc4.html">&bull; Form AOC-4 Financial Statements</a></li>
+            <li><a href="/services/form-mgt7.html">&bull; Form MGT-7/7A Annual Returns</a></li>
+            <li><a href="/services/dir3-kyc.html">&bull; DIR-3 KYC Director Verification</a></li>
+            <li><a href="/services/form-stk2-strike-off.html">&bull; Fast-Track Strike Off (STK-2)</a></li>
+          </ul>
+          <div class="cat-card-footer">
+            <span style="font-size:0.8rem; color:var(--text-muted);">CS-Supervised</span>
+            <a href="/categories/corporate-compliance.html" class="cat-cta-btn">Explore Category &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Category 3: Tax, GST & Financial Compliance -->
+        <article class="cat-card">
+          <span class="cat-badge">CATEGORY 03</span>
+          <h2 class="cat-card-title"><a href="/categories/tax-compliance.html">Tax, GST &amp; Financial Compliance</a></h2>
+          <p class="cat-card-desc">
+            Indirect tax registrations, monthly recurring GSTR return retainers, corporate direct tax returns, and transfer pricing.
+          </p>
+          <ul class="cat-service-list">
+            <li><a href="/services/gst-annual.html">&bull; GST Annual Return &amp; Reconciliation (GSTR-9)</a></li>
+            <li><a href="/services/proprietorship-tax.html">&bull; Proprietorship &amp; SME Tax Returns</a></li>
+            <li><a href="/services/itr7.html">&bull; Corporate Income Tax (ITR-7)</a></li>
+            <li><a href="/services/form-3ceb.html">&bull; Transfer Pricing (Form 3CEB)</a></li>
+            <li><a href="/services/form-10b.html">&bull; Form 10B / 10BB Trust Audit Report</a></li>
+          </ul>
+          <div class="cat-card-footer">
+            <span style="font-size:0.8rem; color:var(--text-muted);">CA-Supervised</span>
+            <a href="/categories/tax-compliance.html" class="cat-cta-btn">Explore Category &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Category 4: Licences, Approvals & Statutory Registrations -->
+        <article class="cat-card">
+          <span class="cat-badge">CATEGORY 04</span>
+          <h2 class="cat-card-title"><a href="/categories/licences-registrations.html">Licences &amp; Statutory Registrations</a></h2>
+          <p class="cat-card-desc">
+            Operating permits, industrial classifications, food business approvals, import-export clearances, and startup credentials.
+          </p>
+          <ul class="cat-service-list">
+            <li><a href="/services/msme-udyam.html">&bull; MSME Udyam Registration</a></li>
+            <li><a href="/services/dpiit-startup-india.html">&bull; DPIIT Startup India Recognition</a></li>
+            <li><a href="/services/pf-esic-compliance.html">&bull; PF &amp; ESIC Statutory Registration</a></li>
+            <li><a href="/services/form-fc3-fc4.html">&bull; Foreign Branch / Liaison Setup</a></li>
+            <li><a href="/verticals/04-statutory-licenses.html">&bull; Statutory Licences Vertical</a></li>
+          </ul>
+          <div class="cat-card-footer">
+            <span style="font-size:0.8rem; color:var(--text-muted);">Statutory Licensing</span>
+            <a href="/categories/licences-registrations.html" class="cat-cta-btn">Explore Category &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Category 5: Commercial Contracts & Intellectual Property -->
+        <article class="cat-card">
+          <span class="cat-badge">CATEGORY 05</span>
+          <h2 class="cat-card-title"><a href="/categories/legal-contracts-ip.html">Commercial Contracts &amp; Intellectual Property</a></h2>
+          <p class="cat-card-desc">
+            Trademark filings under Form TM-A, founder co-equity charters, non-disclosure contracts, and commercial service agreements.
+          </p>
+          <ul class="cat-service-list">
+            <li><a href="/services/trademark-registration.html">&bull; Trademark Application (TM-A)</a></li>
+            <li><a href="/services/founder-shareholder-agreements.html">&bull; Founders' &amp; Shareholders' Agreements</a></li>
+            <li><a href="/services/master-service-agreements.html">&bull; Master Services Agreements (MSA)</a></li>
+            <li><a href="/services/software-copyright-patents.html">&bull; Software Copyright &amp; Tech Patents</a></li>
+            <li><a href="/services/ip-enforcement-cease-desist.html">&bull; IP Enforcement &amp; Cease and Desist</a></li>
+          </ul>
+          <div class="cat-card-footer">
+            <span style="font-size:0.8rem; color:var(--text-muted);">IP &amp; Commercial Law</span>
+            <a href="/categories/legal-contracts-ip.html" class="cat-cta-btn">Explore Category &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Category 6: Workforce, Governance & Growth Support -->
+        <article class="cat-card">
+          <span class="cat-badge">CATEGORY 06</span>
+          <h2 class="cat-card-title"><a href="/categories/workforce-operations.html">Workforce, Governance &amp; Growth Support</a></h2>
+          <p class="cat-card-desc">
+            Employment charters, statutory POSH committee setup, secretarial audits under Section 204, and corporate restructuring.
+          </p>
+          <ul class="cat-service-list">
+            <li><a href="/services/posh-compliance.html">&bull; Mandatory POSH Compliance &amp; IC Setup</a></li>
+            <li><a href="/services/labour-code-handbooks.html">&bull; Labour Code Handbooks &amp; HR Healthcheck</a></li>
+            <li><a href="/services/form-mr3-secretarial-audit.html">&bull; Form MR-3 Secretarial Audit (Sec 204)</a></li>
+            <li><a href="/services/board-governance-risk-assessment.html">&bull; Board Governance Risk Assessment</a></li>
+            <li><a href="/services/fast-track-mergers.html">&bull; Fast-Track Mergers (Section 233)</a></li>
+          </ul>
+          <div class="cat-card-footer">
+            <span style="font-size:0.8rem; color:var(--text-muted);">Governance &amp; HR</span>
+            <a href="/categories/workforce-operations.html" class="cat-cta-btn">Explore Category &rarr;</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Advisory Consultation Callout -->
+      <div style="margin-top:3.5rem; background:#FFFFFF; border:1px solid var(--border-color,#DCE8E5); border-radius:14px; padding:2.5rem; text-align:center; box-shadow:0 4px 16px rgba(25,59,70,0.04);">
+        <h3 style="font-family:var(--font-heading,'Manrope',sans-serif); font-size:1.5rem; color:var(--text-dark,#193B46); margin:0 0 0.75rem;">Need Multi-Category Corporate Infrastructure?</h3>
+        <p style="font-size:0.95rem; color:var(--text-secondary,#52717A); max-width:650px; margin:0 auto 1.5rem; line-height:1.6;">
+          Our practicing professionals coordinate entity formation, licensing, trademark protection, and recurring tax retainers under a single accountable service agreement.
+        </p>
+        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+          <a href="/contact.html" class="if-btn-primary">Speak to Our Compliance Desk</a>
+          <a href="/conversion/calculator.html" class="if-btn-secondary">RoC Late Fee Calculator</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="if-footer">
+    <div class="if-footer-inner">
+      <div class="if-footer-grid">
+        <div class="if-footer-col if-footer-brand">
+          <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
+            <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Insignia" class="brand-logo-img" width="42" height="42" loading="lazy">
+            <div class="brand-text-block">
+              <span class="brand-title">CRAFTEGON</span>
+              <span class="brand-subtitle">Corporate Services</span>
+            </div>
+          </a>
+          <p class="if-footer-desc">
+            Integrated corporate services and business infrastructure platform supporting Indian enterprises through every lifecycle milestone.
+          </p>
+        </div>
+        <div class="if-footer-col">
+          <h4 class="if-footer-heading">The 6 Core Categories</h4>
+          <ul class="if-footer-list">
+            <li><a href="/categories/business-setup.html">1. Business Setup &amp; Structuring</a></li>
+            <li><a href="/categories/corporate-compliance.html">2. Corporate Compliance (RoC)</a></li>
+            <li><a href="/categories/tax-compliance.html">3. Tax &amp; GST Compliance</a></li>
+            <li><a href="/categories/licences-registrations.html">4. Licences &amp; Registrations</a></li>
+            <li><a href="/categories/legal-contracts-ip.html">5. Legal Contracts &amp; IPR</a></li>
+            <li><a href="/categories/workforce-operations.html">6. Workforce &amp; Governance</a></li>
+          </ul>
+        </div>
+        <div class="if-footer-col">
+          <h4 class="if-footer-heading">Tools &amp; Portals</h4>
+          <ul class="if-footer-list">
+            <li><a href="/services.html">57-Service Directory</a></li>
+            <li><a href="/conversion/calculator.html">RoC Late Fee Calculator</a></li>
+            <li><a href="/search/index.html">Entity &amp; Master Search</a></li>
+            <li><a href="/knowledge/index.html">Compliance Knowledge Base</a></li>
+            <li><a href="/contact.html">Contact Support Desk</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="if-footer-legal-row">
+        <nav class="if-footer-legal-nav" aria-label="Legal Disclosures">
+          <a href="/legal/terms.html">Terms &amp; Conditions</a>
+          <span class="if-legal-sep">&bull;</span>
+          <a href="/legal/privacy.html">Privacy Policy</a>
+          <span class="if-legal-sep">&bull;</span>
+          <a href="/legal/refund.html">Refund Policy</a>
+          <span class="if-legal-sep">&bull;</span>
+          <a href="/legal/disclaimer.html">Professional Disclaimer</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/attribution.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/chat-widget.js"></script>
+</body>
+</html>

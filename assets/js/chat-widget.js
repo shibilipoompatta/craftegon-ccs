@@ -1153,7 +1153,7 @@ function createWidget(){
   ${PILLS.map(([l,q])=>`<button type="button" class="cchat-pill" data-query="${escapeHtml(q)}">${l}</button>`).join('')}
   </div>
   <div class="cchat-footer">
-  <form id="cchat-form" class="cchat-input-row" onsubmit="return false;">
+  <form id="cchat-form" class="cchat-input-row">
     <input type="text" id="cchat-input-field" class="cchat-input" placeholder="Ask about compliance, MCA V3, due dates..." autocomplete="off">
     <button type="submit" id="cchat-send-btn" class="cchat-send-btn" aria-label="Send message"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>
   </form>

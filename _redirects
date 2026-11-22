@@ -29,6 +29,9 @@
 /services/trademark-opposition*  /knowledge/trademark-opposition-procedure-tm-o-handbook 301
 
 # 2. CLEAN URL REWRITES (Status 200 for internal mapping)
+/categories              /categories/index.html  200
+/categories/             /categories/index.html  200
+/categories/*            /categories/:splat      200
 /services                /services/index.html    200
 /services/               /services/index.html    200
 /services.html           /services/index.html    200

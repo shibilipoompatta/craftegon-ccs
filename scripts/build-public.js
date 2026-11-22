@@ -386,6 +386,9 @@ const publicRedirects = `# =====================================================
 /services/trademark-opposition*  /knowledge/trademark-opposition-procedure-tm-o-handbook 301
 
 # 2. CLEAN URL REWRITES (Status 200)
+/categories              /categories/index.html  200
+/categories/             /categories/index.html  200
+/categories/*            /categories/:splat      200
 /services                /services/index.html    200
 /services/               /services/index.html    200
 /services.html           /services/index.html    200
@@ -423,7 +426,7 @@ const publicHeaders = `/api/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'sha256-yTmufg+v35rh18GsJENkghSbcYvNQDpA7fDT24X8qGo=' 'sha256-LuoDWPMFm9g04DP+/b//FqutLSVZuOnlS8Egxm99vNU=' 'sha256-gcX253xEUTPsslr4goetqaF37T1qjh2qLr0SnzVYapo=' 'sha256-LWQ6Tv/QO+UN7W1kU3fVhDxdLjM880RfS0BbTpaCrNY=' 'sha256-0fPuRfE7yalwaG6q8l53WeehKhVnibM9c5fi3keprm8=' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://api.craftegon.com https://generativelanguage.googleapis.com https://docs.google.com https://forms.google.com; frame-src 'self' https://docs.google.com https://forms.google.com; frame-ancestors 'none';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'sha256-yTmufg+v35rh18GsJENkghSbcYvNQDpA7fDT24X8qGo=' 'sha256-LuoDWPMFm9g04DP+/b//FqutLSVZuOnlS8Egxm99vNU=' 'sha256-gcX253xEUTPsslr4goetqaF37T1qjh2qLr0SnzVYapo=' 'sha256-LWQ6Tv/QO+UN7W1kU3fVhDxdLjM880RfS0BbTpaCrNY=' 'sha256-0fPuRfE7yalwaG6q8l53WeehKhVnibM9c5fi3keprm8=' https://challenges.cloudflare.com https://static.cloudflareinsights.com https://www.googletagmanager.com https://connect.facebook.net https://snap.licdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://api.craftegon.com https://generativelanguage.googleapis.com https://docs.google.com https://forms.google.com https://cloudflareinsights.com https://www.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net https://www.facebook.com https://px.ads.linkedin.com; frame-src 'self' https://docs.google.com https://forms.google.com https://www.facebook.com; frame-ancestors 'none';
 
 /assets/css/*
   Cache-Control: public, max-age=0, must-revalidate

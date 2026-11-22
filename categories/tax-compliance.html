@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>Tax, GST &amp; Financial Compliance | CraftEgon CCS</title>
+  <meta name="description" content="Manage GST registration, monthly GSTR-1 &amp; GSTR-3B filings, annual returns, corporate income tax (ITR-6/7), and Form 3CEB transfer pricing with CA supervision.">
+  <link rel="canonical" href="https://ccs.craftegon.com/categories/tax-compliance.html">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Tax, GST &amp; Financial Compliance | CraftEgon CCS">
+  <meta property="og:description" content="Manage GST registration, monthly GSTR-1 &amp; GSTR-3B filings, annual returns, corporate income tax (ITR-6/7), and Form 3CEB transfer pricing with CA supervision.">
+  <meta property="og:url" content="https://ccs.craftegon.com/categories/tax-compliance.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@craftegon">
+  <meta name="twitter:title" content="Tax, GST &amp; Financial Compliance | CraftEgon CCS">
+  <meta name="twitter:description" content="Manage GST registration, monthly GSTR-1 &amp; GSTR-3B filings, annual returns, corporate income tax (ITR-6/7), and Form 3CEB transfer pricing with CA supervision.">
+  <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Design System Tokens & Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/home-unique.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+
+  <style>
+    body {
+      background-color: var(--bg-secondary, #F4FAF7);
+      color: var(--text-main, #243746);
+      font-family: var(--font-body, 'Inter', -apple-system, sans-serif);
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .cat-detail-hero {
+      padding: 6.5rem 1.5rem 3.5rem;
+      background: var(--mint-sky-hero, linear-gradient(135deg, #F4FAF7 0%, #DDF5EA 45%, #DDF2FC 100%));
+      border-bottom: 1px solid var(--border-color, #DCE8E5);
+    }
+    .cat-detail-hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .cat-detail-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary, #52717A);
+      margin-bottom: 1.25rem;
+    }
+    .cat-detail-breadcrumb a {
+      color: var(--accent-green-primary, #247A62);
+      text-decoration: none;
+    }
+    .cat-detail-title {
+      font-family: var(--font-heading, 'Manrope', sans-serif);
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      font-weight: 800;
+      color: var(--text-dark, #193B46);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin: 0 0 1rem;
+    }
+    .cat-detail-subtitle {
+      font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+      color: var(--text-secondary, #52717A);
+      max-width: 820px;
+      margin: 0 0 2rem;
+      line-height: 1.65;
+    }
+    .cat-detail-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+    .service-selection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .svc-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color, #DCE8E5);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 10px rgba(25, 59, 70, 0.04);
+      transition: all 0.25s ease;
+    }
+    .svc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(25, 59, 70, 0.08);
+      border-color: var(--accent-green-primary, #247A62);
+    }
+    .svc-card-title {
+      font-family: var(--font-heading, 'Manrope', sans-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark, #193B46);
+      margin: 0 0 0.5rem;
+    }
+    .svc-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary, #52717A);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .svc-card-cta {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--accent-green-primary, #247A62);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: auto;
+    }
+    .intake-section {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color, #DCE8E5);
+      border-radius: 14px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 16px rgba(25, 59, 70, 0.04);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+  </style>
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ccs.craftegon.com/categories/tax-compliance.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ccs.craftegon.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Core Service Categories",
+            "item": "https://ccs.craftegon.com/categories/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Tax, GST &amp; Financial Compliance",
+            "item": "https://ccs.craftegon.com/categories/tax-compliance.html"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://ccs.craftegon.com/categories/tax-compliance.html#service",
+        "name": "Tax, GST & Financial Compliance",
+        "description": "GST registration, monthly GSTR return retainers, input tax credit reconciliation, corporate income tax (ITR-6/7), and transfer pricing compliance.",
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://ccs.craftegon.com/#organization",
+          "name": "CraftEgon CCS",
+          "url": "https://ccs.craftegon.com"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ccs.craftegon.com/categories/tax-compliance.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are the mandatory monthly GST filings for companies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Regular GST registered businesses must file Form GSTR-1 (Outward Supplies) by the 11th of each month and Form GSTR-3B (Summary Return & Tax Payment) by the 20th of each month."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Form 3CEB and when does it apply?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under Section 92E of the Income Tax Act, Form 3CEB is an accountant's report on international transactions or specified domestic transactions that must be filed by companies engaging in cross-border group operations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does input tax credit (ITC) reconciliation protect businesses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Monthly reconciliation between your purchase ledger and GSTR-2B ensures you only claim eligible ITC, preventing mismatch notices, tax interest, and automated scrutiny penalties."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="if-header">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="if-header-inner">
+      <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
+        <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Insignia" class="brand-logo-img" width="42" height="42" loading="eager">
+        <div class="brand-text-block">
+          <span class="brand-title">CRAFTEGON</span>
+          <span class="brand-subtitle">Corporate Services</span>
+        </div>
+      </a>
+      <nav class="if-nav" aria-label="Main Navigation">
+        <a href="/index.html" class="if-nav-link">Home</a>
+        <a href="/services.html" class="if-nav-link">Services</a>
+        <a href="/categories/index.html" class="if-nav-link" aria-current="page">Categories</a>
+        <a href="/about.html" class="if-nav-link">About</a>
+        <a href="/contact.html" class="if-nav-link">Contact</a>
+      </nav>
+      <div class="if-header-actions">
+        <a href="/contact.html" class="if-btn-primary">Schedule Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="cat-detail-hero">
+      <div class="cat-detail-hero-inner">
+        <nav class="if-breadcrumb cat-detail-breadcrumb" aria-label="Breadcrumb Navigation">
+          <a href="/index.html">Home</a>
+          <span aria-hidden="true">&rsaquo;</span>
+          <a href="/categories/index.html">Core Categories</a>
+          <span aria-hidden="true">&rsaquo;</span>
+          <span aria-current="page">Tax, GST &amp; Financial Compliance</span>
+        </nav>
+        <span class="cat-badge" style="background:var(--surface-mint-soft,#DDF5EA); color:var(--accent-green-primary,#247A62); padding:0.25rem 0.65rem; border-radius:6px; font-weight:700; font-size:0.8rem; letter-spacing:0.04em;">CATEGORY 03</span>
+        <h1 class="cat-detail-title">Tax, GST &amp; Financial Compliance</h1>
+        <p class="cat-detail-subtitle">
+          Ensure flawless input tax credit claiming, timely GST returns, and corporate direct tax filings. Supervised by qualified Chartered Accountants under GST and Income Tax statutory timelines.
+        </p>
+      </div>
+    </section>
+
+    <section class="cat-detail-container">
+      <h2 style="font-family:var(--font-heading,'Manrope',sans-serif); font-size:1.6rem; color:var(--text-dark,#193B46); margin:0 0 1.5rem;">Tax Retainers &amp; Regulatory Filings</h2>
+      
+      <div class="service-selection-grid">
+        <!-- Service 1: Proprietorship Tax -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">Proprietorship &amp; SME Tax Returns</h3>
+          <p class="svc-card-desc">
+            Income tax return filing, presumptive taxation under Section 44AD/44ADA, and business expenditure computation.
+          </p>
+          <a href="/services/proprietorship-tax.html" class="svc-card-cta">View Proprietorship Tax Scope &rarr;</a>
+        </article>
+
+        <!-- Service 2: Form 10B Trust Audit -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">Form 10B / 10BB Trust Audit</h3>
+          <p class="svc-card-desc">
+            Mandatory audit report for charitable and religious trusts and Section 8 entities claiming income tax exemption.
+          </p>
+          <a href="/services/form-10b.html" class="svc-card-cta">View Form 10B Scope &rarr;</a>
+        </article>
+
+        <!-- Service 3: GST Annual Return -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">GST Annual Return (GSTR-9)</h3>
+          <p class="svc-card-desc">
+            Annual consolidation of outward supplies, inward supplies, taxes paid, and ITC reversals. Audit reconciliation support.
+          </p>
+          <a href="/services/gst-annual.html" class="svc-card-cta">View GSTR-9 Scope &rarr;</a>
+        </article>
+
+        <!-- Service 4: Corporate Tax ITR-7 -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">Corporate Income Tax (ITR-7)</h3>
+          <p class="svc-card-desc">
+            Direct tax return filing for non-profit companies, trusts, Section 8 companies, and institutions claiming Section 11/12 exemptions.
+          </p>
+          <a href="/services/itr7.html" class="svc-card-cta">View ITR-7 Return Scope &rarr;</a>
+        </article>
+
+        <!-- Service 5: Transfer Pricing Form 3CEB -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">Transfer Pricing (Form 3CEB)</h3>
+          <p class="svc-card-desc">
+            Accountant's report on international transactions with associated enterprises under Section 92E of the Income Tax Act.
+          </p>
+          <a href="/services/form-3ceb.html" class="svc-card-cta">View Form 3CEB Scope &rarr;</a>
+        </article>
+
+        <!-- Service 6: Tax Consultation Desk -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">Direct &amp; Indirect Tax Intake</h3>
+          <p class="svc-card-desc">
+            Dedicated tax intake desk for advance tax planning, TDS quarterly returns, and GST notice triage.
+          </p>
+          <a href="/conversion/tax-intake.html" class="svc-card-cta">Access Tax Intake Desk &rarr;</a>
+        </article>
+      </div>
+
+      <!-- Quick Consultation Form -->
+      <div class="intake-section">
+        <h3 style="font-family:var(--font-heading,'Manrope',sans-serif); font-size:1.4rem; color:var(--text-dark,#193B46); margin:0 0 0.5rem; text-align:center;">Request Tax &amp; GST Consultation</h3>
+        <p style="font-size:0.9rem; color:var(--text-secondary,#52717A); margin:0 auto 1.75rem; text-align:center; max-width:540px;">
+          Submit your tax details for a structured filing calendar and retainer proposal managed by our Chartered Accountants.
+        </p>
+
+        <form class="if-lead-form" method="POST" action="/api/v1/enquiries" data-service-id="V03-SVC-003" data-vertical-id="V03">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label for="tc-name" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Full Name *</label>
+              <input type="text" id="tc-name" name="contact_name" required placeholder="Tax Contact Name" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem;">
+            </div>
+            <div>
+              <label for="tc-phone" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Mobile Number *</label>
+              <input type="tel" id="tc-phone" name="phone" required placeholder="10-digit number" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem;">
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label for="tc-email" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Official Email *</label>
+              <input type="email" id="tc-email" name="email" required placeholder="tax@company.com" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem;">
+            </div>
+            <div>
+              <label for="tc-gstin" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">GSTIN (Optional)</label>
+              <input type="text" id="tc-gstin" name="gstin" placeholder="e.g. 32AAAAA0000A1Z5" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem;">
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label for="tc-scope" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Tax Retainer Scope / Inquiries</label>
+            <textarea id="tc-scope" name="scope_description" rows="3" placeholder="Describe monthly invoice volume, turnover slab, or specific tax requirements..." style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem; font-family:inherit;"></textarea>
+          </div>
+
+          <!-- Anti-bot honeypot -->
+          <div style="display:none;" aria-hidden="true">
+            <input type="text" name="_hp_website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="if-consent-field" style="display:flex; align-items:flex-start; gap:0.65rem; margin:1rem 0; padding:0.85rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; background:#F8FAFC;">
+            <input type="checkbox" id="tc-privacy-consent" name="dpdp_consent" value="yes" required style="margin-top:0.25rem; flex:0 0 auto;">
+            <label for="tc-privacy-consent" style="font-size:0.82rem; line-height:1.5; color:var(--text-main,#334155);">
+              I consent to CraftEgon CCS processing the submitted details to provide tax consultation, as governed by the <a href="/legal/privacy.html" style="color:var(--accent-green-primary,#247A62);">Privacy Policy</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="if-btn-primary" style="width:100%; padding:0.85rem; font-size:0.95rem; justify-content:center;">Submit Tax Enquiry &rarr;</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="if-footer">
+    <div class="if-footer-inner">
+      <div class="if-footer-grid">
+        <div class="if-footer-col if-footer-brand">
+          <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
+            <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Insignia" class="brand-logo-img" width="42" height="42" loading="lazy">
+            <div class="brand-text-block">
+              <span class="brand-title">CRAFTEGON</span>
+              <span class="brand-subtitle">Corporate Services</span>
+            </div>
+          </a>
+          <p class="if-footer-desc">
+            Integrated corporate services platform: business setup, regulatory coordination, and infrastructure support for Indian enterprises.
+          </p>
+        </div>
+        <div class="if-footer-col">
+          <h4 class="if-footer-heading">Tax Services</h4>
+          <ul class="if-footer-list">
+            <li><a href="/services/proprietorship-tax.html">Proprietorship Tax</a></li>
+            <li><a href="/services/form-10b.html">Form 10B Trust Audit</a></li>
+            <li><a href="/services/gst-annual.html">GST Annual Return</a></li>
+            <li><a href="/services/itr7.html">Corporate Tax (ITR-7)</a></li>
+            <li><a href="/services/form-3ceb.html">Transfer Pricing (3CEB)</a></li>
+          </ul>
+        </div>
+        <div class="if-footer-col">
+          <h4 class="if-footer-heading">Navigation</h4>
+          <ul class="if-footer-list">
+            <li><a href="/categories/index.html">The 6 Core Categories</a></li>
+            <li><a href="/conversion/tax-intake.html">Tax Intake Desk</a></li>
+            <li><a href="/conversion/calculator.html">RoC Late Fee Calculator</a></li>
+            <li><a href="/contact.html">Service Desk</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="if-footer-legal-row">
+        <nav class="if-footer-legal-nav" aria-label="Legal Disclosures">
+          <a href="/legal/terms.html">Terms &amp; Conditions</a>
+          <span class="if-legal-sep">&bull;</span>
+          <a href="/legal/privacy.html">Privacy Policy</a>
+          <span class="if-legal-sep">&bull;</span>
+          <a href="/legal/refund.html">Refund Policy</a>
+          <span class="if-legal-sep">&bull;</span>
+          <a href="/legal/disclaimer.html">Professional Disclaimer</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/attribution.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/forms.js"></script>
+  <script src="/assets/js/chat-widget.js"></script>
+</body>
+</html>

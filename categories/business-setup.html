@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>Business Setup &amp; Entity Structuring | CraftEgon CCS</title>
+  <meta name="description" content="Incorporate Private Limited companies, LLPs, OPCs, and Section 8 non-profits in India. MCA SPICe+ filing, DIN allocation, MOA/AOA, and INC-20A commencement support.">
+  <link rel="canonical" href="https://ccs.craftegon.com/categories/business-setup.html">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Business Setup &amp; Entity Structuring | CraftEgon CCS">
+  <meta property="og:description" content="Incorporate Private Limited companies, LLPs, OPCs, and Section 8 non-profits in India. MCA SPICe+ filing, DIN allocation, MOA/AOA, and INC-20A commencement support.">
+  <meta property="og:url" content="https://ccs.craftegon.com/categories/business-setup.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@craftegon">
+  <meta name="twitter:title" content="Business Setup &amp; Entity Structuring | CraftEgon CCS">
+  <meta name="twitter:description" content="Incorporate Private Limited companies, LLPs, OPCs, and Section 8 non-profits in India. MCA SPICe+ filing, DIN allocation, MOA/AOA, and INC-20A commencement support.">
+  <meta name="twitter:image" content="https://ccs.craftegon.com/assets/images/craftegon-logo.jpg">
+
+  <!-- Design System Tokens & Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/home-unique.css">
+  <link rel="stylesheet" href="/assets/css/service-page.css">
+
+  <style>
+    body {
+      background-color: var(--bg-secondary, #F4FAF7);
+      color: var(--text-main, #243746);
+      font-family: var(--font-body, 'Inter', -apple-system, sans-serif);
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .cat-detail-hero {
+      padding: 6.5rem 1.5rem 3.5rem;
+      background: var(--mint-sky-hero, linear-gradient(135deg, #F4FAF7 0%, #DDF5EA 45%, #DDF2FC 100%));
+      border-bottom: 1px solid var(--border-color, #DCE8E5);
+    }
+    .cat-detail-hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .cat-detail-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary, #52717A);
+      margin-bottom: 1.25rem;
+    }
+    .cat-detail-breadcrumb a {
+      color: var(--accent-green-primary, #247A62);
+      text-decoration: none;
+    }
+    .cat-detail-title {
+      font-family: var(--font-heading, 'Manrope', sans-serif);
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      font-weight: 800;
+      color: var(--text-dark, #193B46);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin: 0 0 1rem;
+    }
+    .cat-detail-subtitle {
+      font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+      color: var(--text-secondary, #52717A);
+      max-width: 820px;
+      margin: 0 0 2rem;
+      line-height: 1.65;
+    }
+    .cat-detail-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+    .service-selection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .svc-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color, #DCE8E5);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 10px rgba(25, 59, 70, 0.04);
+      transition: all 0.25s ease;
+    }
+    .svc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(25, 59, 70, 0.08);
+      border-color: var(--accent-green-primary, #247A62);
+    }
+    .svc-card-title {
+      font-family: var(--font-heading, 'Manrope', sans-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark, #193B46);
+      margin: 0 0 0.5rem;
+    }
+    .svc-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary, #52717A);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .svc-card-cta {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--accent-green-primary, #247A62);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: auto;
+    }
+    .intake-section {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color, #DCE8E5);
+      border-radius: 14px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 16px rgba(25, 59, 70, 0.04);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+  </style>
+
+  <!-- Structured Schema Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://ccs.craftegon.com/categories/business-setup.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ccs.craftegon.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Core Service Categories",
+            "item": "https://ccs.craftegon.com/categories/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Business Setup & Entity Structuring",
+            "item": "https://ccs.craftegon.com/categories/business-setup.html"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://ccs.craftegon.com/categories/business-setup.html#service",
+        "name": "Business Setup & Entity Structuring",
+        "description": "Incorporation, charter drafting, and statutory registration services for Private Limited, LLP, OPC, and Section 8 companies across India.",
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://ccs.craftegon.com/#organization",
+          "name": "CraftEgon CCS",
+          "url": "https://ccs.craftegon.com"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ccs.craftegon.com/categories/business-setup.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How long does a Private Limited Company incorporation take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Upon receiving digital signature certificates (DSC) and notarized/signed subscription documents, MCA SPICe+ processing typically completes within 3 to 5 business days."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What registrations are included in the MCA SPICe+ form?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SPICe+ Part B integrates Name Reservation, Company Incorporation, Director DIN allocation, PAN, TAN, EPFO registration, ESIC registration, Professional Tax registration, and corporate bank account generation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Form INC-20A and is it mandatory?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Under Section 10A of the Companies Act 2013, Form INC-20A (Declaration of Commencement of Business) must be filed with the RoC within 180 days of incorporation to certify that subscribers have deposited their capital."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="if-header">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="if-header-inner">
+      <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
+        <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Insignia" class="brand-logo-img" width="42" height="42" loading="eager">
+        <div class="brand-text-block">
+          <span class="brand-title">CRAFTEGON</span>
+          <span class="brand-subtitle">Corporate Services</span>
+        </div>
+      </a>
+      <nav class="if-nav" aria-label="Main Navigation">
+        <a href="/index.html" class="if-nav-link">Home</a>
+        <a href="/services.html" class="if-nav-link">Services</a>
+        <a href="/categories/index.html" class="if-nav-link" aria-current="page">Categories</a>
+        <a href="/about.html" class="if-nav-link">About</a>
+        <a href="/contact.html" class="if-nav-link">Contact</a>
+      </nav>
+      <div class="if-header-actions">
+        <a href="/contact.html" class="if-btn-primary">Schedule Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="cat-detail-hero">
+      <div class="cat-detail-hero-inner">
+        <nav class="if-breadcrumb cat-detail-breadcrumb" aria-label="Breadcrumb Navigation">
+          <a href="/index.html">Home</a>
+          <span aria-hidden="true">&rsaquo;</span>
+          <a href="/categories/index.html">Core Categories</a>
+          <span aria-hidden="true">&rsaquo;</span>
+          <span aria-current="page">Business Setup &amp; Entity Structuring</span>
+        </nav>
+        <span class="cat-badge" style="background:var(--surface-mint-soft,#DDF5EA); color:var(--accent-green-primary,#247A62); padding:0.25rem 0.65rem; border-radius:6px; font-weight:700; font-size:0.8rem; letter-spacing:0.04em;">CATEGORY 01</span>
+        <h1 class="cat-detail-title">Business Setup &amp; Entity Structuring</h1>
+        <p class="cat-detail-subtitle">
+          Establish the right corporate structure for investment, liability limitation, and long-term tax efficiency. Supervised by qualified Company Secretaries under MCA V3 rules.
+        </p>
+      </div>
+    </section>
+
+    <section class="cat-detail-container">
+      <h2 style="font-family:var(--font-heading,'Manrope',sans-serif); font-size:1.6rem; color:var(--text-dark,#193B46); margin:0 0 1.5rem;">Select Your Target Entity Structure</h2>
+      
+      <div class="service-selection-grid">
+        <!-- Service 1: Pvt Ltd -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">Private Limited Company</h3>
+          <p class="svc-card-desc">
+            The gold standard for startups and scaling businesses. Limited liability, separate legal entity status, and equity fundraising readiness via MCA SPICe+.
+          </p>
+          <a href="/services/pvt-ltd-registration.html" class="svc-card-cta">View Private Limited Scope &rarr;</a>
+        </article>
+
+        <!-- Service 2: LLP -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">Limited Liability Partnership (LLP)</h3>
+          <p class="svc-card-desc">
+            Combines limited liability with organizational flexibility and lower annual ROC compliance overhead. Ideal for professional consultancies and joint ventures.
+          </p>
+          <a href="/services/llp-registration.html" class="svc-card-cta">View LLP Registration Scope &rarr;</a>
+        </article>
+
+        <!-- Service 3: OPC -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">One Person Company (OPC)</h3>
+          <p class="svc-card-desc">
+            Single-founder corporate entity offering complete equity control, limited liability, and distinct legal identity without mandatory partner requirements.
+          </p>
+          <a href="/services/opc-registration.html" class="svc-card-cta">View OPC Registration Scope &rarr;</a>
+        </article>
+
+        <!-- Service 4: Section 8 -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">Section 8 Non-Profit Company</h3>
+          <p class="svc-card-desc">
+            Formed for non-profit charitable, educational, or environmental objectives. Eligible for 12A/80G tax exemptions and institutional grant funding.
+          </p>
+          <a href="/services/section-8-registration.html" class="svc-card-cta">View Section 8 Scope &rarr;</a>
+        </article>
+
+        <!-- Service 5: Partnership Registration -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">Partnership Firm Registration</h3>
+          <p class="svc-card-desc">
+            Registration under the Indian Partnership Act, 1932 with Registrar of Firms (RoF), partnership deed drafting, and firm PAN/TAN allocation.
+          </p>
+          <a href="/services/partnership-registration.html" class="svc-card-cta">View Partnership Scope &rarr;</a>
+        </article>
+
+        <!-- Service 6: Foreign Subsidiary / Branch -->
+        <article class="svc-card">
+          <h3 class="svc-card-title">Foreign Subsidiary &amp; Branch Office</h3>
+          <p class="svc-card-desc">
+            RBI, FEMA, and MCA Form FC-1/FC-3 regulatory coordination for overseas corporations entering the Indian market.
+          </p>
+          <a href="/services/form-fc3-fc4.html" class="svc-card-cta">View Foreign Entity Scope &rarr;</a>
+        </article>
+      </div>
+
+      <!-- Quick Consultation Form -->
+      <div class="intake-section">
+        <h3 style="font-family:var(--font-heading,'Manrope',sans-serif); font-size:1.4rem; color:var(--text-dark,#193B46); margin:0 0 0.5rem; text-align:center;">Request Business Formation Guidance</h3>
+        <p style="font-size:0.9rem; color:var(--text-secondary,#52717A); margin:0 auto 1.75rem; text-align:center; max-width:540px;">
+          Speak with our company secretarial desk to confirm the appropriate entity type, stamp duty calculations, and documentation checklist.
+        </p>
+
+        <form class="if-lead-form" method="POST" action="/api/v1/enquiries" data-service-id="V01-SVC-007" data-vertical-id="V01">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label for="bf-name" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Full Name *</label>
+              <input type="text" id="bf-name" name="contact_name" required placeholder="Founder Name" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem;">
+            </div>
+            <div>
+              <label for="bf-phone" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Mobile Number *</label>
+              <input type="tel" id="bf-phone" name="phone" required placeholder="10-digit number" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem;">
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label for="bf-email" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Official Email *</label>
+              <input type="email" id="bf-email" name="email" required placeholder="name@company.com" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem;">
+            </div>
+            <div>
+              <label for="bf-entity" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Target Entity Type</label>
+              <select id="bf-entity" name="entity_type" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem; background:#FFF;">
+                <option value="pvt-ltd">Private Limited Company</option>
+                <option value="llp">Limited Liability Partnership (LLP)</option>
+                <option value="opc">One Person Company (OPC)</option>
+                <option value="section-8">Section 8 Non-Profit</option>
+                <option value="foreign-sub">Foreign Subsidiary</option>
+                <option value="not-sure">Undecided / Needs Consultation</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label for="bf-notes" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Business Activities / Notes</label>
+            <textarea id="bf-notes" name="scope_description" rows="3" placeholder="Briefly describe your proposed business activity or industry sector..." style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem; font-family:inherit;"></textarea>
+          </div>
+
+          <!-- Anti-bot honeypot -->
+          <div style="display:none;" aria-hidden="true">
+            <input type="text" name="_hp_website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="if-consent-field" style="display:flex; align-items:flex-start; gap:0.65rem; margin:1rem 0; padding:0.85rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; background:#F8FAFC;">
+            <input type="checkbox" id="bf-privacy-consent" name="dpdp_consent" value="yes" required style="margin-top:0.25rem; flex:0 0 auto;">
+            <label for="bf-privacy-consent" style="font-size:0.82rem; line-height:1.5; color:var(--text-main,#334155);">
+              I consent to CraftEgon CCS using the submitted details to evaluate and respond to this incorporation enquiry, as governed by the <a href="/legal/privacy.html" style="color:var(--accent-green-primary,#247A62);">Privacy Policy</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="if-btn-primary" style="width:100%; padding:0.85rem; font-size:0.95rem; justify-content:center;">Submit Formation Enquiry &rarr;</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="if-footer">
+    <div class="if-footer-inner">
+      <div class="if-footer-grid">
+        <div class="if-footer-col if-footer-brand">
+          <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
+            <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Insignia" class="brand-logo-img" width="42" height="42" loading="lazy">
+            <div class="brand-text-block">
+              <span class="brand-title">CRAFTEGON</span>
+              <span class="brand-subtitle">Corporate Services</span>
+            </div>
+          </a>
+          <p class="if-footer-desc">
+            Integrated corporate services platform: business setup, regulatory coordination, and infrastructure support for Indian enterprises.
+          </p>
+        </div>
+        <div class="if-footer-col">
+          <h4 class="if-footer-heading">Formation Services</h4>
+          <ul class="if-footer-list">
+            <li><a href="/services/pvt-ltd-registration.html">Private Limited Company</a></li>
+            <li><a href="/services/llp-registration.html">LLP Registration</a></li>
+            <li><a href="/services/opc-registration.html">One Person Company</a></li>
+            <li><a href="/services/section-8-registration.html">Section 8 Non-Profit</a></li>
+            <li><a href="/services/partnership-registration.html">Partnership Registration</a></li>
+          </ul>
+        </div>
+        <div class="if-footer-col">
+          <h4 class="if-footer-heading">Navigation</h4>
+          <ul class="if-footer-list">
+            <li><a href="/categories/index.html">The 6 Core Categories</a></li>
+            <li><a href="/services.html">57-Service Directory</a></li>
+            <li><a href="/conversion/calculator.html">RoC Fee Calculator</a></li>
+            <li><a href="/contact.html">Service Desk</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="if-footer-legal-row">
+        <nav class="if-footer-legal-nav" aria-label="Legal Disclosures">
+          <a href="/legal/terms.html">Terms &amp; Conditions</a>
+          <span class="if-legal-sep">&bull;</span>
+          <a href="/legal/privacy.html">Privacy Policy</a>
+          <span class="if-legal-sep">&bull;</span>
+          <a href="/legal/refund.html">Refund Policy</a>
+          <span class="if-legal-sep">&bull;</span>
+          <a href="/legal/disclaimer.html">Professional Disclaimer</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/attribution.js"></script>
+  <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/forms.js"></script>
+  <script src="/assets/js/chat-widget.js"></script>
+</body>
+</html>
