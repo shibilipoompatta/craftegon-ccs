@@ -8,6 +8,13 @@
   <meta name="description" content="Discover, search, and access all 57 canonical corporate secretarial, tax, IPR, labour, and regulatory compliance services available through CraftEgon CCS.">
   <link rel="canonical" href="https://ccs.craftegon.com/services.html">
 
+  <!-- Favicon Architecture (Google Search & Mobile PWA compliant) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+
   <!-- OpenGraph Metadata -->
   <meta property="og:title" content="Universal Corporate Services Directory | CraftEgon CCS">
   <meta property="og:description" content="Search across 57 canonical regulatory, RoC, GST, IPR, and corporate compliance services. Direct statutory filing solutions with zero ambiguity.">
@@ -17,10 +24,12 @@
   <meta name="twitter:card" content="summary_large_image">
 
 
-  <!-- Design System Tokens & Typography -->
+  <!-- Google Fonts Preconnect & Optimized Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+
+  <!-- Design System Tokens & Typography -->
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link rel="stylesheet" href="/assets/css/navbar.css">
@@ -184,6 +193,9 @@
       top: auto;
       z-index: 15;
       box-shadow: 0 2px 8px rgba(25, 59, 70, 0.03);
+      overflow-x: clip;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .filter-toolbar-inner {
@@ -193,6 +205,9 @@
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .quick-needs-bar {
@@ -846,10 +861,19 @@
         margin-bottom: 1.5rem;
       }
       .service-cards-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr) !important;
       }
       .featured-shelf-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+      .service-card {
+        min-width: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 1.25rem 1rem !important;
+      }
+      .directory-content-wrapper {
+        padding: 1rem 1rem 3.5rem !important;
       }
     }
 
@@ -2136,16 +2160,13 @@
   </a>
 </nav>
 
-<script src="/assets/js/search-index.js" defer></script>
-<script src="/assets/js/service-search.js" defer></script>
-<script src="/assets/js/chat-widget.js" defer></script>
-
 </div>
 
   <!-- JavaScript Modules -->
   <script src="/assets/js/search-index.js"></script>
   <script src="/assets/js/service-search.js"></script>
   <script src="/assets/js/navigation.js"></script>
+  <script src="/assets/js/chat-widget.js" defer></script>
 
   <!-- Interactive Directory Logic -->
   <script>
@@ -2175,24 +2196,32 @@
       // Read query params from URL (e.g. ?q=... or ?stage=... or ?vertical=...)
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has('q')) {
-        currentFilters.query = urlParams.get('q');
-        searchInput.value = currentFilters.query;
-        clearBtn.style.display = 'inline-block';
+        const qVal = (urlParams.get('q') || '').trim();
+        if (qVal.length > 0) {
+          currentFilters.query = qVal;
+          searchInput.value = qVal;
+          clearBtn.style.display = 'inline-block';
+        }
       }
       if (urlParams.has('stage')) {
-        const paramStage = urlParams.get('stage').toLowerCase();
-        stageChips.forEach(chip => {
-          if (chip.getAttribute('data-stage').toLowerCase() === paramStage) {
-            stageChips.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-selected', 'false'); });
-            chip.classList.add('active');
-            chip.setAttribute('aria-selected', 'true');
-            currentFilters.stage = chip.getAttribute('data-stage');
-          }
-        });
+        const paramStage = (urlParams.get('stage') || '').toLowerCase().trim();
+        if (paramStage && paramStage !== 'all') {
+          stageChips.forEach(chip => {
+            if (chip.getAttribute('data-stage').toLowerCase() === paramStage) {
+              stageChips.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-selected', 'false'); });
+              chip.classList.add('active');
+              chip.setAttribute('aria-selected', 'true');
+              currentFilters.stage = chip.getAttribute('data-stage');
+            }
+          });
+        }
       }
       if (urlParams.has('vertical')) {
-        currentFilters.vertical_id = urlParams.get('vertical');
-        verticalSelect.value = currentFilters.vertical_id;
+        const vVal = (urlParams.get('vertical') || '').trim();
+        if (vVal) {
+          currentFilters.vertical_id = vVal;
+          verticalSelect.value = currentFilters.vertical_id;
+        }
       }
 
       const activeFiltersBar = document.getElementById('active-filters-bar');
@@ -2202,12 +2231,18 @@
 
       // Also read entity and status from url if present
       if (urlParams.has('entity')) {
-        currentFilters.entity_type = urlParams.get('entity');
-        entitySelect.value = currentFilters.entity_type;
+        const eVal = (urlParams.get('entity') || '').trim();
+        if (eVal) {
+          currentFilters.entity_type = eVal;
+          entitySelect.value = currentFilters.entity_type;
+        }
       }
       if (urlParams.has('status')) {
-        currentFilters.status = urlParams.get('status');
-        statusSelect.value = currentFilters.status;
+        const sVal = (urlParams.get('status') || '').trim();
+        if (sVal) {
+          currentFilters.status = sVal;
+          statusSelect.value = currentFilters.status;
+        }
       }
 
       function escapeHtml(s) {
@@ -2219,7 +2254,7 @@
       function syncUrlParams() {
         try {
           const params = new URLSearchParams();
-          if (currentFilters.query) params.set('q', currentFilters.query);
+          if (currentFilters.query && currentFilters.query.trim()) params.set('q', currentFilters.query.trim());
           if (currentFilters.stage && currentFilters.stage !== 'ALL') params.set('stage', currentFilters.stage.toLowerCase());
           if (currentFilters.vertical_id && currentFilters.vertical_id !== 'ALL') params.set('vertical', currentFilters.vertical_id);
           if (currentFilters.entity_type && currentFilters.entity_type !== 'ALL') params.set('entity', currentFilters.entity_type);
@@ -2364,6 +2399,22 @@
             entity_type: currentFilters.entity_type,
             status: currentFilters.status
           }).filter(r => !r.item.id.startsWith('TOOL-'));
+
+          // INTELLIGENT RECOVERY FLOW FOR VERTICAL FILTER:
+          // If a vertical filter produces 0 results for a search query, but global results exist, auto-relax vertical!
+          if (results.length === 0 && currentFilters.query.trim().length > 0 && currentFilters.vertical_id !== 'ALL') {
+            const globalResults = window.CraftEgonSearch.engine.search(currentFilters.query, {
+              vertical_id: 'ALL',
+              entity_type: currentFilters.entity_type,
+              status: currentFilters.status
+            }).filter(r => !r.item.id.startsWith('TOOL-'));
+
+            if (globalResults.length > 0) {
+              currentFilters.vertical_id = 'ALL';
+              if (verticalSelect) verticalSelect.value = 'ALL';
+              results = globalResults;
+            }
+          }
         } else {
           results = catalog.map(item => ({ item, score: 10 }));
         }
@@ -2371,7 +2422,21 @@
         // Apply stage filter if selected
         if (currentFilters.stage && currentFilters.stage !== 'ALL') {
           const targetStage = currentFilters.stage.toLowerCase();
-          results = results.filter(r => getServiceStage(r.item) === targetStage);
+          const stageFiltered = results.filter(r => getServiceStage(r.item) === targetStage);
+
+          // INTELLIGENT RECOVERY FLOW FOR STAGE FILTER:
+          // If search query is non-empty, and stage filtering reduces results to 0 while matches exist across other stages:
+          if (stageFiltered.length === 0 && results.length > 0 && currentFilters.query.trim().length > 0) {
+            currentFilters.stage = 'ALL';
+            stageChips.forEach(c => {
+              const isAll = c.getAttribute('data-stage') === 'ALL';
+              c.classList.toggle('active', isAll);
+              c.setAttribute('aria-selected', isAll ? 'true' : 'false');
+            });
+            // results already holds all matching catalog items!
+          } else {
+            results = stageFiltered;
+          }
         }
 
         counterEl.innerHTML = `Showing <strong>${results.length}</strong> of <strong>${catalog.length}</strong> canonical services`;
@@ -2470,6 +2535,12 @@
           currentFilters.query = val;
           renderCatalog();
         }, 120);
+      });
+
+      searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && searchInput.value) {
+          clearBtn.click();
+        }
       });
 
       clearBtn.addEventListener('click', function () {

@@ -26,6 +26,24 @@
       .trim();
   }
 
+  function hasExactWord(haystack, needle) {
+    if (!haystack || !needle) return false;
+    if (haystack === needle) return true;
+    const words = haystack.split(' ');
+    return words.includes(needle);
+  }
+
+  function hasWordOrPrefix(haystack, needle) {
+    if (!haystack || !needle) return false;
+    if (haystack === needle) return true;
+    const words = haystack.split(' ');
+    if (words.includes(needle)) return true;
+    if (haystack.startsWith(needle + ' ')) return true;
+    if (words.some(w => w.startsWith(needle))) return true;
+    if (needle.length >= 4 && haystack.includes(needle)) return true;
+    return false;
+  }
+
   // Lightweight Levenshtein distance for typo tolerance (max distance 2 for words >= 5 chars)
   function isFuzzyMatch(needle, haystack) {
     if (needle.length < 4) return false;
@@ -74,9 +92,19 @@
   // Problem-oriented business intent mappings (synonym clusters)
   const PROBLEM_QUERY_BOOSTS = [
     {
-      pattern: /(company|llp|pvt ltd|startup|business)?\s*(incorporation|registration|formation|setup|start\s*a\s*company)/i,
+      pattern: /(pvt\s*ltd|private\s*limited|incorporate|incorporation|start\s*a\s*company|company\s*formation|company\s*registration)/i,
       targetIds: ['V01-SVC-007', 'V01-SVC-002', 'V01-SVC-004', 'V01-SVC-001'],
-      boost: 55
+      boost: 85
+    },
+    {
+      pattern: /\bllp\b/i,
+      targetIds: ['V01-SVC-002', 'V02-SVC-014', 'V02-SVC-015'],
+      boost: 85
+    },
+    {
+      pattern: /(trademark|brand|logo|slogan|\btm\b|tm-a|nice|ipr)/i,
+      targetIds: ['V06-SVC-003', 'V06-SVC-001', 'V06-SVC-002'],
+      boost: 90
     },
     {
       pattern: /(overdue|late|penalty|penalties|delay|default|section\s*403)\s*(return|filing|compliance|annual|fees|fee)?/i,
@@ -84,19 +112,19 @@
       boost: 65
     },
     {
-      pattern: /(gst|gstr|indirect\s*tax)\s*(filing|return|annual|reconciliation|itc|audit)?/i,
-      targetIds: ['V03-SVC-003', 'V03-SVC-005'],
-      boost: 60
-    },
-    {
-      pattern: /(trademark|brand|logo|slogan|tm|tm-a|nice|ipr)\s*(registration|filing|protection|search)?/i,
-      targetIds: ['V06-SVC-003', 'V06-SVC-001', 'V06-SVC-002'],
+      pattern: /(gst|gstr|indirect\s*tax)/i,
+      targetIds: ['V03-SVC-003', 'V03-SVC-005', 'V01-SVC-006'],
       boost: 65
     },
     {
       pattern: /(company|llp|firm|entity)?\s*(closure|shut\s*down|close|strike\s*off|defunct|winding\s*up|stk-2|form\s*24)/i,
       targetIds: ['V02-SVC-013', 'V02-SVC-015', 'V02-SVC-011'],
-      boost: 70
+      boost: 75
+    },
+    {
+      pattern: /(contract|agreement|\bsha\b|\bmsa\b|\bsow\b|\bnda\b|non\s*disclosure|founders\s*agreement|esop|stock\s*option)/i,
+      targetIds: ['V05-SVC-001', 'V05-SVC-002', 'V07-SVC-001'],
+      boost: 75
     },
     {
       pattern: /(board|director|shareholder|promoter|partner)\s*(dispute|removal|oppression|mismanagement|deadlock|conflict)/i,
@@ -109,9 +137,14 @@
       boost: 65
     },
     {
-      pattern: /(contract|agreement|sha|msa|sow|founders\s*agreement|nda)/i,
-      targetIds: ['V05-SVC-001', 'V05-SVC-002'],
-      boost: 60
+      pattern: /(\biec\b|import\s*export|dgft|foreign\s*trade|cross\s*border|fema|fdi|\bfla\b)/i,
+      targetIds: ['V13-SVC-003', 'V13-SVC-002', 'V13-SVC-001', 'V01-SVC-003'],
+      boost: 70
+    },
+    {
+      pattern: /(kyc|\bdin\b|director\s*identification)/i,
+      targetIds: ['V02-SVC-002', 'V02-SVC-017'],
+      boost: 75
     }
   ];
 
@@ -184,80 +217,97 @@
           score += 95;
           matchType = 'EXACT_FORM_OR_ID';
         }
-        // 3. Name starts with Query (Score: 85)
-        else if (nameNorm.startsWith(qNorm)) {
+        // 3. Exact Alias Match (Score: 90)
+        else if (aliasesNorm.includes(qNorm)) {
+          score += 90;
+          matchType = 'EXACT_ALIAS';
+        }
+        // 4. Name starts with Query phrase (Score: 85)
+        else if (nameNorm.startsWith(qNorm + ' ') || nameNorm === qNorm) {
           score += 85;
           matchType = 'PREFIX_NAME';
         }
-        // 4. Exact Alias Match (Score: 80)
-        else if (aliasesNorm.includes(qNorm)) {
-          score += 80;
-          matchType = 'EXACT_ALIAS';
+        // 5. Whole word match in Name (Score: 75)
+        else if (hasExactWord(nameNorm, qNorm)) {
+          score += 75;
+          matchType = 'WORD_IN_NAME';
         }
-        // 5. Name contains full Query phrase (Score: 70)
-        else if (nameNorm.includes(qNorm)) {
-          score += 70;
+        // 6. Whole word match in Alias (Score: 65)
+        else if (aliasesNorm.some(a => hasExactWord(a, qNorm))) {
+          score += 65;
+          matchType = 'WORD_IN_ALIAS';
+        }
+        // 7. Whole word match in Form (Score: 60)
+        else if (formsNorm.some(f => hasExactWord(f, qNorm))) {
+          score += 60;
+          matchType = 'WORD_IN_FORM';
+        }
+        // 8. Substring in Name (Score: 40, ONLY IF query is >= 4 chars to prevent false positives like 'nda' in 'mandatory')
+        else if (qNorm.length >= 4 && nameNorm.includes(qNorm)) {
+          score += 40;
           matchType = 'SUBSTRING_NAME';
         }
-        // 6. Alias contains full Query phrase (Score: 65)
-        else if (aliasesNorm.some(a => a.includes(qNorm))) {
-          score += 65;
-          matchType = 'SUBSTRING_ALIAS';
-        }
-        // 7. Form contains full Query phrase (Score: 60)
-        else if (formsNorm.some(f => f.includes(qNorm))) {
-          score += 60;
-          matchType = 'SUBSTRING_FORM';
+
+        // Title relevance bonus: if the title itself contains the query phrase as a whole word
+        if (hasExactWord(nameNorm, qNorm) && matchType !== 'EXACT_NAME') {
+          score += 30;
         }
 
-        // Title relevance bonus: if the title itself contains the query phrase, boost priority
-        if (nameNorm.includes(qNorm) && matchType !== 'EXACT_NAME') {
-          score += 35;
-        }
-
-        // 8. Business problem intent boost: match common business needs
+        // Business problem intent boost: match common business needs with stepped-down boost for secondary targets
         for (let b = 0; b < PROBLEM_QUERY_BOOSTS.length; b++) {
           const pb = PROBLEM_QUERY_BOOSTS[b];
-          if (pb.pattern.test(qRaw) && pb.targetIds.includes(item.id)) {
-            score += pb.boost;
-            if (matchType === 'BROAD') matchType = 'PROBLEM_INTENT_MATCH';
-            break;
+          if (pb.pattern.test(qRaw)) {
+            const targetIdx = pb.targetIds.indexOf(item.id);
+            if (targetIdx !== -1) {
+              const rankBoost = pb.boost - (targetIdx * 12);
+              score += Math.max(rankBoost, 20);
+              if (matchType === 'BROAD') matchType = 'PROBLEM_INTENT_MATCH';
+              break;
+            }
           }
         }
 
-        // Token-level matching
+        // Token-level matching with whole-word preference
         let matchedTokensCount = 0;
         queryTokens.forEach(token => {
           let tokenMatched = false;
+          const isExactInName = hasExactWord(nameNorm, token);
+          const isPrefixInName = nameNorm.split(' ').some(w => w.startsWith(token));
+          const isExactInId = idNorm === token || idNorm.endsWith(token);
+          const isExactInForm = formsNorm.some(f => hasExactWord(f, token));
+          const isExactInAlias = aliasesNorm.some(a => hasExactWord(a, token));
+          const isExactInKeywords = keywordsNorm.some(k => hasExactWord(k, token));
 
-          if (nameNorm.includes(token)) {
+          if (isExactInName) {
+            score += 30;
+            tokenMatched = true;
+          } else if (isPrefixInName) {
             score += 20;
             tokenMatched = true;
-          } else if (idNorm === token || (token.length >= 3 && idNorm.includes(token))) {
+          } else if (isExactInId) {
+            score += 35;
+            tokenMatched = true;
+          } else if (isExactInForm) {
             score += 25;
             tokenMatched = true;
-          } else if (formsNorm.some(f => f.includes(token))) {
+          } else if (isExactInAlias) {
             score += 20;
             tokenMatched = true;
-          } else if (aliasesNorm.some(a => a.includes(token))) {
-            score += 15;
+          } else if (isExactInKeywords) {
+            score += 18;
             tokenMatched = true;
-          } else if (keywordsNorm.some(k => k.includes(token))) {
-            score += 12;
-            tokenMatched = true;
-          } else if (verticalNorm.includes(token)) {
+          } else if (hasWordOrPrefix(verticalNorm, token)) {
             score += 10;
             tokenMatched = true;
-          } else if (descNorm.includes(token)) {
+          } else if (token.length >= 4 && (nameNorm.includes(token) || descNorm.includes(token))) {
             score += 6;
             tokenMatched = true;
           } else if (
             isFuzzyMatch(token, nameNorm) || 
             aliasesNorm.some(a => isFuzzyMatch(token, a)) ||
-            keywordsNorm.some(k => isFuzzyMatch(token, k)) ||
-            formsNorm.some(f => isFuzzyMatch(token, f))
+            keywordsNorm.some(k => isFuzzyMatch(token, k))
           ) {
-            score += 25;
+            score += 15;
             tokenMatched = true;
             if (matchType === 'BROAD') matchType = 'FUZZY_TYPO';
           }

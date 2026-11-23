@@ -64,7 +64,10 @@
       "Limited Liability Partnership Formation",
       "FiLLiP Incorporation",
       "Register an LLP",
-      "Partnership with limited liability"
+      "Partnership with limited liability",
+      "LLP Formation",
+      "LLP Company Registration",
+      "Incorporate an LLP"
     ],
     "keywords": [
       "llp",
@@ -74,10 +77,13 @@
       "dpin",
       "agreement",
       "roc",
-      "mca"
+      "mca",
+      "llp formation",
+      "llp incorporation",
+      "register an llp"
     ],
     "description": "Establish a legally protected corporate partnership under the Limited Liability Partnership Act, 2008 and LLP Rules, 2009 via the Ministry of Corporate Affairs (MCA V3) FiLLiP portal. Combines operational flexibility and tax-free profit distributions with complete limited liability protection for all partners.",
-    "search_tokens": "limited liability partnership (llp) registration v01-svc-002 business formation & structuring formation & startup llp registration limited liability partnership formation fillip incorporation register an llp partnership with limited liability fillip form 1 form 2 form 3 llp fillip partnership partners dpin agreement roc mca limited liability partnership (llp)"
+    "search_tokens": "limited liability partnership (llp) registration v01-svc-002 business formation & structuring formation & startup llp registration limited liability partnership formation fillip incorporation register an llp partnership with limited liability fillip form 1 form 2 form 3 llp fillip partnership partners dpin agreement roc mca limited liability partnership (llp) llp formation llp incorporation register an llp"
   },
   {
     "id": "V01-SVC-003",
@@ -261,7 +267,9 @@
       "Company Registration",
       "SPICe+ Incorporation",
       "Start a company",
-      "New company formation"
+      "New company formation",
+      "Pvt Ltd Company Registration",
+      "Incorporate Private Limited"
     ],
     "keywords": [
       "incorporation",
@@ -274,10 +282,15 @@
       "pan",
       "tan",
       "name approval",
-      "run"
+      "run",
+      "pvt ltd",
+      "company incorporation",
+      "incorporate pvt ltd",
+      "pvt ltd registration",
+      "start a company"
     ],
     "description": "Incorporate your Private Limited Company under Companies Act, 2013 via MCA SPICe+ with CraftEgon CCS. Full statutory advisory, DIN allocation, MOA/AOA, PAN, TAN, and bank account setup (DSC not included in package; existing accepted).",
-    "search_tokens": "private limited company registration (spice+) v01-svc-007 business formation & structuring formation & startup register a private limited company pvt ltd registration private limited company incorporation company registration spice+ incorporation start a company new company formation spice+ inc-32 inc-33 inc-34 agile-pro-s incorporation formation roc mca spice director din pan tan name approval run private limited company"
+    "search_tokens": "private limited company registration (spice+) v01-svc-007 business formation & structuring formation & startup register a private limited company pvt ltd registration private limited company incorporation company registration spice+ incorporation start a company new company formation spice+ inc-32 inc-33 inc-34 agile-pro-s incorporation formation roc mca spice director din pan tan name approval run private limited company pvt ltd company incorporation incorporate pvt ltd pvt ltd registration start a company"
   },
   {
     "id": "V01-SVC-008",
@@ -1262,7 +1275,10 @@
       "SHA Drafting",
       "Founder Vesting Agreement",
       "Share Subscription Agreement (SSA)",
-      "Co-founder agreement"
+      "Co-founder agreement",
+      "ESOP Structuring & Stock Options",
+      "Founders Pact",
+      "Founder Vesting & Equity Structuring"
     ],
     "keywords": [
       "sha",
@@ -1272,10 +1288,14 @@
       "co-founder",
       "tag-along",
       "drag-along",
-      "pre-emption"
+      "pre-emption",
+      "esop",
+      "stock option",
+      "founders pact",
+      "equity vesting"
     ],
     "description": "Drafting robust, enforceable contractual architectures defining equity vesting schedules, board representation, affirmative voting rights, liquidation preferences, drag-along/tag-along covenants, and non-compete protections between founders and institutional venture investors.",
-    "search_tokens": "founder pacts, shareholder agreements (sha) & share purchase agreements (spa) v05-svc-001 contracts & legal architecture contracts & legal architecture founder & shareholders agreements sha drafting founder vesting agreement share subscription agreement (ssa) co-founder agreement sha ssa reverse vesting agreement sha ssa vesting equity co-founder tag-along drag-along pre-emption startups venture funded entities"
+    "search_tokens": "founder pacts, shareholder agreements (sha) & share purchase agreements (spa) v05-svc-001 contracts & legal architecture contracts & legal architecture founder & shareholders agreements sha drafting founder vesting agreement share subscription agreement (ssa) co-founder agreement sha ssa reverse vesting agreement sha ssa vesting equity co-founder tag-along drag-along pre-emption startups venture funded entities esop stock option founders pact equity vesting"
   },
   {
     "id": "V05-SVC-002",
@@ -1301,7 +1321,10 @@
       "Master Service Agreements (MSA)",
       "SOW Contract Drafting",
       "Commercial Service Contracts",
-      "B2B Client Contracts"
+      "B2B Client Contracts",
+      "Non-Disclosure Agreement (NDA)",
+      "Confidentiality Agreement",
+      "Commercial Vendor Contract"
     ],
     "keywords": [
       "msa",
@@ -1309,10 +1332,15 @@
       "contract",
       "indemnity",
       "ip assignment",
-      "commercial agreement"
+      "commercial agreement",
+      "nda",
+      "non-disclosure agreement",
+      "non disclosure agreement",
+      "confidentiality agreement",
+      "vendor contract"
     ],
     "description": "Structuring legally enforceable, commercially protective commercial contracting frameworks establishing clear payment terms, IP work-for-hire assignment, SLAs, warranty caps, indemnification mechanisms, and dispute resolution architecture.",
-    "search_tokens": "master service agreements (msa), sows & commercial vendor contracts v05-svc-002 contracts & legal architecture contracts & legal architecture master service agreements (msa) sow contract drafting commercial service contracts b2b client contracts msa framework statement of work msa sow contract indemnity ip assignment commercial agreement saas it companies service providers"
+    "search_tokens": "master service agreements (msa), sows & commercial vendor contracts v05-svc-002 contracts & legal architecture contracts & legal architecture master service agreements (msa) sow contract drafting commercial service contracts b2b client contracts msa framework statement of work msa sow contract indemnity ip assignment commercial agreement saas it companies service providers nda non-disclosure agreement non disclosure agreement confidentiality agreement vendor contract"
   },
   {
     "id": "V06-SVC-001",
@@ -2028,7 +2056,9 @@
       "RBI FLA Return",
       "Foreign Liabilities & Assets Annual Return",
       "FLAIR Portal Return",
-      "Annual FEMA Reporting"
+      "Annual FEMA Reporting",
+      "Import Export Code (IEC) & DGFT Filing",
+      "IEC Registration"
     ],
     "keywords": [
       "fla",
@@ -2037,10 +2067,14 @@
       "fdi",
       "odi",
       "foreign liabilities",
-      "july 15"
+      "july 15",
+      "iec",
+      "import export code",
+      "dgft",
+      "export import"
     ],
     "description": "Mandatory annual reporting of all foreign assets and liabilities, inward Foreign Direct Investment (FDI) equity holdings, and Overseas Direct Investments (ODI) to the Reserve Bank of India, maintaining national balance of payments statistics and legal remittance eligibility.",
-    "search_tokens": "rbi foreign liabilities and assets (fla) return filing v13-svc-003 international business & fema international business & fema rbi fla return foreign liabilities & assets annual return flair portal return annual fema reporting fla return (flairs) fla flair rbi fdi odi foreign liabilities july 15 indian companies with fdi or odi"
+    "search_tokens": "rbi foreign liabilities and assets (fla) return filing v13-svc-003 international business & fema international business & fema rbi fla return foreign liabilities & assets annual return flair portal return annual fema reporting fla return (flairs) fla flair rbi fdi odi foreign liabilities july 15 indian companies with fdi or odi iec import export code dgft export import"
   },
   {
     "id": "TOOL-SEARCH",
