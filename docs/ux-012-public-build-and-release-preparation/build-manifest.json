@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-23T07:19:03.601Z",
+  "buildTimestamp": "2026-11-23T08:10:39.302Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,15 +10,15 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 212,
-    "totalOutputSizeBytes": 13316609,
-    "totalOutputSizeFormatted": "12.70 MB",
+    "totalFilesIncluded": 213,
+    "totalOutputSizeBytes": 13345981,
+    "totalOutputSizeFormatted": "12.73 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
     "filesByExtension": {
       ".html": 151,
       ".md": 2,
-      ".png": 11,
+      ".png": 12,
       ".css": 11,
       ".jpg": 1,
       ".bak": 1,
@@ -75,7 +75,7 @@
     },
     {
       "path": "apple-touch-icon.png",
-      "bytes": 29945
+      "bytes": 35906
     },
     {
       "path": "assets/css/article-navigation.css",
@@ -123,7 +123,7 @@
     },
     {
       "path": "assets/images/apple-touch-icon.png",
-      "bytes": 29945
+      "bytes": 35906
     },
     {
       "path": "assets/images/craftegon-logo-tight.png",
@@ -136,6 +136,10 @@
     {
       "path": "assets/images/craftegon-logo.jpg.bak",
       "bytes": 194157
+    },
+    {
+      "path": "assets/images/craftegon-symbol-badge.png",
+      "bytes": 3414
     },
     {
       "path": "assets/images/craftegon-symbol-icon.png",
@@ -151,27 +155,27 @@
     },
     {
       "path": "assets/images/favicon-16x16.png",
-      "bytes": 600
+      "bytes": 671
     },
     {
       "path": "assets/images/favicon-192x192.png",
-      "bytes": 33847
+      "bytes": 41068
     },
     {
       "path": "assets/images/favicon-32x32.png",
-      "bytes": 1370
+      "bytes": 1942
     },
     {
       "path": "assets/images/favicon-48x48.png",
-      "bytes": 2690
+      "bytes": 3590
     },
     {
       "path": "assets/images/favicon-96x96.png",
-      "bytes": 9379
+      "bytes": 11565
     },
     {
       "path": "assets/images/favicon.ico",
-      "bytes": 4714
+      "bytes": 6257
     },
     {
       "path": "assets/js/article-navigation.js",
@@ -411,7 +415,7 @@
     },
     {
       "path": "favicon.ico",
-      "bytes": 4714
+      "bytes": 6257
     },
     {
       "path": "functions/api/v1/enquiries.js",
