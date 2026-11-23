@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Router & Dispatcher
+ * CraftEgon Corporate Services (CCS) - Router & Dispatcher
  * URL parsing, route matching, and controller dispatch
  */
 
@@ -615,7 +615,7 @@ async function routeRequest(req, res, config) {
   res.writeHead(404, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify({
     error: 'Not Found',
-    message: `Endpoint '${pathname}' not recognized on CraftEgon CCS backend API`
+    message: `Endpoint '${pathname}' not recognized on CraftEgon Corporate Services (CCS) backend API`
   }));
 }
 

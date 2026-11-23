@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - PII-Masked Audit Event Logger
+ * CraftEgon Corporate Services (CCS) - PII-Masked Audit Event Logger
  * DPDP Act 2023 compliant: masks all email and phone fields before recording telemetry
  */
 

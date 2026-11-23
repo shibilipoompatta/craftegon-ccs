@@ -339,7 +339,7 @@ const formsJsPath = path.join(ROOT, 'assets', 'js', 'forms.js');
 const formsJsContent = fs.readFileSync(formsJsPath, 'utf8');
 
 assert(formsJsContent.includes('Online form transmission to a backend server is not active in this static environment'), 'forms.js states clearly that online transmission is not active');
-assert(formsJsContent.includes('Details entered in this form are not stored or transmitted to CraftEgon CCS'), 'forms.js states that details are not stored or transmitted');
+assert(formsJsContent.includes('Details entered in this form are not stored or transmitted to CraftEgon Corporate Services (CCS)'), 'forms.js states that details are not stored or transmitted');
 assert(formsJsContent.includes('+91 86069 18247'), 'forms.js provides verified WhatsApp contact (+91 86069 18247)');
 assert(formsJsContent.includes('admin@craftegon.com'), 'forms.js provides verified Email contact (admin@craftegon.com)');
 assert(formsJsContent.includes('escapeHtml'), 'forms.js includes HTML escaping for service name interpolation');

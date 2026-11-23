@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Base Transactional Email Provider
+ * CraftEgon Corporate Services (CCS) - Base Transactional Email Provider
  * Pure Node.js built-ins. Zero external runtime dependencies.
  */
 

@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Payment & Subscription Controller (Razorpay Sandbox Integration)
+ * CraftEgon Corporate Services (CCS) - Payment & Subscription Controller (Razorpay Sandbox Integration)
  * Strict server-side pricing integrity, status gating, HMAC signature verification & webhook idempotency
  */
 

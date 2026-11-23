@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Base Regulatory Source Adapter
+ * CraftEgon Corporate Services (CCS) - Base Regulatory Source Adapter
  * Defines the contract, resilience policies, caching, timeout guards,
  * and citation builders for all regulatory source adapters.
  */

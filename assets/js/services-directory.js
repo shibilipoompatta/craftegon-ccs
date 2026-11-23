@@ -1,5 +1,5 @@
 /**
- * CRAFTEGON CCS - UNIVERSAL CANONICAL SERVICES DIRECTORY LOGIC
+ * CRAFTEGON CORPORATE SERVICES (CCS) - UNIVERSAL CANONICAL SERVICES DIRECTORY LOGIC
  * Externalized for full CSP compliance (avoids inline script blocking)
  * and seamless cross-page synchronization.
  */

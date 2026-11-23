@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ccs.craftegon.com/schemas/regulatory-claims.schema.json",
-  "title": "CraftEgon CCS Regulatory Claims Schema",
+  "title": "CraftEgon Corporate Services (CCS) Regulatory Claims Schema",
   "description": "JSON Schema Draft 2020-12 defining regulatory claims governance, risk priorities, review requirements, and strict evidence gating.",
   "type": "array",
   "items": {

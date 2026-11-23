@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - MCA Source Adapter
+ * CraftEgon Corporate Services (CCS) - MCA Source Adapter
  * Queries statutory filing schedules, form specifications, and ROC compliance rules
  * under Companies Act 2013 and LLP Act 2008 (SRC-MCA-001).
  */

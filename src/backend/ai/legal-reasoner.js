@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS: Phase 5: Legal Reasoner Orchestrator
+ * CraftEgon Corporate Services (CCS): Phase 5: Legal Reasoner Orchestrator
  * 
  * Orchestrates the full AI query lifecycle:
  * 1. Privacy Safeguards (DPDP Act 2023 masking)
@@ -69,7 +69,7 @@ class LegalReasoner {
         status: 'ADVERSARIAL_INPUT_REJECTED',
         can_verify: false,
         verified: false,
-        answer: '[REJECTED]: The input violates CraftEgon CCS AI safety and compliance guardrails. Adversarial prompts, evasion instructions, or security bypass directives are strictly rejected.',
+        answer: '[REJECTED]: The input violates CraftEgon Corporate Services (CCS) AI safety and compliance guardrails. Adversarial prompts, evasion instructions, or security bypass directives are strictly rejected.',
         citations: [],
         audit: {
           timestamp: queryTimestamp,
@@ -100,7 +100,7 @@ class LegalReasoner {
         status: 'UNVERIFIED_LEGAL_FACT',
         can_verify: false,
         verified: false,
-        answer: 'CraftEgon CCS cannot verify this legal premise against the curated statutory authorities. Under our regulatory accuracy mandate, the system refuses to guess, extrapolate, or hallucinate statutory provisions, deadlines, or exemptions not grounded in verified primary sources.',
+        answer: 'CraftEgon Corporate Services (CCS) cannot verify this legal premise against the curated statutory authorities. Under our regulatory accuracy mandate, the system refuses to guess, extrapolate, or hallucinate statutory provisions, deadlines, or exemptions not grounded in verified primary sources.',
         citations: [],
         search_metadata: {
           top_score: searchResult.top_score,

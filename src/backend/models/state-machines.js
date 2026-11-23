@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Formal Lifecycle State Machines
+ * CraftEgon Corporate Services (CCS) - Formal Lifecycle State Machines
  * Authoritative transitions for Leads, Cases, Documents, and Payments
  */
 

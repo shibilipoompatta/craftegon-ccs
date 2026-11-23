@@ -240,7 +240,7 @@ function renderPreliminaryAudit(form, data) {
 
 function downloadPreliminaryChecklist(form) {
   const lines = [
-    'Craftegon CCS - Preliminary Intake Checklist',
+    'CraftEgon Corporate Services (CCS) - Preliminary Intake Checklist',
     `Generated: ${new Date().toISOString()}`,
     `Page: ${window.location.pathname}`,
     '',
@@ -266,7 +266,7 @@ function ensureLeadFormConsent(form) {
     wrapper.style.cssText="display:flex;align-items:flex-start;gap:.65rem;margin:1rem 0;padding:.85rem;border:1px solid var(--border-color,#DCE8E5);border-radius:6px;background:#F8FAFC;";
     consent=document.createElement("input");consent.type="checkbox";consent.id=(form.id||"lead-form")+"-privacy-consent";consent.name="dpdp_consent";consent.value="yes";consent.required=true;consent.style.cssText="margin-top:.25rem;flex:0 0 auto;";
     const label=document.createElement("label");label.htmlFor=consent.id;label.style.cssText="font-size:.82rem;line-height:1.5;color:var(--text-main,#334155);";
-    label.append("I consent to CraftEgon CCS using the details I choose to submit to respond to this enquiry, as explained in the ");
+    label.append("I consent to CraftEgon Corporate Services (CCS) using the details I choose to submit to respond to this enquiry, as explained in the ");
     const link=document.createElement("a");link.href="/legal/privacy.html";link.textContent="Privacy Policy";link.style.color="var(--accent-green-primary,#247A62)";label.appendChild(link);
     label.append(". If I choose WhatsApp or email, the information is shared with that provider only when I send the message.");
     wrapper.append(consent,label);const submit=form.querySelector('button[type="submit"],input[type="submit"]');
@@ -730,7 +730,7 @@ function showFormFallbackNotice(form, data, options = {}) {
   const noticeTitle = isUnconfirmed ? "Submission Unconfirmed: Direct Engagement" : "Notice: Direct Engagement Channel";
   const noticeBody = isUnconfirmed
     ? `<strong>Submission Status:</strong> Online transmission could not be confirmed by the server (${escapeHtml(options.detail || "Connection disrupted")}). To prevent delayed compliance or duplicate submissions, please connect directly with our compliance desk:`
-    : `<strong>Submission Notice:</strong> Online form transmission to a backend server is not active in this static environment. Details entered in this form are not stored or transmitted to CraftEgon CCS.`;
+    : `<strong>Submission Notice:</strong> Online form transmission to a backend server is not active in this static environment. Details entered in this form are not stored or transmitted to CraftEgon Corporate Services (CCS).`;
 
   alertBox.innerHTML = ` /* sanitized */
     <div style="font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-cinzel, var(--font-heading, 'Manrope', sans-serif));">

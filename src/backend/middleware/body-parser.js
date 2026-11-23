@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Safe Body Parser & Stream Boundary
+ * CraftEgon Corporate Services (CCS) - Safe Body Parser & Stream Boundary
  * Bounds incoming request size to prevent socket hanging and memory exhaustion.
  * Supports JSON, Multipart/form-data, and Base64 document uploads.
  */

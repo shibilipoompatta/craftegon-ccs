@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Asynchronous PostgreSQL Connection Pool
+ * CraftEgon Corporate Services (CCS) - Asynchronous PostgreSQL Connection Pool
  * Built on node-postgres (pg.Pool) with proper lifecycle management,
  * connection pooling, health checks, fail-fast timeouts, parameterized queries,
  * and transaction-isolated session settings for Row-Level Security.

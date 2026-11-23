@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Account & Authentication Repository
+ * CraftEgon Corporate Services (CCS) - Account & Authentication Repository
  * Provides server-backed account management, password authentication, and session handling
  * Supports both PostgresAccountStorage and InMemoryAccountStorage
  */

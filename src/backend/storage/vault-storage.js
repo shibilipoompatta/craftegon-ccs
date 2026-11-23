@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Private Vault Storage Manager
+ * CraftEgon Corporate Services (CCS) - Private Vault Storage Manager
  * Isolates uploaded files in quarantine and clean storage vaults with zero public HTTP access.
  * Pure Node.js built-ins.
  */

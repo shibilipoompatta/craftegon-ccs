@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Health Controller
+ * CraftEgon Corporate Services (CCS) - Health Controller
  * Minimal public liveness probe. Returns HTTP 200 with zero internal metadata.
  */
 

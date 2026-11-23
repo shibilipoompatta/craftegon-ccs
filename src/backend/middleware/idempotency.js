@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Idempotency & Duplicate Suppression
+ * CraftEgon Corporate Services (CCS) - Idempotency & Duplicate Suppression
  * Uses deterministic SHA-256 content hashing to deduplicate submissions within a 15-minute window
  */
 

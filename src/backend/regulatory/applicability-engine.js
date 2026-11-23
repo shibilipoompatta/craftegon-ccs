@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Deterministic Regulatory Applicability Engine
+ * CraftEgon Corporate Services (CCS) - Deterministic Regulatory Applicability Engine
  * Evaluates verified business profile facts against canonical compliance event rules.
  * Strictly prevents AI hallucination or fuzzy keyword matches from determining legal obligations.
  */

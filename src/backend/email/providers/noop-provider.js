@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - No-Op Email Provider
+ * CraftEgon Corporate Services (CCS) - No-Op Email Provider
  * Silently drops all outbound emails without side effects.
  */
 

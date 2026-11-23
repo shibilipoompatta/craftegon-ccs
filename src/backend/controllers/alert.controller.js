@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Alert Controller
+ * CraftEgon Corporate Services (CCS) - Alert Controller
  * Manages customer notification consent and preferences,
  * tenant-isolated alert listing, alert dispatching, and delivery audit logs.
  */

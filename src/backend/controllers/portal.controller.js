@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Portal Controller
+ * CraftEgon Corporate Services (CCS) - Portal Controller
  * Authenticated client cases and staff case management with strict RLS tenant isolation
  * Backed by CaseRepository (PostgreSQL or In-Memory)
  */

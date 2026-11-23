@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Enquiry Repository & Data Access Layer
+ * CraftEgon Corporate Services (CCS) - Enquiry Repository & Data Access Layer
  * Manages durable persistence for public enquiries and staff triage
  * 
  * Supports three storage strategies:

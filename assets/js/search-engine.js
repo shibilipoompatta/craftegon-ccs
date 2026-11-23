@@ -686,7 +686,7 @@ function showNotFound(containerId, query, type) {
         No Verified Record in Benchmark Index for "${escapeHtml(query)}"
       </h3>
       <p style="font-size: 0.88rem; color: var(--text-main, #334155); line-height: 1.6; margin-bottom: 1rem;">
-        This public directory currently operates in static demonstration mode. Live, real-time government registry lookups are not connected in this edge deployment, and CraftEgon CCS <strong>does not fabricate synthetic corporate records, fictional filing histories, or estimated compliance penalties</strong>.
+        This public directory currently operates in static demonstration mode. Live, real-time government registry lookups are not connected in this edge deployment, and CraftEgon Corporate Services (CCS) <strong>does not fabricate synthetic corporate records, fictional filing histories, or estimated compliance penalties</strong>.
       </p>
       <div style="background: var(--bg-slate, #F8FAFC); border: 1px solid var(--border-color, #E2E8F0); border-radius: 6px; padding: 1rem; margin-bottom: 1.25rem; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
         <strong style="color: var(--navy-800, #0B2545); display: block; margin-bottom: 0.25rem;">How to obtain verified registry data:</strong>

@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Regulatory Controller
+ * CraftEgon Corporate Services (CCS) - Regulatory Controller
  * Handles regulatory source catalog, compliance event lookup,
  * business profile applicability evaluations, and trademark clearance queries.
  */

@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Core HTTP Server Baseline
+ * CraftEgon Corporate Services (CCS) - Core HTTP Server Baseline
  * Pure Node.js built-ins. Zero external runtime dependencies.
  */
 
@@ -209,8 +209,8 @@ function createServer(configOverrides = {}) {
 if (require.main === module) {
   const instance = createServer();
   instance.start().then(({ host, port }) => {
-    console.log(`[CraftEgon CCS] Backend server active on http://${host}:${port}`);
-    console.log(`[CraftEgon CCS] Storage Provider: ${instance.config.databaseProvider}`);
+    console.log(`[CraftEgon Corporate Services (CCS)] Backend server active on http://${host}:${port}`);
+    console.log(`[CraftEgon Corporate Services (CCS)] Storage Provider: ${instance.config.databaseProvider}`);
   });
 }
 

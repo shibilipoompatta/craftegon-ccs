@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Tax Source Adapter
+ * CraftEgon Corporate Services (CCS) - Tax Source Adapter
  * Queries direct tax filing schedules (CBDT / Income-tax Act 1961)
  * and indirect tax return calendars (GSTN / CGST Act 2017) (SRC-CBDT-001, SRC-CBIC-001).
  */

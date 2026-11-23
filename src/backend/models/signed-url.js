@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - HMAC-SHA256 Signed Download URL Generator & Verifier
+ * CraftEgon Corporate Services (CCS) - HMAC-SHA256 Signed Download URL Generator & Verifier
  * Pure Node.js built-ins. Issues short-lived, tamper-proof download URLs.
  */
 

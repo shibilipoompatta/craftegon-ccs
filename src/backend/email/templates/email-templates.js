@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Transactional Email Templates
+ * CraftEgon Corporate Services (CCS) - Transactional Email Templates
  * Generates structured, accessible text and HTML transactional notifications.
  * Pure Node.js built-ins. Zero external runtime dependencies.
  */
@@ -35,7 +35,7 @@ function renderRegistrationVerification({ name, verificationUrl, token, expiresA
     `Verification Code: ${token}`,
     '',
     `This verification link will expire in ${expiryHours > 0 ? expiryHours : 24} hours.`,
-    'If you did not register for an account with CraftEgon CCS, please safely disregard this email.',
+    'If you did not register for an account with CraftEgon Corporate Services (CCS), please safely disregard this email.',
     '',
     'Sincerely,',
     'CraftEgon Corporate Services Compliance Desk'

@@ -1,6 +1,6 @@
 /**
  * ==============================================================================
- * CRAFTEGON CCS - CLOUDFLARE PAGES EDGE FUNCTION: ENQUIRIES HANDLER
+ * CRAFTEGON CORPORATE SERVICES (CCS) - CLOUDFLARE PAGES EDGE FUNCTION: ENQUIRIES HANDLER
  * Endpoint: POST /api/v1/enquiries
  * ==============================================================================
  * Handles inbound corporate services enquiries, validates fields, enforces
@@ -136,7 +136,7 @@ export async function onRequestPost(context) {
     try {
       // Channel 1: Telegram Bot Alert
       if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
-        const text = `🚨 *NEW CRAFTEGON CCS ENQUIRY*\n` +
+        const text = `🚨 *NEW CRAFTEGON CORPORATE SERVICES (CCS) ENQUIRY*\n` +
           `━━━━━━━━━━━━━━━━━━━━━━\n` +
           `📌 *Ref:* \`${lead_reference}\`\n` +
           `👤 *Client:* ${name}\n` +

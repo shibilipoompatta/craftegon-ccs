@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - RBI / FEMA Regulatory Source Adapter
+ * CraftEgon Corporate Services (CCS) - RBI / FEMA Regulatory Source Adapter
  * Queries cross-border investment compliance rules, FIRMS portal schedules,
  * and Foreign Liabilities & Assets (FLA) returns under FEMA 1999 (SRC-RBI-001).
  */

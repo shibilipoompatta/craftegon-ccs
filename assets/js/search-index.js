@@ -1,5 +1,5 @@
 /**
- * CRAFTEGON CCS - UNIVERSAL CANONICAL SERVICE SEARCH INDEX
+ * CRAFTEGON CORPORATE SERVICES (CCS) - UNIVERSAL CANONICAL SERVICE SEARCH INDEX
  * 
  * Auto-generated canonical catalog payload with 57 canonical services and 1 utility route.
  * Total direct regulatory services: 54
@@ -142,7 +142,7 @@
       "cgtmse",
       "trader udyam"
     ],
-    "description": "Secure formal statutory classification under the Micro, Small and Medium Enterprises Development Act, 2006 (MSMED Act) via the official Government of India Udyam portal. CraftEgon CCS handles Aadhaar/PAN validation, 5-digit National Industrial Classification (NIC) mapping, and regulatory certificate generation with a dynamic QR code.",
+    "description": "Secure formal statutory classification under the Micro, Small and Medium Enterprises Development Act, 2006 (MSMED Act) via the official Government of India Udyam portal. CraftEgon Corporate Services (CCS) handles Aadhaar/PAN validation, 5-digit National Industrial Classification (NIC) mapping, and regulatory certificate generation with a dynamic QR code.",
     "search_tokens": "msme / udyam registration online v01-svc-003 business formation & structuring formation & startup msme registration udyam registration udyam certificate small business registration msme certificate online section 43b(h) msme msme 45-day payment msme samadhaan delayed payment msefc arbitration recovery retail wholesale trader udyam udyam portal e-filing msme udyam priority lending collateral free subsidies nic code 43b(h) section 37(2)(g) delayed payment samadhaan msefc export deduction cgtmse trader udyam micro small medium enterprises"
   },
   {
@@ -299,7 +299,7 @@
       "pvt ltd registration",
       "start a company"
     ],
-    "description": "Incorporate your Private Limited Company under Companies Act, 2013 via MCA SPICe+ with CraftEgon CCS. Full statutory advisory, DIN allocation, MOA/AOA, PAN, TAN, and bank account setup (DSC not included in package; existing accepted).",
+    "description": "Incorporate your Private Limited Company under Companies Act, 2013 via MCA SPICe+ with CraftEgon Corporate Services (CCS). Full statutory advisory, DIN allocation, MOA/AOA, PAN, TAN, and bank account setup (DSC not included in package; existing accepted).",
     "search_tokens": "private limited company registration (spice+) v01-svc-007 business formation & structuring formation & startup register a private limited company pvt ltd registration private limited company incorporation company registration spice+ incorporation start a company new company formation spice+ inc-32 inc-33 inc-34 agile-pro-s incorporation formation roc mca spice director din pan tan name approval run private limited company pvt ltd company incorporation incorporate pvt ltd pvt ltd registration start a company"
   },
   {
@@ -1632,7 +1632,7 @@
       "referral",
       "tribunal"
     ],
-    "description": "Statutory guidance on director removal procedures under Section 169, vacation of office under Section 167, and boardroom deadlock resolution under the Companies Act, 2013. CraftEgon CCS provides secretarial procedural advisory only; formal litigation representation is conducted exclusively by independent legal counsel.",
+    "description": "Statutory guidance on director removal procedures under Section 169, vacation of office under Section 167, and boardroom deadlock resolution under the Companies Act, 2013. CraftEgon Corporate Services (CCS) provides secretarial procedural advisory only; formal litigation representation is conducted exclusively by independent legal counsel.",
     "search_tokens": "director removal, vacation of office & board control litigation  dispute avoidance (non-litigation) dispute avoidance (non-litigation) director removal & board disputes advisory special notice under section 169 removal of director guidance board deadlock resolution section 169 special notice board resolution director removal section 169 board dispute deadlock referral tribunal shareholders board of directors"
   },
   {
@@ -1668,7 +1668,7 @@
       "operational debt",
       "referral"
     ],
-    "description": "Statutory overview of creditor petitions under Section 7 and Section 9 of the Insolvency and Bankruptcy Code (IBC), 2016. CraftEgon CCS provides corporate documentation support only; formal NCLT representation is conducted exclusively by independent legal counsel.",
+    "description": "Statutory overview of creditor petitions under Section 7 and Section 9 of the Insolvency and Bankruptcy Code (IBC), 2016. CraftEgon Corporate Services (CCS) provides corporate documentation support only; formal NCLT representation is conducted exclusively by independent legal counsel.",
     "search_tokens": "nclt corporate insolvency resolution process (cirp) defense  dispute avoidance (non-litigation) dispute avoidance (non-litigation) nclt insolvency defense advisory section 7 & section 9 ibc defense insolvency & bankruptcy advisory corporate debtor defense form 5 demand notice reply nclt objections ibc nclt insolvency section 7 section 9 operational debt referral corporate debtors operational creditors"
   },
   {
@@ -1736,7 +1736,7 @@
       "referral",
       "tribunal"
     ],
-    "description": "Statutory guide on shareholder remedies against mismanagement, fund diversion, asset stripping, and illegal share dilution under Sections 241–242 of the Companies Act, 2013. CraftEgon CCS provides secretarial and accounting forensic records compilation; formal NCLT representation is conducted exclusively by independent legal counsel.",
+    "description": "Statutory guide on shareholder remedies against mismanagement, fund diversion, asset stripping, and illegal share dilution under Sections 241–242 of the Companies Act, 2013. CraftEgon Corporate Services (CCS) provides secretarial and accounting forensic records compilation; formal NCLT representation is conducted exclusively by independent legal counsel.",
     "search_tokens": "section 241 & 242 oppression and mismanagement petitions  dispute avoidance (non-litigation) dispute avoidance (non-litigation) oppression & mismanagement advisory section 241-242 companies act advisory minority shareholder rights advisory shareholder dispute advisory section 241 petition guidance oppression mismanagement section 241 minority shareholder referral tribunal minority shareholders promoters"
   },
   {

@@ -115,7 +115,7 @@
 
   const config = {
     brandName: "CraftEgon Corporate Services",
-    brandShort: "CraftEgon CCS",
+    brandShort: "CraftEgon Corporate Services (CCS)",
     brandSubtitle: "Corporate Services",
     legalEntity: "CraftEgon LLP",
     operationalDesk: "Operational Service Desk, Alappuzha, Kerala, India • PIN: 690501",
@@ -175,15 +175,15 @@
       let msg = `Hello CraftEgon Compliance Desk, I would like to consult on: ${topic}.`;
 
       if (lower.includes("pvt") || lower.includes("private limited")) {
-        msg = "Hi CraftEgon CCS, I want to incorporate a Private Limited Company. Please share the SPICe+ checklist and onboarding steps.";
+        msg = "Hi CraftEgon Corporate Services (CCS), I want to incorporate a Private Limited Company. Please share the SPICe+ checklist and onboarding steps.";
       } else if (lower.includes("llp") || lower.includes("limited liability")) {
-        msg = "Hi CraftEgon CCS, I want to register an LLP. Please guide me on the FiLLiP requirements.";
+        msg = "Hi CraftEgon Corporate Services (CCS), I want to register an LLP. Please guide me on the FiLLiP requirements.";
       } else if (lower.includes("trademark") || lower.includes("tm-a") || lower.includes("ipr")) {
-        msg = "Hi CraftEgon CCS, I want to file a Trademark application (TM-A). Please conduct a preliminary clearance check for my brand.";
+        msg = "Hi CraftEgon Corporate Services (CCS), I want to file a Trademark application (TM-A). Please conduct a preliminary clearance check for my brand.";
       } else if (lower.includes("udyam") || lower.includes("msme")) {
-        msg = "Hi CraftEgon CCS, I need assisted MSME Udyam registration for my business.";
+        msg = "Hi CraftEgon Corporate Services (CCS), I need assisted MSME Udyam registration for my business.";
       } else if (lower.includes("roc") || lower.includes("annual") || lower.includes("aoc-4")) {
-        msg = "Hi CraftEgon CCS, I need annual RoC secretarial compliance and corporate filing support.";
+        msg = "Hi CraftEgon Corporate Services (CCS), I need annual RoC secretarial compliance and corporate filing support.";
       }
 
       return `${this.whatsappUrl}?text=${encodeURIComponent(msg)}`;

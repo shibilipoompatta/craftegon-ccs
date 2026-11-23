@@ -1,6 +1,6 @@
 /**
  * ==============================================================================
- * CRAFTEGON CCS - CLOUDFLARE PAGES EDGE FUNCTION: PORTAL SESSION
+ * CRAFTEGON CORPORATE SERVICES (CCS) - CLOUDFLARE PAGES EDGE FUNCTION: PORTAL SESSION
  * Endpoint: GET /api/v1/portal/session
  * ==============================================================================
  * Validates Cloudflare Zero Trust / Cloudflare Access assertions and returns

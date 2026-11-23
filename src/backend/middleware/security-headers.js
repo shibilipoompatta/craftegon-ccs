@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Security Headers & CORS Middleware
+ * CraftEgon Corporate Services (CCS) - Security Headers & CORS Middleware
  */
 
 function applySecurityHeaders(res, corsOrigin = 'http://localhost:8080') {

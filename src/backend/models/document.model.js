@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Document Domain Model & Cryptographic Verification
+ * CraftEgon Corporate Services (CCS) - Document Domain Model & Cryptographic Verification
  * Pure Node.js built-ins. Magic-byte verification, MIME allowlist, and hash generation.
  */
 

@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Regulatory Intelligence Service
+ * CraftEgon Corporate Services (CCS) - Regulatory Intelligence Service
  * Coordinates source adapters, compliance event registry,
  * applicability evaluations, and trademark search workflows.
  */

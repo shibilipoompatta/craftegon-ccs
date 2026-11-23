@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Source Citations, Staleness & Change Provenance Manager
+ * CraftEgon Corporate Services (CCS) - Source Citations, Staleness & Change Provenance Manager
  * Enforces citation integrity, source-specific staleness thresholds,
  * cryptographic content fingerprinting, and reproducible query audit logging.
  */

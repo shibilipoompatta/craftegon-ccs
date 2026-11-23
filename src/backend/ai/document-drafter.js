@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS: Phase 5: Document Drafter
+ * CraftEgon Corporate Services (CCS): Phase 5: Document Drafter
  * 
  * Strict architectural separation of:
  * 1. DETERMINISTIC_STATUTORY_TEMPLATE (Zero-hallucination variable substitution on approved templates)
@@ -96,7 +96,7 @@ class DocumentDrafter {
       renderedText = renderedText.replace(regex, String(val));
     }
 
-    const watermark = '=== [CRAFTEGON CCS: DETERMINISTIC STATUTORY TEMPLATE: NON-PROBABILISTIC DRAFT] ===';
+    const watermark = '=== [CRAFTEGON CORPORATE SERVICES (CCS): DETERMINISTIC STATUTORY TEMPLATE: NON-PROBABILISTIC DRAFT] ===';
     const authorityHeader = `STATUTORY AUTHORITY: ${tmpl.statutory_authority}`;
     const finalDocument = `${watermark}\n${authorityHeader}\n\n${renderedText}\n\n${watermark}`;
 
@@ -157,7 +157,7 @@ REQUIREMENTS:
       finalContent = this.privacyGuard.unmask(finalContent, privacyResult.redaction_manifest);
     }
 
-    const watermark = '=== [CRAFTEGON CCS: AI-ASSISTED DRAFT: REQUIRES HUMAN LEGAL REVIEW: NOT AN EXECUTED INSTRUMENT] ===';
+    const watermark = '=== [CRAFTEGON CORPORATE SERVICES (CCS): AI-ASSISTED DRAFT: REQUIRES HUMAN LEGAL REVIEW: NOT AN EXECUTED INSTRUMENT] ===';
     const finalDocument = `${watermark}\n\n${finalContent}\n\n${watermark}`;
 
     return {

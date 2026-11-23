@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ccs.craftegon.com/schemas/service-registry.schema.json",
-  "title": "CraftEgon CCS Master Service Registry Schema",
+  "title": "CraftEgon Corporate Services (CCS) Master Service Registry Schema",
   "description": "JSON Schema Draft 2020-12 enforcing 57 canonical services, one utility route, 54 active IDs, and 3 referral-only boundaries.",
   "type": "array",
   "minItems": 58,

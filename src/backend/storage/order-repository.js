@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Order Repository & Data Access Layer
+ * CraftEgon Corporate Services (CCS) - Order Repository & Data Access Layer
  * Server-backed subscription order management enforcing PostgreSQL Row-Level Security
  * Supports both PostgresOrderStorage and InMemoryOrderStorage
  */

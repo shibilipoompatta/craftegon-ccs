@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Authentication Guard & Role Enforcer
+ * CraftEgon Corporate Services (CCS) - Authentication Guard & Role Enforcer
  * Validates session tokens and enforces role-based permissions
  * Pure Node.js built-ins. Zero external dependencies.
  */

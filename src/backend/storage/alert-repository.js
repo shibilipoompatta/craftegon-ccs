@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Alert & Delivery Repository
+ * CraftEgon Corporate Services (CCS) - Alert & Delivery Repository
  * Manages consent-based alert subscriptions, deduplication,
  * bounded retries with exponential backoff, and delivery audit logs.
  */

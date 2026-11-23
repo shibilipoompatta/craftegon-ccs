@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Safe Local PostgreSQL Client
+ * CraftEgon Corporate Services (CCS) - Safe Local PostgreSQL Client
  * Executes parameterized queries, migrations, and session-scoped RLS transactions
  * Pure Node.js built-ins. Zero external npm dependencies.
  */

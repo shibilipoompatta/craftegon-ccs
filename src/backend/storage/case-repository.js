@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Case Repository & Data Access Layer
+ * CraftEgon Corporate Services (CCS) - Case Repository & Data Access Layer
  * Server-backed case management enforcing PostgreSQL Row-Level Security
  * Supports both PostgresCaseStorage and InMemoryCaseStorage
  */

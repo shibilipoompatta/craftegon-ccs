@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Transactional Email Service
+ * CraftEgon Corporate Services (CCS) - Transactional Email Service
  * Provides a provider-neutral application-level email interface.
  * Decouples business logic from outbound transport providers.
  * Pure Node.js built-ins. Zero external runtime dependencies.

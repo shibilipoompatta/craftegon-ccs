@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Enquiry Validation & Model Logic
+ * CraftEgon Corporate Services (CCS) - Enquiry Validation & Model Logic
  * Strictly enforces Phase 2 Relational Integrity & Referral Boundaries
  */
 

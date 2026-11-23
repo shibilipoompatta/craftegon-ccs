@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - IP India Trademark Source Adapter
+ * CraftEgon Corporate Services (CCS) - IP India Trademark Source Adapter
  * Performs wordmark syntax validation, Nice classification mapping,
  * internal benchmark register search, and transparent manual lookup routing
  * under the Trade Marks Act, 1999 (SRC-CGPDTM-001).

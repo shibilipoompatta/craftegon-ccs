@@ -1,6 +1,6 @@
 /**
  * ==============================================================================
- * CRAFTEGON CCS - AI COMPLIANCE ASSISTANT & CO-PILOT
+ * CRAFTEGON CORPORATE SERVICES (CCS) - AI COMPLIANCE ASSISTANT & CO-PILOT
  * Dual-Mode Engine: Google Gemini API (gemini-2.5-flash) with
  * Hardened Business Guardrails ("Veils & Brakes") and Zero-Downtime Deterministic Fallback
  * ==============================================================================
@@ -175,7 +175,7 @@ const KB=[
   a:[['MCA V3 Filing Guide','/knowledge/mca-v3-filing-guide.html'],['RoC Annual Retainer Plan','/services/roc-annual-compliance.html'],['Calculate RoC Late Fees','/conversion/calculator.html']]},
 
   {k:['portal','client portal','dashboard','compliance calendar','subscription','pricing','retainer plan','starter','growth','enterprise','tier','plan','retainer plans'],
-  r:`CraftEgon CCS Corporate Retainer & Service Desk:<br>
+  r:`CraftEgon Corporate Services (CCS) Corporate Retainer & Service Desk:<br>
   * <b>Annual Retainer:</b> Structured corporate governance, regular statutory filings, and priority professional support.<br>
   * <b>Entity Coverage:</b> Private Limited Companies, LLPs, One Person Companies, and cross-border subsidiaries.<br>
   * <b>Service Desk:</b> Connect with our operational desk in Alappuzha for scoped fee proposals.`,
@@ -263,7 +263,7 @@ const PILLS=[
   ['DPDP Act Audit','What are our fiduciary obligations under DPDP Act 2023?'],
   ['MSME 43B(h)','What is the 45-day MSME payment rule and Form MSME-1?'],
   ['DIR-3 KYC','What is the annual Director KYC deadline?'],
-  ['Contact Desk','How do I contact CraftEgon CCS via WhatsApp or phone?']
+  ['Contact Desk','How do I contact CraftEgon Corporate Services (CCS) via WhatsApp or phone?']
 ];
 
 // Get current user mode: 'ai' (Smart AI Assistant) or 'guide' (Statutory Reference Desk)
@@ -464,7 +464,7 @@ function evaluateInputBrakes(query) {
   if (/ignore (all )?previous instructions|system prompt|reveal your prompt|you are now DAN|jailbreak|developer mode/i.test(qNorm)) {
     return {
       triggered: true,
-      r: `CraftEgon CCS operates exclusively within verified statutory compliance parameters under Indian corporate law. I cannot alter system operating instructions or deviate from professional regulatory standards.<br><br>How can I assist your business with RoC filings, MCA V3 compliances, or corporate secretarial structuring?`,
+      r: `CraftEgon Corporate Services (CCS) operates exclusively within verified statutory compliance parameters under Indian corporate law. I cannot alter system operating instructions or deviate from professional regulatory standards.<br><br>How can I assist your business with RoC filings, MCA V3 compliances, or corporate secretarial structuring?`,
       a: [['Explore Services Directory', '/services.html'], ['Contact Compliance Desk', '/conversion/retainer-desk.html']],
       s: [['CraftEgon Terms', '/legal/terms.html'], ['Professional Disclaimer', '/legal/disclaimer.html']]
     };
@@ -480,7 +480,7 @@ function evaluateInputBrakes(query) {
       * <b>Direct Accountability:</b> Real operational service desks in Alappuzha and New Delhi with dedicated compliance officers.<br><br>
       We invite you to experience institutional compliance precision:`,
       a: [['Explore Services Directory', '/services.html'], ['Book Micro-Retainer (₹999)', '/conversion/retainer-desk.html'], ['WhatsApp Desk', 'https://wa.me/918606918247']],
-      s: [['About CraftEgon CCS', '/about.html'], ['Institutional Model', '/about.html#how-we-operate']]
+      s: [['About CraftEgon Corporate Services (CCS)', '/about.html'], ['Institutional Model', '/about.html#how-we-operate']]
     };
   }
 
@@ -1085,7 +1085,7 @@ function openBrakesModal() {
         </p>
         <p style="margin-bottom: 0.75rem;">
           <strong>4. Advocates Act, 1961 Boundary:</strong><br>
-          CraftEgon CCS provides corporate secretarial and documentation infrastructure. We do not provide court appearances or litigation advocacy; matters requiring courtroom representation must be handled by an independent enrolled advocate under a separate vakalatnama.
+          CraftEgon Corporate Services (CCS) provides corporate secretarial and documentation infrastructure. We do not provide court appearances or litigation advocacy; matters requiring courtroom representation must be handled by an independent enrolled advocate under a separate vakalatnama.
         </p>
         <p style="margin-bottom: 1.25rem;">
           <strong>5. Practicing Professional Review:</strong><br>

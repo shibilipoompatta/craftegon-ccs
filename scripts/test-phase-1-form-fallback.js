@@ -48,7 +48,7 @@ function grantTestConsent(form) {
 // ----------------------------------------------------
 console.log('--- Test Suite 1: Static Code & Content Inspection ---');
 assert(formsJsCode.includes('Online form transmission to a backend server is not active in this static environment'), 'Explicitly states transmission is not active in static mode');
-assert(formsJsCode.includes('Details entered in this form are not stored or transmitted to CraftEgon CCS'), 'Explicitly states details are not stored or transmitted');
+assert(formsJsCode.includes('Details entered in this form are not stored or transmitted to CraftEgon Corporate Services (CCS)'), 'Explicitly states details are not stored or transmitted');
 assert(!formsJsCode.includes('Your request was saved offline'), 'No false offline storage claims');
 assert(!/lead_reference:\s*["']MOCK/i.test(formsJsCode), 'No mock or fake lead references generated in fallback');
 assert(formsJsCode.includes('+91 86069 18247'), 'Contains official WhatsApp phone number (+91 86069 18247)');
@@ -97,7 +97,7 @@ assert(alertBox.getAttribute('role') === 'alert', 'Alert box has role="alert" fo
 
 const alertText = alertBox.textContent;
 assert(alertText.includes('Online form transmission to a backend server is not active in this static environment'), 'Notice explains static environment status');
-assert(alertText.includes('Details entered in this form are not stored or transmitted to CraftEgon CCS'), 'Notice confirms zero retention / zero fake submission');
+assert(alertText.includes('Details entered in this form are not stored or transmitted to CraftEgon Corporate Services (CCS)'), 'Notice confirms zero retention / zero fake submission');
 assert(!alertText.includes('accepted') && !alertText.includes('Reference:'), 'Notice does NOT claim acceptance or generate false reference');
 
 const waLink = alertBox.querySelector('a[href*="wa.me"]');

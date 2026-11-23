@@ -1,5 +1,5 @@
 /**
- * CRAFTEGON CCS - UNIVERSAL CANONICAL SERVICE SEARCH & DISCOVERY ENGINE
+ * CRAFTEGON CORPORATE SERVICES (CCS) - UNIVERSAL CANONICAL SERVICE SEARCH & DISCOVERY ENGINE
  * 
  * Provides:
  * 1. Multi-tier ranking: Exact Name > Service ID / Form > Prefix > Alias > Keyword > Category > Typo-Tolerant Fuzzy.

@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS: Phase 5: Privacy Safeguards & DPDP Act 2023 Guardrails
+ * CraftEgon Corporate Services (CCS): Phase 5: Privacy Safeguards & DPDP Act 2023 Guardrails
  * 
  * Automatically detects, masks, and redacts Indian Personally Identifiable
  * Information (PII) before inputs are dispatched to LLM gateways or logged.

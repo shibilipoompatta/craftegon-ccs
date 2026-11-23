@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ccs.craftegon.com/schemas/jurisdiction-variations.schema.json",
-  "title": "CraftEgon CCS Jurisdiction Variations Schema",
+  "title": "CraftEgon Corporate Services (CCS) Jurisdiction Variations Schema",
   "description": "JSON Schema Draft 2020-12 defining state-level stamp duty, professional tax, and local regulatory procedure variations.",
   "type": "array",
   "items": {

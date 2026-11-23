@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ccs.craftegon.com/schemas/pricing.schema.json",
-  "title": "CraftEgon CCS Pricing Dataset Schema",
+  "title": "CraftEgon Corporate Services (CCS) Pricing Dataset Schema",
   "description": "JSON Schema Draft 2020-12 enforcing structural validity, pricing basis, included/excluded charges, statutory threshold separation, and evidence-gated verification rules.",
   "type": "array",
   "items": {

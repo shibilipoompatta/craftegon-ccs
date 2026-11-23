@@ -1,6 +1,6 @@
 /**
  * ==============================================================================
- * CRAFTEGON CCS - CLOUDFLARE PAGES EDGE FUNCTION: COMPLIANCE MILESTONES
+ * CRAFTEGON CORPORATE SERVICES (CCS) - CLOUDFLARE PAGES EDGE FUNCTION: COMPLIANCE MILESTONES
  * Endpoint: GET /api/v1/portal/compliance
  * ==============================================================================
  * Queries live statutory deadlines, pending RoC filings, and penalty estimators

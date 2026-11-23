@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Sliding Window In-Memory Rate Limiter
+ * CraftEgon Corporate Services (CCS) - Sliding Window In-Memory Rate Limiter
  * Bounds submission volume per salted client IP hash
  */
 

@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Memory / Test Transactional Email Provider
+ * CraftEgon Corporate Services (CCS) - Memory / Test Transactional Email Provider
  * Stores sent messages in-memory for testing and offline development.
  * Guarantees zero external network requests.
  */

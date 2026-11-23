@@ -1243,7 +1243,7 @@ function generateStatutoryMemo() {
 
   if (waBtn) {
     const totalOutlay = document.getElementById('total-fee')?.textContent || '₹0';
-    const waText = 'Hello CraftEgon CCS CS Desk, I generated Executive Statutory Memorandum ' + refCode + ' for ' + (entityLabels[entityType] || entityType) + ' (Estimated Outlay: ' + totalOutlay + '). I would like to schedule execution.';
+    const waText = 'Hello CraftEgon Corporate Services (CCS) CS Desk, I generated Executive Statutory Memorandum ' + refCode + ' for ' + (entityLabels[entityType] || entityType) + ' (Estimated Outlay: ' + totalOutlay + '). I would like to schedule execution.';
     waBtn.href = 'https://wa.me/918606918247?text=' + encodeURIComponent(waText);
   }
 

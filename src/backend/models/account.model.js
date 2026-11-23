@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Account & Authentication Model
+ * CraftEgon Corporate Services (CCS) - Account & Authentication Model
  * Password hashing via scrypt, token generation, and account validation
  * Pure Node.js built-ins. Zero external dependencies.
  */

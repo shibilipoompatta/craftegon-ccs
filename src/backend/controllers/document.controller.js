@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Document Controller
+ * CraftEgon Corporate Services (CCS) - Document Controller
  * Manages secure document intake, magic-byte validation, quarantine staging,
  * malware scanning, short-lived HMAC signed downloads, and RLS tenant isolation.
  */

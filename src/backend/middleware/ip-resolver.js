@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Safe Direct-Connection IP Resolver
+ * CraftEgon Corporate Services (CCS) - Safe Direct-Connection IP Resolver
  * Anti-spoofing protection: ignores forwarding headers unless proxy is verified trusted
  */
 

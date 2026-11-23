@@ -1,6 +1,6 @@
 /**
  * ==============================================================================
- * CRAFTEGON CCS - CLOUDFLARE PAGES EDGE FUNCTION: ENCRYPTED VAULT HANDLER
+ * CRAFTEGON CORPORATE SERVICES (CCS) - CLOUDFLARE PAGES EDGE FUNCTION: ENCRYPTED VAULT HANDLER
  * Endpoint: GET, POST /api/v1/portal/vault
  * ==============================================================================
  * Interacts with Cloudflare R2 object storage to manage client incorporation

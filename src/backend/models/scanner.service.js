@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Malware & Antivirus Scanning Service
+ * CraftEgon Corporate Services (CCS) - Malware & Antivirus Scanning Service
  * Supports EICAR signature detection, heuristic payload inspection, and optional ClamAV daemon TCP integration.
  * Zero external npm dependencies.
  */

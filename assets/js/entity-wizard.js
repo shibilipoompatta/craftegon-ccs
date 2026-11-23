@@ -57,7 +57,7 @@
       h3: "3–5 working days turnaround supervised by practicing CS & CA",
       url: "/services/pvt-ltd-registration.html",
       ctaText: "Incorporate Company →",
-      waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended a Private Limited Company. I want to proceed with incorporation."
+      waMsg: "Hello CraftEgon Corporate Services (CCS), I used the Entity Selector and was recommended a Private Limited Company. I want to proceed with incorporation."
     };
 
     // 5. Decision Matrix
@@ -74,7 +74,7 @@
         h3: "Complete statutory MOA/AOA drafting with mandatory non-profit clauses",
         url: "/services/section-8-registration.html",
         ctaText: "Register Section 8 Company →",
-        waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended a Section 8 Non-Profit Company. I want to discuss registration."
+        waMsg: "Hello CraftEgon Corporate Services (CCS), I used the Entity Selector and was recommended a Section 8 Non-Profit Company. I want to discuss registration."
       };
     } else if (goal === 'vc') {
       rec = {
@@ -89,7 +89,7 @@
         h3: "3–5 working days turnaround supervised by practicing CS & CA",
         url: "/services/pvt-ltd-registration.html",
         ctaText: "Incorporate Company →",
-        waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended a Private Limited Company. I want to proceed with incorporation."
+        waMsg: "Hello CraftEgon Corporate Services (CCS), I used the Entity Selector and was recommended a Private Limited Company. I want to proceed with incorporation."
       };
     } else if (team === 'solo' || goal === 'solo') {
       // Under Indian Law, an LLP requires minimum 2 partners (LLP Act 2008 Sec 6).
@@ -107,7 +107,7 @@
           h3: "Statutory exemption from holding formal AGMs under Section 96",
           url: "/services/opc-registration.html",
           ctaText: "Incorporate OPC →",
-          waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended an OPC. I want to discuss formation."
+          waMsg: "Hello CraftEgon Corporate Services (CCS), I used the Entity Selector and was recommended an OPC. I want to discuss formation."
         };
       } else {
         rec = {
@@ -122,7 +122,7 @@
           h3: "Section 43B(h) 45-day statutory payment protection under MSMED Act",
           url: "/services/proprietorship-registration.html",
           ctaText: "Start Sole Proprietorship →",
-          waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended a Sole Proprietorship. I want to discuss registration."
+          waMsg: "Hello CraftEgon Corporate Services (CCS), I used the Entity Selector and was recommended a Sole Proprietorship. I want to discuss registration."
         };
       }
     } else {
@@ -140,7 +140,7 @@
           h3: "Customized LLP Agreement drafting and Form 3 e-filing with RoC",
           url: "/services/llp-registration.html",
           ctaText: "Incorporate LLP →",
-          waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended an LLP. I want to discuss registration."
+          waMsg: "Hello CraftEgon Corporate Services (CCS), I used the Entity Selector and was recommended an LLP. I want to discuss registration."
         };
       } else {
         // Institutional + Bootstrapped / Services + Multiple Founders -> Private Limited Company
@@ -156,7 +156,7 @@
           h3: "3–5 working days turnaround supervised by practicing CS & CA",
           url: "/services/pvt-ltd-registration.html",
           ctaText: "Incorporate Company →",
-          waMsg: "Hello CraftEgon CCS, I used the Entity Selector and was recommended a Private Limited Company. I want to proceed with incorporation."
+          waMsg: "Hello CraftEgon Corporate Services (CCS), I used the Entity Selector and was recommended a Private Limited Company. I want to proceed with incorporation."
         };
       }
     }

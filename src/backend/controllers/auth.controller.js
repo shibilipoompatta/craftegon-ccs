@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Authentication Controller
+ * CraftEgon Corporate Services (CCS) - Authentication Controller
  * Real server-side authentication, scrypt password verification, session issuance, and account recovery
  * Pure Node.js built-ins. Zero external runtime dependencies.
  */

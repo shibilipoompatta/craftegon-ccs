@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Document Repository & Data Access Layer
+ * CraftEgon Corporate Services (CCS) - Document Repository & Data Access Layer
  * Server-backed document management enforcing PostgreSQL Row-Level Security
  * Supports both PostgresDocumentStorage and InMemoryDocumentStorage
  */

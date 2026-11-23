@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - SMTP Transactional Email Provider Skeleton
+ * CraftEgon Corporate Services (CCS) - SMTP Transactional Email Provider Skeleton
  * Provides a provider interface for future SMTP relay integration (e.g. AWS SES Mumbai / Postmark).
  * Fails closed if invoked without genuine verified credentials.
  */

@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS: Phase 5: Server-Side Model Gateway
+ * CraftEgon Corporate Services (CCS): Phase 5: Server-Side Model Gateway
  * 
  * Provides a secure, server-side abstraction over Google Gemini models
  * and an offline deterministic statutory reasoning engine.
@@ -26,7 +26,7 @@ class ModelGateway {
   }
 
   _getDefaultSystemPrompt() {
-    return `You are CraftEgon CCS Legal & Regulatory AI, a specialized corporate compliance assistant for Indian statutory law.
+    return `You are CraftEgon Corporate Services (CCS) Legal & Regulatory AI, a specialized corporate compliance assistant for Indian statutory law.
 CORE MANDATES:
 1. Ground every answer strictly in the provided statutory context chunks and official citations.
 2. If the user asks about a statute, section, rule, or tax exemption not grounded in the verified context, or if the premises are fictional or cannot be verified, you MUST refuse to answer and state: "[UNVERIFIED_LEGAL_FACT]: The statutory authorities do not verify this provision."
@@ -180,7 +180,7 @@ CORE MANDATES:
     if (!contextChunks || contextChunks.length === 0) {
       return {
         can_verify: false,
-        content: '[UNVERIFIED_LEGAL_FACT]: The statutory authorities and curated corpus do not contain verified provisions supporting this inquiry. CraftEgon CCS strictly refuses to guess or extrapolate unverified legal facts.'
+        content: '[UNVERIFIED_LEGAL_FACT]: The statutory authorities and curated corpus do not contain verified provisions supporting this inquiry. CraftEgon Corporate Services (CCS) strictly refuses to guess or extrapolate unverified legal facts.'
       };
     }
 
@@ -211,7 +211,7 @@ CORE MANDATES:
   }
 
   _getDisclaimer() {
-    return 'CraftEgon CCS regulatory intelligence is an informational synthesis grounded in cited Indian statutory authorities. This output does not constitute formal legal counsel, statutory audit, or certification under the Advocates Act, 1961 or the Chartered Accountants Act, 1949.';
+    return 'CraftEgon Corporate Services (CCS) regulatory intelligence is an informational synthesis grounded in cited Indian statutory authorities. This output does not constitute formal legal counsel, statutory audit, or certification under the Advocates Act, 1961 or the Chartered Accountants Act, 1949.';
   }
 }
 

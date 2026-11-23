@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Canonical Compliance Event Model
+ * CraftEgon Corporate Services (CCS) - Canonical Compliance Event Model
  * Validates, normalizes, fingerprints, and manages lifecycle transitions
  * for statutory compliance obligations and regulatory changes.
  */

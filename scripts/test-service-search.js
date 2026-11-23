@@ -201,7 +201,7 @@ assert(fs.existsSync(SERVICES_HTML), 'services.html exists at project root');
 
 const servicesContent = fs.readFileSync(SERVICES_HTML, 'utf8');
 assert(servicesContent.includes('<link rel="canonical" href="https://ccs.craftegon.com/services.html">'), 'services.html has correct canonical URL');
-assert(servicesContent.includes('<title>Universal Corporate Services Directory | CraftEgon CCS</title>'), 'services.html has accurate corporate title');
+assert(servicesContent.includes('<title>Universal Corporate Services Directory | CraftEgon Corporate Services (CCS)</title>'), 'services.html has accurate corporate title');
 assert(servicesContent.includes('id="directory-search-input"'), 'services.html has #directory-search-input');
 assert(servicesContent.includes('id="quick-needs-bar"'), 'services.html has quick-needs-bar shortcuts');
 assert(servicesContent.includes('id="stage-filter-group"'), 'services.html has stage filter group');

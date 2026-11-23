@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ccs.craftegon.com/schemas/eligibility.schema.json",
-  "title": "CraftEgon CCS Eligibility and Prerequisites Schema",
+  "title": "CraftEgon Corporate Services (CCS) Eligibility and Prerequisites Schema",
   "description": "JSON Schema Draft 2020-12 defining entity applicability, statutory prerequisites, document checklists, and verification states.",
   "type": "array",
   "items": {

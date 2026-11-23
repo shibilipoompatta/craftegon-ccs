@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - Enquiry Controller
+ * CraftEgon Corporate Services (CCS) - Enquiry Controller
  * Handles public lead intake and staff retrieval
  */
 

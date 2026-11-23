@@ -1,5 +1,5 @@
 /**
- * CraftEgon CCS - In-Memory Database Store & RLS Policy Simulator
+ * CraftEgon Corporate Services (CCS) - In-Memory Database Store & RLS Policy Simulator
  * Implements the 6 PostgreSQL tables and simulates engine-level Row-Level Security
  * for local development and deterministic automated testing.
  */

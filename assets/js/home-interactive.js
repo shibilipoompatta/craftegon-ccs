@@ -1,6 +1,6 @@
 /**
  * ==========================================================================
- * CRAFTEGON CCS: UNIQUE HOME INTERACTIVE LOGIC
+ * CRAFTEGON CORPORATE SERVICES (CCS): UNIQUE HOME INTERACTIVE LOGIC
  * Features:
  * 1. Command Bar (⌘K Universal Search across all 54 Services)
  * 2. 6 Executive Governance Pillar Tab Switcher
