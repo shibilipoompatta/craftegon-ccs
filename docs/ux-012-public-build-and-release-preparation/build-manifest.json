@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-23T16:52:34.117Z",
+  "buildTimestamp": "2026-11-23T17:05:39.902Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,8 +10,8 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 216,
-    "totalOutputSizeBytes": 13780831,
+    "totalFilesIncluded": 217,
+    "totalOutputSizeBytes": 13782334,
     "totalOutputSizeFormatted": "13.14 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
@@ -26,6 +26,7 @@
       ".js": 19,
       ".json": 10,
       ".sql": 1,
+      ".webmanifest": 1,
       "config": 2,
       ".txt": 1,
       ".xml": 1
@@ -435,7 +436,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 161678
+      "bytes": 161727
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
@@ -723,7 +724,7 @@
     },
     {
       "path": "services/index.html",
-      "bytes": 104362
+      "bytes": 104411
     },
     {
       "path": "services/ip-enforcement-cease-desist.html",
@@ -843,7 +844,11 @@
     },
     {
       "path": "services.html",
-      "bytes": 104362
+      "bytes": 104411
+    },
+    {
+      "path": "site.webmanifest",
+      "bytes": 695
     },
     {
       "path": "verticals/01-entity-formation.html",
@@ -911,7 +916,7 @@
     },
     {
       "path": "_headers",
-      "bytes": 1917
+      "bytes": 2578
     },
     {
       "path": "robots.txt",

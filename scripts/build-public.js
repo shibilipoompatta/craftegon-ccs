@@ -413,7 +413,27 @@ fs.writeFileSync(path.join(DIST, '_redirects'), publicRedirects, 'utf8');
 includedFiles.push({ path: '_redirects', size: Buffer.byteLength(publicRedirects), ext: 'config' });
 
 // 5. Generate Hardened Security Headers (_headers)
-const publicHeaders = `/api/*
+const publicHeaders = `/favicon.ico
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/favicon.png
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/apple-touch-icon.png
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/assets/images/*
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/api/*
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, POST, OPTIONS
   Access-Control-Allow-Headers: Content-Type, Authorization
