@@ -400,7 +400,7 @@
       html += `
         </div>
         <div class="search-footer-action">
-          <a href="/services.html" class="search-all-link">Browse Full 57-Service Directory &rarr;</a>
+          <a href="/services.html" class="search-all-link">Browse Services Directory &rarr;</a>
         </div>
       `;
 

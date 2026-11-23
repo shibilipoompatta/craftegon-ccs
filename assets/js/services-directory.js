@@ -296,7 +296,7 @@
           }
         }
 
-        counterEl.innerHTML = `Showing <strong>${results.length}</strong> of <strong>${catalog.length}</strong> canonical services`;
+        counterEl.innerHTML = isFiltering ? `Showing <strong>${results.length}</strong> matching corporate services` : 'Showing all available corporate services';
 
         const isFiltering = Boolean(
           (currentFilters.query && currentFilters.query.trim().length > 0) ||
@@ -317,8 +317,8 @@
           const msgEl = document.getElementById('empty-state-message');
           if (msgEl) {
             msgEl.textContent = currentFilters.query
-              ? `No canonical regulatory services matched "${currentFilters.query}". Try one of the suggested searches below or reset all filters to browse the complete 57-service directory.`
-              : 'No canonical regulatory services matched your filter combination. Reset filters to browse all 57 services.';
+              ? `No canonical regulatory services matched "${currentFilters.query}". Try one of the suggested searches below or reset all filters to browse the services directory.`
+              : 'No canonical regulatory services matched your filter combination. Reset filters to browse all corporate services.';
           }
           emptyState.style.display = 'block';
           return;

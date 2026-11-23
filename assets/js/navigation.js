@@ -572,9 +572,9 @@ function injectContextualReturnTrail() {
     const KNOWN_ROUTES = {
       '/': 'Home',
       '/index.html': 'Home',
-      '/services.html': 'All 57 Services Directory',
-      '/services/': 'All 57 Services Directory',
-      '/services/index.html': 'All 57 Services Directory',
+      '/services.html': 'Services Directory',
+      '/services/': 'Services Directory',
+      '/services/index.html': 'Services Directory',
       '/verticals/index.html': '14 Practice Areas Hub',
       '/verticals/': '14 Practice Areas Hub',
       '/search/': 'Corporate Intelligence Search Dossier',
@@ -744,7 +744,7 @@ function injectServiceDiscoveryReciprocal() {
     backLink.className = "service-dir-backlink";
     backLink.href = "/services.html";
     backLink.style.cssText = "margin-left:auto; font-size:0.8rem; color:var(--accent-green-primary, #247A62); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:4px;";
-    backLink.innerHTML = "<span>← All 57 Services</span>" /* sanitized */;
+    backLink.innerHTML = "<span>← Services Directory</span>" /* sanitized */;
     breadcrumb.style.display = "flex";
     breadcrumb.style.alignItems = "center";
     breadcrumb.appendChild(backLink);
@@ -796,7 +796,7 @@ function injectServiceDiscoveryReciprocal() {
         </div>
         <div style="margin-top: 1.25rem; text-align: center; border-top: 1px solid #E2E8F0; padding-top: 1rem;">
           <a href="/services.html" style="font-size: 0.825rem; font-weight: 700; color: var(--text-dark); text-decoration: none;">
-            🔍 Looking for a different compliance filing? Browse the complete 57-service directory &rarr;
+            🔍 Looking for a different compliance filing? Browse the universal services directory &rarr;
           </a>
         </div>
       `;

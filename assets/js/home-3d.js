@@ -310,14 +310,14 @@
             '</a>';
           });
           html += '<div style="padding:0.6rem 1rem; background:var(--surface-mint-white); text-align:center;">' +
-            '<a href="/services.html?q=' + encodeURIComponent(q) + '" style="font-size:0.78rem; font-weight:700; color:var(--accent-green-primary); text-decoration:none;">View all results in 57-Service Directory &rarr;</a>' +
+            '<a href="/services.html?q=' + encodeURIComponent(q) + '" style="font-size:0.78rem; font-weight:700; color:var(--accent-green-primary); text-decoration:none;">View all results in Services Directory &rarr;</a>' +
           '</div>';
           resultsContainer.innerHTML = html /* sanitized */;
           dropdown.style.display = "block";
         } else {
           resultsContainer.innerHTML = '<div style="padding:1rem; text-align:center; font-size:0.85rem; color:var(--text-secondary);">' + /* sanitized */
             'No matching corporate services found for "' + escapeHtml(q) + '". ' +
-            '<br><a href="/services.html" style="color:var(--accent-green-primary); font-weight:700;">Explore all 57 services &rarr;</a>' +
+            '<br><a href="/services.html" style="color:var(--accent-green-primary); font-weight:700;">Explore Services Directory &rarr;</a>' +
           '</div>';
           dropdown.style.display = "block";
         }

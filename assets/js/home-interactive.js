@@ -127,7 +127,7 @@ function initCommandSearch() {
       resultsContainer.innerHTML = ` /* sanitized */
         <div style="padding: 1.25rem; color: var(--text-light); font-size: 0.88rem; text-align: center;">
           <p style="margin: 0 0 0.5rem; color: #E2E8F0;">Zero matches found for "${String(q).replace(/[&<>"']/g, '')}".</p>
-          <a href="/services.html" style="color: var(--brand-gold); font-weight: 700; text-decoration: none;">Browse Complete 57-Service Directory &rarr;</a>
+          <a href="/services.html" style="color: var(--brand-gold); font-weight: 700; text-decoration: none;">Browse Services Directory &rarr;</a>
         </div>
       `;
     } else {
@@ -147,7 +147,7 @@ function initCommandSearch() {
       html += `
         <div style="padding: 0.6rem 1rem; background: rgba(15, 23, 42, 0.85); text-align: center; border-top: 1px solid rgba(226, 232, 240, 0.1);">
           <a href="/services.html?q=${encodeURIComponent(q)}" style="color: var(--brand-gold); font-size: 0.8rem; font-weight: 700; text-decoration: none;">
-            View all results in 57-Service Directory &rarr;
+            View all results in Services Directory &rarr;
           </a>
         </div>
       `;

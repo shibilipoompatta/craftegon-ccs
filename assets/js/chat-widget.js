@@ -71,11 +71,11 @@ COMMUNICATION PRINCIPLES & GUARDRAILS:
 const KB=[
   {k:['is ai working','isaiis working','whether ai is working','is it working','are you working','working or not','ai working','system status','status check','are you active','are you online','can you hear me','ping','diagnostics'],
   r:`Yes, I am online and operating normally! ⚡<br><br>I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot representing <b>CraftEgon LLP</b>. I am active and ready to assist you with Indian corporate law compliances, including:<br>• <b>Company Incorporation:</b> Pvt Ltd, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Statutory Calculators:</b> MCA delay penalties, RoC filing fees, MSME 43B(h)<br>• <b>Direct Advisory:</b> Micro-retainers and dedicated compliance desk<br><br>How can I assist your business today?`,
-  a:[['Explore 57 Services','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
+  a:[['Explore Services Directory','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['how are you','how r u','hello','hi','hey','good morning','good afternoon','good evening','who are you','what is your name','your name','who r u','what can you do','jinu','who is jinu','are you jinu','introduce yourself'],
   r:`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b>.<br><br>I can assist you directly with:<br>• <b>Company Formation:</b> Private Limited, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Corporate Tax &amp; GST:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h) compliance<br>• <b>Cross-Border FDI:</b> RBI FLA Return, FC-GPR filing<br>• <b>Corporate Retainer Desk:</b> Year-round secretarial support<br><br>How can I assist you with your business today?`,
-  a:[['Explore 57 Services','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
+  a:[['Explore Services Directory','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['llp','limited liability partnership','fillip','form 3','run-llp','dpin','incorporate llp','llp formation','register llp','start llp'],
   r:`Incorporating a <b>Limited Liability Partnership (LLP)</b> under the <b>LLP Act, 2008</b> &amp; MCA V3:<br>
@@ -127,7 +127,7 @@ const KB=[
   * <b>Prior License (Form INC-12):</b> Requires Central Government / RoC license approval via Form INC-12 before incorporation.<br>
   * <b>SPICe+ Filing:</b> Incorporated via SPICe+ with specialized non-profit MoA and AoA without adding "Private Limited" or "Limited" to its corporate name.<br>
   * <b>Tax Exemptions:</b> Requires post-incorporation 12AB and 80G registrations with the Income Tax Department.`,
-  a:[['Section 8 Registration','/services/section-8-registration.html'],['Explore 57 Services','/services.html'],['Contact Compliance Desk','/conversion/retainer-desk.html']]},
+  a:[['Section 8 Registration','/services/section-8-registration.html'],['Explore Services Directory','/services.html'],['Contact Compliance Desk','/conversion/retainer-desk.html']]},
 
   {k:['proprietor','proprietorship','sole proprietor','udyam','kerala shops','shop act','lcas','k-smart','current account documents'],
   r:`Establishing a <b>Sole Proprietorship</b> in India &amp; Kerala:<br>
@@ -373,7 +373,7 @@ function getReferenceLinks(query){
     {terms:['incorporat','pvt ltd','private limited','spice+'],link:['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html']}
   ];
   const matches=references.filter(reference=>reference.terms.some(term=>qNorm.includes(term))).map(reference=>reference.link);
-  return matches.length?matches.slice(0,3):[['All 57 Canonical Services','/services.html'],['Compliance Desk','/conversion/retainer-desk.html']];
+  return matches.length?matches.slice(0,3):[['Corporate Services Directory','/services.html'],['Compliance Desk','/conversion/retainer-desk.html']];
 }
 
 // Convert markdown text to clean sanitized HTML
@@ -429,7 +429,7 @@ function inferActionPills(query, botText) {
     pills.push(['Calculate Filing Fees', '/conversion/calculator.html']);
   } else if (combined.includes('section 8') || combined.includes('non profit')) {
     pills.push(['Section 8 Formation', '/services/section-8-registration.html']);
-    pills.push(['Explore 57 Services', '/services.html']);
+    pills.push(['Explore Services Directory', '/services.html']);
   } else if (combined.includes('incorporat') || combined.includes('pvt ltd') || combined.includes('company') || combined.includes('formation')) {
     pills.push(['Pvt Ltd Formation', '/services/pvt-ltd-registration.html']);
     pills.push(['Fast-Track Intake', '/conversion/ppc-company-registration.html']);
@@ -465,7 +465,7 @@ function evaluateInputBrakes(query) {
     return {
       triggered: true,
       r: `CraftEgon CCS operates exclusively within verified statutory compliance parameters under Indian corporate law. I cannot alter system operating instructions or deviate from professional regulatory standards.<br><br>How can I assist your business with RoC filings, MCA V3 compliances, or corporate secretarial structuring?`,
-      a: [['Explore 57 Services', '/services.html'], ['Contact Compliance Desk', '/conversion/retainer-desk.html']],
+      a: [['Explore Services Directory', '/services.html'], ['Contact Compliance Desk', '/conversion/retainer-desk.html']],
       s: [['CraftEgon Terms', '/legal/terms.html'], ['Professional Disclaimer', '/legal/disclaimer.html']]
     };
   }
@@ -479,7 +479,7 @@ function evaluateInputBrakes(query) {
       * <b>Fee Transparency:</b> Zero hidden government fees or surprise stamp duties.<br>
       * <b>Direct Accountability:</b> Real operational service desks in Alappuzha and New Delhi with dedicated compliance officers.<br><br>
       We invite you to experience institutional compliance precision:`,
-      a: [['Explore 57 Services', '/services.html'], ['Book Micro-Retainer (₹999)', '/conversion/retainer-desk.html'], ['WhatsApp Desk', 'https://wa.me/918606918247']],
+      a: [['Explore Services Directory', '/services.html'], ['Book Micro-Retainer (₹999)', '/conversion/retainer-desk.html'], ['WhatsApp Desk', 'https://wa.me/918606918247']],
       s: [['About CraftEgon CCS', '/about.html'], ['Institutional Model', '/about.html#how-we-operate']]
     };
   }
@@ -844,7 +844,7 @@ function matchQuery(q){
       (n.includes('work') || n.includes('active') || n.includes('online') || n.includes('live') || n.includes('status') || n.includes('running') || n.includes('operational'))) {
     return {
       r: `Yes, I am online and operating normally! ⚡<br><br>I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot representing <b>CraftEgon LLP</b>. I am active and ready to assist you with Indian corporate law compliances, including:<br>• <b>Company Incorporation:</b> Pvt Ltd, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Statutory Calculators:</b> MCA delay penalties, RoC filing fees, MSME 43B(h)<br>• <b>Direct Advisory:</b> Micro-retainers and dedicated compliance desk<br><br>How can I assist your business today?`,
-      a: [['Explore 57 Services', '/services.html'], ['Calculate Filing Fees', '/conversion/calculator.html'], ['Corporate Retainer Desk', '/conversion/retainer-desk.html']],
+      a: [['Explore Services Directory', '/services.html'], ['Calculate Filing Fees', '/conversion/calculator.html'], ['Corporate Retainer Desk', '/conversion/retainer-desk.html']],
       s: getReferenceLinks(n)
     };
   }
@@ -919,7 +919,7 @@ function openSettingsModal() {
       </div>
       <div class="cchat-modal-body">
         <p style="font-size: 0.82rem; color: var(--text-secondary, #52717A); margin-bottom: 1rem; line-height: 1.5;">
-          Configure CraftEgon's global AI co-pilot engine. When saved, Jinu answers questions using natural AI reasoning grounded in CraftEgon's 57 corporate compliance services.
+          Configure CraftEgon's global AI co-pilot engine. When saved, Jinu answers questions using natural AI reasoning grounded in CraftEgon's comprehensive corporate compliance services.
         </p>
         <label style="display:block; font-size: 0.78rem; font-weight: 700; color: var(--navy-800, #193B46); margin-bottom: 0.35rem;">
           Active AI Model:

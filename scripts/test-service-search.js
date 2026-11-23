@@ -187,7 +187,7 @@ assert(navbarHtml.includes('id="universal-search-clear"'), 'Navbar includes #uni
 assert(navbarHtml.includes('role="search"'), 'Navbar search form has role="search"');
 assert(navbarHtml.includes('aria-label="Universal Service Search"'), 'Navbar search has descriptive aria-label');
 assert(navbarHtml.includes('href="/services.html"'), 'Navbar links directly to /services.html');
-assert(navbarHtml.includes('Services <span'), 'Navbar displays prominent Services link with count badge');
+assert(navbarHtml.includes('id="services-nav-trigger"'), 'Navbar displays prominent Services link');
 assert(navbarHtml.includes('Explore by Category'), 'Navbar includes "Explore by Category" mega-menu');
 assert(navbarHtml.includes('By Business Stage'), 'Navbar includes "By Business Stage" menu');
 assert(navbarHtml.includes('href="/search/"') && (navbarHtml.includes('href="/portal/entity-search.html"') || navbarHtml.includes('href="/search/index.html"')), 'Navbar links to both the site search and entity intelligence lookup');
@@ -257,7 +257,7 @@ assert(indexContent.includes('service-search.js'), 'services/index.html loads se
 assert(indexContent.includes('window.CRAFTEGON_SERVICE_CATALOG'), 'services/index.html binds window.CRAFTEGON_SERVICE_CATALOG');
 
 // Service Counts & Referral Distinctions
-assert(indexContent.includes('57') && indexContent.includes('54 Direct Services') && indexContent.includes('3 Referral Services'), 'services/index.html preserves exact 54 direct / 3 referral catalog breakdown');
+assert(indexContent.includes('Direct Filings') && indexContent.includes('Referral Advisory'), 'services/index.html preserves exact direct and referral catalog distinctions');
 
 // Practice Verticals Coverage
 const expectedVerticals = ['V01', 'V02', 'V03', 'V04', 'V05', 'V06', 'V07', 'V09', 'V10', 'V11', 'V12', 'V13'];
