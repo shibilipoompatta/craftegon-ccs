@@ -1,8 +1,13 @@
 Add-Type -AssemblyName System.Drawing
 
-# 1. Load the cropped badge
-$badgePath = Join-Path (Get-Location) "assets\images\craftegon-symbol-badge.png"
-$badge = [System.Drawing.Image]::FromFile($badgePath)
+# 1. Load the white background favicon source
+$srcPath = Join-Path (Get-Location) "assets\images\favicon.png"
+if (-not (Test-Path $srcPath)) {
+    Write-Error "Source image not found: $srcPath"
+    exit 1
+}
+
+$srcBmp = [System.Drawing.Bitmap]::FromFile($srcPath)
 
 function Generate-Icon($srcImg, $width, $height, $destPath) {
     $dest = New-Object System.Drawing.Bitmap($width, $height, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
@@ -11,13 +16,7 @@ function Generate-Icon($srcImg, $width, $height, $destPath) {
     $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
     $g.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
     $g.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
-    $g.Clear([System.Drawing.Color]::Transparent)
-    
-    # Scale badge with 1px margin so borders don't touch image edge
-    $margin = [Math]::Max(1, [int]($width * 0.02))
-    $drawW = $width - ($margin * 2)
-    $drawH = $height - ($margin * 2)
-    $g.DrawImage($srcImg, $margin, $margin, $drawW, $drawH)
+    $g.DrawImage($srcImg, 0, 0, $width, $height)
     $g.Dispose()
     
     $dest.Save($destPath, [System.Drawing.Imaging.ImageFormat]::Png)
@@ -25,16 +24,16 @@ function Generate-Icon($srcImg, $width, $height, $destPath) {
     Write-Host "Generated $destPath ($width x $height)"
 }
 
-# Generate Google Search and standard sizes
-Generate-Icon $badge 48 48 (Join-Path (Get-Location) "assets\images\favicon-48x48.png")
-Generate-Icon $badge 96 96 (Join-Path (Get-Location) "assets\images\favicon-96x96.png")
-Generate-Icon $badge 192 192 (Join-Path (Get-Location) "assets\images\favicon-192x192.png")
-Generate-Icon $badge 180 180 (Join-Path (Get-Location) "assets\images\apple-touch-icon.png")
-Generate-Icon $badge 180 180 (Join-Path (Get-Location) "apple-touch-icon.png")
-Generate-Icon $badge 32 32 (Join-Path (Get-Location) "assets\images\favicon-32x32.png")
-Generate-Icon $badge 16 16 (Join-Path (Get-Location) "assets\images\favicon-16x16.png")
+# Generate Google Search and standard sizes matching main site
+Generate-Icon $srcBmp 48 48 (Join-Path (Get-Location) "assets\images\favicon-48x48.png")
+Generate-Icon $srcBmp 96 96 (Join-Path (Get-Location) "assets\images\favicon-96x96.png")
+Generate-Icon $srcBmp 192 192 (Join-Path (Get-Location) "assets\images\favicon-192x192.png")
+Generate-Icon $srcBmp 180 180 (Join-Path (Get-Location) "assets\images\apple-touch-icon.png")
+Generate-Icon $srcBmp 180 180 (Join-Path (Get-Location) "apple-touch-icon.png")
+Generate-Icon $srcBmp 32 32 (Join-Path (Get-Location) "assets\images\favicon-32x32.png")
+Generate-Icon $srcBmp 16 16 (Join-Path (Get-Location) "assets\images\favicon-16x16.png")
 
-$badge.Dispose()
+$srcBmp.Dispose()
 
 # Now create multi-resolution favicon.ico containing 16x16, 32x32, 48x48 PNGs
 $png16 = [System.IO.File]::ReadAllBytes((Join-Path (Get-Location) "assets\images\favicon-16x16.png"))
