@@ -422,7 +422,7 @@ function calculateCost() {
     // Formation Addons
     if (document.getElementById('f-addon-gst')?.checked) addonTotal += 999;
     if (document.getElementById('f-addon-dpiit')?.checked) addonTotal += 2499;
-    if (document.getElementById('f-addon-tm')?.checked) addonTotal += 3999;
+    if (document.getElementById('f-addon-tm')?.checked) addonTotal += 4999;
     if (document.getElementById('f-addon-governance')?.checked) addonTotal += 1499;
 
     total = baseProf + baseGovt + stampDuty + addonTotal;
@@ -1173,7 +1173,7 @@ function generateStatutoryMemo() {
       rows.push({ item: 'Startup India DPIIT Recognition & Tax Exemption Kit', basis: 'Form 1 Section 80-IAC tax exemption & DPIIT certificate', amt: '₹2,499' });
     }
     if (document.getElementById('f-addon-tm')?.checked) {
-      rows.push({ item: 'Trademark Clearance & Form TM-A Filing', basis: 'NICE Class clearance & filing under Trade Marks Act 1999', amt: '₹3,999' });
+      rows.push({ item: 'Trademark Clearance & Form TM-A Filing', basis: 'NICE Class clearance & filing under Trade Marks Act 1999', amt: '₹4,999' });
     }
     if (document.getElementById('f-addon-governance')?.checked) {
       rows.push({ item: 'Corporate Banking Resolution & Share Certificates Kit', basis: 'Form SH-1 share certificates and banking minutes', amt: '₹1,499' });

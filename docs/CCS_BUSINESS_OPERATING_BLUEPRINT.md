@@ -377,7 +377,7 @@ $$\text{Base Professional Fee} = (\text{Direct Labor Hours} \times \text{Hourly 
 | **Pvt Ltd Incorporation** | ₹5,999 – ₹7,999 | ₹1,500 – ₹4,000 (State Stamp Duty) | ₹1,500 (CA/CS Cert) | 55% – 62% | 5–7 Days |
 | **LLP Registration** | ₹4,999 – ₹6,499 | ₹1,000 – ₹2,500 (State Stamp Duty) | ₹1,000 (Cert/Filing) | 50% – 58% | 7–10 Days |
 | **MSME Udyam Registration**| ₹999 – ₹1,499 | ₹0 (Zero Govt Fee) | ₹0 (Internal Delivery)| 85% – 90% | 1–2 Days |
-| **Trademark Form TM-A** | ₹2,999 – ₹3,999 | ₹4,500 (Govt Fee for Startup/SME) | ₹1,000 (TM Agent) | 50% – 60% | 2 Days |
+| **Trademark Form TM-A** | ₹4,999 | ₹4,500 (Govt Fee for Startup/SME) | ₹1,000 (TM Agent) | 50% – 60% | 2 Days |
 | **RoC Annual Retainer** | ₹14,999 – ₹24,999/yr | Actual RoC Filing Fees (~₹1,200) | ₹4,000 (PCS Audit) | 60% – 68% | Annual |
 | **Fast-Track Strike-Off** | ₹9,999 – ₹14,999 | ₹10,000 (Govt STK-2 Fee) | ₹2,500 (CA Audit STK-8)| 50% – 55% | 20–30 Days |
 

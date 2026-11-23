@@ -1511,11 +1511,11 @@
     "canonical_route": "/services/trademark-registration.html",
     "primary_vertical_id": "V06",
     "currency": "INR",
-    "amount": 3999,
+    "amount": 4999,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹3,999 + Govt. Fees",
+    "website_displayed_price": "₹4,999 + Govt. Fees",
     "package_title": "Instant Trademark Filing (Form TM-A)",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
