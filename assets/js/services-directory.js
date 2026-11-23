@@ -30,15 +30,13 @@
         stage: 'ALL'
       };
 
-      // Read query params from URL (e.g. ?q=... or ?stage=... or ?vertical=...)
+      // Read query params from URL (e.g. ?q=... or ?query=... or ?search=... or ?stage=... or ?vertical=...)
       const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.has('q')) {
-        const qVal = (urlParams.get('q') || '').trim();
-        if (qVal.length > 0) {
-          currentFilters.query = qVal;
-          searchInput.value = qVal;
-          clearBtn.style.display = 'inline-block';
-        }
+      const qVal = (urlParams.get('q') || urlParams.get('query') || urlParams.get('search') || '').trim();
+      if (qVal.length > 0) {
+        currentFilters.query = qVal;
+        if (searchInput) searchInput.value = qVal;
+        if (clearBtn) clearBtn.style.display = 'inline-block';
       }
       if (urlParams.has('stage')) {
         const paramStage = (urlParams.get('stage') || '').toLowerCase().trim();
@@ -253,7 +251,29 @@
             }
           }
         } else {
-          results = catalog.map(item => ({ item, score: 10 }));
+          // Robust client-side fallback if CraftEgonSearch is not yet initialized
+          const qLower = (currentFilters.query || '').toLowerCase().trim();
+          let filtered = catalog;
+          if (qLower) {
+            filtered = catalog.filter(item => {
+              const str = [
+                item.name,
+                item.id,
+                item.vertical_name,
+                item.description,
+                (item.keywords || []).join(' '),
+                (item.forms || []).join(' ')
+              ].join(' ').toLowerCase();
+              return str.includes(qLower);
+            });
+          }
+          if (currentFilters.vertical_id && currentFilters.vertical_id !== 'ALL') {
+            filtered = filtered.filter(item => item.vertical_id === currentFilters.vertical_id);
+          }
+          if (currentFilters.status && currentFilters.status !== 'ALL') {
+            filtered = filtered.filter(item => currentFilters.status === 'DIRECT' ? !item.is_referral : item.is_referral);
+          }
+          results = filtered.map(item => ({ item, score: 10 }));
         }
 
         // Apply stage filter if selected
@@ -503,6 +523,20 @@
 
       // Initial render
       renderCatalog();
+
+      // If CraftEgonSearch becomes available after initial render, re-render to ensure multi-tier search ranking
+      if (!window.CraftEgonSearch || !window.CraftEgonSearch.engine) {
+        let retryCount = 0;
+        const retryInterval = setInterval(function () {
+          retryCount++;
+          if (window.CraftEgonSearch && window.CraftEgonSearch.engine) {
+            clearInterval(retryInterval);
+            renderCatalog();
+          } else if (retryCount > 10) {
+            clearInterval(retryInterval);
+          }
+        }, 100);
+      }
 
     // Setup suggestion click handlers
     document.querySelectorAll('.filter-chip[data-suggestion]').forEach(function(btn) {
