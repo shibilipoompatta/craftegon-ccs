@@ -296,8 +296,6 @@
           }
         }
 
-        counterEl.innerHTML = isFiltering ? `Showing <strong>${results.length}</strong> matching corporate services` : 'Showing all available corporate services';
-
         const isFiltering = Boolean(
           (currentFilters.query && currentFilters.query.trim().length > 0) ||
           (currentFilters.stage && currentFilters.stage !== 'ALL') ||
@@ -305,6 +303,11 @@
           (currentFilters.entity_type && currentFilters.entity_type !== 'ALL') ||
           (currentFilters.status && currentFilters.status !== 'ALL')
         );
+
+        if (counterEl) {
+          counterEl.innerHTML = isFiltering ? `Showing <strong>${results.length}</strong> matching corporate services` : 'Showing all available corporate services';
+        }
+
         if (featuredShelf) {
           featuredShelf.style.display = isFiltering ? 'none' : 'block';
         }
