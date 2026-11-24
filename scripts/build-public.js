@@ -428,10 +428,21 @@ const publicHeaders = `/favicon.ico
   Cross-Origin-Resource-Policy: cross-origin
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
+/site.webmanifest
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Content-Type: application/manifest+json; charset=utf-8
+  Cache-Control: public, max-age=86400
+
 /assets/images/*
   Access-Control-Allow-Origin: *
   Cross-Origin-Resource-Policy: cross-origin
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/assets/fonts/*
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Cache-Control: public, max-age=31536000, immutable
 
 /api/*
   Access-Control-Allow-Origin: *
@@ -439,9 +450,6 @@ const publicHeaders = `/favicon.ico
   Access-Control-Allow-Headers: Content-Type, Authorization
 
 /*
-  Access-Control-Allow-Origin: https://ccs.craftegon.com
-  Access-Control-Allow-Methods: GET, POST, OPTIONS
-  Access-Control-Allow-Headers: Content-Type, Authorization
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

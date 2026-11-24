@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-23T17:47:48.984Z",
+  "buildTimestamp": "2026-11-24T08:18:05.264Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 217,
-    "totalOutputSizeBytes": 13817118,
+    "totalOutputSizeBytes": 13818790,
     "totalOutputSizeFormatted": "13.18 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
@@ -68,7 +68,7 @@
     },
     {
       "path": "about.html",
-      "bytes": 73344
+      "bytes": 73422
     },
     {
       "path": "anti-slop/audit-001-2026-11-20.md",
@@ -256,31 +256,31 @@
     },
     {
       "path": "categories/business-setup.html",
-      "bytes": 62192
+      "bytes": 62270
     },
     {
       "path": "categories/corporate-compliance.html",
-      "bytes": 61664
+      "bytes": 61742
     },
     {
       "path": "categories/index.html",
-      "bytes": 65092
+      "bytes": 65170
     },
     {
       "path": "categories/legal-contracts-ip.html",
-      "bytes": 62542
+      "bytes": 62620
     },
     {
       "path": "categories/licences-registrations.html",
-      "bytes": 62321
+      "bytes": 62399
     },
     {
       "path": "categories/tax-compliance.html",
-      "bytes": 61460
+      "bytes": 61538
     },
     {
       "path": "categories/workforce-operations.html",
-      "bytes": 62679
+      "bytes": 62757
     },
     {
       "path": "components/footer.html",
@@ -292,7 +292,7 @@
     },
     {
       "path": "contact.html",
-      "bytes": 72384
+      "bytes": 72462
     },
     {
       "path": "conversion/ai-document-generator.html",
@@ -436,7 +436,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 162665
+      "bytes": 162847
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
@@ -596,11 +596,11 @@
     },
     {
       "path": "locations/kozhikode-corporate-services.html",
-      "bytes": 60306
+      "bytes": 60384
     },
     {
       "path": "locations/malappuram-nri-business-desk.html",
-      "bytes": 60591
+      "bytes": 60669
     },
     {
       "path": "schema/d1-compliance-schema.sql",
@@ -724,7 +724,7 @@
     },
     {
       "path": "services/index.html",
-      "bytes": 105240
+      "bytes": 105420
     },
     {
       "path": "services/ip-enforcement-cease-desist.html",
@@ -844,11 +844,11 @@
     },
     {
       "path": "services.html",
-      "bytes": 105240
+      "bytes": 105420
     },
     {
       "path": "site.webmanifest",
-      "bytes": 695
+      "bytes": 716
     },
     {
       "path": "verticals/01-entity-formation.html",
@@ -908,7 +908,7 @@
     },
     {
       "path": "verticals/index.html",
-      "bytes": 78246
+      "bytes": 78324
     },
     {
       "path": "_redirects",
@@ -916,7 +916,7 @@
     },
     {
       "path": "_headers",
-      "bytes": 2578
+      "bytes": 2751
     },
     {
       "path": "robots.txt",
