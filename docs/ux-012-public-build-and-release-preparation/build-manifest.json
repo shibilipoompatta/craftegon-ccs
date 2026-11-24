@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-24T08:24:08.642Z",
+  "buildTimestamp": "2026-11-24T08:48:20.428Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,8 +10,8 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 217,
-    "totalOutputSizeBytes": 13818809,
+    "totalFilesIncluded": 219,
+    "totalOutputSizeBytes": 13824980,
     "totalOutputSizeFormatted": "13.18 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
@@ -24,11 +24,11 @@
       ".bak": 1,
       ".ico": 2,
       ".js": 19,
+      ".txt": 3,
       ".json": 10,
       ".sql": 1,
       ".webmanifest": 1,
       "config": 2,
-      ".txt": 1,
       ".xml": 1
     }
   },
@@ -253,6 +253,10 @@
     {
       "path": "assets/js/services-directory.js",
       "bytes": 17301
+    },
+    {
+      "path": "c7a4e8d21b9f4056a2e8c1d3f5b709a2.txt",
+      "bytes": 32
     },
     {
       "path": "categories/business-setup.html",
@@ -595,6 +599,10 @@
       "bytes": 68031
     },
     {
+      "path": "llms.txt",
+      "bytes": 4661
+    },
+    {
       "path": "locations/kozhikode-corporate-services.html",
       "bytes": 60384
     },
@@ -916,11 +924,11 @@
     },
     {
       "path": "_headers",
-      "bytes": 2751
+      "bytes": 3119
     },
     {
       "path": "robots.txt",
-      "bytes": 424
+      "bytes": 1534
     },
     {
       "path": "sitemap.xml",

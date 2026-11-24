@@ -1,3 +1,8 @@
+# ==============================================================================
+# CRAFTEGON CORPORATE SERVICES (CCS) - ROBOTS.TXT
+# Canonical Host: https://ccs.craftegon.com
+# ==============================================================================
+
 User-agent: *
 Allow: /
 Disallow: /components/
@@ -8,4 +13,73 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /portal/
 
+# ------------------------------------------------------------------------------
+# Search Engine Crawlers (Microsoft Bing, Google, Yahoo, DuckDuckGo)
+# ------------------------------------------------------------------------------
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+# ------------------------------------------------------------------------------
+# AI Search & LLM Knowledge Crawlers (OpenAI, Perplexity, Anthropic, Apple, Cohere)
+# ------------------------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+# ------------------------------------------------------------------------------
+# Sitemaps & Machine-Readable AI Knowledge Manifest
+# ------------------------------------------------------------------------------
 Sitemap: https://ccs.craftegon.com/sitemap.xml

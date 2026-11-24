@@ -434,6 +434,18 @@ const publicHeaders = `/favicon.ico
   Content-Type: application/manifest+json; charset=utf-8
   Cache-Control: public, max-age=86400
 
+/llms.txt
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+/c7a4e8d21b9f4056a2e8c1d3f5b709a2.txt
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400
+
 /assets/images/*
   Access-Control-Allow-Origin: *
   Cross-Origin-Resource-Policy: cross-origin
@@ -489,7 +501,8 @@ includedFiles.push({ path: '_headers', size: Buffer.byteLength(publicHeaders), e
 
 // 6. Generate Clean Public Robots Configuration (robots.txt)
 const publicRobots = `# ==============================================================================
-# CRAFTEGON CORPORATE SERVICES: PRODUCTION ROBOTS.TXT
+# CRAFTEGON CORPORATE SERVICES (CCS) - ROBOTS.TXT
+# Canonical Host: https://ccs.craftegon.com
 # ==============================================================================
 User-agent: *
 Allow: /
@@ -497,7 +510,73 @@ Allow: /
 # Exclude internal / prototype namespaces
 Disallow: /admin/
 Disallow: /portal/
-Disallow: /data/backups/
+Disallow: /api/
+Disallow: /data/
+Disallow: /components/
+Disallow: /scripts/
+Disallow: /scratch/
+
+# Search Engine Crawlers (Microsoft Bing, Google, Yahoo, DuckDuckGo)
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+# AI Search & LLM Knowledge Crawlers (OpenAI, Perplexity, Anthropic, Apple, Cohere)
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
 
 # Canonical Sitemap Declaration
 Sitemap: https://ccs.craftegon.com/sitemap.xml
