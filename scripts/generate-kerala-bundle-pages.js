@@ -336,8 +336,9 @@ ${ssgNavbar}
               ${bundle.targetAudience.map(aud => `<span class="kl-bundle-code">${esc(aud)}</span>`).join('')}
             </div>
             <div class="kl-hero-actions">
-              <a href="#roadmap-phases" class="kl-btn-primary">Review 3-Phase Roadmap &rarr;</a>
-              <a href="#bundle-consultation" class="kl-btn-secondary">Request Scoped Proposal</a>
+              <a href="/conversion/calculator.html?bundle=${encodeURIComponent(bundle.id)}#readiness" class="kl-btn-primary">Start Readiness &amp; Scope Check &rarr;</a>
+              <a href="#roadmap-phases" class="kl-btn-secondary">3-Phase Roadmap</a>
+              <a href="#bundle-consultation" class="kl-btn-secondary">Request Proposal</a>
             </div>
           </div>
 

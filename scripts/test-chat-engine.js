@@ -47,6 +47,9 @@ const testQueries = [
   'Can you generate a founder or NDA agreement?',
   'Tell me about GST annual return GSTR-9 and Form 3CEB',
   'We want to shut down our defunct company using STK-2',
+  'What are the Kerala Launch-to-Operate industry bundles?',
+  'How do I check my Kerala bundle readiness and scope?',
+  'What is the DIR-3 KYC requirement under Rule 12A?',
   'Random complex question about aerospace law'
 ];
 
@@ -77,8 +80,28 @@ for (const q of testQueries) {
 console.log(`\nTotal queries tested: ${testQueries.length}`);
 console.log(`Total action URLs verified: ${totalActionsChecked}`);
 
+// Phase 3 Regulatory & Positioning Hygiene Checks
+if (/Sept 30|penalty 5,000|Rs 5,000|₹999/i.test(widgetCode)) {
+  console.error('ERROR: Legacy DIR-3 KYC (Sept 30 / Rs 5,000) or unapproved retainer fee found in chat-widget.js');
+  allPassed = false;
+}
+if (!widgetCode.includes('Markaz Knowledge City')) {
+  console.error('ERROR: Markaz Knowledge City desk reference missing from chat-widget.js');
+  allPassed = false;
+}
+const kycMatch = sandbox.matchQuery('What is the DIR-3 KYC requirement under Rule 12A?');
+if (!kycMatch.r.includes('30 June') || !kycMatch.r.includes('Rule 12A')) {
+  console.error('ERROR: DIR-3 KYC response did not include amended Rule 12A / 30 June guidance');
+  allPassed = false;
+}
+const bundleMatch = sandbox.matchQuery('What are the Kerala Launch-to-Operate industry bundles?');
+if (!bundleMatch.r.includes('Launch-to-Operate') || !bundleMatch.a.some(a => a[1].includes('calculator.html#readiness'))) {
+  console.error('ERROR: Kerala bundles query did not route to Launch-to-Operate + Readiness Estimator');
+  allPassed = false;
+}
+
 if (!allPassed) {
   process.exit(1);
 } else {
-  console.log(`STATUS: PASS (100% of intents matched and all action URLs verified on disk)\n`);
+  console.log(`STATUS: PASS (100% of intents matched, regulatory hygiene verified, and all action URLs verified on disk)\n`);
 }

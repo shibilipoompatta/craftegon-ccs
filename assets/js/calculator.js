@@ -1258,7 +1258,7 @@ function closeStatutoryMemo() {
 }
 
 function switchTab(tabIndex) {
-  for (let i = 1; i <= 4; i++) {
+  for (let i = 1; i <= 5; i++) {
     const btn = document.getElementById('tab-btn-' + i);
     const content = document.getElementById('calc-tab-' + i);
     if (btn && content) {
@@ -1275,9 +1275,362 @@ function switchTab(tabIndex) {
   }
 }
 
+// Module 5: Phase 3 Kerala Vertical Readiness & Bundle Scope Estimator
+const KERALA_ESTIMATOR_SPECS = {
+  'KL-BND-CLINIC': {
+    id: 'KL-BND-CLINIC',
+    slug: 'clinics-diagnostics-kerala',
+    bundleName: 'Clinic Launch & Year-1 Risk Shield',
+    title: 'Clinics, Diagnostics & Care/Research Centers',
+    phase1: [
+      'K-SWIFT single-window departmental routing & facility readiness dossier',
+      'Kerala Clinical Establishments registration standards & display checklist',
+      'KSPCB Bio-Medical Waste (BMW) consent + CBMWTF (e.g., IMAGE) linkage',
+      'LSGD commercial occupancy / trade license & conditional AERB / Pharmacy scope'
+    ],
+    phase2: [
+      'Consultant Doctor & Visiting Specialist engagement agreements (Sec 194J alignment)',
+      'Diagnostic equipment lease/AMC SLA & clinical premises fit-out lease deed',
+      'DPDP Act patient privacy kit, POSH IC constitution & Class 44 trademark filing'
+    ],
+    phase3: [
+      'Connected-banking segregation of consultations, lab packages & pharmacy GST',
+      'Monthly TDS (194J/194I/194C), EPF/ESIC nursing payroll & RoC/LLP compliance',
+      'Renewal calendar for KSPCB BMW, Clinical Establishments, LSGD & Fire safety'
+    ],
+    nieg: 'NIEG Clinical Transparency & Ethical Governance Charter (tariff display & conflict-of-interest hygiene).',
+    tiers: {
+      T1: { tierId: 'KL-CLINIC-T1', name: 'Launch + Core Licensing Readiness', quoteMode: 'Scoped Diagnostic Quote (Entity + Facility Footprint Assessment)' },
+      T2: { tierId: 'KL-CLINIC-T2', name: 'Full Setup + Clinical Risk Shield', quoteMode: 'Scoped Proposal (Doctor Headcount & Equipment Capex Bracket)' },
+      T3: { tierId: 'KL-CLINIC-T3', name: 'Year-1 Healthcare Governance Retainer', quoteMode: 'Turnover-Bracketed Retainer Quote (Monthly / Annual Cadence)' }
+    }
+  },
+  'KL-BND-EXIM': {
+    id: 'KL-BND-EXIM',
+    slug: 'exim-cold-chain-kerala',
+    bundleName: 'EXIM & Cold-Chain Trade Pack',
+    title: 'EXIM, Freight, Warehousing & Cold-Chain Logistics',
+    phase1: [
+      'DGFT Import-Export Code (IEC), ICEGATE mapping & Bank port AD Code linkage',
+      'GST registration with godown/warehouse additions + bond-free Export LUT (RFD-11)',
+      'Spices Board / APEDA / MPEDA / FIEO RCMC & K-SWIFT/KSPCB cold-storage dossiers',
+      'NRI / cross-border FEMA capital & FIRMS readiness where foreign equity applies'
+    ],
+    phase2: [
+      'CHA, freight forwarder & customs clearance SLA / demurrage indemnity pacts',
+      'Cold-storage bailment & reefer temperature telemetry transport contracts',
+      'Cross-border Master Supply Agreements (Incoterms 2020) & warehouse lease deeds'
+    ],
+    phase3: [
+      'Connected-banking e-BRC / EDPMS & IDPMS realization deadline monitoring',
+      'Monthly GSTR-1/3B zero-rated export returns, ITC refunds & LUT annual renewal',
+      'Annual RBI FLA Return, Form 3CEB Transfer Pricing & RoC / RCMC compliance'
+    ],
+    nieg: 'NIEG Trade Integrity & Supply-Chain Protocol (zero-facilitation-bribery & demurrage billing accountability).',
+    tiers: {
+      T1: { tierId: 'KL-EXIM-T1', name: 'EXIM Launch & Customs Readiness', quoteMode: 'Scoped Diagnostic Quote (Export Corridor & Warehouse Assessment)' },
+      T2: { tierId: 'KL-EXIM-T2', name: 'Full EXIM Setup + Cold-Chain SLA Shield', quoteMode: 'Scoped Proposal (Trade Volume & Cross-Border Contracting Scope)' },
+      T3: { tierId: 'KL-EXIM-T3', name: 'Year-1 EXIM & FEMA Governance Retainer', quoteMode: 'Shipment-Volume & Turnover-Bracketed Retainer Quote' }
+    }
+  },
+  'KL-BND-FOOD': {
+    id: 'KL-BND-FOOD',
+    slug: 'food-spice-processing-kerala',
+    bundleName: 'Plant-to-Shelf Launch & Retainer',
+    title: 'Food, Spice/Agri Processing & Wellness/Nutraceutical Units',
+    phase1: [
+      'K-SWIFT industrial clearance, KINFRA/factory routing & machinery alignment',
+      'KSPCB Consent to Establish (CTE) & Consent to Operate (CTO) effluent prep',
+      'FoSCoS FSSAI State/Central manufacturing & nutraceutical categorization',
+      'LSGD trade license, Legal Metrology label pack checklist, Udyam & TM Class 29/30/5'
+    ],
+    phase2: [
+      'Contract manufacturing / OEM co-packing & proprietary spice blend NDA pacts',
+      'Distributor, super-stockist & quick-commerce vendor contracts (43B(h) aligned)',
+      'Agri-commodity grade/spec procurement contracts, factory HR & POSH compliance'
+    ],
+    phase3: [
+      'Connected-banking batch HSN GST filings, Sec 43B(h) 45-day MSME supplier tracking',
+      'Half-yearly Form MSME-1, EPF/ESIC factory payroll & Annual RoC/LLP filings',
+      'Annual FSSAI Return (Form D-1), KSPCB CTO & Legal Metrology renewal calendar'
+    ],
+    nieg: 'NIEG Clean-Label & Fair MSME Supply-Chain Standard (claim substantiation & timely small-supplier payments).',
+    tiers: {
+      T1: { tierId: 'KL-FOOD-T1', name: 'Plant Entity & Pre-Launch Licensing Pack', quoteMode: 'Scoped Diagnostic Quote (Plant Capacity & FSSAI Tier Assessment)' },
+      T2: { tierId: 'KL-FOOD-T2', name: 'Plant-to-Shelf Full Setup + IP & Trade Shield', quoteMode: 'Scoped Proposal (SKU Count & Distribution Channels)' },
+      T3: { tierId: 'KL-FOOD-T3', name: 'Year-1 Processing Governance Retainer', quoteMode: 'Turnover & Headcount Bracketed Retainer Quote' }
+    }
+  },
+  'KL-BND-HOSPITALITY': {
+    id: 'KL-BND-HOSPITALITY',
+    slug: 'hospitality-resorts-kerala',
+    bundleName: 'Property Launch & Hospitality Suite',
+    title: 'Hospitality, Boutique Stays & Eco/Wellness Resorts',
+    phase1: [
+      'Asset/operating SPV setup tailored for NRI or multi-investor hospitality promoters',
+      'LSGD commercial building occupancy, K-SWIFT & KSPCB (STP/DG set) clearances',
+      'Fire & Rescue pre-audit checklist & FoSCoS FSSAI kitchen/restaurant licensing',
+      'Kerala Tourism classification & foreign guest FRRO (C-Form) onboarding guide'
+    ],
+    phase2: [
+      'Long-term property lease & hotel/resort operator management contracts',
+      'OTA, retreat & tour-operator allotment/cancellation/indemnity terms',
+      'DPDP guest ID/CCTV privacy suite, Class 43 trademark & POSH compliance'
+    ],
+    phase3: [
+      'Connected-banking OTA/POS revenue reconciliation & GST tariff/F&B segregation',
+      'EPF/ESIC staff payroll, RoC/LLP annual filings & RBI FLA Return (for NRI SPVs)',
+      'Annual LSGD trade license, Fire NOC, KSPCB consent & lease renewal calendar'
+    ],
+    nieg: 'NIEG Ecological & Responsible Hospitality Standard (STP/water transparency, guest safety & staff fairness).',
+    tiers: {
+      T1: { tierId: 'KL-HOSP-T1', name: 'Property SPV & Pre-Opening Licensing Pack', quoteMode: 'Scoped Diagnostic Quote (Room Key Count & Property Scope)' },
+      T2: { tierId: 'KL-HOSP-T2', name: 'Full Resort Setup + Lease, OTA & Workforce Shield', quoteMode: 'Scoped Proposal (Lease Structure & NRI Investment Scope)' },
+      T3: { tierId: 'KL-HOSP-T3', name: 'Year-1 Hospitality Governance Retainer', quoteMode: 'Key-Count & Revenue-Bracketed Retainer Quote' }
+    }
+  },
+  'KL-BND-EDTECH': {
+    id: 'KL-BND-EDTECH',
+    slug: 'edtech-academies-kerala',
+    bundleName: 'Academy & EdTech Foundation Pack',
+    title: 'EdTech, Coaching Academies & Skill Training Institutes',
+    phase1: [
+      'Pvt Ltd / LLP / Sec 8 setup + DPIIT Startup India & KSUM ecosystem alignment',
+      'LSGD coaching campus trade license & fire/campus safety readiness checklist',
+      'CGPDTM Brand Trademark (Class 41/42) & LMS / curriculum copyright protection',
+      'GST 18% coaching vs exempt skill/NSDC scope segregation + faculty EPF/ESIC'
+    ],
+    phase2: [
+      'Faculty employment, recorded-course IP assignment & non-compete covenants',
+      'Student/LMS terms of service, transparent installment & CCPA refund charter',
+      'DPDP Act Section 9 student/minor parental consent kit, B2B MoUs & POSH IC'
+    ],
+    phase3: [
+      'Connected-banking payment-gateway/EMI reconciliation & faculty TDS segregation',
+      'Monthly GST/EPF/ESIC filings & Annual RoC secretarial retainer + ESOP tracking',
+      'Annual POSH report, DPDP privacy review & copyright piracy monitoring calendar'
+    ],
+    nieg: 'NIEG Ethical EdTech & Outcome-Representation Standard (no misleading rank claims or dark-pattern refund locks).',
+    tiers: {
+      T1: { tierId: 'KL-EDTECH-T1', name: 'Academy Entity & DPIIT/IP Foundation', quoteMode: 'Scoped Diagnostic Quote (Online vs Hybrid Campus Model)' },
+      T2: { tierId: 'KL-EDTECH-T2', name: 'Full EdTech Launch + Faculty IP & DPDP Shield', quoteMode: 'Scoped Proposal (Student Volume & Faculty Team Size)' },
+      T3: { tierId: 'KL-EDTECH-T3', name: 'Year-1 EdTech & Academy Governance Retainer', quoteMode: 'Student-Cohort & Revenue-Bracketed Retainer Quote' }
+    }
+  }
+};
+
+function renderKeralaReadinessScope() {
+  const verticalEl = document.getElementById('kl-est-vertical');
+  const stageEl = document.getElementById('kl-est-stage');
+  const scaleEl = document.getElementById('kl-est-scale');
+  if (!verticalEl || !stageEl || !scaleEl) return;
+
+  const bundleId = verticalEl.value || 'KL-BND-CLINIC';
+  const stage = stageEl.value || 'new-pvt';
+  const scale = scaleEl.value || 'starter';
+  const needLicensing = Boolean(document.getElementById('kl-need-licensing')?.checked);
+  const needContracts = Boolean(document.getElementById('kl-need-contracts')?.checked);
+  const needPrivacyIp = Boolean(document.getElementById('kl-need-privacy-ip')?.checked);
+  const needRetainer = Boolean(document.getElementById('kl-need-retainer')?.checked);
+
+  const spec = KERALA_ESTIMATOR_SPECS[bundleId] || KERALA_ESTIMATOR_SPECS['KL-BND-CLINIC'];
+  const runtimeMeta = (window.CRAFTEGON_KERALA_BUNDLES && typeof window.CRAFTEGON_KERALA_BUNDLES.getBundleById === 'function')
+    ? window.CRAFTEGON_KERALA_BUNDLES.getBundleById(bundleId)
+    : null;
+
+  // Determine recommended tier cleanly (Tier 3 if Year-1 Retainer or enterprise scale, Tier 2 if contracts/privacy/growth, else Tier 1)
+  let tierKey = 'T1';
+  if (needRetainer || scale === 'enterprise') {
+    tierKey = 'T3';
+  } else if (needContracts || needPrivacyIp || scale === 'growth') {
+    tierKey = 'T2';
+  }
+  const tier = spec.tiers[tierKey];
+
+  const codeEl = document.getElementById('kl-scope-code');
+  const titleEl = document.getElementById('kl-scope-tier-title');
+  const subEl = document.getElementById('kl-scope-bundle-subtitle');
+  const quoteEl = document.getElementById('kl-scope-quote-mode');
+  const p1El = document.getElementById('kl-scope-phase1');
+  const p2El = document.getElementById('kl-scope-phase2');
+  const p3El = document.getElementById('kl-scope-phase3');
+  const niegEl = document.getElementById('kl-scope-nieg');
+  const milestonesEl = document.getElementById('kl-scope-milestones');
+  const intakeCta = document.getElementById('kl-scope-intake-cta');
+  const bundleCta = document.getElementById('kl-scope-bundle-link');
+  const waCta = document.getElementById('kl-scope-wa-cta');
+
+  if (codeEl) codeEl.textContent = `${spec.id} • ${tier.tierId} • PENDING_OWNER_REVIEW`;
+  if (titleEl) titleEl.textContent = tier.name;
+  if (subEl) subEl.textContent = `${spec.bundleName} (${spec.title})`;
+  if (quoteEl) quoteEl.textContent = `${tier.quoteMode} — Scoped Proposal Required`;
+
+  const fillList = (el, items) => {
+    if (!el) return;
+    el.replaceChildren();
+    items.forEach(text => {
+      const li = document.createElement('li');
+      li.textContent = text;
+      el.appendChild(li);
+    });
+  };
+
+  const p1Items = [];
+  if (stage === 'new-pvt') p1Items.push('Entity Formation: Private Limited Company (MCA V3 SPICe+, DIN, PAN, TAN)');
+  else if (stage === 'new-llp') p1Items.push('Entity Formation: Limited Liability Partnership (FiLLiP + Form 3 Agreement)');
+  else if (stage === 'nri-gcc') p1Items.push('NRI / Cross-Border SPV Structuring + Resident Director & FEMA FIRMS alignment');
+  else p1Items.push('Existing Entity Audit: Structural & Licensing Gap Reconciliation');
+
+  if (needLicensing) {
+    p1Items.push(...spec.phase1.slice(0, 3));
+  } else {
+    p1Items.push(spec.phase1[0]);
+  }
+  fillList(p1El, p1Items);
+
+  const p2Items = [];
+  if (needContracts) p2Items.push(...spec.phase2.slice(0, 2));
+  if (needPrivacyIp) p2Items.push(spec.phase2[2] || 'Brand Trademark Protection & DPDP Act Privacy Architecture');
+  if (!p2Items.length) p2Items.push('Core entity charter, NDA baseline & governance checklist (contract add-ons optional)');
+  fillList(p2El, p2Items);
+
+  const p3Items = needRetainer || tierKey === 'T3'
+    ? spec.phase3
+    : ['Transition ready after pre-launch setup into monthly/annual RoC, GST & license renewal tracking'];
+  fillList(p3El, p3Items);
+
+  if (niegEl) niegEl.textContent = spec.nieg;
+
+  const milestones = runtimeMeta?.dashboardMilestoneRules || ['AOC-4', 'MGT-7 / MGT-7A', 'GSTR-1', 'GSTR-3B'];
+  if (milestonesEl) {
+    milestonesEl.textContent = `Year-1 Rules Mapped: ${milestones.join(' • ')}`;
+  }
+
+  const stageLabelMap = {
+    'new-pvt': 'New Pvt Ltd Launch',
+    'new-llp': 'New LLP Launch',
+    'existing-upgrade': 'Existing Entity Licensing/Contracts Upgrade',
+    'nri-gcc': 'NRI / GCC Founder Kerala Entry'
+  };
+  const entityParamMap = {
+    'new-pvt': 'pvt_ltd',
+    'new-llp': 'llp',
+    'existing-upgrade': 'pvt_ltd',
+    'nri-gcc': 'foreign_sub'
+  };
+  const focusFlags = [
+    needLicensing ? 'Kerala Pre-Launch Clearances' : null,
+    needContracts ? 'CraftEgon LLP Commercial Contracts' : null,
+    needPrivacyIp ? 'DPDP Privacy & Trademark' : null,
+    needRetainer ? 'Year-1 Connected-Banking Retainer' : null
+  ].filter(Boolean).join(', ');
+
+  const scopeBrief = `Kerala Readiness Estimate — Bundle: ${spec.bundleName} (${spec.id}) | Tier: ${tier.name} (${tier.tierId}) | Stage: ${stageLabelMap[stage] || stage} | Scale: ${scale} | Focus: ${focusFlags || 'Baseline Launch'}. Requesting separated CCS advisory and statutory outlay quotation.`;
+
+  if (intakeCta) {
+    const intakeUrl = `/contact.html?bundle=${encodeURIComponent(spec.id)}&tier=${encodeURIComponent(tier.tierId)}&entity=${encodeURIComponent(entityParamMap[stage] || 'pvt_ltd')}&scope=${encodeURIComponent(scopeBrief)}`;
+    intakeCta.href = appendAttribution(intakeUrl);
+  }
+  if (bundleCta) {
+    bundleCta.href = `/bundles/${spec.slug}.html`;
+    bundleCta.textContent = `View ${spec.bundleName} Roadmap →`;
+  }
+  if (waCta) {
+    const waText = `Hello CraftEgon Kerala Desk, ${scopeBrief}`;
+    waCta.href = `https://wa.me/918606918247?text=${encodeURIComponent(waText)}`;
+  }
+}
+
+function bindCalculatorInteractions() {
+  document.querySelectorAll('[data-calc-tab]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.calcTab, 10);
+      if (Number.isFinite(idx)) switchTab(idx);
+    });
+  });
+
+  document.querySelectorAll('[data-calc-mode]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setTab1Mode(btn.dataset.calcMode);
+    });
+  });
+
+  const cinInput = document.getElementById('cin-quick-input') || document.querySelector('[data-cin-input]');
+  if (cinInput) {
+    cinInput.addEventListener('input', (e) => handleCinInput(e.target.value));
+  }
+
+  const delayRange = document.getElementById('roc-delay-days');
+  const delayVal = document.getElementById('roc-delay-val');
+  if (delayRange) {
+    delayRange.addEventListener('input', () => {
+      if (delayVal) delayVal.textContent = delayRange.value + ' Days Overdue';
+      calculateCost();
+    });
+  }
+
+  const estForm = document.getElementById('estimator-form');
+  if (estForm) {
+    estForm.addEventListener('change', (e) => {
+      if (e.target.id === 'entity-type') onEntityTypeChange();
+      else calculateCost();
+    });
+  }
+
+  ['gst-turnover', 'gst-slab', 'gst-procurement', 'gst-blocked-itc'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', calculateGst);
+      el.addEventListener('change', calculateGst);
+    }
+  });
+
+  ['tax-gross-income', 'tax-business-type', 'tax-deductions'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', calculateTaxRegime);
+      el.addEventListener('change', calculateTaxRegime);
+    }
+  });
+
+  ['cap-pre-money', 'cap-raise-amount', 'cap-esop-target', 'treasury-idle-cash'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', calculateCapTable);
+      el.addEventListener('change', calculateCapTable);
+    }
+  });
+
+  const exportMemoBtn = document.getElementById('btn-export-statutory-memo');
+  if (exportMemoBtn) exportMemoBtn.addEventListener('click', generateStatutoryMemo);
+
+  document.querySelectorAll('[data-close-statutory-memo]').forEach(btn => {
+    btn.addEventListener('click', closeStatutoryMemo);
+  });
+  document.querySelectorAll('[data-calc-print]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (typeof window.print === 'function') window.print();
+    });
+  });
+
+  // Phase 3 Kerala Readiness Estimator bindings
+  ['kl-est-vertical', 'kl-est-stage', 'kl-est-scale', 'kl-need-licensing', 'kl-need-contracts', 'kl-need-privacy-ip', 'kl-need-retainer'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('change', renderKeralaReadinessScope);
+    }
+  });
+}
+
 function handleHashRouting() {
   try {
+    const params = new URLSearchParams(window.location.search);
     const hash = (window.location.hash || '').toLowerCase();
+    const hasBundleParam = Boolean(params.get('bundle'));
+    if (hasBundleParam || hash.includes('readiness') || hash.includes('kerala') || hash.includes('bundle') || hash === '#calc-tab-5' || hash === '#tab-5') {
+      switchTab(5);
+      return;
+    }
     if (!hash) return;
     if (hash.includes('tax') || hash.includes('msme') || hash === '#calc-tab-3' || hash === '#tab-3') {
       switchTab(3);
@@ -1371,6 +1724,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (stateEl) stateEl.value = params.get('state');
     }
 
+    if (params.has('bundle')) {
+      const klVertEl = document.getElementById('kl-est-vertical');
+      const bVal = params.get('bundle');
+      if (klVertEl && klVertEl.querySelector(`option[value="${bVal}"]`)) {
+        klVertEl.value = bVal;
+      }
+    }
+
     setTab1Mode(targetMode);
   } catch (err) {
     setTab1Mode('formation');
@@ -1380,11 +1741,13 @@ document.addEventListener('DOMContentLoaded', () => {
   mountGst2bReconciliation();
   mountStartupForecastControls();
   buildMsmVendorForm();
+  bindCalculatorInteractions();
   calculateCost();
   calculateGst();
   calculateTaxRegime();
   calculateCapTable();
   renderMsmVendors();
+  renderKeralaReadinessScope();
   decorateOutboundLinks();
   handleHashRouting();
   window.addEventListener('hashchange', handleHashRouting);
@@ -1406,6 +1769,7 @@ window.CraftegonCalculator = {
   calculateCapTable,
   calculateEmi,
   calculateGst2bReconciliation,
+  renderKeralaReadinessScope,
   loadMsmVendors,
   saveMsmVendors,
   addMsmVendor,

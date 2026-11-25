@@ -797,6 +797,44 @@ function addFunnelContext(form) {
   addHiddenValue(form, "estimate_service", params.get("estimate_service"));
   addHiddenValue(form, "estimate_capital_tier", params.get("estimate_capital_tier"));
   addHiddenValue(form, "estimate_addons", params.get("estimate_addons"));
+  addHiddenValue(form, "bundle_id", params.get("bundle"));
+  addHiddenValue(form, "bundle_tier", params.get("tier"));
+
+  // Phase 3: Auto-prefill consultation forms from Kerala Bundle Readiness Estimator
+  const reqBundle = (params.get("bundle") || "").trim();
+  const reqScope = (params.get("scope") || "").trim();
+  const reqEntity = (params.get("entity") || "").trim();
+  const reqTier = (params.get("tier") || "").trim();
+
+  if (reqBundle) {
+    const bundleOptionValue = reqBundle.toLowerCase().replace(/-/g, "_");
+    const homeSelect = form.querySelector("#home-lead-requirement");
+    if (homeSelect && homeSelect.querySelector(`option[value="${bundleOptionValue}"]`)) {
+      homeSelect.value = bundleOptionValue;
+    }
+    const contactVertical = form.querySelector("#contact-vertical");
+    if (contactVertical) {
+      if (reqTier && reqTier.endsWith("T3") && contactVertical.querySelector('option[value="retainer"]')) {
+        contactVertical.value = "retainer";
+      } else if (contactVertical.querySelector('option[value="formation"]')) {
+        contactVertical.value = "formation";
+      }
+    }
+  }
+
+  if (reqEntity) {
+    const contactEntity = form.querySelector("#contact-entity");
+    if (contactEntity && contactEntity.querySelector(`option[value="${reqEntity}"]`)) {
+      contactEntity.value = reqEntity;
+    }
+  }
+
+  if (reqScope) {
+    const msgField = form.querySelector('textarea[name="message"]');
+    if (msgField && !msgField.value.trim()) {
+      msgField.value = reqScope;
+    }
+  }
 }
 
 function addHiddenValue(form, name, value) {

@@ -20,12 +20,16 @@ CRITICAL IDENTITY & ADDRESSING RULES:
 Your role is to assist corporate leaders, founders, CFOs, and clients with authoritative, realistic, concise, and practical corporate secretarial, RoC filing, and statutory compliance guidance under Indian corporate law.
 
 CORE INSTITUTIONAL FACTS:
-- Organization: CraftEgon Corporate Services (CCS), a division of CraftEgon LLP.
-- Identity: Digital corporate secretarial, statutory documentation, and RoC regulatory infrastructure partner.
-- Professional Model: All statutory e-forms (SPICe+, AOC-4, MGT-7, PAS-6, Form 3CD, TM-A) are reviewed, scrutinized, and digitally signed using Class-3 DSC directly by Empanelled Practicing Company Secretaries (PCS) and Chartered Accountants (CA in practice) holding valid Certificates of Practice (CoP).
-- Desks: Operational Service Desk, Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India - PIN 690501. Operational desk also in Connaught Place, New Delhi. Pan-India filing capacity across all 24 RoC Offices, NCLT Benches & RBI Regional Offices.
+- Legal Entity & Vertical: CraftEgon LLP operating CraftEgon Corporate Services (CCS), alongside NIEG (Nus'ha Institute for Ethical Governance) governance & ethical billing standards.
+- Operating Hubs: Markaz Knowledge City, Kozhikode (Calicut) & Chettipadi, Tirurangadi (Malappuram), Kerala, alongside our operational desk at Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala (PIN 690501). Pan-Kerala & Pan-India RoC, NCLT & RBI filing support.
+- Kerala Launch-to-Operate Vertical Bundles:
+  1. Clinics, Diagnostics & Care/Research Centers (Clinic Launch & Year-1 Risk Shield — K-SWIFT, Kerala Clinical Establishments registration/standards, KSPCB BMW & doctor/equipment agreements)
+  2. EXIM, Freight, Warehousing & Cold-Chain Logistics (EXIM & Cold-Chain Trade Pack — IEC, AD Code, LUT, RCMC, warehouse K-SWIFT/KSPCB, CHA & cold-chain SLAs, FEMA)
+  3. Food, Spice/Agri Processing & Wellness/Nutraceutical Units (Plant-to-Shelf Launch & Retainer — entity + Udyam, K-SWIFT, KSPCB CTE/CTO, FSSAI manufacturing, co-packing & distributor contracts)
+  4. Hospitality, Boutique Stays & Eco/Wellness Resorts (Property Launch & Hospitality Suite — SPV, LSGD/KSPCB STP/Fire clearances, leases, OTA terms, NRI/FEMA & Year-1 compliance)
+  5. EdTech, Coaching Academies & Skill Training Institutes (Academy & EdTech Foundation Pack — Pvt Ltd/DPIIT/KSUM, faculty IP pacts, DPDP student consent, refund charter)
 - Direct Helpdesk: WhatsApp & Phone: +91 86069 18247 | Email: admin@craftegon.com.
-- Instant Retainer Intake: Micro-retainer deposits available (Rs 999 discovery / Rs 1,999 priority fast-track) via dynamic UPI QR code.
+- Fee Separation & Commercial Discipline: CCS Advisory/Contract/Setup fees are itemised separately from Government Portal Fees, Kerala Stamp Duty, and Third-Party Inspection Charges. Do not quote unverified flat rupee amounts as guaranteed fees; guide founders to the Kerala Readiness Scope Estimator (/conversion/calculator.html#readiness) or scoped consultation.
 
 REGULATORY GROUNDING:
 1. Companies Act 2013 & MCA V3:
@@ -33,7 +37,9 @@ REGULATORY GROUNDING:
    - LLP: FiLLiP form under LLP Act 2008. Min. 2 Designated Partners (at least 1 Indian resident). RUN-LLP for name reservation. Mandatory execution and filing of LLP Agreement in Form 3 within 30 days of incorporation.
    - OPC: Sec 2(62), single resident member with mandatory Nominee Director (written consent in Form INC-3).
    - Section 8: Non-profit INC-12 license with zero dividend distribution.
-   - Annual RoC Filings: Form AOC-4 (Financials) within 30 days of AGM (typically Oct 30 under Sec 137); Form MGT-7 (Annual Return) within 60 days of AGM (typically Nov 29 under Sec 92); Form DIR-3 KYC (Director KYC) due annually by Sept 30 (penalty Rs 5,000 for delay); Form DPT-3 (Return of deposits/loans) due annually by June 30; Form MGT-14 for special resolutions within 30 days.
+   - Annual RoC Filings: Form AOC-4 (Financials) within 30 days of AGM (typically Oct 30 under Sec 137); Form MGT-7/7A (Annual Return) within 60 days of AGM (typically Nov 29 under Sec 92); Form DPT-3 (Return of deposits/loans) due annually by June 30; Form MGT-14 for special resolutions within 30 days.
+   - DIR-3 KYC (Amended Rule 12A): Separate from Section 403 AOC-4/MGT-7 late fees. Under amended Rule 12A, DIR-3 KYC is generally due once in every third consecutive financial year by 30 June following that cycle, while specified changes to mobile number, email address, or residential address must be intimated within 30 days. Always advise confirming the director's exact DIN cycle on MCA V3 rather than citing pre-amendment September KYC schedules or legacy fixed-fee assumptions.
+   - Kerala Statutory Coordination Boundaries: Frame K-SWIFT, LSGD Panchayat/Municipal licenses, Kerala Clinical Establishments registration/standards, KSPCB consents, and FSSAI licensing strictly as structured filing guidance and execution support — final approvals, inspections, and clearance dates rest solely with the competent statutory authorities.
    - Share Dematerialization: Rule 9B of Companies (Prospectus and Allotment of Securities) Rules mandates private companies (except small companies) to dematerialize securities. Form PAS-6 filed half-yearly for reconciliation.
    - Significant Beneficial Ownership: Section 90 and Form BEN-2 for beneficial ownership exceeding 10%.
    - Overdue Penalties: Under Section 403, AOC-4 and MGT-7 incur a flat Rs 100/day per form without ceiling from due date expiry.
@@ -73,9 +79,19 @@ const KB=[
   r:`Yes, I am online and operating normally! ⚡<br><br>I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot representing <b>CraftEgon LLP</b>. I am active and ready to assist you with Indian corporate law compliances, including:<br>• <b>Company Incorporation:</b> Pvt Ltd, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Statutory Calculators:</b> MCA delay penalties, RoC filing fees, MSME 43B(h)<br>• <b>Direct Advisory:</b> Micro-retainers and dedicated compliance desk<br><br>How can I assist your business today?`,
   a:[['Explore Services Directory','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
+  {k:['kerala','k-swift','kswift','clinical establishment','kspcb','lsgd','panchayat','clinic','diagnostic','exim','cold-chain','cold chain','spice','food unit','nutraceutical','hospitality','resort','edtech','coaching academy','kozhikode','malappuram','nieg','bundle'],
+  r:`<b>Kerala Launch-to-Operate + Year-1 Governance Bundles</b> (under <b>CraftEgon LLP</b> &amp; <b>NIEG</b> ethical governance, Kozhikode &amp; Malappuram):<br>
+  * <b>Clinics &amp; Diagnostics:</b> K-SWIFT routing, Kerala Clinical Establishments registration readiness, KSPCB BMW &amp; doctor/equipment SLAs.<br>
+  * <b>EXIM &amp; Cold-Chain:</b> DGFT IEC, port AD Code, Export LUT, RCMC, warehouse clearances, CHA/cold-chain SLAs &amp; FEMA.<br>
+  * <b>Food &amp; Spice Units:</b> Entity + Udyam, K-SWIFT/KSPCB CTE-CTO, FSSAI manufacturing, Legal Metrology &amp; distributor pacts.<br>
+  * <b>Hospitality &amp; Resorts:</b> Asset/operating SPV, LSGD/KSPCB STP/Fire dossiers, leases, OTA terms &amp; NRI/FEMA alignment.<br>
+  * <b>EdTech &amp; Academies:</b> Pvt Ltd/DPIIT/KSUM, faculty IP assignment, DPDP minor privacy &amp; NIEG refund charter.<br>
+  <i>Note: Statutory approvals and timelines rest solely with competent authorities; CCS provides structured guidance and fee-separated execution support.</i>`,
+  a:[['Run Readiness Estimator','/conversion/calculator.html#readiness'],['Explore Kerala Bundles','/index.html#kerala-bundles'],['Request Scoped Quote','/contact.html']]},
+
   {k:['how are you','how r u','hello','hi','hey','good morning','good afternoon','good evening','who are you','what is your name','your name','who r u','what can you do','jinu','who is jinu','are you jinu','introduce yourself'],
-  r:`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b>.<br><br>I can assist you directly with:<br>• <b>Company Formation:</b> Private Limited, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Corporate Tax &amp; GST:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h) compliance<br>• <b>Cross-Border FDI:</b> RBI FLA Return, FC-GPR filing<br>• <b>Corporate Retainer Desk:</b> Year-round secretarial support<br><br>How can I assist you with your business today?`,
-  a:[['Explore Services Directory','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
+  r:`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b> (Kozhikode &amp; Malappuram, Kerala).<br><br>I can guide you through:<br>• <b>Kerala Launch-to-Operate Bundles:</b> Clinics, EXIM/Cold-Chain, Food/Spice, Resorts &amp; EdTech<br>• <b>Company Formation:</b> Private Limited, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC (Rule 12A), Form DPT-3<br>• <b>Corporate Tax, GST &amp; FEMA:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h), RBI FLA<br>• <b>Readiness &amp; Calculators:</b> Bundle scope estimator, Sec 403 late fees &amp; registry lookups<br><br>How can I assist your business today?`,
+  a:[['Kerala Readiness Estimator','/conversion/calculator.html#readiness'],['Explore Services Directory','/services.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['llp','limited liability partnership','fillip','form 3','run-llp','dpin','incorporate llp','llp formation','register llp','start llp'],
   r:`Incorporating a <b>Limited Liability Partnership (LLP)</b> under the <b>LLP Act, 2008</b> &amp; MCA V3:<br>
@@ -165,29 +181,27 @@ const KB=[
   {k:['aoc-4','aoc4','mgt-7','mgt7','mgt-14','mgt14','annual filing','roc compliance','agm','financial statement','annual return','dir-3 kyc','dir3 kyc','dpt-3','dpt3','msme-1','msme1','due date','deadline','ccfs','ccfs-2026'],
   r:`Annual RoC filings under Companies Act 2013:<br>
   * <b>Form AOC-4:</b> Financials within 30 days of AGM (typically Oct 30) under Sec 137.<br>
-  * <b>Form MGT-7:</b> Annual return within 60 days of AGM (typically Nov 29) under Sec 92.<br>
-  * <b>Form DIR-3 KYC:</b> Annual DIN KYC by Sept 30 (Delay fee: 5,000).<br>
+  * <b>Form MGT-7/7A:</b> Annual return within 60 days of AGM (typically Nov 29) under Sec 92.<br>
+  * <b>Form DIR-3 KYC (Rule 12A):</b> Generally due once in every third consecutive financial year by <b>30 June</b> following that cycle; specified changes to mobile, email, or address must be intimated within <b>30 days</b>. Section 403 daily additional fees apply to Sec 92/137 filings, not as a generic DIR-3 KYC penalty.<br>
   * <b>Form DPT-3:</b> Return of deposits/loans due annually by June 30.<br>
   * <b>Form MSME-1:</b> Verify current form scope, supplier conditions, and filing dates against the latest MCA circulars.<br>
   * <b>Form MGT-14:</b> Special resolutions filed within 30 days.<br>
-  * <b>CCFS-2026:</b> Closed on <b>15 Sep 2026</b>; do not assume the historical fee concession applies to a current filing.<br>
-  Late fees depend on the form, entity, current MCA rules, and any later notification.`,
+  * <b>CCFS-2026:</b> Closed on <b>15 Sep 2026</b>; do not assume the historical fee concession applies to a current filing.`,
   a:[['MCA V3 Filing Guide','/knowledge/mca-v3-filing-guide.html'],['RoC Annual Retainer Plan','/services/roc-annual-compliance.html'],['Calculate RoC Late Fees','/conversion/calculator.html']]},
 
   {k:['portal','client portal','dashboard','compliance calendar','subscription','pricing','retainer plan','starter','growth','enterprise','tier','plan','retainer plans'],
-  r:`CraftEgon Corporate Services (CCS) Corporate Retainer & Service Desk:<br>
-  * <b>Annual Retainer:</b> Structured corporate governance, regular statutory filings, and priority professional support.<br>
-  * <b>Entity Coverage:</b> Private Limited Companies, LLPs, One Person Companies, and cross-border subsidiaries.<br>
-  * <b>Service Desk:</b> Connect with our operational desk in Alappuzha for scoped fee proposals.`,
-  a:[['Corporate Retainer Desk','/conversion/retainer-desk.html'],['Explore All Services','/services/index.html'],['Fee Calculator','/conversion/calculator.html']]},
+  r:`CraftEgon Corporate Services (CCS) — Kerala Launch &amp; Year-1 Governance Desk:<br>
+  * <b>Launch-to-Operate Suites:</b> Tailored 3-phase coverage across Clinics, EXIM/Cold-Chain, Food/Spice, Hospitality, and EdTech.<br>
+  * <b>Annual Governance Retainer:</b> Connected-banking bookkeeping alignment, RoC filings, tax/GST cadence &amp; license renewal tracking.<br>
+  * <b>Transparent Fee Separation:</b> CCS advisory fees are scoped and quoted separately from statutory government fees &amp; Kerala stamp duty.`,
+  a:[['Kerala Readiness Estimator','/conversion/calculator.html#readiness'],['Corporate Retainer Desk','/conversion/retainer-desk.html'],['Explore All Services','/services/index.html']]},
 
   {k:['late fee','delay','penalty','calculate fee','fine','cost of filing','overdue','fees calculator','mca penalty','403','ccfs'],
-  r:`Under MCA Fee Rules 2014 & Companies Act 2013 Sec 403:<br>
-  * <b>AOC-4 & MGT-7:</b> Flat 100/day per form from due date expiry without cap.<br>
-  * <b>Normal Filings:</b> Additional fee multipliers from 2x (up to 30 days) to 12x/18x (>180 days).<br>
-  * <b>DIR-3 KYC:</b> Direct statutory penalty of 5,000 post-Sept 30.<br>
-  * <b>CCFS-2026:</b> Closed on <b>15 Sep 2026</b>; the historical 10% concession is not available for current filings.<br>
-  Compute your exact liabilities instantly:`,
+  r:`Under MCA Fee Rules &amp; Companies Act 2013 Section 403:<br>
+  * <b>AOC-4 &amp; MGT-7 (Sec 92 / Sec 137):</b> Section 403 first proviso sets additional fees at ₹100/day per overdue form from due date expiry.<br>
+  * <b>DIR-3 KYC (Rule 12A):</b> Triennial cycle by 30 June with 30-day change reporting — confirm exact DIN status and current MCA fee rules per director.<br>
+  * <b>CCFS-2026:</b> Closed on <b>15 Sep 2026</b>; the historical concession is not available for current filings.<br>
+  Compute your illustrative Section 403 outlay or Kerala Readiness scope:`,
   a:[['Open Fee & Late Fee Calculator','/conversion/calculator.html'],['Annual Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['fema','fla','fla return','foreign','inbound','fdi','odi','fc-gpr','fcgpr','fc-trs','fctrs','rbi','firms','cross border','non-resident','ecb','foreign branch','liaison office'],
@@ -244,25 +258,24 @@ const KB=[
   a:[['MSME 43B(h) Tracker','/conversion/calculator.html'],['MSME Form MSME-1 Service','/services/form-msme1.html'],['Udyam Registration','/services/msme-udyam.html']]},
 
   {k:['contact','phone','whatsapp','email','call','office','address','location','reach out','support','admin@craftegon.com'],
-  r:`CraftEgon Corporate Services (CCS) - Official Corporate Desk:<br>
-  * <b>WhatsApp & Phone:</b> +91 86069 18247 (Direct Compliance Advisory)<br>
+  r:`CraftEgon Corporate Services (CCS) - Official Corporate Desk (under CraftEgon LLP):<br>
+  * <b>WhatsApp & Phone:</b> +91 86069 18247 (Direct Advisory & Scope Desk)<br>
   * <b>Email:</b> admin@craftegon.com<br>
-  * <b>Operational Service Desk:</b> CraftEgon Corporate Services, Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India - PIN: 690501<br>
-  * <b>Jurisdiction:</b> Pan-India coverage across all 24 RoC Offices, NCLT Benches & RBI Regional Offices.`,
-  a:[['Chat Live on WhatsApp','https://wa.me/918606918247'],['Email Legal Desk','mailto:admin@craftegon.com'],['Annual Retainer Desk','/conversion/retainer-desk.html']]}
+  * <b>Kerala Operational Hubs:</b> Markaz Knowledge City (Kozhikode / Calicut) &amp; Chettipadi, Tirurangadi (Malappuram), alongside our Alappuzha Desk (Room No.2, NS Building, Kaanjippuzha, PIN: 690501).<br>
+  * <b>Governance Alignment:</b> Commercial/legal structuring via CraftEgon LLP and ethics/governance advisory aligned with NIEG (Nus'ha Institute for Ethical Governance).`,
+  a:[['Kerala Readiness Check','/conversion/calculator.html#readiness'],['Book Scope Call','/contact.html'],['Chat Live on WhatsApp','https://wa.me/918606918247']]}
 ];
 
 const PILLS=[
+  ['Kerala Bundles','What are the Kerala Launch-to-Operate industry bundles?'],
+  ['Readiness Check','How do I check my Kerala bundle readiness and scope?'],
   ['Retainer Desk','What is the Annual Corporate Retainer Desk?'],
   ['Incorporate Pvt Ltd','How do I incorporate a Pvt Ltd company in India?'],
-  ['Incorporate LLP','How do I incorporate a Limited Liability Partnership (LLP)?'],
   ['MCA Due Dates','What are annual RoC compliance filing due dates?'],
   ['RoC Late Fees','How much are late fees for Form AOC-4 and MGT-7?'],
-  ['RBI FLA Return','What is the deadline and requirement for RBI FLA return?'],
   ['Rule 9B Demat','What is mandatory Rule 9B share dematerialization for private companies?'],
   ['DPDP Act Audit','What are our fiduciary obligations under DPDP Act 2023?'],
-  ['MSME 43B(h)','What is the 45-day MSME payment rule and Form MSME-1?'],
-  ['DIR-3 KYC','What is the annual Director KYC deadline?'],
+  ['DIR-3 KYC','What is the DIR-3 KYC requirement under Rule 12A?'],
   ['Contact Desk','How do I contact CraftEgon Corporate Services (CCS) via WhatsApp or phone?']
 ];
 
@@ -355,6 +368,12 @@ function getGeminiModel() {
 function getReferenceLinks(query){
   const qNorm = (query || '').toLowerCase();
   const references=[
+    {terms:['clinic','diagnostic','laboratory','hospital','cea','clinical establishment','biomedical'],link:['Clinics & Diagnostics Bundle','/bundles/clinics-diagnostics-kerala.html']},
+    {terms:['exim','import','export','iec','cold-chain','cold chain','logistics','warehouse'],link:['EXIM & Cold-Chain Bundle','/bundles/exim-cold-chain-kerala.html']},
+    {terms:['food','spice','fssai','processing','fpo','legal metrology'],link:['Food & Spice Processing Bundle','/bundles/food-spice-processing-kerala.html']},
+    {terms:['hospitality','resort','hotel','homestay','tourism','liquor','fire noc'],link:['Hospitality & Resorts Bundle','/bundles/hospitality-resorts-kerala.html']},
+    {terms:['edtech','academy','ed-tech','coaching','training','lms','tutor'],link:['EdTech & Academies Bundle','/bundles/edtech-academies-kerala.html']},
+    {terms:['kerala','bundle','readiness','k-swift','lsgd','kspcb','nieg','kozhikode','malappuram'],link:['Kerala Readiness Check','/conversion/calculator.html#readiness']},
     {terms:['aoc','mgt','roc','dir-3','annual filing','mca','pas-6','demat'],link:['MCA V3 Filing Guide','/knowledge/mca-v3-filing-guide.html']},
     {terms:['ccfs','late fee','section 403','penalty','fine'],link:['Statutory Fee Calculator','/conversion/calculator.html']},
     {terms:['gst','gstr','itc','tax','3ceb'],link:['GST Compliance Guide','/knowledge/gst-einvoicing-compliance-mandate.html']},
@@ -373,7 +392,7 @@ function getReferenceLinks(query){
     {terms:['incorporat','pvt ltd','private limited','spice+'],link:['Pvt Ltd Formation Service','/services/pvt-ltd-registration.html']}
   ];
   const matches=references.filter(reference=>reference.terms.some(term=>qNorm.includes(term))).map(reference=>reference.link);
-  return matches.length?matches.slice(0,3):[['Corporate Services Directory','/services.html'],['Compliance Desk','/conversion/retainer-desk.html']];
+  return matches.length?matches.slice(0,3):[['Kerala Readiness Check','/conversion/calculator.html#readiness'],['Corporate Services Directory','/services.html']];
 }
 
 // Convert markdown text to clean sanitized HTML
@@ -449,9 +468,24 @@ function inferActionPills(query, botText) {
     // Strike-off checker retired
   }
 
+  if (combined.includes('clinic') || combined.includes('diagnostic') || combined.includes('clinical establishment')) {
+    pills.push(['Clinics Bundle', '/bundles/clinics-diagnostics-kerala.html']);
+  } else if (combined.includes('exim') || combined.includes('cold-chain') || combined.includes('cold chain')) {
+    pills.push(['EXIM & Cold-Chain Bundle', '/bundles/exim-cold-chain-kerala.html']);
+  } else if (combined.includes('food') || combined.includes('spice') || combined.includes('fssai')) {
+    pills.push(['Food & Spice Bundle', '/bundles/food-spice-processing-kerala.html']);
+  } else if (combined.includes('hospitality') || combined.includes('resort') || combined.includes('homestay')) {
+    pills.push(['Hospitality Bundle', '/bundles/hospitality-resorts-kerala.html']);
+  } else if (combined.includes('edtech') || combined.includes('academy') || combined.includes('academies')) {
+    pills.push(['EdTech Bundle', '/bundles/edtech-academies-kerala.html']);
+  }
+  if (combined.includes('kerala') || combined.includes('bundle') || combined.includes('readiness') || combined.includes('k-swift') || combined.includes('lsgd') || combined.includes('kspcb')) {
+    pills.push(['Kerala Readiness Check', '/conversion/calculator.html#readiness']);
+  }
+
   // Always append primary conversion actions
   pills.push(['💬 WhatsApp Live Desk', 'https://wa.me/918606918247']);
-  pills.push(['⚡ Book Micro-Retainer', '/conversion/retainer-desk.html']);
+  pills.push(['📋 Request Scoped Consult', '/contact.html']);
 
   return pills.slice(0, 3);
 }
@@ -477,9 +511,9 @@ function evaluateInputBrakes(query) {
       r: `While we do not evaluate third-party aggregators, <strong>CraftEgon Corporate Services (CCS)</strong> differentiates itself through:<br>
       * <b>Empanelled Professional Oversight:</b> All statutory filings (SPICe+, AOC-4, MGT-7, PAS-6, TM-A) are reviewed and digitally signed directly by Practicing Company Secretaries (PCS) and Chartered Accountants (CAs).<br>
       * <b>Fee Transparency:</b> Zero hidden government fees or surprise stamp duties.<br>
-      * <b>Direct Accountability:</b> Real operational service desks in Alappuzha and New Delhi with dedicated compliance officers.<br><br>
-      We invite you to experience institutional compliance precision:`,
-      a: [['Explore Services Directory', '/services.html'], ['Book Micro-Retainer (₹999)', '/conversion/retainer-desk.html'], ['WhatsApp Desk', 'https://wa.me/918606918247']],
+      * <b>Direct Accountability:</b> Dedicated Kerala operational desks at Markaz Knowledge City (Kozhikode), Chettipadi (Malappuram), and Alappuzha — aligned with CraftEgon LLP commercial/legal drafting and NIEG ethical governance standards.<br><br>
+      We invite you to run your vertical readiness check or request a scoped consultation:`,
+      a: [['Kerala Readiness Check', '/conversion/calculator.html#readiness'], ['Explore Kerala Bundles', '/#kerala-bundles'], ['Request Consultation', '/contact.html']],
       s: [['About CraftEgon Corporate Services (CCS)', '/about.html'], ['Institutional Model', '/about.html#how-we-operate']]
     };
   }
@@ -1333,7 +1367,7 @@ async function handleQuery(q){
 function initGreeting(){
   const b=document.getElementById('cchat-messages-container');
   if(!b||b.children.length>0)return;
-  appendBotMsg(`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b>.<br><br>How can I assist you with your company registration, RoC filings, or statutory governance today?`);
+  appendBotMsg(`Hello! 👋 I am <b>Jinu</b>, your AI Corporate &amp; Regulatory Co-Pilot at <b>CraftEgon Corporate Services (CCS)</b> under <b>CraftEgon LLP</b>.<br><br>Explore our <b>Kerala Launch-to-Operate Bundles</b> (Kozhikode &amp; Malappuram desks), run a <b>Readiness &amp; Scope Check</b>, or ask about MCA V3, RoC filings, and NIEG governance today.`);
 }
 
 function bind(){

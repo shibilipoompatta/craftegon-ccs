@@ -281,6 +281,19 @@
   gap: 1.35rem;
 }
 
+/* Left-aligned Dropdown Layout (Bundles & Calculators) */
+.bundles-dropdown-menu {
+  left: 0 !important;
+  right: auto !important;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 85px);
+  overflow-y: auto;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Resources Dropdown Layout */
 .resources-dropdown-menu {
   right: 0 !important;

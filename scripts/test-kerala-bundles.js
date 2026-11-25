@@ -146,8 +146,123 @@ for (const bundle of dataset.bundles) {
   }
 }
 
+// 4. Phase 3 Interactive Readiness Estimator & Intake Prefill Checks
+check(calculatorHtml.includes('id="tab-btn-5"') && calculatorHtml.includes('id="calc-tab-5"'), 'conversion/calculator.html includes Tab 5 (#tab-btn-5 & #calc-tab-5)');
+check(calculatorHtml.includes('id="kl-est-vertical"') && calculatorHtml.includes('id="kl-scope-summary-card"'), 'conversion/calculator.html includes Kerala Readiness Estimator controls & summary card');
+check(calculatorHtml.includes('/assets/js/kerala-bundles.js'), 'conversion/calculator.html loads /assets/js/kerala-bundles.js');
+
+const vm = require('vm');
+const makeEl = (tag, initial = {}) => {
+  const el = {
+    tagName: (tag || 'div').toUpperCase(),
+    value: initial.value || '',
+    checked: Boolean(initial.checked),
+    textContent: '',
+    href: '',
+    style: {},
+    classList: { add: () => {}, remove: () => {}, toggle: () => {} },
+    children: [],
+    dataset: {},
+    addEventListener: () => {},
+    appendChild(child) { this.children.push(child); return child; },
+    replaceChildren(...nodes) { this.children = [...nodes]; },
+    querySelector: () => null
+  };
+  return el;
+};
+
+const calcEls = {
+  'kl-est-vertical': makeEl('select', { value: 'KL-BND-EXIM' }),
+  'kl-est-stage': makeEl('select', { value: 'nri-gcc' }),
+  'kl-est-scale': makeEl('select', { value: 'growth' }),
+  'kl-need-licensing': makeEl('input', { checked: true }),
+  'kl-need-contracts': makeEl('input', { checked: true }),
+  'kl-need-privacy-ip': makeEl('input', { checked: true }),
+  'kl-need-retainer': makeEl('input', { checked: true }),
+  'kl-scope-code': makeEl('div'),
+  'kl-scope-tier-title': makeEl('h3'),
+  'kl-scope-bundle-subtitle': makeEl('p'),
+  'kl-scope-quote-mode': makeEl('p'),
+  'kl-scope-phase1': makeEl('ul'),
+  'kl-scope-phase2': makeEl('ul'),
+  'kl-scope-phase3': makeEl('ul'),
+  'kl-scope-nieg': makeEl('p'),
+  'kl-scope-milestones': makeEl('p'),
+  'kl-scope-intake-cta': makeEl('a'),
+  'kl-scope-bundle-link': makeEl('a'),
+  'kl-scope-wa-cta': makeEl('a')
+};
+
+const calcWindow = {
+  location: { pathname: '/conversion/calculator.html', search: '?bundle=KL-BND-CLINIC', hash: '#readiness' },
+  addEventListener: () => {},
+  CRAFTEGON_KERALA_BUNDLES: runtimeModule
+};
+const calcSandbox = {
+  window: calcWindow,
+  document: {
+    readyState: 'complete',
+    addEventListener: () => {},
+    getElementById: (id) => calcEls[id] || null,
+    querySelector: () => null,
+    querySelectorAll: () => [],
+    createElement: (tag) => makeEl(tag)
+  },
+  URLSearchParams,
+  console
+};
+calcWindow.window = calcWindow;
+vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'assets', 'js', 'calculator.js'), 'utf8'), calcSandbox);
+
+check(typeof calcWindow.CraftegonCalculator?.renderKeralaReadinessScope === 'function', 'CraftegonCalculator.renderKeralaReadinessScope() exported cleanly');
+calcWindow.CraftegonCalculator.renderKeralaReadinessScope();
+check(calcEls['kl-scope-code'].textContent.includes('KL-BND-EXIM') && calcEls['kl-scope-code'].textContent.includes('PENDING_OWNER_REVIEW'), 'Readiness scope badge reflects selected bundle & PENDING_OWNER_REVIEW');
+check(calcEls['kl-scope-phase1'].children.length >= 2 && calcEls['kl-scope-phase2'].children.length >= 2 && calcEls['kl-scope-phase3'].children.length >= 2, 'Readiness estimator populates Phase 1, Phase 2, and Phase 3 scope lists');
+check(calcEls['kl-scope-intake-cta'].href.startsWith('/contact.html?bundle=KL-BND-EXIM'), 'Readiness estimator generates pre-filled /contact.html?bundle= intake CTA');
+const renderedScopeText = [
+  calcEls['kl-scope-tier-title'].textContent,
+  calcEls['kl-scope-quote-mode'].textContent,
+  ...calcEls['kl-scope-phase1'].children.map(c => c.textContent),
+  ...calcEls['kl-scope-phase2'].children.map(c => c.textContent),
+  ...calcEls['kl-scope-phase3'].children.map(c => c.textContent)
+].join(' ');
+check(!/₹|\bINR\s*[\d,]+/i.test(renderedScopeText), 'Readiness estimator scope summary leaks zero unapproved rupee amounts');
+
+// Verify forms.js prefills #contact-enquiry-form from ?bundle=&tier=&entity=&scope=
+const formsCode = fs.readFileSync(path.join(ROOT, 'assets', 'js', 'forms.js'), 'utf8');
+const contactVerticalEl = { value: '', querySelector: (sel) => /retainer|formation/.test(sel) ? {} : null };
+const contactEntityEl = { value: '', querySelector: (sel) => sel.includes('pvt_ltd') ? {} : null };
+const contactMsgEl = { value: '' };
+const appendedHidden = [];
+const mockForm = {
+  dataset: {},
+  elements: { namedItem: () => null },
+  appendChild: (node) => appendedHidden.push(node),
+  querySelector: (sel) => {
+    if (sel === '#contact-vertical') return contactVerticalEl;
+    if (sel === '#contact-entity') return contactEntityEl;
+    if (sel === 'textarea[name="message"]') return contactMsgEl;
+    return null;
+  }
+};
+const formsSandbox = {
+  window: { location: { pathname: '/contact.html', search: '?bundle=KL-BND-EXIM&tier=KL-EXIM-T3&entity=pvt_ltd&scope=Kerala%20Scope%20Brief' } },
+  document: {
+    readyState: 'loading',
+    addEventListener: () => {},
+    querySelectorAll: () => [],
+    createElement: (tag) => ({ tagName: tag, style: {} })
+  },
+  URLSearchParams,
+  console
+};
+formsSandbox.window.window = formsSandbox.window;
+vm.runInNewContext(`${formsCode}\nwindow.__addFunnelContext = addFunnelContext;`, formsSandbox);
+formsSandbox.window.__addFunnelContext(mockForm);
+check(contactVerticalEl.value === 'retainer' && contactEntityEl.value === 'pvt_ltd' && contactMsgEl.value === 'Kerala Scope Brief', 'forms.js prefills contact form vertical, entity, and message from Readiness Estimator query string');
+
 console.log('\n================================================================');
-console.log(`PHASE 1 KERALA BUNDLES AUDIT: ${passed} / ${total} PASSED`);
+console.log(`PHASE 1 & 3 KERALA BUNDLES AUDIT: ${passed} / ${total} PASSED`);
 console.log('================================================================');
 if (passed !== total) {
   process.exit(1);

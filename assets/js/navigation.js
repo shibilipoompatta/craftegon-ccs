@@ -113,18 +113,15 @@ document.addEventListener("DOMContentLoaded", async function () {
               </div>
             </a>
             <nav class="if-nav">
-              <a href="/index.html" class="if-nav-link">Home</a>
-              <a href="/services.html" class="if-nav-link">Services</a>
-              <a href="/about.html" class="if-nav-link">About</a>
-              <a href="/knowledge/index.html" class="if-nav-link">Knowledge Centre</a>
-              <a href="/conversion/calculator.html" class="if-nav-link">Fee Estimator</a>
-              <a href="/contact.html" class="if-nav-link">Contact</a>
+              <a href="/index.html#kerala-bundles" class="if-nav-link">Kerala Bundles</a>
+              <a href="/conversion/calculator.html#readiness" class="if-nav-link">Calculators &amp; Readiness</a>
+              <a href="/services.html" class="if-nav-link">Catalog &amp; Lookups</a>
+              <a href="/conversion/partner-ecosystems.html" class="if-nav-link">Partners</a>
+              <a href="/contact.html" class="if-nav-link">Contact / Scope</a>
             </nav>
             <div class="if-header-actions">
-              <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border-color: rgba(37, 211, 102, 0.4); color: #25D366; padding: 0.6rem 0.95rem;">WhatsApp</a>
-              <a href="/portal/dashboard.html" class="if-btn-secondary" style="border-color: rgba(212, 175, 55, 0.4);"><span class="noble-badge-dot" style="margin-right: 4px;"></span>Client Portal</a>
-              <a href="/conversion/ai-document-generator.html" class="if-btn-secondary">Doc Drafter</a>
-              <a href="/conversion/calculator.html" class="if-btn-primary">Calculate Retainer</a>
+              <a href="/conversion/calculator.html#readiness" class="if-btn-secondary">Scope Check</a>
+              <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-primary">Talk to an Expert</a>
               <button class="if-mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
               </button>
@@ -145,13 +142,12 @@ document.addEventListener("DOMContentLoaded", async function () {
               </button>
             </div>
             <div class="if-mobile-drawer-body">
-              <a href="/index.html" class="if-mobile-nav-link">Home</a>
-              <a href="/services.html" class="if-mobile-nav-link">Services Directory</a>
-              <a href="/about.html" class="if-mobile-nav-link">About CraftEgon</a>
-              <a href="/knowledge/index.html" class="if-mobile-nav-link">Knowledge Centre</a>
-              <a href="/conversion/calculator.html" class="if-mobile-nav-link">Fee Estimator</a>
-              <a href="/contact.html" class="if-mobile-nav-link">Contact &amp; Service Desk</a>
-              <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-mobile-nav-link" style="color: #25D366; font-weight:700;">💬 WhatsApp Desk: +91 86069 18247</a>
+              <a href="/index.html#kerala-bundles" class="if-mobile-nav-link">Kerala Launch Bundles</a>
+              <a href="/conversion/calculator.html#readiness" class="if-mobile-nav-link">Calculators &amp; Readiness</a>
+              <a href="/services.html" class="if-mobile-nav-link">Catalog &amp; Lookups</a>
+              <a href="/conversion/partner-ecosystems.html" class="if-mobile-nav-link">Banking &amp; Partners</a>
+              <a href="/contact.html" class="if-mobile-nav-link">Contact / Scope</a>
+              <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-mobile-nav-link" style="color: #008742; font-weight:700;">WhatsApp Desk: +91 86069 18247</a>
             </div>
           </div>
         </header>
@@ -195,40 +191,34 @@ document.addEventListener("DOMContentLoaded", async function () {
                   </div>
                 </a>
                 <p class="if-footer-desc">
-                  Building Business Infrastructure: Your Business Infrastructure Partner. From business formation to compliance, protection and growth: coordinated corporate services supported by professional expertise and technology.
+                  Kerala's Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP, aligned with NIEG ethical governance standards.
                 </p>
                 <div class="if-footer-contact">
-                  <p class="if-contact-item"><strong>Service Desk:</strong> CraftEgon Corporate Services (CCS)</p>
-                  <p class="if-contact-item"><strong>Office:</strong> Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN 690501</p>
-                  <p class="if-contact-item"><strong>Phone:</strong> <a href="tel:+918606918247">+91 86069 18247</a></p>
-                  <p class="if-contact-item"><strong>WhatsApp:</strong> <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer">+91 86069 18247 &bull; Chat Live &rarr;</a></p>
+                  <p class="if-contact-item"><strong>Kerala Hubs:</strong> Markaz Knowledge City, Kozhikode &amp; Chettipadi, Tirurangadi (Malappuram)</p>
+                  <p class="if-contact-item"><strong>Phone / WhatsApp:</strong> <a href="tel:+918606918247">+91 86069 18247</a></p>
                   <p class="if-contact-item"><strong>Email:</strong> <a href="mailto:admin@craftegon.com">admin@craftegon.com</a></p>
                 </div>
               </div>
               <div class="if-footer-col">
-                <h4 class="if-footer-heading">Services</h4>
+                <h4 class="if-footer-heading">Kerala Bundles</h4>
                 <ul class="if-footer-list">
-                  <li><a href="/verticals/01-entity-formation.html">Entity Formation &amp; Structuring</a></li>
-                  <li><a href="/verticals/02-roc-compliance.html">RoC Secretarial &amp; Annual Filings</a></li>
-                  <li><a href="/verticals/03-tax-compliance.html">Corporate Tax &amp; GST Compliance</a></li>
-                  <li><a href="/verticals/04-statutory-licenses.html">Statutory Licenses &amp; Registrations</a></li>
-                  <li><a href="/verticals/05-contracts-legal.html">Commercial Contracts &amp; Drafting</a></li>
-                  <li><a href="/verticals/06-ipr-protection.html">IPR &amp; Trademark Protection</a></li>
-                  <li><a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a></li>
-                  <li><a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law</a></li>
-                  <li><a href="/verticals/13-cross-border-fema.html">Cross-Border FDI &amp; FEMA</a></li>
-                  <li class="if-footer-all-link"><a href="/verticals/index.html">All 15 Practice Verticals &rarr;</a></li>
+                  <li><a href="/bundles/clinics-diagnostics-kerala.html">Clinics, Diagnostics &amp; Care Centers</a></li>
+                  <li><a href="/bundles/exim-cold-chain-kerala.html">EXIM, Freight &amp; Cold-Chain Pack</a></li>
+                  <li><a href="/bundles/food-spice-processing-kerala.html">Food, Spice &amp; Nutraceutical Units</a></li>
+                  <li><a href="/bundles/hospitality-resorts-kerala.html">Hospitality, Stays &amp; Eco Resorts</a></li>
+                  <li><a href="/bundles/edtech-academies-kerala.html">EdTech &amp; Coaching Academies</a></li>
+                  <li class="if-footer-all-link"><a href="/services.html">All 57 Services Directory &rarr;</a></li>
                 </ul>
               </div>
               <div class="if-footer-col">
-                <h4 class="if-footer-heading">Company &amp; Resources</h4>
+                <h4 class="if-footer-heading">Tools &amp; Governance</h4>
                 <ul class="if-footer-list">
-                  <li><a href="/services/roc-annual-compliance.html">RoC Annual Compliance Retainer</a></li>
+                  <li><a href="/conversion/calculator.html#readiness">Kerala Readiness Estimator</a></li>
                   <li><a href="/conversion/retainer-desk.html">Annual Retainer Plans</a></li>
+                  <li><a href="/conversion/partner-ecosystems.html">Banking &amp; Partner Desk</a></li>
                   <li><a href="/knowledge/index.html">Compliance Knowledge Centre</a></li>
                   <li><a href="/conversion/calculator.html">RoC Late Fee Calculator</a></li>
-                  <li><a href="/conversion/index.html">Diagnostic Tools &amp; Checkers</a></li>
-                  <li><a href="/conversion/retainer-desk.html">Contact Compliance Desk</a></li>
+                  <li><a href="/contact.html">Contact Scope Desk</a></li>
                 </ul>
               </div>
             </div>
@@ -596,7 +586,12 @@ function injectContextualReturnTrail() {
       '/verticals/11-governance-audit.html': 'Governance, Audit & Risk',
       '/verticals/12-esg-csr.html': 'Data Privacy & Tech Law',
       '/verticals/13-cross-border-fema.html': 'FEMA & Cross-Border Advisory',
-      '/verticals/15-it-digital.html': 'IT & Digital Infrastructure'
+      '/verticals/15-it-digital.html': 'IT & Digital Infrastructure',
+      '/bundles/clinics-diagnostics-kerala.html': 'Clinics & Diagnostics Bundle',
+      '/bundles/exim-cold-chain-kerala.html': 'EXIM & Cold-Chain Bundle',
+      '/bundles/food-spice-processing-kerala.html': 'Food & Spice Processing Bundle',
+      '/bundles/hospitality-resorts-kerala.html': 'Hospitality & Resorts Bundle',
+      '/bundles/edtech-academies-kerala.html': 'EdTech & Coaching Bundle'
     };
 
     if (KNOWN_ROUTES[cleanSource]) {
@@ -693,42 +688,17 @@ function injectContextualReturnTrail() {
 }
 
 function highlightActiveRoute() {
-  const currentPath = window.location.pathname;
+  const currentPath = window.location.pathname || '/';
   const navLinks = document.querySelectorAll(".if-nav-link");
   navLinks.forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href && currentPath.includes(href) && href !== "/index.html" && href !== "/") {
-      link.style.color = "var(--primary)";
-      link.style.fontWeight = "600";
-    }
-  });
-}
-
-function ensureSearchScriptsLoaded() {
-  return new Promise((resolve) => {
-    if (window.CraftEgonSearch && window.CRAFTEGON_SERVICE_CATALOG) {
-      return resolve();
-    }
-    if (!document.getElementById("craftegon-search-index-script")) {
-      const s1 = document.createElement("script");
-      s1.id = "craftegon-search-index-script";
-      s1.src = "/assets/js/search-index.js";
-      s1.onload = () => {
-        if (!document.getElementById("craftegon-service-search-script")) {
-          const s2 = document.createElement("script");
-          s2.id = "craftegon-service-search-script";
-          s2.src = "/assets/js/service-search.js";
-          s2.onload = () => resolve();
-          s2.onerror = () => resolve();
-          document.body.appendChild(s2);
-        } else {
-          resolve();
-        }
-      };
-      s1.onerror = () => resolve();
-      document.body.appendChild(s1);
-    } else {
-      resolve();
+    const rawHref = link.getAttribute("href") || "";
+    const hrefPath = rawHref.split('#')[0].split('?')[0];
+    if (!hrefPath || hrefPath === "/index.html" || hrefPath === "/") return;
+    if (currentPath.includes(hrefPath) ||
+        (link.id === 'bundles-nav-trigger' && currentPath.includes('/bundles/')) ||
+        (link.id === 'services-nav-trigger' && (currentPath.includes('/services') || currentPath.includes('/verticals') || currentPath.includes('/categories') || currentPath.includes('/search'))) ||
+        (link.id === 'calculators-nav-trigger' && currentPath.includes('/conversion/calculator'))) {
+      link.classList.add("active");
     }
   });
 }

@@ -110,7 +110,15 @@ indexHtml = indexHtml.replace(
   '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance business infrastructure partner under CraftEgon LLP (Markaz Knowledge City, Kozhikode & Malappuram), aligned with NIEG ethical governance.",'
 );
 
-// 1c. Remodel Hero Showcase (#hero) + Insert #kerala-bundles showcase directly below
+// 1c. Remodel Hero Showcase (#hero) + Insert Scannable #kerala-bundles Showcase directly below
+const bundleAudienceMap = {
+  'KL-BND-CLINIC': 'Multi-specialty clinics, dental/skin centers, diagnostic labs & NRI-backed care/research units',
+  'KL-BND-EXIM': 'Spice/agro/seafood exporters, Kochi/Beypore/air-cargo shippers & GCC cold-chain operators',
+  'KL-BND-FOOD': 'Spice mills, food/nutraceutical plants, KINFRA processors & private-label D2C food brands',
+  'KL-BND-HOSPITALITY': 'Boutique stays, eco/wellness resorts, serviced villas & NRI hospitality SPVs',
+  'KL-BND-EDTECH': 'Coaching academies, healthcare-licensing institutes, EdTech startups & LMS platforms'
+};
+
 const bundleCardsMarkup = bundlesData.bundles.map((b, idx) => `
           <article class="kl-bundle-card ${idx < 2 ? 'kl-bundle-card-featured' : ''}">
             <div>
@@ -119,24 +127,32 @@ const bundleCardsMarkup = bundlesData.bundles.map((b, idx) => `
                 <span class="kl-bundle-pack-pill">${esc(b.bundleName)}</span>
               </div>
               <h3 class="kl-bundle-title">${esc(b.title)}</h3>
-              <p class="kl-bundle-desc">${esc(b.shortTagline)}</p>
+              <div class="kl-bundle-who">
+                <strong>Who This Is For</strong>
+                ${esc(bundleAudienceMap[b.id] || b.targetAudience[0])}
+              </div>
               <ul class="kl-bundle-phases-mini">
-                <li><span class="kl-phase-dot">01</span><span><strong>Launch Stack:</strong> ${esc(b.entityAndPreLaunchStack.keralaAndCentralRegistrations.slice(0, 3).map(r => r.title).join(' • '))}</span></li>
-                <li><span class="kl-phase-dot">02</span><span><strong>Contracts &amp; Risk:</strong> ${esc(b.commercialAndRiskShield.coreContracts.slice(0, 2).map(c => c.title).join(' • '))} + NIEG</span></li>
-                <li><span class="kl-phase-dot">03</span><span><strong>Year-1 Retainer:</strong> Connected-banking finance, tax cadence &amp; renewal tracking</span></li>
+                <li><span class="kl-phase-dot">01</span><span><strong>Setup:</strong> ${esc(b.entityAndPreLaunchStack.keralaAndCentralRegistrations.slice(0, 2).map(r => r.title).join(' • '))}</span></li>
+                <li><span class="kl-phase-dot">02</span><span><strong>Contracts + NIEG:</strong> ${esc(b.commercialAndRiskShield.coreContracts.slice(0, 2).map(c => c.title).join(' • '))}</span></li>
+                <li><span class="kl-phase-dot">03</span><span><strong>Year-1 Retainer:</strong> Connected-banking ledger, tax &amp; renewal tracking</span></li>
               </ul>
             </div>
-            <a href="/bundles/${esc(b.slug)}.html" class="kl-bundle-cta">
-              <span>Explore ${esc(b.bundleName)}</span>
-              <span>&rarr;</span>
-            </a>
+            <div class="kl-bundle-card-actions">
+              <a href="/conversion/calculator.html?bundle=${encodeURIComponent(b.id)}#readiness" class="kl-bundle-cta-primary">
+                <span>Start Scope Check</span>
+                <span>&rarr;</span>
+              </a>
+              <a href="/bundles/${esc(b.slug)}.html" class="kl-bundle-cta-ghost">
+                <span>Roadmap</span>
+              </a>
+            </div>
           </article>`).join('\n');
 
-const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" aria-labelledby="hero-title" style="background: linear-gradient(135deg, #FFFFFF 0%, #F4FAF7 65%, #F3F9FD 100%);">
+const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" aria-labelledby="hero-title" style="background: linear-gradient(135deg, #FFFFFF 0%, #F4FAF7 65%, #F3F9FD 100%); padding-bottom: 3rem;">
       <div class="home-container">
-        <!-- Hero Centered Core Showcase -->
+        <!-- Hero Centered Core Showcase (Decluttered Above-the-Fold Rhythm) -->
         <div class="hero-center-showcase">
-          <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.38rem 0.95rem; border-radius:9999px; background:rgba(0,166,81,0.08); border:1px solid rgba(0,166,81,0.28); font-family:var(--font-mono,monospace); font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--growth-green-accessible,#008742); margin-bottom:1.15rem;">
+          <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.38rem 0.95rem; border-radius:9999px; background:rgba(0,166,81,0.08); border:1px solid rgba(0,166,81,0.28); font-family:var(--font-mono,monospace); font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--growth-green-accessible,#008742); margin-bottom:1.05rem;">
             Markaz Knowledge City, Kozhikode &amp; Malappuram &bull; CraftEgon LLP &bull; NIEG Aligned
           </div>
 
@@ -145,7 +161,7 @@ const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" ari
           </h1>
 
           <p class="hero-lead">
-            Incorporation is only Day 1. We take Kerala founders from SPICe+/LLP registration through K-SWIFT, LSGD, KSPCB &amp; Clinical Establishments readiness, bespoke CraftEgon LLP commercial contracts, and connected-banking-led Year-1 governance.
+            Incorporation is only Day 1. We guide Kerala founders from SPICe+/LLP formation through K-SWIFT, LSGD, KSPCB &amp; Clinical Establishments readiness, CraftEgon LLP commercial contracts, and connected-banking Year-1 retainers.
           </p>
 
           <!-- Integrated Search Preserving Full 57-Service Engine -->
@@ -179,7 +195,7 @@ const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" ari
 
             <!-- Kerala Industry Shortcuts -->
             <div class="hero-search-shortcuts">
-              <span class="shortcuts-label">Kerala Bundles:</span>
+              <span class="shortcuts-label">Quick Sector Links:</span>
               <a href="/bundles/clinics-diagnostics-kerala.html" class="search-pill">Clinics &amp; Diagnostics</a>
               <a href="/bundles/exim-cold-chain-kerala.html" class="search-pill">EXIM &amp; Cold-Chain</a>
               <a href="/bundles/food-spice-processing-kerala.html" class="search-pill">Food &amp; Spice Units</a>
@@ -193,72 +209,20 @@ const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" ari
             <a href="#kerala-bundles" class="btn-hero-primary" style="background: var(--growth-green-accessible, #008742); border-color: var(--growth-green-accessible, #008742);" aria-label="Explore Kerala Industry Bundles">
               <span>Explore Kerala Industry Bundles</span> &rarr;
             </a>
-            <a href="#consultation-cta" class="btn-hero-secondary" style="border-color: var(--charcoal-ink, #1A1A1A); color: var(--charcoal-ink, #1A1A1A) !important;" aria-label="Request Scoped Proposal">
-              <span>Request Scoped Proposal</span>
+            <a href="/conversion/calculator.html#readiness" class="btn-hero-secondary" style="border-color: var(--charcoal-ink, #1A1A1A); color: var(--charcoal-ink, #1A1A1A) !important;" aria-label="Run Kerala Readiness and Scope Estimator">
+              <span>Start Scope &amp; Readiness Check</span>
             </a>
           </div>
 
           <!-- Factual Governance Commitments -->
           <div class="hero-trust-strip">
-            <span class="trust-item">Clear advisory vs statutory fee separation</span>
+            <span class="trust-item">Advisory fees separated from govt challans</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
-            <span class="trust-item">CraftEgon LLP contract &amp; SLA architecture</span>
+            <span class="trust-item">CraftEgon LLP commercial drafting</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
             <span class="trust-item">NIEG ethical governance alignment</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
-            <span class="trust-item">Full 57-service RoC &amp; Tax engine</span>
-          </div>
-        </div>
-
-        <!-- 6 Core Entry Channels (5 Kerala Bundles + Full 57-Service Directory) -->
-        <div class="hero-channels-container">
-          <div class="channels-title-bar">
-            <span>Kerala Vertical Launch Suites &amp; Core Catalog</span>
-            <a href="/services.html" class="channels-view-all">Full Services Directory &rarr;</a>
-          </div>
-          <div class="hero-quick-channels">
-            <a href="/bundles/clinics-diagnostics-kerala.html" class="channel-card">
-              <span class="channel-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></span>
-              <div class="channel-text">
-                <span class="channel-name">Clinics &amp; Diagnostics</span>
-                <span class="channel-sub">K-SWIFT, Clinical Est., BMW</span>
-              </div>
-            </a>
-            <a href="/bundles/exim-cold-chain-kerala.html" class="channel-card">
-              <span class="channel-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>
-              <div class="channel-text">
-                <span class="channel-name">EXIM &amp; Cold-Chain</span>
-                <span class="channel-sub">IEC, AD Code, LUT &amp; SLAs</span>
-              </div>
-            </a>
-            <a href="/bundles/food-spice-processing-kerala.html" class="channel-card">
-              <span class="channel-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg></span>
-              <div class="channel-text">
-                <span class="channel-name">Food &amp; Spice Units</span>
-                <span class="channel-sub">FSSAI, KSPCB, OEM Contracts</span>
-              </div>
-            </a>
-            <a href="/bundles/hospitality-resorts-kerala.html" class="channel-card">
-              <span class="channel-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg></span>
-              <div class="channel-text">
-                <span class="channel-name">Hospitality &amp; Resorts</span>
-                <span class="channel-sub">SPV, LSGD, Lease &amp; OTA Shield</span>
-              </div>
-            </a>
-            <a href="/bundles/edtech-academies-kerala.html" class="channel-card">
-              <span class="channel-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
-              <div class="channel-text">
-                <span class="channel-name">EdTech &amp; Academies</span>
-                <span class="channel-sub">Faculty IP, DPDP &amp; DPIIT</span>
-              </div>
-            </a>
-            <a href="/services.html" class="channel-card">
-              <span class="channel-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
-              <div class="channel-text">
-                <span class="channel-name">Full Services Catalog</span>
-                <span class="channel-sub">RoC, Tax, IPR &amp; FEMA Filings</span>
-              </div>
-            </a>
+            <span class="trust-item">57-service RoC, Tax &amp; FEMA engine</span>
           </div>
         </div>
       </div>
@@ -270,10 +234,10 @@ const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" ari
     <section class="kl-bundles-showcase" id="kerala-bundles" aria-labelledby="kerala-bundles-heading">
       <div class="home-container">
         <div class="kl-section-head">
-          <span class="kl-eyebrow">Kerala Vertical Infrastructure Suites</span>
-          <h2 id="kerala-bundles-heading" class="kl-h2">Built for Sectors Where Day-1 Registration Is Never Enough</h2>
+          <span class="kl-eyebrow">5 Kerala Industry Infrastructure Suites</span>
+          <h2 id="kerala-bundles-heading" class="kl-h2">Launch-to-Operate + Year-1 Governance for High-Complexity Sectors</h2>
           <p class="kl-lead">
-            Choose your industry vertical below to inspect the exact 3-phase Launch-to-Operate stack: entity structuring &amp; Kerala pre-launch permissions, CraftEgon LLP commercial contracts &amp; NIEG governance, and connected-banking Year-1 retainers.
+            Scan who each suite serves and what gets handled across Entity &amp; Kerala Licensing, CraftEgon LLP Contracts, and Year-1 Retainers—or run a 60-second Scope Check.
           </p>
         </div>
 
@@ -283,12 +247,12 @@ ${bundleCardsMarkup}
 
         <div style="max-width:1240px; margin:2rem auto 0; padding:1.25rem 1.5rem; background:var(--surface-canvas,#F4FAF7); border:1px solid var(--border-color,#DCE8E5); border-radius:10px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
           <div>
-            <strong style="color:var(--charcoal-ink,#1A1A1A); font-size:0.95rem; display:block;">Need an individual filing, calculator, or registry check?</strong>
-            <span style="color:var(--text-secondary,#52717A); font-size:0.86rem;">Access all underlying MCA, GST, IPR, and FEMA services, plus our Stamp Duty &amp; Section 403 calculators.</span>
+            <strong style="color:var(--charcoal-ink,#1A1A1A); font-size:0.95rem; display:block;">Looking for an individual filing, calculator, or registry check?</strong>
+            <span style="color:var(--text-secondary,#52717A); font-size:0.86rem;">Access our 57-service catalog, Stamp Duty &amp; Section 403 calculators, Partner Desk, or CIN/Trademark lookup.</span>
           </div>
           <div style="display:flex; gap:0.65rem; flex-wrap:wrap;">
-            <a href="/services.html" class="kl-btn-secondary" style="padding:0.6rem 1rem; font-size:0.84rem;">Browse Services Catalog</a>
-            <a href="/conversion/calculator.html" class="kl-btn-secondary" style="padding:0.6rem 1rem; font-size:0.84rem;">Open Calculators</a>
+            <a href="/conversion/calculator.html#readiness" class="kl-btn-primary" style="padding:0.6rem 1rem; font-size:0.84rem;">Readiness Estimator</a>
+            <a href="/services.html" class="kl-btn-secondary" style="padding:0.6rem 1rem; font-size:0.84rem;">57-Service Catalog</a>
             <a href="/search/" class="kl-btn-secondary" style="padding:0.6rem 1rem; font-size:0.84rem;">Corporate &amp; IP Lookup</a>
           </div>
         </div>
@@ -296,11 +260,56 @@ ${bundleCardsMarkup}
     </section>`;
 
 const heroStart = indexHtml.indexOf('<section class="hero-3d-section"');
-const wizardStart = indexHtml.indexOf('<section class="home-section entity-wizard-section"');
-if (heroStart === -1 || wizardStart === -1) {
-  throw new Error('Could not locate hero or entity-wizard section boundaries in index.html');
+const howItWorksIdx = indexHtml.indexOf('<section class="home-section process-section" id="how-it-works"');
+const wizardIdx = indexHtml.indexOf('<section class="home-section entity-wizard-section"');
+const lowerAnchor = [howItWorksIdx, wizardIdx].filter(i => i !== -1).sort((a, b) => a - b)[0];
+if (heroStart === -1 || lowerAnchor === undefined) {
+  throw new Error('Could not locate hero or lower section boundary in index.html');
 }
-indexHtml = indexHtml.slice(0, heroStart) + newHeroAndBundlesSection + '\n\n    ' + indexHtml.slice(wizardStart);
+indexHtml = indexHtml.slice(0, heroStart) + newHeroAndBundlesSection + '\n\n    ' + indexHtml.slice(lowerAnchor);
+
+// Reorder lower discovery flow once: #how-it-works -> #fee-estimator -> #entity-selector -> #popular-services -> #practice-areas -> #founder-faqs
+const curWizIdx = indexHtml.indexOf('<section class="home-section entity-wizard-section"');
+const curPopIdx = indexHtml.indexOf('<section class="popular-services-section" id="popular-services"');
+const curPracIdx = indexHtml.indexOf('<section class="home-section stages-section" id="practice-areas"');
+const curToolsIdx = indexHtml.indexOf('<section class="home-section tools-section" id="fee-estimator"');
+const curProcIdx = indexHtml.indexOf('<section class="home-section process-section" id="how-it-works"');
+const curFaqIdx = indexHtml.indexOf('<section class="home-section faq-section" id="founder-faqs"');
+
+if (curWizIdx !== -1 && curProcIdx !== -1 && curWizIdx < curProcIdx && curPopIdx !== -1 && curPracIdx !== -1 && curToolsIdx !== -1 && curFaqIdx !== -1) {
+  const wizardBlock = indexHtml.slice(curWizIdx, curPopIdx);
+  const popularBlock = indexHtml.slice(curPopIdx, curPracIdx);
+  const practiceBlock = indexHtml.slice(curPracIdx, curToolsIdx);
+  const toolsBlock = indexHtml.slice(curToolsIdx, curProcIdx);
+  const processBlock = indexHtml.slice(curProcIdx, curFaqIdx);
+  indexHtml = indexHtml.slice(0, curWizIdx) +
+    processBlock +
+    toolsBlock +
+    wizardBlock +
+    popularBlock +
+    practiceBlock +
+    indexHtml.slice(curFaqIdx);
+}
+
+// Highlight Phase 3 Kerala Readiness Estimator in #fee-estimator tools grid (idempotent)
+if (!indexHtml.includes('Kerala Vertical Readiness &amp; Bundle Estimator')) {
+  indexHtml = indexHtml.replace(
+    '<div class="tools-suite-grid">',
+    `<div class="tools-suite-grid">
+          <!-- Tool 0: Kerala Vertical Readiness & Bundle Scope Estimator (Phase 3) -->
+          <a href="/conversion/calculator.html#readiness" class="diagnostic-tool-compact-card" style="border-color: var(--growth-green-border, rgba(0,166,81,0.35)); background: linear-gradient(135deg, #FFFFFF 0%, #F4FAF7 100%);" aria-label="Launch Kerala Vertical Readiness and Bundle Scope Estimator">
+            <div class="tool-card-icon-box" style="background: rgba(0,166,81,0.12); color: var(--growth-green-accessible, #008742);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div class="tool-card-body">
+              <span class="tool-card-tag" style="color: var(--growth-green-accessible, #008742);">Phase 3 Kerala Scope Tool</span>
+              <h3 class="tool-card-title">Kerala Vertical Readiness &amp; Bundle Estimator</h3>
+              <p class="tool-card-desc">Select your Kerala industry vertical, entity stage &amp; licensing scope to generate a tailored Launch-to-Operate + Year-1 Governance brief.</p>
+              <span class="tool-card-link" style="color: var(--growth-green-accessible, #008742);">Start Scope Check &rarr;</span>
+            </div>
+          </a>`
+  );
+}
 
 // 1d. Clean unapproved low-ticket rupee tags on #popular-services cards (keep scope high-trust & PENDING_OWNER_REVIEW compliant)
 const pricePairs = [

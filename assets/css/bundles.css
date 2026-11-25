@@ -627,3 +627,152 @@
   border-color: var(--growth-green, #00A651);
   color: var(--growth-green-accessible, #008742);
 }
+
+/* --- Simplified Scannable Homepage Bundle Cards & Phase 3 Scope Estimator --- */
+.kl-bundle-who {
+  font-size: 0.84rem;
+  color: var(--navy-800, #193B46);
+  background: var(--surface-canvas, #F4FAF7);
+  border-left: 3px solid var(--growth-green, #00A651);
+  padding: 0.55rem 0.75rem;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 0.9rem;
+  line-height: 1.45;
+}
+
+.kl-bundle-who strong {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--growth-green-accessible, #008742);
+  margin-bottom: 0.15rem;
+}
+
+.kl-bundle-card-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.55rem;
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 440px) {
+  .kl-bundle-card-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kl-bundle-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.75rem 0.95rem;
+  background: var(--growth-green-accessible, #008742);
+  color: #FFFFFF !important;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.18s ease;
+}
+
+.kl-bundle-cta-primary:hover {
+  background: var(--growth-green-hover, #006E35);
+}
+
+.kl-bundle-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.75rem 0.85rem;
+  background: #FFFFFF;
+  color: var(--charcoal-ink, #1A1A1A) !important;
+  border: 1.5px solid var(--charcoal-ink, #1A1A1A);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.18s ease;
+}
+
+.kl-bundle-cta-ghost:hover {
+  background: var(--charcoal-ink, #1A1A1A);
+  color: #FFFFFF !important;
+}
+
+/* Kerala Readiness Estimator Widget (Phase 3 Calculator Tab 5) */
+.kl-readiness-needs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+@media (max-width: 640px) {
+  .kl-readiness-needs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kl-need-chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.75rem;
+  border: 1.5px solid var(--border-color, #DCE8E5);
+  border-radius: 8px;
+  background: #FFFFFF;
+  cursor: pointer;
+  font-size: 0.83rem;
+  line-height: 1.4;
+  color: var(--charcoal-ink, #1A1A1A);
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.kl-need-chip:has(input:checked) {
+  border-color: var(--growth-green, #00A651);
+  background: var(--surface-canvas, #F4FAF7);
+}
+
+.kl-scope-phase-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.kl-scope-phase-list li {
+  font-size: 0.82rem;
+  color: var(--text-main, #243746);
+  background: #FFFFFF;
+  border: 1px solid var(--border-color, #DCE8E5);
+  border-radius: 6px;
+  padding: 0.45rem 0.65rem;
+  line-height: 1.45;
+}
+
+.kl-scope-subhead {
+  font-size: 0.73rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--growth-green-accessible, #008742);
+  margin: 0.85rem 0 0.25rem;
+}
+
+.kl-scope-fee-note {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border-color, #DCE8E5);
+  border-left: 3px solid var(--charcoal-ink, #1A1A1A);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--text-main, #243746);
+}

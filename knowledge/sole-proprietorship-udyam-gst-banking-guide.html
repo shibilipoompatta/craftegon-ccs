@@ -128,24 +128,24 @@
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
         </span>
-        <input 
-          type="text" 
-          id="universal-search-input" 
-          name="q" 
-          class="universal-search-input" 
-          placeholder="Search services or forms..." 
-          autocomplete="off" 
-          spellcheck="false" 
+        <input
+          type="text"
+          id="universal-search-input"
+          name="q"
+          class="universal-search-input"
+          placeholder="Search bundles, K-SWIFT, SPICe+, AOC-4..."
+          autocomplete="off"
+          spellcheck="false"
           aria-label="Universal Service Search"
-          aria-expanded="false" 
-          aria-haspopup="listbox" 
+          aria-expanded="false"
+          aria-haspopup="listbox"
           aria-controls="universal-search-results"
           role="combobox"
         >
         <button type="button" class="universal-search-clear" id="universal-search-clear" aria-label="Clear Search Input">&times;</button>
         <span class="universal-search-shortcut" aria-hidden="true" title="Press forward slash to focus search">/</span>
       </form>
-      
+
       <div class="universal-search-dropdown" id="universal-search-dropdown" role="region" aria-label="Search Results">
         <div id="universal-search-results">
           <!-- Populated dynamically via assets/js/service-search.js -->
@@ -153,24 +153,169 @@
       </div>
     </div>
 
-    <!-- Desktop Primary Navigation -->
+    <!-- Desktop Primary Navigation (5 Clean Buyer Destinations) -->
     <nav class="if-nav" aria-label="Main Navigation">
-      <!-- 1. Home -->
-      <a href="/index.html" class="if-nav-link">Home</a>
-
-      <!-- 2. Services Dropdown -->
-      <div class="if-dropdown" id="services-dropdown-container">
-        <a href="/services.html" class="if-nav-link" id="services-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="services-megamenu">
-          Services
+      <!-- 1. Kerala Bundles -->
+      <div class="if-dropdown" id="bundles-dropdown-container">
+        <a href="/index.html#kerala-bundles" class="if-nav-link" id="bundles-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="bundles-dropdown-menu">
+          Kerala Bundles
           <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </a>
-        
-        <div class="if-dropdown-content if-megamenu" id="services-megamenu" role="menu" aria-label="Services Directory Menu">
+        <div class="if-dropdown-content bundles-dropdown-menu" id="bundles-dropdown-menu" role="menu" aria-label="Kerala Launch-to-Operate Bundles Menu">
+          <div class="dropdown-heading">
+            <span>Launch-to-Operate + Year-1</span>
+            <span class="heading-tag">Kerala Suites</span>
+          </div>
+          <ul class="dropdown-list" role="none">
+            <li role="none">
+              <a href="/bundles/clinics-diagnostics-kerala.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Clinics, Diagnostics &amp; Care Centers</strong>
+                  <span class="item-desc">K-SWIFT, Clinical Est., KSPCB BMW &amp; Doctor Contracts</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/bundles/exim-cold-chain-kerala.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">EXIM, Freight &amp; Cold-Chain</strong>
+                  <span class="item-desc">IEC, AD Code, LUT, CHA/Cold-Chain SLAs &amp; FEMA</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/bundles/food-spice-processing-kerala.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Food, Spice &amp; Nutraceutical Units</strong>
+                  <span class="item-desc">FSSAI Mfg, KSPCB, Co-Packing &amp; Distributor Pacts</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/bundles/hospitality-resorts-kerala.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Hospitality, Stays &amp; Eco Resorts</strong>
+                  <span class="item-desc">SPV, LSGD/KSPCB STP, Lease, OTA &amp; Workforce Suite</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/bundles/edtech-academies-kerala.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">EdTech &amp; Coaching Academies</strong>
+                  <span class="item-desc">DPIIT, Faculty IP, DPDP Privacy &amp; Refund Governance</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid #E2E8F0;">
+            <a href="/conversion/calculator.html#readiness" class="megamenu-directory-btn" style="background: var(--growth-green-accessible, #008742);" role="menuitem">
+              <span>Run Kerala Readiness Estimator</span>
+              <span class="btn-arrow">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Calculators & Readiness -->
+      <div class="if-dropdown" id="calculators-dropdown-container">
+        <a href="/conversion/calculator.html#readiness" class="if-nav-link" id="calculators-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="calculators-dropdown-menu">
+          Calculators &amp; Readiness
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+        <div class="if-dropdown-content bundles-dropdown-menu" id="calculators-dropdown-menu" role="menu" aria-label="Calculators &amp; Readiness Tools Menu">
+          <div class="dropdown-heading">
+            <span>Scope &amp; Cost Estimators</span>
+            <span class="heading-tag">Self-Qualify</span>
+          </div>
+          <ul class="dropdown-list" role="none">
+            <li role="none">
+              <a href="/conversion/calculator.html#readiness" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Kerala Bundle Readiness Estimator</strong>
+                  <span class="item-desc">Vertical tier, licensing, contract &amp; retainer scope</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/conversion/calculator.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Entity Outlay &amp; RoC Late Fee Suite</strong>
+                  <span class="item-desc">SPICe+/FiLLiP stamp duty &amp; Section 403 exposure</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/conversion/calculator.html#calc-tab-3" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Tax Regime &amp; MSME 43B(h) Tracker</strong>
+                  <span class="item-desc">115BAC tax comparison &amp; 45-day supplier monitor</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/conversion/index.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Full Diagnostic &amp; Intake Hub</strong>
+                  <span class="item-desc">DPDP audit, FEMA desk &amp; AI document drafter</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/conversion/retainer-desk.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Year-1 Governance Retainer Desk</strong>
+                  <span class="item-desc">Annual secretarial, tax &amp; connected-banking SLA</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3. Catalog & Lookups (Mega Menu) -->
+      <div class="if-dropdown" id="services-dropdown-container">
+        <a href="/services.html" class="if-nav-link" id="services-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="services-megamenu">
+          Catalog &amp; Lookups
+          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+
+        <div class="if-dropdown-content if-megamenu" id="services-megamenu" role="menu" aria-label="Services Catalog and Registry Lookups Menu">
           <!-- Column 1: Core Categories -->
           <div class="megamenu-col">
             <div class="dropdown-heading">
               <span>Key Categories</span>
-              <span class="heading-tag">The 6 Pillars</span>
+              <span class="heading-tag">6 Pillars</span>
             </div>
             <ul class="dropdown-list" role="none">
               <li role="none">
@@ -246,11 +391,9 @@
           <div class="megamenu-col">
             <div class="dropdown-heading">
               <span>Explore by Category</span>
-              <span class="heading-tag">Active Practice Areas</span>
+              <span class="heading-tag">Practice Areas</span>
             </div>
             <ul class="dropdown-list" role="none">
-              <li role="none"><a href="/bundles/clinics-diagnostics-kerala.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Kerala Clinics &amp; Diagnostics Pack</a></li>
-              <li role="none"><a href="/bundles/exim-cold-chain-kerala.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Kerala EXIM &amp; Cold-Chain Pack</a></li>
               <li role="none"><a href="/verticals/05-contracts-legal.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Commercial Contracts &amp; Drafting</a></li>
               <li role="none"><a href="/verticals/06-ipr-protection.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> IPR &amp; Trademark Protection</a></li>
               <li role="none"><a href="/verticals/07-labour-hr.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Employment &amp; HR Compliance</a></li>
@@ -260,6 +403,15 @@
               <li role="none"><a href="/verticals/13-cross-border-fema.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Cross-Border FDI &amp; FEMA</a></li>
               <li role="none"><a href="/verticals/10-litigation-dispute.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Dispute Avoidance (Non-Litigation)</a></li>
               <li role="none"><a href="/verticals/15-it-digital.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> IT &amp; Digital Infrastructure</a></li>
+            </ul>
+            <div class="dropdown-heading" style="margin-top:0.85rem;">
+              <span>Registry Lookups &amp; Guides</span>
+              <span class="heading-tag">Verify</span>
+            </div>
+            <ul class="dropdown-list" role="none">
+              <li role="none"><a href="/search/" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Corporate &amp; IP Registry Search</a></li>
+              <li role="none"><a href="/search/index.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> CIN &amp; LLPIN Master Lookup</a></li>
+              <li role="none"><a href="/knowledge/index.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Compliance Knowledge Centre</a></li>
             </ul>
           </div>
 
@@ -278,15 +430,15 @@
             </ul>
             <div class="megamenu-directory-callout" style="display: flex; flex-direction: column; gap: 0.5rem;">
               <a href="/services.html" class="btn btn-primary megamenu-directory-btn" role="menuitem">
-                <span>Universal Services Directory</span>
+                <span>All 57 Services Directory</span>
                 <span class="btn-arrow">&rarr;</span>
               </a>
               <a href="/categories/index.html" class="btn btn-secondary megamenu-directory-btn" style="background: var(--navy-800); color: #FFFFFF; border-color: var(--navy-800);" role="menuitem">
-                <span>Browse 6 Core Categories Hub</span>
+                <span>6 Core Categories Hub</span>
                 <span class="btn-arrow">&rarr;</span>
               </a>
               <a href="/verticals/index.html" class="btn btn-secondary megamenu-directory-btn" style="background: var(--navy-800); color: #FFFFFF; border-color: var(--navy-800);" role="menuitem">
-                <span>Browse Practice Verticals Hub</span>
+                <span>Practice Verticals Hub</span>
                 <span class="btn-arrow">&rarr;</span>
               </a>
             </div>
@@ -294,111 +446,18 @@
         </div>
       </div>
 
-      <!-- 3. Kerala Industry Bundles Dropdown -->
-      <div class="if-dropdown" id="bundles-dropdown-container">
-        <a href="/index.html#kerala-bundles" class="if-nav-link" id="bundles-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="bundles-dropdown-menu">
-          Kerala Bundles
-          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </a>
-        <div class="if-dropdown-content resources-dropdown-menu" id="bundles-dropdown-menu" role="menu" aria-label="Kerala Launch-to-Operate Bundles Menu">
-          <div class="dropdown-heading">
-            <span>Launch-to-Operate + Year-1</span>
-            <span class="heading-tag">Kerala Desk</span>
-          </div>
-          <ul class="dropdown-list" role="none">
-            <li role="none">
-              <a href="/bundles/clinics-diagnostics-kerala.html" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">Clinics, Diagnostics &amp; Care Centers</strong>
-                  <span class="item-desc">K-SWIFT, Clinical Est., KSPCB BMW &amp; Doctor Contracts</span>
-                </div>
-              </a>
-            </li>
-            <li role="none">
-              <a href="/bundles/exim-cold-chain-kerala.html" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">EXIM, Freight &amp; Cold-Chain</strong>
-                  <span class="item-desc">IEC, AD Code, LUT, CHA/Cold-Chain SLAs &amp; FEMA</span>
-                </div>
-              </a>
-            </li>
-            <li role="none">
-              <a href="/bundles/food-spice-processing-kerala.html" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">Food, Spice &amp; Nutraceutical Units</strong>
-                  <span class="item-desc">FSSAI Mfg, KSPCB, Co-Packing &amp; Distributor Pacts</span>
-                </div>
-              </a>
-            </li>
-            <li role="none">
-              <a href="/bundles/hospitality-resorts-kerala.html" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">Hospitality, Stays &amp; Eco Resorts</strong>
-                  <span class="item-desc">SPV, LSGD/KSPCB STP, Lease, OTA &amp; Workforce Suite</span>
-                </div>
-              </a>
-            </li>
-            <li role="none">
-              <a href="/bundles/edtech-academies-kerala.html" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">EdTech &amp; Coaching Academies</strong>
-                  <span class="item-desc">DPIIT, Faculty IP, DPDP Privacy &amp; Refund Governance</span>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 4. Resources Dropdown -->
+      <!-- 4. Partners & Kerala Hubs Dropdown -->
       <div class="if-dropdown" id="resources-dropdown-container">
-        <a href="/knowledge/index.html" class="if-nav-link" id="resources-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="resources-dropdown-menu">
-          Resources
+        <a href="/conversion/partner-ecosystems.html" class="if-nav-link" id="resources-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="resources-dropdown-menu">
+          Partners
           <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </a>
-        <div class="if-dropdown-content resources-dropdown-menu" id="resources-dropdown-menu" role="menu" aria-label="Resources &amp; Diagnostic Tools Menu">
+        <div class="if-dropdown-content resources-dropdown-menu" id="resources-dropdown-menu" role="menu" aria-label="Partners and Kerala Ecosystem Menu">
           <div class="dropdown-heading">
-            <span>Tools &amp; Intelligence</span>
-            <span class="heading-tag">Diagnostic Hub</span>
+            <span>Ecosystem &amp; Regional Desks</span>
+            <span class="heading-tag">Kerala + GCC</span>
           </div>
           <ul class="dropdown-list" role="none">
-            <li role="none">
-              <a href="/knowledge/index.html" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">Compliance Knowledge Centre</strong>
-                  <span class="item-desc">Regulatory circulars &amp; filing guides</span>
-                </div>
-              </a>
-            </li>
-            <li role="none">
-              <a href="/conversion/calculator.html" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">RoC Late Fee &amp; Cost Calculator</strong>
-                  <span class="item-desc">Statutory penalty &amp; outlay calculator</span>
-                </div>
-              </a>
-            </li>
             <li role="none">
               <a href="/conversion/partner-ecosystems.html" class="menu-item-card" role="menuitem">
                 <div class="menu-item-icon">
@@ -406,18 +465,29 @@
                 </div>
                 <div class="menu-item-body">
                   <strong class="item-title">Banking &amp; Partner Desk</strong>
-                  <span class="item-desc">Connected banking &amp; resolution drafts</span>
+                  <span class="item-desc">Connected banking &amp; channel onboarding kits</span>
                 </div>
               </a>
             </li>
             <li role="none">
-              <a href="/conversion/index.html" class="menu-item-card" role="menuitem">
+              <a href="/locations/kozhikode-corporate-services.html" class="menu-item-card" role="menuitem">
                 <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
                 <div class="menu-item-body">
-                  <strong class="item-title">Diagnostic Tools &amp; Checkers</strong>
-                  <span class="item-desc">Entity health &amp; compliance assessments</span>
+                  <strong class="item-title">Markaz Knowledge City, Kozhikode</strong>
+                  <span class="item-desc">Corporate structuring, clinics &amp; EdTech desk</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/locations/malappuram-nri-business-desk.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Malappuram &amp; GCC NRI Desk</strong>
+                  <span class="item-desc">Chettipadi, Tirurangadi &amp; cross-border FEMA</span>
                 </div>
               </a>
             </li>
@@ -428,25 +498,22 @@
                 </div>
                 <div class="menu-item-body">
                   <strong class="item-title">About CraftEgon LLP &amp; NIEG</strong>
-                  <span class="item-desc">Kozhikode &amp; Malappuram operating model</span>
+                  <span class="item-desc">Ethics charter &amp; operating methodology</span>
                 </div>
               </a>
             </li>
-            <li role="none" class="dropdown-divider-item" aria-hidden="true"><hr class="dropdown-divider"></li>
-            <li role="none"><a href="/search/" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Corporate &amp; IP Registry Search</a></li>
-            <li role="none"><a href="/search/index.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> CIN &amp; LLPIN Master Lookup</a></li>
           </ul>
         </div>
       </div>
 
-      <!-- 5. Contact -->
-      <a href="/contact.html" class="if-nav-link">Contact</a>
+      <!-- 5. Contact / Scope -->
+      <a href="/contact.html" class="if-nav-link">Contact / Scope</a>
     </nav>
 
-    <!-- Header Actions -->
+    <!-- Header Actions (Single Clear Estimator CTA + Talk to an Expert, Zero Redundancy) -->
     <div class="if-header-actions">
-      <a href="/services/" class="btn btn-secondary if-btn-secondary portal-nav-link" title="Universal Services Directory">Services</a>
-      <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-primary if-btn-primary btn-talk-expert">
+      <a href="/conversion/calculator.html#readiness" class="btn btn-secondary if-btn-secondary" title="Kerala Bundle Readiness &amp; Scope Estimator">Scope Check</a>
+      <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-primary if-btn-primary btn-talk-expert" style="background: var(--growth-green-accessible, #008742) !important; border-color: var(--growth-green-accessible, #008742) !important;">
         Talk to an Expert
       </a>
       <button type="button" class="if-mobile-search-toggle" id="mobile-search-toggle" aria-label="Quick Search Services">
@@ -483,27 +550,27 @@
         </svg>
       </button>
     </div>
-    
+
     <!-- Mobile Search Form -->
     <div class="if-mobile-search-box">
       <form action="/services.html" method="GET">
         <span class="if-mobile-search-icon">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </span>
-        <input type="text" name="q" class="if-mobile-search-input" placeholder="Search services or forms..." aria-label="Search services on mobile">
+        <input type="text" name="q" class="if-mobile-search-input" placeholder="Search bundles, K-SWIFT, SPICe+..." aria-label="Search services on mobile">
       </form>
     </div>
 
     <div class="if-mobile-drawer-body">
       <div class="if-mobile-nav-group">
-        <a href="/index.html" class="if-mobile-nav-link">Home</a>
-        <a href="/index.html#kerala-bundles" class="if-mobile-nav-link" style="font-weight: 700; color: var(--growth-green-accessible, #008742);">Kerala Launch-to-Operate Bundles</a>
-        <a href="/services.html" class="if-mobile-nav-link" style="font-weight: 700; color: var(--navy-800, #0B2545);">Services Directory</a>
-        <a href="/verticals/index.html" class="if-mobile-nav-link" style="font-weight: 700; color: var(--navy-800, #0B2545);">Practice Verticals Hub</a>
-        <a href="/about.html" class="if-mobile-nav-link">About CraftEgon LLP &amp; NIEG</a>
+        <a href="/index.html#kerala-bundles" class="if-mobile-nav-link" style="font-weight: 700; color: var(--growth-green-accessible, #008742);">Kerala Launch Bundles (5)</a>
+        <a href="/conversion/calculator.html#readiness" class="if-mobile-nav-link" style="font-weight: 700; color: var(--navy-900, #10262E);">Calculators &amp; Readiness Estimator</a>
+        <a href="/services.html" class="if-mobile-nav-link">Catalog &amp; Lookups (57 Services)</a>
+        <a href="/conversion/partner-ecosystems.html" class="if-mobile-nav-link">Banking &amp; Partner Ecosystems</a>
+        <a href="/contact.html" class="if-mobile-nav-link">Contact / Scope Proposal</a>
       </div>
 
-      <!-- Mobile Kerala Bundles Accordion -->
+      <!-- 1. Kerala Industry Bundles (Expanded for immediate discovery) -->
       <details class="if-mobile-accordion" id="mobile-kerala-bundles-accordion" open>
         <summary>
           <div class="accordion-summary-content">
@@ -518,405 +585,112 @@
         </summary>
         <div class="if-mobile-sublinks">
           <a href="/bundles/clinics-diagnostics-kerala.html">
-            <span>Clinics, Diagnostics &amp; Care Centers</span>
-            <span class="sublink-tag">Request quote</span>
+            <span>Clinics &amp; Diagnostics Pack</span>
+            <span class="sublink-tag">K-SWIFT &amp; Est.</span>
           </a>
           <a href="/bundles/exim-cold-chain-kerala.html">
-            <span>EXIM, Freight &amp; Cold-Chain Pack</span>
-            <span class="sublink-tag">Request quote</span>
+            <span>EXIM &amp; Cold-Chain Pack</span>
+            <span class="sublink-tag">Ports &amp; 3PL</span>
           </a>
           <a href="/bundles/food-spice-processing-kerala.html">
-            <span>Food, Spice &amp; Nutraceutical Units</span>
-            <span class="sublink-tag">Request quote</span>
+            <span>Food, Spice &amp; Nutraceutical</span>
+            <span class="sublink-tag">FSSAI &amp; KSPCB</span>
           </a>
           <a href="/bundles/hospitality-resorts-kerala.html">
-            <span>Hospitality, Stays &amp; Eco Resorts</span>
-            <span class="sublink-tag">Request quote</span>
+            <span>Hospitality &amp; Eco Resorts</span>
+            <span class="sublink-tag">SPV &amp; Lease</span>
           </a>
           <a href="/bundles/edtech-academies-kerala.html">
             <span>EdTech &amp; Coaching Academies</span>
-            <span class="sublink-tag">Request quote</span>
+            <span class="sublink-tag">Faculty IP</span>
+          </a>
+          <a href="/conversion/calculator.html#readiness" class="sublink-view-all">
+            <span>Launch Readiness Estimator &rarr;</span>
           </a>
         </div>
       </details>
 
-      
-      <!-- Fast-Track Popular Services Micro-Grid -->
-      <div class="mobile-fasttrack-section">
-        <div class="mobile-fasttrack-header">
-          <span>POPULAR FAST-TRACK SERVICES</span>
-        </div>
-        <div class="mobile-fasttrack-grid">
-          <a href="/services/pvt-ltd-registration.html" class="fasttrack-pill">
-            <span class="fasttrack-name">Pvt Ltd Company</span>
-            <span class="fasttrack-price">Request quote</span>
-          </a>
-          <a href="/services/llp-registration.html" class="fasttrack-pill">
-            <span class="fasttrack-name">LLP Formation</span>
-            <span class="fasttrack-price">Request quote</span>
-          </a>
-          <a href="/services/roc-annual-compliance.html" class="fasttrack-pill">
-            <span class="fasttrack-name">RoC Retainer</span>
-            <span class="fasttrack-price">Request quote</span>
-          </a>
-          <a href="/services/dir3-kyc.html" class="fasttrack-pill">
-            <span class="fasttrack-name">DIR-3 KYC</span>
-            <span class="fasttrack-price">Request quote</span>
-          </a>
-          <a href="/services/trademark-registration.html" class="fasttrack-pill">
-            <span class="fasttrack-name">Trademark TM-A</span>
-            <span class="fasttrack-price">Request quote</span>
-          </a>
-          <a href="/services/gst-annual.html" class="fasttrack-pill">
-            <span class="fasttrack-name">GST Annual</span>
-            <span class="fasttrack-price">Request quote</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Practice Areas Accordions: Customer-First Categorization Matching & Exceeding IndiaFilings -->
-      <!-- 1. Startup & Entity Formation Accordion (10 Services) -->
-      <details class="if-mobile-accordion" id="mobile-startup-accordion">
-        <summary>
-          <div class="accordion-summary-content">
-            <span class="accordion-icon-wrap" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 11h2M9 15h2M13 11h2M13 15h2"/></svg>
-            </span>
-            <span class="accordion-title-text">Startup &amp; Company Setup (10)</span>
-          </div>
-          <span class="accordion-chevron-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
-          </span>
-        </summary>
-        <div class="if-mobile-sublinks">
-          <a href="/services/pvt-ltd-registration.html">
-            <span>Private Limited Company (SPICe+)</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/llp-registration.html">
-            <span>Limited Liability Partnership (LLP)</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/opc-registration.html">
-            <span>One Person Company (OPC)</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/section-8-registration.html">
-            <span>Section 8 Non-Profit Company</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/partnership-registration.html">
-            <span>Partnership Firm Registration</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/proprietorship-registration.html">
-            <span>Sole Proprietorship Registration</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/trust-registration.html">
-            <span>Charitable Trust Registration</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/society-registration.html">
-            <span>Society Registration Online</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/dpiit-startup-india.html">
-            <span>Startup India DPIIT Recognition</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/msme-udyam.html">
-            <span>MSME / Udyam Registration</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/verticals/01-entity-formation.html" class="sublink-view-all">
-            <span>View All 10 Formation Services &rarr;</span>
-          </a>
-        </div>
-      </details>
-
-      <!-- 2. RoC Compliance & Secretarial (12 Services) -->
-      <details class="if-mobile-accordion" id="mobile-roc-accordion">
-        <summary>
-          <div class="accordion-summary-content">
-            <span class="accordion-icon-wrap" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </span>
-            <span class="accordion-title-text">RoC Compliance &amp; Filings (12)</span>
-          </div>
-          <span class="accordion-chevron-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
-          </span>
-        </summary>
-        <div class="if-mobile-sublinks">
-          <a href="/services/roc-annual-compliance.html">
-            <span>Annual Secretarial Retainers</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-aoc4.html">
-            <span>Form AOC-4 Financial Statements</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/aoc4-xbrl.html">
-            <span>AOC-4 XBRL Tagging &amp; Filing</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-mgt7.html">
-            <span>Form MGT-7 Annual Return</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/dir3-kyc.html">
-            <span>DIR-3 KYC Director Verification</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-adt1.html">
-            <span>Form ADT-1 Auditor Appointment</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-dpt3.html">
-            <span>Form DPT-3 Return of Deposits</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-pas6.html">
-            <span>Form PAS-6 Demat Reconciliation</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-ben2.html">
-            <span>Form BEN-2 SBO Disclosures</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-mgt14.html">
-            <span>Form MGT-14 Special Resolutions</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-msc1-dormant.html">
-            <span>Form MSC-1 Dormant Status</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/llp-compliance-forms.html">
-            <span>LLP Form 11 &amp; Form 8 Filings</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/verticals/02-roc-compliance.html" class="sublink-view-all">
-            <span>View All 18 RoC Filings &rarr;</span>
-          </a>
-        </div>
-      </details>
-
-      <!-- 3. Corporate Tax, GST & Audits (5 Services) -->
-      <details class="if-mobile-accordion" id="mobile-tax-accordion">
-        <summary>
-          <div class="accordion-summary-content">
-            <span class="accordion-icon-wrap" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </span>
-            <span class="accordion-title-text">Corporate Tax &amp; GST (5)</span>
-          </div>
-          <span class="accordion-chevron-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
-          </span>
-        </summary>
-        <div class="if-mobile-sublinks">
-          <a href="/services/gst-annual.html">
-            <span>GST Annual Return (GSTR-9/9C)</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/itr7.html">
-            <span>Corporate Tax Return (ITR-7)</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/proprietorship-tax.html">
-            <span>Proprietorship &amp; SME Tax Filing</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-3ceb.html">
-            <span>Form 3CEB Transfer Pricing</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-10b.html">
-            <span>Form 10B / 10BB Trust Audit</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/verticals/03-tax-compliance.html" class="sublink-view-all">
-            <span>View All Tax &amp; GST Solutions &rarr;</span>
-          </a>
-        </div>
-      </details>
-
-      <!-- 4. Intellectual Property & Trademarks (3 Services) -->
-      <details class="if-mobile-accordion" id="mobile-ipr-accordion">
-        <summary>
-          <div class="accordion-summary-content">
-            <span class="accordion-icon-wrap" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </span>
-            <span class="accordion-title-text">Trademarks &amp; Patents (3)</span>
-          </div>
-          <span class="accordion-chevron-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
-          </span>
-        </summary>
-        <div class="if-mobile-sublinks">
-          <a href="/services/trademark-registration.html">
-            <span>Trademark Registration (TM-A)</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/software-copyright-patents.html">
-            <span>Software Copyright &amp; Patents</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/ip-enforcement-cease-desist.html">
-            <span>IP Enforcement &amp; Infringement</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/verticals/06-ipr-protection.html" class="sublink-view-all">
-            <span>View All IPR Services &rarr;</span>
-          </a>
-        </div>
-      </details>
-
-      <!-- 5. Workforce, POSH & Digital Governance (6 Services) -->
-      <details class="if-mobile-accordion" id="mobile-workforce-accordion">
-        <summary>
-          <div class="accordion-summary-content">
-            <span class="accordion-icon-wrap" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </span>
-            <span class="accordion-title-text">Workforce, POSH &amp; Digital (6)</span>
-          </div>
-          <span class="accordion-chevron-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
-          </span>
-        </summary>
-        <div class="if-mobile-sublinks">
-          <a href="/services/posh-compliance.html">
-            <span>POSH Policy &amp; IC Constitution</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/pf-esic-compliance.html">
-            <span>PF &amp; ESIC Monthly Compliance</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/labour-code-handbooks.html">
-            <span>Labour Code Audits &amp; Handbooks</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/dpdp-compliance-audit.html">
-            <span>DPDP Act 2023 Readiness Audit</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/cyber-incident-reporting.html">
-            <span>Cyber Incident CERT-In Mandates</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/saas-terms-privacy-architecture.html">
-            <span>SaaS Terms &amp; Privacy Policies</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/verticals/07-labour-hr.html" class="sublink-view-all">
-            <span>View All Workforce Services &rarr;</span>
-          </a>
-        </div>
-      </details>
-
-      <!-- 6. Contracts, Transactions & FEMA (6 Services) -->
-      <details class="if-mobile-accordion" id="mobile-contracts-accordion">
-        <summary>
-          <div class="accordion-summary-content">
-            <span class="accordion-icon-wrap" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-            </span>
-            <span class="accordion-title-text">Contracts, M&amp;A &amp; FEMA (6)</span>
-          </div>
-          <span class="accordion-chevron-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
-          </span>
-        </summary>
-        <div class="if-mobile-sublinks">
-          <a href="/services/founder-shareholder-agreements.html">
-            <span>Founder Pacts &amp; SHAs</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/master-service-agreements.html">
-            <span>Commercial MSAs &amp; Vendor SOWs</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/fast-track-mergers.html">
-            <span>Section 233 Fast-Track Mergers</span>
-            <span class="sublink-tag">Advisory</span>
-          </a>
-          <a href="/services/slump-sale-asset-purchase.html">
-            <span>Corporate Slump Sale Governance</span>
-            <span class="sublink-tag">Advisory</span>
-          </a>
-          <a href="/services/rbi-fla-return.html">
-            <span>RBI FLA Return (FDI / ODI)</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/services/form-fc3-fc4.html">
-            <span>Foreign Branch &amp; Liaison Office</span>
-            <span class="sublink-tag">Request quote</span>
-          </a>
-          <a href="/verticals/05-contracts-legal.html" class="sublink-view-all">
-            <span>View All Legal Drafting Services &rarr;</span>
-          </a>
-        </div>
-      </details>
-
-      
-
-      <!-- 7. Diagnostic Tools & Regulatory Calculators (6 Tools) -->
+      <!-- 2. Calculators, Lookups & Knowledge -->
       <details class="if-mobile-accordion" id="mobile-tools-accordion">
         <summary>
           <div class="accordion-summary-content">
             <span class="accordion-icon-wrap" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/></svg>
             </span>
-            <span class="accordion-title-text">Diagnostic Tools &amp; Intelligence (6)</span>
+            <span class="accordion-title-text">Calculators, Lookups &amp; Partners</span>
           </div>
           <span class="accordion-chevron-badge" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
           </span>
         </summary>
         <div class="if-mobile-sublinks">
+          <a href="/conversion/calculator.html#readiness">
+            <span>Kerala Readiness Scope Estimator</span>
+            <span class="sublink-tag">Scope Check</span>
+          </a>
           <a href="/conversion/calculator.html">
-            <span>RoC Late Fee &amp; Penalty Calculator</span>
+            <span>RoC Late Fee &amp; Outlay Calculator</span>
             <span class="sublink-tag">Free Tool</span>
           </a>
-          <a href="/services/trademark-registration.html">
-            <span>Trademark Registration (TM-A)</span>
-            <span class="sublink-tag">IP Filing</span>
-          </a>
           <a href="/search/">
-            <span>Corporate &amp; Master Search</span>
+            <span>Corporate &amp; IP Registry Search</span>
             <span class="sublink-tag">Registry</span>
           </a>
           <a href="/search/index.html">
-            <span>CIN, LLPIN &amp; DIN Master Lookup</span>
+            <span>CIN, LLPIN &amp; DIN Lookup</span>
             <span class="sublink-tag">Intelligence</span>
           </a>
           <a href="/knowledge/index.html">
             <span>Compliance Knowledge Centre</span>
-            <span class="sublink-tag">Library</span>
+            <span class="sublink-tag">Guides</span>
           </a>
-          <a href="/verticals/index.html">
-            <span>All 14 Practice Verticals Master Hub</span>
-            <span class="sublink-tag">Directory</span>
+          <a href="/locations/kozhikode-corporate-services.html">
+            <span>Kozhikode (Markaz City) Desk</span>
+            <span class="sublink-tag">Kerala</span>
+          </a>
+          <a href="/locations/malappuram-nri-business-desk.html">
+            <span>Malappuram &amp; GCC NRI Desk</span>
+            <span class="sublink-tag">NRI / FEMA</span>
           </a>
           <a href="/conversion/index.html" class="sublink-view-all">
-            <span>Access All Diagnostic Tools &rarr;</span>
+            <span>Open All Diagnostic Tools &rarr;</span>
           </a>
         </div>
       </details>
 
-      <a href="/contact.html" class="if-mobile-nav-link">Contact</a>
+      <!-- 3. Core Catalog Pillars & Filings -->
+      <details class="if-mobile-accordion" id="mobile-catalog-accordion">
+        <summary>
+          <div class="accordion-summary-content">
+            <span class="accordion-icon-wrap" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </span>
+            <span class="accordion-title-text">6 Core Catalog Pillars (57 Services)</span>
+          </div>
+          <span class="accordion-chevron-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="if-mobile-sublinks">
+          <a href="/categories/business-setup.html"><span>1. Business Setup (Pvt Ltd, LLP, OPC)</span></a>
+          <a href="/categories/corporate-compliance.html"><span>2. Corporate Compliance &amp; RoC</span></a>
+          <a href="/categories/tax-compliance.html"><span>3. Tax, GST &amp; Transfer Pricing</span></a>
+          <a href="/categories/licences-registrations.html"><span>4. Statutory Licences &amp; Udyam</span></a>
+          <a href="/categories/legal-contracts-ip.html"><span>5. Contracts, Founders &amp; IPR</span></a>
+          <a href="/categories/workforce-operations.html"><span>6. Workforce, POSH &amp; DPDP Privacy</span></a>
+          <a href="/verticals/index.html"><span>All Practice Verticals Hub</span></a>
+          <a href="/services.html" class="sublink-view-all">
+            <span>Browse Full 57-Service Directory &rarr;</span>
+          </a>
+        </div>
+      </details>
 
-      <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem;">
-        <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center;">
-          WhatsApp Live Desk
+      <div style="margin-top: 1.15rem; display: flex; flex-direction: column; gap: 0.6rem;">
+        <a href="/conversion/calculator.html#readiness" class="btn btn-primary" style="width: 100%; text-align: center; background: var(--growth-green-accessible, #008742) !important; border-color: var(--growth-green-accessible, #008742) !important;">
+          Run Kerala Readiness Estimator &rarr;
         </a>
-        <a href="tel:+918606918247" class="btn btn-secondary" style="width: 100%; text-align: center;">
-          Call Desk: +91 86069 18247
+        <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; text-align: center;">
+          WhatsApp Desk: +91 86069 18247
         </a>
         <a href="mailto:admin@craftegon.com" class="btn btn-secondary" style="width: 100%; text-align: center; font-size: 0.85rem;">
           admin@craftegon.com
@@ -1272,7 +1046,7 @@
 <footer class="if-footer">
   <div class="if-footer-inner">
     <div class="if-footer-grid">
-      <!-- Column 1: Brand & Service Desk -->
+      <!-- Column 1: Brand, CraftEgon LLP & Kerala Hubs -->
       <div class="if-footer-col if-footer-brand">
         <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services (CCS) Home">
           <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img" width="42" height="42" loading="eager">
@@ -1285,9 +1059,8 @@
           Kerala's specialized Launch-to-Operate + Year-1 Governance partner under <strong>CraftEgon LLP</strong>, aligned with <strong>NIEG (Nus'ha Institute for Ethical Governance)</strong> standards.
         </p>
         <div class="if-footer-contact">
-          <p class="if-contact-item"><strong>Kerala Hub:</strong> Markaz Knowledge City, Kozhikode &amp; Chettipadi, Tirurangadi (Malappuram)</p>
-          <p class="if-contact-item"><strong>Direct Phone:</strong> <a href="tel:+918606918247">+91 86069 18247</a></p>
-          <p class="if-contact-item"><strong>Official Email:</strong> <a href="mailto:admin@craftegon.com">admin@craftegon.com</a></p>
+          <p class="if-contact-item"><strong>Kerala Hubs:</strong> Markaz Knowledge City, Kozhikode &amp; Chettipadi, Tirurangadi (Malappuram)</p>
+          <p class="if-contact-item"><strong>Direct Desk:</strong> <a href="tel:+918606918247">+91 86069 18247</a> &bull; <a href="mailto:admin@craftegon.com">admin@craftegon.com</a></p>
         </div>
         <div class="if-footer-social">
           <a href="https://www.linkedin.com/company/craftegon" target="_blank" rel="noopener noreferrer" class="if-social-link" aria-label="CraftEgon on LinkedIn" title="LinkedIn Corporate Profile">
@@ -1305,55 +1078,46 @@
         </div>
       </div>
 
-      <!-- Column 2: Kerala Launch-to-Operate Bundles -->
+      <!-- Column 2: Kerala Launch Suites -->
       <div class="if-footer-col">
-        <h4 class="if-footer-heading">Kerala Industry Bundles</h4>
+        <h4 class="if-footer-heading">Kerala Bundles</h4>
         <ul class="if-footer-list">
           <li><a href="/bundles/clinics-diagnostics-kerala.html">Clinics, Diagnostics &amp; Care Centers</a></li>
           <li><a href="/bundles/exim-cold-chain-kerala.html">EXIM, Freight &amp; Cold-Chain Pack</a></li>
           <li><a href="/bundles/food-spice-processing-kerala.html">Food, Spice &amp; Nutraceutical Units</a></li>
           <li><a href="/bundles/hospitality-resorts-kerala.html">Hospitality, Stays &amp; Eco Resorts</a></li>
           <li><a href="/bundles/edtech-academies-kerala.html">EdTech &amp; Coaching Academies</a></li>
-          <li><a href="/services/pvt-ltd-registration.html">Private Limited (SPICe+)</a></li>
-          <li><a href="/services/llp-registration.html">Limited Liability Partnership (LLP)</a></li>
-          <li><a href="/services/trademark-registration.html">Trademark Registration (TM-A)</a></li>
-          <li class="if-footer-all-link"><a href="/services.html">Full Services Directory &rarr;</a></li>
+          <li><a href="/conversion/calculator.html#readiness">Kerala Readiness Scope Estimator</a></li>
+          <li class="if-footer-all-link"><a href="/services.html">Catalog (All 57 Services) &rarr;</a></li>
         </ul>
       </div>
 
-      <!-- Column 3: Year-1 Governance & Tax -->
+      <!-- Column 3: Governance & Practice Hubs -->
       <div class="if-footer-col">
-        <h4 class="if-footer-heading">Year-1 Governance &amp; Tax</h4>
+        <h4 class="if-footer-heading">Catalog &amp; Governance</h4>
         <ul class="if-footer-list">
           <li><a href="/services/roc-annual-compliance.html">Annual Secretarial Retainers</a></li>
-          <li><a href="/services/form-aoc4.html">Form AOC-4 Financial Statements</a></li>
-          <li><a href="/services/form-mgt7.html">Form MGT-7 Annual Return</a></li>
-          <li><a href="/services/dir3-kyc.html">DIR-3 KYC Director Verification</a></li>
-          <li><a href="/services/gst-annual.html">GST Annual Return (GSTR-9)</a></li>
-          <li><a href="/services/form-3ceb.html">Transfer Pricing (Form 3CEB)</a></li>
           <li><a href="/verticals/05-contracts-legal.html">Commercial Contracts &amp; Drafting</a></li>
           <li><a href="/verticals/13-cross-border-fema.html">Cross-Border FDI &amp; FEMA</a></li>
-          <li class="if-footer-all-link"><a href="/verticals/02-roc-compliance.html">All RoC Practice Areas &rarr;</a></li>
+          <li><a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law</a></li>
+          <li><a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a></li>
+          <li><a href="/categories/index.html">6 Core Service Categories</a></li>
+          <li class="if-footer-all-link"><a href="/verticals/index.html">All Practice Verticals &rarr;</a></li>
         </ul>
       </div>
 
-      <!-- Column 4: Diagnostics, Desks & Hubs -->
+      <!-- Column 4: Calculators, Lookups & Partners -->
       <div class="if-footer-col">
-        <h4 class="if-footer-heading">Tools &amp; Kerala Desks</h4>
+        <h4 class="if-footer-heading">Tools, Lookups &amp; Desks</h4>
         <ul class="if-footer-list">
-          <li><a href="/conversion/calculator.html">RoC Late Fee &amp; Cost Calculator</a></li>
+          <li><a href="/conversion/calculator.html">RoC, GST &amp; Tax Calculators</a></li>
           <li><a href="/conversion/partner-ecosystems.html">Banking &amp; Partner Desk</a></li>
           <li><a href="/conversion/retainer-desk.html">Annual Retainer Assessment Desk</a></li>
-          <li><a href="/search/">Corporate &amp; Master Search</a></li>
+          <li><a href="/search/">Corporate &amp; IP Registry Search</a></li>
           <li><a href="/search/index.html">CIN, LLPIN &amp; Entity Lookup</a></li>
-          <li><a href="/verticals/12-esg-csr.html">Data Privacy &amp; Tech Law (DPDP)</a></li>
-          <li><a href="/verticals/10-litigation-dispute.html">Dispute Avoidance (Non-Litigation)</a></li>
           <li><a href="/knowledge/index.html">Compliance Knowledge Centre</a></li>
-          <li><a href="/about.html">About CraftEgon LLP &amp; NIEG</a></li>
-          <li><a href="/contact.html">Contact &amp; Service Desk</a></li>
-          <li><a href="/categories/index.html">6 Core Service Categories</a></li>
-          <li><a href="/locations/kozhikode-corporate-services.html">Markaz Knowledge City, Kozhikode Desk</a></li>
-          <li><a href="/locations/malappuram-nri-business-desk.html">Malappuram &amp; Tirurangadi NRI Desk</a></li>
+          <li><a href="/locations/kozhikode-corporate-services.html" style="display:inline;padding:0;">Kozhikode</a> &bull; <a href="/locations/malappuram-nri-business-desk.html" style="display:inline;padding:0;">Malappuram</a> Desks</li>
+          <li><a href="/about.html">About CraftEgon LLP &amp; NIEG</a> &bull; <a href="/contact.html" style="display:inline;padding:0;">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -1379,7 +1143,7 @@
         <strong>Statutory Disclosure:</strong> CraftEgon Corporate Services (CCS), a business vertical of <strong>CraftEgon LLP</strong>, provides corporate secretarial, regulatory compliance, non-contentious commercial drafting, and launch-to-operate coordination in alignment with <strong>NIEG (Nus'ha Institute for Ethical Governance)</strong> standards. Statutory approvals (K-SWIFT, LSGD, KSPCB, Kerala Clinical Establishments, MCA, RBI, CGPDTM) rest solely with competent government authorities. In compliance with the Advocates Act, 1961 and Bar Council of India regulations, CCS does not provide courtroom appearances or contentious litigation advocacy; judicial pleadings must be handled by independent practicing advocates on a separate vakalatnama. <a href="/legal/disclaimer.html">Read full professional disclaimer &rarr;</a>
       </div>
       <p class="if-footer-copy">
-        &copy; 2026 CraftEgon LLP (operating CraftEgon Corporate Services — CCS). Operating out of Markaz Knowledge City, Kozhikode (Calicut) &amp; Chettipadi, Tirurangadi (Malappuram), Kerala, alongside our Alappuzha operational desk (PIN 690501). Serving Pan-Kerala &amp; Pan-India RoC Jurisdictions.
+        &copy; 2026 CraftEgon LLP (operating CraftEgon Corporate Services — CCS). Markaz Knowledge City, Kozhikode &amp; Chettipadi, Tirurangadi (Malappuram), Kerala, alongside our Alappuzha desk (PIN 690501).
       </p>
     </div>
   </div>
@@ -1387,21 +1151,21 @@
 
 <!-- Mobile Sticky Action Dock (Appears on Screens < 768px) -->
 <nav class="if-mobile-bottom-bar" id="mobile-sticky-dock" aria-label="Mobile Quick Contacts">
-  <a href="https://wa.me/918606918247?text=Hello%20CraftEgon%20CCS,%20I%20would%20like%20guidance%20on%20corporate%20services" target="_blank" rel="noopener noreferrer" class="dock-btn dock-btn-whatsapp" aria-label="WhatsApp Compliance Desk">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+  <a href="https://wa.me/918606918247?text=Hello%20CraftEgon%20CCS,%20I%20would%20like%20guidance%20on%20Kerala%20Launch%20Bundles" target="_blank" rel="noopener noreferrer" class="dock-btn dock-btn-whatsapp" aria-label="WhatsApp Compliance Desk">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.588-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
     <span>WhatsApp</span>
   </a>
   <a href="tel:+918606918247" class="dock-btn dock-btn-call" aria-label="Call Operational Desk">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
     <span>Call Desk</span>
   </a>
-  <a href="/conversion/calculator.html" class="dock-btn dock-btn-calc" aria-label="Calculate Fees &amp; Penalties">
+  <a href="/conversion/calculator.html#readiness" class="dock-btn dock-btn-calc" aria-label="Kerala Readiness Estimator">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-    <span>Estimator</span>
+    <span>Scope Check</span>
   </a>
   <a href="/services.html" class="dock-btn dock-btn-services" aria-label="Browse Universal Services Directory">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-    <span>Directory</span>
+    <span>Catalog</span>
   </a>
 </nav>
 
