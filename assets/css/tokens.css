@@ -189,6 +189,14 @@
   --focus-ring: 0 0 0 3px rgba(36, 122, 98, 0.25);
   --focus-gold: 0 0 0 3px rgba(36, 122, 98, 0.25);
 
+  /* --- Phase 2 Kerala Authority Palette: Charcoal & Growth Green --- */
+  --charcoal-ink: #1A1A1A;           /* Authoritative High-Contrast Charcoal (17.4:1 on white) */
+  --growth-green: #00A651;           /* Brand Growth Green accent borders & status highlights */
+  --growth-green-accessible: #008742;/* WCAG 2.2 AA high-contrast Growth Green for text/CTAs on white */
+  --growth-green-hover: #006E35;     /* Deep Growth Green hover & active state */
+  --growth-green-soft: rgba(0, 166, 81, 0.08);
+  --growth-green-border: rgba(0, 166, 81, 0.28);
+
   /* --- Standardized Responsive Breakpoint Hierarchy --- */
   --bp-sm: 640px;      /* Mobile Landscape / Phablet */
   --bp-md: 768px;      /* Tablet / Small Laptop */

@@ -386,6 +386,9 @@ const publicRedirects = `# =====================================================
 /services/trademark-opposition*  /knowledge/trademark-opposition-procedure-tm-o-handbook 301
 
 # 2. CLEAN URL REWRITES (Status 200)
+/bundles                 /bundles/clinics-diagnostics-kerala.html 200
+/bundles/                /bundles/clinics-diagnostics-kerala.html 200
+/bundles/*               /bundles/:splat       200
 /categories              /categories/index.html  200
 /categories/             /categories/index.html  200
 /categories/*            /categories/:splat      200
