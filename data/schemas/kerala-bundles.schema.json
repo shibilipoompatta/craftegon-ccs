@@ -1,0 +1,312 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ccs.craftegon.com/schemas/kerala-bundles.schema.json",
+  "title": "CraftEgon Corporate Services (CCS) Kerala Launch-to-Operate Vertical Bundles Schema",
+  "description": "Strict JSON Schema (Draft 2020-12) governing Kerala industry-specific Launch-to-Operate + Year-1 Governance vertical bundles, cross-linked to the 57-service catalog, calculator modules, and compliance milestone rules.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "brandContext",
+    "commercialGovernancePolicy",
+    "bundles"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "brandContext": {
+      "type": "object",
+      "required": [
+        "legalEntity",
+        "operatingVertical",
+        "primaryGeography",
+        "positioningStatement",
+        "ecosystemPartners"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "legalEntity": { "type": "string", "const": "CraftEgon LLP" },
+        "operatingVertical": { "type": "string", "const": "CraftEgon Corporate Services (CCS)" },
+        "primaryGeography": { "type": "string", "minLength": 10 },
+        "positioningStatement": { "type": "string", "minLength": 20 },
+        "ecosystemPartners": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "required": ["name", "role"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string", "minLength": 2 },
+              "role": { "type": "string", "minLength": 10 }
+            }
+          }
+        }
+      }
+    },
+    "commercialGovernancePolicy": {
+      "type": "object",
+      "required": [
+        "defaultApprovalState",
+        "publicPricingRule",
+        "feeSeparationRule",
+        "statutoryDisclaimer"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "defaultApprovalState": {
+          "type": "string",
+          "enum": ["PENDING_OWNER_REVIEW", "APPROVED_FOR_PUBLICATION"]
+        },
+        "publicPricingRule": { "type": "string", "minLength": 20 },
+        "feeSeparationRule": { "type": "string", "minLength": 20 },
+        "statutoryDisclaimer": { "type": "string", "minLength": 20 }
+      }
+    },
+    "bundles": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "slug",
+          "bundleName",
+          "title",
+          "shortTagline",
+          "targetAudience",
+          "keralaDemandThesis",
+          "supplyGapThesis",
+          "entityAndPreLaunchStack",
+          "commercialAndRiskShield",
+          "recurringAnnualRetainer",
+          "pricingTiers",
+          "catalogCrossReferences",
+          "regulatoryHygiene"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^KL-BND-[A-Z0-9-]+$"
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "bundleName": { "type": "string", "minLength": 5 },
+          "title": { "type": "string", "minLength": 5 },
+          "shortTagline": { "type": "string", "minLength": 15 },
+          "targetAudience": {
+            "type": "array",
+            "minItems": 2,
+            "items": { "type": "string", "minLength": 5 }
+          },
+          "keralaDemandThesis": { "type": "string", "minLength": 40 },
+          "supplyGapThesis": { "type": "string", "minLength": 40 },
+          "entityAndPreLaunchStack": {
+            "type": "object",
+            "required": ["phaseTitle", "entityOptions", "keralaAndCentralRegistrations"],
+            "additionalProperties": false,
+            "properties": {
+              "phaseTitle": { "type": "string", "minLength": 5 },
+              "entityOptions": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["entityType", "serviceId", "fitRationale"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "entityType": { "type": "string", "minLength": 3 },
+                    "serviceId": { "type": "string", "pattern": "^V\\d{2}-SVC-\\d{3}$" },
+                    "fitRationale": { "type": "string", "minLength": 10 }
+                  }
+                }
+              },
+              "keralaAndCentralRegistrations": {
+                "type": "array",
+                "minItems": 3,
+                "items": {
+                  "type": "object",
+                  "required": ["code", "title", "authority", "scopeNote", "isConditional"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "code": { "type": "string", "minLength": 2 },
+                    "title": { "type": "string", "minLength": 4 },
+                    "authority": { "type": "string", "minLength": 3 },
+                    "scopeNote": { "type": "string", "minLength": 15 },
+                    "isConditional": { "type": "boolean" }
+                  }
+                }
+              }
+            }
+          },
+          "commercialAndRiskShield": {
+            "type": "object",
+            "required": ["phaseTitle", "coreContracts", "governanceAndSops", "niegTouchpoint"],
+            "additionalProperties": false,
+            "properties": {
+              "phaseTitle": { "type": "string", "minLength": 5 },
+              "coreContracts": {
+                "type": "array",
+                "minItems": 3,
+                "items": {
+                  "type": "object",
+                  "required": ["code", "title", "draftingOwner", "riskMitigated"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "code": { "type": "string", "minLength": 2 },
+                    "title": { "type": "string", "minLength": 4 },
+                    "draftingOwner": { "type": "string", "minLength": 4 },
+                    "riskMitigated": { "type": "string", "minLength": 15 }
+                  }
+                }
+              },
+              "governanceAndSops": {
+                "type": "array",
+                "minItems": 2,
+                "items": { "type": "string", "minLength": 10 }
+              },
+              "niegTouchpoint": {
+                "type": "object",
+                "required": ["standardName", "applicationScope"],
+                "additionalProperties": false,
+                "properties": {
+                  "standardName": { "type": "string", "minLength": 5 },
+                  "applicationScope": { "type": "string", "minLength": 15 }
+                }
+              }
+            }
+          },
+          "recurringAnnualRetainer": {
+            "type": "object",
+            "required": ["phaseTitle", "connectedBankingScope", "statutoryCadence", "renewalTracking"],
+            "additionalProperties": false,
+            "properties": {
+              "phaseTitle": { "type": "string", "minLength": 5 },
+              "connectedBankingScope": { "type": "string", "minLength": 20 },
+              "statutoryCadence": {
+                "type": "array",
+                "minItems": 3,
+                "items": { "type": "string", "minLength": 8 }
+              },
+              "renewalTracking": {
+                "type": "array",
+                "minItems": 2,
+                "items": { "type": "string", "minLength": 8 }
+              }
+            }
+          },
+          "pricingTiers": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "required": [
+                "tierId",
+                "tierName",
+                "billingModel",
+                "commercialApprovalState",
+                "ccsScopeIncluded",
+                "statutoryDisbursementsExcluded",
+                "thirdPartyExclusions",
+                "publicQuoteMode"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "tierId": { "type": "string", "minLength": 3 },
+                "tierName": { "type": "string", "minLength": 4 },
+                "billingModel": {
+                  "type": "string",
+                  "enum": ["ONE_TIME_SETUP", "SETUP_PLUS_CONTRACTS", "ANNUAL_OR_MONTHLY_RETAINER"]
+                },
+                "commercialApprovalState": {
+                  "type": "string",
+                  "enum": ["PENDING_OWNER_REVIEW", "APPROVED_FOR_PUBLICATION"]
+                },
+                "ccsScopeIncluded": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": { "type": "string", "minLength": 8 }
+                },
+                "statutoryDisbursementsExcluded": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": { "type": "string", "minLength": 6 }
+                },
+                "thirdPartyExclusions": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": { "type": "string", "minLength": 6 }
+                },
+                "publicQuoteMode": { "type": "string", "minLength": 10 }
+              }
+            }
+          },
+          "catalogCrossReferences": {
+            "type": "object",
+            "required": [
+              "linkedServiceIds",
+              "primaryVerticalIds",
+              "calculatorTabs",
+              "dashboardMilestoneRules",
+              "relatedDiagnosticRoutes"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "linkedServiceIds": {
+                "type": "array",
+                "minItems": 4,
+                "items": { "type": "string", "pattern": "^V\\d{2}-SVC-\\d{3}$" }
+              },
+              "primaryVerticalIds": {
+                "type": "array",
+                "minItems": 2,
+                "items": { "type": "string", "pattern": "^V(0[1-9]|1[0-5])$" }
+              },
+              "calculatorTabs": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["tabId", "mode", "label"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "tabId": { "type": "string", "enum": ["calc-tab-1", "calc-tab-2", "calc-tab-3", "calc-tab-4"] },
+                    "mode": { "type": "string", "minLength": 3 },
+                    "label": { "type": "string", "minLength": 4 }
+                  }
+                }
+              },
+              "dashboardMilestoneRules": {
+                "type": "array",
+                "minItems": 2,
+                "items": { "type": "string", "minLength": 3 }
+              },
+              "relatedDiagnosticRoutes": {
+                "type": "array",
+                "minItems": 2,
+                "items": { "type": "string", "pattern": "^/" }
+              }
+            }
+          },
+          "regulatoryHygiene": {
+            "type": "object",
+            "required": ["noGuaranteedTimelineClause", "advocatesActBoundary", "governmentFeeSeparationClause"],
+            "additionalProperties": false,
+            "properties": {
+              "noGuaranteedTimelineClause": { "type": "string", "minLength": 20 },
+              "advocatesActBoundary": { "type": "string", "minLength": 20 },
+              "governmentFeeSeparationClause": { "type": "string", "minLength": 20 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

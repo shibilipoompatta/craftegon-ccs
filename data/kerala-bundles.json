@@ -1,0 +1,1073 @@
+{
+  "schemaVersion": "1.0.0",
+  "brandContext": {
+    "legalEntity": "CraftEgon LLP",
+    "operatingVertical": "CraftEgon Corporate Services (CCS)",
+    "primaryGeography": "Markaz Knowledge City, Kozhikode (Calicut) & Malappuram, Kerala — serving Pan-Kerala, GCC-NRI Founders, and Pan-India Corporate Filings",
+    "positioningStatement": "Kerala's Launch-to-Operate + Year-1 Governance business infrastructure partner integrating entity incorporation, local & statutory licensing coordination, sector-specific commercial contracts, and connected-banking-led recurring compliance.",
+    "ecosystemPartners": [
+      {
+        "name": "CraftEgon LLP",
+        "role": "Operating legal entity providing commercial contract drafting, corporate governance architecture, and technology-enabled business infrastructure."
+      },
+      {
+        "name": "NIEG (Nus'ha Institute for Ethical Governance)",
+        "role": "Governance and ethics alignment partner providing transparent billing, clinical/student/supply-chain integrity standards, and board accountability frameworks."
+      }
+    ]
+  },
+  "commercialGovernancePolicy": {
+    "defaultApprovalState": "PENDING_OWNER_REVIEW",
+    "publicPricingRule": "All bundle pricing tiers remain gated behind scoped diagnostic quotes until explicit commercial sign-off is recorded by the managing partner; no unverified flat rupee amounts may be exposed in public builds.",
+    "feeSeparationRule": "CCS Advisory, Setup & Contract Drafting fees are itemised separately from Government Portal Fees, State Stamp Duty, K-SWIFT/KSPCB/LSGD statutory levies, and third-party inspection or testing charges.",
+    "statutoryDisclaimer": "Indicative filing sequences and coordination scopes reflect current statutory procedures as guidance and execution support. Final statutory approvals, inspection outcomes, and processing timelines rest solely with the respective competent government authorities."
+  },
+  "bundles": [
+    {
+      "id": "KL-BND-CLINIC",
+      "slug": "clinics-diagnostics-kerala",
+      "bundleName": "Clinic Launch & Year-1 Risk Shield",
+      "title": "Clinics, Diagnostics & Care/Research Centers",
+      "shortTagline": "Entity setup, K-SWIFT & Kerala Clinical Establishments routing, KSPCB BMW coordination, specialist doctor contracts, and Year-1 healthcare governance.",
+      "targetAudience": [
+        "Multi-specialty Polyclinics, Dental & Dermatology Centers across Kozhikode, Malappuram, Kochi & Trivandrum",
+        "NRI & GCC-return Healthcare Founders launching diagnostic imaging labs, rehabilitation, or care/research centers",
+        "Clinical Research, Assisted Care & Day-Care Facilities expanding beyond individual practitioner consultations"
+      ],
+      "keralaDemandThesis": "Kozhikode, Malappuram, and the Malabar-Kochi corridor are seeing rapid capital inflows from GCC-return doctors and healthcare entrepreneurs establishing branded clinics, diagnostic centers, and specialized care/research facilities requiring institutional governance from day one.",
+      "supplyGapThesis": "General incorporation portals stop after issuing a Certificate of Incorporation, leaving clinic promoters stranded for months navigating LSGD trade/building usage rules, Kerala Clinical Establishments registration standards (beyond single-doctor consultation thresholds), KSPCB Bio-Medical Waste (BMW) authorizations, and unstructured handshake arrangements with visiting specialists.",
+      "entityAndPreLaunchStack": {
+        "phaseTitle": "Phase 1: Entity Formation & Kerala Clinical Pre-Launch Licensing Stack",
+        "entityOptions": [
+          {
+            "entityType": "Private Limited Company (SPICe+)",
+            "serviceId": "V01-SVC-007",
+            "fitRationale": "Optimal for multi-doctor equity clinics, investor-backed diagnostic chains, and NRI/FDI healthcare ventures."
+          },
+          {
+            "entityType": "Limited Liability Partnership (LLP)",
+            "serviceId": "V01-SVC-002",
+            "fitRationale": "Preferred by doctor partnerships seeking limited liability shielding and flexible clinical profit sharing."
+          },
+          {
+            "entityType": "Section 8 Non-Profit Company",
+            "serviceId": "V01-SVC-008",
+            "fitRationale": "Structured vehicle for charitable care centers, palliative institutions, and grant-funded medical research entities."
+          }
+        ],
+        "keralaAndCentralRegistrations": [
+          {
+            "code": "KSWIFT-KL",
+            "title": "K-SWIFT Single-Window Intake & Routing",
+            "authority": "Kerala State Industrial Development Corporation / K-SWIFT Portal",
+            "scopeNote": "Structured dossier preparation and unified departmental routing for non-red category healthcare establishments; statutory clearance remains subject to respective inspecting departments.",
+            "isConditional": false
+          },
+          {
+            "code": "KCE-ACT",
+            "title": "Kerala Clinical Establishments Registration Readiness",
+            "authority": "District Registering Authority (Kerala Clinical Establishments Act, 2018)",
+            "scopeNote": "Provisional and permanent registration dossier structuring, staffing/equipment standards checklist, and display compliance for clinics, labs, and care centers beyond statutory single-consultation exclusions.",
+            "isConditional": false
+          },
+          {
+            "code": "KSPCB-BMW",
+            "title": "KSPCB Consent & Bio-Medical Waste (BMW) Authorization",
+            "authority": "Kerala State Pollution Control Board & Authorized CBMWTF (e.g., IMAGE)",
+            "scopeNote": "Bio-Medical Waste Management Rules authorization dossier coordination, effluent norms verification, and CBMWTF collection agreement onboarding.",
+            "isConditional": false
+          },
+          {
+            "code": "LSGD-DO",
+            "title": "LSGD Trade / Establishment & Building Occupancy Alignment",
+            "authority": "Grama Panchayat / Municipality / Municipal Corporation (Kerala)",
+            "scopeNote": "Verification of commercial occupancy classification, health inspector scrutiny checklist, and trade license submission.",
+            "isConditional": false
+          },
+          {
+            "code": "AERB-PHARM",
+            "title": "Diagnostic Radiation (AERB) & Pharmacy Drug License Scoping",
+            "authority": "AERB e-LORA / Kerala Drugs Control Department",
+            "scopeNote": "Applicability assessment and filing readiness checklist where X-ray/CT/imaging equipment or in-house retail pharmacy counters are operated.",
+            "isConditional": true
+          },
+          {
+            "code": "TAX-EMP-BASE",
+            "title": "PAN, TAN, GST Scope Mapping & EPF / ESIC Onboarding",
+            "authority": "Income Tax, GSTN, EPFO & ESIC",
+            "scopeNote": "Segregation of exempt clinical healthcare supplies from taxable aesthetic/retail pharmacy turnovers plus nursing/paramedic payroll codes.",
+            "isConditional": false
+          }
+        ]
+      },
+      "commercialAndRiskShield": {
+        "phaseTitle": "Phase 2: Clinical Contracts, Data Shield & NIEG Risk Governance",
+        "coreContracts": [
+          {
+            "code": "DOC-ENG",
+            "title": "Consultant Doctor & Visiting Specialist Agreements",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Prevents patient-poaching, clarifies revenue-share vs retainership payout under Section 194J TDS, and defines professional indemnity boundaries."
+          },
+          {
+            "code": "MED-EQUIP-SLA",
+            "title": "Diagnostic Equipment Purchase, Lease & AMC/CMC SLAs",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Locks in uptime guarantees, calibration obligations, spare-part turnaround, and vendor liability for high-value lab/imaging assets."
+          },
+          {
+            "code": "CLINIC-LEASE",
+            "title": "Clinical Premises Lease & Fit-Out Protection Deed",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Protects heavy fit-out capital with statutory-clearance condition precedent clauses, BMW storage rights, and lock-in exit remedies."
+          },
+          {
+            "code": "DPDP-HEALTH",
+            "title": "Patient Consent, Telemedicine & DPDP Health-Data Privacy Kit",
+            "draftingOwner": "CraftEgon CCS Tech & Data Privacy Desk",
+            "riskMitigated": "Establishes compliant patient data notices, EMR access covenants, and sensitive health-record governance under the DPDP Act, 2023."
+          }
+        ],
+        "governanceAndSops": [
+          "POSH Act Policy & Internal Committee (IC) Constitution for nursing, technical, and administrative clinical staff (V07-SVC-002).",
+          "Clinical HR Handbook covering shift rosters, infection-control NDA obligations, and medical-record confidentiality (V07-SVC-001).",
+          "Clinic Brand Name & Logo Protection under Trade Marks Class 44 (Medical Services) & Class 42 (Research) (V06-SVC-003)."
+        ],
+        "niegTouchpoint": {
+          "standardName": "NIEG Clinical Transparency & Ethical Governance Charter",
+          "applicationScope": "Implements Nus'ha Institute for Ethical Governance (NIEG) tariff-display transparency, diagnostic conflict-of-interest disclosures, and clinical-board audit protocols."
+        }
+      },
+      "recurringAnnualRetainer": {
+        "phaseTitle": "Phase 3: Connected-Banking Healthcare Finance & Year-1 Governance Retainer",
+        "connectedBankingScope": "Connected-banking-led daily reconciliation segregating clinical consultation receipts, diagnostic lab packages, pharmacy inventory GST, and specialist doctor TDS payouts.",
+        "statutoryCadence": [
+          "Monthly TDS deduction & compliance mapping on specialist payouts (Sec 194J), clinical rent (Sec 194I), and equipment AMCs (Sec 194C).",
+          "Exempt vs Taxable GST supply segregation, input tax credit apportionment, and Annual Return / Audit scoping (V03-SVC-003).",
+          "EPF & ESIC monthly payroll filings for paramedical, lab, and front-desk personnel (V04-SVC-001).",
+          "Annual RoC/LLP statutory governance: AOC-4, MGT-7, Board/Partner Minutes, and Statutory Registers (V02-SVC-017, V02-SVC-014, V11-SVC-002)."
+        ],
+        "renewalTracking": [
+          "KSPCB Bio-Medical Waste authorization & CBMWTF pickup manifest renewal alerts.",
+          "Kerala Clinical Establishments, LSGD Trade License, Fire NOC, and Equipment Calibration/AERB renewal calendar tracking."
+        ]
+      },
+      "pricingTiers": [
+        {
+          "tierId": "KL-CLINIC-T1",
+          "tierName": "Launch + Core Licensing Readiness",
+          "billingModel": "ONE_TIME_SETUP",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Entity formation (Pvt Ltd SPICe+ or LLP FiLLiP) with DIN/PAN/TAN",
+            "K-SWIFT intake dossier & LSGD commercial/trade license filing coordination",
+            "Kerala Clinical Establishments & KSPCB BMW application readiness checklist"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "MCA/RoC incorporation fees & Kerala State Stamp Duty at actuals",
+            "K-SWIFT, LSGD, Kerala Clinical Establishments, and KSPCB statutory fees at actuals"
+          ],
+          "thirdPartyExclusions": [
+            "CBMWTF (IMAGE) bio-medical waste pickup subscription charges",
+            "Third-party Fire/Electrical/Building stability engineer inspection fees & Class-3 DSC tokens"
+          ],
+          "publicQuoteMode": "Scoped Diagnostic Quote (Entity + Facility Footprint Assessment)"
+        },
+        {
+          "tierId": "KL-CLINIC-T2",
+          "tierName": "Full Setup + Clinical Risk Shield",
+          "billingModel": "SETUP_PLUS_CONTRACTS",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Everything in Launch + Core Licensing Readiness",
+            "Custom Consultant Doctor Agreements, Equipment/AMC SLAs & Clinic Lease review via CraftEgon LLP",
+            "DPDP Act Patient Privacy Architecture, POSH IC Setup & Class 44 Trademark Filing"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "Government trademark filing fees (TM-A), MCA fees & contract Stamp Duty at actuals",
+            "Municipal, KSPCB, AERB, and Drug Control statutory levies at actuals"
+          ],
+          "thirdPartyExclusions": [
+            "Third-party external POSH member sitting fees & physical notary/apostille charges",
+            "Specialist medical calibration or lab accreditation (NABL) audit fees"
+          ],
+          "publicQuoteMode": "Scoped Proposal (Doctor Headcount & Equipment Capex Bracket)"
+        },
+        {
+          "tierId": "KL-CLINIC-T3",
+          "tierName": "Year-1 Healthcare Governance Retainer",
+          "billingModel": "ANNUAL_OR_MONTHLY_RETAINER",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Annual RoC/LLP statutory compliance (AOC-4, MGT-7 / Form 8 & 11, Statutory Registers)",
+            "Connected-banking bookkeeping coordination, GST apportionment & Sec 194J TDS calendar",
+            "EPF/ESIC monthly filings, contract amendments & license renewal milestone tracking"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "Annual RoC/LLP portal challans, GST/Income Tax liabilities & statutory audit fees",
+            "Statutory license renewal fees & late fees arising from delayed client inputs"
+          ],
+          "thirdPartyExclusions": [
+            "Independent statutory auditor certification (CA) or contentious litigation under Advocates Act",
+            "Multi-branch expansion or new diagnostic center setups outside base unit"
+          ],
+          "publicQuoteMode": "Turnover-Bracketed Retainer Quote (Monthly / Annual Cadence)"
+        }
+      ],
+      "catalogCrossReferences": {
+        "linkedServiceIds": [
+          "V01-SVC-007",
+          "V01-SVC-002",
+          "V02-SVC-017",
+          "V04-SVC-001",
+          "V05-SVC-002",
+          "V06-SVC-003",
+          "V07-SVC-001",
+          "V07-SVC-002",
+          "V11-SVC-002",
+          "V12-SVC-002"
+        ],
+        "primaryVerticalIds": ["V01", "V02", "V04", "V05", "V07", "V12"],
+        "calculatorTabs": [
+          { "tabId": "calc-tab-1", "mode": "formation", "label": "Entity Formation & Kerala Stamp Duty Estimator" },
+          { "tabId": "calc-tab-1", "mode": "annual", "label": "RoC Annual Retainer & Delay Exposure" }
+        ],
+        "dashboardMilestoneRules": ["AOC-4", "MGT-7 / MGT-7A", "ADT-1", "DIR-3 KYC", "DPT-3", "GSTR-1", "GSTR-3B"],
+        "relatedDiagnosticRoutes": [
+          "/conversion/calculator.html",
+          "/conversion/dpdp-audit-request.html",
+          "/conversion/retainer-desk.html",
+          "/services/trademark-registration.html"
+        ]
+      },
+      "regulatoryHygiene": {
+        "noGuaranteedTimelineClause": "Processing times across K-SWIFT, LSGD, Kerala Clinical Establishments, and KSPCB depend on site inspection readiness and departmental review; CCS provides structured dossier management without guaranteeing statutory approval outcomes or fixed clearance dates.",
+        "advocatesActBoundary": "Commercial contracts and governance policies are prepared as non-contentious corporate documentation; any formal consumer commission, medical tribunal, or court litigation requires separate representation by an independent practicing advocate.",
+        "governmentFeeSeparationClause": "Government filing fees, Kerala Stamp Duty, KSPCB consent fees, and third-party inspection or CBMWTF subscription costs are payable at actuals and strictly separated from CCS advisory fees."
+      }
+    },
+    {
+      "id": "KL-BND-EXIM",
+      "slug": "exim-cold-chain-kerala",
+      "bundleName": "EXIM & Cold-Chain Trade Pack",
+      "title": "EXIM, Freight, Warehousing & Cold-Chain Logistics",
+      "shortTagline": "Import-Export setup, port AD Code & LUT routing, warehouse/KSPCB approvals, CHA & cold-chain SLA contracts, and FEMA/EDPMS Year-1 governance.",
+      "targetAudience": [
+        "Spice, Seafood, Agro & Commodity Exporters routing through Cochin (Vallarpadam), Beypore & Kerala Air Cargo Hubs",
+        "GCC-India Trading Houses & NRI-backed Cold-Storage / Reefer Fleet Operators",
+        "Third-Party Logistics (3PL), Bonded Warehousing & Cross-Border Fulfillment Entities"
+      ],
+      "keralaDemandThesis": "Kerala's export corridors (Vallarpadam ICTT, Beypore Port, and Calicut/Cochin/Kannur air cargo) drive strong demand for specialized EXIM trading houses and temperature-controlled cold-chain infrastructure serving GCC, EU, and US buyers.",
+      "supplyGapThesis": "Exporters routinely hit expensive port demurrages after incorporation because IEC registration lacks port-wise Bank AD Code mapping, GST zero-rated LUT setup, cold-storage LSGD/KSPCB consents, or carrier/CHA SLA contracts covering temperature excursions and customs holds.",
+      "entityAndPreLaunchStack": {
+        "phaseTitle": "Phase 1: EXIM Entity, Customs Port Readiness & Cold-Storage Licensing",
+        "entityOptions": [
+          {
+            "entityType": "Private Limited Company (SPICe+)",
+            "serviceId": "V01-SVC-007",
+            "fitRationale": "Preferred by institutional trade buyers, foreign GCC holding companies, and bank export-credit facilities."
+          },
+          {
+            "entityType": "Limited Liability Partnership (LLP)",
+            "serviceId": "V01-SVC-002",
+            "fitRationale": "Efficient structure for domestic 3PL warehousing fleets and family-owned export merchant firms."
+          },
+          {
+            "entityType": "Foreign Branch / Liaison Office",
+            "serviceId": "V13-SVC-002",
+            "fitRationale": "Applicable where an overseas GCC freight or trading parent establishes a compliant Indian port/procurement office."
+          }
+        ],
+        "keralaAndCentralRegistrations": [
+          {
+            "code": "DGFT-ICEGATE",
+            "title": "DGFT IEC, ICEGATE & Port-Wise AD Code Registration",
+            "authority": "DGFT / ICEGATE Customs Portal / Authorized Dealer Bank",
+            "scopeNote": "IEC registration, ICEGATE entity mapping, and bank Authorized Dealer (AD) Code port linkage readiness prior to first Bill of Lading or Shipping Bill.",
+            "isConditional": false
+          },
+          {
+            "code": "GST-LUT-REF",
+            "title": "GST Registration & Annual Export LUT (Bond-Free Export)",
+            "authority": "Goods and Services Tax Network (GSTN)",
+            "scopeNote": "GSTIN setup with warehouse/godown additional places of business and Letter of Undertaking (Form GST RFD-11) for zero-rated exports without IGST cash blockage.",
+            "isConditional": false
+          },
+          {
+            "code": "COMMODITY-RCMC",
+            "title": "Spices Board / APEDA / MPEDA / FIEO RCMC Routing",
+            "authority": "Respective Export Promotion Councils & Commodity Boards",
+            "scopeNote": "Commodity-specific Registration-Cum-Membership Certificate (RCMC) documentation and FSSAI Import/Export clearance readiness where perishables or food consignments apply.",
+            "isConditional": true
+          },
+          {
+            "code": "WAREHOUSE-KL",
+            "title": "K-SWIFT, LSGD Godown License & KSPCB Cold-Storage Consent",
+            "authority": "K-SWIFT / Kerala LSGD / KSPCB / Fire & Rescue",
+            "scopeNote": "Warehouse trade licensing, cold-room/chiller KSPCB noise & refrigerant thresholds, and fire safety NOC checklists for cold-chain facilities.",
+            "isConditional": true
+          },
+          {
+            "code": "FEMA-INBOUND",
+            "title": "FDI / Cross-Border Capital Structuring (FC-GPR & FLA Readiness)",
+            "authority": "Reserve Bank of India (FIRMS / FLAIR Portal)",
+            "scopeNote": "Structuring NRI/foreign equity inflows under FEMA rules, share valuation coordination, and initial RBI reporting setup.",
+            "isConditional": true
+          }
+        ]
+      },
+      "commercialAndRiskShield": {
+        "phaseTitle": "Phase 2: Logistics, Cold-Chain SLAs & Cross-Border Trade Shield",
+        "coreContracts": [
+          {
+            "code": "CHA-FREIGHT-SLA",
+            "title": "CHA, Freight Forwarder & Shipping Indemnity SLAs",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Allocates responsibility for customs misdeclaration delays, container detention/demurrage caps, and document handover SLAs."
+          },
+          {
+            "code": "COLDCHAIN-TRANSPORT",
+            "title": "Cold-Storage Bailment & Reefer Telemetry Transport Contracts",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Defines strict temperature-band SLAs, continuous data-logger proof requirements, spoilage liability, and marine/transit insurance coordination."
+          },
+          {
+            "code": "EXIM-MASTER-SUPPLY",
+            "title": "Cross-Border Master Export/Import Supply & Incoterms Pacts",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Locks in Incoterms 2020 risk transfer, LC/advance payment triggers, force majeure, and international arbitration seats (V05-SVC-002, V13-SVC-001)."
+          },
+          {
+            "code": "WAREHOUSE-LEASE",
+            "title": "Industrial Park / Godown Commercial Lease Agreement",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Secures 3-phase power load covenants, dock access rights, and statutory license contingency protections."
+          }
+        ],
+        "governanceAndSops": [
+          "Driver, Loader & Warehouse Workforce Safety, EPF/ESIC Onboarding & POSH Policy Suite (V04-SVC-001, V07-SVC-001, V07-SVC-002).",
+          "Export Brand Trademark Protection & Anti-Counterfeit Enforcement Readiness (V06-SVC-003, V06-SVC-001).",
+          "Cross-Border Intercompany Transfer Pricing Agreement Scoping where foreign sister/parent entities exist (V03-SVC-002)."
+        ],
+        "niegTouchpoint": {
+          "standardName": "NIEG Trade Integrity & Supply-Chain Governance Protocol",
+          "applicationScope": "Embeds Nus'ha Institute for Ethical Governance (NIEG) zero-facilitation-bribery clauses, transparent demurrage billing, and customs compliance accountability."
+        }
+      },
+      "recurringAnnualRetainer": {
+        "phaseTitle": "Phase 3: Forex / EDPMS Reconciliation & Year-1 EXIM Retainer",
+        "connectedBankingScope": "Connected-banking integration matching export Shipping Bills, e-BRC/EDPMS realization deadlines (9-month RBI window), IDPMS import bills, and GST ITC refund ledgers.",
+        "statutoryCadence": [
+          "Monthly GSTR-1 / GSTR-3B zero-rated export filings, e-invoicing controls, and Annual GSTR-9 / 9C reconciliation (V03-SVC-003).",
+          "Annual RBI Foreign Liabilities & Assets (FLA) Return (V13-SVC-003) and related-party Form 3CEB Transfer Pricing Report (V03-SVC-002).",
+          "RoC / LLP Annual Filings, MSME-1 vendor payment checks, and Statutory Registers (V02-SVC-017, V02-SVC-010, V11-SVC-002).",
+          "Monthly EPF/ESIC payroll compliance for warehouse and operations teams (V04-SVC-001)."
+        ],
+        "renewalTracking": [
+          "Annual GST Export LUT renewal ahead of each Financial Year (March 31 cutoff).",
+          "DGFT IEC annual profile confirmation (Apr-Jun), RCMC renewals, and Warehouse KSPCB/Fire validity tracking."
+        ]
+      },
+      "pricingTiers": [
+        {
+          "tierId": "KL-EXIM-T1",
+          "tierName": "EXIM Launch & Customs Readiness",
+          "billingModel": "ONE_TIME_SETUP",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Pvt Ltd / LLP Entity Formation & GSTIN + Annual Export LUT setup",
+            "DGFT IEC, ICEGATE portal mapping & Bank AD Code documentation dossier",
+            "Warehouse/Cold-Storage K-SWIFT, LSGD & RCMC applicability roadmap"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "MCA fees, Stamp Duty, DGFT/RCMC council fees & KSPCB/LSGD statutory charges at actuals"
+          ],
+          "thirdPartyExclusions": [
+            "CHA port handling fees, container freight, marine insurance & cold-room structural audits"
+          ],
+          "publicQuoteMode": "Scoped Diagnostic Quote (Export Corridor & Warehouse Assessment)"
+        },
+        {
+          "tierId": "KL-EXIM-T2",
+          "tierName": "Full EXIM Setup + Cold-Chain SLA Shield",
+          "billingModel": "SETUP_PLUS_CONTRACTS",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Everything in EXIM Launch & Customs Readiness",
+            "Custom CHA/Forwarder SLAs, Cold-Chain Transport Contracts & Master Supply/Incoterms Agreements via CraftEgon LLP",
+            "FEMA Inbound Capital Structuring (where NRI/foreign equity applies) & Brand Trademark Filing"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "Government trademark fees, RBI/FEMA processing levies & Stamp Duty at actuals"
+          ],
+          "thirdPartyExclusions": [
+            "Merchant Banker / Registered Valuer FEMA fair-market valuation certificates",
+            "Physical surveyor or pre-shipment inspection agency fees"
+          ],
+          "publicQuoteMode": "Scoped Proposal (Trade Volume & Cross-Border Contracting Scope)"
+        },
+        {
+          "tierId": "KL-EXIM-T3",
+          "tierName": "Year-1 EXIM & FEMA Governance Retainer",
+          "billingModel": "ANNUAL_OR_MONTHLY_RETAINER",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Monthly GST zero-rated filings, LUT annual renewal & ITC refund documentation support",
+            "Connected-banking export realization tracking (EDPMS/IDPMS readiness) & RoC/LLP annual compliance",
+            "RBI FLA Return, Form 3CEB Transfer Pricing coordination & IEC/RCMC renewal calendar"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "Statutory RoC/Tax/FEMA late fees, customs duties & CA Statutory Audit sign-off fees"
+          ],
+          "thirdPartyExclusions": [
+            "Customs adjudication/CESTAT litigation (handled via independent advocates under Advocates Act)"
+          ],
+          "publicQuoteMode": "Shipment-Volume & Turnover-Bracketed Retainer Quote"
+        }
+      ],
+      "catalogCrossReferences": {
+        "linkedServiceIds": [
+          "V01-SVC-007",
+          "V01-SVC-002",
+          "V02-SVC-010",
+          "V02-SVC-017",
+          "V03-SVC-002",
+          "V03-SVC-003",
+          "V04-SVC-001",
+          "V05-SVC-002",
+          "V06-SVC-003",
+          "V13-SVC-001",
+          "V13-SVC-002",
+          "V13-SVC-003"
+        ],
+        "primaryVerticalIds": ["V01", "V02", "V03", "V05", "V13"],
+        "calculatorTabs": [
+          { "tabId": "calc-tab-1", "mode": "formation", "label": "Entity & Capital Outlay Estimator" },
+          { "tabId": "calc-tab-2", "mode": "gst", "label": "GSTR-2B ITC & Export Cashflow Estimator" }
+        ],
+        "dashboardMilestoneRules": ["AOC-4", "MGT-7 / MGT-7A", "GSTR-1", "GSTR-3B", "GSTR-9", "Form 3CEB", "RBI FLA Return", "FC-GPR"],
+        "relatedDiagnosticRoutes": [
+          "/conversion/calculator.html#calc-tab-2",
+          "/conversion/fema-consultation.html",
+          "/conversion/cross-border-retainer.html",
+          "/conversion/tax-intake.html"
+        ]
+      },
+      "regulatoryHygiene": {
+        "noGuaranteedTimelineClause": "Customs port activations, RCMC memberships, and KSPCB/LSGD cold-storage approvals depend on physical verification and departmental processing; CCS executes filing coordination as procedural support with no assured clearance timelines or outcomes.",
+        "advocatesActBoundary": "Logistics, bailment, and trade agreements constitute non-contentious corporate drafting; customs seizures, maritime claims, or tribunal appeals must be pursued through independent practicing advocates.",
+        "governmentFeeSeparationClause": "DGFT fees, Council RCMCs, Customs/Port charges, Stamp Duty, and statutory taxes are paid strictly at actuals separate from CCS fees."
+      }
+    },
+    {
+      "id": "KL-BND-FOOD",
+      "slug": "food-spice-processing-kerala",
+      "bundleName": "Plant-to-Shelf Launch & Retainer",
+      "title": "Food, Spice/Agri Processing & Wellness/Nutraceutical Units",
+      "shortTagline": "Entity + Udyam setup, K-SWIFT & KSPCB plant approvals, FSSAI manufacturing licensing, co-packing & distributor contracts, and Year-1 compliance.",
+      "targetAudience": [
+        "Spice, Coconut, Coffee, Dehydrated Foods & Value-Added Agri Processors across Malabar & Central Kerala",
+        "D2C Packaged Food, Functional Beverage & Nutraceutical Manufacturing Units",
+        "Private-Label Contract Packers & Food Brands scaling into Modern Trade and GCC Exports"
+      ],
+      "keralaDemandThesis": "Kerala's Malabar spice belt, KINFRA food parks, and NRI-funded D2C wellness brands are shifting from raw commodity trading to value-added branded processing, requiring simultaneous factory-level statutory clearance and shelf-ready retail compliance.",
+      "supplyGapThesis": "Plant founders frequently invest in machinery before realizing LSGD industrial building rules, KSPCB Consent to Establish/Operate (effluent/boiler thresholds), Central vs State FSSAI manufacturing/nutraceutical categories, Legal Metrology packaging declarations, and missing OEM/distributor indemnity contracts can block retail launch.",
+      "entityAndPreLaunchStack": {
+        "phaseTitle": "Phase 1: Manufacturing Entity, K-SWIFT, KSPCB & FSSAI Plant Stack",
+        "entityOptions": [
+          {
+            "entityType": "Private Limited Company (SPICe+)",
+            "serviceId": "V01-SVC-007",
+            "fitRationale": "Recommended for branded food/nutraceutical units seeking bank term loans, KSUM/SIDBI grants, or equity investment."
+          },
+          {
+            "entityType": "Limited Liability Partnership (LLP)",
+            "serviceId": "V01-SVC-002",
+            "fitRationale": "Suited for agro-processing partnerships and family spice mills prioritizing operational simplicity."
+          },
+          {
+            "entityType": "Registered Partnership Firm",
+            "serviceId": "V01-SVC-005",
+            "fitRationale": "Traditional trading-to-processing structure under Indian Partnership Act & Kerala eGroops RoF."
+          }
+        ],
+        "keralaAndCentralRegistrations": [
+          {
+            "code": "KSWIFT-IND",
+            "title": "K-SWIFT Plant Clearance & Factory / KINFRA Allotment Routing",
+            "authority": "K-SWIFT / Department of Factories & Boilers / KINFRA",
+            "scopeNote": "Single-window industrial acknowledgment/application structuring and machinery horsepower alignment for MSME/manufacturing units.",
+            "isConditional": false
+          },
+          {
+            "code": "KSPCB-IND",
+            "title": "KSPCB Consent to Establish (CTE) & Consent to Operate (CTO)",
+            "authority": "Kerala State Pollution Control Board",
+            "scopeNote": "White/Green/Orange category classification verification, ETP/drainage documentation prep, and CTE/CTO filing support.",
+            "isConditional": false
+          },
+          {
+            "code": "FSSAI-MFG",
+            "title": "FSSAI State / Central Manufacturing & Nutraceutical License",
+            "authority": "Food Safety and Standards Authority of India (FoSCoS)",
+            "scopeNote": "Capacity-based licensing (State vs Central), proprietary/nutraceutical product categorization, and food safety supervisor checklist.",
+            "isConditional": false
+          },
+          {
+            "code": "LSGD-LMPC",
+            "title": "LSGD Industrial Trade License & Legal Metrology Packer Setup",
+            "authority": "Kerala LSGD / Controller of Legal Metrology",
+            "scopeNote": "Local body machinery/factory permission coordination plus Legal Metrology packaged-commodities label declarations checklist.",
+            "isConditional": false
+          },
+          {
+            "code": "UDYAM-TM",
+            "title": "MSME Udyam Shield (Sec 43B(h)) & Brand Trademark Filing",
+            "authority": "Ministry of MSME / Trade Marks Registry (Class 29/30/32/5)",
+            "scopeNote": "Bundled MSME registration enabling 45-day buyer payment protection plus Class-wise trademark filing (V01-SVC-003, V06-SVC-003).",
+            "isConditional": false
+          }
+        ]
+      },
+      "commercialAndRiskShield": {
+        "phaseTitle": "Phase 2: Co-Packing, Distributor & Shelf-Protection Contracts",
+        "coreContracts": [
+          {
+            "code": "OEM-COPACK",
+            "title": "Contract Manufacturing / Co-Packing & Recipe NDA Agreements",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Protects proprietary spice blends/nutraceutical formulations, allocates batch-recall liability, and locks in FSSAI labeling responsibility."
+          },
+          {
+            "code": "DIST-TRADE",
+            "title": "Super-Stockist, Distributor & Quick-Commerce Vendor Contracts",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Governs credit limits, expiry/damage return caps, territory exclusivity, and Section 43B(h) MSME payment enforcement."
+          },
+          {
+            "code": "AGRI-SUPPLY",
+            "title": "Raw Agri-Commodity Procurement & Moisture/Grade Spec Contracts",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Standardizes pesticide-residue/aflatoxin rejection rights and advance payment terms with farm aggregators."
+          }
+        ],
+        "governanceAndSops": [
+          "Factory & Processing Floor Labour Code Handbooks, EPF/ESIC Setup & POSH Compliance (V07-SVC-001, V07-SVC-002, V04-SVC-001).",
+          "D2C Website Terms of Sale, Nutraceutical Disclaimer Copy & DPDP Consent Notices (V12-SVC-003, V12-SVC-002).",
+          "Brand Enforcement & Packaging Counterfeit Cease-and-Desist Protection (V06-SVC-001)."
+        ],
+        "niegTouchpoint": {
+          "standardName": "NIEG Clean-Label & Fair MSME Supply-Chain Standard",
+          "applicationScope": "Guides honest nutritional/therapeutic claim substantiation and Section 43B(h) timely settlement governance across small agri-suppliers."
+        }
+      },
+      "recurringAnnualRetainer": {
+        "phaseTitle": "Phase 3: Batch Margin Finance & Year-1 Plant Governance Retainer",
+        "connectedBankingScope": "Connected-banking integration linking GST HSN invoicing, marketplace/distributor collections, raw-material supplier 45-day MSME timers, and factory payroll.",
+        "statutoryCadence": [
+          "Monthly GST (GSTR-1/3B) across multi-rate food/spice/nutraceutical HSN codes plus Annual GSTR-9/9C (V03-SVC-003).",
+          "Half-yearly Form MSME-1 vendor payment compliance (V02-SVC-010) and Sec 43B(h) tax deduction protection.",
+          "Monthly EPF/ESIC payroll filings (V04-SVC-001) and Annual RoC/LLP compliance (V02-SVC-017, V02-SVC-014)."
+        ],
+        "renewalTracking": [
+          "Annual FSSAI Manufacturing Return (Form D-1 / May 31 cutoff) & FSSAI License renewal window tracking.",
+          "KSPCB Consent to Operate validity, Legal Metrology weight-scale stamping, and Fire NOC renewal reminders."
+        ]
+      },
+      "pricingTiers": [
+        {
+          "tierId": "KL-FOOD-T1",
+          "tierName": "Plant Entity & Pre-Launch Licensing Pack",
+          "billingModel": "ONE_TIME_SETUP",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Pvt Ltd / LLP / Partnership setup + bundled MSME Udyam registration",
+            "K-SWIFT industrial intake, LSGD machinery/trade license & KSPCB CTE application prep",
+            "FSSAI State/Central Manufacturing application dossier & Legal Metrology checklist"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "MCA/RoF fees, Stamp Duty, KSPCB water/air consent fees & FoSCoS FSSAI license fees at actuals"
+          ],
+          "thirdPartyExclusions": [
+            "NABL food testing lab batch analysis fees, ETP civil engineering & factory safety audits"
+          ],
+          "publicQuoteMode": "Scoped Diagnostic Quote (Plant Capacity & FSSAI Tier Assessment)"
+        },
+        {
+          "tierId": "KL-FOOD-T2",
+          "tierName": "Plant-to-Shelf Full Setup + IP & Trade Shield",
+          "billingModel": "SETUP_PLUS_CONTRACTS",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Everything in Plant Entity & Pre-Launch Licensing Pack",
+            "Co-Packing/OEM Agreements, Distributor Contracts & Agri-Supply Specs via CraftEgon LLP",
+            "Trademark TM-A Filing (Food Classes), D2C Terms & Factory POSH/HR Kit"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "Trademark official fees, contract Stamp Duty & statutory registration levies at actuals"
+          ],
+          "thirdPartyExclusions": [
+            "Barcode (GS1) annual subscription & packaging print design agencies"
+          ],
+          "publicQuoteMode": "Scoped Proposal (SKU Count & Distribution Channels)"
+        },
+        {
+          "tierId": "KL-FOOD-T3",
+          "tierName": "Year-1 Processing Governance Retainer",
+          "billingModel": "ANNUAL_OR_MONTHLY_RETAINER",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Connected-banking bookkeeping alignment, multi-HSN GST returns & Sec 43B(h) supplier tracking",
+            "Annual RoC/LLP filings, Form MSME-1 & Monthly EPF/ESIC payroll compliance",
+            "FSSAI Annual Return (D-1) & KSPCB/LSGD renewal tracking calendar"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "Monthly GST/Tax liabilities, statutory audit fees & government renewal challans"
+          ],
+          "thirdPartyExclusions": [
+            "Food lab recall testing or FSSAI adjudication representation via independent advocates"
+          ],
+          "publicQuoteMode": "Turnover & Headcount Bracketed Retainer Quote"
+        }
+      ],
+      "catalogCrossReferences": {
+        "linkedServiceIds": [
+          "V01-SVC-007",
+          "V01-SVC-002",
+          "V01-SVC-003",
+          "V01-SVC-005",
+          "V02-SVC-010",
+          "V02-SVC-017",
+          "V03-SVC-003",
+          "V04-SVC-001",
+          "V05-SVC-002",
+          "V06-SVC-003",
+          "V07-SVC-001",
+          "V07-SVC-002"
+        ],
+        "primaryVerticalIds": ["V01", "V02", "V03", "V04", "V05", "V06", "V07"],
+        "calculatorTabs": [
+          { "tabId": "calc-tab-1", "mode": "formation", "label": "Entity & Kerala Stamp Duty Estimator" },
+          { "tabId": "calc-tab-3", "mode": "msme", "label": "MSME 43B(h) Supplier Payment Tracker" }
+        ],
+        "dashboardMilestoneRules": ["AOC-4", "MGT-7 / MGT-7A", "MSME-1", "GSTR-1", "GSTR-3B", "GSTR-9"],
+        "relatedDiagnosticRoutes": [
+          "/conversion/calculator.html#calc-tab-3",
+          "/conversion/license-qualification.html",
+          "/services/msme-udyam.html",
+          "/services/trademark-registration.html"
+        ]
+      },
+      "regulatoryHygiene": {
+        "noGuaranteedTimelineClause": "FSSAI licensing, KSPCB consents, and LSGD clearances require site verification by jurisdictional officers; CCS prepares compliant submissions without promising guaranteed timelines.",
+        "advocatesActBoundary": "Vendor, co-packing, and distributor agreements are commercial drafting deliverables; contested FSSAI prosecution or consumer disputes require an independent practicing advocate.",
+        "governmentFeeSeparationClause": "FoSCoS fees, KSPCB consent charges, Legal Metrology fees, and Stamp Duty are separate statutory disbursements payable at actuals."
+      }
+    },
+    {
+      "id": "KL-BND-HOSPITALITY",
+      "slug": "hospitality-resorts-kerala",
+      "bundleName": "Property Launch & Hospitality Suite",
+      "title": "Hospitality, Boutique Stays & Eco/Wellness Resorts",
+      "shortTagline": "Asset/operating SPV setup, K-SWIFT/LSGD/KSPCB/Fire resort clearances, land lease & operator contracts, guest privacy, and Year-1 compliance.",
+      "targetAudience": [
+        "Boutique Resorts, Eco-Lodges & Wellness Retreats across Wayanad, Malabar, Alappuzha & Kochi",
+        "NRI & GCC Investors structuring Kerala hospitality properties via ring-fenced SPVs",
+        "Serviced Villa Operators, Heritage Stays & Experience-Led Hospitality Groups"
+      ],
+      "keralaDemandThesis": "Kerala's premium experiential tourism and wellness hospitality sector attracts major NRI and institutional capital, creating strong demand for compliant SPV structuring and end-to-end pre-opening regulatory governance.",
+      "supplyGapThesis": "Resort promoters frequently lock into property leases or construction before catching LSGD commercial building conversion requirements, KSPCB Sewage Treatment Plant (STP) consent thresholds, CRZ/eco-zone checks, Fire NOC rules, and unenforceable operator/OTA/contractor terms.",
+      "entityAndPreLaunchStack": {
+        "phaseTitle": "Phase 1: Hospitality SPV & Property Pre-Opening Clearances",
+        "entityOptions": [
+          {
+            "entityType": "Private Limited Company (SPICe+)",
+            "serviceId": "V01-SVC-007",
+            "fitRationale": "Clean asset/operating ring-fencing, multi-investor equity rounds, and FEMA compliance for NRI hospitality promoters."
+          },
+          {
+            "entityType": "Limited Liability Partnership (LLP)",
+            "serviceId": "V01-SVC-002",
+            "fitRationale": "Popular for boutique family-owned resort operations and management-operator partnerships."
+          }
+        ],
+        "keralaAndCentralRegistrations": [
+          {
+            "code": "LSGD-KSPCB-STP",
+            "title": "LSGD Commercial Occupancy, K-SWIFT & KSPCB (STP/DG) Clearance",
+            "authority": "Kerala LSGD / K-SWIFT / KSPCB",
+            "scopeNote": "Dossier coordination for lodging/resort trade licensing, commercial building occupancy alignment, and KSPCB consent (based on room count, STP, and DG capacity).",
+            "isConditional": false
+          },
+          {
+            "code": "FIRE-FSSAI-HOSP",
+            "title": "Fire & Rescue Safety Checklist & FSSAI Restaurant/Kitchen License",
+            "authority": "Kerala Fire & Rescue Services / FoSCoS FSSAI",
+            "scopeNote": "Pre-audit documentation for fire safety NOC applicability and F&B/banquet kitchen FSSAI licensing.",
+            "isConditional": false
+          },
+          {
+            "code": "TOURISM-FRRO",
+            "title": "Kerala Tourism Classification & Foreign Guest FRRO (C-Form) Setup",
+            "authority": "Department of Tourism Kerala / Bureau of Immigration",
+            "scopeNote": "Guidance on resort/serviced-villa/homestay classification readiness and mandatory online C-Form registration for inbound international guests.",
+            "isConditional": true
+          },
+          {
+            "code": "FEMA-NRI-SPV",
+            "title": "NRI / Foreign Capital Structuring & RBI Reporting Readiness",
+            "authority": "Reserve Bank of India (FIRMS / FLAIR) & Authorized Dealer Bank",
+            "scopeNote": "Repatriable vs non-repatriable capital mapping, FC-GPR filing coordination where foreign/NRE equity applies, and annual FLA readiness (V13-SVC-003).",
+            "isConditional": true
+          }
+        ]
+      },
+      "commercialAndRiskShield": {
+        "phaseTitle": "Phase 2: Property Lease, Operator, OTA & Workforce Risk Shield",
+        "coreContracts": [
+          {
+            "code": "RESORT-LEASE-MGMT",
+            "title": "Long-Term Property Lease & Hotel/Resort Management Contracts",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Separates land-owner liability from resort operator performance KPIs, revenue-share waterfalls, and clear maintenance capex duties."
+          },
+          {
+            "code": "OTA-VENDOR-TERMS",
+            "title": "OTA, Corporate Retreat, Wellness & Tour-Operator Agreements",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Protects cancellation/no-show policies, peak-season allotment blocks, and third-party excursion indemnity boundaries."
+          },
+          {
+            "code": "FITOUT-CONTRACTOR",
+            "title": "Resort Construction / Fit-Out Milestone & Defect-Liability SLAs",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Prevents contractor abandonment and cost overruns through retention money clauses and statutory clearance linkage."
+          },
+          {
+            "code": "GUEST-DPDP",
+            "title": "Guest Booking Terms, CCTV/ID Privacy & DPDP Compliance Suite",
+            "draftingOwner": "CraftEgon CCS Tech & Data Privacy Desk",
+            "riskMitigated": "Aligns guest ID/passport collection, Wi-Fi/CCTV retention, and direct booking engines with the DPDP Act, 2023 (V12-SVC-002, V12-SVC-003)."
+          }
+        ],
+        "governanceAndSops": [
+          "Hospitality Workforce Handbooks, Shift/Tip Governance & Mandatory POSH Internal Committee Setup (V07-SVC-001, V07-SVC-002, V04-SVC-001).",
+          "Property Name, Retreat Brand & Logo Trademark Protection under Class 43 (V06-SVC-003)."
+        ],
+        "niegTouchpoint": {
+          "standardName": "NIEG Ecological & Responsible Hospitality Governance Standard",
+          "applicationScope": "Embeds Nus'ha Institute for Ethical Governance (NIEG) waste/water transparency, guest safety accountability, and fair local staff practices."
+        }
+      },
+      "recurringAnnualRetainer": {
+        "phaseTitle": "Phase 3: OTA/POS Finance Reconciliation & Year-1 Resort Retainer",
+        "connectedBankingScope": "Connected-banking ledger reconciliation matching multi-channel OTA settlements (MakeMyTrip/Booking/Airbnb), POS F&B splits, GST room-tariff slabs, and seasonal vendor TDS.",
+        "statutoryCadence": [
+          "Monthly GST rate-slab segregation (declared tariff vs F&B restaurant ITC rules) and Annual GSTR-9/9C (V03-SVC-003).",
+          "Monthly EPF/ESIC payroll returns for full-time & hospitality staff (V04-SVC-001) and TDS compliance.",
+          "Annual RoC/LLP compliance (AOC-4, MGT-7, Statutory Registers) and RBI FLA Return for NRI-funded SPVs (V02-SVC-017, V13-SVC-003)."
+        ],
+        "renewalTracking": [
+          "Annual LSGD Trade License, Fire NOC, FSSAI Kitchen License & KSPCB consent renewal calendar.",
+          "Lease escalation/renewal notice dates & seasonal vendor contract reviews."
+        ]
+      },
+      "pricingTiers": [
+        {
+          "tierId": "KL-HOSP-T1",
+          "tierName": "Property SPV & Pre-Opening Licensing Pack",
+          "billingModel": "ONE_TIME_SETUP",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Hospitality SPV incorporation (Pvt Ltd / LLP) with NRI/Resident director alignment",
+            "K-SWIFT, LSGD Commercial Trade License & KSPCB (STP/DG) dossier preparation",
+            "FSSAI Kitchen License & Fire NOC pre-inspection documentation checklist"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "MCA incorporation fees, Kerala Stamp Duty, Panchayat/Municipal taxes & KSPCB/FSSAI fees at actuals"
+          ],
+          "thirdPartyExclusions": [
+            "CRZ/eco-sensitivity surveys, architectural completion plans & STP engineering installation"
+          ],
+          "publicQuoteMode": "Scoped Diagnostic Quote (Room Key Count & Property Scope)"
+        },
+        {
+          "tierId": "KL-HOSP-T2",
+          "tierName": "Full Resort Setup + Lease, OTA & Workforce Shield",
+          "billingModel": "SETUP_PLUS_CONTRACTS",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Everything in Property SPV & Pre-Opening Licensing Pack",
+            "Lease/Operator Management Agreement, Fit-Out SLA & Guest/OTA Booking Terms via CraftEgon LLP",
+            "DPDP Guest Privacy Kit, POSH IC Constitution & Class 43 Trademark Filing"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "Lease registration Stamp Duty (SRO actuals), Trademark fees & RBI/FEMA filing costs"
+          ],
+          "thirdPartyExclusions": [
+            "Independent land title search/encumbrance opinions or structural valuation reports"
+          ],
+          "publicQuoteMode": "Scoped Proposal (Lease Structure & NRI Investment Scope)"
+        },
+        {
+          "tierId": "KL-HOSP-T3",
+          "tierName": "Year-1 Hospitality Governance Retainer",
+          "billingModel": "ANNUAL_OR_MONTHLY_RETAINER",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Connected-banking OTA/POS revenue reconciliation & GST tariff/F&B tax filings",
+            "Monthly EPF/ESIC payroll compliance, RoC/LLP annual filings & RBI FLA Return (if applicable)",
+            "Annual Fire/LSGD/KSPCB/FSSAI renewal tracking & lease/vendor amendment desk"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "Monthly GST/Tax payouts, statutory renewal fees & CA statutory audit sign-off"
+          ],
+          "thirdPartyExclusions": [
+            "Contentious property/land disputes or labour court proceedings (independent advocates only)"
+          ],
+          "publicQuoteMode": "Key-Count & Revenue-Bracketed Retainer Quote"
+        }
+      ],
+      "catalogCrossReferences": {
+        "linkedServiceIds": [
+          "V01-SVC-007",
+          "V01-SVC-002",
+          "V02-SVC-017",
+          "V03-SVC-003",
+          "V04-SVC-001",
+          "V05-SVC-002",
+          "V06-SVC-003",
+          "V07-SVC-001",
+          "V07-SVC-002",
+          "V12-SVC-002",
+          "V12-SVC-003",
+          "V13-SVC-003"
+        ],
+        "primaryVerticalIds": ["V01", "V02", "V03", "V05", "V07", "V12", "V13"],
+        "calculatorTabs": [
+          { "tabId": "calc-tab-1", "mode": "formation", "label": "SPV Formation & Kerala Stamp Duty Estimator" },
+          { "tabId": "calc-tab-1", "mode": "annual", "label": "RoC Annual Retainer & Late Fee Check" }
+        ],
+        "dashboardMilestoneRules": ["AOC-4", "MGT-7 / MGT-7A", "GSTR-1", "GSTR-3B", "GSTR-9", "RBI FLA Return", "FC-GPR"],
+        "relatedDiagnosticRoutes": [
+          "/locations/malappuram-nri-business-desk.html",
+          "/locations/kozhikode-corporate-services.html",
+          "/conversion/fema-consultation.html",
+          "/conversion/dpdp-audit-request.html"
+        ]
+      },
+      "regulatoryHygiene": {
+        "noGuaranteedTimelineClause": "Resort building occupancy, CRZ/environmental clearances, KSPCB consents, and Tourism classifications are governed by physical site conditions and competent statutory authorities with no fixed clearance timelines or assured approval outcomes.",
+        "advocatesActBoundary": "Property leases, management contracts, and terms are non-contentious drafting deliverables; land-title litigation or property disputes require independent practicing advocates.",
+        "governmentFeeSeparationClause": "Sub-Registrar Stamp Duty, Panchayat building/trade fees, KSPCB/Fire/Tourism levies, and FSSAI fees are billed strictly at actuals."
+      }
+    },
+    {
+      "id": "KL-BND-EDTECH",
+      "slug": "edtech-academies-kerala",
+      "bundleName": "Academy & EdTech Foundation Pack",
+      "title": "EdTech, Coaching Academies & Skill Training Institutes",
+      "shortTagline": "Pvt Ltd & DPIIT/KSUM setup, faculty IP & content ownership pacts, DPDP student privacy, refund/fee governance, and Year-1 academy compliance.",
+      "targetAudience": [
+        "Hybrid Test-Prep, Healthcare-Licensing & Technical Coaching Academies across Kozhikode, Malappuram & Kochi",
+        "AI/SaaS EdTech Startups, LMS Platforms & Corporate Upskilling Providers",
+        "NSDC-Aligned Skill Institutes & Gulf-Placement Vocational Training Academies"
+      ],
+      "keralaDemandThesis": "Kozhikode and Malappuram form one of South India's densest education and healthcare-upskilling belts, driving strong demand for scalable Pvt Ltd EdTech companies, hybrid coaching campuses, and international B2B training collaborations.",
+      "supplyGapThesis": "Fast-growing academies lose tens of lakhs when star faculty exit with recorded courses (due to missing IP assignment clauses), face CCPA/consumer disputes over opaque refund policies, violate DPDP Act student/minor consent rules, or misclassify 18% GST vs exempt vocational programs.",
+      "entityAndPreLaunchStack": {
+        "phaseTitle": "Phase 1: EdTech Entity, DPIIT/KSUM & Campus Pre-Launch Stack",
+        "entityOptions": [
+          {
+            "entityType": "Private Limited Company (SPICe+)",
+            "serviceId": "V01-SVC-007",
+            "fitRationale": "Standard vehicle for angel/VC-funded EdTech startups, ESOP retention for lead faculty, and multi-center franchise expansion."
+          },
+          {
+            "entityType": "Limited Liability Partnership (LLP)",
+            "serviceId": "V01-SVC-002",
+            "fitRationale": "Clean structure for founder-led coaching academies and boutique vocational partnerships."
+          },
+          {
+            "entityType": "Section 8 Non-Profit Company",
+            "serviceId": "V01-SVC-008",
+            "fitRationale": "Designed for grant-backed skill development missions, scholarship foundations, and non-profit education trusts."
+          }
+        ],
+        "keralaAndCentralRegistrations": [
+          {
+            "code": "DPIIT-KSUM",
+            "title": "DPIIT Startup India Recognition & Kerala Startup Mission (KSUM) Alignment",
+            "authority": "DPIIT (NSWS) / Kerala Startup Mission",
+            "scopeNote": "Innovation-dossier prep for DPIIT Startup recognition (V01-SVC-001) unlocking patent/TM fee rebates and Section 140 eligibility screening, plus KSUM ecosystem alignment for tech/AI EdTech.",
+            "isConditional": true
+          },
+          {
+            "code": "LSGD-CAMPUS",
+            "title": "LSGD Commercial Coaching Premise, Fire & Campus Safety Readiness",
+            "authority": "Kerala LSGD / Fire & Rescue / Central Guidelines Checklist",
+            "scopeNote": "Trade license, commercial occupancy verification, and student-campus safety & fire compliance checklist for physical/hybrid centers.",
+            "isConditional": true
+          },
+          {
+            "code": "IP-BRAND-SOFT",
+            "title": "Trademark (Class 41/42) & Software/Curriculum Copyright Protection",
+            "authority": "CGPDTM (Trade Marks & Copyright Office)",
+            "scopeNote": "Brand name protection (V06-SVC-003) and registration of proprietary LMS software, question banks, and recorded courseware (V06-SVC-002).",
+            "isConditional": false
+          },
+          {
+            "code": "GST-TAX-EMP",
+            "title": "GST Educational Scope Segregation & Faculty EPF/ESIC Setup",
+            "authority": "GSTN / EPFO / ESIC",
+            "scopeNote": "Clear classification between commercial 18% taxable coaching vs qualifying exempt educational/NSDC schemes, plus staff payroll registration (V04-SVC-001).",
+            "isConditional": false
+          }
+        ]
+      },
+      "commercialAndRiskShield": {
+        "phaseTitle": "Phase 2: Faculty IP, DPDP Student Privacy & NIEG Ethical Shield",
+        "coreContracts": [
+          {
+            "code": "FACULTY-IP",
+            "title": "Faculty Employment, Recorded-Course IP Assignment & Non-Compete Covenants",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Ensures absolute company ownership over recorded lectures, study modules, and live-class IP while structuring enforceable notice periods."
+          },
+          {
+            "code": "LMS-STUDENT-TERMS",
+            "title": "SaaS LMS Terms of Service, Student Enrollment & Clear Refund Charter",
+            "draftingOwner": "CraftEgon LLP & CCS Tech Privacy Desk",
+            "riskMitigated": "Protects against CCPA misleading-claim actions and consumer disputes through transparent installment, cancellation, and refund rules (V12-SVC-003)."
+          },
+          {
+            "code": "B2B-INST-MOU",
+            "title": "College Partnership MoUs, Franchise Agreements & Enterprise EdTech MSAs",
+            "draftingOwner": "CraftEgon LLP Legal Drafting Desk",
+            "riskMitigated": "Governs campus integration SLAs, fee-split mechanics, brand licensing controls, and IP piracy remedies (V05-SVC-002)."
+          },
+          {
+            "code": "DPDP-STUDENT",
+            "title": "DPDP Act Student & Verifiable Parental Consent Architecture",
+            "draftingOwner": "CraftEgon CCS Tech & Data Privacy Desk",
+            "riskMitigated": "Implements Section 9 child/student data protections, bans unauthorized behavioral tracking, and secures LMS records (V12-SVC-002)."
+          }
+        ],
+        "governanceAndSops": [
+          "Safe-Campus Mandatory POSH Policy & Internal Committee Setup for faculty, staff, and adult learners (V07-SVC-002).",
+          "Course Piracy & Telegram/YouTube Leak Cease-and-Desist Enforcement Playbook (V06-SVC-001).",
+          "Co-Founder SHA & Faculty ESOP Vesting Documentation for growth-stage EdTech (V05-SVC-001)."
+        ],
+        "niegTouchpoint": {
+          "standardName": "NIEG Ethical EdTech & Outcome-Representation Standard",
+          "applicationScope": "Applies Nus'ha Institute for Ethical Governance (NIEG) rules prohibiting exaggerated rank/placement guarantees, dark-pattern fee locks, and unfair refund forfeitures."
+        }
+      },
+      "recurringAnnualRetainer": {
+        "phaseTitle": "Phase 3: Student Fee Reconciliation & Year-1 EdTech Governance Retainer",
+        "connectedBankingScope": "Connected-banking integration matching UPI/payment-gateway batches, student EMI/NBFC settlements, faculty revenue-share TDS (194J vs salary 192), and deferred-revenue accounting.",
+        "statutoryCadence": [
+          "Monthly GST returns segregating taxable coaching/SaaS subscriptions from exempt vocational streams + Annual GSTR-9/9C (V03-SVC-003).",
+          "Monthly TDS & EPF/ESIC filings covering full-time faculty vs visiting mentors (V04-SVC-001).",
+          "Annual RoC/Secretarial Retainer (AOC-4, MGT-7, ESOP/Share Allotment tracking, SHA compliance) (V02-SVC-017, V05-SVC-001)."
+        ],
+        "renewalTracking": [
+          "Annual Copyright/Trademark watch & piracy takedown monitoring.",
+          "Campus LSGD Trade License, Fire NOC, DPDP Annual Audit, and POSH Annual Report (Sec 21) filing calendar."
+        ]
+      },
+      "pricingTiers": [
+        {
+          "tierId": "KL-EDTECH-T1",
+          "tierName": "Academy Entity & DPIIT/IP Foundation",
+          "billingModel": "ONE_TIME_SETUP",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Pvt Ltd / LLP / Section 8 setup + GSTIN & EPF/ESIC onboarding",
+            "DPIIT Startup India / KSUM readiness dossier & Brand Trademark (Class 41) filing",
+            "Campus LSGD & Fire safety documentation checklist (for physical/hybrid centers)"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "MCA incorporation fees, Trademark TM-A official fee & Kerala Stamp Duty at actuals"
+          ],
+          "thirdPartyExclusions": [
+            "Fire NOC hardware installation & physical campus lease stamp duties"
+          ],
+          "publicQuoteMode": "Scoped Diagnostic Quote (Online vs Hybrid Campus Model)"
+        },
+        {
+          "tierId": "KL-EDTECH-T2",
+          "tierName": "Full EdTech Launch + Faculty IP & DPDP Shield",
+          "billingModel": "SETUP_PLUS_CONTRACTS",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Everything in Academy Entity & DPIIT/IP Foundation",
+            "Faculty IP Assignment Contracts, Student/LMS Terms & Clear Refund Charter via CraftEgon LLP",
+            "DPDP Act Student/Minor Consent Architecture, College MoU template & POSH IC Setup"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "Copyright registration govt fees, Contract Stamp Duty & MCA filings at actuals"
+          ],
+          "thirdPartyExclusions": [
+            "LMS software engineering development & third-party payment gateway underwriting fees"
+          ],
+          "publicQuoteMode": "Scoped Proposal (Student Volume & Faculty Team Size)"
+        },
+        {
+          "tierId": "KL-EDTECH-T3",
+          "tierName": "Year-1 EdTech & Academy Governance Retainer",
+          "billingModel": "ANNUAL_OR_MONTHLY_RETAINER",
+          "commercialApprovalState": "PENDING_OWNER_REVIEW",
+          "ccsScopeIncluded": [
+            "Connected-banking gateway/EMI settlement reconciliation & GST stream segregation",
+            "Monthly Payroll/TDS/EPF/ESIC compliance & Annual RoC Secretarial Retainer",
+            "Annual POSH report calendar, DPDP privacy review & faculty/B2B contract desk"
+          ],
+          "statutoryDisbursementsExcluded": [
+            "GST/TDS liabilities, Annual RoC challans & Statutory Auditor sign-off fees"
+          ],
+          "thirdPartyExclusions": [
+            "Consumer court or CCPA litigation defense (referred to independent advocates)"
+          ],
+          "publicQuoteMode": "Student-Cohort & Revenue-Bracketed Retainer Quote"
+        }
+      ],
+      "catalogCrossReferences": {
+        "linkedServiceIds": [
+          "V01-SVC-001",
+          "V01-SVC-007",
+          "V01-SVC-002",
+          "V01-SVC-008",
+          "V02-SVC-017",
+          "V03-SVC-003",
+          "V04-SVC-001",
+          "V05-SVC-001",
+          "V05-SVC-002",
+          "V06-SVC-001",
+          "V06-SVC-002",
+          "V06-SVC-003",
+          "V07-SVC-002",
+          "V12-SVC-002",
+          "V12-SVC-003"
+        ],
+        "primaryVerticalIds": ["V01", "V02", "V05", "V06", "V07", "V12"],
+        "calculatorTabs": [
+          { "tabId": "calc-tab-1", "mode": "formation", "label": "Startup Entity & Stamp Duty Estimator" },
+          { "tabId": "calc-tab-4", "mode": "startup", "label": "Cap Table, ESOP & EMI Planner" }
+        ],
+        "dashboardMilestoneRules": ["AOC-4", "MGT-7 / MGT-7A", "ADT-1", "MGT-14", "GSTR-1", "GSTR-3B", "GSTR-9"],
+        "relatedDiagnosticRoutes": [
+          "/conversion/calculator.html#calc-tab-4",
+          "/conversion/dpdp-audit-request.html",
+          "/conversion/trademark-search.html",
+          "/services/dpiit-startup-india.html"
+        ]
+      },
+      "regulatoryHygiene": {
+        "noGuaranteedTimelineClause": "DPIIT Startup recognition, Inter-Ministerial Board tax exemptions, Trademark approvals, and LSGD campus clearances are subject to statutory scrutiny and cannot be guaranteed as automatic outcomes.",
+        "advocatesActBoundary": "Faculty agreements, LMS terms, and piracy takedown notices are prepared as corporate documentation; formal High Court IP suits or consumer commission appearances require independent advocates.",
+        "governmentFeeSeparationClause": "Official CGPDTM trademark/copyright fees, MCA fees, Stamp Duty, and campus safety inspection charges are billed separately at actuals."
+      }
+    }
+  ]
+}

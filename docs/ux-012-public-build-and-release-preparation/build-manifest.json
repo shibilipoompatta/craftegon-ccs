@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-24T08:48:20.428Z",
+  "buildTimestamp": "2026-11-25T16:23:09.620Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -10,9 +10,9 @@
     "outputDirectory": "C:\\Users\\shibi\\OneDrive\\Desktop\\craftegon-ccs-clean\\dist-public"
   },
   "metrics": {
-    "totalFilesIncluded": 219,
-    "totalOutputSizeBytes": 13824980,
-    "totalOutputSizeFormatted": "13.18 MB",
+    "totalFilesIncluded": 221,
+    "totalOutputSizeBytes": 13894477,
+    "totalOutputSizeFormatted": "13.25 MB",
     "sanitizedResidualLinksCount": 1,
     "preRenderedSSGPagesCount": 0,
     "filesByExtension": {
@@ -23,9 +23,9 @@
       ".jpg": 1,
       ".bak": 1,
       ".ico": 2,
-      ".js": 19,
+      ".js": 20,
       ".txt": 3,
-      ".json": 10,
+      ".json": 11,
       ".sql": 1,
       ".webmanifest": 1,
       "config": 2,
@@ -235,6 +235,10 @@
       "bytes": 21580
     },
     {
+      "path": "assets/js/kerala-bundles.js",
+      "bytes": 5075
+    },
+    {
       "path": "assets/js/navigation.js",
       "bytes": 30930
     },
@@ -397,6 +401,10 @@
     {
       "path": "data/jurisdiction-variations.json",
       "bytes": 14941
+    },
+    {
+      "path": "data/kerala-bundles.json",
+      "bytes": 64422
     },
     {
       "path": "data/learning-articles.json",
