@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-26T01:53:47.406Z",
+  "buildTimestamp": "2026-11-26T02:00:22.589Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 227,
-    "totalOutputSizeBytes": 14070660,
+    "totalOutputSizeBytes": 14071857,
     "totalOutputSizeFormatted": "13.42 MB",
     "sanitizedResidualLinksCount": 0,
     "preRenderedSSGPagesCount": 0,
@@ -264,23 +264,23 @@
     },
     {
       "path": "bundles/clinics-diagnostics-kerala.html",
-      "bytes": 96556
+      "bytes": 96736
     },
     {
       "path": "bundles/edtech-academies-kerala.html",
-      "bytes": 94680
+      "bytes": 94860
     },
     {
       "path": "bundles/exim-cold-chain-kerala.html",
-      "bytes": 94942
+      "bytes": 95122
     },
     {
       "path": "bundles/food-spice-processing-kerala.html",
-      "bytes": 93960
+      "bytes": 94140
     },
     {
       "path": "bundles/hospitality-resorts-kerala.html",
-      "bytes": 93773
+      "bytes": 93958
     },
     {
       "path": "c7a4e8d21b9f4056a2e8c1d3f5b709a2.txt",
@@ -364,7 +364,7 @@
     },
     {
       "path": "conversion/index.html",
-      "bytes": 127010
+      "bytes": 127017
     },
     {
       "path": "conversion/license-qualification.html",
@@ -376,7 +376,7 @@
     },
     {
       "path": "conversion/partner-ecosystems.html",
-      "bytes": 107357
+      "bytes": 107394
     },
     {
       "path": "conversion/post-incorporation-checkout.html",
@@ -428,7 +428,7 @@
     },
     {
       "path": "data/kerala-bundles.json",
-      "bytes": 64346
+      "bytes": 64402
     },
     {
       "path": "data/learning-articles.json",
@@ -472,7 +472,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 174019
+      "bytes": 174211
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",

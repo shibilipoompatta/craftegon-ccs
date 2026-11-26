@@ -82,7 +82,7 @@ function buildBundleFaqs(bundle) {
 function renderBundlePage(bundle) {
   const canonicalUrl = `https://ccs.craftegon.com/bundles/${bundle.slug}.html`;
   const pageTitle = `${bundle.bundleName} — ${bundle.title} (Kerala) | CraftEgon Corporate Services (CCS)`;
-  const metaDesc = `${bundle.shortTagline} Coordinated in Kozhikode (Markaz Knowledge City) & Malappuram, Kerala under CraftEgon LLP.`;
+  const metaDesc = `${bundle.shortTagline} Coordinated by CraftEgon LLP (LLPIN: ACO-0239) — Commercial Desk in Alappuzha (690501) & Regd. Office in Malappuram (676319), Kerala.`;
   const faqs = buildBundleFaqs(bundle);
 
   const jsonLd = {
@@ -231,7 +231,7 @@ function renderBundlePage(bundle) {
         '/conversion/license-qualification.html': ['Statutory Licence Qualification', 'Scope K-SWIFT, FSSAI, Udyam & factory clearances'],
         '/services/msme-udyam.html': ['MSME / Udyam Priority Shield', 'Verify 45-day buyer payment protection eligibility'],
         '/locations/malappuram-nri-business-desk.html': ['Malappuram & Tirurangadi NRI Desk', 'Dedicated support for GCC-return founders'],
-        '/locations/kozhikode-corporate-services.html': ['Markaz Knowledge City, Kozhikode Desk', 'In-person Malappuram-Kozhikode corridor support'],
+        '/locations/kozhikode-corporate-services.html': ['Kozhikode & Malabar Coverage Desk', 'Pan-Kerala compliance & startup corridor support'],
         '/conversion/trademark-search.html': ['Trademark Classification & Intake', 'Map NICE classes before Form TM-A filing'],
         '/services/dpiit-startup-india.html': ['DPIIT Startup India Assessment', 'Check G.S.R. 108(E) & KSUM eligibility criteria']
       };

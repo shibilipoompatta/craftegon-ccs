@@ -83,7 +83,7 @@ indexHtml = indexHtml.replace(
 );
 indexHtml = indexHtml.replace(
   /<meta name="description" content="[^"]*">/i,
-  '<meta name="description" content="Kerala\'s specialized Launch-to-Operate + Year-1 Governance business infrastructure partner under CraftEgon LLP (Markaz Knowledge City, Kozhikode &amp; Malappuram). Entity setup, K-SWIFT &amp; KSPCB routing, commercial contracts, and annual governance.">'
+  '<meta name="description" content="Kerala\'s specialized Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501 &amp; MCA Regd. Office: Malappuram 676319. Entity setup, K-SWIFT &amp; KSPCB routing, commercial contracts, and annual governance.">'
 );
 indexHtml = indexHtml.replace(
   /<meta property="og:title" content="[^"]*">/i,
@@ -91,7 +91,7 @@ indexHtml = indexHtml.replace(
 );
 indexHtml = indexHtml.replace(
   /<meta property="og:description" content="[^"]*">/i,
-  '<meta property="og:description" content="Kerala\'s specialized Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP &amp; NIEG alignment. Kozhikode &amp; Malappuram corporate infrastructure.">'
+  '<meta property="og:description" content="Kerala\'s specialized Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239) &amp; NIEG alignment. Commercial Desk in Alappuzha &amp; MCA Regd. Office in Malappuram.">'
 );
 if (!indexHtml.includes('/assets/css/bundles.css')) {
   indexHtml = indexHtml.replace(
@@ -107,7 +107,7 @@ indexHtml = indexHtml.replace(
 // 1b. Update Organization JSON-LD description
 indexHtml = indexHtml.replace(
   '"description": "Building Business Infrastructure. Coordinated corporate secretarial, tax, compliance, and corporate structuring services.",',
-  '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance business infrastructure partner under CraftEgon LLP (Markaz Knowledge City, Kozhikode & Malappuram), aligned with NIEG ethical governance.",'
+  '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501; MCA Registered Office: Chettipadi, Malappuram 676319. Aligned with NIEG ethical governance.",'
 );
 
 // 1c. Remodel Hero Showcase (#hero) + Insert Scannable #kerala-bundles Showcase directly below
@@ -378,7 +378,7 @@ indexHtml = indexHtml
   .replace(/Within 2 Hours Mandate Scoping/g, 'Initial Scoping Within 1 Business Day')
   .replace(/<form id="home-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="#" data-static-fallback="true">/g, '<form id="home-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="/api/v1/enquiries">')
   .replace(
-    '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance business infrastructure partner under CraftEgon LLP (Markaz Knowledge City, Kozhikode & Malappuram), aligned with NIEG ethical governance.",',
+    /"description": "Kerala's Launch-to-Operate[^"]*",/,
     '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501; MCA Registered Office: Chettipadi, Malappuram 676319. Aligned with NIEG ethical governance.",'
   );
 fs.writeFileSync(path.join(ROOT, 'index.html'), indexHtml, 'utf8');
