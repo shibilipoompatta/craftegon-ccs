@@ -21,7 +21,8 @@ Your role is to assist corporate leaders, founders, CFOs, and clients with autho
 
 CORE INSTITUTIONAL FACTS:
 - Legal Entity & Vertical: CraftEgon LLP operating CraftEgon Corporate Services (CCS), alongside NIEG (Nus'ha Institute for Ethical Governance) governance & ethical billing standards.
-- Operating Hubs: Markaz Knowledge City, Kozhikode (Calicut) & Chettipadi, Tirurangadi (Malappuram), Kerala, alongside our operational desk at Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala (PIN 690501). Pan-Kerala & Pan-India RoC, NCLT & RBI filing support.
+- Operating Desks: Commercial & Operational Desk at Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala (PIN 690501); MCA Registered Office (CraftEgon LLP, LLPIN: ACO-0239) at 92/D, Thiruthummal Panakkad, Chettipadi, Tirurangadi, Malappuram, Kerala (PIN 676319). Pan-Kerala coordination (Kozhikode, Kochi, Trivandrum) & Pan-India RoC, NCLT & RBI filing support.
+- Banking Disclosure: CraftEgon LLP / CCS does not have banking partnerships or collaborations with any bank; we prepare board resolutions and KYC documentation for whichever bank the client selects.
 - Kerala Launch-to-Operate Vertical Bundles:
   1. Clinics, Diagnostics & Care/Research Centers (Clinic Launch & Year-1 Risk Shield — K-SWIFT, Kerala Clinical Establishments registration/standards, KSPCB BMW & doctor/equipment agreements)
   2. EXIM, Freight, Warehousing & Cold-Chain Logistics (EXIM & Cold-Chain Trade Pack — IEC, AD Code, LUT, RCMC, warehouse K-SWIFT/KSPCB, CHA & cold-chain SLAs, FEMA)
@@ -192,7 +193,7 @@ const KB=[
   {k:['portal','client portal','dashboard','compliance calendar','subscription','pricing','retainer plan','starter','growth','enterprise','tier','plan','retainer plans'],
   r:`CraftEgon Corporate Services (CCS) — Kerala Launch &amp; Year-1 Governance Desk:<br>
   * <b>Launch-to-Operate Suites:</b> Tailored 3-phase coverage across Clinics, EXIM/Cold-Chain, Food/Spice, Hospitality, and EdTech.<br>
-  * <b>Annual Governance Retainer:</b> Connected-banking bookkeeping alignment, RoC filings, tax/GST cadence &amp; license renewal tracking.<br>
+  * <b>Annual Governance Retainer:</b> Bookkeeping &amp; tax ledger reconciliation, RoC filings, tax/GST cadence &amp; license renewal tracking.<br>
   * <b>Transparent Fee Separation:</b> CCS advisory fees are scoped and quoted separately from statutory government fees &amp; Kerala stamp duty.`,
   a:[['Kerala Readiness Estimator','/conversion/calculator.html#readiness'],['Corporate Retainer Desk','/conversion/retainer-desk.html'],['Explore All Services','/services/index.html']]},
 
@@ -261,8 +262,9 @@ const KB=[
   r:`CraftEgon Corporate Services (CCS) - Official Corporate Desk (under CraftEgon LLP):<br>
   * <b>WhatsApp & Phone:</b> +91 86069 18247 (Direct Advisory & Scope Desk)<br>
   * <b>Email:</b> admin@craftegon.com<br>
-  * <b>Kerala Operational Hubs:</b> Markaz Knowledge City (Kozhikode / Calicut) &amp; Chettipadi, Tirurangadi (Malappuram), alongside our Alappuzha Desk (Room No.2, NS Building, Kaanjippuzha, PIN: 690501).<br>
-  * <b>Governance Alignment:</b> Commercial/legal structuring via CraftEgon LLP and ethics/governance advisory aligned with NIEG (Nus'ha Institute for Ethical Governance).`,
+  * <b>Legal Entity:</b> CraftEgon LLP (LLPIN: ACO-0239) — operating CraftEgon Corporate Services (CCS), aligned with NIEG ethical governance standards.<br>
+  * <b>Commercial Desk:</b> Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala - PIN: 690501.<br>
+  * <b>MCA Registered Office:</b> 92/D, Thiruthummal Panakkad, Chettipadi, Tirurangadi, Malappuram - 676319, Kerala.<br>`,
   a:[['Kerala Readiness Check','/conversion/calculator.html#readiness'],['Book Scope Call','/contact.html'],['Chat Live on WhatsApp','https://wa.me/918606918247']]}
 ];
 
@@ -511,7 +513,7 @@ function evaluateInputBrakes(query) {
       r: `While we do not evaluate third-party aggregators, <strong>CraftEgon Corporate Services (CCS)</strong> differentiates itself through:<br>
       * <b>Empanelled Professional Oversight:</b> All statutory filings (SPICe+, AOC-4, MGT-7, PAS-6, TM-A) are reviewed and digitally signed directly by Practicing Company Secretaries (PCS) and Chartered Accountants (CAs).<br>
       * <b>Fee Transparency:</b> Zero hidden government fees or surprise stamp duties.<br>
-      * <b>Direct Accountability:</b> Dedicated Kerala operational desks at Markaz Knowledge City (Kozhikode), Chettipadi (Malappuram), and Alappuzha — aligned with CraftEgon LLP commercial/legal drafting and NIEG ethical governance standards.<br><br>
+      * <b>Direct Accountability:</b> Dedicated Kerala commercial desk in Alappuzha (PIN 690501) and MCA Registered Office (CraftEgon LLP, LLPIN: ACO-0239) in Chettipadi, Tirurangadi, Malappuram — aligned with NIEG ethical governance standards.<br><br>
       We invite you to run your vertical readiness check or request a scoped consultation:`,
       a: [['Kerala Readiness Check', '/conversion/calculator.html#readiness'], ['Explore Kerala Bundles', '/#kerala-bundles'], ['Request Consultation', '/contact.html']],
       s: [['About CraftEgon Corporate Services (CCS)', '/about.html'], ['Institutional Model', '/about.html#how-we-operate']]
@@ -1367,7 +1369,7 @@ async function handleQuery(q){
 function initGreeting(){
   const b=document.getElementById('cchat-messages-container');
   if(!b||b.children.length>0)return;
-  appendBotMsg(`Hello! 👋 I am <b>Jinu</b>, your AI Corporate &amp; Regulatory Co-Pilot at <b>CraftEgon Corporate Services (CCS)</b> under <b>CraftEgon LLP</b>.<br><br>Explore our <b>Kerala Launch-to-Operate Bundles</b> (Kozhikode &amp; Malappuram desks), run a <b>Readiness &amp; Scope Check</b>, or ask about MCA V3, RoC filings, and NIEG governance today.`);
+  appendBotMsg(`Hello! 👋 I am <b>Jinu</b>, your AI Corporate &amp; Regulatory Co-Pilot at <b>CraftEgon Corporate Services (CCS)</b> under <b>CraftEgon LLP</b> (LLPIN: ACO-0239).<br><br>Explore our <b>Kerala Launch-to-Operate Bundles</b> (Commercial Desk in Alappuzha &amp; Regd. Office in Malappuram), run a <b>Readiness &amp; Scope Check</b>, or ask about MCA V3, RoC filings, and NIEG governance today.`);
 }
 
 function bind(){

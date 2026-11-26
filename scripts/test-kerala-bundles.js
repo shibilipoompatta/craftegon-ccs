@@ -174,6 +174,8 @@ const makeEl = (tag, initial = {}) => {
 const calcEls = {
   'kl-est-vertical': makeEl('select', { value: 'KL-BND-EXIM' }),
   'kl-est-stage': makeEl('select', { value: 'nri-gcc' }),
+  'kl-est-lsgd': makeEl('select', { value: 'corporation' }),
+  'kl-est-premises': makeEl('select', { value: 'residential-change' }),
   'kl-est-scale': makeEl('select', { value: 'growth' }),
   'kl-need-licensing': makeEl('input', { checked: true }),
   'kl-need-contracts': makeEl('input', { checked: true }),
@@ -216,8 +218,9 @@ vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'assets', 'js', 'calculator.j
 
 check(typeof calcWindow.CraftegonCalculator?.renderKeralaReadinessScope === 'function', 'CraftegonCalculator.renderKeralaReadinessScope() exported cleanly');
 calcWindow.CraftegonCalculator.renderKeralaReadinessScope();
-check(calcEls['kl-scope-code'].textContent.includes('KL-BND-EXIM') && calcEls['kl-scope-code'].textContent.includes('PENDING_OWNER_REVIEW'), 'Readiness scope badge reflects selected bundle & PENDING_OWNER_REVIEW');
+check(calcEls['kl-scope-code'].textContent.includes('KL-BND-EXIM') && calcEls['kl-scope-code'].textContent.includes('Scoped Mandate'), 'Readiness scope badge reflects selected bundle & Scoped Mandate without internal tokens');
 check(calcEls['kl-scope-phase1'].children.length >= 2 && calcEls['kl-scope-phase2'].children.length >= 2 && calcEls['kl-scope-phase3'].children.length >= 2, 'Readiness estimator populates Phase 1, Phase 2, and Phase 3 scope lists');
+check(calcEls['kl-scope-phase1'].children.some(c => c.textContent.includes('Kerala Premises Alert')), 'Readiness estimator flags LSGD occupancy warning when premises conversion is selected');
 check(calcEls['kl-scope-intake-cta'].href.startsWith('/contact.html?bundle=KL-BND-EXIM'), 'Readiness estimator generates pre-filled /contact.html?bundle= intake CTA');
 const renderedScopeText = [
   calcEls['kl-scope-tier-title'].textContent,

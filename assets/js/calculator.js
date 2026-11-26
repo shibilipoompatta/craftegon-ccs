@@ -1294,7 +1294,7 @@ const KERALA_ESTIMATOR_SPECS = {
       'DPDP Act patient privacy kit, POSH IC constitution & Class 44 trademark filing'
     ],
     phase3: [
-      'Connected-banking segregation of consultations, lab packages & pharmacy GST',
+      'Bookkeeping & tax ledger segregation of consultations, lab packages & pharmacy GST',
       'Monthly TDS (194J/194I/194C), EPF/ESIC nursing payroll & RoC/LLP compliance',
       'Renewal calendar for KSPCB BMW, Clinical Establishments, LSGD & Fire safety'
     ],
@@ -1322,7 +1322,7 @@ const KERALA_ESTIMATOR_SPECS = {
       'Cross-border Master Supply Agreements (Incoterms 2020) & warehouse lease deeds'
     ],
     phase3: [
-      'Connected-banking e-BRC / EDPMS & IDPMS realization deadline monitoring',
+      'Statement & ledger reconciliation for e-BRC / EDPMS & IDPMS realization deadlines',
       'Monthly GSTR-1/3B zero-rated export returns, ITC refunds & LUT annual renewal',
       'Annual RBI FLA Return, Form 3CEB Transfer Pricing & RoC / RCMC compliance'
     ],
@@ -1350,7 +1350,7 @@ const KERALA_ESTIMATOR_SPECS = {
       'Agri-commodity grade/spec procurement contracts, factory HR & POSH compliance'
     ],
     phase3: [
-      'Connected-banking batch HSN GST filings, Sec 43B(h) 45-day MSME supplier tracking',
+      'Batch HSN GST filings, sales ledger reconciliation & Sec 43B(h) 45-day MSME tracking',
       'Half-yearly Form MSME-1, EPF/ESIC factory payroll & Annual RoC/LLP filings',
       'Annual FSSAI Return (Form D-1), KSPCB CTO & Legal Metrology renewal calendar'
     ],
@@ -1378,7 +1378,7 @@ const KERALA_ESTIMATOR_SPECS = {
       'DPDP guest ID/CCTV privacy suite, Class 43 trademark & POSH compliance'
     ],
     phase3: [
-      'Connected-banking OTA/POS revenue reconciliation & GST tariff/F&B segregation',
+      'OTA/POS revenue & bank-statement ledger reconciliation + GST tariff/F&B segregation',
       'EPF/ESIC staff payroll, RoC/LLP annual filings & RBI FLA Return (for NRI SPVs)',
       'Annual LSGD trade license, Fire NOC, KSPCB consent & lease renewal calendar'
     ],
@@ -1406,7 +1406,7 @@ const KERALA_ESTIMATOR_SPECS = {
       'DPDP Act Section 9 student/minor parental consent kit, B2B MoUs & POSH IC'
     ],
     phase3: [
-      'Connected-banking payment-gateway/EMI reconciliation & faculty TDS segregation',
+      'Payment-gateway/EMI ledger reconciliation, GST stream segregation & faculty TDS',
       'Monthly GST/EPF/ESIC filings & Annual RoC secretarial retainer + ESOP tracking',
       'Annual POSH report, DPDP privacy review & copyright piracy monitoring calendar'
     ],
@@ -1424,6 +1424,11 @@ function renderKeralaReadinessScope() {
   const stageEl = document.getElementById('kl-est-stage');
   const scaleEl = document.getElementById('kl-est-scale');
   if (!verticalEl || !stageEl || !scaleEl) return;
+
+  const lsgdEl = document.getElementById('kl-est-lsgd');
+  const premisesEl = document.getElementById('kl-est-premises');
+  const lsgd = lsgdEl ? lsgdEl.value : 'municipality';
+  const premises = premisesEl ? premisesEl.value : 'occupancy-ready';
 
   const bundleId = verticalEl.value || 'KL-BND-CLINIC';
   const stage = stageEl.value || 'new-pvt';
@@ -1460,7 +1465,7 @@ function renderKeralaReadinessScope() {
   const bundleCta = document.getElementById('kl-scope-bundle-link');
   const waCta = document.getElementById('kl-scope-wa-cta');
 
-  if (codeEl) codeEl.textContent = `${spec.id} • ${tier.tierId} • PENDING_OWNER_REVIEW`;
+  if (codeEl) codeEl.textContent = `${spec.id} • ${tier.tierId} • Scoped Mandate`;
   if (titleEl) titleEl.textContent = tier.name;
   if (subEl) subEl.textContent = `${spec.bundleName} (${spec.title})`;
   if (quoteEl) quoteEl.textContent = `${tier.quoteMode} — Scoped Proposal Required`;
@@ -1485,6 +1490,11 @@ function renderKeralaReadinessScope() {
     p1Items.push(...spec.phase1.slice(0, 3));
   } else {
     p1Items.push(spec.phase1[0]);
+  }
+  if (premises === 'residential-change') {
+    p1Items.push('Kerala Premises Alert: Verify LSGD commercial building classification / occupancy permit conversion before K-SWIFT submission or long-term lease execution');
+  } else if (premises === 'lease-pending') {
+    p1Items.push('Lease Gate: Condition commercial lease lock-in on owner NOC, property tax receipt & valid Occupancy Certificate for LSGD/KSPCB licensing');
   }
   fillList(p1El, p1Items);
 
@@ -1522,10 +1532,10 @@ function renderKeralaReadinessScope() {
     needLicensing ? 'Kerala Pre-Launch Clearances' : null,
     needContracts ? 'CraftEgon LLP Commercial Contracts' : null,
     needPrivacyIp ? 'DPDP Privacy & Trademark' : null,
-    needRetainer ? 'Year-1 Connected-Banking Retainer' : null
+    needRetainer ? 'Year-1 Governance & Tax Ledger Retainer' : null
   ].filter(Boolean).join(', ');
 
-  const scopeBrief = `Kerala Readiness Estimate — Bundle: ${spec.bundleName} (${spec.id}) | Tier: ${tier.name} (${tier.tierId}) | Stage: ${stageLabelMap[stage] || stage} | Scale: ${scale} | Focus: ${focusFlags || 'Baseline Launch'}. Requesting separated CCS advisory and statutory outlay quotation.`;
+  const scopeBrief = `Kerala Readiness Estimate — Bundle: ${spec.bundleName} (${spec.id}) | Tier: ${tier.name} (${tier.tierId}) | Stage: ${stageLabelMap[stage] || stage} | LSGD: ${lsgd} | Premises: ${premises} | Scale: ${scale} | Focus: ${focusFlags || 'Baseline Launch'}. Requesting separated CCS advisory and statutory outlay quotation.`;
 
   if (intakeCta) {
     const intakeUrl = `/contact.html?bundle=${encodeURIComponent(spec.id)}&tier=${encodeURIComponent(tier.tierId)}&entity=${encodeURIComponent(entityParamMap[stage] || 'pvt_ltd')}&scope=${encodeURIComponent(scopeBrief)}`;
@@ -1614,7 +1624,7 @@ function bindCalculatorInteractions() {
   });
 
   // Phase 3 Kerala Readiness Estimator bindings
-  ['kl-est-vertical', 'kl-est-stage', 'kl-est-scale', 'kl-need-licensing', 'kl-need-contracts', 'kl-need-privacy-ip', 'kl-need-retainer'].forEach(id => {
+  ['kl-est-vertical', 'kl-est-stage', 'kl-est-lsgd', 'kl-est-premises', 'kl-est-scale', 'kl-need-licensing', 'kl-need-contracts', 'kl-need-privacy-ip', 'kl-need-retainer'].forEach(id => {
     const el = document.getElementById(id);
     if (el) {
       el.addEventListener('change', renderKeralaReadinessScope);

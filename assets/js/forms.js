@@ -279,7 +279,7 @@ function ensureLeadFormConsent(form) {
  * Handles validation and submission for general lead capture & contact forms
  */
 function initLeadCaptureForms() {
-  const forms = document.querySelectorAll(".if-lead-form");
+  const forms = document.querySelectorAll(".if-lead-form, .if-enquiry-form");
 
   forms.forEach(form => {
     ensureLeadFormConsent(form);
@@ -412,8 +412,8 @@ function initLeadCaptureForms() {
 
       const endpoint = form.dataset.endpoint || cfg.apiEndpoint || "/api/v1/enquiries";
 
-      // 2. If form explicitly requests static fallback notice OR static environment configured
-      if (form.dataset.staticFallback === "true" || cfg.isStatic === true) {
+      // 2. Only bypass live API when the form explicitly sets data-static-fallback="true"
+      if (form.dataset.staticFallback === "true") {
         showFormFallbackNotice(form, data);
         const submitBtn = form.querySelector("button[type='submit']");
         if (submitBtn) {
@@ -755,9 +755,6 @@ function showFormFallbackNotice(form, data, options = {}) {
       <a href="${escapeHtml(mailUrl)}" class="if-btn-secondary" style="border: 1px solid var(--gold-border, rgba(197, 155, 39, 0.28)); color: var(--text-dark-gold, #785B0D); background: #fefce8; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
         ✉️ Email Desk (${emailDisplay})
       </a>
-      <button type="button" class="if-btn-secondary" data-checkout="true" data-client-name="${escapeHtml(contactName)}" style="border: 1px solid #247A62; color: #247A62; background: rgba(36, 122, 98, 0.06); padding: 0.55rem 1rem; font-size: 0.85rem; font-weight: 600; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;">
-        ⚡ Instant Retainer / UPI Deposit &rarr;
-      </button>
     </div>
   `;
   form.prepend(alertBox);
@@ -814,7 +811,9 @@ function addFunnelContext(form) {
     }
     const contactVertical = form.querySelector("#contact-vertical");
     if (contactVertical) {
-      if (reqTier && reqTier.endsWith("T3") && contactVertical.querySelector('option[value="retainer"]')) {
+      if (contactVertical.querySelector('option[value="kerala_bundle"]')) {
+        contactVertical.value = "kerala_bundle";
+      } else if (reqTier && reqTier.endsWith("T3") && contactVertical.querySelector('option[value="retainer"]')) {
         contactVertical.value = "retainer";
       } else if (contactVertical.querySelector('option[value="formation"]')) {
         contactVertical.value = "formation";

@@ -532,6 +532,49 @@ assert(mailLink.href.includes('V01-SVC-007'), 'Email link pre-fills service iden
   await new Promise(r => setTimeout(r, 200));
   assert(concurrentCalls === 1, 'Rapid double-clicking does NOT trigger simultaneous fetch calls (concurrent guard active)');
 
+  // ----------------------------------------------------
+  // Test Suite 8: Cloudflare Pages Function Fail-Closed & Sink Contract
+  // ----------------------------------------------------
+  console.log('\n--- Test Suite 8: Cloudflare Pages Function (/api/v1/enquiries) ---');
+  const { pathToFileURL } = require('url');
+  const edgeMod = await import(pathToFileURL(path.join(__dirname, '..', 'functions', 'api', 'v1', 'enquiries.js')).href);
+  const samplePayload = {
+    name: 'Dr. Fathima Nizar',
+    email: 'fathima@clinic-kerala.in',
+    phone: '9876543210',
+    service_name: 'Clinic Launch & Year-1 Risk Shield',
+    scope_description: 'Kozhikode clinic K-SWIFT & Clinical Establishment scope',
+    dpdp_consent: true,
+    _hp_website: ''
+  };
+  const noSinkRes = await edgeMod.onRequestPost({
+    request: new Request('https://ccs.craftegon.com/api/v1/enquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Origin': 'https://ccs.craftegon.com' },
+      body: JSON.stringify(samplePayload)
+    }),
+    env: {}
+  });
+  const noSinkBody = await noSinkRes.json();
+  assert(noSinkRes.status === 503 && noSinkBody.success === false && noSinkBody.code === 'BACKEND_DELIVERY_NOT_CONFIGURED', 'Cloudflare /api/v1/enquiries fails closed (HTTP 503) when no storage/delivery sink is bound');
+
+  const storedRecords = [];
+  const kvRes = await edgeMod.onRequestPost({
+    request: new Request('https://ccs.craftegon.com/api/v1/enquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Origin': 'https://ccs.craftegon.com' },
+      body: JSON.stringify(samplePayload)
+    }),
+    env: {
+      ENQUIRIES_KV: {
+        put: async (k, v) => { storedRecords.push({ k, v: JSON.parse(v) }); }
+      }
+    }
+  });
+  const kvBody = await kvRes.json();
+  assert(kvRes.status === 201 && kvBody.success === true && typeof kvBody.lead_reference === 'string' && kvBody.lead_reference.startsWith('CCS-ENQ-'), 'Cloudflare /api/v1/enquiries persists record and returns HTTP 201 + CCS-ENQ-* reference when sink is configured');
+  assert(storedRecords.length === 1 && storedRecords[0].v.email === 'fathima@clinic-kerala.in', 'Cloudflare /api/v1/enquiries stores full sanitized enquiry payload in KV');
+
   console.log('\n============================================================');
   console.log(`TOTAL FORM TESTS: ${passed + failed} | PASSED: ${passed} | FAILED: ${failed}`);
   console.log('============================================================\n');

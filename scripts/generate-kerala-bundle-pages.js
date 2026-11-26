@@ -346,8 +346,8 @@ ${ssgNavbar}
             <h2>Launch-to-Operate Architecture</h2>
             <ul class="kl-hero-summary-list">
               <li>
-                <strong>Operating Hub</strong>
-                Markaz Knowledge City, Kozhikode &amp; Chettipadi, Tirurangadi (Malappuram), Kerala
+                <strong>Verified Offices (LLPIN: ACO-0239)</strong>
+                Commercial Desk: Alappuzha (PIN 690501) &bull; MCA Regd. Office: Chettipadi, Malappuram (PIN 676319)
               </li>
               <li>
                 <strong>Legal &amp; Governance Ecosystem</strong>
@@ -443,7 +443,7 @@ ${ssgNavbar}
             <h3 class="kl-phase-title">${esc(bundle.recurringAnnualRetainer.phaseTitle)}</h3>
           </div>
           <p style="font-size:0.94rem; color:var(--text-main); line-height:1.6; margin:0 0 1.25rem;">
-            <strong>Connected-Banking Led Finance:</strong> ${esc(bundle.recurringAnnualRetainer.connectedBankingScope)}
+            <strong>Bookkeeping &amp; Tax Ledger Governance:</strong> ${esc(bundle.recurringAnnualRetainer.connectedBankingScope)}
           </p>
           <div class="kl-bottleneck-grid">
             <div class="kl-check-item">
@@ -533,7 +533,7 @@ ${ssgNavbar}
               <span class="final-cta-badge">${esc(bundle.bundleName)} &bull; Kerala Desk</span>
               <h2 id="cta-heading" class="final-cta-title">Request Scoped Proposal for ${esc(bundle.title)}</h2>
               <p class="final-cta-lead">
-                Operating out of Markaz Knowledge City, Kozhikode &amp; Chettipadi, Tirurangadi (Malappuram), our corporate team scopes your entity, Kerala clearances, CraftEgon LLP contracts, and Year-1 retainer cleanly before billing.
+                CraftEgon LLP (LLPIN: ACO-0239) operates our Commercial Desk at Alappuzha (PIN 690501) with MCA Registered Office at Chettipadi, Malappuram (PIN 676319)—scoping your entity, Kerala clearances, contracts, and Year-1 retainer cleanly before billing.
               </p>
               <div class="final-cta-direct-actions">
                 <a href="https://wa.me/918606918247?text=${encodeURIComponent(`Hello CraftEgon CCS, I want to scope the ${bundle.bundleName} (${bundle.id}) in Kerala.`)}" class="btn-whatsapp-direct" target="_blank" rel="noopener noreferrer">
@@ -551,7 +551,7 @@ ${ssgNavbar}
             </div>
 
             <div class="final-cta-form-col">
-              <form id="bundle-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="#" data-static-fallback="true" data-bundle-id="${esc(bundle.id)}">
+              <form id="bundle-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="/api/v1/enquiries" data-bundle-id="${esc(bundle.id)}">
                 <div class="intake-form-header">
                   <h3 class="intake-form-title">Scope Your Launch-to-Operate Stack</h3>
                   <p class="intake-form-sub">Receives a structured preliminary format audit &amp; proposal call.</p>

@@ -118,7 +118,9 @@
     brandShort: "CraftEgon Corporate Services (CCS)",
     brandSubtitle: "Corporate Services",
     legalEntity: "CraftEgon LLP",
-    operationalDesk: "Operational Service Desk, Alappuzha, Kerala, India • PIN: 690501",
+    llpin: "ACO-0239",
+    registeredOffice: "92/D, Thiruthummal Panakkad, Chettipadi, Tirurangadi, Malappuram - 676319, Kerala, India",
+    operationalDesk: "Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India • PIN: 690501",
     statutoryReg: "MCA V3 • RBI FIRMS • IP India",
 
     // Canonical Business Contact Parameters

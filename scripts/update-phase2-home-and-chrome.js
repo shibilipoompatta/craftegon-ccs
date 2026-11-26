@@ -134,7 +134,7 @@ const bundleCardsMarkup = bundlesData.bundles.map((b, idx) => `
               <ul class="kl-bundle-phases-mini">
                 <li><span class="kl-phase-dot">01</span><span><strong>Setup:</strong> ${esc(b.entityAndPreLaunchStack.keralaAndCentralRegistrations.slice(0, 2).map(r => r.title).join(' • '))}</span></li>
                 <li><span class="kl-phase-dot">02</span><span><strong>Contracts + NIEG:</strong> ${esc(b.commercialAndRiskShield.coreContracts.slice(0, 2).map(c => c.title).join(' • '))}</span></li>
-                <li><span class="kl-phase-dot">03</span><span><strong>Year-1 Retainer:</strong> Connected-banking ledger, tax &amp; renewal tracking</span></li>
+                <li><span class="kl-phase-dot">03</span><span><strong>Year-1 Retainer:</strong> Bookkeeping ledger, GST/TDS &amp; renewal tracking</span></li>
               </ul>
             </div>
             <div class="kl-bundle-card-actions">
@@ -153,7 +153,7 @@ const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" ari
         <!-- Hero Centered Core Showcase (Decluttered Above-the-Fold Rhythm) -->
         <div class="hero-center-showcase">
           <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.38rem 0.95rem; border-radius:9999px; background:rgba(0,166,81,0.08); border:1px solid rgba(0,166,81,0.28); font-family:var(--font-mono,monospace); font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--growth-green-accessible,#008742); margin-bottom:1.05rem;">
-            Markaz Knowledge City, Kozhikode &amp; Malappuram &bull; CraftEgon LLP &bull; NIEG Aligned
+            CraftEgon LLP (LLPIN: ACO-0239) &bull; Commercial Desk: Alappuzha &bull; Regd. Office: Malappuram &bull; NIEG Aligned
           </div>
 
           <h1 id="hero-title" class="hero-headline" style="color: var(--charcoal-ink, #1A1A1A);">
@@ -161,7 +161,7 @@ const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" ari
           </h1>
 
           <p class="hero-lead">
-            Incorporation is only Day 1. We guide Kerala founders from SPICe+/LLP formation through K-SWIFT, LSGD, KSPCB &amp; Clinical Establishments readiness, CraftEgon LLP commercial contracts, and connected-banking Year-1 retainers.
+            Incorporation is only Day 1. We guide Kerala founders from SPICe+/LLP formation through K-SWIFT, LSGD, KSPCB &amp; Clinical Establishments readiness, CraftEgon LLP commercial contracts, and structured Year-1 bookkeeping, GST/TDS &amp; RoC retainers.
           </p>
 
           <!-- Integrated Search Preserving Full 57-Service Engine -->
@@ -318,7 +318,7 @@ const pricePairs = [
   ['<span class="flagship-price">&#8377;9,999</span>\r\n              <span class="flagship-price-sub">/ institutional package</span>', '<span class="flagship-price" style="font-size:1.15rem;">Institutional Scope</span>\n              <span class="flagship-price-sub">Tailored to team size &amp; DPDP footprint</span>'],
   ['<span class="flagship-price">&#8377;14,999</span>\r\n              <span class="flagship-price-sub">/ year (Fixed Retainer)</span>', '<span class="flagship-price" style="font-size:1.15rem;">Annual Retainer</span>\n              <span class="flagship-price-sub">Bracketed by entity turnover &amp; filings</span>'],
   ['<span class="flagship-price">&#8377;4,999</span>\r\n              <span class="flagship-price-sub">+ Official Govt Fees</span>', '<span class="flagship-price" style="font-size:1.15rem;">Scoped Filing</span>\n              <span class="flagship-price-sub">+ Official CGPDTM Govt Fees at actuals</span>'],
-  ['<span class="flagship-price">&#8377;1,499</span>\r\n              <span class="flagship-price-sub">/ filing (Monthly/Quarterly)</span>', '<span class="flagship-price" style="font-size:1.15rem;">Retainer Bracket</span>\n              <span class="flagship-price-sub">Connected-banking GST &amp; ITC reconciliation</span>']
+  ['<span class="flagship-price">&#8377;1,499</span>\r\n              <span class="flagship-price-sub">/ filing (Monthly/Quarterly)</span>', '<span class="flagship-price" style="font-size:1.15rem;">Retainer Bracket</span>\n              <span class="flagship-price-sub">Bookkeeping, GST &amp; ITC ledger reconciliation</span>']
 ];
 pricePairs.forEach(([target, rep]) => {
   const altTarget = target.replace(/\r\n/g, '\n');
@@ -347,7 +347,7 @@ if (!indexHtml.includes('Why does CraftEgon focus on Kerala Launch-to-Operate bu
               <span class="faq-chevron" aria-hidden="true">+</span>
             </summary>
             <div class="faq-answer">
-              <p><strong>CraftEgon LLP</strong> is our operating entity providing commercial contract drafting and corporate structuring, while <strong>CraftEgon Corporate Services (CCS)</strong> executes regulatory filings, licensing coordination, and connected-banking-led Year-1 retainers out of Markaz Knowledge City, Kozhikode &amp; Malappuram. <strong>NIEG (Nus'ha Institute for Ethical Governance)</strong> provides ethical billing, transparency, and institutional governance benchmarks across our sector playbooks.</p>
+              <p><strong>CraftEgon LLP (LLPIN: ACO-0239)</strong> is our operating entity (Commercial Desk: Alappuzha PIN 690501; MCA Registered Office: Chettipadi, Tirurangadi, Malappuram PIN 676319), operating <strong>CraftEgon Corporate Services (CCS)</strong> for corporate structuring, regulatory filings, licensing coordination, and Year-1 governance retainers (with zero third-party banking partnerships). <strong>NIEG (Nus'ha Institute for Ethical Governance)</strong> provides ethical billing, transparency, and institutional governance benchmarks across our sector playbooks.</p>
             </div>
           </details>`
   );
@@ -356,11 +356,11 @@ if (!indexHtml.includes('Why does CraftEgon focus on Kerala Launch-to-Operate bu
 // 1f. Update #consultation-cta geography and requirement options
 indexHtml = indexHtml.replace(
   'Schedule a consultation with our corporate compliance advisory team. Transparent fixed quotes, dedicated desk support in Alappuzha, Kerala, and strict confidentiality under non-disclosure standards.',
-  'Operating out of Markaz Knowledge City, Kozhikode &amp; Chettipadi, Tirurangadi (Malappuram), Kerala alongside our Alappuzha desk—request a scoped Launch-to-Operate or Year-1 Governance proposal with full separation of advisory and statutory fees.'
+  'CraftEgon LLP (LLPIN: ACO-0239) operates our Commercial Desk at Room No.2, NS Building, Kaanjippuzha, Alappuzha (PIN 690501) and Registered Office at Chettipadi, Tirurangadi, Malappuram (PIN 676319)—request a scoped Launch-to-Operate or Year-1 Governance proposal with full separation of advisory and statutory fees.'
 );
 indexHtml = indexHtml.replace(
   '<div class="trust-point-item"><span class="trust-check">&check;</span> Operational Desk: Alappuzha, Kerala</div>',
-  '<div class="trust-point-item"><span class="trust-check">&check;</span> Kerala Hub: Markaz Knowledge City, Kozhikode &amp; Malappuram</div>'
+  '<div class="trust-point-item"><span class="trust-check">&check;</span> Commercial Desk: Alappuzha &bull; Regd. Office: Malappuram (ACO-0239)</div>'
 );
 if (!indexHtml.includes('value="kl_bnd_clinic"')) {
   indexHtml = indexHtml.replace(
@@ -374,6 +374,13 @@ if (!indexHtml.includes('value="kl_bnd_clinic"')) {
   );
 }
 
+indexHtml = indexHtml
+  .replace(/Within 2 Hours Mandate Scoping/g, 'Initial Scoping Within 1 Business Day')
+  .replace(/<form id="home-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="#" data-static-fallback="true">/g, '<form id="home-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="/api/v1/enquiries">')
+  .replace(
+    '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance business infrastructure partner under CraftEgon LLP (Markaz Knowledge City, Kozhikode & Malappuram), aligned with NIEG ethical governance.",',
+    '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501; MCA Registered Office: Chettipadi, Malappuram 676319. Aligned with NIEG ethical governance.",'
+  );
 fs.writeFileSync(path.join(ROOT, 'index.html'), indexHtml, 'utf8');
 console.log('Updated index.html with Kerala Launch-to-Operate front door and #kerala-bundles section.');
 

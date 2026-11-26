@@ -3,10 +3,11 @@
  * CRAFTEGON CORPORATE SERVICES (CCS) - CLOUDFLARE PAGES EDGE FUNCTION: ENQUIRIES HANDLER
  * Endpoint: POST /api/v1/enquiries
  * ==============================================================================
- * Handles inbound corporate services enquiries, validates fields, enforces
- * CORS, performs bot filtering (honeypot + render timer), issues a verified
- * lead reference code, and dispatches multi-channel webhooks (Telegram / Slack /
- * Discord) to alert the corporate compliance desk.
+ * Handles inbound corporate service enquiries, enforces strict origin & DPDP
+ * consent checks, performs spam filtering, persists/dispatches enquiries to
+ * configured Cloudflare bindings/webhooks (D1, KV, Resend Email, Telegram, Slack,
+ * or CRM Webhook), and FAILS CLOSED (HTTP 503) if no delivery sink is active so
+ * no client lead is ever silently dropped.
  * ==============================================================================
  */
 
@@ -40,7 +41,7 @@ export async function onRequestOptions({ request }) {
 }
 
 export async function onRequestPost(context) {
-  const { request, env, waitUntil } = context;
+  const { request, env } = context;
   const corsHeaders = getCorsHeaders(request);
 
   let body;
@@ -59,7 +60,6 @@ export async function onRequestPost(context) {
 
   // 1. Honeypot check (_hp_website must be empty)
   if (body._hp_website && String(body._hp_website).trim().length > 0) {
-    // Silent discard for spam bots
     return new Response(JSON.stringify({
       success: true,
       lead_reference: 'CCS-ENQ-' + Date.now().toString(36).toUpperCase(),
@@ -77,7 +77,7 @@ export async function onRequestPost(context) {
   const email = String(body.email || '').trim().toLowerCase();
   const phone = String(body.phone || '').trim().replace(/[^0-9]/g, '');
   const service = String(body.service_name || body.service_id || 'General Corporate Advisory').trim();
-  const notes = String(body.message || body.notes || body.comments || '').trim();
+  const notes = String(body.scope_description || body.scope || body.message || body.notes || body.comments || '').trim();
   const dpdp_consent = body.dpdp_consent === true || body.dpdp_consent === 'yes' || body.dpdp_consent === 'true';
 
   if (!name || name.length < 2) {
@@ -108,94 +108,201 @@ export async function onRequestPost(context) {
     });
   }
 
-  // 3. Generate unique verifiable lead reference
+  // 3. Fail closed if NO durable storage or delivery sink is configured in Cloudflare env
+  const hasTelegram = Boolean(env && env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID);
+  const hasSlack = Boolean(env && env.SLACK_WEBHOOK_URL);
+  const genericWebhook = env && (env.ALERT_WEBHOOK_URL || env.CRM_WEBHOOK_URL || env.DISCORD_WEBHOOK_URL);
+  const hasResend = Boolean(env && env.RESEND_API_KEY);
+  const kvStore = env && env.ENQUIRIES_KV;
+  const d1Db = env && (env.ENQUIRIES_DB || env.DB);
+
+  if (!hasTelegram && !hasSlack && !genericWebhook && !hasResend && !kvStore && !d1Db) {
+    return new Response(JSON.stringify({
+      success: false,
+      code: 'BACKEND_DELIVERY_NOT_CONFIGURED',
+      message: 'Backend delivery channel is not active yet. Please use the pre-filled WhatsApp or Email desk options below.'
+    }), {
+      status: 503,
+      headers: corsHeaders
+    });
+  }
+
+  // 4. Generate verifiable lead reference
   const todayStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-  const randCode = Math.random().toString(36).substring(2, 7).toUpperCase();
-  const lead_reference = `CCS-ENQ-${todayStr}-${randCode}`;
+  const randBytes = crypto.getRandomValues(new Uint8Array(3));
+  const randHex = Array.from(randBytes, b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+  const lead_reference = `CCS-ENQ-${todayStr}-${randHex}`;
   const nowIso = new Date().toISOString();
 
-  // 4. Asynchronous Edge Webhook Alert Dispatch
-  // Forwards verified lead information to Telegram, Slack, or generic webhook if env is configured.
-  const alertPayload = {
+  const recordPayload = {
     event: 'ccs_lead_enquiry',
-    lead_reference: lead_reference,
-    name: name,
-    email: email,
-    phone: phone,
-    service: service,
-    notes: notes,
+    lead_reference,
+    name,
+    email,
+    phone,
+    company_name: String(body.company_name || '').trim(),
+    entity_type: String(body.entity_type || '').trim(),
+    service_id: String(body.service_id || '').trim(),
+    service,
+    notes,
     source_url: String(body.source_url || body.page_url || '').trim(),
     utm_source: String(body.utm_source || '').trim(),
     utm_campaign: String(body.utm_campaign || '').trim(),
     timestamp: nowIso
   };
 
-  const dispatchAlerts = async () => {
-    if (!env) return;
+  let deliveredCount = 0;
 
+  // Persist to Cloudflare KV if bound
+  if (kvStore && typeof kvStore.put === 'function') {
     try {
-      // Channel 1: Telegram Bot Alert
-      if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
-        const text = `🚨 *NEW CRAFTEGON CORPORATE SERVICES (CCS) ENQUIRY*\n` +
-          `━━━━━━━━━━━━━━━━━━━━━━\n` +
-          `📌 *Ref:* \`${lead_reference}\`\n` +
-          `👤 *Client:* ${name}\n` +
-          `📞 *Phone:* ${phone}\n` +
-          `✉️ *Email:* ${email}\n` +
-          `⚖️ *Service:* ${service}\n` +
-          (notes ? `📝 *Notes:* ${notes}\n` : '') +
-          `🕒 *Time:* ${new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' })} IST`;
-
-        await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: env.TELEGRAM_CHAT_ID,
-            text: text,
-            parse_mode: 'Markdown'
-          })
-        }).catch(err => console.error('Telegram alert failed:', err.message));
-      }
-
-      // Channel 2: Slack Webhook Alert
-      if (env.SLACK_WEBHOOK_URL) {
-        await fetch(env.SLACK_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            text: `*New CCS Lead [${lead_reference}]:* ${name} (${phone}) - ${service}${notes ? ` | Notes: ${notes}` : ''}`
-          })
-        }).catch(err => console.error('Slack alert failed:', err.message));
-      }
-
-      // Channel 3: Generic / Discord / CRM Webhook Alert
-      const genericWebhook = env.ALERT_WEBHOOK_URL || env.CRM_WEBHOOK_URL || env.DISCORD_WEBHOOK_URL;
-      if (genericWebhook) {
-        await fetch(genericWebhook, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(alertPayload)
-        }).catch(err => console.error('Webhook alert failed:', err.message));
-      }
-    } catch (e) {
-      console.error('Asynchronous webhook alert dispatch error:', e.message);
+      await kvStore.put(`enquiry:${lead_reference}`, JSON.stringify(recordPayload));
+      deliveredCount++;
+    } catch (err) {
+      console.error('KV write error:', err.message);
     }
-  };
+  }
 
-  if (typeof waitUntil === 'function') {
-    waitUntil(dispatchAlerts());
-  } else {
-    // Non-blocking fallback
-    dispatchAlerts().catch(() => {});
+  // Persist to Cloudflare D1 if bound (expects enquiries table)
+  if (d1Db && typeof d1Db.prepare === 'function') {
+    try {
+      await d1Db.prepare(
+        `INSERT INTO enquiries (lead_reference, name, email, phone, company_name, entity_type, service_id, service_name, notes, source_url, created_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      ).bind(
+        lead_reference,
+        name,
+        email,
+        phone,
+        recordPayload.company_name,
+        recordPayload.entity_type,
+        recordPayload.service_id,
+        service,
+        notes,
+        recordPayload.source_url,
+        nowIso
+      ).run();
+      deliveredCount++;
+    } catch (err) {
+      console.error('D1 insert error:', err.message);
+    }
+  }
+
+  // Email delivery via Resend if bound
+  if (hasResend) {
+    try {
+      const toEmail = env.ENQUIRY_TO_EMAIL || 'admin@craftegon.com';
+      const fromEmail = env.RESEND_FROM_EMAIL || 'CraftEgon CCS Desk <onboarding@resend.dev>';
+      const res = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: [toEmail],
+          reply_to: email,
+          subject: `[${lead_reference}] New CCS Enquiry: ${service} — ${name}`,
+          text: [
+            `Lead Reference: ${lead_reference}`,
+            `Submitted At: ${nowIso}`,
+            `Name: ${name}`,
+            `Phone: ${phone}`,
+            `Email: ${email}`,
+            recordPayload.company_name ? `Entity: ${recordPayload.company_name}` : null,
+            recordPayload.entity_type ? `Entity Type: ${recordPayload.entity_type}` : null,
+            `Service: ${service}`,
+            `Source Page: ${recordPayload.source_url || '/'}`,
+            notes ? `\nScope / Notes:\n${notes}` : ''
+          ].filter(Boolean).join('\n')
+        })
+      });
+      if (res.ok) deliveredCount++;
+      else console.error('Resend API non-OK:', res.status);
+    } catch (err) {
+      console.error('Resend dispatch error:', err.message);
+    }
+  }
+
+  // Telegram Bot Alert
+  if (hasTelegram) {
+    try {
+      const text =
+        `NEW CRAFTEGON CCS ENQUIRY\n` +
+        `Ref: ${lead_reference}\n` +
+        `Client: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Email: ${email}\n` +
+        `Service: ${service}\n` +
+        (notes ? `Notes: ${notes}\n` : '') +
+        `Source: ${recordPayload.source_url || '/'}`;
+
+      const res = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: env.TELEGRAM_CHAT_ID,
+          text
+        })
+      });
+      if (res.ok) deliveredCount++;
+      else console.error('Telegram API non-OK:', res.status);
+    } catch (err) {
+      console.error('Telegram alert error:', err.message);
+    }
+  }
+
+  // Slack Webhook Alert
+  if (hasSlack) {
+    try {
+      const res = await fetch(env.SLACK_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text: `New CCS Lead [${lead_reference}]: ${name} (${phone} | ${email}) — ${service}${notes ? ` | ${notes}` : ''}`
+        })
+      });
+      if (res.ok) deliveredCount++;
+      else console.error('Slack webhook non-OK:', res.status);
+    } catch (err) {
+      console.error('Slack alert error:', err.message);
+    }
+  }
+
+  // Generic / Discord / CRM Webhook Alert
+  if (genericWebhook) {
+    try {
+      const res = await fetch(genericWebhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(recordPayload)
+      });
+      if (res.ok) deliveredCount++;
+      else console.error('Generic webhook non-OK:', res.status);
+    } catch (err) {
+      console.error('Webhook alert error:', err.message);
+    }
+  }
+
+  if (deliveredCount === 0) {
+    return new Response(JSON.stringify({
+      success: false,
+      code: 'BACKEND_DELIVERY_FAILED',
+      message: 'Could not confirm enquiry delivery to our compliance desk. Please use the WhatsApp or Email option below.'
+    }), {
+      status: 503,
+      headers: corsHeaders
+    });
   }
 
   return new Response(JSON.stringify({
     success: true,
-    lead_reference: lead_reference,
-    message: `Thank you, ${name}. Your corporate services enquiry has been registered securely under reference ${lead_reference}. Our compliance desk will reach out within 1 business day.`,
+    lead_reference,
+    message: `Thank you, ${name}. Your corporate services enquiry has been registered under reference ${lead_reference}. CraftEgon LLP (CCS) will follow up during business hours.`,
     timestamp: nowIso
   }), {
-    status: 200,
+    status: 201,
     headers: corsHeaders
   });
 }

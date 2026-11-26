@@ -4,7 +4,7 @@
     "legalEntity": "CraftEgon LLP",
     "operatingVertical": "CraftEgon Corporate Services (CCS)",
     "primaryGeography": "Markaz Knowledge City, Kozhikode (Calicut) & Malappuram, Kerala — serving Pan-Kerala, GCC-NRI Founders, and Pan-India Corporate Filings",
-    "positioningStatement": "Kerala's Launch-to-Operate + Year-1 Governance business infrastructure partner integrating entity incorporation, local & statutory licensing coordination, sector-specific commercial contracts, and connected-banking-led recurring compliance.",
+    "positioningStatement": "Kerala's Launch-to-Operate + Year-1 Governance business infrastructure partner integrating entity incorporation, local & statutory licensing coordination, sector-specific commercial contracts, and structured bookkeeping, tax ledger & recurring compliance.",
     "ecosystemPartners": [
       {
         "name": "CraftEgon LLP",
@@ -139,8 +139,8 @@
         }
       },
       "recurringAnnualRetainer": {
-        "phaseTitle": "Phase 3: Connected-Banking Healthcare Finance & Year-1 Governance Retainer",
-        "connectedBankingScope": "Connected-banking-led daily reconciliation segregating clinical consultation receipts, diagnostic lab packages, pharmacy inventory GST, and specialist doctor TDS payouts.",
+        "phaseTitle": "Phase 3: Healthcare Finance Ledger & Year-1 Governance Retainer",
+        "connectedBankingScope": "Structured daily ledger reconciliation segregating clinical consultation receipts, diagnostic lab packages, pharmacy inventory GST, and specialist doctor TDS payouts.",
         "statutoryCadence": [
           "Monthly TDS deduction & compliance mapping on specialist payouts (Sec 194J), clinical rent (Sec 194I), and equipment AMCs (Sec 194C).",
           "Exempt vs Taxable GST supply segregation, input tax credit apportionment, and Annual Return / Audit scoping (V03-SVC-003).",
@@ -200,7 +200,7 @@
           "commercialApprovalState": "PENDING_OWNER_REVIEW",
           "ccsScopeIncluded": [
             "Annual RoC/LLP statutory compliance (AOC-4, MGT-7 / Form 8 & 11, Statutory Registers)",
-            "Connected-banking bookkeeping coordination, GST apportionment & Sec 194J TDS calendar",
+            "Bookkeeping coordination, GST apportionment & Sec 194J TDS calendar",
             "EPF/ESIC monthly filings, contract amendments & license renewal milestone tracking"
           ],
           "statutoryDisbursementsExcluded": [
@@ -356,7 +356,7 @@
       },
       "recurringAnnualRetainer": {
         "phaseTitle": "Phase 3: Forex / EDPMS Reconciliation & Year-1 EXIM Retainer",
-        "connectedBankingScope": "Connected-banking integration matching export Shipping Bills, e-BRC/EDPMS realization deadlines (9-month RBI window), IDPMS import bills, and GST ITC refund ledgers.",
+        "connectedBankingScope": "Structured export ledger reconciliation matching Shipping Bills, e-BRC/EDPMS realization deadlines (9-month RBI window), IDPMS import bills, and GST ITC refund ledgers.",
         "statutoryCadence": [
           "Monthly GSTR-1 / GSTR-3B zero-rated export filings, e-invoicing controls, and Annual GSTR-9 / 9C reconciliation (V03-SVC-003).",
           "Annual RBI Foreign Liabilities & Assets (FLA) Return (V13-SVC-003) and related-party Form 3CEB Transfer Pricing Report (V03-SVC-002).",
@@ -413,7 +413,7 @@
           "commercialApprovalState": "PENDING_OWNER_REVIEW",
           "ccsScopeIncluded": [
             "Monthly GST zero-rated filings, LUT annual renewal & ITC refund documentation support",
-            "Connected-banking export realization tracking (EDPMS/IDPMS readiness) & RoC/LLP annual compliance",
+            "Export realization tracking (EDPMS/IDPMS readiness) & RoC/LLP annual compliance",
             "RBI FLA Return, Form 3CEB Transfer Pricing coordination & IEC/RCMC renewal calendar"
           ],
           "statutoryDisbursementsExcluded": [
@@ -563,7 +563,7 @@
       },
       "recurringAnnualRetainer": {
         "phaseTitle": "Phase 3: Batch Margin Finance & Year-1 Plant Governance Retainer",
-        "connectedBankingScope": "Connected-banking integration linking GST HSN invoicing, marketplace/distributor collections, raw-material supplier 45-day MSME timers, and factory payroll.",
+        "connectedBankingScope": "Accounting & GST ledger reconciliation linking HSN invoicing, marketplace/distributor collections, raw-material supplier 45-day MSME timers, and factory payroll.",
         "statutoryCadence": [
           "Monthly GST (GSTR-1/3B) across multi-rate food/spice/nutraceutical HSN codes plus Annual GSTR-9/9C (V03-SVC-003).",
           "Half-yearly Form MSME-1 vendor payment compliance (V02-SVC-010) and Sec 43B(h) tax deduction protection.",
@@ -617,7 +617,7 @@
           "billingModel": "ANNUAL_OR_MONTHLY_RETAINER",
           "commercialApprovalState": "PENDING_OWNER_REVIEW",
           "ccsScopeIncluded": [
-            "Connected-banking bookkeeping alignment, multi-HSN GST returns & Sec 43B(h) supplier tracking",
+            "Bookkeeping alignment, multi-HSN GST returns & Sec 43B(h) supplier tracking",
             "Annual RoC/LLP filings, Form MSME-1 & Monthly EPF/ESIC payroll compliance",
             "FSSAI Annual Return (D-1) & KSPCB/LSGD renewal tracking calendar"
           ],
@@ -761,7 +761,7 @@
       },
       "recurringAnnualRetainer": {
         "phaseTitle": "Phase 3: OTA/POS Finance Reconciliation & Year-1 Resort Retainer",
-        "connectedBankingScope": "Connected-banking ledger reconciliation matching multi-channel OTA settlements (MakeMyTrip/Booking/Airbnb), POS F&B splits, GST room-tariff slabs, and seasonal vendor TDS.",
+        "connectedBankingScope": "Structured ledger reconciliation matching multi-channel OTA settlements (MakeMyTrip/Booking/Airbnb), POS F&B splits, GST room-tariff slabs, and seasonal vendor TDS.",
         "statutoryCadence": [
           "Monthly GST rate-slab segregation (declared tariff vs F&B restaurant ITC rules) and Annual GSTR-9/9C (V03-SVC-003).",
           "Monthly EPF/ESIC payroll returns for full-time & hospitality staff (V04-SVC-001) and TDS compliance.",
@@ -815,7 +815,7 @@
           "billingModel": "ANNUAL_OR_MONTHLY_RETAINER",
           "commercialApprovalState": "PENDING_OWNER_REVIEW",
           "ccsScopeIncluded": [
-            "Connected-banking OTA/POS revenue reconciliation & GST tariff/F&B tax filings",
+            "OTA/POS revenue reconciliation & GST tariff/F&B tax filings",
             "Monthly EPF/ESIC payroll compliance, RoC/LLP annual filings & RBI FLA Return (if applicable)",
             "Annual Fire/LSGD/KSPCB/FSSAI renewal tracking & lease/vendor amendment desk"
           ],
@@ -965,7 +965,7 @@
       },
       "recurringAnnualRetainer": {
         "phaseTitle": "Phase 3: Student Fee Reconciliation & Year-1 EdTech Governance Retainer",
-        "connectedBankingScope": "Connected-banking integration matching UPI/payment-gateway batches, student EMI/NBFC settlements, faculty revenue-share TDS (194J vs salary 192), and deferred-revenue accounting.",
+        "connectedBankingScope": "Gateway & settlement ledger reconciliation matching UPI/payment-gateway batches, student EMI/NBFC settlements, faculty revenue-share TDS (194J vs salary 192), and deferred-revenue accounting.",
         "statutoryCadence": [
           "Monthly GST returns segregating taxable coaching/SaaS subscriptions from exempt vocational streams + Annual GSTR-9/9C (V03-SVC-003).",
           "Monthly TDS & EPF/ESIC filings covering full-time faculty vs visiting mentors (V04-SVC-001).",
@@ -1019,7 +1019,7 @@
           "billingModel": "ANNUAL_OR_MONTHLY_RETAINER",
           "commercialApprovalState": "PENDING_OWNER_REVIEW",
           "ccsScopeIncluded": [
-            "Connected-banking gateway/EMI settlement reconciliation & GST stream segregation",
+            "Gateway/EMI settlement reconciliation & GST stream segregation",
             "Monthly Payroll/TDS/EPF/ESIC compliance & Annual RoC Secretarial Retainer",
             "Annual POSH report calendar, DPDP privacy review & faculty/B2B contract desk"
           ],

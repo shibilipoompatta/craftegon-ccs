@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               <a href="/index.html#kerala-bundles" class="if-mobile-nav-link">Kerala Launch Bundles</a>
               <a href="/conversion/calculator.html#readiness" class="if-mobile-nav-link">Calculators &amp; Readiness</a>
               <a href="/services.html" class="if-mobile-nav-link">Catalog &amp; Lookups</a>
-              <a href="/conversion/partner-ecosystems.html" class="if-mobile-nav-link">Banking &amp; Partners</a>
+              <a href="/conversion/partner-ecosystems.html" class="if-mobile-nav-link">Marketplace &amp; Resolution Kits</a>
               <a href="/contact.html" class="if-mobile-nav-link">Contact / Scope</a>
               <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-mobile-nav-link" style="color: #008742; font-weight:700;">WhatsApp Desk: +91 86069 18247</a>
             </div>
@@ -194,7 +194,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                   Kerala's Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP, aligned with NIEG ethical governance standards.
                 </p>
                 <div class="if-footer-contact">
-                  <p class="if-contact-item"><strong>Kerala Hubs:</strong> Markaz Knowledge City, Kozhikode &amp; Chettipadi, Tirurangadi (Malappuram)</p>
+                  <p class="if-contact-item"><strong>Commercial Desk:</strong> Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala 690501</p>
+                  <p class="if-contact-item"><strong>MCA Regd. Office:</strong> CraftEgon LLP (LLPIN: ACO-0239), Chettipadi, Tirurangadi, Malappuram 676319</p>
                   <p class="if-contact-item"><strong>Phone / WhatsApp:</strong> <a href="tel:+918606918247">+91 86069 18247</a></p>
                   <p class="if-contact-item"><strong>Email:</strong> <a href="mailto:admin@craftegon.com">admin@craftegon.com</a></p>
                 </div>
@@ -215,7 +216,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <ul class="if-footer-list">
                   <li><a href="/conversion/calculator.html#readiness">Kerala Readiness Estimator</a></li>
                   <li><a href="/conversion/retainer-desk.html">Annual Retainer Plans</a></li>
-                  <li><a href="/conversion/partner-ecosystems.html">Banking &amp; Partner Desk</a></li>
+                  <li><a href="/conversion/partner-ecosystems.html">Marketplace &amp; Resolution Desk</a></li>
                   <li><a href="/knowledge/index.html">Compliance Knowledge Centre</a></li>
                   <li><a href="/conversion/calculator.html">RoC Late Fee Calculator</a></li>
                   <li><a href="/contact.html">Contact Scope Desk</a></li>
@@ -240,7 +241,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <strong>Statutory Disclosure:</strong> CraftEgon Corporate Services (CCS) provides corporate secretarial, compliance, and procedural documentation infrastructure. We do not provide court appearances or litigation advocacy; matters requiring courtroom representation must be handled by an independent advocate enrolled under the Advocates Act, 1961. <a href="/legal/disclaimer.html">Read full professional disclaimer &rarr;</a>
               </p>
               <p class="if-footer-copy">
-                &copy; 2026 CraftEgon Corporate Services (CCS). All rights reserved. Operational Service Desk: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala, India &bull; PIN 690501. Operating across all RoC Jurisdictions nationwide.
+                &copy; 2026 CraftEgon LLP (LLPIN: ACO-0239 &bull; operating CraftEgon Corporate Services — CCS). Commercial Office: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala 690501 &bull; MCA Regd. Office: Chettipadi, Tirurangadi, Malappuram 676319.
               </p>
             </div>
           </div>

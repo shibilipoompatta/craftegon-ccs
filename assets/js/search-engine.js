@@ -44,7 +44,7 @@ const BENCHMARK_ENTITIES = {
       },
       risks: [
         { title: 'Section 137 / 92 RoC Deadline', level: 'NOMINAL', color: '#10B981', desc: 'Upcoming AOC-4 / MGT-7 filing due within 30/60 days of next AGM. Projected daily late fee exposure under Section 403 is currently ₹0 (Filing window active).' },
-        { title: 'Director DIN KYC (Rule 12A)', level: 'DUE 30 SEPT', color: '#E8C868', desc: 'Annual biometric/OTP verification required annually by 30th September to eliminate ₹5,000 reactivating penalties and Section 164(2) deactivations.' },
+        { title: 'Director DIN KYC (Rule 12A)', level: 'TRIENNIAL CHECK', color: '#E8C868', desc: 'Under amended Rule 12A, DIR-3 KYC follows a triennial cycle by 30 June following every third consecutive financial year, with 30-day reporting for mobile, email, or address changes. Confirm exact DIN status on MCA V3.' },
         { title: 'MSME Section 43B(h) Audit', level: 'ACTIVE', color: '#10B981', desc: 'Supplier payments to registered micro and small enterprises must be reconciled within 45 days under written contracts to preserve income tax expense deductions.' },
         { title: 'Rule 9B PAS-6 Demat Audit', level: 'COMPLIANT', color: '#10B981', desc: 'Private company shares subject to half-yearly ISIN reconciliation via NSDL/CDSL for non-small entities under MCA notification dated 27 October 2023.' }
       ]
@@ -59,7 +59,7 @@ const BENCHMARK_ENTITIES = {
       subCategory: 'Non-govt private company',
       listingStatus: 'Unlisted Private Enterprise',
       incDate: '14 March 2021 (5 Years)',
-      authCap: '₹15,00,00,00',
+      authCap: '₹15,00,000',
       paidCap: '₹10,00,000',
       lastAgmDate: '25 September 2025',
       balanceSheetDate: '31 March 2025',
@@ -86,7 +86,7 @@ const BENCHMARK_ENTITIES = {
       },
       risks: [
         { title: 'Section 137 / 92 RoC Deadline', level: 'NOMINAL', color: '#10B981', desc: 'Upcoming AOC-4 / MGT-7 filing due within 30/60 days of next AGM. Projected daily late fee exposure under Section 403 is currently ₹0 (Filing window active).' },
-        { title: 'Director DIN KYC (Rule 12A)', level: 'DUE 30 SEPT', color: '#E8C868', desc: 'Annual biometric/OTP verification required annually by 30th September to eliminate ₹5,00,00 reactivating penalties and Section 164(2) deactivations.' },
+        { title: 'Director DIN KYC (Rule 12A)', level: 'TRIENNIAL CHECK', color: '#E8C868', desc: 'Under amended Rule 12A, DIR-3 KYC follows a triennial cycle by 30 June following every third consecutive financial year, with 30-day reporting for mobile, email, or address changes. Confirm exact DIN status on MCA V3.' },
         { title: 'MSME Section 43B(h) Audit', level: 'ACTIVE', color: '#10B981', desc: 'Supplier payments to registered micro and small enterprises must be reconciled within 45 days under written contracts to preserve income tax expense deductions.' },
         { title: 'Rule 9B PAS-6 Demat Audit', level: 'COMPLIANT', color: '#10B981', desc: 'Private company shares subject to half-yearly ISIN reconciliation via NSDL/CDSL for non-small entities under MCA notification dated 27 October 2023.' }
       ]
@@ -151,7 +151,7 @@ const BENCHMARK_ENTITIES = {
       },
       risks: [
         { title: 'Section 137 / 92 RoC Deadline', level: 'NOMINAL', color: '#10B981', desc: 'AOC-4 / MGT-7 filing window active for listed entity.' },
-        { title: 'Director DIN KYC (Rule 12A)', level: 'DUE 30 SEPT', color: '#E8C868', desc: 'Multiple director KYC verifications required annually.' },
+        { title: 'Director DIN KYC (Rule 12A)', level: 'TRIENNIAL CHECK', color: '#E8C868', desc: 'Confirm director DIN cycle under amended Rule 12A (triennial by 30 June + 30-day contact update rule) on MCA V3.' },
         { title: 'SEBI LODR Compliance', level: 'ACTIVE', color: '#10B981', desc: 'Quarterly corporate governance reports and shareholding pattern filings current.' },
         { title: 'Related Party Transaction Review', level: 'NOMINAL', color: '#10B981', desc: 'Material RPTs approved by Audit Committee and shareholders per Regulation 23.' }
       ]
@@ -567,7 +567,7 @@ function generateSyntheticCompany(query) {
     },
     risks: [
       { title: 'Section 137 / 92 RoC Deadline', level: 'HIGH RISK', color: '#EF4444', desc: 'AOC-4 / MGT-7 filings appear overdue. Immediate Section 403 statutory late fee exposure at ₹100/day per form. Verify current fee schedule on official MCA portal.' },
-      { title: 'Director DIN KYC (Rule 12A)', level: 'UNKNOWN', color: '#F59E0B', desc: 'DIN KYC status unverified. Risk of ₹5,000 reactivation penalty and Section 164(2) disqualification if overdue.' },
+      { title: 'Director DIN KYC (Rule 12A)', level: 'UNKNOWN', color: '#F59E0B', desc: 'DIN KYC status unverified. Confirm triennial Rule 12A schedule and mobile/email/address change compliance directly on MCA V3.' },
       { title: 'MSME Section 43B(h) Audit', level: 'REVIEW NEEDED', color: '#F59E0B', desc: 'Verify vendor MSME status and payment aging. 45-day rule compliance required for tax deduction preservation.' },
       { title: 'Rule 9B PAS-6 Demat Audit', level: 'CHECK APPLICABILITY', color: '#F59E0B', desc: 'Determine if entity qualifies as non-small private company requiring half-yearly ISIN reconciliation.' }
     ],
