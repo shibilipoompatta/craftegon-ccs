@@ -33,7 +33,7 @@
         "positioningStatement": { "type": "string", "minLength": 20 },
         "ecosystemPartners": {
           "type": "array",
-          "minItems": 2,
+          "minItems": 1,
           "items": {
             "type": "object",
             "required": ["name", "role"],

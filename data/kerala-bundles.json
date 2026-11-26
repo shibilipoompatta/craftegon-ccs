@@ -8,11 +8,7 @@
     "ecosystemPartners": [
       {
         "name": "CraftEgon LLP",
-        "role": "Operating legal entity providing commercial contract drafting, corporate governance architecture, and technology-enabled business infrastructure."
-      },
-      {
-        "name": "NIEG (Nus'ha Institute for Ethical Governance)",
-        "role": "Governance and ethics alignment partner providing transparent billing, clinical/student/supply-chain integrity standards, and board accountability frameworks."
+        "role": "Operating legal entity (LLPIN: ACO-0239) providing commercial contract drafting, corporate governance architecture, and technology-enabled business infrastructure."
       }
     ]
   },
@@ -101,7 +97,7 @@
         ]
       },
       "commercialAndRiskShield": {
-        "phaseTitle": "Phase 2: Clinical Contracts, Data Shield & NIEG Risk Governance",
+        "phaseTitle": "Phase 2: Clinical Contracts, Data Shield & Ethical Risk Governance",
         "coreContracts": [
           {
             "code": "DOC-ENG",
@@ -134,8 +130,8 @@
           "Clinic Brand Name & Logo Protection under Trade Marks Class 44 (Medical Services) & Class 42 (Research) (V06-SVC-003)."
         ],
         "niegTouchpoint": {
-          "standardName": "NIEG Clinical Transparency & Ethical Governance Charter",
-          "applicationScope": "Implements Nus'ha Institute for Ethical Governance (NIEG) tariff-display transparency, diagnostic conflict-of-interest disclosures, and clinical-board audit protocols."
+          "standardName": "Clinical Transparency & Ethical Governance Reference",
+          "applicationScope": "Optional reference benchmark (citing Nus'ha Institute for Ethical Governance (NIEG) norms where relevant) for tariff-display clarity, diagnostic conflict-of-interest hygiene, and clinical-board accountability."
         }
       },
       "recurringAnnualRetainer": {
@@ -350,8 +346,8 @@
           "Cross-Border Intercompany Transfer Pricing Agreement Scoping where foreign sister/parent entities exist (V03-SVC-002)."
         ],
         "niegTouchpoint": {
-          "standardName": "NIEG Trade Integrity & Supply-Chain Governance Protocol",
-          "applicationScope": "Embeds Nus'ha Institute for Ethical Governance (NIEG) zero-facilitation-bribery clauses, transparent demurrage billing, and customs compliance accountability."
+          "standardName": "Trade Integrity & Supply-Chain Governance Reference",
+          "applicationScope": "Optional reference benchmark (citing Nus'ha Institute for Ethical Governance (NIEG) norms where applicable) for anti-facilitation clauses, transparent demurrage billing, and customs accountability."
         }
       },
       "recurringAnnualRetainer": {
@@ -557,8 +553,8 @@
           "Brand Enforcement & Packaging Counterfeit Cease-and-Desist Protection (V06-SVC-001)."
         ],
         "niegTouchpoint": {
-          "standardName": "NIEG Clean-Label & Fair MSME Supply-Chain Standard",
-          "applicationScope": "Guides honest nutritional/therapeutic claim substantiation and Section 43B(h) timely settlement governance across small agri-suppliers."
+          "standardName": "Clean-Label & Fair MSME Supply-Chain Reference",
+          "applicationScope": "Optional reference benchmark (citing Nus'ha Institute for Ethical Governance (NIEG) norms where applicable) for honest claim substantiation and timely Section 43B(h) settlement across small agri-suppliers."
         }
       },
       "recurringAnnualRetainer": {
@@ -755,8 +751,8 @@
           "Property Name, Retreat Brand & Logo Trademark Protection under Class 43 (V06-SVC-003)."
         ],
         "niegTouchpoint": {
-          "standardName": "NIEG Ecological & Responsible Hospitality Governance Standard",
-          "applicationScope": "Embeds Nus'ha Institute for Ethical Governance (NIEG) waste/water transparency, guest safety accountability, and fair local staff practices."
+          "standardName": "Ecological & Responsible Hospitality Governance Reference",
+          "applicationScope": "Optional reference benchmark (citing Nus'ha Institute for Ethical Governance (NIEG) norms where applicable) for waste/water transparency, guest safety accountability, and fair local staff practices."
         }
       },
       "recurringAnnualRetainer": {
@@ -926,7 +922,7 @@
         ]
       },
       "commercialAndRiskShield": {
-        "phaseTitle": "Phase 2: Faculty IP, DPDP Student Privacy & NIEG Ethical Shield",
+        "phaseTitle": "Phase 2: Faculty IP, DPDP Student Privacy & Ethical Risk Shield",
         "coreContracts": [
           {
             "code": "FACULTY-IP",
@@ -959,8 +955,8 @@
           "Co-Founder SHA & Faculty ESOP Vesting Documentation for growth-stage EdTech (V05-SVC-001)."
         ],
         "niegTouchpoint": {
-          "standardName": "NIEG Ethical EdTech & Outcome-Representation Standard",
-          "applicationScope": "Applies Nus'ha Institute for Ethical Governance (NIEG) rules prohibiting exaggerated rank/placement guarantees, dark-pattern fee locks, and unfair refund forfeitures."
+          "standardName": "Ethical EdTech & Outcome-Representation Reference",
+          "applicationScope": "Optional reference benchmark (citing Nus'ha Institute for Ethical Governance (NIEG) norms where applicable) discouraging exaggerated rank guarantees, dark-pattern fee locks, and unfair refund forfeitures."
         }
       },
       "recurringAnnualRetainer": {

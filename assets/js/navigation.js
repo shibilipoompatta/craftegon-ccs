@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                   </div>
                 </a>
                 <p class="if-footer-desc">
-                  Kerala's Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP, aligned with NIEG ethical governance standards.
+                  Kerala's Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239).
                 </p>
                 <div class="if-footer-contact">
                   <p class="if-contact-item"><strong>Commercial Desk:</strong> Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala 690501</p>

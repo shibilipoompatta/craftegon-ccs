@@ -1298,7 +1298,7 @@ const KERALA_ESTIMATOR_SPECS = {
       'Monthly TDS (194J/194I/194C), EPF/ESIC nursing payroll & RoC/LLP compliance',
       'Renewal calendar for KSPCB BMW, Clinical Establishments, LSGD & Fire safety'
     ],
-    nieg: 'NIEG Clinical Transparency & Ethical Governance Charter (tariff display & conflict-of-interest hygiene).',
+    nieg: 'Governance Reference (NIEG benchmark): Clinical tariff-display transparency & conflict-of-interest hygiene.',
     tiers: {
       T1: { tierId: 'KL-CLINIC-T1', name: 'Launch + Core Licensing Readiness', quoteMode: 'Scoped Diagnostic Quote (Entity + Facility Footprint Assessment)' },
       T2: { tierId: 'KL-CLINIC-T2', name: 'Full Setup + Clinical Risk Shield', quoteMode: 'Scoped Proposal (Doctor Headcount & Equipment Capex Bracket)' },
@@ -1326,7 +1326,7 @@ const KERALA_ESTIMATOR_SPECS = {
       'Monthly GSTR-1/3B zero-rated export returns, ITC refunds & LUT annual renewal',
       'Annual RBI FLA Return, Form 3CEB Transfer Pricing & RoC / RCMC compliance'
     ],
-    nieg: 'NIEG Trade Integrity & Supply-Chain Protocol (zero-facilitation-bribery & demurrage billing accountability).',
+    nieg: 'Governance Reference (NIEG benchmark): Trade integrity, anti-facilitation & demurrage billing accountability.',
     tiers: {
       T1: { tierId: 'KL-EXIM-T1', name: 'EXIM Launch & Customs Readiness', quoteMode: 'Scoped Diagnostic Quote (Export Corridor & Warehouse Assessment)' },
       T2: { tierId: 'KL-EXIM-T2', name: 'Full EXIM Setup + Cold-Chain SLA Shield', quoteMode: 'Scoped Proposal (Trade Volume & Cross-Border Contracting Scope)' },
@@ -1354,7 +1354,7 @@ const KERALA_ESTIMATOR_SPECS = {
       'Half-yearly Form MSME-1, EPF/ESIC factory payroll & Annual RoC/LLP filings',
       'Annual FSSAI Return (Form D-1), KSPCB CTO & Legal Metrology renewal calendar'
     ],
-    nieg: 'NIEG Clean-Label & Fair MSME Supply-Chain Standard (claim substantiation & timely small-supplier payments).',
+    nieg: 'Governance Reference (NIEG benchmark): Clean-label claim substantiation & timely small-supplier payments.',
     tiers: {
       T1: { tierId: 'KL-FOOD-T1', name: 'Plant Entity & Pre-Launch Licensing Pack', quoteMode: 'Scoped Diagnostic Quote (Plant Capacity & FSSAI Tier Assessment)' },
       T2: { tierId: 'KL-FOOD-T2', name: 'Plant-to-Shelf Full Setup + IP & Trade Shield', quoteMode: 'Scoped Proposal (SKU Count & Distribution Channels)' },
@@ -1382,7 +1382,7 @@ const KERALA_ESTIMATOR_SPECS = {
       'EPF/ESIC staff payroll, RoC/LLP annual filings & RBI FLA Return (for NRI SPVs)',
       'Annual LSGD trade license, Fire NOC, KSPCB consent & lease renewal calendar'
     ],
-    nieg: 'NIEG Ecological & Responsible Hospitality Standard (STP/water transparency, guest safety & staff fairness).',
+    nieg: 'Governance Reference (NIEG benchmark): STP/water transparency, guest safety & fair staff practices.',
     tiers: {
       T1: { tierId: 'KL-HOSP-T1', name: 'Property SPV & Pre-Opening Licensing Pack', quoteMode: 'Scoped Diagnostic Quote (Room Key Count & Property Scope)' },
       T2: { tierId: 'KL-HOSP-T2', name: 'Full Resort Setup + Lease, OTA & Workforce Shield', quoteMode: 'Scoped Proposal (Lease Structure & NRI Investment Scope)' },
@@ -1410,7 +1410,7 @@ const KERALA_ESTIMATOR_SPECS = {
       'Monthly GST/EPF/ESIC filings & Annual RoC secretarial retainer + ESOP tracking',
       'Annual POSH report, DPDP privacy review & copyright piracy monitoring calendar'
     ],
-    nieg: 'NIEG Ethical EdTech & Outcome-Representation Standard (no misleading rank claims or dark-pattern refund locks).',
+    nieg: 'Governance Reference (NIEG benchmark): Ethical EdTech outcome disclosures & transparent refund terms.',
     tiers: {
       T1: { tierId: 'KL-EDTECH-T1', name: 'Academy Entity & DPIIT/IP Foundation', quoteMode: 'Scoped Diagnostic Quote (Online vs Hybrid Campus Model)' },
       T2: { tierId: 'KL-EDTECH-T2', name: 'Full EdTech Launch + Faculty IP & DPDP Shield', quoteMode: 'Scoped Proposal (Student Volume & Faculty Team Size)' },

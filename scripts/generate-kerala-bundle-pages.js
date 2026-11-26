@@ -73,8 +73,8 @@ function buildBundleFaqs(bundle) {
       a: `${bundle.regulatoryHygiene.noGuaranteedTimelineClause}`
     },
     {
-      q: `How do CraftEgon LLP and NIEG support this vertical alongside CCS?`,
-      a: `CraftEgon Corporate Services (CCS) coordinates regulatory filings and Year-1 statutory compliance under CraftEgon LLP (which powers bespoke commercial contracts and SLAs), while ${bundle.commercialAndRiskShield.niegTouchpoint.standardName} (${bundle.commercialAndRiskShield.niegTouchpoint.applicationScope}) guides institutional ethics and billing transparency. ${bundle.regulatoryHygiene.advocatesActBoundary}`
+      q: `How do CraftEgon LLP and CCS split execution across this vertical?`,
+      a: `CraftEgon Corporate Services (CCS) coordinates regulatory filings and Year-1 statutory compliance under CraftEgon LLP (which powers bespoke commercial contracts and SLAs). For billing transparency and governance checklists, our playbooks also include a non-affiliated reference benchmark (${bundle.commercialAndRiskShield.niegTouchpoint.standardName}: ${bundle.commercialAndRiskShield.niegTouchpoint.applicationScope}). ${bundle.regulatoryHygiene.advocatesActBoundary}`
     }
   ];
 }
@@ -350,8 +350,8 @@ ${ssgNavbar}
                 Commercial Desk: Alappuzha (PIN 690501) &bull; MCA Regd. Office: Chettipadi, Malappuram (PIN 676319)
               </li>
               <li>
-                <strong>Legal &amp; Governance Ecosystem</strong>
-                CraftEgon Corporate Services (CCS) under CraftEgon LLP &amp; NIEG Ethical Governance
+                <strong>Legal &amp; Operating Entity</strong>
+                CraftEgon Corporate Services (CCS) under CraftEgon LLP
               </li>
               <li>
                 <strong>Fee Separation Mandate</strong>
@@ -431,7 +431,7 @@ ${ssgNavbar}
             </ul>
           </div>
           <div class="kl-nieg-callout">
-            <strong>${esc(bundle.commercialAndRiskShield.niegTouchpoint.standardName)}</strong>
+            <strong>Governance Reference &bull; ${esc(bundle.commercialAndRiskShield.niegTouchpoint.standardName)}</strong>
             <p>${esc(bundle.commercialAndRiskShield.niegTouchpoint.applicationScope)}</p>
           </div>
         </div>
@@ -545,7 +545,7 @@ ${ssgNavbar}
               </div>
               <div class="final-cta-trust-points">
                 <div class="trust-point-item"><span class="trust-check">&check;</span> CraftEgon LLP Contract Drafting &amp; CCS Secretarial Execution</div>
-                <div class="trust-point-item"><span class="trust-check">&check;</span> NIEG Ethical Governance Standards Alignment</div>
+                <div class="trust-point-item"><span class="trust-check">&check;</span> Ethical Billing &amp; Governance Benchmark References</div>
                 <div class="trust-point-item"><span class="trust-check">&check;</span> Clear Separation of Advisory &amp; Statutory Govt Fees</div>
               </div>
             </div>

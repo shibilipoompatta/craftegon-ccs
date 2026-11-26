@@ -20,7 +20,7 @@ CRITICAL IDENTITY & ADDRESSING RULES:
 Your role is to assist corporate leaders, founders, CFOs, and clients with authoritative, realistic, concise, and practical corporate secretarial, RoC filing, and statutory compliance guidance under Indian corporate law.
 
 CORE INSTITUTIONAL FACTS:
-- Legal Entity & Vertical: CraftEgon LLP operating CraftEgon Corporate Services (CCS), alongside NIEG (Nus'ha Institute for Ethical Governance) governance & ethical billing standards.
+- Legal Entity & Vertical: CraftEgon LLP (LLPIN: ACO-0239) operating CraftEgon Corporate Services (CCS), citing ethical billing & governance references (such as NIEG benchmarks) only where relevant.
 - Operating Desks: Commercial & Operational Desk at Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala (PIN 690501); MCA Registered Office (CraftEgon LLP, LLPIN: ACO-0239) at 92/D, Thiruthummal Panakkad, Chettipadi, Tirurangadi, Malappuram, Kerala (PIN 676319). Pan-Kerala coordination (Kozhikode, Kochi, Trivandrum) & Pan-India RoC, NCLT & RBI filing support.
 - Banking Disclosure: CraftEgon LLP / CCS does not have banking partnerships or collaborations with any bank; we prepare board resolutions and KYC documentation for whichever bank the client selects.
 - Kerala Launch-to-Operate Vertical Bundles:
@@ -81,17 +81,17 @@ const KB=[
   a:[['Explore Services Directory','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['kerala','k-swift','kswift','clinical establishment','kspcb','lsgd','panchayat','clinic','diagnostic','exim','cold-chain','cold chain','spice','food unit','nutraceutical','hospitality','resort','edtech','coaching academy','kozhikode','malappuram','nieg','bundle'],
-  r:`<b>Kerala Launch-to-Operate + Year-1 Governance Bundles</b> (under <b>CraftEgon LLP</b> &amp; <b>NIEG</b> ethical governance, Kozhikode &amp; Malappuram):<br>
+  r:`<b>Kerala Launch-to-Operate + Year-1 Governance Bundles</b> (under <b>CraftEgon LLP</b> — Alappuzha Commercial Desk &amp; Malappuram Regd. Office):<br>
   * <b>Clinics &amp; Diagnostics:</b> K-SWIFT routing, Kerala Clinical Establishments registration readiness, KSPCB BMW &amp; doctor/equipment SLAs.<br>
   * <b>EXIM &amp; Cold-Chain:</b> DGFT IEC, port AD Code, Export LUT, RCMC, warehouse clearances, CHA/cold-chain SLAs &amp; FEMA.<br>
   * <b>Food &amp; Spice Units:</b> Entity + Udyam, K-SWIFT/KSPCB CTE-CTO, FSSAI manufacturing, Legal Metrology &amp; distributor pacts.<br>
   * <b>Hospitality &amp; Resorts:</b> Asset/operating SPV, LSGD/KSPCB STP/Fire dossiers, leases, OTA terms &amp; NRI/FEMA alignment.<br>
-  * <b>EdTech &amp; Academies:</b> Pvt Ltd/DPIIT/KSUM, faculty IP assignment, DPDP minor privacy &amp; NIEG refund charter.<br>
+  * <b>EdTech &amp; Academies:</b> Pvt Ltd/DPIIT/KSUM, faculty IP assignment, DPDP minor privacy &amp; clear refund charter.<br>
   <i>Note: Statutory approvals and timelines rest solely with competent authorities; CCS provides structured guidance and fee-separated execution support.</i>`,
   a:[['Run Readiness Estimator','/conversion/calculator.html#readiness'],['Explore Kerala Bundles','/index.html#kerala-bundles'],['Request Scoped Quote','/contact.html']]},
 
   {k:['how are you','how r u','hello','hi','hey','good morning','good afternoon','good evening','who are you','what is your name','your name','who r u','what can you do','jinu','who is jinu','are you jinu','introduce yourself'],
-  r:`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b> (Kozhikode &amp; Malappuram, Kerala).<br><br>I can guide you through:<br>• <b>Kerala Launch-to-Operate Bundles:</b> Clinics, EXIM/Cold-Chain, Food/Spice, Resorts &amp; EdTech<br>• <b>Company Formation:</b> Private Limited, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC (Rule 12A), Form DPT-3<br>• <b>Corporate Tax, GST &amp; FEMA:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h), RBI FLA<br>• <b>Readiness &amp; Calculators:</b> Bundle scope estimator, Sec 403 late fees &amp; registry lookups<br><br>How can I assist your business today?`,
+  r:`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b> (Commercial Desk: Alappuzha &amp; Regd. Office: Malappuram, Kerala).<br><br>I can guide you through:<br>• <b>Kerala Launch-to-Operate Bundles:</b> Clinics, EXIM/Cold-Chain, Food/Spice, Resorts &amp; EdTech<br>• <b>Company Formation:</b> Private Limited, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC (Rule 12A), Form DPT-3<br>• <b>Corporate Tax, GST &amp; FEMA:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h), RBI FLA<br>• <b>Readiness &amp; Calculators:</b> Bundle scope estimator, Sec 403 late fees &amp; registry lookups<br><br>How can I assist your business today?`,
   a:[['Kerala Readiness Estimator','/conversion/calculator.html#readiness'],['Explore Services Directory','/services.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['llp','limited liability partnership','fillip','form 3','run-llp','dpin','incorporate llp','llp formation','register llp','start llp'],
@@ -262,7 +262,7 @@ const KB=[
   r:`CraftEgon Corporate Services (CCS) - Official Corporate Desk (under CraftEgon LLP):<br>
   * <b>WhatsApp & Phone:</b> +91 86069 18247 (Direct Advisory & Scope Desk)<br>
   * <b>Email:</b> admin@craftegon.com<br>
-  * <b>Legal Entity:</b> CraftEgon LLP (LLPIN: ACO-0239) — operating CraftEgon Corporate Services (CCS), aligned with NIEG ethical governance standards.<br>
+  * <b>Legal Entity:</b> CraftEgon LLP (LLPIN: ACO-0239) — operating CraftEgon Corporate Services (CCS).<br>
   * <b>Commercial Desk:</b> Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala - PIN: 690501.<br>
   * <b>MCA Registered Office:</b> 92/D, Thiruthummal Panakkad, Chettipadi, Tirurangadi, Malappuram - 676319, Kerala.<br>`,
   a:[['Kerala Readiness Check','/conversion/calculator.html#readiness'],['Book Scope Call','/contact.html'],['Chat Live on WhatsApp','https://wa.me/918606918247']]}
@@ -513,7 +513,7 @@ function evaluateInputBrakes(query) {
       r: `While we do not evaluate third-party aggregators, <strong>CraftEgon Corporate Services (CCS)</strong> differentiates itself through:<br>
       * <b>Empanelled Professional Oversight:</b> All statutory filings (SPICe+, AOC-4, MGT-7, PAS-6, TM-A) are reviewed and digitally signed directly by Practicing Company Secretaries (PCS) and Chartered Accountants (CAs).<br>
       * <b>Fee Transparency:</b> Zero hidden government fees or surprise stamp duties.<br>
-      * <b>Direct Accountability:</b> Dedicated Kerala commercial desk in Alappuzha (PIN 690501) and MCA Registered Office (CraftEgon LLP, LLPIN: ACO-0239) in Chettipadi, Tirurangadi, Malappuram — aligned with NIEG ethical governance standards.<br><br>
+      * <b>Direct Accountability:</b> Dedicated Kerala commercial desk in Alappuzha (PIN 690501) and MCA Registered Office (CraftEgon LLP, LLPIN: ACO-0239) in Chettipadi, Tirurangadi, Malappuram.<br><br>
       We invite you to run your vertical readiness check or request a scoped consultation:`,
       a: [['Kerala Readiness Check', '/conversion/calculator.html#readiness'], ['Explore Kerala Bundles', '/#kerala-bundles'], ['Request Consultation', '/contact.html']],
       s: [['About CraftEgon Corporate Services (CCS)', '/about.html'], ['Institutional Model', '/about.html#how-we-operate']]
@@ -1369,7 +1369,7 @@ async function handleQuery(q){
 function initGreeting(){
   const b=document.getElementById('cchat-messages-container');
   if(!b||b.children.length>0)return;
-  appendBotMsg(`Hello! 👋 I am <b>Jinu</b>, your AI Corporate &amp; Regulatory Co-Pilot at <b>CraftEgon Corporate Services (CCS)</b> under <b>CraftEgon LLP</b> (LLPIN: ACO-0239).<br><br>Explore our <b>Kerala Launch-to-Operate Bundles</b> (Commercial Desk in Alappuzha &amp; Regd. Office in Malappuram), run a <b>Readiness &amp; Scope Check</b>, or ask about MCA V3, RoC filings, and NIEG governance today.`);
+  appendBotMsg(`Hello! 👋 I am <b>Jinu</b>, your AI Corporate &amp; Regulatory Co-Pilot at <b>CraftEgon Corporate Services (CCS)</b> under <b>CraftEgon LLP</b> (LLPIN: ACO-0239).<br><br>Explore our <b>Kerala Launch-to-Operate Bundles</b> (Commercial Desk in Alappuzha &amp; Regd. Office in Malappuram), run a <b>Readiness &amp; Scope Check</b>, or ask about MCA V3, RoC filings, and corporate governance today.`);
 }
 
 function bind(){

@@ -91,7 +91,7 @@ indexHtml = indexHtml.replace(
 );
 indexHtml = indexHtml.replace(
   /<meta property="og:description" content="[^"]*">/i,
-  '<meta property="og:description" content="Kerala\'s specialized Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239) &amp; NIEG alignment. Commercial Desk in Alappuzha &amp; MCA Regd. Office in Malappuram.">'
+  '<meta property="og:description" content="Kerala\'s specialized Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk in Alappuzha &amp; MCA Regd. Office in Malappuram.">'
 );
 if (!indexHtml.includes('/assets/css/bundles.css')) {
   indexHtml = indexHtml.replace(
@@ -107,7 +107,7 @@ indexHtml = indexHtml.replace(
 // 1b. Update Organization JSON-LD description
 indexHtml = indexHtml.replace(
   '"description": "Building Business Infrastructure. Coordinated corporate secretarial, tax, compliance, and corporate structuring services.",',
-  '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501; MCA Registered Office: Chettipadi, Malappuram 676319. Aligned with NIEG ethical governance.",'
+  '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501; MCA Registered Office: Chettipadi, Malappuram 676319.",'
 );
 
 // 1c. Remodel Hero Showcase (#hero) + Insert Scannable #kerala-bundles Showcase directly below
@@ -133,7 +133,7 @@ const bundleCardsMarkup = bundlesData.bundles.map((b, idx) => `
               </div>
               <ul class="kl-bundle-phases-mini">
                 <li><span class="kl-phase-dot">01</span><span><strong>Setup:</strong> ${esc(b.entityAndPreLaunchStack.keralaAndCentralRegistrations.slice(0, 2).map(r => r.title).join(' • '))}</span></li>
-                <li><span class="kl-phase-dot">02</span><span><strong>Contracts + NIEG:</strong> ${esc(b.commercialAndRiskShield.coreContracts.slice(0, 2).map(c => c.title).join(' • '))}</span></li>
+                <li><span class="kl-phase-dot">02</span><span><strong>Contracts &amp; Risk Shield:</strong> ${esc(b.commercialAndRiskShield.coreContracts.slice(0, 2).map(c => c.title).join(' • '))}</span></li>
                 <li><span class="kl-phase-dot">03</span><span><strong>Year-1 Retainer:</strong> Bookkeeping ledger, GST/TDS &amp; renewal tracking</span></li>
               </ul>
             </div>
@@ -153,7 +153,7 @@ const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" ari
         <!-- Hero Centered Core Showcase (Decluttered Above-the-Fold Rhythm) -->
         <div class="hero-center-showcase">
           <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.38rem 0.95rem; border-radius:9999px; background:rgba(0,166,81,0.08); border:1px solid rgba(0,166,81,0.28); font-family:var(--font-mono,monospace); font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--growth-green-accessible,#008742); margin-bottom:1.05rem;">
-            CraftEgon LLP (LLPIN: ACO-0239) &bull; Commercial Desk: Alappuzha &bull; Regd. Office: Malappuram &bull; NIEG Aligned
+            CraftEgon LLP (LLPIN: ACO-0239) &bull; Commercial Desk: Alappuzha &bull; Regd. Office: Malappuram
           </div>
 
           <h1 id="hero-title" class="hero-headline" style="color: var(--charcoal-ink, #1A1A1A);">
@@ -220,7 +220,7 @@ const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" ari
             <span class="trust-divider" aria-hidden="true">&bull;</span>
             <span class="trust-item">CraftEgon LLP commercial drafting</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
-            <span class="trust-item">NIEG ethical governance alignment</span>
+            <span class="trust-item">Clear ethical billing &amp; governance standards</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
             <span class="trust-item">57-service RoC, Tax &amp; FEMA engine</span>
           </div>
@@ -343,11 +343,11 @@ if (!indexHtml.includes('Why does CraftEgon focus on Kerala Launch-to-Operate bu
 
           <details class="faq-item">
             <summary class="faq-summary">
-              <span class="faq-question">How do CraftEgon Corporate Services (CCS), CraftEgon LLP, and NIEG work together?</span>
+              <span class="faq-question">How do CraftEgon Corporate Services (CCS) and CraftEgon LLP work together?</span>
               <span class="faq-chevron" aria-hidden="true">+</span>
             </summary>
             <div class="faq-answer">
-              <p><strong>CraftEgon LLP (LLPIN: ACO-0239)</strong> is our operating entity (Commercial Desk: Alappuzha PIN 690501; MCA Registered Office: Chettipadi, Tirurangadi, Malappuram PIN 676319), operating <strong>CraftEgon Corporate Services (CCS)</strong> for corporate structuring, regulatory filings, licensing coordination, and Year-1 governance retainers (with zero third-party banking partnerships). <strong>NIEG (Nus'ha Institute for Ethical Governance)</strong> provides ethical billing, transparency, and institutional governance benchmarks across our sector playbooks.</p>
+              <p><strong>CraftEgon LLP (LLPIN: ACO-0239)</strong> is our operating entity (Commercial Desk: Alappuzha PIN 690501; MCA Registered Office: Chettipadi, Tirurangadi, Malappuram PIN 676319), operating <strong>CraftEgon Corporate Services (CCS)</strong> for corporate structuring, regulatory filings, licensing coordination, and Year-1 governance retainers (with zero third-party banking partnerships). Where helpful for sector ethics and transparency checklists, our playbooks include non-affiliated governance references (such as NIEG standards).</p>
             </div>
           </details>`
   );
@@ -379,7 +379,7 @@ indexHtml = indexHtml
   .replace(/<form id="home-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="#" data-static-fallback="true">/g, '<form id="home-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="/api/v1/enquiries">')
   .replace(
     /"description": "Kerala's Launch-to-Operate[^"]*",/,
-    '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501; MCA Registered Office: Chettipadi, Malappuram 676319. Aligned with NIEG ethical governance.",'
+    '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501; MCA Registered Office: Chettipadi, Malappuram 676319.",'
   );
 fs.writeFileSync(path.join(ROOT, 'index.html'), indexHtml, 'utf8');
 console.log('Updated index.html with Kerala Launch-to-Operate front door and #kerala-bundles section.');
