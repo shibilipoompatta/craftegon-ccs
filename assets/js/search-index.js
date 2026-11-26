@@ -1,14 +1,13 @@
 /**
- * CRAFTEGON CORPORATE SERVICES (CCS) - UNIVERSAL CANONICAL SERVICE SEARCH INDEX
- * 
- * Auto-generated canonical catalog payload with 57 canonical services and 1 utility route.
- * Total direct regulatory services: 54
- * Total referral services: 3
+ * ==========================================================================
+ * CRAFTEGON CORPORATE SERVICES (CCS) - CANONICAL SERVICE SEARCH INDEX
+ * Published via CraftEgon Admin Console
+ * Generated: 2026-11-26T12:42:32.637Z
+ * Operator: admin@craftegon.com
+ * ==========================================================================
  */
 
-(function (window) {
-  'use strict';
-  window.CRAFTEGON_SERVICE_CATALOG = [
+window.CRAFTEGON_SERVICE_CATALOG = [
   {
     "id": "V01-SVC-001",
     "name": "DPIIT Startup India Recognition & Section 140 Tax Holiday",
@@ -299,7 +298,7 @@
       "pvt ltd registration",
       "start a company"
     ],
-    "description": "Incorporate your Private Limited Company under Companies Act, 2013 via MCA SPICe+ with CraftEgon Corporate Services (CCS). Full statutory advisory, DIN allocation, MOA/AOA, PAN, TAN, and bank account setup (DSC not included in package; existing accepted).",
+    "description": "Incorporate your Private Limited Company under Companies Act, 2013 via MCA SPICe+ with CraftEgon Corporate Services (CCS). Statutory coordination, DIN allocation, MOA/AOA, PAN, TAN, and bank account resolution documentation (DSC not included in package; existing accepted).",
     "search_tokens": "private limited company registration (spice+) v01-svc-007 business formation & structuring formation & startup register a private limited company pvt ltd registration private limited company incorporation company registration spice+ incorporation start a company new company formation spice+ inc-32 inc-33 inc-34 agile-pro-s incorporation formation roc mca spice director din pan tan name approval run private limited company pvt ltd company incorporation incorporate pvt ltd pvt ltd registration start a company"
   },
   {
@@ -2117,4 +2116,3 @@
     "search_tokens": "corporate ip business search directory company lookup llp trademark gstin validation"
   }
 ];
-})(typeof window !== 'undefined' ? window : global);

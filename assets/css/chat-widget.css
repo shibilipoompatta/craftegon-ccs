@@ -24,9 +24,9 @@ body.mobile-nav-open #craftegon-chat-window {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-green-primary, #247A62) 0%, var(--navy-800, #193B46) 100%);
+  background: linear-gradient(135deg, var(--accent-green-primary, #176B4A) 0%, var(--navy-800, #17251F) 100%);
   border: 1.5px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 24px rgba(25, 59, 70, 0.22), 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(23, 37, 31, 0.22), 0 2px 6px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@ body.mobile-nav-open #craftegon-chat-window {
 
 #craftegon-chat-trigger:hover {
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 12px 30px rgba(25, 59, 70, 0.3), 0 4px 12px rgba(36, 122, 98, 0.2);
+  box-shadow: 0 12px 30px rgba(23, 37, 31, 0.3), 0 4px 12px rgba(23, 107, 74, 0.2);
 }
 
 #craftegon-chat-trigger .chat-pulse {
@@ -48,15 +48,15 @@ body.mobile-nav-open #craftegon-chat-window {
   right: 0;
   bottom: 0;
   border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(36, 122, 98, 0.5);
+  box-shadow: 0 0 0 0 rgba(23, 107, 74, 0.5);
   animation: triggerGlow 2.5s infinite ease-out;
   pointer-events: none;
 }
 
 @keyframes triggerGlow {
-  0% { box-shadow: 0 0 0 0 rgba(36, 122, 98, 0.5); }
-  70% { box-shadow: 0 0 0 12px rgba(36, 122, 98, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(36, 122, 98, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(23, 107, 74, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(23, 107, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(23, 107, 74, 0); }
 }
 
 #craftegon-chat-trigger .trigger-icon {
@@ -93,14 +93,14 @@ body.mobile-nav-open #craftegon-chat-window {
   bottom: 28px;
   right: 88px;
   background: #FFFFFF;
-  border: 1px solid var(--border-color, #DCE8E5);
+  border: 1px solid var(--border-color, #D8E3DC);
   padding: 0.4rem 0.85rem;
   border-radius: 9999px;
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.75rem;
   font-weight: 600;
-  box-shadow: 0 4px 14px rgba(16, 38, 46, 0.08);
+  box-shadow: 0 4px 14px rgba(23, 37, 31, 0.08);
   pointer-events: none;
   z-index: 139;
   display: flex;
@@ -128,7 +128,7 @@ body.mobile-nav-open #craftegon-chat-window {
   background: #FFFFFF;
   border: 1px solid rgba(220, 232, 229, 0.95);
   border-radius: 20px;
-  box-shadow: 0 20px 48px -10px rgba(16, 38, 46, 0.18), 0 4px 16px rgba(16, 38, 46, 0.04);
+  box-shadow: 0 20px 48px -10px rgba(23, 37, 31, 0.18), 0 4px 16px rgba(23, 37, 31, 0.04);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -174,7 +174,7 @@ body.mobile-nav-open #craftegon-chat-window {
   border-radius: 50%;
   background: #FFFFFF;
   border: 1px solid rgba(220, 232, 229, 0.9);
-  box-shadow: 0 2px 6px rgba(16, 38, 46, 0.06);
+  box-shadow: 0 2px 6px rgba(23, 37, 31, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,7 +225,7 @@ body.mobile-nav-open #craftegon-chat-window {
   font-family: var(--font-heading, 'Manrope', sans-serif);
   font-size: 0.95rem;
   font-weight: 800;
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
@@ -235,7 +235,7 @@ body.mobile-nav-open #craftegon-chat-window {
 .cchat-brand-info span {
   font-size: 0.72rem;
   font-weight: 500;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
   display: block;
   margin-top: 0.12rem;
   white-space: nowrap;
@@ -257,7 +257,7 @@ body.mobile-nav-open #craftegon-chat-window {
   background: #F1F5F4;
   padding: 2px;
   border-radius: 20px;
-  border: 1px solid #DCE8E5;
+  border: 1px solid #D8E3DC;
   flex-shrink: 0;
 }
 
@@ -266,7 +266,7 @@ body.mobile-nav-open #craftegon-chat-window {
   border: none;
   font-size: 0.68rem;
   font-weight: 600;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
   padding: 3px 8px;
   border-radius: 14px;
   cursor: pointer;
@@ -281,19 +281,19 @@ body.mobile-nav-open #craftegon-chat-window {
 
 .cchat-mode-btn.active {
   background: #FFFFFF;
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
   font-weight: 700;
-  box-shadow: 0 1px 3px rgba(16, 38, 46, 0.12);
+  box-shadow: 0 1px 3px rgba(23, 37, 31, 0.12);
 }
 
 .cchat-mode-btn.active.ai-btn {
-  color: var(--accent-green-primary, #247A62);
+  color: var(--accent-green-primary, #176B4A);
 }
 
 .cchat-btn-icon {
   background: transparent;
   border: none;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
   width: 28px;
   height: 28px;
   border-radius: 8px;
@@ -318,8 +318,8 @@ body.mobile-nav-open #craftegon-chat-window {
 }
 
 .cchat-btn-icon:hover {
-  background: var(--surface-mint-white, #F4FAF7);
-  color: var(--accent-green-primary, #247A62);
+  background: var(--surface-mint-white, #F5F8F5);
+  color: var(--accent-green-primary, #176B4A);
 }
 
 /* --- 4. MESSAGES STREAM --- */
@@ -340,7 +340,7 @@ body.mobile-nav-open #craftegon-chat-window {
 }
 
 .cchat-body::-webkit-scrollbar-thumb {
-  background: #DCE8E5;
+  background: #D8E3DC;
   border-radius: 4px;
 }
 
@@ -374,21 +374,21 @@ body.mobile-nav-open #craftegon-chat-window {
 }
 
 .cchat-msg.bot .cchat-bubble {
-  background: var(--surface-mint-white, #F4FAF7);
+  background: var(--surface-mint-white, #F5F8F5);
   border: 1px solid #E2EDE9;
-  color: var(--navy-800, #193B46);
+  color: var(--navy-800, #17251F);
   border-radius: 16px 16px 16px 4px;
 }
 
 .cchat-msg.user .cchat-bubble {
-  background: linear-gradient(135deg, var(--navy-800, #193B46) 0%, var(--accent-green-primary, #247A62) 100%);
+  background: linear-gradient(135deg, var(--navy-800, #17251F) 0%, var(--accent-green-primary, #176B4A) 100%);
   color: #FFFFFF;
   border-radius: 16px 16px 4px 16px;
-  box-shadow: 0 2px 8px rgba(25, 59, 70, 0.12);
+  box-shadow: 0 2px 8px rgba(23, 37, 31, 0.12);
 }
 
 .cchat-bubble strong {
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
   font-weight: 700;
 }
 
@@ -409,8 +409,8 @@ body.mobile-nav-open #craftegon-chat-window {
 .cchat-bubble code {
   font-family: var(--font-mono, monospace);
   font-size: 0.82em;
-  background: rgba(36, 122, 98, 0.08);
-  color: var(--accent-green-primary, #247A62);
+  background: rgba(23, 107, 74, 0.08);
+  color: var(--accent-green-primary, #176B4A);
   padding: 0.15rem 0.35rem;
   border-radius: 4px;
 }
@@ -440,8 +440,8 @@ body.mobile-nav-open #craftegon-chat-window {
   align-items: center;
   justify-content: space-between;
   background: #FFFFFF;
-  border: 1px solid #DCE8E5;
-  color: var(--navy-800, #193B46);
+  border: 1px solid #D8E3DC;
+  color: var(--navy-800, #17251F);
   padding: 0.48rem 0.8rem;
   border-radius: 8px;
   font-size: 0.78rem;
@@ -452,13 +452,13 @@ body.mobile-nav-open #craftegon-chat-window {
 
 .cchat-action-btn:hover {
   background: #F0F8F5;
-  border-color: var(--accent-green-primary, #247A62);
-  color: var(--accent-green-primary, #247A62);
+  border-color: var(--accent-green-primary, #176B4A);
+  color: var(--accent-green-primary, #176B4A);
   transform: translateY(-1px);
 }
 
 .cchat-action-btn span:last-child {
-  color: var(--accent-green-primary, #247A62);
+  color: var(--accent-green-primary, #176B4A);
   font-size: 0.9rem;
 }
 
@@ -475,11 +475,11 @@ body.mobile-nav-open #craftegon-chat-window {
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
 }
 
 .cchat-sources a {
-  color: var(--accent-green-primary, #247A62);
+  color: var(--accent-green-primary, #176B4A);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -490,12 +490,12 @@ body.mobile-nav-open #craftegon-chat-window {
   align-items: center;
   gap: 0.5rem;
   padding: 0.55rem 0.85rem;
-  background: var(--surface-mint-white, #F4FAF7);
+  background: var(--surface-mint-white, #F5F8F5);
   border: 1px solid #E2EDE9;
   border-radius: 14px;
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
   align-self: flex-start;
 }
 
@@ -507,7 +507,7 @@ body.mobile-nav-open #craftegon-chat-window {
 .cchat-typing-dots span {
   width: 4px;
   height: 4px;
-  background: var(--accent-green-primary, #247A62);
+  background: var(--accent-green-primary, #176B4A);
   border-radius: 50%;
   animation: typingBounce 1.4s infinite ease-in-out both;
 }
@@ -539,8 +539,8 @@ body.mobile-nav-open #craftegon-chat-window {
 
 .cchat-pill {
   background: #FFFFFF;
-  border: 1px solid #DCE8E5;
-  color: var(--navy-800, #193B46);
+  border: 1px solid #D8E3DC;
+  color: var(--navy-800, #17251F);
   padding: 0.32rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.72rem;
@@ -553,8 +553,8 @@ body.mobile-nav-open #craftegon-chat-window {
 
 .cchat-pill:hover {
   background: #E8F6F0;
-  border-color: var(--accent-mint-vibrant, #75CDA9);
-  color: var(--navy-900, #10262E);
+  border-color: var(--accent-mint-vibrant, #2D8A65);
+  color: var(--navy-900, #17251F);
 }
 
 /* --- 6. MINIMALIST INPUT & FOOTER --- */
@@ -569,7 +569,7 @@ body.mobile-nav-open #craftegon-chat-window {
   display: flex;
   align-items: center;
   background: #F6FAF8;
-  border: 1.5px solid #DCE8E5;
+  border: 1.5px solid #D8E3DC;
   border-radius: 12px;
   padding: 0.25rem 0.35rem 0.25rem 0.85rem;
   transition: all 0.15s ease;
@@ -577,8 +577,8 @@ body.mobile-nav-open #craftegon-chat-window {
 
 .cchat-input-row:focus-within {
   background: #FFFFFF;
-  border-color: var(--accent-green-primary, #247A62);
-  box-shadow: 0 0 0 3px rgba(36, 122, 98, 0.12);
+  border-color: var(--accent-green-primary, #176B4A);
+  box-shadow: 0 0 0 3px rgba(23, 107, 74, 0.12);
 }
 
 .cchat-input {
@@ -588,18 +588,18 @@ body.mobile-nav-open #craftegon-chat-window {
   outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.85rem;
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
 }
 
 .cchat-input::placeholder {
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
   font-size: 0.82rem;
 }
 
 .cchat-send-btn {
   width: 36px;
   height: 36px;
-  background: var(--accent-green-primary, #247A62);
+  background: var(--accent-green-primary, #176B4A);
   border: none;
   border-radius: 8px;
   color: #FFFFFF;
@@ -622,7 +622,7 @@ body.mobile-nav-open #craftegon-chat-window {
 }
 
 .cchat-send-btn:hover {
-  background: var(--navy-800, #193B46);
+  background: var(--navy-800, #17251F);
   transform: scale(1.04);
 }
 
@@ -636,7 +636,7 @@ body.mobile-nav-open #craftegon-chat-window {
 
 .cchat-disclaimer a,
 .cchat-disclaimer-btn {
-  color: var(--accent-green-primary, #247A62);
+  color: var(--accent-green-primary, #176B4A);
   text-decoration: underline;
   background: none;
   border: none;
@@ -650,7 +650,7 @@ body.mobile-nav-open #craftegon-chat-window {
 
 .cchat-disclaimer a:hover,
 .cchat-disclaimer-btn:hover {
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
 }
 
 /* --- 7. SETTINGS MODAL --- */
@@ -660,7 +660,7 @@ body.mobile-nav-open #craftegon-chat-window {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(16, 38, 46, 0.45);
+  background: rgba(23, 37, 31, 0.45);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   z-index: 9999;
@@ -672,7 +672,7 @@ body.mobile-nav-open #craftegon-chat-window {
 
 .cchat-modal-card {
   background: #FFFFFF;
-  border: 1px solid var(--border-color, #DCE8E5);
+  border: 1px solid var(--border-color, #D8E3DC);
   border-radius: 16px;
   width: 100%;
   max-width: 420px;
@@ -688,8 +688,8 @@ body.mobile-nav-open #craftegon-chat-window {
 
 .cchat-modal-header {
   padding: 1rem 1.25rem;
-  background: var(--surface-mint-white, #F4FAF7);
-  border-bottom: 1px solid var(--border-color, #DCE8E5);
+  background: var(--surface-mint-white, #F5F8F5);
+  border-bottom: 1px solid var(--border-color, #D8E3DC);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -700,7 +700,7 @@ body.mobile-nav-open #craftegon-chat-window {
   font-family: var(--font-heading, 'Manrope', sans-serif);
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
 }
 
 .cchat-modal-close {
@@ -708,7 +708,7 @@ body.mobile-nav-open #craftegon-chat-window {
   border: none;
   font-size: 1.3rem;
   line-height: 1;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
   cursor: pointer;
 }
 
@@ -721,17 +721,17 @@ body.mobile-nav-open #craftegon-chat-window {
   padding: 0.65rem 0.85rem;
   font-size: 0.85rem;
   font-family: var(--font-mono, monospace);
-  border: 1.5px solid var(--border-color, #DCE8E5);
+  border: 1.5px solid var(--border-color, #D8E3DC);
   border-radius: 8px;
   background: #FFFFFF;
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
   outline: 2px solid transparent; /* WCAG 2.4.7 :focus-visible supported */
   box-sizing: border-box;
 }
 
 .cchat-modal-input:focus {
-  border-color: var(--accent-green-primary, #247A62);
-  box-shadow: 0 0 0 3px rgba(36, 122, 98, 0.15);
+  border-color: var(--accent-green-primary, #176B4A);
+  box-shadow: 0 0 0 3px rgba(23, 107, 74, 0.15);
 }
 
 /* Mobile Responsiveness */

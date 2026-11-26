@@ -21,12 +21,12 @@
   display: flex;
   flex-direction: column;
   background: #FFFFFF;
-  border: 1.5px solid var(--border-color, #DCE8E5);
+  border: 1.5px solid var(--border-color, #D8E3DC);
   border-radius: 14px;
   padding: 1.5rem;
   text-decoration: none;
-  color: var(--text-main, #10262E);
-  box-shadow: 0 4px 16px rgba(16, 38, 46, 0.04);
+  color: var(--text-main, #17251F);
+  box-shadow: 0 4px 16px rgba(23, 37, 31, 0.04);
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
@@ -36,8 +36,8 @@
 .v01-card:hover,
 .v04-card:hover {
   transform: translateY(-3px);
-  border-color: var(--accent-mint-vibrant, #75CDA9);
-  box-shadow: 0 10px 28px rgba(36, 122, 98, 0.12);
+  border-color: var(--accent-mint-vibrant, #2D8A65);
+  box-shadow: 0 10px 28px rgba(23, 107, 74, 0.12);
 }
 
 .vertical-card-header {
@@ -52,8 +52,8 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: var(--surface-mint-soft, #DDF5EA);
-  color: var(--accent-green-primary, #247A62);
+  background: var(--surface-mint-soft, #E8F2EC);
+  color: var(--accent-green-primary, #176B4A);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,7 +62,7 @@
 }
 
 .vertical-card:hover .vertical-card-icon {
-  background: var(--accent-green-primary, #247A62);
+  background: var(--accent-green-primary, #176B4A);
   color: #FFFFFF;
 }
 
@@ -91,20 +91,20 @@
   font-family: var(--font-heading, 'Manrope', sans-serif);
   font-size: 0.76rem;
   font-weight: 700;
-  color: var(--accent-green-primary, #247A62);
-  background: var(--surface-mint-soft, #DDF5EA);
+  color: var(--accent-green-primary, #176B4A);
+  background: var(--surface-mint-soft, #E8F2EC);
   padding: 0.25rem 0.65rem;
   border-radius: 9999px;
   display: inline-flex;
   align-items: center;
-  border: 1px solid rgba(36, 122, 98, 0.2);
+  border: 1px solid rgba(23, 107, 74, 0.2);
 }
 
 .vertical-card-title {
   font-family: var(--font-heading, 'Manrope', sans-serif);
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
   margin: 0 0 0.5rem 0;
   line-height: 1.35;
 }
@@ -112,7 +112,7 @@
 .vertical-card-desc {
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.85rem;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
   line-height: 1.55;
   margin: 0 0 1.25rem 0;
   flex-grow: 1;
@@ -127,7 +127,7 @@
   border-top: 1px solid #F1F5F9;
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--accent-green-primary, #247A62);
+  color: var(--accent-green-primary, #176B4A);
 }
 
 .vertical-card-footer svg {
@@ -161,7 +161,7 @@ header h1,
   font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
   font-weight: 800 !important;
   line-height: 1.25 !important;
-  color: var(--navy-900, #10262E) !important;
+  color: var(--navy-900, #17251F) !important;
   margin-bottom: 0.85rem !important;
   letter-spacing: -0.02em !important;
 }
@@ -172,7 +172,7 @@ header h1,
 .v04-intro {
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: clamp(0.92rem, 0.85rem + 0.3vw, 1.05rem);
-  color: var(--text-secondary, #52717A) !important;
+  color: var(--text-secondary, #64746B) !important;
   line-height: 1.6;
   max-width: 860px;
   margin: 0 0 2rem 0;
@@ -181,11 +181,11 @@ header h1,
 .if-breadcrumb {
   margin-bottom: 1.25rem;
   font-size: 0.85rem;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
 }
 
 .if-breadcrumb a {
-  color: var(--accent-green-primary, #247A62);
+  color: var(--accent-green-primary, #176B4A);
   text-decoration: none;
 }
 
@@ -225,9 +225,9 @@ header h1,
   letter-spacing: 0.05em;
   padding: 0.3rem 0.7rem;
   border-radius: 6px;
-  background: var(--surface-mint-soft, #DDF5EA);
-  color: var(--accent-green-primary, #247A62);
-  border: 1px solid rgba(36, 122, 98, 0.25);
+  background: var(--surface-mint-soft, #E8F2EC);
+  color: var(--accent-green-primary, #176B4A);
+  border: 1px solid rgba(23, 107, 74, 0.25);
 }
 
 .archetype-pill.advisory {
@@ -248,9 +248,9 @@ header h1,
   gap: 0.35rem;
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
   background: #FFFFFF;
-  border: 1px solid var(--border-color, #DCE8E5);
+  border: 1px solid var(--border-color, #D8E3DC);
   border-radius: 6px;
   padding: 0.3rem 0.75rem;
   text-decoration: none;
@@ -258,15 +258,15 @@ header h1,
 }
 
 .parent-pillar-pill:hover {
-  border-color: var(--accent-green-primary, #247A62);
-  color: var(--navy-900, #10262E);
-  background: var(--surface-mint-soft, #DDF5EA);
+  border-color: var(--accent-green-primary, #176B4A);
+  color: var(--navy-900, #17251F);
+  background: var(--surface-mint-soft, #E8F2EC);
 }
 
 /* Category Bridge Banner in Directory */
 .category-bridge-banner {
   background: #FFFFFF;
-  border: 1.5px solid var(--border-color, #DCE8E5);
+  border: 1.5px solid var(--border-color, #D8E3DC);
   border-radius: 12px;
   padding: 1.5rem 2rem;
   margin-bottom: 3rem;
@@ -275,20 +275,20 @@ header h1,
   justify-content: space-between;
   gap: 1.5rem;
   flex-wrap: wrap;
-  box-shadow: 0 2px 12px rgba(16, 38, 46, 0.03);
+  box-shadow: 0 2px 12px rgba(23, 37, 31, 0.03);
 }
 
 .category-bridge-content h3 {
   font-family: var(--font-heading, 'Manrope', sans-serif);
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
   margin: 0 0 0.35rem;
 }
 
 .category-bridge-content p {
   font-size: 0.88rem;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
   margin: 0;
 }
 
@@ -304,9 +304,9 @@ header h1,
   gap: 0.35rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--navy-900, #10262E);
-  background: var(--surface-mint-soft, #DDF5EA);
-  border: 1px solid rgba(36, 122, 98, 0.2);
+  color: var(--navy-900, #17251F);
+  background: var(--surface-mint-soft, #E8F2EC);
+  border: 1px solid rgba(23, 107, 74, 0.2);
   padding: 0.35rem 0.75rem;
   border-radius: 6px;
   text-decoration: none;
@@ -314,7 +314,7 @@ header h1,
 }
 
 .category-bridge-pill:hover {
-  background: var(--accent-green-primary, #247A62);
+  background: var(--accent-green-primary, #176B4A);
   color: #FFFFFF;
 }
 
@@ -326,7 +326,7 @@ header h1,
 .archetype-section-header {
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--border-color, #DCE8E5);
+  border-bottom: 2px solid var(--border-color, #D8E3DC);
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -344,12 +344,12 @@ header h1,
   font-family: var(--font-heading, 'Manrope', sans-serif);
   font-size: 1.4rem;
   font-weight: 800;
-  color: var(--navy-900, #10262E);
+  color: var(--navy-900, #17251F);
   margin: 0;
 }
 
 .archetype-section-desc {
   font-size: 0.88rem;
-  color: var(--text-secondary, #52717A);
+  color: var(--text-secondary, #64746B);
   margin: 0;
 }

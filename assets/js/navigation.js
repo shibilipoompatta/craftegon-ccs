@@ -191,35 +191,35 @@ document.addEventListener("DOMContentLoaded", async function () {
                   </div>
                 </a>
                 <p class="if-footer-desc">
-                  Kerala's Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239).
+                  Business setup, pre-launch coordination, commercial documentation, and ongoing compliance support under CraftEgon LLP (LLPIN: ACO-0239).
                 </p>
                 <div class="if-footer-contact">
-                  <p class="if-contact-item"><strong>Commercial Desk:</strong> Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala 690501</p>
+                  <p class="if-contact-item"><strong>Commercial Desk:</strong> Room No. 2, NS Building, Kaanjippuzha, Alappuzha, Kerala 690501</p>
                   <p class="if-contact-item"><strong>MCA Regd. Office:</strong> CraftEgon LLP (LLPIN: ACO-0239), Chettipadi, Tirurangadi, Malappuram 676319</p>
                   <p class="if-contact-item"><strong>Phone / WhatsApp:</strong> <a href="tel:+918606918247">+91 86069 18247</a></p>
                   <p class="if-contact-item"><strong>Email:</strong> <a href="mailto:admin@craftegon.com">admin@craftegon.com</a></p>
                 </div>
               </div>
               <div class="if-footer-col">
-                <h4 class="if-footer-heading">Kerala Bundles</h4>
+                <h4 class="if-footer-heading">Industry Solutions</h4>
                 <ul class="if-footer-list">
-                  <li><a href="/bundles/clinics-diagnostics-kerala.html">Clinics, Diagnostics &amp; Care Centers</a></li>
-                  <li><a href="/bundles/exim-cold-chain-kerala.html">EXIM, Freight &amp; Cold-Chain Pack</a></li>
-                  <li><a href="/bundles/food-spice-processing-kerala.html">Food, Spice &amp; Nutraceutical Units</a></li>
-                  <li><a href="/bundles/hospitality-resorts-kerala.html">Hospitality, Stays &amp; Eco Resorts</a></li>
-                  <li><a href="/bundles/edtech-academies-kerala.html">EdTech &amp; Coaching Academies</a></li>
-                  <li class="if-footer-all-link"><a href="/services.html">All 57 Services Directory &rarr;</a></li>
+                  <li><a href="/bundles/clinics-diagnostics-kerala.html">Clinics, Diagnostics &amp; Care</a></li>
+                  <li><a href="/bundles/exim-cold-chain-kerala.html">EXIM, Freight &amp; Logistics</a></li>
+                  <li><a href="/bundles/food-spice-processing-kerala.html">Food, Spice &amp; Agri Processing</a></li>
+                  <li><a href="/bundles/hospitality-resorts-kerala.html">Hospitality &amp; Resorts</a></li>
+                  <li><a href="/bundles/edtech-academies-kerala.html">EdTech &amp; Training Institutes</a></li>
+                  <li class="if-footer-all-link"><a href="/services.html">Explore All Services (57) &rarr;</a></li>
                 </ul>
               </div>
               <div class="if-footer-col">
                 <h4 class="if-footer-heading">Tools &amp; Governance</h4>
                 <ul class="if-footer-list">
-                  <li><a href="/conversion/calculator.html#readiness">Kerala Readiness Estimator</a></li>
-                  <li><a href="/conversion/retainer-desk.html">Annual Retainer Plans</a></li>
-                  <li><a href="/conversion/partner-ecosystems.html">Marketplace &amp; Resolution Desk</a></li>
-                  <li><a href="/knowledge/index.html">Compliance Knowledge Centre</a></li>
-                  <li><a href="/conversion/calculator.html">RoC Late Fee Calculator</a></li>
-                  <li><a href="/contact.html">Contact Scope Desk</a></li>
+                  <li><a href="/conversion/calculator.html#readiness">Check Business Readiness</a></li>
+                  <li><a href="/conversion/retainer-desk.html">Retainer Scope Assessment</a></li>
+                  <li><a href="/conversion/partner-ecosystems.html">Marketplace &amp; Resolution Kits</a></li>
+                  <li><a href="/knowledge/index.html">Knowledge Resources</a></li>
+                  <li><a href="/conversion/calculator.html">Statutory Calculators</a></li>
+                  <li><a href="/contact.html">Contact CCS</a></li>
                 </ul>
               </div>
             </div>
@@ -765,16 +765,68 @@ function injectServiceDiscoveryReciprocal() {
 
       relatedHtml += `
         </div>
-        <div style="margin-top: 1.25rem; text-align: center; border-top: 1px solid #E2E8F0; padding-top: 1rem;">
+        <div style="margin-top: 1.25rem; text-align: center; border-top: 1px solid #D8E3DC; padding-top: 1rem;">
           <a href="/services.html" style="font-size: 0.825rem; font-weight: 700; color: var(--text-dark); text-decoration: none;">
-            🔍 Looking for a different compliance filing? Browse the universal services directory &rarr;
+            Looking for another filing or business service? Explore our full services directory &rarr;
           </a>
         </div>
       `;
 
       widget.innerHTML = relatedHtml /* sanitized */;
       main.appendChild(widget);
+
+      // Inject Layer-A Industry Solution & Delivery Phase Strip if Service-Bundle Map loads
+      injectServiceBundleStrip(currentPath, main);
     });
+  }
+}
+
+function injectServiceBundleStrip(currentPath, mainContainer) {
+  if (!mainContainer || document.getElementById("ccs-service-bundle-strip")) return;
+  function renderStrip() {
+    if (!window.CRAFTEGON_SERVICE_BUNDLE_MAP) return;
+    const mapping = window.CRAFTEGON_SERVICE_BUNDLE_MAP.getByRoute(currentPath);
+    if (!mapping) return;
+    const dir = window.CRAFTEGON_SERVICE_BUNDLE_MAP.bundleDirectory || {};
+    const pills = (mapping.b || []).map(bid => {
+      const info = dir[bid];
+      if (!info) return "";
+      const label = bid === "GENERAL_CATALOG" ? "General & Specialist Catalog" : info.title;
+      return `<a href="${info.route}" style="display:inline-flex;align-items:center;padding:0.3rem 0.72rem;background:#FFFFFF;border:1px solid #D8E3DC;border-radius:9999px;font-size:0.78rem;font-weight:600;color:#17251F;text-decoration:none;">${label}</a>`;
+    }).filter(Boolean).join("");
+
+    const strip = document.createElement("aside");
+    strip.id = "ccs-service-bundle-strip";
+    strip.setAttribute("aria-label", "Industry Solution and Delivery Phase Mapping");
+    strip.style.cssText = "max-width:1180px;margin:1.5rem auto 0;padding:1.1rem 1.35rem;background:#F5F8F5;border:1px solid #D8E3DC;border-left:4px solid #176B4A;border-radius:10px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;";
+    strip.innerHTML = `
+      <div style="display:flex;flex-direction:column;gap:0.35rem;">
+        <span style="font-family:var(--font-mono,monospace);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#176B4A;">${mapping.p} &bull; Scoped Proposal Available</span>
+        <div style="font-size:0.9rem;font-weight:700;color:#17251F;">Included Across These Sector Solutions:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.15rem;">${pills}</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+        <a href="${mapping.tool}" style="display:inline-flex;align-items:center;padding:0.55rem 0.9rem;background:#FFFFFF;border:1.5px solid #17251F;border-radius:6px;font-size:0.8rem;font-weight:700;color:#17251F;text-decoration:none;">Check Business Readiness</a>
+        <a href="${mapping.cta}" style="display:inline-flex;align-items:center;padding:0.55rem 0.95rem;background:#176B4A;border:1.5px solid #176B4A;border-radius:6px;font-size:0.8rem;font-weight:700;color:#FFFFFF;text-decoration:none;">Request a Scoped Quote &rarr;</a>
+      </div>
+    ` /* sanitized */;
+
+    const hero = mainContainer.querySelector(".if-service-hero, header");
+    if (hero && hero.nextSibling) {
+      mainContainer.insertBefore(strip, hero.nextSibling);
+    } else {
+      mainContainer.prepend(strip);
+    }
+  }
+
+  if (window.CRAFTEGON_SERVICE_BUNDLE_MAP) {
+    renderStrip();
+  } else {
+    const s = document.createElement("script");
+    s.src = "/assets/js/service-bundle-map.js";
+    s.defer = true;
+    s.onload = renderStrip;
+    document.head.appendChild(s);
   }
 }
 

@@ -1,11 +1,13 @@
 /**
  * ============================================================================
- * CRAFTEGON CORPORATE SERVICES (CCS) - PHASE 2 CHROME & HOMEPAGE REMODELER
+ * CRAFTEGON CORPORATE SERVICES (CCS) - MASTER CHROME & HOMEPAGE TRANSFORMER
  * ============================================================================
- * 1. Remodels index.html around Kerala "Launch-to-Operate + Year-1 Governance"
- *    bundles while preserving all existing calculators, entity wizard, search,
- *    and guardrail anchors.
- * 2. Synchronizes updated components/navbar.html & components/footer.html across
+ * 1. Transforms index.html around the 5 Kerala industry solutions, the
+ *    customer-friendly 3-phase lifecycle ("Start Right", "Put the Essentials
+ *    in Place", "Stay on Track"), Readiness Estimator, Entity Selector,
+ *    services engine, and natural customer copywriting.
+ * 2. Applies Deep Emerald (#176B4A) / Charcoal Green (#17251F) tokens cleanly.
+ * 3. Synchronizes updated components/navbar.html & components/footer.html across
  *    all public HTML pages using balanced <div> matching.
  */
 
@@ -41,9 +43,6 @@ function esc(str) {
     .replace(/'/g, '&#39;');
 }
 
-/**
- * Replaces a <div id="targetId">...</div> block safely by counting nested <div> tags.
- */
 function replaceBalancedDivById(html, targetId, replacementHtml) {
   const openRegex = new RegExp(`<div\\s+id=["']${targetId}["'][^>]*>`, 'i');
   const match = openRegex.exec(html);
@@ -72,51 +71,42 @@ function replaceBalancedDivById(html, targetId, replacementHtml) {
 }
 
 // ---------------------------------------------------------------------------
-// 1. Remodel index.html
+// 1. Transform index.html
 // ---------------------------------------------------------------------------
 let indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 
-// 1a. Head title, meta & CSS
 indexHtml = indexHtml.replace(
   /<title>[\s\S]*?<\/title>/i,
-  '<title>CraftEgon Corporate Services (CCS) | Kerala Launch-to-Operate &amp; Year-1 Governance</title>'
+  '<title>CraftEgon Corporate Services (CCS) | Business Setup, Approvals &amp; Compliance in Kerala</title>'
 );
 indexHtml = indexHtml.replace(
   /<meta name="description" content="[^"]*">/i,
-  '<meta name="description" content="Kerala\'s specialized Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501 &amp; MCA Regd. Office: Malappuram 676319. Entity setup, K-SWIFT &amp; KSPCB routing, commercial contracts, and annual governance.">'
+  '<meta name="description" content="Build your business on a stronger foundation with CraftEgon Corporate Services (CCS) under CraftEgon LLP (LLPIN: ACO-0239). Entity setup, Kerala approvals, commercial agreements, and ongoing compliance.">'
 );
 indexHtml = indexHtml.replace(
   /<meta property="og:title" content="[^"]*">/i,
-  '<meta property="og:title" content="CraftEgon Corporate Services (CCS) | Kerala Launch-to-Operate &amp; Year-1 Governance">'
+  '<meta property="og:title" content="CraftEgon Corporate Services (CCS) | Build Your Business on a Stronger Foundation">'
 );
 indexHtml = indexHtml.replace(
   /<meta property="og:description" content="[^"]*">/i,
-  '<meta property="og:description" content="Kerala\'s specialized Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk in Alappuzha &amp; MCA Regd. Office in Malappuram.">'
-);
-if (!indexHtml.includes('/assets/css/bundles.css')) {
-  indexHtml = indexHtml.replace(
-    /<link rel="stylesheet" href="\/assets\/css\/home-unique\.css[^"]*">/i,
-    '<link rel="stylesheet" href="/assets/css/home-unique.css?v=2.2">\n  <link rel="stylesheet" href="/assets/css/bundles.css?v=1.0">'
-  );
-}
-indexHtml = indexHtml.replace(
-  /<link rel="stylesheet" href="\/assets\/css\/tokens\.css[^"]*">/i,
-  '<link rel="stylesheet" href="/assets/css/tokens.css?v=2.3">'
+  '<meta property="og:description" content="From getting started to managing what comes next, we help Kerala businesses navigate registrations, essential approvals, commercial documentation, and ongoing compliance.">'
 );
 
-// 1b. Update Organization JSON-LD description
-indexHtml = indexHtml.replace(
-  '"description": "Building Business Infrastructure. Coordinated corporate secretarial, tax, compliance, and corporate structuring services.",',
-  '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501; MCA Registered Office: Chettipadi, Malappuram 676319.",'
-);
+// Update stylesheet cache versions
+indexHtml = indexHtml
+  .replace(/\/assets\/css\/tokens\.css[^"']*/gi, '/assets/css/tokens.css?v=3.0')
+  .replace(/\/assets\/css\/theme\.css[^"']*/gi, '/assets/css/theme.css?v=3.0')
+  .replace(/\/assets\/css\/navbar\.css[^"']*/gi, '/assets/css/navbar.css?v=3.0')
+  .replace(/\/assets\/css\/home-unique\.css[^"']*/gi, '/assets/css/home-unique.css?v=3.0')
+  .replace(/\/assets\/css\/bundles\.css[^"']*/gi, '/assets/css/bundles.css?v=2.0')
+  .replace(/\/assets\/css\/chat-widget\.css[^"']*/gi, '/assets/css/chat-widget.css?v=3.0');
 
-// 1c. Remodel Hero Showcase (#hero) + Insert Scannable #kerala-bundles Showcase directly below
 const bundleAudienceMap = {
-  'KL-BND-CLINIC': 'Multi-specialty clinics, dental/skin centers, diagnostic labs & NRI-backed care/research units',
-  'KL-BND-EXIM': 'Spice/agro/seafood exporters, Kochi/Beypore/air-cargo shippers & GCC cold-chain operators',
-  'KL-BND-FOOD': 'Spice mills, food/nutraceutical plants, KINFRA processors & private-label D2C food brands',
-  'KL-BND-HOSPITALITY': 'Boutique stays, eco/wellness resorts, serviced villas & NRI hospitality SPVs',
-  'KL-BND-EDTECH': 'Coaching academies, healthcare-licensing institutes, EdTech startups & LMS platforms'
+  'KL-BND-CLINIC': 'Multi-specialty clinics, dental and skin centres, diagnostic labs, and care facilities.',
+  'KL-BND-EXIM': 'Spice, agro, and seafood exporters, freight operators, warehouses, and cold-chain fleets.',
+  'KL-BND-FOOD': 'Spice mills, food and nutraceutical units, agri processors, and private-label brands.',
+  'KL-BND-HOSPITALITY': 'Boutique stays, eco and wellness resorts, homestays, and NRI hospitality ventures.',
+  'KL-BND-EDTECH': 'Coaching academies, skill institutes, EdTech startups, and online learning platforms.'
 };
 
 const bundleCardsMarkup = bundlesData.bundles.map((b, idx) => `
@@ -128,43 +118,42 @@ const bundleCardsMarkup = bundlesData.bundles.map((b, idx) => `
               </div>
               <h3 class="kl-bundle-title">${esc(b.title)}</h3>
               <div class="kl-bundle-who">
-                <strong>Who This Is For</strong>
+                <strong>Who This Serves</strong>
                 ${esc(bundleAudienceMap[b.id] || b.targetAudience[0])}
               </div>
               <ul class="kl-bundle-phases-mini">
-                <li><span class="kl-phase-dot">01</span><span><strong>Setup:</strong> ${esc(b.entityAndPreLaunchStack.keralaAndCentralRegistrations.slice(0, 2).map(r => r.title).join(' • '))}</span></li>
-                <li><span class="kl-phase-dot">02</span><span><strong>Contracts &amp; Risk Shield:</strong> ${esc(b.commercialAndRiskShield.coreContracts.slice(0, 2).map(c => c.title).join(' • '))}</span></li>
-                <li><span class="kl-phase-dot">03</span><span><strong>Year-1 Retainer:</strong> Bookkeeping ledger, GST/TDS &amp; renewal tracking</span></li>
+                <li><span class="kl-phase-dot">01</span><span><strong>Start Right:</strong> ${esc(b.entityAndPreLaunchStack.keralaAndCentralRegistrations.slice(0, 2).map(r => r.title).join(' • '))}</span></li>
+                <li><span class="kl-phase-dot">02</span><span><strong>Put Essentials in Place:</strong> ${esc(b.commercialAndRiskShield.coreContracts.slice(0, 2).map(c => c.title).join(' • '))}</span></li>
+                <li><span class="kl-phase-dot">03</span><span><strong>Stay on Track:</strong> Accounting alignment, GST/TDS coordination &amp; renewal tracking</span></li>
               </ul>
             </div>
             <div class="kl-bundle-card-actions">
               <a href="/conversion/calculator.html?bundle=${encodeURIComponent(b.id)}#readiness" class="kl-bundle-cta-primary">
-                <span>Start Scope Check</span>
+                <span>Check Readiness</span>
                 <span>&rarr;</span>
               </a>
               <a href="/bundles/${esc(b.slug)}.html" class="kl-bundle-cta-ghost">
-                <span>Roadmap</span>
+                <span>Explore Suite</span>
               </a>
             </div>
           </article>`).join('\n');
 
-const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" aria-labelledby="hero-title" style="background: linear-gradient(135deg, #FFFFFF 0%, #F4FAF7 65%, #F3F9FD 100%); padding-bottom: 3rem;">
+const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" aria-labelledby="hero-title" style="background: linear-gradient(155deg, #FFFFFF 0%, #F5F8F5 60%, #E8F2EC 100%); padding-bottom: 3.25rem;">
       <div class="home-container">
-        <!-- Hero Centered Core Showcase (Decluttered Above-the-Fold Rhythm) -->
         <div class="hero-center-showcase">
-          <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.38rem 0.95rem; border-radius:9999px; background:rgba(0,166,81,0.08); border:1px solid rgba(0,166,81,0.28); font-family:var(--font-mono,monospace); font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--growth-green-accessible,#008742); margin-bottom:1.05rem;">
-            CraftEgon LLP (LLPIN: ACO-0239) &bull; Commercial Desk: Alappuzha &bull; Regd. Office: Malappuram
+          <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.38rem 0.95rem; border-radius:9999px; background:var(--brand-soft-mint, #E8F2EC); border:1px solid var(--border-color, #D8E3DC); font-family:var(--font-mono,monospace); font-size:0.74rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--brand-emerald, #176B4A); margin-bottom:1.1rem;">
+            CraftEgon LLP (LLPIN: ACO-0239) &bull; Alappuzha Commercial Desk &bull; Malappuram Regd. Office
           </div>
 
-          <h1 id="hero-title" class="hero-headline" style="color: var(--charcoal-ink, #1A1A1A);">
-            Kerala's Launch-to-Operate &amp; <span class="hero-headline-accent" style="background: linear-gradient(135deg, #008742 0%, #10262E 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Year-1 Governance Partner.</span>
+          <h1 id="hero-title" class="hero-headline" style="color: var(--brand-charcoal-green, #17251F);">
+            Build Your Business on a <span class="hero-headline-accent" style="color: var(--brand-emerald, #176B4A); -webkit-text-fill-color: var(--brand-emerald, #176B4A);">Stronger Foundation.</span>
           </h1>
 
-          <p class="hero-lead">
-            Incorporation is only Day 1. We guide Kerala founders from SPICe+/LLP formation through K-SWIFT, LSGD, KSPCB &amp; Clinical Establishments readiness, CraftEgon LLP commercial contracts, and structured Year-1 bookkeeping, GST/TDS &amp; RoC retainers.
+          <p class="hero-lead" style="color: var(--text-main, #22342C);">
+            From getting started to managing what comes next, we help businesses navigate registrations, essential approvals, commercial documentation and ongoing compliance.
           </p>
 
-          <!-- Integrated Search Preserving Full 57-Service Engine -->
+          <!-- Unified Catalog Search -->
           <div class="hero-unified-search-wrap">
             <form class="hero-unified-search-form" action="/services.html" method="GET" role="search" aria-label="Search Corporate Services">
               <span class="unified-search-icon" aria-hidden="true">
@@ -178,82 +167,134 @@ const newHeroAndBundlesSection = `<section class="hero-3d-section" id="hero" ari
                 id="home-front-search-input"
                 name="q"
                 class="unified-search-input"
-                placeholder="Search Kerala bundles, K-SWIFT, SPICe+, AOC-4, TM-A..."
+                placeholder="Search industry suites, SPICe+, K-SWIFT, AOC-4, TM-A..."
                 autocomplete="off"
                 spellcheck="false"
                 aria-label="Search corporate services from homepage"
               >
-              <button type="submit" class="unified-search-btn" style="background: var(--growth-green-accessible, #008742);">
+              <button type="submit" class="unified-search-btn" style="background: var(--brand-emerald, #176B4A);">
                 <span>Search</span> &rarr;
               </button>
             </form>
 
-            <!-- Live Autocomplete Results Container -->
             <div class="home-front-search-dropdown" id="home-front-search-dropdown" role="region" aria-label="Search Suggestions">
               <div id="home-front-search-results"></div>
             </div>
 
-            <!-- Kerala Industry Shortcuts -->
             <div class="hero-search-shortcuts">
-              <span class="shortcuts-label">Quick Sector Links:</span>
-              <a href="/bundles/clinics-diagnostics-kerala.html" class="search-pill">Clinics &amp; Diagnostics</a>
-              <a href="/bundles/exim-cold-chain-kerala.html" class="search-pill">EXIM &amp; Cold-Chain</a>
+              <span class="shortcuts-label">Industries:</span>
+              <a href="/bundles/clinics-diagnostics-kerala.html" class="search-pill">Clinics &amp; Care</a>
+              <a href="/bundles/exim-cold-chain-kerala.html" class="search-pill">EXIM &amp; Logistics</a>
               <a href="/bundles/food-spice-processing-kerala.html" class="search-pill">Food &amp; Spice Units</a>
               <a href="/bundles/hospitality-resorts-kerala.html" class="search-pill">Hospitality &amp; Resorts</a>
-              <a href="/bundles/edtech-academies-kerala.html" class="search-pill">EdTech &amp; Academies</a>
+              <a href="/bundles/edtech-academies-kerala.html" class="search-pill">EdTech &amp; Institutes</a>
             </div>
           </div>
 
-          <!-- Dual Direct Action Buttons -->
+          <!-- Primary & Secondary Customer CTAs -->
           <div class="hero-actions-group">
-            <a href="#kerala-bundles" class="btn-hero-primary" style="background: var(--growth-green-accessible, #008742); border-color: var(--growth-green-accessible, #008742);" aria-label="Explore Kerala Industry Bundles">
-              <span>Explore Kerala Industry Bundles</span> &rarr;
+            <a href="#kerala-bundles" class="btn-hero-primary" style="background: var(--brand-emerald, #176B4A); border-color: var(--brand-emerald, #176B4A);" aria-label="Explore Industry Solutions">
+              <span>Explore Industry Solutions</span> &rarr;
             </a>
-            <a href="/conversion/calculator.html#readiness" class="btn-hero-secondary" style="border-color: var(--charcoal-ink, #1A1A1A); color: var(--charcoal-ink, #1A1A1A) !important;" aria-label="Run Kerala Readiness and Scope Estimator">
-              <span>Start Scope &amp; Readiness Check</span>
+            <a href="/conversion/calculator.html#readiness" class="btn-hero-secondary" style="border-color: var(--brand-charcoal-green, #17251F); color: var(--brand-charcoal-green, #17251F) !important;" aria-label="Check Your Business Readiness">
+              <span>Check Your Business Readiness</span>
             </a>
           </div>
 
-          <!-- Factual Governance Commitments -->
           <div class="hero-trust-strip">
-            <span class="trust-item">Advisory fees separated from govt challans</span>
+            <span class="trust-item">Government fees itemized at actuals</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
-            <span class="trust-item">CraftEgon LLP commercial drafting</span>
+            <span class="trust-item">Non-contentious commercial drafting</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
-            <span class="trust-item">Clear ethical billing &amp; governance standards</span>
+            <span class="trust-item">Scoped before commitment</span>
             <span class="trust-divider" aria-hidden="true">&bull;</span>
-            <span class="trust-item">57-service RoC, Tax &amp; FEMA engine</span>
+            <span class="trust-item">57-route underlying service catalogue</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================================================================
-         KERALA LAUNCH-TO-OPERATE + YEAR-1 GOVERNANCE BUNDLES (PRIMARY FUNNEL)
-         ==================================================================== -->
+    <!-- Five Kerala Industry Solutions (Primary Commercial Front Door) -->
     <section class="kl-bundles-showcase" id="kerala-bundles" aria-labelledby="kerala-bundles-heading">
       <div class="home-container">
         <div class="kl-section-head">
-          <span class="kl-eyebrow">5 Kerala Industry Infrastructure Suites</span>
-          <h2 id="kerala-bundles-heading" class="kl-h2">Launch-to-Operate + Year-1 Governance for High-Complexity Sectors</h2>
+          <span class="kl-eyebrow">Industry Solutions Across Kerala</span>
+          <h2 id="kerala-bundles-heading" class="kl-h2">Focused Support for Five Core Industries</h2>
           <p class="kl-lead">
-            Scan who each suite serves and what gets handled across Entity &amp; Kerala Licensing, CraftEgon LLP Contracts, and Year-1 Retainers—or run a 60-second Scope Check.
+            Incorporation is only the beginning. Select your sector to see typical registration pathways, commercial agreements, and ongoing compliance tasks.
           </p>
         </div>
 
         <div class="kl-bundle-grid">
 ${bundleCardsMarkup}
         </div>
+      </div>
+    </section>
 
-        <div style="max-width:1240px; margin:2rem auto 0; padding:1.25rem 1.5rem; background:var(--surface-canvas,#F4FAF7); border:1px solid var(--border-color,#DCE8E5); border-radius:10px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+    <!-- Customer-Friendly Three-Phase Model -->
+    <section class="kl-bundles-showcase kl-bundles-showcase-alt" id="three-phase-approach" aria-labelledby="three-phase-heading">
+      <div class="home-container">
+        <div class="kl-section-head">
+          <span class="kl-eyebrow">How We Structure Work</span>
+          <h2 id="three-phase-heading" class="kl-h2">Three Clear Phases as Your Business Grows</h2>
+          <p class="kl-lead">
+            Scope is agreed in writing after reviewing your business model, premises, staffing, and applicable statutory rules.
+          </p>
+        </div>
+
+        <div class="ccs-lifecycle-stepper">
+          <article class="ccs-phase-step-card">
+            <div class="ccs-phase-step-meta">
+              <span class="ccs-phase-step-badge">Phase 1</span>
+              <span class="ccs-phase-step-tag">Foundation</span>
+            </div>
+            <h3 class="ccs-phase-step-title">Start Right</h3>
+            <p class="ccs-phase-step-desc">Assess the right legal structure, prepare incorporation documents, check premises readiness, and organize applicable pre-launch registrations.</p>
+            <ul class="ccs-phase-step-list">
+              <li>Pvt Ltd, LLP, OPC, Section 8, or Partnership setup</li>
+              <li>LSGD occupancy, K-SWIFT, KSPCB, FSSAI, or IEC scoping</li>
+              <li>Clean separation of professional and government charges</li>
+            </ul>
+          </article>
+
+          <article class="ccs-phase-step-card">
+            <div class="ccs-phase-step-meta">
+              <span class="ccs-phase-step-badge">Phase 2</span>
+              <span class="ccs-phase-step-tag">Protection</span>
+            </div>
+            <h3 class="ccs-phase-step-title">Put the Essentials in Place</h3>
+            <p class="ccs-phase-step-desc">Organize the contracts, brand filings, internal policies, and privacy documentation that protect commercial relationships and operations.</p>
+            <ul class="ccs-phase-step-list">
+              <li>Founder pacts, doctor/faculty contracts, vendor &amp; CHA SLAs</li>
+              <li>Trademark (TM-A), copyright, and IP assignment documentation</li>
+              <li>Workforce handbooks, POSH setup &amp; DPDP privacy notices</li>
+            </ul>
+          </article>
+
+          <article class="ccs-phase-step-card">
+            <div class="ccs-phase-step-meta">
+              <span class="ccs-phase-step-badge">Phase 3</span>
+              <span class="ccs-phase-step-tag">Continuity</span>
+            </div>
+            <h3 class="ccs-phase-step-title">Stay on Track</h3>
+            <p class="ccs-phase-step-desc">Maintain clean accounting coordination, recurring corporate and tax filings, and timely licence renewal tracking with zero guesswork.</p>
+            <ul class="ccs-phase-step-list">
+              <li>RoC &amp; LLP annual compliance (AOC-4, MGT-7, Form 8/11)</li>
+              <li>GST, TDS, EPF/ESIC &amp; ledger reconciliation support</li>
+              <li>Licence renewal calendar &amp; periodic governance checks</li>
+            </ul>
+          </article>
+        </div>
+
+        <div style="max-width:1240px; margin:2rem auto 0; padding:1.25rem 1.5rem; background:#FFFFFF; border:1px solid var(--border-color,#D8E3DC); border-radius:10px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
           <div>
-            <strong style="color:var(--charcoal-ink,#1A1A1A); font-size:0.95rem; display:block;">Looking for an individual filing, calculator, or registry check?</strong>
-            <span style="color:var(--text-secondary,#52717A); font-size:0.86rem;">Access our 57-service catalog, Stamp Duty &amp; Section 403 calculators, Partner Desk, or CIN/Trademark lookup.</span>
+            <strong style="color:var(--brand-charcoal-green,#17251F); font-size:0.95rem; display:block;">Know the exact individual service or calculator you need?</strong>
+            <span style="color:var(--text-secondary,#64746B); font-size:0.86rem;">Every sector suite is backed by our 57-route corporate, tax, contracts, IP, and governance directory.</span>
           </div>
           <div style="display:flex; gap:0.65rem; flex-wrap:wrap;">
-            <a href="/conversion/calculator.html#readiness" class="kl-btn-primary" style="padding:0.6rem 1rem; font-size:0.84rem;">Readiness Estimator</a>
-            <a href="/services.html" class="kl-btn-secondary" style="padding:0.6rem 1rem; font-size:0.84rem;">57-Service Catalog</a>
-            <a href="/search/" class="kl-btn-secondary" style="padding:0.6rem 1rem; font-size:0.84rem;">Corporate &amp; IP Lookup</a>
+            <a href="/conversion/calculator.html#readiness" class="kl-btn-primary" style="padding:0.6rem 1rem; font-size:0.84rem;">Find What Your Business Needs</a>
+            <a href="/services.html" class="kl-btn-secondary" style="padding:0.6rem 1rem; font-size:0.84rem;">Explore Our Services (57)</a>
+            <a href="/search/" class="kl-btn-secondary" style="padding:0.6rem 1rem; font-size:0.84rem;">Registry Lookups</a>
           </div>
         </div>
       </div>
@@ -268,177 +309,87 @@ if (heroStart === -1 || lowerAnchor === undefined) {
 }
 indexHtml = indexHtml.slice(0, heroStart) + newHeroAndBundlesSection + '\n\n    ' + indexHtml.slice(lowerAnchor);
 
-// Reorder lower discovery flow once: #how-it-works -> #fee-estimator -> #entity-selector -> #popular-services -> #practice-areas -> #founder-faqs
-const curWizIdx = indexHtml.indexOf('<section class="home-section entity-wizard-section"');
-const curPopIdx = indexHtml.indexOf('<section class="popular-services-section" id="popular-services"');
-const curPracIdx = indexHtml.indexOf('<section class="home-section stages-section" id="practice-areas"');
-const curToolsIdx = indexHtml.indexOf('<section class="home-section tools-section" id="fee-estimator"');
-const curProcIdx = indexHtml.indexOf('<section class="home-section process-section" id="how-it-works"');
-const curFaqIdx = indexHtml.indexOf('<section class="home-section faq-section" id="founder-faqs"');
-
-if (curWizIdx !== -1 && curProcIdx !== -1 && curWizIdx < curProcIdx && curPopIdx !== -1 && curPracIdx !== -1 && curToolsIdx !== -1 && curFaqIdx !== -1) {
-  const wizardBlock = indexHtml.slice(curWizIdx, curPopIdx);
-  const popularBlock = indexHtml.slice(curPopIdx, curPracIdx);
-  const practiceBlock = indexHtml.slice(curPracIdx, curToolsIdx);
-  const toolsBlock = indexHtml.slice(curToolsIdx, curProcIdx);
-  const processBlock = indexHtml.slice(curProcIdx, curFaqIdx);
-  indexHtml = indexHtml.slice(0, curWizIdx) +
-    processBlock +
-    toolsBlock +
-    wizardBlock +
-    popularBlock +
-    practiceBlock +
-    indexHtml.slice(curFaqIdx);
-}
-
-// Highlight Phase 3 Kerala Readiness Estimator in #fee-estimator tools grid (idempotent)
-if (!indexHtml.includes('Kerala Vertical Readiness &amp; Bundle Estimator')) {
-  indexHtml = indexHtml.replace(
-    '<div class="tools-suite-grid">',
-    `<div class="tools-suite-grid">
-          <!-- Tool 0: Kerala Vertical Readiness & Bundle Scope Estimator (Phase 3) -->
-          <a href="/conversion/calculator.html#readiness" class="diagnostic-tool-compact-card" style="border-color: var(--growth-green-border, rgba(0,166,81,0.35)); background: linear-gradient(135deg, #FFFFFF 0%, #F4FAF7 100%);" aria-label="Launch Kerala Vertical Readiness and Bundle Scope Estimator">
-            <div class="tool-card-icon-box" style="background: rgba(0,166,81,0.12); color: var(--growth-green-accessible, #008742);">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            </div>
-            <div class="tool-card-body">
-              <span class="tool-card-tag" style="color: var(--growth-green-accessible, #008742);">Phase 3 Kerala Scope Tool</span>
-              <h3 class="tool-card-title">Kerala Vertical Readiness &amp; Bundle Estimator</h3>
-              <p class="tool-card-desc">Select your Kerala industry vertical, entity stage &amp; licensing scope to generate a tailored Launch-to-Operate + Year-1 Governance brief.</p>
-              <span class="tool-card-link" style="color: var(--growth-green-accessible, #008742);">Start Scope Check &rarr;</span>
-            </div>
-          </a>`
-  );
-}
-
-// 1d. Clean unapproved low-ticket rupee tags on #popular-services cards (keep scope high-trust & PENDING_OWNER_REVIEW compliant)
-const pricePairs = [
-  ['<span class="flagship-price">&#8377;7,499</span>\r\n              <span class="flagship-price-sub">+ Govt Fees &amp; State Stamp Duty</span>', '<span class="flagship-price" style="font-size:1.15rem;">Scoped Quote</span>\n              <span class="flagship-price-sub">Advisory separated from Govt Fees &amp; Stamp Duty</span>'],
-  ['<span class="flagship-price">&#8377;5,999</span>\r\n              <span class="flagship-price-sub">+ Govt Fees &amp; State Stamp Duty</span>', '<span class="flagship-price" style="font-size:1.15rem;">Scoped Quote</span>\n              <span class="flagship-price-sub">Advisory separated from Govt Fees &amp; Stamp Duty</span>'],
-  ['<span class="flagship-price">&#8377;9,999</span>\r\n              <span class="flagship-price-sub">/ institutional package</span>', '<span class="flagship-price" style="font-size:1.15rem;">Institutional Scope</span>\n              <span class="flagship-price-sub">Tailored to team size &amp; DPDP footprint</span>'],
-  ['<span class="flagship-price">&#8377;14,999</span>\r\n              <span class="flagship-price-sub">/ year (Fixed Retainer)</span>', '<span class="flagship-price" style="font-size:1.15rem;">Annual Retainer</span>\n              <span class="flagship-price-sub">Bracketed by entity turnover &amp; filings</span>'],
-  ['<span class="flagship-price">&#8377;4,999</span>\r\n              <span class="flagship-price-sub">+ Official Govt Fees</span>', '<span class="flagship-price" style="font-size:1.15rem;">Scoped Filing</span>\n              <span class="flagship-price-sub">+ Official CGPDTM Govt Fees at actuals</span>'],
-  ['<span class="flagship-price">&#8377;1,499</span>\r\n              <span class="flagship-price-sub">/ filing (Monthly/Quarterly)</span>', '<span class="flagship-price" style="font-size:1.15rem;">Retainer Bracket</span>\n              <span class="flagship-price-sub">Bookkeeping, GST &amp; ITC ledger reconciliation</span>']
-];
-pricePairs.forEach(([target, rep]) => {
-  const altTarget = target.replace(/\r\n/g, '\n');
-  if (indexHtml.includes(target)) indexHtml = indexHtml.replace(target, rep);
-  else if (indexHtml.includes(altTarget)) indexHtml = indexHtml.replace(altTarget, rep);
-});
-
-// 1e. Update #founder-faqs to lead with Kerala Launch-to-Operate clarity while keeping guardrail-verified DIR-3 KYC & Section 403 FAQs
-if (!indexHtml.includes('Why does CraftEgon focus on Kerala Launch-to-Operate bundles')) {
-  indexHtml = indexHtml.replace(
-    '<div class="faq-accordion-group">',
-    `<div class="faq-accordion-group">
-          <details class="faq-item">
-            <summary class="faq-summary">
-              <span class="faq-question">Why does CraftEgon focus on Kerala Launch-to-Operate bundles instead of standalone registrations?</span>
-              <span class="faq-chevron" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>In Kerala, incorporation is only Day 1. Clinics, EXIM warehouses, food plants, boutique resorts, and coaching academies frequently stall after incorporation while navigating <strong>K-SWIFT</strong>, LSGD Panchayat/Municipal licenses, <strong>KSPCB</strong> consents, <strong>Kerala Clinical Establishments</strong> registration, and vendor or specialist contracts. Our bundles unify pre-launch dossiers, CraftEgon LLP contracts, and Year-1 governance under one operational desk.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-summary">
-              <span class="faq-question">How do CraftEgon Corporate Services (CCS) and CraftEgon LLP work together?</span>
-              <span class="faq-chevron" aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p><strong>CraftEgon LLP (LLPIN: ACO-0239)</strong> is our operating entity (Commercial Desk: Alappuzha PIN 690501; MCA Registered Office: Chettipadi, Tirurangadi, Malappuram PIN 676319), operating <strong>CraftEgon Corporate Services (CCS)</strong> for corporate structuring, regulatory filings, licensing coordination, and Year-1 governance retainers (with zero third-party banking partnerships). Where helpful for sector ethics and transparency checklists, our playbooks include non-affiliated governance references (such as NIEG standards).</p>
-            </div>
-          </details>`
-  );
-}
-
-// 1f. Update #consultation-cta geography and requirement options
-indexHtml = indexHtml.replace(
-  'Schedule a consultation with our corporate compliance advisory team. Transparent fixed quotes, dedicated desk support in Alappuzha, Kerala, and strict confidentiality under non-disclosure standards.',
-  'CraftEgon LLP (LLPIN: ACO-0239) operates our Commercial Desk at Room No.2, NS Building, Kaanjippuzha, Alappuzha (PIN 690501) and Registered Office at Chettipadi, Tirurangadi, Malappuram (PIN 676319)—request a scoped Launch-to-Operate or Year-1 Governance proposal with full separation of advisory and statutory fees.'
-);
-indexHtml = indexHtml.replace(
-  '<div class="trust-point-item"><span class="trust-check">&check;</span> Operational Desk: Alappuzha, Kerala</div>',
-  '<div class="trust-point-item"><span class="trust-check">&check;</span> Commercial Desk: Alappuzha &bull; Regd. Office: Malappuram (ACO-0239)</div>'
-);
-if (!indexHtml.includes('value="kl_bnd_clinic"')) {
-  indexHtml = indexHtml.replace(
-    '<option value="pvt_ltd">Private Limited Incorporation (SPICe+)</option>',
-    `<option value="kl_bnd_clinic">Kerala Bundle: Clinics, Diagnostics &amp; Care Centers</option>
-                      <option value="kl_bnd_exim">Kerala Bundle: EXIM, Freight &amp; Cold-Chain Logistics</option>
-                      <option value="kl_bnd_food">Kerala Bundle: Food, Spice &amp; Nutraceutical Units</option>
-                      <option value="kl_bnd_hospitality">Kerala Bundle: Hospitality, Stays &amp; Eco Resorts</option>
-                      <option value="kl_bnd_edtech">Kerala Bundle: EdTech &amp; Coaching Academies</option>
-                      <option value="pvt_ltd">Private Limited Incorporation (SPICe+)</option>`
-  );
-}
-
+// Clean up any leftover FAQ jargon / bank-tie-up lines in index.html
 indexHtml = indexHtml
-  .replace(/Within 2 Hours Mandate Scoping/g, 'Initial Scoping Within 1 Business Day')
-  .replace(/<form id="home-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="#" data-static-fallback="true">/g, '<form id="home-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="/api/v1/enquiries">')
+  .replace(/<span class="faq-question">Why does CraftEgon focus on Kerala Launch-to-Operate bundles instead of standalone registrations\?<\/span>/g,
+    '<span class="faq-question">Why does CraftEgon organize services around Kerala industry solutions instead of isolated filings?</span>')
+  .replace(/In Kerala, incorporation is only Day 1\.[\s\S]*?<\/p>/,
+    'Setting up a company or LLP is only the first step. In Kerala, healthcare clinics, export logistics hubs, food processing plants, boutique resorts, and training academies often run into delays when <strong>K-SWIFT</strong>, local body (LSGD) rules, <strong>KSPCB</strong> consents, <strong>Kerala Clinical Establishments</strong> registration, and vendor contracts are handled by disconnected vendors. Our three-phase model organizes entity setup, commercial documentation, and ongoing compliance under one desk.</p>')
+  .replace(/<span class="faq-question">How fast can my Private Limited company be incorporated in India\?<\/span>/g,
+    '<span class="faq-question">How does Private Limited company incorporation work under MCA V3?</span>')
+  .replace(/Under the MCA V3 portal and the unified SPICe\+ \(INC-32\) filing mechanism,[\s\S]*?bank account setup\.<\/p>/,
+    'Under the MCA V3 portal and unified SPICe+ (INC-32) mechanism, incorporation includes Name Reservation (Part A), SPICe+ Part B, up to 2 Director DINs, Certificate of Incorporation (CoI), PAN, TAN, and statutory EPFO/ESIC codes, plus board resolution documentation so you can open an account independently with whichever bank you choose. Actual timelines depend on KYC verification, DSC readiness, and Central Registration Centre (CRC) scrutiny.</p>')
+  .replace(/Within 2 Hours Mandate Scoping/g, 'Written Scope Following Review')
+  .replace(/<form id="home-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="#" data-static-fallback="true">/g,
+    '<form id="home-enquiry-form" class="if-lead-form home-intake-form" method="POST" action="/api/v1/enquiries">')
+  .replace(/Launch-to-Operate \+ Year-1 Governance/g, 'Three-Phase Business Infrastructure &amp; Ongoing Compliance')
+  .replace(/Start Scope Check/g, 'Check Business Readiness')
   .replace(
-    /"description": "Kerala's Launch-to-Operate[^"]*",/,
-    '"description": "Kerala\'s Launch-to-Operate + Year-1 Governance partner under CraftEgon LLP (LLPIN: ACO-0239). Commercial Desk: Alappuzha 690501; MCA Registered Office: Chettipadi, Malappuram 676319.",'
+    /"description": "[^"]*Commercial Desk: Alappuzha[^"]*"/,
+    '"description": "CraftEgon Corporate Services (CCS) under CraftEgon LLP (LLPIN: ACO-0239) helps businesses navigate registrations, pre-launch approvals, commercial agreements, and ongoing compliance. Commercial Desk: Alappuzha 690501; MCA Registered Office: Chettipadi, Malappuram 676319."'
   );
+
 fs.writeFileSync(path.join(ROOT, 'index.html'), indexHtml, 'utf8');
-console.log('Updated index.html with Kerala Launch-to-Operate front door and #kerala-bundles section.');
+console.log('Updated index.html with business-aligned messaging, emerald system, and 3-phase flow.');
 
 // ---------------------------------------------------------------------------
-// 2. Sync components/navbar.html & components/footer.html across ALL public HTML files
+// 2. Sync components/navbar.html & components/footer.html across ALL public HTML
 // ---------------------------------------------------------------------------
 const EXCLUDED_DIRS = new Set([
-  '.git', '.github', '.vault', '.vscode', '.system_generated',
-  'node_modules', 'portal', 'admin', 'src', 'docs', 'scripts',
-  'scratch', 'review-output', 'dist-public', 'components'
+  'node_modules', '.git', 'dist-public', 'scratch', 'components', 'admin', 'review-output', 'docs', 'portal'
 ]);
 
-function walkHtml(dir) {
-  const results = [];
-  for (const item of fs.readdirSync(dir)) {
-    if (EXCLUDED_DIRS.has(item)) continue;
-    const full = path.join(dir, item);
-    if (fs.statSync(full).isDirectory()) {
-      results.push(...walkHtml(full));
-    } else if (item.endsWith('.html')) {
-      results.push(full);
+const htmlFiles = [];
+function collectHtml(dir) {
+  for (const item of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (item.isDirectory()) {
+      if (!EXCLUDED_DIRS.has(item.name)) {
+        collectHtml(path.join(dir, item.name));
+      }
+    } else if (item.isFile() && item.name.endsWith('.html')) {
+      htmlFiles.push(path.join(dir, item.name));
     }
   }
-  return results;
 }
+collectHtml(ROOT);
 
-const allPublicHtml = walkHtml(ROOT);
 let navUpdated = 0;
 let footerUpdated = 0;
+let cssUpdated = 0;
 
-for (const filePath of allPublicHtml) {
-  let content = fs.readFileSync(filePath, 'utf8');
+for (const file of htmlFiles) {
+  let content = fs.readFileSync(file, 'utf8');
   let changed = false;
 
   const navRes = replaceBalancedDivById(content, 'global-navbar', `<div id="global-navbar">\n${ssgNavbar}\n</div>`);
   if (navRes.replaced) {
     content = navRes.html;
-    changed = true;
     navUpdated++;
-  } else {
-    const hdrRes = replaceBalancedDivById(content, 'global-header', `<div id="global-navbar">\n${ssgNavbar}\n</div>`);
-    if (hdrRes.replaced) {
-      content = hdrRes.html;
-      changed = true;
-      navUpdated++;
-    }
+    changed = true;
   }
 
-  const ftrRes = replaceBalancedDivById(content, 'global-footer', `<div id="global-footer">\n${ssgFooter}\n</div>`);
-  if (ftrRes.replaced) {
-    content = ftrRes.html;
-    changed = true;
+  const footerRes = replaceBalancedDivById(content, 'global-footer', `<div id="global-footer">\n${ssgFooter}\n</div>`);
+  if (footerRes.replaced) {
+    content = footerRes.html;
     footerUpdated++;
+    changed = true;
+  }
+
+  // Upgrade CSS cache versions sitewide so updated Emerald palette loads cleanly everywhere
+  const prevCss = content;
+  content = content
+    .replace(/\/assets\/css\/tokens\.css[^"']*/gi, '/assets/css/tokens.css?v=3.0')
+    .replace(/\/assets\/css\/theme\.css[^"']*/gi, '/assets/css/theme.css?v=3.0')
+    .replace(/\/assets\/css\/navbar\.css[^"']*/gi, '/assets/css/navbar.css?v=3.0')
+    .replace(/\/assets\/css\/bundles\.css[^"']*/gi, '/assets/css/bundles.css?v=2.0');
+  if (content !== prevCss) {
+    cssUpdated++;
+    changed = true;
   }
 
   if (changed) {
-    fs.writeFileSync(filePath, content, 'utf8');
+    fs.writeFileSync(file, content, 'utf8');
   }
 }
 
-console.log(`Chrome sync complete across ${allPublicHtml.length} public HTML files: navbar updated on ${navUpdated}, footer updated on ${footerUpdated}.`);
+console.log(`Chrome sync complete across ${htmlFiles.length} HTML files: navbar on ${navUpdated}, footer on ${footerUpdated}, CSS version bump on ${cssUpdated}.`);

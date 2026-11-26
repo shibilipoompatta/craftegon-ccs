@@ -77,7 +77,7 @@ COMMUNICATION PRINCIPLES & GUARDRAILS:
 // --- 2. DETERMINISTIC RULES ENGINE (LOCAL ZERO-DOWNTIME FALLBACK & TEST VERIFICATION) ---
 const KB=[
   {k:['is ai working','isaiis working','whether ai is working','is it working','are you working','working or not','ai working','system status','status check','are you active','are you online','can you hear me','ping','diagnostics'],
-  r:`Yes, I am online and operating normally! ⚡<br><br>I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot representing <b>CraftEgon LLP</b>. I am active and ready to assist you with Indian corporate law compliances, including:<br>• <b>Company Incorporation:</b> Pvt Ltd, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Statutory Calculators:</b> MCA delay penalties, RoC filing fees, MSME 43B(h)<br>• <b>Direct Advisory:</b> Micro-retainers and dedicated compliance desk<br><br>How can I assist your business today?`,
+  r:`Yes, I am online and operating normally!<br><br>I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot representing <b>CraftEgon LLP</b>. I am active and ready to assist you with Indian corporate law compliances, including:<br>• <b>Company Incorporation:</b> Pvt Ltd, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC, Form DPT-3<br>• <b>Statutory Calculators:</b> MCA delay penalties, RoC filing fees, MSME 43B(h)<br>• <b>Direct Advisory:</b> Micro-retainers and dedicated compliance desk<br><br>How can I assist your business today?`,
   a:[['Explore Services Directory','/services.html'],['Calculate Filing Fees','/conversion/calculator.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['kerala','k-swift','kswift','clinical establishment','kspcb','lsgd','panchayat','clinic','diagnostic','exim','cold-chain','cold chain','spice','food unit','nutraceutical','hospitality','resort','edtech','coaching academy','kozhikode','malappuram','nieg','bundle'],
@@ -91,7 +91,7 @@ const KB=[
   a:[['Run Readiness Estimator','/conversion/calculator.html#readiness'],['Explore Kerala Bundles','/index.html#kerala-bundles'],['Request Scoped Quote','/contact.html']]},
 
   {k:['how are you','how r u','hello','hi','hey','good morning','good afternoon','good evening','who are you','what is your name','your name','who r u','what can you do','jinu','who is jinu','are you jinu','introduce yourself'],
-  r:`Hello! 👋 I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b> (Commercial Desk: Alappuzha &amp; Regd. Office: Malappuram, Kerala).<br><br>I can guide you through:<br>• <b>Kerala Launch-to-Operate Bundles:</b> Clinics, EXIM/Cold-Chain, Food/Spice, Resorts &amp; EdTech<br>• <b>Company Formation:</b> Private Limited, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC (Rule 12A), Form DPT-3<br>• <b>Corporate Tax, GST &amp; FEMA:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h), RBI FLA<br>• <b>Readiness &amp; Calculators:</b> Bundle scope estimator, Sec 403 late fees &amp; registry lookups<br><br>How can I assist your business today?`,
+  r:`Hello! I am <b>Jinu</b>, your AI Corporate Compliance Co-Pilot at <b>CraftEgon LLP</b> (Commercial Desk: Alappuzha &amp; Regd. Office: Malappuram, Kerala).<br><br>I can guide you through:<br>• <b>Kerala Industry Solutions:</b> Clinics, EXIM/Cold-Chain, Food/Spice, Resorts &amp; EdTech<br>• <b>Company Formation:</b> Private Limited, LLP, OPC, Section 8 on MCA V3<br>• <b>Annual RoC Governance:</b> Form AOC-4, MGT-7, DIR-3 KYC (Rule 12A), Form DPT-3<br>• <b>Corporate Tax, GST &amp; FEMA:</b> Form 3CEB, GSTR-9/9C, MSME 43B(h), RBI FLA<br>• <b>Readiness &amp; Calculators:</b> Bundle scope estimator, Sec 403 late fees &amp; registry lookups<br><br>How can I assist your business today?`,
   a:[['Kerala Readiness Estimator','/conversion/calculator.html#readiness'],['Explore Services Directory','/services.html'],['Corporate Retainer Desk','/conversion/retainer-desk.html']]},
 
   {k:['llp','limited liability partnership','fillip','form 3','run-llp','dpin','incorporate llp','llp formation','register llp','start llp'],
@@ -1369,7 +1369,7 @@ async function handleQuery(q){
 function initGreeting(){
   const b=document.getElementById('cchat-messages-container');
   if(!b||b.children.length>0)return;
-  appendBotMsg(`Hello! 👋 I am <b>Jinu</b>, your AI Corporate &amp; Regulatory Co-Pilot at <b>CraftEgon Corporate Services (CCS)</b> under <b>CraftEgon LLP</b> (LLPIN: ACO-0239).<br><br>Explore our <b>Kerala Launch-to-Operate Bundles</b> (Commercial Desk in Alappuzha &amp; Regd. Office in Malappuram), run a <b>Readiness &amp; Scope Check</b>, or ask about MCA V3, RoC filings, and corporate governance today.`);
+  appendBotMsg(`Hello! I am <b>Jinu</b>, your AI Corporate &amp; Regulatory Co-Pilot at <b>CraftEgon Corporate Services (CCS)</b> under <b>CraftEgon LLP</b> (LLPIN: ACO-0239).<br><br>Explore our <b>Kerala Industry Solutions</b> (Commercial Desk in Alappuzha &amp; Regd. Office in Malappuram), run a <b>Readiness &amp; Scope Check</b>, or ask about MCA V3, RoC filings, and ongoing compliance today.`);
 }
 
 function bind(){

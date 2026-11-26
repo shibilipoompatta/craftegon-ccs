@@ -49,13 +49,13 @@ img, svg, video, canvas {
 
 /* Accessible Focus States */
 :focus-visible {
-  outline: 2px solid var(--accent-green-primary, #247A62);
+  outline: 2px solid var(--accent-green-primary, #176B4A);
   outline-offset: 2px;
 }
 
 ::selection {
-  background-color: var(--brand-mint, #BCEBD5);
-  color: var(--text-dark, #193B46);
+  background-color: var(--brand-mint, #E8F2EC);
+  color: var(--text-dark, #17251F);
 }
 
 /* 2. Typography System */
@@ -84,13 +84,13 @@ p {
 }
 
 a {
-  color: var(--accent-green-primary, #247A62);
+  color: var(--accent-green-primary, #176B4A);
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 a:hover {
-  color: var(--accent-blue-secondary, #287DA8);
+  color: var(--accent-blue-secondary, #1E5C45);
 }
 
 .font-mono,
@@ -178,7 +178,7 @@ a:hover {
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--accent-green-primary, #247A62);
+  outline: 2px solid var(--accent-green-primary, #176B4A);
   outline-offset: 2px;
 }
 
@@ -199,7 +199,7 @@ a:hover {
   font-size: 1.05rem;
 }
 
-/* Canonical Variant 1: Primary Action Button (Forest Emerald Accent #247A62 with White Text) */
+/* Canonical Variant 1: Primary Action Button (Forest Emerald Accent #176B4A with White Text) */
 .btn-primary,
 .btn-hero-primary,
 .btn-navy,
@@ -210,10 +210,10 @@ a:hover {
 .hero-cta-primary,
 .conv-submit-btn,
 .calc-btn-primary {
-  background-color: var(--accent-green-primary, #247A62) !important;
+  background-color: var(--accent-green-primary, #176B4A) !important;
   color: #FFFFFF !important;
-  border-color: var(--accent-green-primary, #247A62) !important;
-  box-shadow: 0 1px 3px rgba(36, 122, 98, 0.2);
+  border-color: var(--accent-green-primary, #176B4A) !important;
+  box-shadow: 0 1px 3px rgba(23, 107, 74, 0.2);
 }
 
 .btn-primary:hover,
@@ -226,11 +226,11 @@ a:hover {
 .hero-cta-primary:hover,
 .conv-submit-btn:hover,
 .calc-btn-primary:hover {
-  background-color: var(--brand-gold-hover, #1B5E4B) !important;
-  border-color: var(--brand-gold-hover, #1B5E4B) !important;
+  background-color: var(--brand-gold-hover, #115238) !important;
+  border-color: var(--brand-gold-hover, #115238) !important;
   color: #FFFFFF !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(36, 122, 98, 0.28);
+  box-shadow: 0 4px 12px rgba(23, 107, 74, 0.28);
 }
 
 /* Canonical Variant 2: Secondary Action Button (Crisp White/Surface with Sovereign Navy Text & Hairline Border) */
@@ -243,9 +243,9 @@ a:hover {
 .hero-cta-secondary,
 .calc-btn-secondary {
   background-color: #FFFFFF !important;
-  color: var(--text-dark, #193B46) !important;
-  border-color: var(--border-color, #DCE8E5) !important;
-  box-shadow: 0 1px 2px rgba(25, 59, 70, 0.04);
+  color: var(--text-dark, #17251F) !important;
+  border-color: var(--border-color, #D8E3DC) !important;
+  box-shadow: 0 1px 2px rgba(23, 37, 31, 0.04);
 }
 
 .btn-secondary:hover,
@@ -256,9 +256,9 @@ a:hover {
 .flagship-btn-secondary:hover,
 .hero-cta-secondary:hover,
 .calc-btn-secondary:hover {
-  background-color: var(--surface-mint-white, #F4FAF7) !important;
-  border-color: var(--accent-green-primary, #247A62) !important;
-  color: var(--accent-green-primary, #247A62) !important;
+  background-color: var(--surface-mint-white, #F5F8F5) !important;
+  border-color: var(--accent-green-primary, #176B4A) !important;
+  color: var(--accent-green-primary, #176B4A) !important;
   transform: translateY(-1px);
 }
 
@@ -266,15 +266,15 @@ a:hover {
 .btn-outline,
 .btn-royal-outline {
   background-color: transparent !important;
-  color: var(--navy-800, #193B46) !important;
-  border-color: var(--navy-800, #193B46) !important;
+  color: var(--navy-800, #17251F) !important;
+  border-color: var(--navy-800, #17251F) !important;
 }
 
 .btn-outline:hover,
 .btn-royal-outline:hover {
-  background-color: rgba(25, 59, 70, 0.04) !important;
-  border-color: var(--accent-green-primary, #247A62) !important;
-  color: var(--accent-green-primary, #247A62) !important;
+  background-color: rgba(23, 37, 31, 0.04) !important;
+  border-color: var(--accent-green-primary, #176B4A) !important;
+  color: var(--accent-green-primary, #176B4A) !important;
   transform: translateY(-1px);
 }
 
@@ -284,7 +284,7 @@ a:hover {
 .btn-ghost {
   background-color: transparent !important;
   border-color: transparent !important;
-  color: var(--accent-green-primary, #247A62) !important;
+  color: var(--accent-green-primary, #176B4A) !important;
   padding: 0.5rem 0.75rem;
   box-shadow: none !important;
   font-weight: 600;
@@ -293,8 +293,8 @@ a:hover {
 .btn-text:hover,
 .btn-link:hover,
 .btn-ghost:hover {
-  background-color: var(--surface-mint-white, #F4FAF7) !important;
-  color: var(--brand-gold-hover, #1B5E4B) !important;
+  background-color: var(--surface-mint-white, #F5F8F5) !important;
+  color: var(--brand-gold-hover, #115238) !important;
   text-decoration: underline;
   transform: none;
 }
@@ -302,9 +302,9 @@ a:hover {
 /* Auxiliary Brand Blue Accent Button */
 .btn-accent,
 .btn-royal-gold {
-  background-color: var(--accent-blue-secondary, #287DA8) !important;
+  background-color: var(--accent-blue-secondary, #1E5C45) !important;
   color: #FFFFFF !important;
-  border-color: var(--accent-blue-secondary, #287DA8) !important;
+  border-color: var(--accent-blue-secondary, #1E5C45) !important;
 }
 
 .btn-accent:hover,
@@ -322,7 +322,7 @@ a:hover {
   -webkit-overflow-scrolling: touch;
   margin: 1.5rem 0;
   border-radius: var(--radius-sm, 6px);
-  border: 1px solid var(--border-color, #DCE8E5);
+  border: 1px solid var(--border-color, #D8E3DC);
   background: #FFFFFF;
 }
 
@@ -331,26 +331,26 @@ a:hover {
   border-collapse: collapse;
   text-align: left;
   font-size: var(--text-sm, 0.875rem);
-  color: var(--text-main, #243746);
+  color: var(--text-main, #22342C);
   background: #FFFFFF;
 }
 
 .data-table th {
-  background-color: var(--surface-mint-white, #F4FAF7);
-  color: var(--text-secondary, #52717A);
+  background-color: var(--surface-mint-white, #F5F8F5);
+  color: var(--text-secondary, #64746B);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.85rem 1.25rem;
-  border-bottom: 1.5px solid var(--border-color, #DCE8E5);
+  border-bottom: 1.5px solid var(--border-color, #D8E3DC);
   white-space: nowrap;
 }
 
 .data-table td {
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border-color, #DCE8E5);
+  border-bottom: 1px solid var(--border-color, #D8E3DC);
   vertical-align: middle;
   line-height: 1.5;
 }
@@ -389,15 +389,15 @@ a:hover {
 }
 
 .architectural-border {
-  border: 1px solid var(--border-color, #DCE8E5) !important;
+  border: 1px solid var(--border-color, #D8E3DC) !important;
 }
 
 .architectural-card {
   background: #FFFFFF;
-  border: 1px solid var(--border-color, #DCE8E5);
+  border: 1px solid var(--border-color, #D8E3DC);
   border-radius: var(--radius-sm, 6px);
   padding: 1.75rem;
-  box-shadow: 0 1px 3px rgba(25, 59, 70, 0.04);
+  box-shadow: 0 1px 3px rgba(23, 37, 31, 0.04);
 }
 
 .split-feature-row {
@@ -406,7 +406,7 @@ a:hover {
   gap: 2.5rem;
   align-items: center;
   padding: 2.5rem 0;
-  border-bottom: 1px solid var(--border-color, #DCE8E5);
+  border-bottom: 1px solid var(--border-color, #D8E3DC);
 }
 
 .split-feature-row:last-child {
@@ -459,14 +459,14 @@ a:hover {
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full, 9999px);
   background: var(--navy-50, #F0F5FA);
-  color: var(--navy-800, #0B2545);
+  color: var(--navy-800, #17251F);
   border: 1px solid var(--navy-100, #E6EEF7);
 }
 
 .badge-gold {
-  background: var(--surface-mint-soft, #DDF5EA);
-  color: var(--accent-green-primary, #247A62);
-  border: 1px solid rgba(36, 122, 98, 0.25);
+  background: var(--surface-mint-soft, #E8F2EC);
+  color: var(--accent-green-primary, #176B4A);
+  border: 1px solid rgba(23, 107, 74, 0.25);
 }
 
 .badge-success {
@@ -498,8 +498,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--accent-green-primary, #247A62);
-  box-shadow: 0 0 0 3px rgba(36, 122, 98, 0.18);
+  border-color: var(--accent-green-primary, #176B4A);
+  box-shadow: 0 0 0 3px rgba(23, 107, 74, 0.18);
 }
 
 label {
@@ -549,15 +549,15 @@ label {
 .conv-filter-btn:hover {
   background: var(--navy-50, #F0F5FA);
   border-color: var(--navy-300, #9FB3C8);
-  color: var(--navy-800, #0B2545);
+  color: var(--navy-800, #17251F);
 }
 
 .filter-chip.active,
 .conv-filter-btn.active {
-  background: var(--accent-green-primary, #247A62) !important;
+  background: var(--accent-green-primary, #176B4A) !important;
   color: #FFFFFF !important;
-  border-color: var(--accent-green-primary, #247A62) !important;
-  box-shadow: 0 1px 4px rgba(36, 122, 98, 0.2);
+  border-color: var(--accent-green-primary, #176B4A) !important;
+  box-shadow: 0 1px 4px rgba(23, 107, 74, 0.2);
 }
 
 /* 10. Reusable Statutory Notice & Disclosure Panels */
@@ -565,7 +565,7 @@ label {
 .statutory-disclosure-panel {
   background: var(--bg-secondary, #F8FAFC);
   border: 1px solid var(--border-color, #E2E8F0);
-  border-left: 4px solid var(--accent-green-primary, #247A62);
+  border-left: 4px solid var(--accent-green-primary, #176B4A);
   padding: 1.15rem 1.4rem;
   border-radius: var(--radius-md, 8px);
   font-size: 0.82rem;
@@ -580,7 +580,7 @@ label {
 
 .statutory-notice-box a,
 .statutory-disclosure-panel a {
-  color: var(--navy-800, #0B2545);
+  color: var(--navy-800, #17251F);
   text-decoration: underline;
   font-weight: 600;
 }
@@ -620,8 +620,8 @@ label {
 }
 
 .tools-hub-card.featured {
-  border-color: var(--accent-green-primary, #247A62);
-  box-shadow: 0 4px 16px -2px rgba(36, 122, 98, 0.12);
+  border-color: var(--accent-green-primary, #176B4A);
+  box-shadow: 0 4px 16px -2px rgba(23, 107, 74, 0.12);
 }
 
 .tools-hub-card-header {
@@ -642,9 +642,9 @@ label {
   letter-spacing: 0.05em;
   padding: 0.2rem 0.65rem;
   border-radius: 4px;
-  background: var(--surface-mint-soft, #DDF5EA);
-  color: var(--accent-green-primary, #247A62);
-  border: 1px solid rgba(36, 122, 98, 0.25);
+  background: var(--surface-mint-soft, #E8F2EC);
+  color: var(--accent-green-primary, #176B4A);
+  border: 1px solid rgba(23, 107, 74, 0.25);
 }
 
 .tool-category-label {
@@ -657,7 +657,7 @@ label {
   font-family: var(--font-heading);
   font-size: 1.18rem;
   font-weight: 700;
-  color: var(--navy-800, #0B2545);
+  color: var(--navy-800, #17251F);
   margin: 0 0 0.55rem;
   line-height: 1.3;
 }
@@ -691,7 +691,7 @@ label {
 }
 
 .tool-spec-item strong {
-  color: var(--navy-800, #0B2545);
+  color: var(--navy-800, #17251F);
   white-space: nowrap;
 }
 
@@ -716,7 +716,7 @@ label {
 .tool-btn-action {
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--navy-800, #0B2545);
+  color: var(--navy-800, #17251F);
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -724,7 +724,7 @@ label {
 }
 
 .tools-hub-card:hover .tool-btn-action {
-  color: var(--accent-green-primary, #247A62);
+  color: var(--accent-green-primary, #176B4A);
   transform: translateX(2px);
 }
 
@@ -735,14 +735,14 @@ label {
   position: absolute;
   top: -100px;
   left: 1.5rem;
-  background: var(--navy-800, #0B2545);
+  background: var(--navy-800, #17251F);
   color: #FFFFFF !important;
   padding: 0.65rem 1.25rem;
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.88rem;
   border-radius: var(--radius-sm, 6px);
-  border: 1.5px solid var(--accent-green-primary, #247A62);
+  border: 1.5px solid var(--accent-green-primary, #176B4A);
   box-shadow: 0 4px 16px rgba(11, 37, 69, 0.35);
   z-index: 9999;
   text-decoration: none;
@@ -752,7 +752,7 @@ label {
 .skip-link:focus,
 .skip-link:focus-visible {
   top: 1rem;
-  outline: 2px solid var(--accent-green-primary, #247A62);
+  outline: 2px solid var(--accent-green-primary, #176B4A);
   outline-offset: 2px;
 }
 
@@ -789,7 +789,7 @@ table {
 
 /* High-Contrast Accessible Input Placeholders (WCAG 2.2 AA SC 1.4.3) */
 ::placeholder {
-  color: var(--text-secondary, #52717A) !important;
+  color: var(--text-secondary, #64746B) !important;
   opacity: 0.88;
 }
 
@@ -817,7 +817,7 @@ textarea:focus-visible,
 .hero-search-inline-btn:focus-visible,
 .filter-chip.active:focus-visible,
 .conv-filter-btn.active:focus-visible {
-  outline: 2px solid var(--accent-green-primary, #247A62) !important;
+  outline: 2px solid var(--accent-green-primary, #176B4A) !important;
   outline-offset: 2px !important;
 }
 
@@ -981,7 +981,7 @@ textarea:focus-visible,
 .btn:focus-visible,
 .if-btn-primary:focus-visible,
 .if-btn-secondary:focus-visible {
-  outline: 2px solid var(--teal, #247A62) !important;
+  outline: 2px solid var(--teal, #176B4A) !important;
   outline-offset: 2px !important;
 }
 

@@ -1427,8 +1427,12 @@ function renderKeralaReadinessScope() {
 
   const lsgdEl = document.getElementById('kl-est-lsgd');
   const premisesEl = document.getElementById('kl-est-premises');
+  const staffEl = document.getElementById('kl-est-staff');
+  const activityEl = document.getElementById('kl-est-activity');
   const lsgd = lsgdEl ? lsgdEl.value : 'municipality';
   const premises = premisesEl ? premisesEl.value : 'occupancy-ready';
+  const staff = staffEl ? staffEl.value : 'under-10';
+  const activity = activityEl ? activityEl.value : 'standard';
 
   const bundleId = verticalEl.value || 'KL-BND-CLINIC';
   const stage = stageEl.value || 'new-pvt';
@@ -1496,24 +1500,35 @@ function renderKeralaReadinessScope() {
   } else if (premises === 'lease-pending') {
     p1Items.push('Lease Gate: Condition commercial lease lock-in on owner NOC, property tax receipt & valid Occupancy Certificate for LSGD/KSPCB licensing');
   }
+  if (staff === '20-plus') {
+    p1Items.push('Headcount Trigger (20+): Assess mandatory EPF registration & ESIC wage applicability');
+  } else if (staff === '10-19') {
+    p1Items.push('Headcount Trigger (10–19): Screen ESIC applicability and labour-register setup');
+  }
+  if (activity === 'export-fdi') {
+    p1Items.push('Cross-Border / EXIM Trigger: Screen IEC, GST Export LUT & FEMA/RBI reporting obligations');
+  }
   fillList(p1El, p1Items);
 
   const p2Items = [];
   if (needContracts) p2Items.push(...spec.phase2.slice(0, 2));
   if (needPrivacyIp) p2Items.push(spec.phase2[2] || 'Brand Trademark Protection & DPDP Act Privacy Architecture');
+  if (staff === '10-19' || staff === '20-plus') {
+    p2Items.push('Workplace Trigger (10+ Team): Constitute POSH Act Internal Committee (IC) & employee handbook policies');
+  }
   if (!p2Items.length) p2Items.push('Core entity charter, NDA baseline & governance checklist (contract add-ons optional)');
   fillList(p2El, p2Items);
 
   const p3Items = needRetainer || tierKey === 'T3'
     ? spec.phase3
-    : ['Transition ready after pre-launch setup into monthly/annual RoC, GST & license renewal tracking'];
+    : ['Transition ready after setup into monthly/annual RoC, GST & licence renewal tracking'];
   fillList(p3El, p3Items);
 
   if (niegEl) niegEl.textContent = spec.nieg;
 
   const milestones = runtimeMeta?.dashboardMilestoneRules || ['AOC-4', 'MGT-7 / MGT-7A', 'GSTR-1', 'GSTR-3B'];
   if (milestonesEl) {
-    milestonesEl.textContent = `Year-1 Rules Mapped: ${milestones.join(' • ')}`;
+    milestonesEl.textContent = `Recurring Filings Mapped: ${milestones.join(' • ')}`;
   }
 
   const stageLabelMap = {
@@ -1529,13 +1544,13 @@ function renderKeralaReadinessScope() {
     'nri-gcc': 'foreign_sub'
   };
   const focusFlags = [
-    needLicensing ? 'Kerala Pre-Launch Clearances' : null,
+    needLicensing ? 'Pre-Launch Clearances' : null,
     needContracts ? 'CraftEgon LLP Commercial Contracts' : null,
     needPrivacyIp ? 'DPDP Privacy & Trademark' : null,
-    needRetainer ? 'Year-1 Governance & Tax Ledger Retainer' : null
+    needRetainer ? 'Ongoing Compliance Retainer' : null
   ].filter(Boolean).join(', ');
 
-  const scopeBrief = `Kerala Readiness Estimate — Bundle: ${spec.bundleName} (${spec.id}) | Tier: ${tier.name} (${tier.tierId}) | Stage: ${stageLabelMap[stage] || stage} | LSGD: ${lsgd} | Premises: ${premises} | Scale: ${scale} | Focus: ${focusFlags || 'Baseline Launch'}. Requesting separated CCS advisory and statutory outlay quotation.`;
+  const scopeBrief = `Kerala Readiness Estimate — Solution: ${spec.bundleName} (${spec.id}) | Tier: ${tier.name} (${tier.tierId}) | Stage: ${stageLabelMap[stage] || stage} | LSGD: ${lsgd} | Premises: ${premises} | Team: ${staff} | Activity: ${activity} | Scale: ${scale} | Focus: ${focusFlags || 'Baseline Setup'}. Requesting separated CCS coordination and statutory outlay quotation.`;
 
   if (intakeCta) {
     const intakeUrl = `/contact.html?bundle=${encodeURIComponent(spec.id)}&tier=${encodeURIComponent(tier.tierId)}&entity=${encodeURIComponent(entityParamMap[stage] || 'pvt_ltd')}&scope=${encodeURIComponent(scopeBrief)}`;

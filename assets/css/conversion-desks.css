@@ -6,27 +6,27 @@
  */
 
 :root {
-  --desk-navy-deep: #10262E;
-  --desk-navy-dark: #1E3842;
-  --desk-mint-primary: #247A62;
-  --desk-mint-vibrant: #75CDA9;
-  --desk-mint-soft: #DDF5EA;
-  --desk-sky-soft: #DDF2FC;
-  --desk-border: #DCE8E5;
-  --desk-text-main: #10262E;
-  --desk-text-muted: #52717A;
+  --desk-navy-deep: #17251F;
+  --desk-navy-dark: #1E332B;
+  --desk-mint-primary: #176B4A;
+  --desk-mint-vibrant: #2D8A65;
+  --desk-mint-soft: #E8F2EC;
+  --desk-sky-soft: #F5F8F5;
+  --desk-border: #D8E3DC;
+  --desk-text-main: #17251F;
+  --desk-text-muted: #64746B;
 }
 
 .desk-hero-card {
   position: relative;
-  background: radial-gradient(130% 130% at 50% 0%, #FFFFFF 0%, #F4FAF7 45%, #DDF5EA 80%, #DDF2FC 100%);
-  border: 1px solid rgba(117, 205, 169, 0.4);
+  background: radial-gradient(130% 130% at 50% 0%, #FFFFFF 0%, #F5F8F5 55%, #E8F2EC 100%);
+  border: 1px solid #D8E3DC;
   border-radius: 20px;
   padding: 3rem 2rem 2.5rem;
   text-align: center;
   margin-top: 1.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 10px 30px rgba(16, 38, 46, 0.05);
+  box-shadow: 0 10px 30px rgba(23, 37, 31, 0.05);
   overflow: hidden;
 }
 
@@ -36,7 +36,7 @@
   gap: 0.45rem;
   padding: 0.35rem 0.95rem;
   background: #FFFFFF;
-  border: 1.5px solid rgba(36, 122, 98, 0.25);
+  border: 1.5px solid rgba(23, 107, 74, 0.25);
   border-radius: 9999px;
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.78rem;
@@ -45,7 +45,7 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 1.15rem;
-  box-shadow: 0 2px 8px rgba(36, 122, 98, 0.08);
+  box-shadow: 0 2px 8px rgba(23, 107, 74, 0.08);
 }
 
 .desk-hero-title {
@@ -75,7 +75,7 @@
   align-items: center;
   gap: 1.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(36, 122, 98, 0.15);
+  border-top: 1px solid rgba(23, 107, 74, 0.15);
   margin-top: 1.25rem;
 }
 
@@ -93,13 +93,13 @@
   border: 1.5px solid var(--desk-border);
   border-radius: 18px;
   padding: 2.5rem;
-  box-shadow: 0 12px 36px rgba(16, 38, 46, 0.07);
+  box-shadow: 0 12px 36px rgba(23, 37, 31, 0.07);
   position: relative;
   transition: box-shadow 0.25s ease;
 }
 
 .desk-form-card:hover {
-  box-shadow: 0 16px 44px rgba(16, 38, 46, 0.1);
+  box-shadow: 0 16px 44px rgba(23, 37, 31, 0.1);
 }
 
 .desk-form-header {
@@ -190,18 +190,18 @@
   font-size: 1.05rem;
   font-weight: 700;
   color: #FFFFFF;
-  background: linear-gradient(135deg, #247A62 0%, #175242 100%);
+  background: linear-gradient(135deg, #176B4A 0%, #175242 100%);
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(36, 122, 98, 0.28);
+  box-shadow: 0 6px 18px rgba(23, 107, 74, 0.28);
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   margin-top: 0.75rem;
 }
 
 .desk-btn-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(36, 122, 98, 0.38);
+  box-shadow: 0 10px 26px rgba(23, 107, 74, 0.38);
   background: linear-gradient(135deg, #2D9679 0%, #1E6451 100%);
 }
 

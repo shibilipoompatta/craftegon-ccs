@@ -103,7 +103,7 @@ async function runBrowserTestSuite() {
   it('lead intake form enforces required fields and prevents empty submission', () => {
     const dom = loadPageDom('conversion/retainer-desk.html');
     const { document } = dom.window;
-    const form = document.querySelector('form.if-lead-form, form');
+    const form = document.querySelector('form.if-lead-form') || document.querySelector('main form, form');
     assert.ok(form, 'Lead intake form must exist on retainer page');
     const requiredInputs = form.querySelectorAll('input[required], select[required]');
     assert.ok(requiredInputs.length >= 2, 'Form must enforce required inputs on core fields');

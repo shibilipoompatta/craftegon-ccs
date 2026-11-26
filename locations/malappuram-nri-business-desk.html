@@ -33,16 +33,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/theme.css">
-  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=3.0">
+  <link rel="stylesheet" href="/assets/css/theme.css?v=3.0">
+  <link rel="stylesheet" href="/assets/css/navbar.css?v=3.0">
   <link rel="stylesheet" href="/assets/css/home-unique.css">
   <link rel="stylesheet" href="/assets/css/service-page.css">
 
   <style>
     body {
-      background-color: var(--bg-secondary, #F4FAF7);
-      color: var(--text-main, #243746);
+      background-color: var(--bg-secondary, #F5F8F5);
+      color: var(--text-main, #22342C);
       font-family: var(--font-body, 'Inter', -apple-system, sans-serif);
       margin: 0;
       padding: 0;
@@ -50,8 +50,8 @@
     }
     .loc-hero {
       padding: 6.5rem 1.5rem 3.5rem;
-      background: var(--mint-sky-hero, linear-gradient(135deg, #F4FAF7 0%, #DDF5EA 45%, #DDF2FC 100%));
-      border-bottom: 1px solid var(--border-color, #DCE8E5);
+      background: var(--mint-sky-hero, linear-gradient(135deg, #F5F8F5 0%, #E8F2EC 45%, #E8F2EC 100%));
+      border-bottom: 1px solid var(--border-color, #D8E3DC);
     }
     .loc-hero-inner {
       max-width: 1000px;
@@ -62,18 +62,18 @@
       align-items: center;
       gap: 0.5rem;
       font-size: 0.85rem;
-      color: var(--text-secondary, #52717A);
+      color: var(--text-secondary, #64746B);
       margin-bottom: 1.25rem;
     }
     .loc-breadcrumb a {
-      color: var(--accent-green-primary, #247A62);
+      color: var(--accent-green-primary, #176B4A);
       text-decoration: none;
     }
     .loc-title {
       font-family: var(--font-heading, 'Manrope', sans-serif);
       font-size: clamp(2rem, 3.8vw, 2.75rem);
       font-weight: 800;
-      color: var(--text-dark, #193B46);
+      color: var(--text-dark, #17251F);
       letter-spacing: -0.025em;
       line-height: 1.2;
       margin: 0 0 1rem;
@@ -96,11 +96,11 @@
       gap: 0.35rem;
       padding: 0.35rem 0.75rem;
       background: #FFFFFF;
-      border: 1px solid var(--border-color, #DCE8E5);
+      border: 1px solid var(--border-color, #D8E3DC);
       border-radius: 999px;
       font-size: 0.82rem;
       font-weight: 600;
-      color: var(--accent-green-primary, #247A62);
+      color: var(--accent-green-primary, #176B4A);
     }
     .loc-container {
       max-width: 1000px;
@@ -115,7 +115,7 @@
     }
     .loc-card {
       background: #FFFFFF;
-      border: 1px solid var(--border-color, #DCE8E5);
+      border: 1px solid var(--border-color, #D8E3DC);
       border-radius: 12px;
       padding: 1.75rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.03);
@@ -127,7 +127,7 @@
       font-family: var(--font-heading, 'Manrope', sans-serif);
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--text-dark, #193B46);
+      color: var(--text-dark, #17251F);
       margin: 0 0 0.65rem;
     }
     .loc-card p {
@@ -137,7 +137,7 @@
       margin: 0 0 1.25rem;
     }
     .loc-card a {
-      color: var(--accent-green-primary, #247A62);
+      color: var(--accent-green-primary, #176B4A);
       font-weight: 600;
       font-size: 0.9rem;
       text-decoration: none;
@@ -150,7 +150,7 @@
     }
     .loc-intake-box {
       background: #FFFFFF;
-      border: 1px solid var(--border-color, #DCE8E5);
+      border: 1px solid var(--border-color, #D8E3DC);
       border-radius: 12px;
       padding: 2.25rem;
       box-shadow: 0 4px 16px rgba(0,0,0,0.04);
@@ -208,7 +208,7 @@
           id="universal-search-input"
           name="q"
           class="universal-search-input"
-          placeholder="Search bundles, K-SWIFT, SPICe+, AOC-4..."
+          placeholder="Search industry bundles, SPICe+, K-SWIFT, AOC-4..."
           autocomplete="off"
           spellcheck="false"
           aria-label="Universal Service Search"
@@ -228,18 +228,21 @@
       </div>
     </div>
 
-    <!-- Desktop Primary Navigation (5 Clean Buyer Destinations) -->
+    <!-- Desktop Primary Navigation (§14 Business-Aligned Information Architecture) -->
     <nav class="if-nav" aria-label="Main Navigation">
-      <!-- 1. Kerala Bundles -->
+      <!-- 0. Home -->
+      <a href="/index.html" class="if-nav-link">Home</a>
+
+      <!-- 1. Industry Solutions -->
       <div class="if-dropdown" id="bundles-dropdown-container">
         <a href="/index.html#kerala-bundles" class="if-nav-link" id="bundles-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="bundles-dropdown-menu">
-          Kerala Bundles
+          Industry Solutions
           <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </a>
-        <div class="if-dropdown-content bundles-dropdown-menu" id="bundles-dropdown-menu" role="menu" aria-label="Kerala Launch-to-Operate Bundles Menu">
+        <div class="if-dropdown-content bundles-dropdown-menu" id="bundles-dropdown-menu" role="menu" aria-label="Kerala Industry Solutions Menu">
           <div class="dropdown-heading">
-            <span>Launch-to-Operate + Year-1</span>
-            <span class="heading-tag">Kerala Suites</span>
+            <span>Sector Roadmaps in Kerala</span>
+            <span class="heading-tag">5 Industries</span>
           </div>
           <ul class="dropdown-list" role="none">
             <li role="none">
@@ -248,8 +251,8 @@
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
                 </div>
                 <div class="menu-item-body">
-                  <strong class="item-title">Clinics, Diagnostics &amp; Care Centers</strong>
-                  <span class="item-desc">K-SWIFT, Clinical Est., KSPCB BMW &amp; Doctor Contracts</span>
+                  <strong class="item-title">Clinics, Diagnostics &amp; Care</strong>
+                  <span class="item-desc">Entity, Clinical Est., BMW, doctor pacts &amp; ongoing governance</span>
                 </div>
               </a>
             </li>
@@ -259,8 +262,8 @@
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
                 </div>
                 <div class="menu-item-body">
-                  <strong class="item-title">EXIM, Freight &amp; Cold-Chain</strong>
-                  <span class="item-desc">IEC, AD Code, LUT, CHA/Cold-Chain SLAs &amp; FEMA</span>
+                  <strong class="item-title">EXIM, Freight &amp; Logistics</strong>
+                  <span class="item-desc">IEC, AD Code, LUT, CHA &amp; cold-chain contracts, FEMA</span>
                 </div>
               </a>
             </li>
@@ -270,8 +273,8 @@
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
                 </div>
                 <div class="menu-item-body">
-                  <strong class="item-title">Food, Spice &amp; Nutraceutical Units</strong>
-                  <span class="item-desc">FSSAI Mfg, KSPCB, Co-Packing &amp; Distributor Pacts</span>
+                  <strong class="item-title">Food, Spice &amp; Agri Processing</strong>
+                  <span class="item-desc">FSSAI, KSPCB, Udyam, co-packing &amp; distributor terms</span>
                 </div>
               </a>
             </li>
@@ -281,8 +284,8 @@
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
                 </div>
                 <div class="menu-item-body">
-                  <strong class="item-title">Hospitality, Stays &amp; Eco Resorts</strong>
-                  <span class="item-desc">SPV, LSGD/KSPCB STP, Lease, OTA &amp; Workforce Suite</span>
+                  <strong class="item-title">Hospitality &amp; Resorts</strong>
+                  <span class="item-desc">Premises, LSGD/Fire, lease, operator &amp; OTA contracts</span>
                 </div>
               </a>
             </li>
@@ -292,105 +295,34 @@
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                 </div>
                 <div class="menu-item-body">
-                  <strong class="item-title">EdTech &amp; Coaching Academies</strong>
-                  <span class="item-desc">DPIIT, Faculty IP, DPDP Privacy &amp; Refund Governance</span>
+                  <strong class="item-title">EdTech &amp; Training Institutes</strong>
+                  <span class="item-desc">DPIIT, faculty IP pacts, refund charter &amp; DPDP student rules</span>
                 </div>
               </a>
             </li>
           </ul>
-          <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid #E2E8F0;">
-            <a href="/conversion/calculator.html#readiness" class="megamenu-directory-btn" style="background: var(--growth-green-accessible, #008742);" role="menuitem">
-              <span>Run Kerala Readiness Estimator</span>
+          <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--border-color, #D8E3DC);">
+            <a href="/conversion/calculator.html#readiness" class="megamenu-directory-btn" style="background: var(--brand-emerald, #176B4A);" role="menuitem">
+              <span>Check Your Business Readiness</span>
               <span class="btn-arrow">&rarr;</span>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- 2. Calculators & Readiness -->
-      <div class="if-dropdown" id="calculators-dropdown-container">
-        <a href="/conversion/calculator.html#readiness" class="if-nav-link" id="calculators-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="calculators-dropdown-menu">
-          Calculators &amp; Readiness
-          <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </a>
-        <div class="if-dropdown-content bundles-dropdown-menu" id="calculators-dropdown-menu" role="menu" aria-label="Calculators &amp; Readiness Tools Menu">
-          <div class="dropdown-heading">
-            <span>Scope &amp; Cost Estimators</span>
-            <span class="heading-tag">Self-Qualify</span>
-          </div>
-          <ul class="dropdown-list" role="none">
-            <li role="none">
-              <a href="/conversion/calculator.html#readiness" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">Kerala Bundle Readiness Estimator</strong>
-                  <span class="item-desc">Vertical tier, licensing, contract &amp; retainer scope</span>
-                </div>
-              </a>
-            </li>
-            <li role="none">
-              <a href="/conversion/calculator.html" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">Entity Outlay &amp; RoC Late Fee Suite</strong>
-                  <span class="item-desc">SPICe+/FiLLiP stamp duty &amp; Section 403 exposure</span>
-                </div>
-              </a>
-            </li>
-            <li role="none">
-              <a href="/conversion/calculator.html#calc-tab-3" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">Tax Regime &amp; MSME 43B(h) Tracker</strong>
-                  <span class="item-desc">115BAC tax comparison &amp; 45-day supplier monitor</span>
-                </div>
-              </a>
-            </li>
-            <li role="none">
-              <a href="/conversion/index.html" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">Full Diagnostic &amp; Intake Hub</strong>
-                  <span class="item-desc">DPDP audit, FEMA desk &amp; AI document drafter</span>
-                </div>
-              </a>
-            </li>
-            <li role="none">
-              <a href="/conversion/retainer-desk.html" class="menu-item-card" role="menuitem">
-                <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                </div>
-                <div class="menu-item-body">
-                  <strong class="item-title">Year-1 Governance Retainer Desk</strong>
-                  <span class="item-desc">Annual secretarial, tax &amp; compliance SLA</span>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 3. Catalog & Lookups (Mega Menu) -->
+      <!-- 2. Business Services (Mega Menu — Preserves Full 57-Route Catalog) -->
       <div class="if-dropdown" id="services-dropdown-container">
         <a href="/services.html" class="if-nav-link" id="services-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="services-megamenu">
-          Catalog &amp; Lookups
+          Business Services
           <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </a>
 
-        <div class="if-dropdown-content if-megamenu" id="services-megamenu" role="menu" aria-label="Services Catalog and Registry Lookups Menu">
-          <!-- Column 1: Core Categories -->
+        <div class="if-dropdown-content if-megamenu" id="services-megamenu" role="menu" aria-label="Business Services and Practice Categories Menu">
+          <!-- Column 1: Core Service Areas -->
           <div class="megamenu-col">
             <div class="dropdown-heading">
-              <span>Key Categories</span>
-              <span class="heading-tag">6 Pillars</span>
+              <span>Core Service Pillars</span>
+              <span class="heading-tag">6 Areas</span>
             </div>
             <ul class="dropdown-list" role="none">
               <li role="none">
@@ -399,8 +331,8 @@
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 11h2M9 15h2M13 11h2M13 15h2"/></svg>
                   </div>
                   <div class="menu-item-body">
-                    <strong class="item-title">1. Business Setup</strong>
-                    <span class="item-desc">Company, LLP &amp; Entity Structuring</span>
+                    <strong class="item-title">Business Establishment</strong>
+                    <span class="item-desc">Pvt Ltd, LLP, OPC &amp; Entity Structuring</span>
                   </div>
                 </a>
               </li>
@@ -410,8 +342,8 @@
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                   </div>
                   <div class="menu-item-body">
-                    <strong class="item-title">2. Corporate Compliance</strong>
-                    <span class="item-desc">RoC Annual Filings &amp; Secretarial</span>
+                    <strong class="item-title">Corporate Compliance</strong>
+                    <span class="item-desc">RoC Annual Filings, DIR-3 KYC &amp; Registers</span>
                   </div>
                 </a>
               </li>
@@ -421,8 +353,8 @@
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                   </div>
                   <div class="menu-item-body">
-                    <strong class="item-title">3. Tax &amp; GST</strong>
-                    <span class="item-desc">GST Returns &amp; Corporate Taxation</span>
+                    <strong class="item-title">Startup &amp; Tax Support</strong>
+                    <span class="item-desc">GST Filings, Corporate Tax &amp; Transfer Pricing</span>
                   </div>
                 </a>
               </li>
@@ -432,8 +364,8 @@
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="16" x2="11" y2="16"/></svg>
                   </div>
                   <div class="menu-item-body">
-                    <strong class="item-title">4. Licences &amp; Statutory</strong>
-                    <span class="item-desc">FSSAI, Udyam &amp; Registrations</span>
+                    <strong class="item-title">Licensing &amp; Regulatory Support</strong>
+                    <span class="item-desc">MSME Udyam, EPFO/ESIC &amp; Sector Dossiers</span>
                   </div>
                 </a>
               </li>
@@ -443,8 +375,8 @@
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                   </div>
                   <div class="menu-item-body">
-                    <strong class="item-title">5. Contracts &amp; IPR</strong>
-                    <span class="item-desc">Trademarks, Founders &amp; MSAs</span>
+                    <strong class="item-title">Contracts &amp; Documentation</strong>
+                    <span class="item-desc">Trademarks, Founder Pacts, MSAs &amp; SLAs</span>
                   </div>
                 </a>
               </li>
@@ -454,19 +386,19 @@
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                   </div>
                   <div class="menu-item-body">
-                    <strong class="item-title">6. Workforce &amp; Governance</strong>
-                    <span class="item-desc">POSH, Audits &amp; Employment</span>
+                    <strong class="item-title">Governance &amp; Business Support</strong>
+                    <span class="item-desc">POSH Policy, Audits &amp; DPDP Documentation</span>
                   </div>
                 </a>
               </li>
             </ul>
           </div>
 
-          <!-- Column 2: Explore by Category -->
+          <!-- Column 2: Explore by Category (Practice Verticals & Registries) -->
           <div class="megamenu-col">
             <div class="dropdown-heading">
               <span>Explore by Category</span>
-              <span class="heading-tag">Practice Areas</span>
+              <span class="heading-tag">Specialist Hubs</span>
             </div>
             <ul class="dropdown-list" role="none">
               <li role="none"><a href="/verticals/05-contracts-legal.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Commercial Contracts &amp; Drafting</a></li>
@@ -486,7 +418,6 @@
             <ul class="dropdown-list" role="none">
               <li role="none"><a href="/search/" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Corporate &amp; IP Registry Search</a></li>
               <li role="none"><a href="/search/index.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> CIN &amp; LLPIN Master Lookup</a></li>
-              <li role="none"><a href="/knowledge/index.html" class="menu-item-link" role="menuitem"><svg class="menu-arrow-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Compliance Knowledge Centre</a></li>
             </ul>
           </div>
 
@@ -494,25 +425,25 @@
           <div class="megamenu-col megamenu-col-stage">
             <div class="dropdown-heading">
               <span>By Business Stage</span>
-              <span class="heading-tag">Lifecycle</span>
+              <span class="heading-tag">3 Phases</span>
             </div>
             <ul class="dropdown-list" role="none">
-              <li role="none"><a href="/services.html?stage=formation" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-formation"></span> Early Stage &amp; Incorporation</a></li>
-              <li role="none"><a href="/services.html?stage=compliance" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-compliance"></span> Growth &amp; Annual Compliance</a></li>
-              <li role="none"><a href="/services.html?stage=governance" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-governance"></span> Governance, Audits &amp; Risk</a></li>
-              <li role="none"><a href="/services.html?stage=restructuring" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-restructuring"></span> Restructuring &amp; Entity Exit</a></li>
-              <li role="none"><a href="/services.html?stage=dispute" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-dispute"></span> Dispute Triage &amp; Advisory</a></li>
+              <li role="none"><a href="/services.html?stage=formation" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-formation"></span> Phase 1: Start Right</a></li>
+              <li role="none"><a href="/services.html?stage=governance" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-governance"></span> Phase 2: Put Essentials in Place</a></li>
+              <li role="none"><a href="/services.html?stage=compliance" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-compliance"></span> Phase 3: Stay on Track</a></li>
+              <li role="none"><a href="/services.html?stage=restructuring" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-restructuring"></span> Restructuring &amp; Entity Closure</a></li>
+              <li role="none"><a href="/services.html?stage=dispute" class="menu-item-link" role="menuitem"><span class="stage-dot stage-dot-dispute"></span> Dispute Referral Guidance</a></li>
             </ul>
             <div class="megamenu-directory-callout" style="display: flex; flex-direction: column; gap: 0.5rem;">
               <a href="/services.html" class="btn btn-primary megamenu-directory-btn" role="menuitem">
-                <span>All 57 Services Directory</span>
+                <span>Explore All Services (57)</span>
                 <span class="btn-arrow">&rarr;</span>
               </a>
-              <a href="/categories/index.html" class="btn btn-secondary megamenu-directory-btn" style="background: var(--navy-800); color: #FFFFFF; border-color: var(--navy-800);" role="menuitem">
+              <a href="/categories/index.html" class="btn btn-secondary megamenu-directory-btn" style="background: var(--brand-charcoal-green, #17251F); color: #FFFFFF; border-color: var(--brand-charcoal-green, #17251F);" role="menuitem">
                 <span>6 Core Categories Hub</span>
                 <span class="btn-arrow">&rarr;</span>
               </a>
-              <a href="/verticals/index.html" class="btn btn-secondary megamenu-directory-btn" style="background: var(--navy-800); color: #FFFFFF; border-color: var(--navy-800);" role="menuitem">
+              <a href="/verticals/index.html" class="btn btn-secondary megamenu-directory-btn" style="background: var(--brand-charcoal-green, #17251F); color: #FFFFFF; border-color: var(--brand-charcoal-green, #17251F);" role="menuitem">
                 <span>Practice Verticals Hub</span>
                 <span class="btn-arrow">&rarr;</span>
               </a>
@@ -521,59 +452,81 @@
         </div>
       </div>
 
-      <!-- 4. Partners & Kerala Hubs Dropdown -->
-      <div class="if-dropdown" id="resources-dropdown-container">
-        <a href="/conversion/partner-ecosystems.html" class="if-nav-link" id="resources-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="resources-dropdown-menu">
-          Partners
+      <!-- 3. Tools & Resources -->
+      <div class="if-dropdown" id="calculators-dropdown-container">
+        <a href="/conversion/calculator.html#readiness" class="if-nav-link" id="calculators-nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="calculators-dropdown-menu">
+          Tools &amp; Resources
           <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </a>
-        <div class="if-dropdown-content resources-dropdown-menu" id="resources-dropdown-menu" role="menu" aria-label="Partners and Kerala Ecosystem Menu">
+        <div class="if-dropdown-content bundles-dropdown-menu" id="calculators-dropdown-menu" role="menu" aria-label="Tools and Resources Menu">
           <div class="dropdown-heading">
-            <span>Ecosystem &amp; Regional Desks</span>
-            <span class="heading-tag">Kerala + GCC</span>
+            <span>Estimators, Lookups &amp; Guides</span>
+            <span class="heading-tag">Diagnostic</span>
           </div>
           <ul class="dropdown-list" role="none">
             <li role="none">
-              <a href="/conversion/partner-ecosystems.html" class="menu-item-card" role="menuitem">
+              <a href="/conversion/calculator.html#readiness" class="menu-item-card" role="menuitem">
                 <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
                 </div>
                 <div class="menu-item-body">
-                  <strong class="item-title">Marketplace &amp; Resolution Desk</strong>
-                  <span class="item-desc">Seller onboarding &amp; bank-ready resolution drafts</span>
+                  <strong class="item-title">Kerala Vertical Readiness Estimator</strong>
+                  <span class="item-desc">Find requirements by sector, premises &amp; stage</span>
                 </div>
               </a>
             </li>
             <li role="none">
-              <a href="/locations/kozhikode-corporate-services.html" class="menu-item-card" role="menuitem">
+              <a href="/index.html#entity-selector" class="menu-item-card" role="menuitem">
                 <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>
                 </div>
                 <div class="menu-item-body">
-                  <strong class="item-title">Alappuzha Commercial Desk</strong>
-                  <span class="item-desc">Room 2, NS Building, Kaanjippuzha (PIN 690501)</span>
+                  <strong class="item-title">Entity Selector</strong>
+                  <span class="item-desc">Compare Pvt Ltd, LLP, OPC, Section 8 &amp; Proprietorship</span>
                 </div>
               </a>
             </li>
             <li role="none">
-              <a href="/locations/malappuram-nri-business-desk.html" class="menu-item-card" role="menuitem">
+              <a href="/conversion/calculator.html" class="menu-item-card" role="menuitem">
                 <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/></svg>
                 </div>
                 <div class="menu-item-body">
-                  <strong class="item-title">Malappuram Regd. Office &amp; NRI Desk</strong>
-                  <span class="item-desc">Chettipadi, Tirurangadi (676319) &amp; GCC FEMA</span>
+                  <strong class="item-title">Existing Statutory Calculators</strong>
+                  <span class="item-desc">Stamp duty outlay, Sec 403 fees, ITC &amp; MSME 43B(h)</span>
                 </div>
               </a>
             </li>
             <li role="none">
-              <a href="/about.html" class="menu-item-card" role="menuitem">
+              <a href="/conversion/index.html" class="menu-item-card" role="menuitem">
                 <div class="menu-item-icon">
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                 </div>
                 <div class="menu-item-body">
-                  <strong class="item-title">About CraftEgon LLP</strong>
-                  <span class="item-desc">Corporate governance &amp; operating methodology</span>
+                  <strong class="item-title">Diagnostic &amp; Assessment Desks</strong>
+                  <span class="item-desc">Retainer scope, strike-off check, DPDP &amp; FEMA desks</span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/knowledge/index.html" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Knowledge Resources &amp; FAQs</strong>
+                  <span class="item-desc">Compliance guides &amp; <span style="text-decoration:underline;">founder FAQs</span></span>
+                </div>
+              </a>
+            </li>
+            <li role="none">
+              <a href="/index.html#founder-faqs" class="menu-item-card" role="menuitem">
+                <div class="menu-item-icon">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="menu-item-body">
+                  <strong class="item-title">Frequently Asked Questions</strong>
+                  <span class="item-desc">Process scope, fees, timelines &amp; statutory boundaries</span>
                 </div>
               </a>
             </li>
@@ -581,15 +534,18 @@
         </div>
       </div>
 
-      <!-- 5. Contact / Scope -->
-      <a href="/contact.html" class="if-nav-link">Contact / Scope</a>
+      <!-- 4. About CCS -->
+      <a href="/about.html" class="if-nav-link">About CCS</a>
+
+      <!-- 5. Contact -->
+      <a href="/contact.html" class="if-nav-link">Contact</a>
     </nav>
 
-    <!-- Header Actions (Single Clear Estimator CTA + Talk to an Expert, Zero Redundancy) -->
+    <!-- Header Actions (Clear Business-Aligned CTAs) -->
     <div class="if-header-actions">
-      <a href="/conversion/calculator.html#readiness" class="btn btn-secondary if-btn-secondary" title="Kerala Bundle Readiness &amp; Scope Estimator">Scope Check</a>
-      <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-primary if-btn-primary btn-talk-expert" style="background: var(--growth-green-accessible, #008742) !important; border-color: var(--growth-green-accessible, #008742) !important;">
-        Talk to an Expert
+      <a href="/conversion/calculator.html#readiness" class="btn btn-secondary if-btn-secondary" title="Check Your Business Readiness">Readiness Check</a>
+      <a href="/contact.html" class="btn btn-primary if-btn-primary btn-talk-expert" style="background: var(--brand-emerald, #176B4A) !important; border-color: var(--brand-emerald, #176B4A) !important;">
+        Request a Scoped Quote
       </a>
       <button type="button" class="if-mobile-search-toggle" id="mobile-search-toggle" aria-label="Quick Search Services">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -632,27 +588,28 @@
         <span class="if-mobile-search-icon">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </span>
-        <input type="text" name="q" class="if-mobile-search-input" placeholder="Search bundles, K-SWIFT, SPICe+..." aria-label="Search services on mobile">
+        <input type="text" name="q" class="if-mobile-search-input" placeholder="Search solutions, SPICe+, K-SWIFT..." aria-label="Search services on mobile">
       </form>
     </div>
 
     <div class="if-mobile-drawer-body">
       <div class="if-mobile-nav-group">
-        <a href="/index.html#kerala-bundles" class="if-mobile-nav-link" style="font-weight: 700; color: var(--growth-green-accessible, #008742);">Kerala Launch Bundles (5)</a>
-        <a href="/conversion/calculator.html#readiness" class="if-mobile-nav-link" style="font-weight: 700; color: var(--navy-900, #10262E);">Calculators &amp; Readiness Estimator</a>
-        <a href="/services.html" class="if-mobile-nav-link">Catalog &amp; Lookups (57 Services)</a>
-        <a href="/conversion/partner-ecosystems.html" class="if-mobile-nav-link">Marketplace &amp; Resolution Kits</a>
-        <a href="/contact.html" class="if-mobile-nav-link">Contact / Scope Proposal</a>
+        <a href="/index.html" class="if-mobile-nav-link">Home</a>
+        <a href="/index.html#kerala-bundles" class="if-mobile-nav-link" style="font-weight: 700; color: var(--brand-emerald, #176B4A);">Industry Solutions (5 Sectors)</a>
+        <a href="/conversion/calculator.html#readiness" class="if-mobile-nav-link" style="font-weight: 700; color: var(--brand-charcoal-green, #17251F);">Check Your Business Readiness</a>
+        <a href="/services.html" class="if-mobile-nav-link">Explore Our Services (57)</a>
+        <a href="/about.html" class="if-mobile-nav-link">About CCS</a>
+        <a href="/contact.html" class="if-mobile-nav-link">Contact CCS</a>
       </div>
 
-      <!-- 1. Kerala Industry Bundles (Expanded for immediate discovery) -->
+      <!-- 1. Industry Solutions (Expanded) -->
       <details class="if-mobile-accordion" id="mobile-kerala-bundles-accordion" open>
         <summary>
           <div class="accordion-summary-content">
             <span class="accordion-icon-wrap" aria-hidden="true">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
             </span>
-            <span class="accordion-title-text">Kerala Industry Bundles (5)</span>
+            <span class="accordion-title-text">Industry Solutions (5)</span>
           </div>
           <span class="accordion-chevron-badge" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
@@ -660,39 +617,39 @@
         </summary>
         <div class="if-mobile-sublinks">
           <a href="/bundles/clinics-diagnostics-kerala.html">
-            <span>Clinics &amp; Diagnostics Pack</span>
+            <span>Clinics, Diagnostics &amp; Care</span>
             <span class="sublink-tag">K-SWIFT &amp; Est.</span>
           </a>
           <a href="/bundles/exim-cold-chain-kerala.html">
-            <span>EXIM &amp; Cold-Chain Pack</span>
+            <span>EXIM, Freight &amp; Logistics</span>
             <span class="sublink-tag">Ports &amp; 3PL</span>
           </a>
           <a href="/bundles/food-spice-processing-kerala.html">
-            <span>Food, Spice &amp; Nutraceutical</span>
+            <span>Food, Spice &amp; Agri Processing</span>
             <span class="sublink-tag">FSSAI &amp; KSPCB</span>
           </a>
           <a href="/bundles/hospitality-resorts-kerala.html">
-            <span>Hospitality &amp; Eco Resorts</span>
+            <span>Hospitality &amp; Resorts</span>
             <span class="sublink-tag">SPV &amp; Lease</span>
           </a>
           <a href="/bundles/edtech-academies-kerala.html">
-            <span>EdTech &amp; Coaching Academies</span>
+            <span>EdTech &amp; Training Institutes</span>
             <span class="sublink-tag">Faculty IP</span>
           </a>
           <a href="/conversion/calculator.html#readiness" class="sublink-view-all">
-            <span>Launch Readiness Estimator &rarr;</span>
+            <span>Check Your Business Readiness &rarr;</span>
           </a>
         </div>
       </details>
 
-      <!-- 2. Calculators, Lookups & Knowledge -->
+      <!-- 2. Tools & Resources -->
       <details class="if-mobile-accordion" id="mobile-tools-accordion">
         <summary>
           <div class="accordion-summary-content">
             <span class="accordion-icon-wrap" aria-hidden="true">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/></svg>
             </span>
-            <span class="accordion-title-text">Calculators, Lookups &amp; Partners</span>
+            <span class="accordion-title-text">Tools &amp; Resources</span>
           </div>
           <span class="accordion-chevron-badge" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
@@ -700,12 +657,16 @@
         </summary>
         <div class="if-mobile-sublinks">
           <a href="/conversion/calculator.html#readiness">
-            <span>Kerala Readiness Scope Estimator</span>
-            <span class="sublink-tag">Scope Check</span>
+            <span>Kerala Readiness Estimator</span>
+            <span class="sublink-tag">Scope</span>
+          </a>
+          <a href="/index.html#entity-selector">
+            <span>Entity Selector</span>
+            <span class="sublink-tag">Structure</span>
           </a>
           <a href="/conversion/calculator.html">
-            <span>RoC Late Fee &amp; Outlay Calculator</span>
-            <span class="sublink-tag">Free Tool</span>
+            <span>Statutory Calculators</span>
+            <span class="sublink-tag">Tools</span>
           </a>
           <a href="/search/">
             <span>Corporate &amp; IP Registry Search</span>
@@ -713,62 +674,58 @@
           </a>
           <a href="/search/index.html">
             <span>CIN, LLPIN &amp; DIN Lookup</span>
-            <span class="sublink-tag">Intelligence</span>
+            <span class="sublink-tag">Lookup</span>
           </a>
           <a href="/knowledge/index.html">
-            <span>Compliance Knowledge Centre</span>
+            <span>Knowledge Resources</span>
             <span class="sublink-tag">Guides</span>
           </a>
-          <a href="/locations/kozhikode-corporate-services.html">
-            <span>Alappuzha Commercial Desk</span>
-            <span class="sublink-tag">PIN 690501</span>
-          </a>
-          <a href="/locations/malappuram-nri-business-desk.html">
-            <span>Malappuram Regd. Office &amp; NRI Desk</span>
-            <span class="sublink-tag">676319 / GCC</span>
+          <a href="/index.html#founder-faqs">
+            <span>FAQs</span>
+            <span class="sublink-tag">Answers</span>
           </a>
           <a href="/conversion/index.html" class="sublink-view-all">
-            <span>Open All Diagnostic Tools &rarr;</span>
+            <span>All Diagnostic Tools &rarr;</span>
           </a>
         </div>
       </details>
 
-      <!-- 3. Core Catalog Pillars & Filings -->
+      <!-- 3. Business Services -->
       <details class="if-mobile-accordion" id="mobile-catalog-accordion">
         <summary>
           <div class="accordion-summary-content">
             <span class="accordion-icon-wrap" aria-hidden="true">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
             </span>
-            <span class="accordion-title-text">6 Core Catalog Pillars (57 Services)</span>
+            <span class="accordion-title-text">Business Services (57 Routes)</span>
           </div>
           <span class="accordion-chevron-badge" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
           </span>
         </summary>
         <div class="if-mobile-sublinks">
-          <a href="/categories/business-setup.html"><span>1. Business Setup (Pvt Ltd, LLP, OPC)</span></a>
-          <a href="/categories/corporate-compliance.html"><span>2. Corporate Compliance &amp; RoC</span></a>
-          <a href="/categories/tax-compliance.html"><span>3. Tax, GST &amp; Transfer Pricing</span></a>
-          <a href="/categories/licences-registrations.html"><span>4. Statutory Licences &amp; Udyam</span></a>
-          <a href="/categories/legal-contracts-ip.html"><span>5. Contracts, Founders &amp; IPR</span></a>
-          <a href="/categories/workforce-operations.html"><span>6. Workforce, POSH &amp; DPDP Privacy</span></a>
+          <a href="/categories/business-setup.html"><span>Business Establishment</span></a>
+          <a href="/categories/tax-compliance.html"><span>Startup &amp; MSME / Tax Support</span></a>
+          <a href="/categories/corporate-compliance.html"><span>Corporate Compliance</span></a>
+          <a href="/categories/licences-registrations.html"><span>Licensing &amp; Regulatory Support</span></a>
+          <a href="/categories/legal-contracts-ip.html"><span>Contracts &amp; Documentation</span></a>
+          <a href="/categories/workforce-operations.html"><span>Governance &amp; Business Support</span></a>
           <a href="/verticals/index.html"><span>All Practice Verticals Hub</span></a>
           <a href="/services.html" class="sublink-view-all">
-            <span>Browse Full 57-Service Directory &rarr;</span>
+            <span>Explore All 57 Services &rarr;</span>
           </a>
         </div>
       </details>
 
       <div style="margin-top: 1.15rem; display: flex; flex-direction: column; gap: 0.6rem;">
-        <a href="/conversion/calculator.html#readiness" class="btn btn-primary" style="width: 100%; text-align: center; background: var(--growth-green-accessible, #008742) !important; border-color: var(--growth-green-accessible, #008742) !important;">
-          Run Kerala Readiness Estimator &rarr;
+        <a href="/conversion/calculator.html#readiness" class="btn btn-primary" style="width: 100%; text-align: center; background: var(--brand-emerald, #176B4A) !important; border-color: var(--brand-emerald, #176B4A) !important;">
+          Check Your Business Readiness &rarr;
+        </a>
+        <a href="/contact.html" class="btn btn-secondary" style="width: 100%; text-align: center;">
+          Request a Scoped Quote
         </a>
         <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; text-align: center;">
           WhatsApp Desk: +91 86069 18247
-        </a>
-        <a href="mailto:admin@craftegon.com" class="btn btn-secondary" style="width: 100%; text-align: center; font-size: 0.85rem;">
-          admin@craftegon.com
         </a>
       </div>
     </div>
@@ -785,21 +742,21 @@
           <a href="/services.html">Services</a> &gt; 
           <span>Malappuram NRI Desk</span>
         </nav>
-        <h1 class="loc-title">Malappuram NRI Business Desk &amp; Commercial Setup</h1>
+        <h1 class="loc-title">Malappuram Registered Office &amp; NRI Business Coordination</h1>
         <p class="loc-subtitle">
-          Specialized corporate infrastructure, FDI/FEMA structuring, and statutory licensing for Gulf-return entrepreneurs, healthcare institutions, retail ventures, and family businesses across Malappuram, Kottakkal, Manjeri, and Perinthalmanna.
+          Corporate structuring, FDI/FEMA filing coordination, and licensing readiness for Gulf-return entrepreneurs, clinics, resorts, and family ventures across Malappuram—backed by CraftEgon LLP's MCA Registered Office at Chettipadi, Tirurangadi (676319) and Commercial Desk in Alappuzha (690501).
         </p>
         <div class="loc-pill-row">
-          <span class="loc-badge">🌴 Gulf NRI Direct Desk</span>
-          <span class="loc-badge">🌐 FEMA &amp; Single Master Form (SMF)</span>
-          <span class="loc-badge">🌿 AYUSH &amp; Healthcare Clearances</span>
-          <span class="loc-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right: 3px; vertical-align: -1px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 15-Minute Consultation SLA</span>
+          <span class="loc-badge">MCA Registered Office (Chettipadi 676319)</span>
+          <span class="loc-badge">FEMA &amp; Single Master Form (SMF)</span>
+          <span class="loc-badge">Healthcare &amp; Sector Clearances</span>
+          <span class="loc-badge">Separated Statutory Fees</span>
         </div>
       </div>
     </section>
 
     <div class="loc-container">
-      <h2 style="font-family:var(--font-heading,'Manrope',sans-serif); font-size:1.6rem; font-weight:800; color:var(--text-dark,#193B46); margin:0 0 1.5rem;">
+      <h2 style="font-family:var(--font-heading,'Manrope',sans-serif); font-size:1.6rem; font-weight:800; color:var(--text-dark,#17251F); margin:0 0 1.5rem;">
         Specialized Practice Areas for Malappuram &amp; NRI Ventures
       </h2>
 
@@ -855,7 +812,7 @@
 
       <!-- Regional Intake Form -->
       <section class="loc-intake-box" id="regional-enquiry">
-        <h2 style="font-family:var(--font-heading,'Manrope',sans-serif); font-size:1.45rem; font-weight:800; color:var(--text-dark,#193B46); margin:0 0 0.5rem;">
+        <h2 style="font-family:var(--font-heading,'Manrope',sans-serif); font-size:1.45rem; font-weight:800; color:var(--text-dark,#17251F); margin:0 0 0.5rem;">
           Connect with the Malappuram NRI Desk
         </h2>
         <p style="font-size:0.92rem; color:var(--text-secondary,#475569); margin:0 0 1.5rem;">
@@ -869,22 +826,22 @@
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1rem; margin-bottom:1rem;">
             <div>
               <label for="ml-name" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Your Name *</label>
-              <input type="text" id="ml-name" name="name" required placeholder="e.g. Abdul Gafoor" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem;">
+              <input type="text" id="ml-name" name="name" required placeholder="e.g. Abdul Gafoor" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#D8E3DC); border-radius:6px; font-size:0.9rem;">
             </div>
             <div>
               <label for="ml-phone" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Mobile / WhatsApp (India / UAE / GCC) *</label>
-              <input type="tel" id="ml-phone" name="phone" required placeholder="Contact phone number with country code" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem;">
+              <input type="tel" id="ml-phone" name="phone" required placeholder="Contact phone number with country code" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#D8E3DC); border-radius:6px; font-size:0.9rem;">
             </div>
           </div>
 
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1rem; margin-bottom:1rem;">
             <div>
               <label for="ml-email" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Business Email *</label>
-              <input type="email" id="ml-email" name="email" required placeholder="gafoor@example.com" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem;">
+              <input type="email" id="ml-email" name="email" required placeholder="gafoor@example.com" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#D8E3DC); border-radius:6px; font-size:0.9rem;">
             </div>
             <div>
               <label for="ml-service" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Primary Need</label>
-              <select id="ml-service" name="service_category" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem; background:#FFF;">
+              <select id="ml-service" name="service_category" style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#D8E3DC); border-radius:6px; font-size:0.9rem; background:#FFF;">
                 <option value="NRI Business Formation">NRI / Gulf-Return Business Formation</option>
                 <option value="Private Limited Incorporation">Private Limited Company Setup</option>
                 <option value="Healthcare & AYUSH">Healthcare &amp; Ayurveda Licensing</option>
@@ -897,7 +854,7 @@
 
           <div style="margin-bottom:1rem;">
             <label for="ml-notes" style="display:block; font-size:0.84rem; font-weight:600; margin-bottom:0.35rem;">Business Overview / Specific Queries</label>
-            <textarea id="ml-notes" name="message" rows="3" placeholder="Tell us about your venture in Malappuram, proposed capital, or NRI documentation requirements..." style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; font-size:0.9rem; font-family:inherit;"></textarea>
+            <textarea id="ml-notes" name="message" rows="3" placeholder="Tell us about your venture in Malappuram, proposed capital, or NRI documentation requirements..." style="width:100%; padding:0.65rem 0.8rem; border:1px solid var(--border-color,#D8E3DC); border-radius:6px; font-size:0.9rem; font-family:inherit;"></textarea>
           </div>
 
           <!-- Anti-bot trap -->
@@ -905,10 +862,10 @@
             <input type="text" name="_hp_website" tabindex="-1" autocomplete="off">
           </div>
 
-          <div class="if-consent-field" style="display:flex; align-items:flex-start; gap:0.65rem; margin:1rem 0; padding:0.85rem; border:1px solid var(--border-color,#DCE8E5); border-radius:6px; background:#F8FAFC;">
+          <div class="if-consent-field" style="display:flex; align-items:flex-start; gap:0.65rem; margin:1rem 0; padding:0.85rem; border:1px solid var(--border-color,#D8E3DC); border-radius:6px; background:#F8FAFC;">
             <input type="checkbox" id="ml-privacy-consent" name="dpdp_consent" value="yes" required style="margin-top:0.25rem; flex:0 0 auto;">
             <label for="ml-privacy-consent" style="font-size:0.82rem; line-height:1.5; color:var(--text-main,#334155);">
-              I consent to CraftEgon Corporate Services (CCS) processing my contact details to evaluate and respond to this inquiry under the <a href="/legal/privacy.html" style="color:var(--accent-green-primary,#247A62);">Privacy Policy</a>.
+              I consent to CraftEgon Corporate Services (CCS) processing my contact details to evaluate and respond to this inquiry under the <a href="/legal/privacy.html" style="color:var(--accent-green-primary,#176B4A);">Privacy Policy</a>.
             </label>
           </div>
 

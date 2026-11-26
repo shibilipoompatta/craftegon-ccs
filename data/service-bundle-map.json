@@ -1,0 +1,1174 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-11-26",
+  "totalEntries": 58,
+  "activeServicesCount": 54,
+  "referralRoutesCount": 3,
+  "bundleDirectory": {
+    "KL-BND-CLINIC": {
+      "id": "KL-BND-CLINIC",
+      "slug": "clinics-diagnostics-kerala",
+      "bundleName": "Clinic Launch & Year-1 Risk Shield",
+      "title": "Clinics, Diagnostics & Care/Research Centers",
+      "route": "/bundles/clinics-diagnostics-kerala.html"
+    },
+    "KL-BND-EXIM": {
+      "id": "KL-BND-EXIM",
+      "slug": "exim-cold-chain-kerala",
+      "bundleName": "EXIM & Cold-Chain Trade Pack",
+      "title": "EXIM, Freight, Warehousing & Cold-Chain Logistics",
+      "route": "/bundles/exim-cold-chain-kerala.html"
+    },
+    "KL-BND-FOOD": {
+      "id": "KL-BND-FOOD",
+      "slug": "food-spice-processing-kerala",
+      "bundleName": "Plant-to-Shelf Launch & Retainer",
+      "title": "Food, Spice/Agri Processing & Wellness/Nutraceutical Units",
+      "route": "/bundles/food-spice-processing-kerala.html"
+    },
+    "KL-BND-HOSPITALITY": {
+      "id": "KL-BND-HOSPITALITY",
+      "slug": "hospitality-resorts-kerala",
+      "bundleName": "Property Launch & Hospitality Suite",
+      "title": "Hospitality, Boutique Stays & Eco/Wellness Resorts",
+      "route": "/bundles/hospitality-resorts-kerala.html"
+    },
+    "KL-BND-EDTECH": {
+      "id": "KL-BND-EDTECH",
+      "slug": "edtech-academies-kerala",
+      "bundleName": "Academy & EdTech Foundation Pack",
+      "title": "EdTech, Coaching Academies & Skill Training Institutes",
+      "route": "/bundles/edtech-academies-kerala.html"
+    },
+    "GENERAL_CATALOG": {
+      "id": "GENERAL_CATALOG",
+      "slug": "services",
+      "bundleName": "General & Specialist Corporate Services",
+      "title": "Specialist Transactions, Non-Profit & Ongoing Compliance Catalog",
+      "route": "/services.html"
+    }
+  },
+  "mappings": [
+    {
+      "canonicalRoute": "/search/",
+      "serviceId": null,
+      "serviceName": "Corporate & IP Search Directory",
+      "recordStatus": "UTILITY_ROUTE",
+      "primaryVerticalId": null,
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Discovery & Verification Utility",
+      "commercialTiers": [
+        "DISCOVERY_UTILITY"
+      ],
+      "diagnosticToolRoute": "/search/",
+      "intakeRoute": "/conversion/calculator.html#readiness"
+    },
+    {
+      "canonicalRoute": "/services/dpiit-startup-india.html",
+      "serviceId": "V01-SVC-001",
+      "serviceName": "DPIIT Startup India Recognition & Section 140 Tax Holiday Assessment",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V01",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-EDTECH",
+        "KL-BND-CLINIC"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#readiness",
+      "intakeRoute": "/conversion/post-incorporation-checkout.html"
+    },
+    {
+      "canonicalRoute": "/services/llp-registration.html",
+      "serviceId": "V01-SVC-002",
+      "serviceName": "Limited Liability Partnership (LLP) Registration",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V01",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-1",
+      "intakeRoute": "/conversion/ppc-company-registration.html"
+    },
+    {
+      "canonicalRoute": "/services/msme-udyam.html",
+      "serviceId": "V01-SVC-003",
+      "serviceName": "MSME / Udyam Registration Online",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V01",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-FOOD",
+        "KL-BND-EXIM",
+        "KL-BND-CLINIC"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-3",
+      "intakeRoute": "/contact.html?service=msme-udyam"
+    },
+    {
+      "canonicalRoute": "/services/opc-registration.html",
+      "serviceId": "V01-SVC-004",
+      "serviceName": "One Person Company (OPC) Registration",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V01",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/index.html#entity-selector",
+      "intakeRoute": "/conversion/ppc-company-registration.html"
+    },
+    {
+      "canonicalRoute": "/services/partnership-registration.html",
+      "serviceId": "V01-SVC-005",
+      "serviceName": "Partnership Firm Registration",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V01",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-FOOD",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/index.html#entity-selector",
+      "intakeRoute": "/contact.html?service=partnership-registration"
+    },
+    {
+      "canonicalRoute": "/services/proprietorship-registration.html",
+      "serviceId": "V01-SVC-006",
+      "serviceName": "Sole Proprietorship Registration",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V01",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/index.html#entity-selector",
+      "intakeRoute": "/contact.html?service=proprietorship-registration"
+    },
+    {
+      "canonicalRoute": "/services/pvt-ltd-registration.html",
+      "serviceId": "V01-SVC-007",
+      "serviceName": "Private Limited Company Registration (SPICe+)",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V01",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-1",
+      "intakeRoute": "/conversion/ppc-company-registration.html"
+    },
+    {
+      "canonicalRoute": "/services/section-8-registration.html",
+      "serviceId": "V01-SVC-008",
+      "serviceName": "Section 8 Company / Non-Profit Registration",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V01",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/index.html#entity-selector",
+      "intakeRoute": "/contact.html?service=section-8-registration"
+    },
+    {
+      "canonicalRoute": "/services/society-registration.html",
+      "serviceId": "V01-SVC-009",
+      "serviceName": "Society Registration",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V01",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-EDTECH",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/index.html#entity-selector",
+      "intakeRoute": "/contact.html?service=society-registration"
+    },
+    {
+      "canonicalRoute": "/services/trust-registration.html",
+      "serviceId": "V01-SVC-010",
+      "serviceName": "Charitable Trust Registration",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V01",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EDTECH",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/index.html#entity-selector",
+      "intakeRoute": "/contact.html?service=trust-registration"
+    },
+    {
+      "canonicalRoute": "/services/aoc4-xbrl.html",
+      "serviceId": "V02-SVC-001",
+      "serviceName": "AOC-4 XBRL Financial Tagging & Filing",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-HOSPITALITY",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-1",
+      "intakeRoute": "/conversion/ppc-annual-compliance.html"
+    },
+    {
+      "canonicalRoute": "/services/dir3-kyc.html",
+      "serviceId": "V02-SVC-002",
+      "serviceName": "DIR-3 KYC Annual Director Verification",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/retainer-desk.html",
+      "intakeRoute": "/conversion/ppc-annual-compliance.html"
+    },
+    {
+      "canonicalRoute": "/services/form-adt1.html",
+      "serviceId": "V02-SVC-003",
+      "serviceName": "Form ADT-1 Statutory Auditor Appointment",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-1",
+      "intakeRoute": "/conversion/retainer-desk.html"
+    },
+    {
+      "canonicalRoute": "/services/form-aoc4.html",
+      "serviceId": "V02-SVC-004",
+      "serviceName": "Form AOC-4 Financial Statements Filing",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-1",
+      "intakeRoute": "/conversion/ppc-annual-compliance.html"
+    },
+    {
+      "canonicalRoute": "/services/form-ben2.html",
+      "serviceId": "V02-SVC-005",
+      "serviceName": "Form BEN-2 Significant Beneficial Ownership (SBO)",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [
+        "V11"
+      ],
+      "assignedBundles": [
+        "KL-BND-HOSPITALITY",
+        "KL-BND-CLINIC",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/retainer-desk.html",
+      "intakeRoute": "/conversion/retainer-desk.html"
+    },
+    {
+      "canonicalRoute": "/services/form-dpt3.html",
+      "serviceId": "V02-SVC-006",
+      "serviceName": "Form DPT-3 Return of Deposits & Loans",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-1",
+      "intakeRoute": "/conversion/retainer-desk.html"
+    },
+    {
+      "canonicalRoute": "/services/form-mgt14.html",
+      "serviceId": "V02-SVC-007",
+      "serviceName": "Form MGT-14 Resolution & Filing Solutions",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-EDTECH",
+        "KL-BND-HOSPITALITY",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/retainer-desk.html",
+      "intakeRoute": "/conversion/retainer-desk.html"
+    },
+    {
+      "canonicalRoute": "/services/form-mgt7.html",
+      "serviceId": "V02-SVC-008",
+      "serviceName": "Form MGT-7 Annual Return Filing",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-1",
+      "intakeRoute": "/conversion/ppc-annual-compliance.html"
+    },
+    {
+      "canonicalRoute": "/services/form-mr1.html",
+      "serviceId": "V02-SVC-009",
+      "serviceName": "Form MR-1 Appointment of Managing Director, WTD or Manager",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/retainer-desk.html",
+      "intakeRoute": "/conversion/retainer-desk.html"
+    },
+    {
+      "canonicalRoute": "/services/form-msme1.html",
+      "serviceId": "V02-SVC-010",
+      "serviceName": "Form MSME-1 Half-Yearly Return",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-EXIM",
+        "KL-BND-FOOD"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-3",
+      "intakeRoute": "/conversion/retainer-desk.html"
+    },
+    {
+      "canonicalRoute": "/services/form-msc1-dormant.html",
+      "serviceId": "V02-SVC-011",
+      "serviceName": "Form MSC-1 Application to Obtain Dormant Company Status",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "General & Specialist Support",
+      "commercialTiers": [
+        "SPECIALIST_SCOPED"
+      ],
+      "diagnosticToolRoute": "/conversion/strike-off-checker.html",
+      "intakeRoute": "/contact.html?service=form-msc1-dormant"
+    },
+    {
+      "canonicalRoute": "/services/form-pas6.html",
+      "serviceId": "V02-SVC-012",
+      "serviceName": "Form PAS-6 Reconciliation of Share Capital Audit",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/retainer-desk.html",
+      "intakeRoute": "/conversion/retainer-desk.html"
+    },
+    {
+      "canonicalRoute": "/services/form-stk2-strike-off.html",
+      "serviceId": "V02-SVC-013",
+      "serviceName": "Form STK-2 Fast-Track Company Strike-Off & Voluntary Closure",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "General & Specialist Support",
+      "commercialTiers": [
+        "SPECIALIST_SCOPED"
+      ],
+      "diagnosticToolRoute": "/conversion/strike-off-checker.html",
+      "intakeRoute": "/contact.html?service=form-stk2-strike-off"
+    },
+    {
+      "canonicalRoute": "/services/llp-compliance-forms.html",
+      "serviceId": "V02-SVC-014",
+      "serviceName": "LLP Annual Filings (Form 11 Annual Return & Form 8 Statement of Account)",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-1",
+      "intakeRoute": "/conversion/retainer-desk.html"
+    },
+    {
+      "canonicalRoute": "/services/llp-form24-strike-off.html",
+      "serviceId": "V02-SVC-015",
+      "serviceName": "LLP Form 24 Fast-Track Strike-Off & Closure",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "General & Specialist Support",
+      "commercialTiers": [
+        "SPECIALIST_SCOPED"
+      ],
+      "diagnosticToolRoute": "/conversion/strike-off-checker.html",
+      "intakeRoute": "/contact.html?service=llp-form24-strike-off"
+    },
+    {
+      "canonicalRoute": "/services/mbp1-dir8.html",
+      "serviceId": "V02-SVC-016",
+      "serviceName": "Form MBP-1 & DIR-8 Director Disclosures",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/retainer-desk.html",
+      "intakeRoute": "/conversion/retainer-desk.html"
+    },
+    {
+      "canonicalRoute": "/services/roc-annual-compliance.html",
+      "serviceId": "V02-SVC-017",
+      "serviceName": "RoC Annual Compliance & Secretarial Retainer",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [
+        "V14"
+      ],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/retainer-desk.html",
+      "intakeRoute": "/conversion/ppc-annual-compliance.html"
+    },
+    {
+      "canonicalRoute": "/services/rof-maintenance.html",
+      "serviceId": "V02-SVC-018",
+      "serviceName": "Registrar of Firms (RoF) Maintenance & Amendments",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V02",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-FOOD",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#readiness",
+      "intakeRoute": "/contact.html?service=rof-maintenance"
+    },
+    {
+      "canonicalRoute": "/services/form-10b.html",
+      "serviceId": "V03-SVC-001",
+      "serviceName": "Form 10B / 10BB Trust Audit Report",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V03",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EDTECH",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/tax-intake.html",
+      "intakeRoute": "/conversion/tax-intake.html"
+    },
+    {
+      "canonicalRoute": "/services/form-3ceb.html",
+      "serviceId": "V03-SVC-002",
+      "serviceName": "Form 3CEB International Transfer Pricing Report",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V03",
+      "relatedVerticalIds": [
+        "V13"
+      ],
+      "assignedBundles": [
+        "KL-BND-EXIM",
+        "KL-BND-HOSPITALITY"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-2",
+      "intakeRoute": "/conversion/tax-intake.html"
+    },
+    {
+      "canonicalRoute": "/services/gst-annual.html",
+      "serviceId": "V03-SVC-003",
+      "serviceName": "GST Annual Return & Reconciliation (GSTR-9 & GSTR-9C)",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V03",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/calculator.html#calc-tab-2",
+      "intakeRoute": "/conversion/tax-intake.html"
+    },
+    {
+      "canonicalRoute": "/services/itr7.html",
+      "serviceId": "V03-SVC-004",
+      "serviceName": "ITR-7 Filing for Companies, Trusts & Institutions",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V03",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EDTECH",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/tax-intake.html",
+      "intakeRoute": "/conversion/tax-intake.html"
+    },
+    {
+      "canonicalRoute": "/services/proprietorship-tax.html",
+      "serviceId": "V03-SVC-005",
+      "serviceName": "Proprietorship & SME Income Tax Returns",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V03",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-FOOD",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/tax-intake.html",
+      "intakeRoute": "/conversion/tax-intake.html"
+    },
+    {
+      "canonicalRoute": "/services/pf-esic-compliance.html",
+      "serviceId": "V04-SVC-001",
+      "serviceName": "PF / ESIC Statutory Registration & Monthly Return Filings",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V04",
+      "relatedVerticalIds": [
+        "V07"
+      ],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP",
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/license-qualification.html",
+      "intakeRoute": "/conversion/hr-audit.html"
+    },
+    {
+      "canonicalRoute": "/services/founder-shareholder-agreements.html",
+      "serviceId": "V05-SVC-001",
+      "serviceName": "Founder Pacts, Shareholder Agreements (SHA) & Share Purchase Agreements (SPA)",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V05",
+      "relatedVerticalIds": [
+        "V08"
+      ],
+      "assignedBundles": [
+        "KL-BND-EDTECH",
+        "KL-BND-CLINIC",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EXIM"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/ai-document-generator.html",
+      "intakeRoute": "/conversion/contract-intake.html"
+    },
+    {
+      "canonicalRoute": "/services/master-service-agreements.html",
+      "serviceId": "V05-SVC-002",
+      "serviceName": "Master Service Agreements (MSA), SOWs & Commercial Vendor Contracts",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V05",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/ai-document-generator.html",
+      "intakeRoute": "/conversion/contract-intake.html"
+    },
+    {
+      "canonicalRoute": "/services/ip-enforcement-cease-desist.html",
+      "serviceId": "V06-SVC-001",
+      "serviceName": "IP Enforcement & Cease and Desist Issuance",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V06",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/trademark-search.html",
+      "intakeRoute": "/conversion/contract-intake.html"
+    },
+    {
+      "canonicalRoute": "/services/software-copyright-patents.html",
+      "serviceId": "V06-SVC-002",
+      "serviceName": "Software Copyright, Source Code & Tech Patent Filings",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V06",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-EDTECH",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/trademark-search.html",
+      "intakeRoute": "/conversion/ppc-trademark-registration.html"
+    },
+    {
+      "canonicalRoute": "/services/trademark-registration.html",
+      "serviceId": "V06-SVC-003",
+      "serviceName": "Brand Name, Logo & Slogan Trademark Registration (Form TM-A)",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V06",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/trademark-search.html",
+      "intakeRoute": "/conversion/ppc-trademark-registration.html"
+    },
+    {
+      "canonicalRoute": "/services/labour-code-handbooks.html",
+      "serviceId": "V07-SVC-001",
+      "serviceName": "Labour Code Healthcheck & Comprehensive Employee Handbooks",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V07",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/hr-audit.html",
+      "intakeRoute": "/conversion/hr-audit.html"
+    },
+    {
+      "canonicalRoute": "/services/posh-compliance.html",
+      "serviceId": "V07-SVC-002",
+      "serviceName": "Mandatory POSH Act Compliance & Internal Committee (IC) Setup",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V07",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/hr-audit.html",
+      "intakeRoute": "/conversion/hr-audit.html"
+    },
+    {
+      "canonicalRoute": "/services/fast-track-mergers.html",
+      "serviceId": "V09-SVC-001",
+      "serviceName": "Section 233 Fast-Track Parent-Subsidiary & Small Company Mergers",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V09",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "General & Specialist Support",
+      "commercialTiers": [
+        "SPECIALIST_SCOPED"
+      ],
+      "diagnosticToolRoute": "/conversion/ma-advisory-enquiry.html",
+      "intakeRoute": "/conversion/ma-advisory-enquiry.html"
+    },
+    {
+      "canonicalRoute": "/services/slump-sale-asset-purchase.html",
+      "serviceId": "V09-SVC-002",
+      "serviceName": "Corporate Slump Sale & Business Asset Purchase Governance",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V09",
+      "relatedVerticalIds": [
+        "V05"
+      ],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-HOSPITALITY",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "General & Specialist Support",
+      "commercialTiers": [
+        "SPECIALIST_SCOPED"
+      ],
+      "diagnosticToolRoute": "/conversion/ma-advisory-enquiry.html",
+      "intakeRoute": "/conversion/ma-advisory-enquiry.html"
+    },
+    {
+      "canonicalRoute": "/services/director-removal-board-disputes.html",
+      "serviceId": null,
+      "serviceName": "Director Removal, Vacation of Office & Board Control Litigation",
+      "recordStatus": "REFERRAL_ONLY",
+      "primaryVerticalId": null,
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Referral-Only (Advocates Act Boundary)",
+      "commercialTiers": [
+        "REFERRAL_ONLY"
+      ],
+      "diagnosticToolRoute": "/conversion/dispute-consultation.html",
+      "intakeRoute": "/conversion/dispute-consultation.html"
+    },
+    {
+      "canonicalRoute": "/services/nclt-insolvency-defense.html",
+      "serviceId": null,
+      "serviceName": "NCLT Corporate Insolvency Resolution Process (CIRP) Defense",
+      "recordStatus": "REFERRAL_ONLY",
+      "primaryVerticalId": null,
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Referral-Only (Advocates Act Boundary)",
+      "commercialTiers": [
+        "REFERRAL_ONLY"
+      ],
+      "diagnosticToolRoute": "/conversion/dispute-consultation.html",
+      "intakeRoute": "/conversion/dispute-consultation.html"
+    },
+    {
+      "canonicalRoute": "/services/nclt-merger-petitions.html",
+      "serviceId": "V09-SVC-003",
+      "serviceName": "NCLT Merger Petition & Complex Amalgamation Execution",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V09",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "General & Specialist Support",
+      "commercialTiers": [
+        "SPECIALIST_SCOPED"
+      ],
+      "diagnosticToolRoute": "/conversion/ma-advisory-enquiry.html",
+      "intakeRoute": "/conversion/ma-advisory-enquiry.html"
+    },
+    {
+      "canonicalRoute": "/services/oppression-mismanagement-petitions.html",
+      "serviceId": null,
+      "serviceName": "Section 241 & 242 Oppression and Mismanagement Petitions",
+      "recordStatus": "REFERRAL_ONLY",
+      "primaryVerticalId": null,
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Referral-Only (Advocates Act Boundary)",
+      "commercialTiers": [
+        "REFERRAL_ONLY"
+      ],
+      "diagnosticToolRoute": "/conversion/dispute-consultation.html",
+      "intakeRoute": "/conversion/dispute-consultation.html"
+    },
+    {
+      "canonicalRoute": "/services/board-governance-risk-assessment.html",
+      "serviceId": "V11-SVC-001",
+      "serviceName": "Internal Board Governance & Secretarial Health Check",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V11",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-HOSPITALITY",
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/secretarial-audit-scope.html",
+      "intakeRoute": "/conversion/secretarial-audit-scope.html"
+    },
+    {
+      "canonicalRoute": "/services/board-minutes.html",
+      "serviceId": "V11-SVC-002",
+      "serviceName": "Board Minutes & Statutory Registers Maintenance",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V11",
+      "relatedVerticalIds": [
+        "V02"
+      ],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EXIM",
+        "KL-BND-FOOD",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/retainer-desk.html",
+      "intakeRoute": "/conversion/retainer-desk.html"
+    },
+    {
+      "canonicalRoute": "/services/form-csr2.html",
+      "serviceId": "V11-SVC-003",
+      "serviceName": "Form CSR-2 Annual Corporate Social Responsibility Report",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V11",
+      "relatedVerticalIds": [
+        "V02"
+      ],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "General & Specialist Support",
+      "commercialTiers": [
+        "SPECIALIST_SCOPED"
+      ],
+      "diagnosticToolRoute": "/conversion/csr-audit-form.html",
+      "intakeRoute": "/conversion/csr-audit-form.html"
+    },
+    {
+      "canonicalRoute": "/services/form-mr3-secretarial-audit.html",
+      "serviceId": "V11-SVC-004",
+      "serviceName": "Mandatory Form MR-3 Secretarial Audit Services",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V11",
+      "relatedVerticalIds": [
+        "V02"
+      ],
+      "assignedBundles": [
+        "GENERAL_CATALOG"
+      ],
+      "deliveryPhase": "General & Specialist Support",
+      "commercialTiers": [
+        "SPECIALIST_SCOPED"
+      ],
+      "diagnosticToolRoute": "/conversion/secretarial-audit-scope.html",
+      "intakeRoute": "/conversion/secretarial-audit-scope.html"
+    },
+    {
+      "canonicalRoute": "/services/cyber-incident-reporting.html",
+      "serviceId": "V12-SVC-001",
+      "serviceName": "Cyber Incident Reporting, CERT-In & IT Act Statutory Mandates",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V12",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-EDTECH",
+        "KL-BND-HOSPITALITY"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/dpdp-audit-request.html",
+      "intakeRoute": "/conversion/dpdp-audit-request.html"
+    },
+    {
+      "canonicalRoute": "/services/dpdp-compliance-audit.html",
+      "serviceId": "V12-SVC-002",
+      "serviceName": "DPDP Act Data Fiduciary Governance & Readiness Audit",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V12",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-CLINIC",
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/dpdp-audit-request.html",
+      "intakeRoute": "/conversion/dpdp-audit-request.html"
+    },
+    {
+      "canonicalRoute": "/services/saas-terms-privacy-architecture.html",
+      "serviceId": "V12-SVC-003",
+      "serviceName": "SaaS Terms of Service, EULAs & Privacy Architecture",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V12",
+      "relatedVerticalIds": [
+        "V05"
+      ],
+      "assignedBundles": [
+        "KL-BND-HOSPITALITY",
+        "KL-BND-EDTECH",
+        "KL-BND-FOOD"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/dpdp-audit-request.html",
+      "intakeRoute": "/conversion/dpdp-audit-request.html"
+    },
+    {
+      "canonicalRoute": "/services/cross-border-tech-transfer.html",
+      "serviceId": "V13-SVC-001",
+      "serviceName": "Cross-Border Technology Transfer & Licensing Agreements",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V13",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-EXIM",
+        "KL-BND-EDTECH"
+      ],
+      "deliveryPhase": "Phase 2: Put the Essentials in Place",
+      "commercialTiers": [
+        "SETUP_PLUS_CONTRACTS"
+      ],
+      "diagnosticToolRoute": "/conversion/fema-consultation.html",
+      "intakeRoute": "/conversion/cross-border-retainer.html"
+    },
+    {
+      "canonicalRoute": "/services/form-fc3-fc4.html",
+      "serviceId": "V13-SVC-002",
+      "serviceName": "Form FC-3 / FC-4 Foreign Branch Office (BO) & Liaison Office (LO) Compliance",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V13",
+      "relatedVerticalIds": [
+        "V02"
+      ],
+      "assignedBundles": [
+        "KL-BND-EXIM"
+      ],
+      "deliveryPhase": "Phase 1: Start Right",
+      "commercialTiers": [
+        "ONE_TIME_SETUP"
+      ],
+      "diagnosticToolRoute": "/conversion/fema-consultation.html",
+      "intakeRoute": "/conversion/fema-consultation.html"
+    },
+    {
+      "canonicalRoute": "/services/rbi-fla-return.html",
+      "serviceId": "V13-SVC-003",
+      "serviceName": "RBI Foreign Liabilities and Assets (FLA) Return Filing",
+      "recordStatus": "ACTIVE_SERVICE",
+      "primaryVerticalId": "V13",
+      "relatedVerticalIds": [],
+      "assignedBundles": [
+        "KL-BND-EXIM",
+        "KL-BND-HOSPITALITY"
+      ],
+      "deliveryPhase": "Phase 3: Stay on Track",
+      "commercialTiers": [
+        "ANNUAL_OR_MONTHLY_RETAINER"
+      ],
+      "diagnosticToolRoute": "/conversion/fema-consultation.html",
+      "intakeRoute": "/conversion/cross-border-retainer.html"
+    }
+  ]
+}

@@ -1,86 +1,99 @@
 /**
- * 
- * CRAFTEGON CORPORATE SERVICES (CCS) - GLOBAL DESIGN TOKENS
- * Light Mint Green (#BCEBD5) & Light Sky Blue (#B8E3F7) Visual Identity
- * High-Legibility Dark Typography (#193B46 / #243746) - WCAG 2.2 AA
- * 
+ * ==========================================================================
+ * CRAFTEGON CORPORATE SERVICES (CCS) - MASTER DESIGN SYSTEM TOKENS
+ * Official CCS Palette: Deep Emerald (#176B4A), Charcoal Green (#17251F),
+ * Soft Mint (#E8F2EC), Off White (#F5F8F5), White (#FFFFFF),
+ * Secondary Text (#64746B), Border (#D8E3DC) — WCAG 2.2 AA
+ * ==========================================================================
  */
 
-
 :root {
-  /* --- Primary Brand Palette: Mint Green & Light Sky Blue --- */
-  --brand-mint: #BCEBD5;             /* Master Mint Green */
-  --brand-sky: #B8E3F7;              /* Master Light Sky Blue */
+  /* --- Canonical Brand Palette --- */
+  --brand-emerald: #176B4A;          /* Deep Emerald Primary Action & Authority */
+  --brand-emerald-hover: #115238;    /* Deep Emerald Hover / Active */
+  --brand-charcoal-green: #17251F;   /* Charcoal Green Headings & Dark Anchors */
+  --brand-soft-mint: #E8F2EC;        /* Soft Mint Highlights, Badges & Pills */
+  --brand-off-white: #F5F8F5;        /* Off White Alternating Canvas */
+  --brand-mint: #E8F2EC;             /* Backward-compatible alias */
+  --brand-sky: #E8F2EC;              /* Harmonized soft surface alias */
 
   /* --- Soft Surfaces & Canvases --- */
-  --surface-mint-soft: #DDF5EA;      /* Mint Soft Tint */
-  --surface-sky-soft: #DDF2FC;       /* Sky Soft Tint */
-  --surface-mint-white: #F4FAF7;     /* Mint White Surface */
-  --surface-sky-white: #F3F9FD;      /* Blue White Surface */
-  --bg-primary: #FFFFFF;             /* Pure White Canvas */
-  --bg-white: #FFFFFF;               /* Pure White */
-  --bg-secondary: #F4FAF7;           /* Mint White for Section Alternation */
-  --bg-ivory: #F4FAF7;               /* Standardized Soft Canvas */
-  --surface-light: #F4FAF7;          /* Light Surface Background */
-  --card-bg: #FFFFFF;                /* Pure White Cards */
+  --surface-mint-soft: #E8F2EC;
+  --surface-sky-soft: #E8F2EC;
+  --surface-mint-white: #F5F8F5;
+  --surface-sky-white: #F5F8F5;
+  --surface-canvas: #F5F8F5;
+  --bg-primary: #FFFFFF;
+  --bg-white: #FFFFFF;
+  --bg-secondary: #F5F8F5;
+  --bg-ivory: #F5F8F5;
+  --surface-light: #F5F8F5;
+  --card-bg: #FFFFFF;
 
   /* --- Accents & Interactive Controls --- */
-  --accent-green-primary: #247A62;   /* Primary Dark Green Accent (Buttons, Active) - 5.4:1 on White */
-  --accent-emerald: #247A62;         /* Canonical Emerald Accent */
-  --accent-emerald-hover: #1B5E4B;   /* Deep Emerald Hover */
-  --accent-blue-secondary: #287DA8;  /* Secondary Ocean Blue Accent - 4.8:1 on White */
-  --accent-ocean: #287DA8;           /* Canonical Secondary Ocean Blue */
-  --accent-mint-vibrant: #75CDA9;    /* Mid Mint Accent */
-  --accent-sky-vibrant: #79C5E8;     /* Mid Sky Accent */
-  --surface-canvas: #F4FAF7;         /* Canonical Soft Canvas Surface */
-  --border-hairline: #DCE8E5;        /* Canonical Hairline Architectural Border */
-  --measure-prose: 68ch;             /* Ergonomic reading width constraint */
+  --accent-green-primary: #176B4A;   /* 6.2:1 contrast on #FFFFFF */
+  --accent-emerald: #176B4A;
+  --accent-emerald-hover: #115238;
+  --accent-blue-secondary: #1E5C45;  /* Harmonized deep forest accent */
+  --accent-ocean: #1E5C45;
+  --accent-mint-vibrant: #2D8A65;
+  --accent-sky-vibrant: #C5DBD0;
+  --border-hairline: #D8E3DC;
+  --measure-prose: 68ch;
 
-  /* --- Deep Corporate Navy / Teal Scale --- */
-  --navy-900: #10262E;               /* Deepest Teal Charcoal */
-  --navy-800: #193B46;               /* Master Corporate Deep Teal */
-  --navy-700: #204C5A;               /* Mid Deep Teal */
-  --navy-600: #287DA8;               /* Active Ocean Blue */
-  --navy-100: #DDF2FC;               /* Light Sky Tint */
-  --navy-50:  #F3F9FD;               /* Very Subtle Sky Tint */
+  /* --- Deep Charcoal-Green Institutional Scale (Mapped to Legacy Aliases) --- */
+  --navy-900: #17251F;               /* Primary Dark Charcoal Green (15.4:1 on White) */
+  --navy-800: #1E332B;               /* Mid Dark Charcoal Green */
+  --navy-700: #284439;               /* Slate Forest */
+  --navy-600: #176B4A;               /* Deep Emerald */
+  --navy-100: #E8F2EC;               /* Soft Mint Tint */
+  --navy-50:  #F5F8F5;               /* Off White Tint */
 
-  /* --- Backward-Compatible Accent Aliases (Replaces Gold with Emerald/Ocean) --- */
-  --brand-gold: #247A62;             /* Mapped to Primary Emerald Accent */
-  --gold-primary: #247A62;           /* Primary Accent */
-  --brand-gold-hover: #1B5E4B;       /* Deep Emerald Hover */
-  --brand-gold-subtle: rgba(188, 235, 213, 0.35); /* Subtle Mint Tint */
-  --brand-gold-border: rgba(36, 122, 98, 0.25);   /* Accessible Green Border */
-  --text-dark-gold: #247A62;         /* WCAG AA Compliant 5.4:1 contrast on white */
-  --text-gold: #247A62;              /* Standard accessible green text */
+  /* --- Phase & Sector CTA Tokens (Harmonized to CCS Palette) --- */
+  --charcoal-ink: #17251F;
+  --growth-green: #176B4A;
+  --growth-green-accessible: #176B4A;
+  --growth-green-hover: #115238;
+  --growth-green-soft: rgba(23, 107, 74, 0.08);
+  --growth-green-border: rgba(23, 107, 74, 0.25);
+
+  /* --- Backward-Compatible Brand Aliases --- */
+  --brand-gold: #176B4A;
+  --gold-primary: #176B4A;
+  --brand-gold-hover: #115238;
+  --brand-gold-subtle: #E8F2EC;
+  --brand-gold-border: rgba(23, 107, 74, 0.28);
+  --text-dark-gold: #176B4A;
+  --text-gold: #176B4A;
 
   /* --- High-Legibility Typography Colors (WCAG 2.2 AA) --- */
-  --text-dark: #193B46;              /* Deep Teal Charcoal Headings (11.2:1 contrast) */
-  --charcoal: #193B46;               /* Sovereign Dark Teal */
-  --text-main: #243746;              /* High-legibility Body Text (10.1:1 contrast) */
-  --text-secondary: #52717A;         /* Slate Teal Sub-labels (5.1:1 contrast) */
-  --text-muted: #52717A;             /* Muted Labels & Captions (5.1:1 contrast) */
-  --text-light: #4A636B;             /* Placeholder / Subtle Slate */
+  --text-dark: #17251F;              /* Charcoal Green Headings (15.4:1) */
+  --charcoal: #17251F;
+  --text-main: #22342C;              /* High-legibility Body Copy (12.8:1) */
+  --text-secondary: #64746B;         /* Official Secondary Text (#64746B, 4.88:1) */
+  --text-muted: #64746B;
+  --text-light: #566860;
 
   /* --- Structural Borders & Dividers --- */
-  --border-color: #DCE8E5;           /* Clean Soft Mint Border */
-  --border-subtle: #DCE8E5;
-  --border-hover: #B5CDC7;           /* Medium Mint-Slate on Hover */
-  --silver-border: #DCE8E5;
+  --border-color: #D8E3DC;           /* Official Architectural Border */
+  --border-subtle: #D8E3DC;
+  --border-hover: #AFC7B9;
+  --silver-border: #D8E3DC;
 
   /* --- Status Indicators --- */
-  --success: #059669;                /* Forest Emerald */
-  --success-light: #ECFDF5;
-  --warning: #D97706;                /* Amber */
+  --success: #176B4A;
+  --success-light: #E8F2EC;
+  --warning: #B45309;
   --warning-light: #FFFBEB;
-  --danger: #DC2626;                 /* Crimson */
+  --danger: #B91C1C;
   --danger-light: #FEF2F2;
 
-  /* --- Gradients --- */
-  --accent-gradient: linear-gradient(135deg, #247A62 0%, #287DA8 100%);
-  --cta-gradient: linear-gradient(135deg, #247A62 0%, #193B46 100%);
-  --royal-gradient: linear-gradient(180deg, #FFFFFF 0%, #F4FAF7 100%);
-  --mint-sky-gradient: linear-gradient(135deg, #DDF5EA 0%, #DDF2FC 100%);
-  --mint-sky-hero: linear-gradient(135deg, #F4FAF7 0%, #DDF5EA 45%, #DDF2FC 100%);
+  /* --- Calm Institutional Gradients --- */
+  --accent-gradient: linear-gradient(135deg, #176B4A 0%, #17251F 100%);
+  --cta-gradient: linear-gradient(135deg, #176B4A 0%, #115238 100%);
+  --royal-gradient: linear-gradient(180deg, #FFFFFF 0%, #F5F8F5 100%);
+  --mint-sky-gradient: linear-gradient(135deg, #E8F2EC 0%, #F5F8F5 100%);
+  --mint-sky-hero: linear-gradient(160deg, #FFFFFF 0%, #F5F8F5 55%, #E8F2EC 100%);
   --card-gradient: #FFFFFF;
 
   --bg-main: var(--bg-primary);
@@ -92,12 +105,12 @@
   --bg-muted: var(--surface-light);
 
   --gold: var(--brand-gold);
-  --gold-light: #75CDA9;
-  --gold-dark: #1B5E4B;
+  --gold-light: #2D8A65;
+  --gold-dark: #115238;
   --gold-hover: var(--brand-gold-hover);
   --gold-subtle: var(--brand-gold-subtle);
   --gold-border: var(--brand-gold-border);
-  --gold-border-strong: rgba(36, 122, 98, 0.4);
+  --gold-border-strong: rgba(23, 107, 74, 0.42);
 
   --text-primary: var(--text-dark);
   --heading-color: var(--text-dark);
@@ -111,102 +124,98 @@
   --font-serif: var(--font-heading);
   --font-cinzel: var(--font-heading);
 
-    /* Fluid Typographic Tokens via clamp() (WCAG 2.2 Accessible) */
-  --text-fluid-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem); /* 12px -> 13px */
-  --text-fluid-sm: clamp(0.84rem, 0.81rem + 0.18vw, 0.9375rem); /* 13.5px -> 15px */
-  --text-fluid-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);    /* 16px -> 18px */
-  --text-fluid-lg: clamp(1.15rem, 1.05rem + 0.5vw, 1.35rem);     /* 18.4px -> 21.6px */
-  --text-fluid-xl: clamp(1.35rem, 1.2rem + 0.75vw, 1.75rem);     /* 21.6px -> 28px */
-  --text-fluid-2xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);     /* 28px -> 40px */
-  --text-fluid-3xl: clamp(2.25rem, 1.8rem + 2.25vw, 3.5rem);     /* 36px -> 56px */
+  /* Fluid Typographic Tokens via clamp() (WCAG 2.2 Accessible) */
+  --text-fluid-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --text-fluid-sm: clamp(0.84rem, 0.81rem + 0.18vw, 0.9375rem);
+  --text-fluid-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-fluid-lg: clamp(1.15rem, 1.05rem + 0.5vw, 1.35rem);
+  --text-fluid-xl: clamp(1.35rem, 1.2rem + 0.75vw, 1.75rem);
+  --text-fluid-2xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);
+  --text-fluid-3xl: clamp(2.25rem, 1.8rem + 2.25vw, 3.5rem);
 
-  /* Semantic Fluid Headings & Prose Measure (Design System Spec) */
-  --text-display: clamp(2.5rem, 5vw, 3.75rem);   /* Hero Display Titles */
-  --text-h1:      clamp(2.0rem, 3.8vw, 2.75rem);  /* Page Main Headings */
-  --text-h2:      clamp(1.5rem, 2.6vw, 2.0rem);   /* Major Section Titles */
-  --text-h3:      clamp(1.2rem, 1.8vw, 1.5rem);   /* Subsection & Feature Titles */
-  --text-h4:      clamp(1.05rem, 1.4vw, 1.25rem); /* Card Titles & Modal Headers */
-  --text-body:    clamp(0.95rem, 1.1vw, 1.05rem); /* Standard Prose Body */
-  --text-small:   0.875rem;                       /* Metadata, Captions, Labels */
-  --text-micro:   0.75rem;                        /* Uppercase Tags & Eyebrows */
+  --text-display: clamp(2.35rem, 4.6vw, 3.5rem);
+  --text-h1:      clamp(2.0rem, 3.6vw, 2.75rem);
+  --text-h2:      clamp(1.5rem, 2.5vw, 2.05rem);
+  --text-h3:      clamp(1.18rem, 1.7vw, 1.45rem);
+  --text-h4:      clamp(1.05rem, 1.3vw, 1.22rem);
+  --text-body:    clamp(0.95rem, 1.05vw, 1.04rem);
+  --text-small:   0.875rem;
+  --text-micro:   0.75rem;
 
-  /* Tabular Figures for High-Precision Financials */
   --font-tabular: 'DM Mono', monospace;
 
---text-xs: 0.75rem;   /* 12px */
-  --text-sm: 0.875rem;  /* 14px */
-  --text-base: 1rem;    /* 16px */
-  --text-lg: 1.125rem;  /* 18px */
-  --text-xl: 1.25rem;   /* 20px */
-  --text-2xl: 1.5rem;   /* 24px */
-  --text-3xl: 1.875rem; /* 30px */
-  --text-4xl: 2.25rem;  /* 36px */
-  --text-5xl: 2.75rem;  /* 44px */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 2.75rem;
 
   /* Line Heights */
-  --lh-tight: 1.25;
+  --lh-tight: 1.22;
   --lh-snug: 1.375;
   --lh-normal: 1.5;
   --lh-relaxed: 1.65;
 
   /* --- Spacing & Sizing Variables --- */
-  --space-1: 0.25rem;  /* 4px */
-  --space-2: 0.5rem;   /* 8px */
-  --space-3: 0.75rem;  /* 12px */
-  --space-4: 1rem;     /* 16px */
-  --space-6: 1.5rem;   /* 24px */
-  --space-8: 2rem;     /* 32px */
-  --space-12: 3rem;    /* 48px */
-  --space-16: 4rem;    /* 64px */
-  --space-20: 5rem;    /* 80px */
-  --space-24: 6rem;    /* 96px */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
 
-  /* Predictable Content Width */
   --container-max: 1200px;
   --container-narrow: 900px;
 
   /* --- Border Radius --- */
   --radius-sm: 6px;
-  --radius-md: 10px;   /* Modern calm card radius */
+  --radius-md: 10px;
   --radius-lg: 14px;
   --radius-xl: 18px;
   --radius-full: 9999px;
 
-  /* --- Soft Modern Shadows (No harsh glows) --- */
-    /* Multi-Layer Soft Teal-Infused Elevation Shadows */
-  --elevation-1: 0 1px 3px rgba(25, 59, 70, 0.05), 0 1px 2px rgba(25, 59, 70, 0.03);
-  --elevation-2: 0 4px 12px rgba(25, 59, 70, 0.06), 0 2px 4px rgba(25, 59, 70, 0.04);
-  --elevation-3: 0 12px 28px rgba(25, 59, 70, 0.08), 0 4px 8px rgba(25, 59, 70, 0.04);
+  /* --- Soft Charcoal-Green Elevation Shadows --- */
+  --elevation-1: 0 1px 3px rgba(23, 37, 31, 0.05), 0 1px 2px rgba(23, 37, 31, 0.03);
+  --elevation-2: 0 4px 12px rgba(23, 37, 31, 0.06), 0 2px 4px rgba(23, 37, 31, 0.04);
+  --elevation-3: 0 12px 28px rgba(23, 37, 31, 0.08), 0 4px 8px rgba(23, 37, 31, 0.04);
 
---shadow-standard: 0 1px 3px rgba(25, 59, 70, 0.05), 0 2px 8px rgba(25, 59, 70, 0.03);
-  --shadow-sm: 0 1px 2px rgba(25, 59, 70, 0.04);
-  --shadow-md: 0 4px 14px rgba(25, 59, 70, 0.07);
-  --shadow-lg: 0 8px 28px rgba(25, 59, 70, 0.09);
+  --shadow-standard: 0 1px 3px rgba(23, 37, 31, 0.05), 0 2px 8px rgba(23, 37, 31, 0.03);
+  --shadow-sm: 0 1px 2px rgba(23, 37, 31, 0.04);
+  --shadow-md: 0 4px 14px rgba(23, 37, 31, 0.07);
+  --shadow-lg: 0 8px 28px rgba(23, 37, 31, 0.09);
   --shadow-noble: var(--shadow-standard);
-  --shadow-gold: 0 2px 8px rgba(36, 122, 98, 0.15);
+  --shadow-gold: 0 2px 8px rgba(23, 107, 74, 0.14);
   --shadow-gold-card: var(--shadow-standard);
   --shadow-glow: none;
-  --focus-ring: 0 0 0 3px rgba(36, 122, 98, 0.25);
-  --focus-gold: 0 0 0 3px rgba(36, 122, 98, 0.25);
+  --focus-ring: 0 0 0 3px rgba(23, 107, 74, 0.25);
+  --focus-gold: 0 0 0 3px rgba(23, 107, 74, 0.25);
 
-  /* --- Phase 2 Kerala Authority Palette: Charcoal & Growth Green --- */
-  --charcoal-ink: #1A1A1A;           /* Authoritative High-Contrast Charcoal (17.4:1 on white) */
-  --growth-green: #00A651;           /* Brand Growth Green accent borders & status highlights */
-  --growth-green-accessible: #008742;/* WCAG 2.2 AA high-contrast Growth Green for text/CTAs on white */
-  --growth-green-hover: #006E35;     /* Deep Growth Green hover & active state */
-  --growth-green-soft: rgba(0, 166, 81, 0.08);
-  --growth-green-border: rgba(0, 166, 81, 0.28);
-
-  /* --- Standardized Responsive Breakpoint Hierarchy --- */
-  --bp-sm: 640px;      /* Mobile Landscape / Phablet */
-  --bp-md: 768px;      /* Tablet / Small Laptop */
-  --bp-lg: 1024px;     /* Standard Desktop */
-  --bp-xl: 1280px;     /* Large High-Res Displays */
+  /* --- Standardized Responsive Breakpoints --- */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
 }
 
-
-/* Universal Tabular Figures for Numeric Lining and Financial Precision */
+/* Universal Tabular Figures & Reduced Motion Discipline */
 .metric-value, .total-number, [data-currency], .calc-readout, .fee-amount, .table-num, .stat-value, .stat-number, .readout-pill, .calc-total-val, .calc-row-val {
   font-variant-numeric: tabular-nums lining-nums;
   font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

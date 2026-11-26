@@ -1,7 +1,7 @@
 {
   "name": "CraftEgon Corporate Services (CCS)",
   "short_name": "CraftEgon Corporate Services (CCS)",
-  "description": "Enterprise Corporate Secretarial, Tax Structuring, and Regulatory Compliance Infrastructure.",
+  "description": "Entity setup, regulatory approvals, commercial documentation, and ongoing compliance support under CraftEgon LLP.",
   "icons": [
     {
       "src": "/assets/images/favicon-48x48.png",
@@ -22,6 +22,6 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#064e3b"
+  "background_color": "#f5f8f5",
+  "theme_color": "#176b4a"
 }

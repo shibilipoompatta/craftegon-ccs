@@ -31,23 +31,20 @@ Every screen, layout, and component across the platform must adhere to these thr
 
 ## 3. Color System & Accessibility Ratios
 
-The palette builds upon the institutional mint green / ocean blue heritage, elevating **Sovereign Deep Navy** as the primary anchor and **Forest Emerald** as the action accent.
+The official CCS visual identity pairs **Deep Emerald** with **Charcoal Green** across clean **Soft Mint**, **Off White**, and **White** canvases.
 
 ### Core Brand Palette
-- **Sovereign Navy (`--navy-900: #10262E`):** Deepest anchor. Hero titles, dark structural containers, footer canvas. Contrast ratio on white: **14.2:1** (WCAG AAA).
-- **Corporate Deep Teal (`--navy-800: #193B46`):** Master headings, primary navigation, active tab markers. Contrast ratio on white: **11.2:1** (WCAG AAA).
-- **Pure White Canvas (`--bg-primary: #FFFFFF`):** Base canvas for document cards, data tables, and input forms.
-- **Mint Soft Surface (`--surface-mint-white: #F4FAF7` / `--surface-canvas`):** Calm, low-glare canvas for alternating sections and table shading. Contrast ratio with body text: **9.6:1** (WCAG AAA).
-
-### Functional Accents & Controls
-- **Forest Emerald (`--accent-green-primary: #247A62` / `--accent-emerald`):** Primary action color for conversion buttons, active links, and positive verification badges. Contrast ratio on white: **5.4:1** (WCAG AA).
-- **Emerald Hover (`--brand-gold-hover: #1B5E4B` / `--accent-emerald-hover`):** Hover and focus state for primary buttons. Contrast ratio on white: **7.8:1** (WCAG AAA).
-- **Secondary Ocean Accent (`--accent-blue-secondary: #287DA8` / `--accent-ocean`):** Informational badges, auxiliary navigation, and subtle highlights. Contrast ratio on white: **4.8:1** (WCAG AA).
+- **Deep Emerald (`--brand-emerald: #176B4A`):** Primary action color for conversion buttons, active tabs, borders, and phase markers. Contrast ratio on white: **6.2:1** (WCAG AA).
+- **Emerald Hover (`--brand-emerald-hover: #115238`):** Hover and active focus state for primary controls.
+- **Charcoal Green (`--brand-charcoal-green: #17251F`):** Master headings, dark anchor surfaces, and institutional footer containers. Contrast ratio on white: **15.4:1** (WCAG AAA).
+- **Soft Mint (`--brand-soft-mint: #E8F2EC`):** Badge fills, eyebrows, highlighted callouts, and subtle UI tints.
+- **Off White (`--brand-off-white: #F5F8F5`):** Calm, low-glare alternating section surface.
+- **White (`--bg-primary: #FFFFFF`):** Base canvas for structured forms, data tables, and cards.
 
 ### Neutral Text & Divider Foundations
-- **High-Legibility Body Text (`--text-main: #243746`):** Standard reading body text. Contrast ratio on white: **10.1:1** (WCAG AAA).
-- **Slate Sub-labels (`--text-secondary: #52717A`):** Captions, table column headers, and secondary metadata. Contrast ratio on white: **5.1:1** (WCAG AA).
-- **Hairline Architectural Border (`--border-color: #DCE8E5` / `--border-hairline`):** Clean, crisp boundary lines for table cells, cards, and section dividers.
+- **High-Legibility Body Text (`--text-main: #22342C`):** Standard reading prose.
+- **Secondary Text (`--text-secondary: #64746B`):** Captions, table metadata, and secondary helper text.
+- **Hairline Border (`--border-color: #D8E3DC`):** Crisp divider borders across cards, tables, and form containers.
 
 ### Semantic Indicators
 - **Verified / Success:** `#059669` (Forest Emerald)
