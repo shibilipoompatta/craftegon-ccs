@@ -1,0 +1,148 @@
+/* ==========================================================================
+   CRAFTEGON CCS | PREMIUM EMERALD HOMEPAGE REFRESH
+   Scoped to the homepage. Existing functionality and content remain intact.
+   ========================================================================== */
+.home-page {
+  --ccs-refresh-emerald: #176B4A;
+  --ccs-refresh-emerald-hover: #105239;
+  --ccs-refresh-charcoal: #17251F;
+  --ccs-refresh-ink: #26352D;
+  --ccs-refresh-muted: #64746B;
+  --ccs-refresh-border: #DCE5DF;
+  --ccs-refresh-wash: #F5F8F5;
+  --ccs-refresh-mint: #E8F2EC;
+}
+.home-page .if-header {
+  background: rgba(255,255,255,.97);
+  border-bottom-color: var(--ccs-refresh-border);
+  box-shadow: 0 1px 8px rgba(23,37,31,.045);
+}
+.home-page .if-header-inner { max-width: 1440px; padding: .72rem clamp(1rem,3vw,2.25rem); }
+.home-page .brand-logo-img {
+  border: 1px solid var(--ccs-refresh-border);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: none;
+  padding: 2px;
+}
+.home-page .if-brand-logo:hover .brand-logo-img {
+  transform: none; border-color: var(--ccs-refresh-emerald); box-shadow: none;
+}
+.home-page .brand-title { color: var(--ccs-refresh-charcoal); letter-spacing: .075em; }
+.home-page .brand-subtitle { color: var(--ccs-refresh-emerald); letter-spacing: .09em; }
+.home-page .if-nav-link { color: #3d4b43; font-weight: 600; }
+.home-page .if-nav-link:hover, .home-page .if-nav-link.active { color: var(--ccs-refresh-emerald); }
+.home-page .if-nav-link::after { background: var(--ccs-refresh-emerald); }
+.home-page .if-header .btn-primary,
+.home-page .if-header .if-btn-primary { background: var(--ccs-refresh-emerald); border-color: var(--ccs-refresh-emerald); }
+.home-page .hero-3d-section {
+  background: linear-gradient(112deg,#F3F7F3 0%,#FFFFFF 65%) !important;
+  padding-top: 4.8rem !important;
+  padding-bottom: 3.5rem !important;
+  border-bottom: 1px solid var(--ccs-refresh-border);
+}
+.home-page .hero-center-showcase { max-width: 920px; }
+.home-page .hero-pill-badge {
+  background: #E8F2EC; border-color: #C9DCCF; color: #285D42;
+  letter-spacing: .12em; font-size: .68rem; border-radius: 4px;
+}
+.home-page .hero-pill-dot { box-shadow: none; background: var(--ccs-refresh-emerald); }
+.home-page .hero-headline {
+  color: var(--ccs-refresh-charcoal) !important;
+  font-size: clamp(2.5rem,5vw,4rem);
+  line-height: 1.09; letter-spacing: -.05em; max-width: 900px;
+}
+.home-page .hero-headline-accent {
+  background: none !important; color: var(--ccs-refresh-emerald) !important;
+  -webkit-text-fill-color: currentColor !important; font-weight: 700;
+}
+.home-page .hero-lead { color: #5e6e64; max-width: 700px; font-size: clamp(1rem,1.25vw,1.15rem); }
+.home-page .hero-unified-search-form {
+  border: 1px solid #D4DFD7; border-radius: 7px; box-shadow: 0 4px 18px rgba(23,37,31,.045);
+}
+.home-page .unified-search-btn { background: var(--ccs-refresh-emerald); border-radius: 5px; }
+.home-page .unified-search-btn:hover { background: var(--ccs-refresh-emerald-hover); }
+.home-page .btn-hero-primary {
+  background: var(--ccs-refresh-emerald); border-color: var(--ccs-refresh-emerald);
+  border-radius: 5px; box-shadow: none;
+}
+.home-page .btn-hero-primary:hover { background: var(--ccs-refresh-emerald-hover); border-color: var(--ccs-refresh-emerald-hover); box-shadow: none; }
+.home-page .btn-hero-secondary { border-radius: 5px; border-color: #CAD7CE; box-shadow: none; }
+.home-page .hero-trust-strip { color: #68776E; font-size: .78rem; }
+.home-page .trust-point-icon { color: var(--ccs-refresh-emerald); }
+.home-page .hero-channels-container { border-color: var(--ccs-refresh-border); }
+.home-page .hero-quick-channels { gap: 0; border: 1px solid var(--ccs-refresh-border); background: #fff; }
+.home-page .channel-card {
+  min-height: 68px; border: 0; border-right: 1px solid var(--ccs-refresh-border);
+  border-radius: 0; box-shadow: none; padding: .85rem 1rem;
+}
+.home-page .channel-card:last-child { border-right: 0; }
+.home-page .channel-card:hover { background: var(--ccs-refresh-wash); transform: none; box-shadow: none; }
+.home-page .channel-icon { color: var(--ccs-refresh-emerald); filter: grayscale(1); }
+.home-page .channel-name { color: var(--ccs-refresh-charcoal); }
+.home-page .channel-sub { color: #718077; }
+.home-page .kl-bundles-showcase { background: #fff; border-block-color: var(--ccs-refresh-border); }
+.home-page .home-section,
+.home-page .popular-services-section { background-color: #fff; }
+.home-page .home-section.section-alt,
+.home-page .home-section.tools-section,
+.home-page .home-section.entity-wizard-section,
+.home-page .home-section.faq-section,
+.home-page .home-section.stages-section { background: var(--ccs-refresh-wash); }
+.home-page .section-eyebrow,
+.home-page .section-label,
+.home-page .section-overline { color: var(--ccs-refresh-emerald); }
+.home-page .section-title,
+.home-page .kl-h2,
+.home-page .hero-section-title { color: var(--ccs-refresh-charcoal); letter-spacing: -.035em; }
+.home-page .kl-bundle-card,
+.home-page .wizard-card-questions,
+.home-page .wizard-card-recommendation,
+.home-page .faq-item,
+.home-page .flagship-card,
+.home-page .tool-card,
+.home-page .stage-panel {
+  border-color: var(--ccs-refresh-border);
+  box-shadow: 0 2px 8px rgba(23,37,31,.035);
+}
+.home-page .kl-bundle-card:hover,
+.home-page .flagship-card:hover,
+.home-page .tool-card:hover { border-color: #A9C7B4; box-shadow: 0 8px 22px rgba(23,37,31,.07); }
+.home-page .btn-primary,
+.home-page .btn-hero-primary,
+.home-page .wizard-btn-primary,
+.home-page .flagship-btn-featured,
+.home-page .conv-submit-btn {
+  background: var(--ccs-refresh-emerald); border-color: var(--ccs-refresh-emerald);
+}
+.home-page .btn-primary:hover,
+.home-page .wizard-btn-primary:hover,
+.home-page .conv-submit-btn:hover { background: var(--ccs-refresh-emerald-hover); border-color: var(--ccs-refresh-emerald-hover); }
+.home-page .faq-item[open] { border-color: var(--ccs-refresh-emerald); box-shadow: 0 3px 12px rgba(23,37,31,.05); }
+.home-page .faq-chevron { color: var(--ccs-refresh-emerald); }
+.home-page .stage-tab-btn.active,
+.home-page .stage-tab-btn[aria-selected="true"] { color: var(--ccs-refresh-emerald); border-color: var(--ccs-refresh-emerald); }
+.home-page .final-cta-section { background: var(--ccs-refresh-charcoal); }
+.home-page .final-cta-title { color: #fff; }
+.home-page .final-cta-section p { color: #D1DDD4; }
+.home-page .statutory-boundary-section { background: #F3F6F3; border-color: var(--ccs-refresh-border); }
+.home-page .statutory-title { color: var(--ccs-refresh-charcoal); }
+.home-page .if-footer { background: #17251F; border-top: 3px solid var(--ccs-refresh-emerald); }
+.home-page .if-footer .brand-logo-img { border-color: rgba(255,255,255,.35); box-shadow: none; }
+.home-page .if-footer .if-footer-heading { color: #B7D9C1; }
+.home-page .if-footer a:hover { color: #B7D9C1; }
+.home-page .if-mobile-bottom-bar { background: rgba(255,255,255,.98); border-top-color: var(--ccs-refresh-border); }
+.home-page .dock-btn-whatsapp { background: var(--ccs-refresh-emerald); }
+.home-page :focus-visible { outline-color: var(--ccs-refresh-emerald); }
+@media (max-width: 768px) {
+  .home-page .hero-3d-section { padding: 3rem 1rem 2.4rem !important; }
+  .home-page .hero-headline { font-size: clamp(2.25rem,9vw,3rem); }
+  .home-page .hero-quick-channels { border: 0; background: transparent; }
+  .home-page .channel-card {
+    border: 1px solid var(--ccs-refresh-border); border-radius: 6px;
+    min-height: 62px; background: #fff;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-page *, .home-page *::before, .home-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
