@@ -16,11 +16,14 @@
 /scratch/*         /404.html               404
 /docs/*            /404.html               404
 /data/*.schema.json /404.html              404
+/data/pricing.json /404.html               404
 /data/regulatory-claims.json /404.html     404
 /data/backups/*    /404.html               404
 
 # 1.1 RETIRED CATEGORY & TOOL REDIRECTS (HTTP 301)
 /verticals/14-exit-insolvency*  /verticals/index.html   301
+/verticals/12-esg-csr           /verticals/12-data-privacy-tech-law.html 301
+/verticals/12-esg-csr.html      /verticals/12-data-privacy-tech-law.html 301
 /conversion/strike-off-checker* /services/form-stk2-strike-off 301
 /conversion/trademark-search*   /services/trademark-registration 301
 
