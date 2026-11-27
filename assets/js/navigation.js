@@ -229,9 +229,9 @@ document.addEventListener("DOMContentLoaded", async function () {
               </nav>
             </div>
             <div class="if-footer-bottom">
-              <p class="if-footer-disclaimer">
-                <strong>Statutory Disclosure:</strong> CraftEgon Corporate Services (CCS) provides corporate secretarial, compliance, and procedural documentation infrastructure. We do not provide court appearances or litigation advocacy; matters requiring courtroom representation must be handled by an independent advocate enrolled under the Advocates Act, 1961. <a href="/legal/disclaimer.html">Read full professional disclaimer &rarr;</a>
-              </p>
+              <div class="if-footer-disclaimer">
+                <strong>Statutory Disclosure:</strong> CraftEgon Corporate Services (CCS), under <strong>CraftEgon LLP</strong> (LLPIN: ACO-0239), provides non-contentious corporate and compliance coordination; we are not a law firm or bank, and statutory approvals rest with authorities. <a href="/legal/disclaimer.html">Read full statutory disclosures &rarr;</a>
+              </div>
               <p class="if-footer-copy">
                 &copy; 2026 CraftEgon LLP (LLPIN: ACO-0239 &bull; operating CraftEgon Corporate Services — CCS). Commercial Office: Room No.2, NS Building, Kaanjippuzha, Alappuzha, Kerala 690501 &bull; MCA Regd. Office: Chettipadi, Tirurangadi, Malappuram 676319.
               </p>

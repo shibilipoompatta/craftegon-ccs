@@ -884,11 +884,11 @@ body:not(.home-page) {
   box-sizing: border-box;
   margin: 0.25rem auto;
   font-size: 0.8125rem;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--footer-text, #E8EFEA);
-  text-align: left;
+  text-align: center;
   background: var(--footer-surface, #182D33);
-  padding: 1rem 1.25rem;
+  padding: 0.7rem 1.125rem;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   overflow-wrap: break-word;
