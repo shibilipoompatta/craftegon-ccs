@@ -49,6 +49,8 @@ serviceRegistry.forEach(s => {
 const SECTOR_PROFILES = {
   'KL-BND-CLINIC': {
     eyebrow: 'Healthcare & Clinical Establishments',
+    image: '/assets/images/bundles/clinics-diagnostics.jpg',
+    imageAlt: 'Editorial architectural illustration of a modern Kerala medical clinic and diagnostic centre framed by tropical foliage',
     headline: 'Structured Entity Setup, Clinical Licensing Readiness & Governance for Healthcare Centres.',
     lead: 'Coordinate incorporation, local-body premises verification, Clinical Establishments Act dossiers, bio-medical waste authorization workflows, doctor engagement contracts, and ongoing tax compliance from one desk.',
     heroChecklistNote: 'Covers diagnostic labs, dental & specialty polyclinics, rehab units, and research clinics across Kerala.',
@@ -71,6 +73,8 @@ const SECTOR_PROFILES = {
   },
   'KL-BND-EXIM': {
     eyebrow: 'Export, Import & Cold-Chain Infrastructure',
+    image: '/assets/images/bundles/exim-cold-chain.jpg',
+    imageAlt: 'Editorial architectural illustration of a coastal Kerala port crane, cold-chain logistics facility, and cargo vessel',
     headline: 'Customs Port Readiness, Trade Contracts & Cross-Border Compliance for EXIM Operations.',
     lead: 'Align company incorporation, DGFT IEC, ICEGATE & Bank AD Code mapping, export LUTs, warehouse consents, CHA & reefer SLAs, and FEMA/EDPMS realization tracking cleanly.',
     heroChecklistNote: 'Designed for spice, agro & seafood shippers, 3PL warehouses, and cold-chain fleet operators.',
@@ -93,6 +97,8 @@ const SECTOR_PROFILES = {
   },
   'KL-BND-FOOD': {
     eyebrow: 'Food Processing, Spices & Nutraceutical Units',
+    image: '/assets/images/bundles/food-spice-processing.jpg',
+    imageAlt: 'Editorial architectural illustration of a Kerala food and spice processing facility with botanical motifs and storage silos',
     headline: 'Factory Licensing, Packaging Readiness & Supply-Chain Contracts From Plant to Shelf.',
     lead: 'Coordinate manufacturing entity formation, MSME Udyam protection, K-SWIFT & KSPCB CTE/CTO dossiers, FSSAI licensing, co-packing and distributor agreements, and multi-HSN compliance.',
     heroChecklistNote: 'Tailored for spice mills, coconut/agro units, D2C food brands, and contract packers.',
@@ -115,6 +121,8 @@ const SECTOR_PROFILES = {
   },
   'KL-BND-HOSPITALITY': {
     eyebrow: 'Hospitality, Boutique Stays & Wellness Resorts',
+    image: '/assets/images/bundles/hospitality-resorts.jpg',
+    imageAlt: 'Editorial architectural illustration of a Kerala heritage boutique courtyard resort beside calm backwaters and palms',
     headline: 'Property SPV Structuring, Resort Approvals & Operator Agreements Without Pre-Opening Surprises.',
     lead: 'Coordinate hospitality SPVs, LSGD commercial occupancy checks, KSPCB STP/DG consents, Fire safety checklists, property lease and OTA contracts, and ongoing seasonal governance.',
     heroChecklistNote: 'Structured for boutique resorts, heritage stays, eco-lodges, serviced villas, and NRI property SPVs.',
@@ -137,6 +145,8 @@ const SECTOR_PROFILES = {
   },
   'KL-BND-EDTECH': {
     eyebrow: 'EdTech Startups, Coaching & Skill Academies',
+    image: '/assets/images/bundles/edtech-academies.jpg',
+    imageAlt: 'Editorial architectural illustration of a modern Kerala training academy and digital learning studio courtyard',
     headline: 'Entity Structuring, Faculty Content IP Ownership & Student Data Governance for Education Businesses.',
     lead: 'Align Pvt Ltd or Section 8 incorporation, DPIIT Startup/KSUM readiness, faculty IP assignment contracts, student refund charters, DPDP minor-consent policies, and payment gateway reconciliation.',
     heroChecklistNote: 'Built for hybrid test-prep campuses, SaaS LMS platforms, healthcare upskilling & vocational institutes.',
@@ -406,12 +416,12 @@ function renderBundlePage(bundle) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap">
 
-  <link rel="stylesheet" href="/assets/css/tokens.css?v=3.0">
-  <link rel="stylesheet" href="/assets/css/theme.css?v=3.0">
-  <link rel="stylesheet" href="/assets/css/navbar.css?v=3.0">
-  <link rel="stylesheet" href="/assets/css/home-unique.css?v=3.0">
-  <link rel="stylesheet" href="/assets/css/bundles.css?v=2.0">
-  <link rel="stylesheet" href="/assets/css/chat-widget.css?v=3.0">
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=4.0">
+  <link rel="stylesheet" href="/assets/css/theme.css?v=4.0">
+  <link rel="stylesheet" href="/assets/css/navbar.css?v=4.0">
+  <link rel="stylesheet" href="/assets/css/home-unique.css?v=4.0">
+  <link rel="stylesheet" href="/assets/css/bundles.css?v=4.0">
+  <link rel="stylesheet" href="/assets/css/chat-widget.css?v=4.0">
 
   <script type="application/ld+json">
 ${JSON.stringify(jsonLd, null, 2)}
@@ -473,6 +483,14 @@ ${ssgNavbar}
             <a href="#package-tiers" style="display:inline-block; color:#E8F2EC; font-weight:700; font-size:0.86rem; text-decoration:underline;">Compare 3 Engagement Tiers &darr;</a>
           </aside>
         </div>
+
+        <figure class="kl-sector-visual-figure">
+          <img src="${esc(sector.image)}" alt="${esc(sector.imageAlt)}" width="1600" height="900" loading="eager">
+          <figcaption>
+            <span><strong>Sector Visual Overview</strong> &bull; ${esc(bundle.title)}</span>
+            <span>Editorial Illustration &bull; CraftEgon LLP (ACO-0239)</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 

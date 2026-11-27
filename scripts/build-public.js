@@ -22,6 +22,16 @@ const ROOT = path.resolve(__dirname, '..');
 const DIST = path.join(ROOT, 'dist-public');
 const DOCS_DIR = path.join(ROOT, 'docs', 'ux-012-public-build-and-release-preparation');
 
+const pricingData = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pricing.json'), 'utf8'));
+const APPROVED_PRICING_ROUTES = new Set(
+  pricingData
+    .filter(p => p && p.commercial_approval_state === 'COMMERCIALLY_APPROVED' && p.canonical_route)
+    .map(p => p.canonical_route)
+);
+if (APPROVED_PRICING_ROUTES.size > 0) {
+  APPROVED_PRICING_ROUTES.add('/index.html');
+}
+
 console.log('================================================================');
 console.log('CRAFTEGON CCS: ASSEMBLING PUBLIC PRODUCTION RELEASE ARTIFACT');
 console.log('================================================================\n');
@@ -37,6 +47,7 @@ const EXCLUDED_DIRS = new Set([
   'node_modules',
   '.git',
   '.github',
+  '.agents',
   '.vault',
   '.vscode',
   '.system_generated',
@@ -127,6 +138,10 @@ const ssgFooter = cleanPortalLinks(rawFooter);
 function sanitizePublicCommercialPricing(html, relPath) {
   let maskedElements = 0;
   let strippedStructuredData = 0;
+  const routeKey = '/' + String(relPath || '').replace(/^\/+/, '');
+  if (APPROVED_PRICING_ROUTES.has(routeKey)) {
+    return { html, maskedElements, strippedStructuredData };
+  }
 
   html = html.replace(/<(span|div)\b(?=[^>]*\bclass=(["'])[^"']*\b(?:fasttrack-price|sublink-tag|if-pricing-price)\b[^"']*\2)[^>]*>([\s\S]*?)<\/\1>/gi,
     (match, tag, quote, inner) => {
@@ -378,6 +393,8 @@ const publicRedirects = `# =====================================================
 
 # 1.1 RETIRED CATEGORY & TOOL REDIRECTS (HTTP 301)
 /verticals/14-exit-insolvency*  /verticals/index.html   301
+/verticals/12-esg-csr           /verticals/12-data-privacy-tech-law.html 301
+/verticals/12-esg-csr.html      /verticals/12-data-privacy-tech-law.html 301
 /conversion/strike-off-checker* /services/form-stk2-strike-off 301
 /conversion/trademark-search*   /services/trademark-registration 301
 

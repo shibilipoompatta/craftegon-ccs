@@ -4705,4 +4705,35 @@ a, button, input, select, textarea,
   margin: 0 0 1rem;
 }
 
+.editorial-workspace-figure {
+  margin: 0 0 2rem;
+  background: var(--bg-canvas, #FFFFFF);
+  border: 1px solid var(--border-subtle, #DCE3DD);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(15, 31, 36, 0.04);
+}
+
+.editorial-workspace-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.editorial-workspace-figure figcaption {
+  padding: 0.7rem 1rem;
+  font-size: 0.8125rem;
+  color: var(--ink-muted, #526468);
+  background: var(--bg-warm, #F7F8F5);
+  border-top: 1px solid var(--border-subtle, #DCE3DD);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+
 

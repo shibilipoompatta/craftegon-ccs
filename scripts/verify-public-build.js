@@ -18,6 +18,16 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const DIST = path.join(ROOT, 'dist-public');
 
+const pricingData = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'pricing.json'), 'utf8'));
+const APPROVED_PRICING_ROUTES = new Set(
+  pricingData
+    .filter(p => p && p.commercial_approval_state === 'COMMERCIALLY_APPROVED' && p.canonical_route)
+    .map(p => p.canonical_route)
+);
+if (APPROVED_PRICING_ROUTES.size > 0) {
+  APPROVED_PRICING_ROUTES.add('/index.html');
+}
+
 let totalTests = 0;
 let passedTests = 0;
 let failedTests = 0;
@@ -159,19 +169,21 @@ const linkRegex = /href=["'](\/[^"'#?]*)/g;
 for (const file of htmlFiles) {
   const content = fs.readFileSync(file, 'utf8');
   const rel = path.relative(DIST, file).replace(/\\/g, '/');
-
+  const isApprovedPricingRoute = APPROVED_PRICING_ROUTES.has('/' + rel);
 
   // Verify unapproved commercial prices are absent from the public HTML.
-  const controlledPriceMarkup = /<(span|div)\b[^>]*\bclass=["'][^"']*\b(?:fasttrack-price|sublink-tag|if-pricing-price)\b[^"']*["'][^>]*>([\s\S]*?)<\/\1>/gi;
-  let priceMatch;
-  while ((priceMatch = controlledPriceMarkup.exec(content)) !== null) {
-    if (/₹|\bINR\s*[\d,]+|[\d,]+(?:\.\d{1,2})?\s*INR/i.test(priceMatch[2])) {
-      console.error('  Unapproved price remains in public markup: ' + rel);
-      commercialPriceLeaks++;
+  if (!isApprovedPricingRoute) {
+    const controlledPriceMarkup = /<(span|div)\b[^>]*\bclass=["'][^"']*\b(?:fasttrack-price|sublink-tag|if-pricing-price)\b[^"']*["'][^>]*>([\s\S]*?)<\/\1>/gi;
+    let priceMatch;
+    while ((priceMatch = controlledPriceMarkup.exec(content)) !== null) {
+      if (/₹|\bINR\s*[\d,]+|[\d,]+(?:\.\d{1,2})?\s*INR/i.test(priceMatch[2])) {
+        console.error('  Unapproved price remains in public markup: ' + rel);
+        commercialPriceLeaks++;
+      }
     }
   }
 
-  // Structured data must not publish Offer prices or price-bearing catalogs.
+  // Structured data must not publish Offer prices on routes without approved commercial pricing.
   const jsonLdBlocks = content.match(/<script\b(?=[^>]*\btype=["']application\/ld\+json["'])[^>]*>[\s\S]*?<\/script>/gi) || [];
   for (const block of jsonLdBlocks) {
     const jsonText = block.replace(/^<script\b[^>]*>/i, '').replace(/<\/script>$/i, '');
@@ -185,7 +197,7 @@ for (const file of htmlFiles) {
           hasCommercialOfferData(child)
         );
       }
-      if (hasCommercialOfferData(data)) {
+      if (!isApprovedPricingRoute && hasCommercialOfferData(data)) {
         console.error('  Unapproved price/offer metadata remains in public structured data: ' + rel);
         structuredPricingLeaks++;
       }

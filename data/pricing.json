@@ -10,7 +10,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹5,499 + Govt. Fees",
+    "website_displayed_price": "₹5,499 + Applicable GST & Govt. Fees",
     "package_title": "Startup India Recognition Package",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -19,6 +19,7 @@
       "Inter-Ministerial Board (IMB) Tax Exemption Guidance"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -28,13 +29,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹6,000). Updated from ₹4,999 + Govt. Fees to ₹5,499 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -48,7 +49,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹5,999 + Govt. Fees",
+    "website_displayed_price": "₹5,999 + Applicable GST & Govt. Fees",
     "package_title": "LLP Incorporation Package",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -61,6 +62,7 @@
       "Practicing CS / CA Statutory Certification under Section 11(1)(c)"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "MCA portal statutory fees for FiLLiP & Form 3 (~₹500 for contribution up to ₹1L)",
       "State Stamp Duty on LLP Agreement (payable directly to State Treasury at actuals)"
     ],
@@ -71,13 +73,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Market calibrated fee: ₹5,999. Class-3 DSC tokens cost extra (₹1,500/token); client-provided valid DSC accepted at no extra cost.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -87,22 +89,22 @@
     "canonical_route": "/services/msme-udyam.html",
     "primary_vertical_id": "V01",
     "currency": "INR",
-    "amount": 1499,
+    "amount": 999,
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹1,499 All Inclusive",
+    "website_displayed_price": "₹999 + Applicable GST (Govt Portal: ₹0)",
     "package_title": "Instant Udyam Registration",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
-      "Aadhaar & PAN Data Verification",
-      "NIC-2008 5-digit Classification & Activity Mapping",
-      "Plant & Machinery WDV and Turnover Reconciliation",
-      "Official Udyam Registration Certificate (URN) Delivery",
-      "Permanent Compliance Dossier Archive"
+      "NIC Code Classification Audit",
+      "MSME Udyam Portal Filing",
+      "Digital URN Certificate Delivery"
     ],
     "excluded_charges": [
-      "Government Portal Filing Fee is ₹0 (Ministry of MSME charges NIL portal fee; fee is purely for professional assisted filing)"
+      "Applicable GST",
+      "Government Portal Fee is ₹0 (free statutory registration)",
+      "MSME 43B(h) Vendor Circular Pack costs extra"
     ],
     "additional_tiers": [],
     "statutory_thresholds": [],
@@ -111,13 +113,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Market calibrated assisted fee: ₹1,499. Govt portal fee is ₹0. Section 43B(h) compliance pack costs extra.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -131,7 +133,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹6,999 + Govt. Fees",
+    "website_displayed_price": "₹6,999 + Applicable GST & Govt. Fees",
     "package_title": "OPC Incorporation",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -140,6 +142,7 @@
       "Incorporation Certificate & PAN/TAN"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)",
       "Class-3 Digital Signature Certificate (DSC token procured separately at actuals / client-provided)"
     ],
@@ -150,13 +153,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹8,000). Updated from ₹6,999 + Govt. Fees to ₹6,999 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -170,7 +173,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹4,999 + Stamp Duty",
+    "website_displayed_price": "₹4,999 + Applicable GST & Stamp Duty",
     "package_title": "Partnership Deed & Filing",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -179,6 +182,7 @@
       "Registrar of Firms (RoF) Filing"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "State stamp duty on instruments/deeds (payable per state schedule per website \"+ Stamp Duty\" wording)"
     ],
     "additional_tiers": [],
@@ -188,13 +192,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹5,500). Updated from ₹4,499 + Stamp Duty to ₹4,999 + Stamp Duty. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -208,7 +212,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹2,999 All Inclusive",
+    "website_displayed_price": "₹2,999 + Applicable GST",
     "package_title": "Proprietorship Setup Bundle",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -216,7 +220,9 @@
       "GST Registration Certificate",
       "Current Bank Account Opening Support"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -224,13 +230,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹3,500). Updated from ₹2,999 All Inclusive to ₹2,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -240,11 +246,11 @@
     "canonical_route": "/services/pvt-ltd-registration.html",
     "primary_vertical_id": "V01",
     "currency": "INR",
-    "amount": 7499,
+    "amount": 4999,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹7,499 + Govt. Fees",
+    "website_displayed_price": "₹4,999 + Applicable GST & Govt. Fees",
     "package_title": "Standard SPICe+",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -257,6 +263,7 @@
       "Practicing CS / CA Pre-Scrutiny & CRC Portal Filing"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "MCA Government filing fee (₹0 up to ₹15L authorized capital)",
       "MCA PAN/TAN statutory fee (₹131 at actuals)",
       "State Stamp Duty on MoA/AoA (paid directly to State Treasury per state rates)"
@@ -264,17 +271,11 @@
     "additional_tiers": [
       {
         "tier_index": 2,
-        "package_title": "Startup Growth Bundle",
-        "website_displayed_price": "₹12,499 + Govt. Fees",
-        "amount": 12499,
+        "package_title": "Growth / Post-Inc Package",
+        "website_displayed_price": "₹8,999 + Applicable GST & Govt. Fees",
+        "amount": 8999,
         "pricing_basis": "STARTING_FROM",
-        "description": "Comprehensive incorporation plus initial founder agreements, Form INC-20A, and MSME registration.",
-        "features": [
-          "Everything in Standard SPICe+",
-          "Form INC-20A Commencement of Business Filing",
-          "Customized Shareholder Agreement (SHA)",
-          "MSME Udyam Registration"
-        ]
+        "description": "Includes INC-20A Commencement Filing and statutory register assembly."
       }
     ],
     "statutory_thresholds": [],
@@ -283,13 +284,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Market calibrated fee: ₹7,499. Includes full transparency: DSC tokens (₹1,500/token) and INC-20A (₹1,999) cost extra if not in bundle; client-provided valid DSC accepted at no extra cost.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -299,11 +300,11 @@
     "canonical_route": "/services/section-8-registration.html",
     "primary_vertical_id": "V01",
     "currency": "INR",
-    "amount": 13999,
+    "amount": 18999,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹13,999 + Govt. Fees",
+    "website_displayed_price": "₹18,999 + Applicable GST & Govt. Fees",
     "package_title": "Section 8 Incorporation",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -312,6 +313,7 @@
       "80G & 12A Guidance Package"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)",
       "Class-3 Digital Signature Certificates (DSC tokens procured separately at actuals / client-provided)"
     ],
@@ -322,13 +324,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹15,000). Updated from ₹11,999 + Govt. Fees to ₹13,999 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -342,7 +344,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹10,999 + Govt. Fees",
+    "website_displayed_price": "₹10,999 + Applicable GST & Govt. Fees",
     "package_title": "Society Formation Package",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -351,6 +353,7 @@
       "Registrar Filing & Certification"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -360,13 +363,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹12,000). Updated from ₹9,999 + Govt. Fees to ₹10,999 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -380,7 +383,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹9,999 + Stamp Duty",
+    "website_displayed_price": "₹9,999 + Applicable GST & Stamp Duty",
     "package_title": "Trust Deed & Registration",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -389,6 +392,7 @@
       "PAN & Trust Bank Account Assistance"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "State stamp duty on instruments/deeds (payable per state schedule per website \"+ Stamp Duty\" wording)"
     ],
     "additional_tiers": [],
@@ -398,13 +402,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹11,000). Updated from ₹8,999 + Stamp Duty to ₹9,999 + Stamp Duty. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -414,11 +418,11 @@
     "canonical_route": "/services/aoc4-xbrl.html",
     "primary_vertical_id": "V02",
     "currency": "INR",
-    "amount": 14999,
+    "amount": 12499,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹14,999 / year",
+    "website_displayed_price": "₹12,499 + Applicable GST & Govt. Fees",
     "package_title": "XBRL Conversion & Filing",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -430,6 +434,7 @@
       "Statutory Register Maintenance Review"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "MCA Statutory Portal Filing Fees (~₹300-₹600/form at actuals)",
       "Late Filing Penalties (₹100/day under Section 403 if client delays financials)",
       "Statutory Financial Auditor Audit Fees"
@@ -441,13 +446,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Market calibrated retainer: ₹14,999/yr for small companies. Event-based filings (DIR-12, PAS-3) cost extra at ₹2,499/form.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -457,19 +462,21 @@
     "canonical_route": "/services/dir3-kyc.html",
     "primary_vertical_id": "V02",
     "currency": "INR",
-    "amount": 1099,
-    "pricing_basis": "PER_FILING",
+    "amount": null,
+    "pricing_basis": "CUSTOM_QUOTE",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹1,099 per DIN",
+    "website_displayed_price": "Quote after scope review per DIN (+ Applicable GST)",
     "package_title": "DIR-3 KYC Filing",
-    "website_price_type": "PER_DIN_UNIT",
+    "website_price_type": "CUSTOM_QUOTE",
     "included_charges": [
       "Mobile & Email OTP Verification",
       "Professional Certification (if web-kyc requires)",
       "Instant Acknowledgement Generation"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -477,13 +484,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹1,200). Updated from ₹999 per DIN to ₹1,099 per DIN. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -493,20 +500,21 @@
     "canonical_route": "/services/form-adt1.html",
     "primary_vertical_id": "V02",
     "currency": "INR",
-    "amount": 12499,
-    "pricing_basis": "STARTING_FROM",
+    "amount": 1599,
+    "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹12,499 + Govt. Fees",
+    "website_displayed_price": "₹1,599 + Applicable GST & Govt. Fees",
     "package_title": "ADT-1 Filing Service",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
-      "Auditor Consent & Eligibility Verification",
-      "E-Form ADT-1 Preparation",
-      "MCA Submission & Receipt"
+      "Independent CA / CS Verification",
+      "Form ADT-1 Pre-Scrutiny & Reconciliation",
+      "Digitally Signed MCA Portal Upload & SRN"
     ],
     "excluded_charges": [
-      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
+      "Applicable GST",
+      "MCA statutory filing fee (payable at actuals)"
     ],
     "additional_tiers": [],
     "statutory_thresholds": [],
@@ -515,13 +523,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "AOC-4 XBRL. Included: Taxonomy mapping & validation. Excluded: ROC filing fee & late penalties. Costs extra: Foreign/domestic subsidiary consolidation (+₹4,500/sub).",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -535,7 +543,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹3,999 + Govt. Fees",
+    "website_displayed_price": "₹3,999 + Applicable GST & Govt. Fees",
     "package_title": "AOC-4 Filing Service",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -544,6 +552,7 @@
       "MCA E-Form Certification & Upload"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -553,13 +562,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹4,200). Updated from ₹3,499 + Govt. Fees to ₹3,999 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -573,7 +582,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹5,499 + Govt. Fees",
+    "website_displayed_price": "₹5,499 + Applicable GST & Govt. Fees",
     "package_title": "BEN-2 Filing Service",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -582,6 +591,7 @@
       "MCA Form BEN-2 Filing"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -591,13 +601,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹6,000). Updated from ₹4,999 + Govt. Fees to ₹5,499 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -611,7 +621,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹2,499 + Govt. Fees",
+    "website_displayed_price": "₹2,499 + Applicable GST & Govt. Fees",
     "package_title": "DPT-3 Filing Service",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -620,6 +630,7 @@
       "MCA E-Form DPT-3 Filing"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -629,13 +640,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹3,000). Updated from ₹2,499 + Govt. Fees to ₹2,499 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -649,7 +660,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹1,999 + Govt. Fees",
+    "website_displayed_price": "₹1,999 + Applicable GST & Govt. Fees",
     "package_title": "MGT-14 Filing Service (RoC Compliance)",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -658,6 +669,7 @@
       "MCA Form MGT-14 Upload"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [
@@ -681,13 +693,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹2,500). Updated from ₹1,999 + Govt. Fees to ₹1,999 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -701,7 +713,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹4,499 + Govt. Fees",
+    "website_displayed_price": "₹4,499 + Applicable GST & Govt. Fees",
     "package_title": "MGT-7 Filing Service",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -710,6 +722,7 @@
       "PCS Certification & MCA Filing"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -719,13 +732,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹4,800). Updated from ₹3,999 + Govt. Fees to ₹4,499 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -739,7 +752,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹2,499 + Govt. Fees",
+    "website_displayed_price": "₹2,499 + Applicable GST & Govt. Fees",
     "package_title": "MR-1 Filing Service",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -748,6 +761,7 @@
       "MCA Form MR-1 Submission"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -757,13 +771,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹3,000). Updated from ₹2,499 + Govt. Fees to ₹2,499 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -777,7 +791,7 @@
     "pricing_basis": "PER_FILING",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹1,999 per filing",
+    "website_displayed_price": "₹1,999 per filing (+ Applicable GST)",
     "package_title": "MSME-1 Filing Package",
     "website_price_type": "PER_FILING",
     "included_charges": [
@@ -785,7 +799,9 @@
       "Aging Analysis of Creditors",
       "MCA Form MSME-1 Submission"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -793,13 +809,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹2,400). Updated from ₹1,999 per filing to ₹1,999 per filing. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -813,7 +829,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹8,499 + Govt. Fees",
+    "website_displayed_price": "₹8,499 + Applicable GST & Govt. Fees",
     "package_title": "Form MSC-1 Filing Service",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -822,6 +838,7 @@
       "MCA E-Form MSC-1 Filing & Certificate Issuance"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -831,13 +848,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹9,500). Updated from ₹7,999 + Govt. Fees to ₹8,499 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -851,7 +868,7 @@
     "pricing_basis": "PER_FILING",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹4,499 per half-year",
+    "website_displayed_price": "₹4,499 per half-year (+ Applicable GST)",
     "package_title": "PAS-6 Audit & Filing",
     "website_price_type": "PER_FILING",
     "included_charges": [
@@ -859,7 +876,9 @@
       "Practicing Company Secretary Certification",
       "MCA Form PAS-6 Submission"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -867,13 +886,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹4,800). Updated from ₹3,999 per half-year to ₹4,499 per half-year. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -887,7 +906,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹9,999 + Govt. Fees",
+    "website_displayed_price": "₹9,999 + Applicable GST & Govt. Fees",
     "package_title": "Form STK-2 Strike-Off Package",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -896,6 +915,7 @@
       "MCA Portal Form STK-2 Submission & Tracking"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -905,13 +925,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹11,000). Updated from ₹8,999 + Govt. Fees to ₹9,999 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -925,7 +945,7 @@
     "pricing_basis": "ANNUAL",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹5,499 / year",
+    "website_displayed_price": "₹5,499 / year (+ Applicable GST)",
     "package_title": "LLP Annual Compliance Package",
     "website_price_type": "ANNUAL_RETAINER",
     "included_charges": [
@@ -933,7 +953,9 @@
       "Form 8 (Statement of Account & Solvency)",
       "Professional Certification & MCA Upload"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -941,13 +963,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹6,000). Updated from ₹4,999 / year to ₹5,499 / year. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -961,7 +983,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹7,499 + Govt. Fees",
+    "website_displayed_price": "₹7,499 + Applicable GST & Govt. Fees",
     "package_title": "LLP Form 24 Closure Package",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -970,6 +992,7 @@
       "MCA Portal Form 24 Submission"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -979,13 +1002,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹8,500). Updated from ₹6,999 + Govt. Fees to ₹7,499 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -999,7 +1022,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹1,599 All Inclusive",
+    "website_displayed_price": "₹1,599 + Applicable GST",
     "package_title": "Director Disclosure Kit",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1007,7 +1030,9 @@
       "Form DIR-8 Non-Disqualification Declaration",
       "Board Meeting Entry Maintenance"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1015,13 +1040,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹1,800). Updated from ₹1,499 All Inclusive to ₹1,599 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1035,7 +1060,7 @@
     "pricing_basis": "ANNUAL",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹14,999 / year",
+    "website_displayed_price": "₹14,999 / year (+ Applicable GST)",
     "package_title": "Standard Startup Retainer",
     "website_price_type": "ANNUAL_RETAINER",
     "included_charges": [
@@ -1044,7 +1069,9 @@
       "Form ADT-1 Auditor Appointment",
       "Statutory Register Maintenance"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [
       {
         "tier_index": 2,
@@ -1068,13 +1095,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹18,000). Updated from ₹14,999 / year to ₹15,999 / year. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": [
       {
         "cap_type": "AUTHORIZED_CAPITAL_CAP",
@@ -1096,7 +1123,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹3,999 + Govt. Fees",
+    "website_displayed_price": "₹3,999 + Applicable GST & Govt. Fees",
     "package_title": "RoF Amendment Service",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -1105,6 +1132,7 @@
       "Updated Acknowledgement Procurement"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -1114,13 +1142,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹4,200). Updated from ₹3,499 + Govt. Fees to ₹3,999 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1134,7 +1162,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹8,499 All Inclusive",
+    "website_displayed_price": "₹8,499 + Applicable GST",
     "package_title": "Trust Audit & Form 10B/10BB",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1142,7 +1170,9 @@
       "Application of Income & Accumulation Audit",
       "Form 10B / 10BB Electronic Certification"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1150,13 +1180,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹9,500). Updated from ₹7,999 All Inclusive to ₹8,499 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1166,11 +1196,11 @@
     "canonical_route": "/services/form-3ceb.html",
     "primary_vertical_id": "V03",
     "currency": "INR",
-    "amount": 21999,
+    "amount": 34999,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹21,999 + Govt. Fees",
+    "website_displayed_price": "₹34,999 + Applicable GST & Govt. Fees",
     "package_title": "Transfer Pricing Audit (Form 3CEB)",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -1179,6 +1209,7 @@
       "Form 3CEB Chartered Accountant Certification"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -1188,13 +1219,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹24,000). Updated from ₹19,999 + Govt. Fees to ₹21,999 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1204,22 +1235,32 @@
     "canonical_route": "/services/gst-annual.html",
     "primary_vertical_id": "V03",
     "currency": "INR",
-    "amount": 34999,
+    "amount": 13999,
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹34,999 + Govt. Fees",
+    "website_displayed_price": "₹13,999 + Applicable GST",
     "package_title": "GSTR-9 & 9C Reconciliation Package",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
-      "GSTR-2B vs Books ITC Reconciliation",
-      "GSTR-9 Annual Return Compilation",
-      "GSTR-9C Reconciliation Statement & CA Certification"
+      "GSTR-1 vs GSTR-3B Outward Reconciliation",
+      "GSTR-2B vs Books Table 8 ITC Matching",
+      "Form GSTR-9 Annual Return Filing"
     ],
     "excluded_charges": [
-      "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
+      "Applicable GST",
+      "DRC-03 tax liability or late fees at actuals"
     ],
-    "additional_tiers": [],
+    "additional_tiers": [
+      {
+        "tier_index": 2,
+        "package_title": "GSTR-9 + GSTR-9C Reconciliation",
+        "website_displayed_price": "₹19,999 + Applicable GST",
+        "amount": 19999,
+        "pricing_basis": "STARTING_FROM",
+        "description": "Includes GSTR-9C turnover & ITC reconciliation certification."
+      }
+    ],
     "statutory_thresholds": [
       {
         "threshold_type": "TURNOVER_THRESHOLD",
@@ -1235,13 +1276,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Form 3CEB International Transfer Pricing. Included: Section 92E report, FAR analysis, ALP benchmarking, CA digital signature. Excluded: IT portal fee is ₹0. Costs extra: Master File Form 3CEAA (+₹25,000).",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1255,7 +1296,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹9,999 All Inclusive",
+    "website_displayed_price": "₹9,999 + Applicable GST",
     "package_title": "ITR-7 Tax Filing Service",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1263,7 +1304,9 @@
       "Application of Income Compliance Audit",
       "Digital Signature Verification & E-Filing"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1271,13 +1314,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹11,000). Updated from ₹8,999 All Inclusive to ₹9,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1291,7 +1334,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹3,999 All Inclusive",
+    "website_displayed_price": "₹3,999 + Applicable GST",
     "package_title": "SME Tax Filing Package",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1299,7 +1342,9 @@
       "Presumptive Taxation Optimization",
       "ITR-3 / ITR-4 E-Filing"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1307,13 +1352,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹4,200). Updated from ₹3,499 All Inclusive to ₹3,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1327,7 +1372,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹6,499 + Govt. Fees",
+    "website_displayed_price": "₹6,499 + Applicable GST & Govt. Fees",
     "package_title": "PF & ESIC Setup Retainer",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -1336,6 +1381,7 @@
       "Monthly Contribution Challan & Return Assistance"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -1345,13 +1391,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹7,200). Updated from ₹5,999 + Govt. Fees to ₹6,499 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1365,7 +1411,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹21,999 All Inclusive",
+    "website_displayed_price": "₹21,999 + Applicable GST",
     "package_title": "Founder & SHA Custom Drafting",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1373,7 +1419,9 @@
       "Right of First Refusal (ROFR) & Tag/Drag-Along Rights",
       "Board Composition & Reserved Matters"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1381,13 +1429,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Section 233 Fast-Track Merger. Included: Scheme drafting, CAA-9, CAA-10, CAA-11, RD filings. Excluded: CAA-11 fee (₹2,000), INC-28 fee, stamp duty. Costs extra: Registered Valuer report (~₹25k-₹40k) & newspaper ads.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1397,19 +1445,22 @@
     "canonical_route": "/services/master-service-agreements.html",
     "primary_vertical_id": "V05",
     "currency": "INR",
-    "amount": 39999,
+    "amount": 10999,
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹39,999 All Inclusive",
+    "website_displayed_price": "₹10,999 + Applicable GST",
     "package_title": "Enterprise MSA & SOW Package",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
-      "Custom SLA & Deliverable Milestone Frameworks",
-      "Robust Limitation of Liability & Indemnity Clauses",
-      "IP Assignment & Confidentiality Protection"
+      "Custom MSA & SOW Drafting",
+      "Liability, Indemnity & SLA Covenants",
+      "Legal / Secretarial Structuring Review"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST",
+      "State execution stamp duty (if applicable)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1417,13 +1468,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Slump Sale BTA. Included: Section 50B agreement, net worth schedules, employee novation covenants. Excluded: State conveyance stamp duty. Costs extra: Form 3CEA CA certification (+₹9,999).",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1437,7 +1488,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹6,499 All Inclusive",
+    "website_displayed_price": "₹6,499 + Applicable GST",
     "package_title": "Legal Notice & Infringement Enforcement",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1448,6 +1499,7 @@
       "24/7 Status Monitoring until Examination Report"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Statutory Registry Filing Fee: ₹4,500 for Individual / MSME / Startup; ₹9,000 for Non-MSME Corporate bodies"
     ],
     "additional_tiers": [],
@@ -1457,13 +1509,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Market calibrated fee: ₹3,999. Show-cause hearings (₹4,500/hearing) and opposition proceedings cost extra.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1477,7 +1529,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹7,499 + Govt. Fees",
+    "website_displayed_price": "₹7,499 + Applicable GST & Govt. Fees",
     "package_title": "Software Copyright Registration",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -1486,6 +1538,7 @@
       "Discrepancy Resolution & Follow-up"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -1495,13 +1548,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹8,500). Updated from ₹6,999 + Govt. Fees to ₹7,499 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1515,7 +1568,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹4,999 + Govt. Fees",
+    "website_displayed_price": "₹4,999 + Applicable GST & Govt. Fees",
     "package_title": "Instant Trademark Filing (Form TM-A)",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -1524,6 +1577,7 @@
       "Instant \"TM\" Symbol Usage Rights & Tracking"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -1533,13 +1587,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Founder SHA. Included: Reverse vesting, Drag/Tag, ROFR, ROFO, dispute framework. Excluded: State stamp duty (~₹200-₹1000). Costs extra: VC counsel negotiation (+₹7,500/session).",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1553,7 +1607,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹15,999 All Inclusive",
+    "website_displayed_price": "₹15,999 + Applicable GST",
     "package_title": "Employee Handbook & Labour Audit",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1561,7 +1615,9 @@
       "Custom Employee Handbook & Code of Conduct",
       "Employment Contract & NDA Templates"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1569,13 +1625,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹18,000). Updated from ₹14,999 All Inclusive to ₹15,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1589,7 +1645,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹12,999 All Inclusive",
+    "website_displayed_price": "₹12,999 + Applicable GST",
     "package_title": "Complete POSH Compliance Package",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1597,7 +1653,9 @@
       "Internal Committee (IC) Constitution & Appointment Orders",
       "Employee Sensitization Training Module & Annual Report Support"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1605,13 +1663,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹14,500). Updated from ₹11,999 All Inclusive to ₹12,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1625,7 +1683,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹69,999 + Govt. Fees",
+    "website_displayed_price": "₹69,999 + Applicable GST & Govt. Fees",
     "package_title": "Fast-Track Merger Execution (Sec 233)",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -1634,6 +1692,7 @@
       "Regional Director (RD) & Official Liquidator (OL) Filings"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -1643,13 +1702,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹36,000). Updated from ₹29,999 + Govt. Fees to ₹32,999 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1659,11 +1718,11 @@
     "canonical_route": "/services/slump-sale-asset-purchase.html",
     "primary_vertical_id": "V09",
     "currency": "INR",
-    "amount": 26999,
+    "amount": 39999,
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹26,999 All Inclusive",
+    "website_displayed_price": "₹39,999 + Applicable GST",
     "package_title": "Slump Sale & APA Drafting",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1671,7 +1730,9 @@
       "Net Worth Certificate & Tax Capital Gain Alignment",
       "Employee Transition & Contract Novation Frameworks"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1679,13 +1740,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹30,000). Updated from ₹24,999 All Inclusive to ₹26,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1699,7 +1760,7 @@
     "pricing_basis": "CUSTOM_QUOTE",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "Custom Retainer on Assessment",
+    "website_displayed_price": "Custom Retainer on Assessment (+ Applicable GST)",
     "package_title": "Transactional Scheme & Secretarial Execution (V09-SVC-003)",
     "website_price_type": "CUSTOM_QUOTE",
     "included_charges": [
@@ -1707,7 +1768,9 @@
       "Statutory Authority Notices & Reports (RoC, RD, Income Tax)",
       "Second Motion Secretarial Compilation & Sanction Order Filings (INC-28)"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1715,13 +1778,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Identified pricing gap on /services/nclt-merger-petitions.html: card displays \"Custom Retainer on Assessment\" with amount set to null. Preserved strictly as UNVERIFIED pending formal review and resolution by the Partner Pricing Committee. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1735,7 +1798,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹13,999 All Inclusive",
+    "website_displayed_price": "₹13,999 + Applicable GST",
     "package_title": "Secretarial Health Check & Advisory",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1743,7 +1806,9 @@
       "Related Party Transaction (RPT) Register Review",
       "Governance Risk Mitigation Report & Action Plan"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1751,13 +1816,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹15,500). Updated from ₹12,999 All Inclusive to ₹13,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1771,7 +1836,7 @@
     "pricing_basis": "ANNUAL",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹7,499 / year",
+    "website_displayed_price": "₹7,499 / year (+ Applicable GST)",
     "package_title": "Annual Secretarial Records Package",
     "website_price_type": "ANNUAL_RETAINER",
     "included_charges": [
@@ -1779,7 +1844,9 @@
       "Board & General Meeting Minutes Drafting",
       "Statutory Registers (SH-4, MBP-2, etc.) Update"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1787,13 +1854,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹8,500). Updated from ₹6,999 / year to ₹7,499 / year. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1807,7 +1874,7 @@
     "pricing_basis": "STARTING_FROM",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹5,499 + Govt. Fees",
+    "website_displayed_price": "₹5,499 + Applicable GST & Govt. Fees",
     "package_title": "Form CSR-2 Filing Package",
     "website_price_type": "STARTING_PRICE_PLUS_DISBURSEMENTS",
     "included_charges": [
@@ -1816,6 +1883,7 @@
       "MCA E-Form CSR-2 Certification & Upload"
     ],
     "excluded_charges": [
+      "Applicable GST (payable over professional fee)",
       "Government statutory portal filing fees (payable at actuals per website \"+ Govt. Fees\" wording)"
     ],
     "additional_tiers": [],
@@ -1825,13 +1893,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹6,000). Updated from ₹4,999 + Govt. Fees to ₹5,499 + Govt. Fees. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1845,7 +1913,7 @@
     "pricing_basis": "ANNUAL",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹21,999 / year",
+    "website_displayed_price": "₹21,999 / year (+ Applicable GST)",
     "package_title": "MR-3 Secretarial Audit Retainer",
     "website_price_type": "ANNUAL_RETAINER",
     "included_charges": [
@@ -1853,7 +1921,9 @@
       "FEMA, SEBI & Companies Act Compliance Review",
       "Form MR-3 Audit Report Execution by Practicing CS"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1861,13 +1931,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹24,000). Updated from ₹19,999 / year to ₹21,999 / year. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1881,7 +1951,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹15,999 All Inclusive",
+    "website_displayed_price": "₹15,999 + Applicable GST",
     "package_title": "Cyber Incident Response Framework",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1889,7 +1959,9 @@
       "IT Act Due Diligence for Intermediaries",
       "Data Security Incident Legal Representation"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1897,13 +1969,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹18,000). Updated from ₹14,999 All Inclusive to ₹15,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1913,11 +1985,11 @@
     "canonical_route": "/services/dpdp-compliance-audit.html",
     "primary_vertical_id": "V12",
     "currency": "INR",
-    "amount": 18999,
+    "amount": 32999,
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹18,999 All Inclusive",
+    "website_displayed_price": "₹32,999 + Applicable GST",
     "package_title": "DPDP Act Readiness Package",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1925,7 +1997,9 @@
       "Consent Notice & Data Principal Rights Architecture",
       "Data Protection Officer (DPO) Advisory & SOPs"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1933,13 +2007,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹20,500). Updated from ₹16,999 All Inclusive to ₹18,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1953,7 +2027,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹13,999 All Inclusive",
+    "website_displayed_price": "₹13,999 + Applicable GST",
     "package_title": "SaaS Legal & Privacy Bundle",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1961,7 +2035,9 @@
       "DPDP-Compliant Privacy Policy & Cookie Banners",
       "Data Processing Addendum (DPA) for B2B Clients"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -1969,13 +2045,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹15,500). Updated from ₹12,999 All Inclusive to ₹13,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -1989,7 +2065,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹20,999 All Inclusive",
+    "website_displayed_price": "₹20,999 + Applicable GST",
     "package_title": "International Tech Transfer Drafting",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -1997,7 +2073,9 @@
       "Global Governing Law & Arbitration Framework",
       "FEMA & RBI Outbound Remittance Alignment"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -2005,13 +2083,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹23,000). Updated from ₹18,999 All Inclusive to ₹20,999 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -2025,7 +2103,7 @@
     "pricing_basis": "ANNUAL",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹21,999 / year",
+    "website_displayed_price": "₹21,999 / year (+ Applicable GST)",
     "package_title": "Foreign Branch Annual Compliance",
     "website_price_type": "ANNUAL_RETAINER",
     "included_charges": [
@@ -2033,7 +2111,9 @@
       "Form FC-3 / FC-4 Submission to RBI & AD Bank",
       "Inbound Remittance and Expense Reconciliation"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -2041,13 +2121,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹24,000). Updated from ₹19,999 / year to ₹21,999 / year. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   },
   {
@@ -2061,7 +2141,7 @@
     "pricing_basis": "FIXED",
     "price_category": "PROFESSIONAL_FEE",
     "jurisdiction": "IN-CENTRAL",
-    "website_displayed_price": "₹5,499 All Inclusive",
+    "website_displayed_price": "₹5,499 + Applicable GST",
     "package_title": "FLA Return Filing Service",
     "website_price_type": "FIXED_ALL_INCLUSIVE",
     "included_charges": [
@@ -2069,7 +2149,9 @@
       "Financial Performance & Foreign Asset Mapping",
       "RBI FLAIR Portal E-Filing & Acknowledgement"
     ],
-    "excluded_charges": [],
+    "excluded_charges": [
+      "Applicable GST (payable over professional fee)"
+    ],
     "additional_tiers": [],
     "statutory_thresholds": [],
     "statutory_penalties": [],
@@ -2077,13 +2159,13 @@
     "effective_to": null,
     "source_id": "SRC-INT-PRC-001",
     "evidence_source": "WEBSITE_PAGE_AUDIT",
-    "verification_status": "UNVERIFIED",
-    "evidence_state": "WEBSITE_OBSERVED_HISTORICAL",
-    "commercial_approval_state": "PENDING_COMMERCIAL_APPROVAL",
+    "verification_status": "WEBSITE_OBSERVED",
+    "evidence_state": "APPROVED_FOR_PUBLICATION",
+    "commercial_approval_state": "COMMERCIALLY_APPROVED",
     "last_verified_at": null,
-    "checked_date": "2026-10-17",
-    "notes": "Historical website observation only. Calibrated to 9% below market benchmark (prevailing market fee: ₹6,000). Updated from ₹4,999 All Inclusive to ₹5,499 All Inclusive. Verification pending; not approved for publication.",
-    "tax_inclusion_status": "UNCONFIRMED",
+    "checked_date": "2026-11-27",
+    "notes": "Commercially approved by owner on 2026-11-27. Professional fee excludes applicable GST and official government fees / stamp duty payable at actuals.",
+    "tax_inclusion_status": "EXPLICITLY_EXCLUDED",
     "commercial_package_caps": []
   }
 ]

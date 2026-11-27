@@ -498,7 +498,7 @@ function validateDataLayer(dataMap) {
   const referralRoutes = new Set(services.filter(s => s.record_status === 'REFERRAL_ONLY').map(s => s.canonical_route));
 
   // 2. Pricing checks
-  const validPricingStatuses = new Set(['UNVERIFIED', 'VERIFIED']);
+  const validPricingStatuses = new Set(['UNVERIFIED', 'WEBSITE_OBSERVED', 'VERIFIED']);
   pricing.forEach((p, idx) => {
     if (pricingIds.has(p.pricing_id)) {
       errors.push(`pricing[${idx}]: Duplicate pricing_id '${p.pricing_id}'.`);
@@ -924,16 +924,16 @@ function runTestSuite() {
   );
 
   assertTest(
-    dataLayerMap.pricing.length === 54 && dataLayerMap.pricing.every(p => /^V\d{2}-SVC-\d{3}$/.test(p.service_id) && p.verification_status === 'UNVERIFIED' && p.last_verified_at === null),
-    'Pricing dataset accounts for all 54 active services without orphaned references (100% UNVERIFIED baseline)'
+    dataLayerMap.pricing.length === 54 && dataLayerMap.pricing.every(p => /^V\d{2}-SVC-\d{3}$/.test(p.service_id) && p.verification_status === 'WEBSITE_OBSERVED' && p.commercial_approval_state === 'COMMERCIALLY_APPROVED' && p.last_verified_at === null),
+    'Pricing dataset accounts for all 54 active services without orphaned references (54 owner-approved commercial records)'
   );
 
   assertTest(
     dataLayerMap.pricing.length === 54 &&
-    dataLayerMap.pricing.filter(p => p.additional_tiers && p.additional_tiers.length > 0).length === 3 &&
-    dataLayerMap.pricing.filter(p => p.amount === null).length === 1 &&
-    dataLayerMap.pricing.filter(p => p.amount !== null).length === 53,
-    'Pricing inventory reconciles 54 active services (50 single-tier, 3 dual-tier yielding 56 website prices, 1 custom quote gap)'
+    dataLayerMap.pricing.filter(p => p.additional_tiers && p.additional_tiers.length > 0).length === 4 &&
+    dataLayerMap.pricing.filter(p => p.amount === null).length === 2 &&
+    dataLayerMap.pricing.filter(p => p.amount !== null).length === 52,
+    'Pricing inventory reconciles 54 active services (50 single/range, 4 multi-tier records, 2 custom-quote services)'
   );
 
   assertTest(
@@ -944,11 +944,9 @@ function runTestSuite() {
     'Statutory thresholds and commercial package caps are separated from service prices; DIR-3 KYC carries no obsolete fixed ₹5,000 penalty'
   );
 
-  const allInclusiveCards = dataLayerMap.pricing.filter(p => p.website_displayed_price && p.website_displayed_price.includes('All Inclusive'));
   assertTest(
-    allInclusiveCards.length === 18 &&
-    allInclusiveCards.every(p => p.tax_inclusion_status === 'UNCONFIRMED' && !p.excluded_charges.some(e => e.includes('18%'))),
-    'All 18 cards labelled "All Inclusive" preserve exact website wording with tax inclusion marked UNCONFIRMED and zero assumed GST rates'
+    dataLayerMap.pricing.every(p => p.tax_inclusion_status === 'EXPLICITLY_EXCLUDED' && p.website_displayed_price && /Applicable GST/i.test(p.website_displayed_price) && !p.excluded_charges.some(e => e.includes('18%'))),
+    'All 54 owner-approved pricing records state GST exclusion clearly with zero assumed statutory GST percentages'
   );
 
 

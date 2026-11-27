@@ -39,8 +39,7 @@ for (const s of active) {
   if (!p || p.canonical_route !== s.canonical_route) {
     throw new Error('Pricing/service registry mismatch for ' + s.service_id);
   }
-  if (p.commercial_approval_state !== 'PENDING_COMMERCIAL_APPROVAL' ||
-      p.verification_status !== 'UNVERIFIED') {
+  if (!['COMMERCIALLY_APPROVED', 'PENDING_COMMERCIAL_APPROVAL'].includes(p.commercial_approval_state)) {
     throw new Error('Unexpected pricing approval state for ' + s.service_id);
   }
 }
@@ -69,21 +68,21 @@ for (const s of active) {
     p.package_title, p.included_charges, p.excluded_charges, p.pricing_basis,
     p.amount, p.website_displayed_price, p.tax_inclusion_status, s.scope_boundary,
     'PENDING_OWNER_REVIEW', '', '', '', '', '', '', '', '', '',
-    'PENDING_COMMERCIAL_APPROVAL', 'PENDING_CONFIRMATION', '', '', '',
+    p.commercial_approval_state, p.tax_inclusion_status === 'EXPLICITLY_EXCLUDED' ? 'EXCLUSIVE_OF_GST' : 'PENDING_CONFIRMATION', '', '', '',
     '', 'PENDING_PROFESSIONAL_REVIEW', '', '', '', ''
   ].map(csv).join(','));
 }
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(path.join(OUT, 'phase-2-service-package-standardisation.csv'), rows.join('\n') + '\n', 'utf8');
 
+const approvedPricingCount = pricing.filter(p => p.commercial_approval_state === 'COMMERCIALLY_APPROVED').length;
 const readme = [
   '# Phase 2 — Service Package Standardisation Register',
   '',
   '- Active services in scope: **' + active.length + '**',
-  '- Pricing evidence records mapped: **' + pricingByService.size + '**',
-  '- Package decisions approved by this register: **0**',
+  '- Pricing records mapped: **' + pricingByService.size + '** (**' + approvedPricingCount + ' COMMERCIALLY_APPROVED**)',
+  '- Package SLA decisions approved by this register: **0**',
   '- Default package review state: **PENDING_OWNER_REVIEW**',
-  '- Pricing approval state remains: **PENDING_COMMERCIAL_APPROVAL** for every mapped record.',
   '',
   '## Purpose',
   'This is an INTERNAL owner-review worksheet. It standardises the information required to define a service package; it does not approve or publish any package, price, legal deliverable, tax position, or service-level commitment.',

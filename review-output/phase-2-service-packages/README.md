@@ -1,10 +1,9 @@
 # Phase 2 — Service Package Standardisation Register
 
 - Active services in scope: **54**
-- Pricing evidence records mapped: **54**
-- Package decisions approved by this register: **0**
+- Pricing records mapped: **54** (**54 COMMERCIALLY_APPROVED**)
+- Package SLA decisions approved by this register: **0**
 - Default package review state: **PENDING_OWNER_REVIEW**
-- Pricing approval state remains: **PENDING_COMMERCIAL_APPROVAL** for every mapped record.
 
 ## Purpose
 This is an INTERNAL owner-review worksheet. It standardises the information required to define a service package; it does not approve or publish any package, price, legal deliverable, tax position, or service-level commitment.

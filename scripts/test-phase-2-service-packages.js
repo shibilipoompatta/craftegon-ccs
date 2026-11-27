@@ -19,7 +19,7 @@ assert.ok(lines[0].includes('GST Treatment'));
 assert.ok(lines[0].includes('Professional Review Required'));
 assert.ok(lines.slice(1).every(line => line.includes('PENDING_OWNER_REVIEW')), 'all package decisions remain pending');
 const readme = fs.readFileSync(path.join(out, 'README.md'), 'utf8');
-assert.ok(readme.includes('Package decisions approved by this register: **0**'));
+assert.ok(readme.includes('Package SLA decisions approved by this register: **0**'));
 assert.ok(readme.includes('Historical amounts are not current quotations'));
 assert.ok(readme.includes('reserved professional functions'));
 console.log('PASS: Phase 2 service package register — 54 mapped services; no package or price approval inferred.');

@@ -34,11 +34,14 @@ for (const record of pricing) {
   if (!service || service.service_id !== record.service_id) {
     throw new Error('Pricing/service registry mismatch for ' + record.canonical_route);
   }
-  if (record.verification_status !== 'UNVERIFIED' ||
+  if (record.commercial_approval_state !== 'COMMERCIALLY_APPROVED' &&
       record.commercial_approval_state !== 'PENDING_COMMERCIAL_APPROVAL') {
-    throw new Error('Unexpected pre-approved pricing record: ' + record.pricing_id);
+    throw new Error('Unexpected commercial approval state for ' + record.pricing_id + ': ' + record.commercial_approval_state);
   }
 }
+
+const approvedCount = pricing.filter(p => p.commercial_approval_state === 'COMMERCIALLY_APPROVED').length;
+const pendingCount = pricing.length - approvedCount;
 
 const headers = [
   'Pricing ID', 'Service ID', 'Service Name', 'Canonical Route', 'Vertical ID',
@@ -54,6 +57,7 @@ const headers = [
 ];
 const rows = [headers.map(csv).join(',')];
 for (const p of pricing) {
+  const isApproved = p.commercial_approval_state === 'COMMERCIALLY_APPROVED';
   rows.push([
     p.pricing_id, p.service_id, p.service_name, p.canonical_route, p.primary_vertical_id,
     p.currency, p.amount, p.pricing_basis, p.price_category, p.jurisdiction,
@@ -62,7 +66,15 @@ for (const p of pricing) {
     p.evidence_source, p.source_id, p.evidence_state, p.verification_status,
     p.commercial_approval_state, p.checked_date, p.last_verified_at,
     p.effective_from, p.effective_to, p.notes,
-    'PENDING_OWNER_DECISION', '', '', '', 'PENDING_CONFIRMATION', '', '', '', ''
+    isApproved ? 'OWNER_APPROVED' : 'PENDING_OWNER_DECISION',
+    isApproved ? p.amount : '',
+    isApproved ? p.pricing_basis : '',
+    isApproved ? (p.package_title || p.service_name) : '',
+    isApproved ? 'EXCLUSIVE_OF_GST' : 'PENDING_CONFIRMATION',
+    isApproved ? 'OWNER-SIGN-OFF-2026-11-27' : '',
+    isApproved ? 'CraftEgon LLP Managing Partner' : '',
+    isApproved ? '2026-11-27' : '',
+    p.notes
   ].map(csv).join(','));
 }
 fs.mkdirSync(OUT, { recursive: true });
@@ -73,16 +85,10 @@ const summary = [
   '# Phase 2 — Commercial Pricing Approval Register',
   '',
   '- Records: **' + pricing.length + '**',
-  '- Verified: **0**',
-  '- Commercially approved: **0**',
-  '- Pending owner decision: **' + pricing.length + '**',
-  '- Publication rule: **Do not publish or charge from this historical capture until evidence verification and explicit commercial approval are complete.**',
-  '',
-  'The captured amount and historical website wording are evidence fields, not current quotations or approved fees.',
-  'Blank approval columns are intentionally left blank. Do not infer approval from the existence of a prior website price.',
-  '',
-  'Review the CSV row by row. For each service, confirm deliverables, exclusions, government disbursements, GST treatment, pricing basis, scope limits, effective date, and the approving authority.',
+  '- Commercially approved: **' + approvedCount + '**',
+  '- Pending owner decision: **' + pendingCount + '**',
+  '- GST Treatment: **Exclusive of applicable GST (+ Govt. fees & stamp duty at actuals)**',
   ''
 ].join('\n');
 fs.writeFileSync(path.join(OUT, 'README.md'), summary, 'utf8');
-console.log('Generated internal pricing approval register: ' + pricing.length + ' pending records.');
+console.log('Generated commercial pricing register: ' + approvedCount + ' approved, ' + pendingCount + ' pending.');

@@ -597,7 +597,7 @@ function injectContextualReturnTrail() {
       '/verticals/09-ma-restructuring.html': 'M&A and Corporate Restructuring',
       '/verticals/10-litigation-dispute.html': 'Dispute Avoidance (Non-Litigation)',
       '/verticals/11-governance-audit.html': 'Governance, Audit & Risk',
-      '/verticals/12-esg-csr.html': 'Data Privacy & Tech Law',
+      '/verticals/12-data-privacy-tech-law.html': 'Data Privacy & Tech Law',
       '/verticals/13-cross-border-fema.html': 'FEMA & Cross-Border Advisory',
       '/verticals/15-it-digital.html': 'IT & Digital Infrastructure',
       '/bundles/clinics-diagnostics-kerala.html': 'Clinics & Diagnostics Bundle',

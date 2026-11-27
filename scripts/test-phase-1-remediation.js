@@ -58,7 +58,7 @@ const VERTICAL_SLUGS = {
   'V09': '09-ma-restructuring',
   'V10': '10-litigation-dispute',
   'V11': '11-governance-audit',
-  'V12': '12-esg-csr',
+  'V12': '12-data-privacy-tech-law',
   'V13': '13-cross-border-fema',
   'V14': '14-exit-insolvency',
   'V15': '15-it-digital'
@@ -226,7 +226,7 @@ assert(v11Content.includes('form-csr2.html'), 'V11 includes form-csr2.html (V11-
 assert(!v11Content.includes('form-mr1.html'), 'V11 does not contain form-mr1.html (moved to V02)');
 
 // V12: Data Privacy & Tech Law
-const v12Path = path.join(ROOT, 'verticals', '12-esg-csr.html');
+const v12Path = path.join(ROOT, 'verticals', '12-data-privacy-tech-law.html');
 const v12Content = fs.readFileSync(v12Path, 'utf8');
 assert(hasTaxonomy(v12Content, 'Data Privacy & Tech Law'), 'V12 hub title contains "Data Privacy & Tech Law"');
 assert(v12Content.includes('V12-SVC-001') && v12Content.includes('V12-SVC-002') && v12Content.includes('V12-SVC-003'), 'V12 contains all 3 canonical service IDs');
@@ -298,8 +298,8 @@ allHtml.forEach(f => {
     }
   });
 
-  // Check links pointing to 12-esg-csr.html
-  const v12Matches = txt.match(/<a\s+[^>]*href="[^"]*\/verticals\/12-esg-csr\.html"[^>]*>([\s\S]*?)<\/a>/gi) || [];
+  // Check links pointing to 12-data-privacy-tech-law.html
+  const v12Matches = txt.match(/<a\s+[^>]*href="[^"]*\/verticals\/12-data-privacy-tech-law\.html"[^>]*>([\s\S]*?)<\/a>/gi) || [];
   v12Matches.forEach(m => {
     const linkText = m.replace(/<[^>]+>/g, '').trim();
     if (!linkText.includes('Data Privacy') && !linkText.includes('Access Vertical Hub') && !linkText.includes('Explore Practice Area')) {

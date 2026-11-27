@@ -88,7 +88,7 @@ Specialist deep dives, statutory compliance matrices, and jurisdictional filings
 - `09-ma-restructuring.html`
 - `10-litigation-dispute.html`
 - `11-governance-audit.html`
-- `12-esg-csr.html` (Data Privacy & Tech Law)
+- `12-data-privacy-tech-law.html` (Data Privacy & Tech Law)
 - `13-cross-border-fema.html`
 - `14-retainer-desk.html`
 - `15-it-digital.html`
