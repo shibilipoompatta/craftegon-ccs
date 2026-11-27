@@ -680,7 +680,7 @@ function showNotFound(containerId, query, type) {
         <span class="noble-badge" style="background: rgba(140, 109, 20, 0.1); color: var(--text-dark-gold, #8C6D14); border-color: rgba(140, 109, 20, 0.3);">
           Registry Status Notice
         </span>
-        <span style="font-size: 0.8rem; color: var(--text-secondary);">Static Reference Mode</span>
+        <span style="font-size: 0.8rem; color: var(--text-secondary);">Curated Benchmark Index</span>
       </div>
       <h3 style="font-family: var(--font-heading, var(--font-heading, 'Manrope', sans-serif)); font-size: 1.15rem; color: var(--navy-800, #0B2545); margin: 0 0 0.5rem;">
         No Sample Record Found in Local Index for "${escapeHtml(query)}"
@@ -705,7 +705,7 @@ function showNotFound(containerId, query, type) {
           💬 Request Desk Search (+91 86069 18247) &rarr;
         </a>
         <a href="/search/" class="btn-royal-outline" style="padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; border-radius: 6px;">
-          View Benchmark Examples
+          Explore Curated Directory
         </a>
       </div>
     </div>
@@ -1052,7 +1052,7 @@ function renderCompanyResult(entity) {
             <span style="font-size: 0.75rem; color: #64748b;">Section 82 Form CHG-4 Satisfaction</span>
           </a>
           <a href="/services/form-stk2-strike-off.html" style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.75rem 1rem; text-decoration: none; color: #1e293b; display: block; transition: all 0.2s ease;">
-            <strong style="display: block; font-size: 0.82rem; color: #0B2545; margin-bottom: 0.2rem;">🚪 Fast-Track Strike-Off</strong>
+            <strong style="display: block; font-size: 0.82rem; color: #0B2545; margin-bottom: 0.2rem;">🚪 Voluntary Strike-Off (STK-2)</strong>
             <span style="font-size: 0.75rem; color: #64748b;">Section 248 Form STK-2 Entity Exit</span>
           </a>
         </div>

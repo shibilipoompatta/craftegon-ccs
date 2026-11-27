@@ -45,7 +45,7 @@ const SERVICES_DATA = [
   { name: 'Form PAS-6 Demat Share Capital Reconciliation', code: 'Rule 9B', url: '/services/form-pas6.html', tags: 'pas6 demat isin nsdl cdsl audit' },
   { name: 'Form MGT-14 Special Resolutions Filing', code: 'Section 117', url: '/services/form-mgt14.html', tags: 'mgt14 special resolution board' },
   { name: 'Form MSME-1 Half-Yearly Return', code: 'MSME Delayed Pay', url: '/services/form-msme1.html', tags: 'msme1 45 days payments' },
-  { name: 'Form STK-2 Fast-Track Strike-Off', code: 'Section 248(2)', url: '/services/form-stk2-strike-off.html', tags: 'stk2 closure winding up strike off' },
+  { name: 'Form STK-2 Voluntary Strike-Off', code: 'Section 248(2)', url: '/services/form-stk2-strike-off.html', tags: 'stk2 closure winding up strike off' },
   { name: 'RoC Annual Compliance & Retainer', code: 'Retainer Desk', url: '/services/roc-annual-compliance.html', tags: 'roc annual retainer secretarial audit' },
   { name: 'LLP Annual Filings (Form 11 & Form 8)', code: 'LLP Act 2008', url: '/services/llp-compliance-forms.html', tags: 'llp form 11 form 8 statement annual' },
   { name: 'LLP Form 24 Strike-Off & Dissolution', code: 'Rule 37', url: '/services/llp-form24-strike-off.html', tags: 'llp closure form 24 strike off' },

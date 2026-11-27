@@ -453,7 +453,7 @@ function inferActionPills(query, botText) {
     pills.push(['Explore Services Directory', '/services.html']);
   } else if (combined.includes('incorporat') || combined.includes('pvt ltd') || combined.includes('company') || combined.includes('formation')) {
     pills.push(['Pvt Ltd Formation', '/services/pvt-ltd-registration.html']);
-    pills.push(['Fast-Track Intake', '/conversion/ppc-company-registration.html']);
+    pills.push(['Incorporation Desk', '/conversion/ppc-company-registration.html']);
   }
   if (combined.includes('aoc-4') || combined.includes('mgt-7') || combined.includes('late fee') || combined.includes('penalty') || combined.includes('due date')) {
     pills.push(['Calculate Late Fees', '/conversion/calculator.html']);
@@ -1157,7 +1157,7 @@ function createWidget(){
   
   const b=document.createElement('div');
   b.id='craftegon-chat-badge';
-  b.innerHTML=`<span class="badge-dot"></span> Ask Jinu &bull; AI Assistant` /* sanitized */;
+  b.innerHTML=`<span class="badge-dot"></span> Ask Jinu &bull; Advisory Desk` /* sanitized */;
   
   const w=document.createElement('div');
   w.id='craftegon-chat-window';
@@ -1171,7 +1171,7 @@ function createWidget(){
     </div>
     <div class="cchat-brand-info">
       <h4>Jinu</h4>
-      <span id="cchat-status-text">Corporate Compliance AI</span>
+      <span id="cchat-status-text">Compliance Reference Desk</span>
     </div>
   </div>
   <div class="cchat-header-actions">
