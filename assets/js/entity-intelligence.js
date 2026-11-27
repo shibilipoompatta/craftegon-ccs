@@ -71,13 +71,13 @@
     btnRow.appendChild(officialBtn);
 
     if (!isTrademark) {
-      const zaubaBtn = document.createElement('a');
-      zaubaBtn.target = '_blank';
-      zaubaBtn.rel = 'noopener noreferrer';
-      zaubaBtn.href = `https://www.zaubacorp.com/companysearchresults/${encodeURIComponent(query)}`;
-      zaubaBtn.style.cssText = 'display: inline-flex; align-items: center; gap: 0.4rem; background: #f8fafc; color: #1e293b; border: 1.5px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none;';
-      zaubaBtn.textContent = '🔍 View Public Filings (ZaubaCorp) →';
-      btnRow.appendChild(zaubaBtn);
+      const mcaDataBtn = document.createElement('a');
+      mcaDataBtn.target = '_blank';
+      mcaDataBtn.rel = 'noopener noreferrer';
+      mcaDataBtn.href = 'https://www.mca.gov.in/mcafoportal/viewCompanyMasterData.do';
+      mcaDataBtn.style.cssText = 'display: inline-flex; align-items: center; gap: 0.4rem; background: #f8fafc; color: #1e293b; border: 1.5px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none;';
+      mcaDataBtn.textContent = 'MCA V3 Master Data Lookup →';
+      btnRow.appendChild(mcaDataBtn);
     }
 
     const copyBtn = document.createElement('button');

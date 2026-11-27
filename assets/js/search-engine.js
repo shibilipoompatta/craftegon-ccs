@@ -680,13 +680,13 @@ function showNotFound(containerId, query, type) {
         <span class="noble-badge" style="background: rgba(140, 109, 20, 0.1); color: var(--text-dark-gold, #8C6D14); border-color: rgba(140, 109, 20, 0.3);">
           Registry Status Notice
         </span>
-        <span style="font-size: 0.8rem; color: var(--text-secondary);">Static Directory Mode</span>
+        <span style="font-size: 0.8rem; color: var(--text-secondary);">Static Reference Mode</span>
       </div>
       <h3 style="font-family: var(--font-heading, var(--font-heading, 'Manrope', sans-serif)); font-size: 1.15rem; color: var(--navy-800, #0B2545); margin: 0 0 0.5rem;">
-        No Verified Record in Benchmark Index for "${escapeHtml(query)}"
+        No Sample Record Found in Local Index for "${escapeHtml(query)}"
       </h3>
       <p style="font-size: 0.88rem; color: var(--text-main, #334155); line-height: 1.6; margin-bottom: 1rem;">
-        This public directory currently operates in static demonstration mode. Live, real-time government registry lookups are not connected in this edge deployment, and CraftEgon Corporate Services (CCS) <strong>does not fabricate synthetic corporate records, fictional filing histories, or estimated compliance penalties</strong>.
+        This browser lookup uses our curated static benchmark index. Direct government registry APIs are not queried automatically from this static page, and CraftEgon Corporate Services (CCS) <strong>never fabricates synthetic corporate records, filing histories, or statutory penalty numbers</strong>.
       </p>
       <div style="background: var(--bg-slate, #F8FAFC); border: 1px solid var(--border-color, #E2E8F0); border-radius: 6px; padding: 1rem; margin-bottom: 1.25rem; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
         <strong style="color: var(--navy-800, #0B2545); display: block; margin-bottom: 0.25rem;">How to obtain verified registry data:</strong>
@@ -695,11 +695,11 @@ function showNotFound(containerId, query, type) {
       </div>
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
         <a href="${escapeHtml(registryUrl)}" target="_blank" rel="noopener noreferrer" class="if-btn-primary" style="padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; border-radius: 6px; font-weight: 600;">
-          🏛️ Open ${escapeHtml(registryName)} &rarr;
+          Open ${escapeHtml(registryName)} &rarr;
         </a>
         ${type === 'company' ? `
-        <a href="https://www.zaubacorp.com/companysearchresults/${encodeURIComponent(query)}" target="_blank" rel="noopener noreferrer" class="btn-royal-outline" style="padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; border-radius: 6px;">
-          🔍 View Public Filings (ZaubaCorp) &rarr;
+        <a href="https://www.mca.gov.in/mcafoportal/viewCompanyMasterData.do" target="_blank" rel="noopener noreferrer" class="btn-royal-outline" style="padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; border-radius: 6px;">
+          MCA V3 Master Data Lookup &rarr;
         </a>` : ''}
         <a href="https://wa.me/918606918247?text=${encodeURIComponent('Hello CraftEgon Compliance Desk, I would like to verify entity/trademark records for: ' + query)}" target="_blank" rel="noopener noreferrer" class="if-btn-secondary" style="border: 1px solid rgba(37, 211, 102, 0.6); color: #15803d; background: #f0fdf4; padding: 0.55rem 1rem; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; border-radius: 6px;">
           💬 Request Desk Search (+91 86069 18247) &rarr;
