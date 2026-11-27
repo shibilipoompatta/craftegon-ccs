@@ -921,7 +921,7 @@ table {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   h1, .hero-title, .section-title-large {
     font-size: clamp(1.4rem, 6vw, 1.85rem) !important;
     line-height: 1.25 !important;
@@ -951,7 +951,7 @@ table {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 640px) {
   .container {
     padding: 0 0.75rem;
   }

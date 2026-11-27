@@ -739,13 +739,13 @@ input:checked + .slider:before {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18.75rem), 1fr));
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .tier-card { padding: 1.25rem; }
   .tier-price-wrap { flex-wrap: wrap; }
   .tier-price { font-size: clamp(1.75rem, 9vw, 2.25rem); }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .entity-lookup-card { padding: 1.25rem; }
   .lookup-input-wrap { min-width: 0; flex-basis: 100%; }
   .lookup-input { min-width: 0; }

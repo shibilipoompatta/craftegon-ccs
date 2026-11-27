@@ -104,7 +104,7 @@
   overflow: hidden;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .hero-3d-section {
     padding: 4.5rem 1rem 3.5rem;
   }
@@ -117,7 +117,7 @@
   gap: 3.5rem;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .hero-3d-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -173,7 +173,7 @@
   text-wrap: balance;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .hero-headline {
     font-size: 1.72rem;
     line-height: 1.22;
@@ -340,7 +340,7 @@
   justify-content: center;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .hero-3d-stage {
     height: 400px;
     max-width: 520px;
@@ -958,13 +958,13 @@
   100% { transform: translateY(-6px); }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .chip-floating-top { right: 0; top: -10px; }
   .chip-floating-bottom-left { left: 0; bottom: -10px; }
   .chip-floating-bottom-right { right: 0; bottom: 15px; }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .compliance-cockpit {
     padding: 1.25rem;
   }
@@ -1059,13 +1059,13 @@
   100% { transform: translateZ(95px) translateY(-8px); }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .chip-top-right { right: 8px; top: 15px; }
   .chip-bottom-left { left: 8px; bottom: 25px; }
   .chip-bottom-right { right: 8px; bottom: 30px; }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .hero-3d-stage {
     height: 330px;
     max-width: 100%;
@@ -1106,7 +1106,7 @@
 }
 
 /* Homepage Dual-Search Scroll Synchronization */
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
   body.home-page .universal-search-container.nav-search-hidden {
     opacity: 0;
     pointer-events: none;
@@ -1145,7 +1145,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .trust-metrics-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -1248,7 +1248,7 @@
   grid-column: span 6;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .bento-tile-flagship,
   .bento-tile-formation,
   .bento-tile-tax,
@@ -1533,7 +1533,7 @@
   align-items: center;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .estimator-3d-card {
     grid-template-columns: 1fr;
     padding: 2rem 1.5rem;
@@ -1679,13 +1679,13 @@
   position: relative;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .process-grid {
     grid-template-columns: 1fr;
   }
@@ -2017,7 +2017,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .hero-front-search-form {
     border-radius: 14px !important;
     padding: 0.5rem !important;
@@ -2208,7 +2208,7 @@
     grid-template-columns: 1fr;
   }
 }
-@media (min-width: 641px) and (max-width: 1023px) {
+@media (min-width: 640px) and (max-width: 1024px) {
   .process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2222,14 +2222,14 @@
 }
 
 /* Hero cockpit: hide on tablet and mobile viewports to eliminate 700px scroll trap */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .hero-cockpit-stage {
     display: none !important;
   }
 }
 
 /* Final CTA buttons: stack on mobile */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .final-cta-buttons {
     flex-direction: column;
     align-items: stretch;
@@ -2485,7 +2485,7 @@
   display: none;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .process-connector {
     display: flex;
     align-items: center;
@@ -2706,7 +2706,7 @@
   margin-top: 2.5rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .diagnostic-tools-grid {
     grid-template-columns: 1fr;
   }
@@ -2793,7 +2793,7 @@
   text-align: left;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .final-cta-split-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -3099,7 +3099,7 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .mid-advisory-card {
     flex-direction: column;
     align-items: flex-start;
@@ -3116,7 +3116,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .mid-advisory-section {
     padding: 1.75rem 1rem;
   }
@@ -3220,7 +3220,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 640px) {
   .popular-services-section {
     padding: 2.5rem 0.75rem;
   }
@@ -3242,7 +3242,7 @@
   }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 768px) {
   .flagship-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -3272,7 +3272,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 640px) {
   .flagship-card {
     padding: 1.4rem 1rem 1.25rem;
   }
@@ -3605,7 +3605,7 @@
   position: relative;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .process-grid-3 {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -3776,7 +3776,7 @@ a, button, input, select, textarea,
 }
 
 /* 4. Tablet 3-Card Grid Balance (768px - 1024px): Prevent awkward orphaned 3rd card */
-@media (min-width: 641px) and (max-width: 1024px) {
+@media (min-width: 640px) and (max-width: 1024px) {
   .flagship-grid > :nth-child(3),
   .process-grid-3 > :nth-child(3),
   .why-grid > :nth-child(3) {
@@ -3788,7 +3788,7 @@ a, button, input, select, textarea,
 }
 
 /* 5. Small Screens (<= 480px, Foldables 280px-320px, iPhone SE): Full width button stacking & search */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .hero-actions-group .btn-hero-primary,
   .hero-actions-group .btn-hero-secondary {
     width: 100% !important;
@@ -3861,7 +3861,7 @@ a, button, input, select, textarea,
   width: 100%;
   min-width: 0;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .hero-quick-channels {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.75rem;
@@ -3873,7 +3873,7 @@ a, button, input, select, textarea,
     gap: 0.65rem;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .hero-quick-channels {
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -4081,7 +4081,7 @@ a, button, input, select, textarea,
   background: var(--accent-green-hover, #185343);
   transform: translateY(-1px);
 }
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .unified-search-btn span {
     display: none;
   }
@@ -4220,7 +4220,7 @@ a, button, input, select, textarea,
   align-items: stretch;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .wizard-grid-layout {
     grid-template-columns: 1fr;
     gap: 1.75rem;
@@ -4274,7 +4274,7 @@ a, button, input, select, textarea,
   gap: 0.65rem;
 }
 
-@media (max-width: 580px) {
+@media (max-width: 640px) {
   .wizard-options-grid {
     grid-template-columns: 1fr !important;
   }

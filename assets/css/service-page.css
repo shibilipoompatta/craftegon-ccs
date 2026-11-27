@@ -309,7 +309,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 640px) {
   .service-layout-container {
     padding: 1rem 0.75rem 2.5rem;
   }

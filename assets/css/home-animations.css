@@ -1,15 +1,13 @@
 /* ==========================================================================
-   CraftEgon CCS: Home Animations CSS (separate file, no conflict)
+   CraftEgon CCS: Calm Motion & Standardized Responsive Grid Adjustments
+   Consolidated to 4 canonical breakpoints (640px, 768px, 1024px, 1280px)
    ========================================================================== */
 
-/* ==========================================================================
-   SCROLL REVEAL ANIMATIONS
-   ========================================================================== */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translateY(10px);
+  transition: opacity 0.22s var(--ease-editorial, cubic-bezier(0.22, 1, 0.36, 1)),
+              transform 0.22s var(--ease-editorial, cubic-bezier(0.22, 1, 0.36, 1));
 }
 .reveal-on-scroll.is-revealed {
   opacity: 1;
@@ -19,37 +17,30 @@
   .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
 }
 
-/* ==========================================================================
-   MOBILE RESPONSIVE IMPROVEMENTS
-   ========================================================================== */
-/* Trust bar: 2x2 grid on mobile */
 @media (max-width: 640px) {
   .trust-metrics-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: var(--space-3, 16px);
   }
   .metric-text-val {
-    font-size: 1.5rem;
+    font-size: var(--type-h2, 1.625rem);
   }
-}
-
-/* Bento grid: single column on mobile */
-@media (max-width: 640px) {
-  .pillars-bento-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  .pillars-bento-grid,
+  .process-grid,
+  .why-grid,
+  .stage-services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3, 16px);
   }
-  .bento-tile { padding: 1.5rem; }
-}
-
-/* Stage tabs: scrollable on mobile */
-@media (max-width: 640px) {
+  .bento-tile {
+    padding: var(--space-4, 24px);
+  }
   .stages-tabs-nav {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding-bottom: 0.5rem;
+    padding-bottom: var(--space-2, 8px);
     justify-content: flex-start;
   }
   .stages-tabs-nav::-webkit-scrollbar { display: none; }
@@ -57,47 +48,9 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
-}
-
-/* Fee estimator: stack on mobile */
-@media (max-width: 768px) {
-  .estimator-3d-card {
-    flex-direction: column;
-  }
-  .estimator-controls,
-  .estimator-output-box {
-    width: 100%;
-  }
-}
-
-/* Process grid: 2 columns on tablet, 1 on mobile */
-@media (max-width: 640px) {
-  .process-grid {
-    grid-template-columns: 1fr;
-  }
-}
-@media (min-width: 641px) and (max-width: 1023px) {
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Why cards: stack on mobile */
-@media (max-width: 640px) {
-  .why-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Hero cockpit: hide on very small screens */
-@media (max-width: 480px) {
   .hero-cockpit-stage {
     display: none;
   }
-}
-
-/* Final CTA buttons: stack on mobile */
-@media (max-width: 480px) {
   .final-cta-buttons {
     flex-direction: column;
     align-items: stretch;
@@ -108,14 +61,23 @@
   }
   .final-cta-contact-info {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--space-2, 8px);
     align-items: center;
   }
 }
 
-/* Stage service cards: 1 col on mobile */
-@media (max-width: 640px) {
-  .stage-services-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .estimator-3d-card {
+    flex-direction: column;
+  }
+  .estimator-controls,
+  .estimator-output-box {
+    width: 100%;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

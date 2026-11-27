@@ -14,8 +14,8 @@
     initCard3DTilt();
     initFeeEstimator();
     initStageTabs();
+    initKeralaSectorSwitcher();
     initFrontSearch();
-    initSearchScrollSync();
   });
 
   /**
@@ -332,29 +332,47 @@
   }
 
   /**
-   * 6. DUAL-SEARCH SCROLL SYNCHRONIZATION ON HOMEPAGE
-   * Smoothly hides navbar search when hero search is in view, revealing it on scroll.
+   * 6. INTERACTIVE 5-SECTOR KERALA INDUSTRY SWITCHER
    */
-  function initSearchScrollSync() {
-    const navSearch = document.getElementById("universal-search-container");
-    const heroSearch = document.querySelector(".hero-front-search-card");
-    if (!navSearch || !heroSearch) return;
+  function initKeralaSectorSwitcher() {
+    const tabButtons = Array.from(document.querySelectorAll(".kl-sector-tab-btn"));
+    const tabPanels = Array.from(document.querySelectorAll(".kl-sector-panel"));
+    if (!tabButtons.length || !tabPanels.length) return;
 
-    function updateSearchVisibility() {
-      const heroRect = heroSearch.getBoundingClientRect();
-      if (heroRect.bottom < 80) {
-        navSearch.classList.add("nav-search-visible");
-        navSearch.classList.remove("nav-search-hidden");
-      } else {
-        navSearch.classList.add("nav-search-hidden");
-        navSearch.classList.remove("nav-search-visible");
-      }
+    function activateSector(idx) {
+      const btn = tabButtons[idx];
+      if (!btn) return;
+      const targetId = btn.getAttribute("data-sector-target");
+
+      tabButtons.forEach((b, i) => {
+        const selected = i === idx;
+        b.classList.toggle("is-active", selected);
+        b.setAttribute("aria-selected", selected ? "true" : "false");
+        b.setAttribute("tabindex", selected ? "0" : "-1");
+      });
+
+      tabPanels.forEach((p) => {
+        const match = p.id === targetId;
+        p.classList.toggle("is-active", match);
+        p.hidden = !match;
+      });
     }
 
-    if (window.innerWidth > 1024) {
-      window.addEventListener("scroll", updateSearchVisibility, { passive: true });
-      updateSearchVisibility();
-    }
+    tabButtons.forEach((btn, idx) => {
+      btn.addEventListener("click", () => activateSector(idx));
+      btn.addEventListener("keydown", (e) => {
+        let next = null;
+        if (e.key === "ArrowRight") next = (idx + 1) % tabButtons.length;
+        else if (e.key === "ArrowLeft") next = (idx - 1 + tabButtons.length) % tabButtons.length;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = tabButtons.length - 1;
+        if (next !== null) {
+          e.preventDefault();
+          activateSector(next);
+          tabButtons[next].focus();
+        }
+      });
+    });
   }
 
 })();

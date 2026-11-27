@@ -113,15 +113,13 @@ document.addEventListener("DOMContentLoaded", async function () {
               </div>
             </a>
             <nav class="if-nav">
-              <a href="/index.html#kerala-bundles" class="if-nav-link">Kerala Bundles</a>
-              <a href="/conversion/calculator.html#readiness" class="if-nav-link">Calculators &amp; Readiness</a>
-              <a href="/services.html" class="if-nav-link">Catalog &amp; Lookups</a>
-              <a href="/conversion/partner-ecosystems.html" class="if-nav-link">Partners</a>
-              <a href="/contact.html" class="if-nav-link">Contact / Scope</a>
+              <a href="/index.html#kerala-bundles" class="if-nav-link">Industry Solutions</a>
+              <a href="/services.html" class="if-nav-link" id="services-nav-trigger">Services</a>
+              <a href="/conversion/calculator.html#readiness" class="if-nav-link">Diagnostic Tools</a>
+              <a href="/about.html" class="if-nav-link">About</a>
             </nav>
             <div class="if-header-actions">
-              <a href="/conversion/calculator.html#readiness" class="if-btn-secondary">Scope Check</a>
-              <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-btn-primary">Talk to an Expert</a>
+              <a href="/conversion/calculator.html#readiness" class="btn btn-primary if-btn-primary">Check Readiness</a>
               <button class="if-mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
               </button>
@@ -130,24 +128,18 @@ document.addEventListener("DOMContentLoaded", async function () {
           <div class="if-mobile-backdrop" id="mobile-drawer-backdrop"></div>
           <div class="if-mobile-drawer" id="mobile-drawer" aria-hidden="true">
             <div class="if-mobile-drawer-header">
-              <a href="/index.html" class="if-brand-logo" aria-label="CraftEgon Corporate Services Home">
-                <img src="/assets/images/craftegon-symbol-icon.png" alt="CraftEgon Corporate Services Insignia" class="brand-logo-img" width="42" height="42">
-                <div class="brand-text-block">
-                  <span class="brand-title" style="font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 700; color: var(--text-dark, #193B46);">CRAFTEGON</span>
-                  <span class="brand-subtitle" style="font-family: var(--font-body); font-size: 0.72rem; color: var(--accent-green-primary, #247A62); letter-spacing: 0.05em; text-transform: uppercase;">Corporate Services</span>
-                </div>
-              </a>
+              <span class="if-mobile-drawer-title">Menu</span>
               <button class="if-mobile-drawer-close" id="mobile-drawer-close" aria-label="Close Navigation Menu">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </button>
             </div>
             <div class="if-mobile-drawer-body">
-              <a href="/index.html#kerala-bundles" class="if-mobile-nav-link">Kerala Launch Bundles</a>
-              <a href="/conversion/calculator.html#readiness" class="if-mobile-nav-link">Calculators &amp; Readiness</a>
-              <a href="/services.html" class="if-mobile-nav-link">Catalog &amp; Lookups</a>
-              <a href="/conversion/partner-ecosystems.html" class="if-mobile-nav-link">Marketplace &amp; Resolution Kits</a>
-              <a href="/contact.html" class="if-mobile-nav-link">Contact / Scope</a>
-              <a href="https://wa.me/918606918247" target="_blank" rel="noopener noreferrer" class="if-mobile-nav-link" style="color: #008742; font-weight:700;">WhatsApp Desk: +91 86069 18247</a>
+              <a href="/index.html#kerala-bundles" class="if-mobile-nav-link">Industry Solutions</a>
+              <a href="/services.html" class="if-mobile-nav-link">Services (57)</a>
+              <a href="/conversion/calculator.html#readiness" class="if-mobile-nav-link">Diagnostic Tools</a>
+              <a href="/about.html" class="if-mobile-nav-link">About</a>
+              <a href="/contact.html" class="if-mobile-nav-link">Contact</a>
+              <a href="/conversion/calculator.html#readiness" class="if-mobile-nav-link" style="color: var(--accent-primary, #165B44); font-weight: 700;">Check Readiness</a>
             </div>
           </div>
         </header>
@@ -353,10 +345,30 @@ function initDropdowns() {
 
   // Global dismiss on click outside
   document.addEventListener("click", (e) => {
-    if (activeDropdown && !activeDropdown.contains(e.target)) {
+    if (activeDropdown && !activeDropdown.contains(e.target) && !e.target.closest("#desktop-search-toggle")) {
       closeAllDropdowns();
     }
   });
+
+  // Desktop Search icon trigger: opens Services mega-menu & focuses Universal Search
+  const desktopSearchBtn = document.getElementById("desktop-search-toggle");
+  const servicesDropdown = document.getElementById("services-dropdown-container");
+  const universalInput = document.getElementById("universal-search-input");
+  if (desktopSearchBtn && servicesDropdown) {
+    desktopSearchBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const alreadyOpen = servicesDropdown.classList.contains("is-open");
+      if (alreadyOpen && universalInput && document.activeElement === universalInput) {
+        closeAllDropdowns();
+      } else {
+        openDropdown(servicesDropdown);
+        if (universalInput) {
+          setTimeout(() => universalInput.focus(), 40);
+        }
+      }
+    });
+  }
 }
 
 function initMobileNav() {

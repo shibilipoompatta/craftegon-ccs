@@ -31,46 +31,34 @@ Every screen, layout, and component across the platform must adhere to these thr
 
 ## 3. Color System & Accessibility Ratios
 
-The official CCS visual identity pairs **Deep Emerald** with **Charcoal Green** across clean **Soft Mint**, **Off White**, and **White** canvases.
+The editorial CCS visual identity harmonizes **Deep Slate-Navy (`#0F1F24`)** and **Forest Emerald (`#165B44`)** across **White (`#FFFFFF`)**, **Warm Archival Off-White (`#F7F8F5`)**, and **Sage Tint (`#EBF1ED`)** surfaces, with **Antique Brass (`#8F6A28` / accessible text `#6E501A`)** reserved sparingly for statutory callout accents.
 
 ### Core Brand Palette
-- **Deep Emerald (`--brand-emerald: #176B4A`):** Primary action color for conversion buttons, active tabs, borders, and phase markers. Contrast ratio on white: **6.2:1** (WCAG AA).
-- **Emerald Hover (`--brand-emerald-hover: #115238`):** Hover and active focus state for primary controls.
-- **Charcoal Green (`--brand-charcoal-green: #17251F`):** Master headings, dark anchor surfaces, and institutional footer containers. Contrast ratio on white: **15.4:1** (WCAG AAA).
-- **Soft Mint (`--brand-soft-mint: #E8F2EC`):** Badge fills, eyebrows, highlighted callouts, and subtle UI tints.
-- **Off White (`--brand-off-white: #F5F8F5`):** Calm, low-glare alternating section surface.
-- **White (`--bg-primary: #FFFFFF`):** Base canvas for structured forms, data tables, and cards.
-
-### Neutral Text & Divider Foundations
-- **High-Legibility Body Text (`--text-main: #22342C`):** Standard reading prose.
-- **Secondary Text (`--text-secondary: #64746B`):** Captions, table metadata, and secondary helper text.
-- **Hairline Border (`--border-color: #D8E3DC`):** Crisp divider borders across cards, tables, and form containers.
-
-### Semantic Indicators
-- **Verified / Success:** `#059669` (Forest Emerald)
-- **Statutory Due Date / Warning:** `#D97706` (Amber Ochre)
-- **Late Fee / Penalty / Danger:** `#DC2626` (Crimson)
+- **Forest Emerald (`--accent-primary: #165B44`):** Primary action color (`7.9:1` with white). Hover: `#104533`.
+- **Deep Slate-Navy (`--ink-primary: #0F1F24`):** Master headings and structural anchors (`16.4:1` on white).
+- **Primary Prose (`--ink-body: #24353A`):** Body copy (`12.1:1` on white).
+- **Muted Metadata (`--ink-muted: #526468`):** Secondary descriptions and captions (`6.1:1` on white).
+- **Warm Archival Off-White (`--bg-warm: #F7F8F5`) & Sage Tint (`--bg-tint: #EBF1ED`):** Low-glare alternating section canvases and active control fills.
+- **Architectural Border (`--border-subtle: #DCE3DD`):** 1px dividers across cards, tables, and form containers.
+- **Inverse Footer Tokens:** `--footer-bg: #112227`, `--footer-text: #E8EFEA` (`14.2:1`), `--footer-muted: #B9C8C3` (`9.6:1`), `--footer-link-accent: #7ED4B0` (`9.8:1`).
 
 ---
 
-## 4. Typography Hierarchy & Fluid Scale
+## 4. Typography Hierarchy & Strict 6-Level Scale
 
-The typography pairs geometric clarity with institutional legibility:
-1. **Headings (`--font-heading`):** `'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`
-2. **Body Text (`--font-body`):** `'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`
-3. **Tabular & Statutory Codes (`--font-mono`):** `'DM Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace`
+Typography aligns directly with the parent brand (`craftegon.com`):
+1. **Headings & UI (`--font-heading`):** `'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif`
+2. **Body Prose (`--font-body`):** `'Inter', -apple-system, BlinkMacSystemFont, sans-serif`
+3. **Tabular & Statutory Codes (`--font-mono`):** `'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace`
 
-### Fluid Scale (CSS `clamp()`)
-- **Display Hero H1:** `clamp(2.15rem, 3.8vw, 3.25rem)` (Line-height: 1.15)
-- **Section Title H2:** `clamp(1.5rem, 2.5vw, 2.15rem)` (Line-height: 1.25)
-- **Card Heading H3:** `clamp(1.2rem, 1.8vw, 1.45rem)` (Line-height: 1.3)
-- **Lead Paragraph:** `clamp(1.05rem, 1.2vw, 1.18rem)` (Line-height: 1.6)
-- **Body Text:** `1rem` (16px base, Line-height: 1.65)
-- **Small / Meta Tag:** `0.875rem` (14px, Line-height: 1.5)
-- **Caption / Tiny Tag:** `0.75rem` (12px, Line-height: 1.4)
-
-### Measure Constraint Rule
-Paragraphs must never stretch across 1200px wide screens. All prose must be constrained to `max-width: var(--measure-prose, 68ch)` (approx. 680px) to prevent eye fatigue.
+### Strict 6-Level Type Scale & 4 Breakpoints
+- `--type-display`: `clamp(2.125rem, 3.6vw, 3.125rem)` (Hero H1, lh `1.18`)
+- `--type-h2`: `clamp(1.625rem, 2.4vw, 2.125rem)` (Section H2, lh `1.18`)
+- `--type-h3`: `1.25rem` (Card/Panel H3, lh `1.35`)
+- `--type-lead`: `1.125rem` (Section Intro, lh `1.5`)
+- `--type-body`: `1rem` (Standard Prose, lh `1.6`, max measure `66ch`)
+- `--type-caption`: `0.8125rem` (Eyebrows/Legal/Meta, lh `1.35`)
+- **Breakpoints (4 canonical widths):** `640px`, `768px`, `1024px`, `1280px`.
 
 ---
 
