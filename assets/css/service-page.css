@@ -867,3 +867,126 @@
   padding: 1px 5px;
   border-radius: 3px;
 }
+
+/* ==========================================================================
+   INSTITUTIONAL LEGAL & REGULATORY DISCLOSURE PAGES
+   ========================================================================== */
+.legal-main-container {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+  box-sizing: border-box;
+}
+
+.legal-article {
+  line-height: 1.82;
+  font-size: 1.02rem;
+  color: var(--ink-body, #24353A);
+}
+
+.legal-badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  background: var(--warning-light, #FDF9EE);
+  border: 1px solid rgba(143, 106, 40, 0.35);
+  border-radius: 999px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-brass-text, #6E501A);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.legal-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  margin: 0.25rem 0 0.5rem;
+  color: var(--ink-primary, #0F1F24);
+}
+
+.legal-updated-meta {
+  font-size: 0.95rem;
+  color: var(--ink-muted, #526468);
+  margin-bottom: 2rem;
+}
+
+.legal-boundary-box {
+  background: var(--bg-warm, #F7F8F5);
+  border-left: 4px solid var(--accent-brass, #8F6A28);
+  border-radius: 0 8px 8px 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.legal-boundary-kicker {
+  color: var(--ink-primary, #0F1F24);
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.legal-boundary-box p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-body, #24353A);
+  line-height: 1.65;
+}
+
+.legal-section-heading {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--ink-primary, #0F1F24);
+}
+
+/* Registry Benchmark Comparison Card */
+.search-benchmark-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--border-subtle, #DCE3DD);
+  border-radius: 12px;
+  background: var(--bg-canvas, #FFFFFF);
+}
+
+.search-benchmark-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.search-benchmark-table th {
+  padding: 14px 18px;
+  font-weight: 700;
+  background: var(--ink-primary, #0F1F24);
+  color: #FFFFFF;
+}
+
+.search-benchmark-table th.is-ccs-col {
+  background: var(--accent-primary, #165B44);
+}
+
+.search-benchmark-table td {
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--border-subtle, #DCE3DD);
+  color: var(--ink-muted, #526468);
+}
+
+.search-benchmark-table td:first-child {
+  font-weight: 600;
+  color: var(--ink-primary, #0F1F24);
+}
+
+.search-benchmark-table td.is-ccs-cell {
+  color: var(--accent-primary, #165B44);
+  font-weight: 600;
+  background: var(--bg-warm, #F7F8F5);
+}
+

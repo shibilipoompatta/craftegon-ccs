@@ -4594,3 +4594,115 @@ a, button, input, select, textarea,
   font-weight: 600;
 }
 
+/* ==========================================================================
+   LAUNCH-TO-OPERATE ARCHITECTURAL FLOW DIAGRAM & ENTITY WIZARD CLASSES
+   ========================================================================== */
+.ccs-lifecycle-flow-visual {
+  max-width: 980px;
+  margin: 0 auto 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-canvas, #FFFFFF);
+  border: 1px solid var(--border-subtle, #DCE3DD);
+  border-radius: 12px;
+}
+
+.ccs-lifecycle-flow-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .ccs-lifecycle-flow-visual {
+    padding: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.wizard-header-clean {
+  width: 100%;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.25rem;
+  box-sizing: border-box;
+}
+
+.wizard-eyebrow-pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-primary, #165B44);
+  background: var(--bg-tint, #EBF1ED);
+  border: 1px solid var(--border-subtle, #DCE3DD);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-bottom: 0.6rem;
+}
+
+.wizard-title-clean {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  color: var(--ink-primary, #0F1F24);
+  margin: 0 0 0.6rem;
+  letter-spacing: -0.025em;
+}
+
+.wizard-lead-clean {
+  font-size: 0.95rem;
+  color: var(--ink-muted, #526468);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.wizard-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.wizard-rec-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-primary, #165B44);
+  background: var(--bg-tint, #EBF1ED);
+  border: 1px solid var(--growth-green-border, rgba(22, 91, 68, 0.24));
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+.wizard-rec-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-muted, #526468);
+  background: var(--bg-canvas, #FFFFFF);
+  border: 1px solid var(--border-subtle, #DCE3DD);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.wizard-rec-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--ink-primary, #0F1F24);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.wizard-rec-desc {
+  font-size: 0.88rem;
+  color: var(--ink-muted, #526468);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+

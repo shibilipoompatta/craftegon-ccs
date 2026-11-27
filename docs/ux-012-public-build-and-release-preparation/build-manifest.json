@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-27T07:46:52.971Z",
+  "buildTimestamp": "2026-11-27T08:10:49.822Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,8 +11,8 @@
   },
   "metrics": {
     "totalFilesIncluded": 260,
-    "totalOutputSizeBytes": 14172707,
-    "totalOutputSizeFormatted": "13.52 MB",
+    "totalOutputSizeBytes": 14235901,
+    "totalOutputSizeFormatted": "13.58 MB",
     "sanitizedResidualLinksCount": 0,
     "preRenderedSSGPagesCount": 0,
     "filesByExtension": {
@@ -181,11 +181,11 @@
     },
     {
       "path": "404.html",
-      "bytes": 51558
+      "bytes": 51543
     },
     {
       "path": "about.html",
-      "bytes": 67373
+      "bytes": 67358
     },
     {
       "path": "anti-slop/audit-001-2026-11-20.md",
@@ -221,7 +221,7 @@
     },
     {
       "path": "assets/css/home-unique.css",
-      "bytes": 79477
+      "bytes": 81390
     },
     {
       "path": "assets/css/navbar.css",
@@ -229,7 +229,7 @@
     },
     {
       "path": "assets/css/service-page.css",
-      "bytes": 14710
+      "bytes": 16858
     },
     {
       "path": "assets/css/theme.css",
@@ -393,23 +393,23 @@
     },
     {
       "path": "bundles/clinics-diagnostics-kerala.html",
-      "bytes": 104635
+      "bytes": 104620
     },
     {
       "path": "bundles/edtech-academies-kerala.html",
-      "bytes": 102134
+      "bytes": 102119
     },
     {
       "path": "bundles/exim-cold-chain-kerala.html",
-      "bytes": 101571
+      "bytes": 101556
     },
     {
       "path": "bundles/food-spice-processing-kerala.html",
-      "bytes": 99921
+      "bytes": 99906
     },
     {
       "path": "bundles/hospitality-resorts-kerala.html",
-      "bytes": 100797
+      "bytes": 100782
     },
     {
       "path": "c7a4e8d21b9f4056a2e8c1d3f5b709a2.txt",
@@ -417,131 +417,131 @@
     },
     {
       "path": "categories/business-setup.html",
-      "bytes": 54230
+      "bytes": 61867
     },
     {
       "path": "categories/corporate-compliance.html",
-      "bytes": 53702
+      "bytes": 61340
     },
     {
       "path": "categories/index.html",
-      "bytes": 57130
+      "bytes": 64506
     },
     {
       "path": "categories/legal-contracts-ip.html",
-      "bytes": 54580
+      "bytes": 62208
     },
     {
       "path": "categories/licences-registrations.html",
-      "bytes": 54359
+      "bytes": 61978
     },
     {
       "path": "categories/tax-compliance.html",
-      "bytes": 53498
+      "bytes": 61177
     },
     {
       "path": "categories/workforce-operations.html",
-      "bytes": 54717
+      "bytes": 62328
     },
     {
       "path": "components/footer.html",
-      "bytes": 10098
+      "bytes": 10092
     },
     {
       "path": "components/navbar.html",
-      "bytes": 33324
+      "bytes": 33314
     },
     {
       "path": "contact.html",
-      "bytes": 65872
+      "bytes": 65739
     },
     {
       "path": "conversion/ai-document-generator.html",
-      "bytes": 85365
+      "bytes": 85350
     },
     {
       "path": "conversion/calculator.html",
-      "bytes": 137297
+      "bytes": 137282
     },
     {
       "path": "conversion/contract-intake.html",
-      "bytes": 62823
+      "bytes": 62808
     },
     {
       "path": "conversion/cross-border-retainer.html",
-      "bytes": 62947
+      "bytes": 62932
     },
     {
       "path": "conversion/csr-audit-form.html",
-      "bytes": 62945
+      "bytes": 62930
     },
     {
       "path": "conversion/dispute-consultation.html",
-      "bytes": 64669
+      "bytes": 64654
     },
     {
       "path": "conversion/dpdp-audit-request.html",
-      "bytes": 63365
+      "bytes": 63350
     },
     {
       "path": "conversion/fema-consultation.html",
-      "bytes": 62843
+      "bytes": 62828
     },
     {
       "path": "conversion/hr-audit.html",
-      "bytes": 63116
+      "bytes": 63101
     },
     {
       "path": "conversion/index.html",
-      "bytes": 119584
+      "bytes": 119569
     },
     {
       "path": "conversion/license-qualification.html",
-      "bytes": 63334
+      "bytes": 63319
     },
     {
       "path": "conversion/ma-advisory-enquiry.html",
-      "bytes": 63259
+      "bytes": 63244
     },
     {
       "path": "conversion/partner-ecosystems.html",
-      "bytes": 99704
+      "bytes": 99689
     },
     {
       "path": "conversion/post-incorporation-checkout.html",
-      "bytes": 63646
+      "bytes": 63631
     },
     {
       "path": "conversion/ppc-annual-compliance.html",
-      "bytes": 61371
+      "bytes": 61356
     },
     {
       "path": "conversion/ppc-company-registration.html",
-      "bytes": 63497
+      "bytes": 63482
     },
     {
       "path": "conversion/ppc-trademark-registration.html",
-      "bytes": 62863
+      "bytes": 62848
     },
     {
       "path": "conversion/retainer-desk.html",
-      "bytes": 62876
+      "bytes": 62861
     },
     {
       "path": "conversion/secretarial-audit-scope.html",
-      "bytes": 63010
+      "bytes": 62995
     },
     {
       "path": "conversion/tax-intake.html",
-      "bytes": 63154
+      "bytes": 63139
     },
     {
       "path": "conversion/trademark-search.html",
-      "bytes": 65330
+      "bytes": 65315
     },
     {
       "path": "conversion/venture-deal-booking.html",
-      "bytes": 62946
+      "bytes": 62931
     },
     {
       "path": "data/ccfs-2026.json",
@@ -605,163 +605,163 @@
     },
     {
       "path": "index.html",
-      "bytes": 113454
+      "bytes": 112791
     },
     {
       "path": "knowledge/angel-tax-abolition-sec56viib-sec68-fema-guide.html",
-      "bytes": 59339
+      "bytes": 59324
     },
     {
       "path": "knowledge/charitable-trust-deed-sro-sec332-handbook.html",
-      "bytes": 76508
+      "bytes": 76493
     },
     {
       "path": "knowledge/director-disqualification-guide.html",
-      "bytes": 69065
+      "bytes": 69050
     },
     {
       "path": "knowledge/dpiit-startup-india-gsr108e-sec140-handbook.html",
-      "bytes": 74233
+      "bytes": 74218
     },
     {
       "path": "knowledge/gst-annual-return-turnover-reconciliation-handbook.html",
-      "bytes": 68386
+      "bytes": 68371
     },
     {
       "path": "knowledge/gst-einvoicing-compliance-mandate.html",
-      "bytes": 61136
+      "bytes": 61121
     },
     {
       "path": "knowledge/gst-itc-reconciliation-gstr2b-gstr3b-guide.html",
-      "bytes": 70048
+      "bytes": 70033
     },
     {
       "path": "knowledge/gstr9-annual-return-complete-guide.html",
-      "bytes": 75511
+      "bytes": 75496
     },
     {
       "path": "knowledge/gstr9c-reconciliation-statement-handbook.html",
-      "bytes": 70544
+      "bytes": 70529
     },
     {
       "path": "knowledge/index.html",
-      "bytes": 84522
+      "bytes": 84507
     },
     {
       "path": "knowledge/late-fee-calculator-guide.html",
-      "bytes": 71388
+      "bytes": 71373
     },
     {
       "path": "knowledge/llp-compliance-solvency-guide.html",
-      "bytes": 58122
+      "bytes": 58107
     },
     {
       "path": "knowledge/llp-incorporation-fillip-guide.html",
-      "bytes": 93574
+      "bytes": 93559
     },
     {
       "path": "knowledge/mca-adjudication-penalties.html",
-      "bytes": 61057
+      "bytes": 61042
     },
     {
       "path": "knowledge/mca-v3-filing-guide.html",
-      "bytes": 63315
+      "bytes": 63300
     },
     {
       "path": "knowledge/msme-delayed-payment-protection-samadhaan-handbook.html",
-      "bytes": 72249
+      "bytes": 72234
     },
     {
       "path": "knowledge/msme-section-43bh-section-37-2g-tax-guide.html",
-      "bytes": 74466
+      "bytes": 74451
     },
     {
       "path": "knowledge/msme-udyam-registration-complete-guide.html",
-      "bytes": 81291
+      "bytes": 79508
     },
     {
       "path": "knowledge/msme-udyam-retail-wholesale-traders-guide.html",
-      "bytes": 63850
+      "bytes": 63835
     },
     {
       "path": "knowledge/opc-incorporation-nominee-guide.html",
-      "bytes": 84675
+      "bytes": 84660
     },
     {
       "path": "knowledge/partnership-firm-deed-rof-handbook.html",
-      "bytes": 89600
+      "bytes": 89585
     },
     {
       "path": "knowledge/pas6-demat-audit-guide.html",
-      "bytes": 59463
+      "bytes": 59448
     },
     {
       "path": "knowledge/rbi-fla-return-blueprint.html",
-      "bytes": 69181
+      "bytes": 69166
     },
     {
       "path": "knowledge/roc-annual-compliance-india-guide.html",
-      "bytes": 65077
+      "bytes": 65062
     },
     {
       "path": "knowledge/sbo-ben2-guide.html",
-      "bytes": 59089
+      "bytes": 59074
     },
     {
       "path": "knowledge/section-8-licensing-governance-guide.html",
-      "bytes": 85546
+      "bytes": 85531
     },
     {
       "path": "knowledge/society-registration-kerala-act-2025-handbook.html",
-      "bytes": 82156
+      "bytes": 82141
     },
     {
       "path": "knowledge/sole-proprietorship-udyam-gst-banking-guide.html",
-      "bytes": 82838
+      "bytes": 82823
     },
     {
       "path": "knowledge/spice-plus-mca-v3-blueprint.html",
-      "bytes": 96816
+      "bytes": 96801
     },
     {
       "path": "knowledge/trademark-nice-classification-45-classes-handbook.html",
-      "bytes": 71497
+      "bytes": 71482
     },
     {
       "path": "knowledge/trademark-objection-reply-section-9-11-handbook.html",
-      "bytes": 65054
+      "bytes": 65039
     },
     {
       "path": "knowledge/trademark-opposition-procedure-tm-o-handbook.html",
-      "bytes": 62123
+      "bytes": 62108
     },
     {
       "path": "knowledge/trademark-registration-complete-guide.html",
-      "bytes": 73650
+      "bytes": 73635
     },
     {
       "path": "knowledge/transfer-pricing-guide.html",
-      "bytes": 77503
+      "bytes": 77488
     },
     {
       "path": "legal/confidentiality.html",
-      "bytes": 53532
+      "bytes": 53517
     },
     {
       "path": "legal/disclaimer.html",
-      "bytes": 57967
+      "bytes": 56015
     },
     {
       "path": "legal/privacy.html",
-      "bytes": 57006
+      "bytes": 56991
     },
     {
       "path": "legal/refund.html",
-      "bytes": 62538
+      "bytes": 62523
     },
     {
       "path": "legal/terms.html",
-      "bytes": 58004
+      "bytes": 57989
     },
     {
       "path": "llms.txt",
@@ -769,11 +769,11 @@
     },
     {
       "path": "locations/kozhikode-corporate-services.html",
-      "bytes": 52164
+      "bytes": 59841
     },
     {
       "path": "locations/malappuram-nri-business-desk.html",
-      "bytes": 52406
+      "bytes": 60083
     },
     {
       "path": "schema/d1-compliance-schema.sql",
@@ -781,243 +781,243 @@
     },
     {
       "path": "search/index.html",
-      "bytes": 77154
+      "bytes": 74392
     },
     {
       "path": "services/aoc4-xbrl.html",
-      "bytes": 67377
+      "bytes": 67362
     },
     {
       "path": "services/board-governance-risk-assessment.html",
-      "bytes": 67141
+      "bytes": 67126
     },
     {
       "path": "services/board-minutes.html",
-      "bytes": 67163
+      "bytes": 67148
     },
     {
       "path": "services/cross-border-tech-transfer.html",
-      "bytes": 67625
+      "bytes": 67610
     },
     {
       "path": "services/cyber-incident-reporting.html",
-      "bytes": 67319
-    },
-    {
-      "path": "services/dir3-kyc.html",
-      "bytes": 84025
-    },
-    {
-      "path": "services/director-removal-board-disputes.html",
-      "bytes": 64448
-    },
-    {
-      "path": "services/dpdp-compliance-audit.html",
-      "bytes": 67898
-    },
-    {
-      "path": "services/dpiit-startup-india.html",
-      "bytes": 91067
-    },
-    {
-      "path": "services/fast-track-mergers.html",
-      "bytes": 68292
-    },
-    {
-      "path": "services/form-10b.html",
-      "bytes": 67151
-    },
-    {
-      "path": "services/form-3ceb.html",
-      "bytes": 68005
-    },
-    {
-      "path": "services/form-adt1.html",
-      "bytes": 66535
-    },
-    {
-      "path": "services/form-aoc4.html",
-      "bytes": 66733
-    },
-    {
-      "path": "services/form-ben2.html",
-      "bytes": 66546
-    },
-    {
-      "path": "services/form-csr2.html",
-      "bytes": 67254
-    },
-    {
-      "path": "services/form-dpt3.html",
-      "bytes": 66311
-    },
-    {
-      "path": "services/form-fc3-fc4.html",
-      "bytes": 67670
-    },
-    {
-      "path": "services/form-mgt14.html",
-      "bytes": 67466
-    },
-    {
-      "path": "services/form-mgt7.html",
-      "bytes": 66481
-    },
-    {
-      "path": "services/form-mr1.html",
-      "bytes": 66435
-    },
-    {
-      "path": "services/form-mr3-secretarial-audit.html",
-      "bytes": 67627
-    },
-    {
-      "path": "services/form-msc1-dormant.html",
-      "bytes": 66699
-    },
-    {
-      "path": "services/form-msme1.html",
-      "bytes": 66424
-    },
-    {
-      "path": "services/form-pas6.html",
-      "bytes": 66228
-    },
-    {
-      "path": "services/form-stk2-strike-off.html",
-      "bytes": 67153
-    },
-    {
-      "path": "services/founder-shareholder-agreements.html",
-      "bytes": 68072
-    },
-    {
-      "path": "services/gst-annual.html",
-      "bytes": 76170
-    },
-    {
-      "path": "services/index.html",
-      "bytes": 94829
-    },
-    {
-      "path": "services/ip-enforcement-cease-desist.html",
-      "bytes": 67044
-    },
-    {
-      "path": "services/itr7.html",
-      "bytes": 66902
-    },
-    {
-      "path": "services/labour-code-handbooks.html",
-      "bytes": 67194
-    },
-    {
-      "path": "services/llp-compliance-forms.html",
-      "bytes": 66491
-    },
-    {
-      "path": "services/llp-form24-strike-off.html",
-      "bytes": 66826
-    },
-    {
-      "path": "services/llp-registration.html",
-      "bytes": 102124
-    },
-    {
-      "path": "services/master-service-agreements.html",
-      "bytes": 67149
-    },
-    {
-      "path": "services/mbp1-dir8.html",
-      "bytes": 66386
-    },
-    {
-      "path": "services/msme-udyam.html",
-      "bytes": 141872
-    },
-    {
-      "path": "services/nclt-insolvency-defense.html",
-      "bytes": 64586
-    },
-    {
-      "path": "services/nclt-merger-petitions.html",
-      "bytes": 85711
-    },
-    {
-      "path": "services/opc-registration.html",
-      "bytes": 102839
-    },
-    {
-      "path": "services/oppression-mismanagement-petitions.html",
-      "bytes": 64560
-    },
-    {
-      "path": "services/partnership-registration.html",
-      "bytes": 92130
-    },
-    {
-      "path": "services/pf-esic-compliance.html",
-      "bytes": 67445
-    },
-    {
-      "path": "services/posh-compliance.html",
       "bytes": 67304
     },
     {
+      "path": "services/dir3-kyc.html",
+      "bytes": 84010
+    },
+    {
+      "path": "services/director-removal-board-disputes.html",
+      "bytes": 64433
+    },
+    {
+      "path": "services/dpdp-compliance-audit.html",
+      "bytes": 67883
+    },
+    {
+      "path": "services/dpiit-startup-india.html",
+      "bytes": 91052
+    },
+    {
+      "path": "services/fast-track-mergers.html",
+      "bytes": 68277
+    },
+    {
+      "path": "services/form-10b.html",
+      "bytes": 67136
+    },
+    {
+      "path": "services/form-3ceb.html",
+      "bytes": 67990
+    },
+    {
+      "path": "services/form-adt1.html",
+      "bytes": 66520
+    },
+    {
+      "path": "services/form-aoc4.html",
+      "bytes": 66718
+    },
+    {
+      "path": "services/form-ben2.html",
+      "bytes": 66531
+    },
+    {
+      "path": "services/form-csr2.html",
+      "bytes": 67239
+    },
+    {
+      "path": "services/form-dpt3.html",
+      "bytes": 66296
+    },
+    {
+      "path": "services/form-fc3-fc4.html",
+      "bytes": 67655
+    },
+    {
+      "path": "services/form-mgt14.html",
+      "bytes": 67451
+    },
+    {
+      "path": "services/form-mgt7.html",
+      "bytes": 66466
+    },
+    {
+      "path": "services/form-mr1.html",
+      "bytes": 66420
+    },
+    {
+      "path": "services/form-mr3-secretarial-audit.html",
+      "bytes": 67612
+    },
+    {
+      "path": "services/form-msc1-dormant.html",
+      "bytes": 66684
+    },
+    {
+      "path": "services/form-msme1.html",
+      "bytes": 66409
+    },
+    {
+      "path": "services/form-pas6.html",
+      "bytes": 66213
+    },
+    {
+      "path": "services/form-stk2-strike-off.html",
+      "bytes": 67138
+    },
+    {
+      "path": "services/founder-shareholder-agreements.html",
+      "bytes": 68057
+    },
+    {
+      "path": "services/gst-annual.html",
+      "bytes": 76155
+    },
+    {
+      "path": "services/index.html",
+      "bytes": 94814
+    },
+    {
+      "path": "services/ip-enforcement-cease-desist.html",
+      "bytes": 67029
+    },
+    {
+      "path": "services/itr7.html",
+      "bytes": 66887
+    },
+    {
+      "path": "services/labour-code-handbooks.html",
+      "bytes": 67179
+    },
+    {
+      "path": "services/llp-compliance-forms.html",
+      "bytes": 66476
+    },
+    {
+      "path": "services/llp-form24-strike-off.html",
+      "bytes": 66811
+    },
+    {
+      "path": "services/llp-registration.html",
+      "bytes": 102109
+    },
+    {
+      "path": "services/master-service-agreements.html",
+      "bytes": 67134
+    },
+    {
+      "path": "services/mbp1-dir8.html",
+      "bytes": 66371
+    },
+    {
+      "path": "services/msme-udyam.html",
+      "bytes": 141857
+    },
+    {
+      "path": "services/nclt-insolvency-defense.html",
+      "bytes": 64571
+    },
+    {
+      "path": "services/nclt-merger-petitions.html",
+      "bytes": 85696
+    },
+    {
+      "path": "services/opc-registration.html",
+      "bytes": 102824
+    },
+    {
+      "path": "services/oppression-mismanagement-petitions.html",
+      "bytes": 64545
+    },
+    {
+      "path": "services/partnership-registration.html",
+      "bytes": 92115
+    },
+    {
+      "path": "services/pf-esic-compliance.html",
+      "bytes": 67430
+    },
+    {
+      "path": "services/posh-compliance.html",
+      "bytes": 67289
+    },
+    {
       "path": "services/proprietorship-registration.html",
-      "bytes": 95467
+      "bytes": 95452
     },
     {
       "path": "services/proprietorship-tax.html",
-      "bytes": 67192
+      "bytes": 67177
     },
     {
       "path": "services/pvt-ltd-registration.html",
-      "bytes": 112383
+      "bytes": 112368
     },
     {
       "path": "services/rbi-fla-return.html",
-      "bytes": 67522
+      "bytes": 67507
     },
     {
       "path": "services/roc-annual-compliance.html",
-      "bytes": 88502
+      "bytes": 88487
     },
     {
       "path": "services/rof-maintenance.html",
-      "bytes": 66494
+      "bytes": 66479
     },
     {
       "path": "services/saas-terms-privacy-architecture.html",
-      "bytes": 67421
+      "bytes": 67406
     },
     {
       "path": "services/section-8-registration.html",
-      "bytes": 100590
+      "bytes": 100575
     },
     {
       "path": "services/slump-sale-asset-purchase.html",
-      "bytes": 67888
+      "bytes": 67873
     },
     {
       "path": "services/society-registration.html",
-      "bytes": 89821
+      "bytes": 89806
     },
     {
       "path": "services/software-copyright-patents.html",
-      "bytes": 67511
+      "bytes": 67496
     },
     {
       "path": "services/trademark-registration.html",
-      "bytes": 125304
+      "bytes": 125289
     },
     {
       "path": "services/trust-registration.html",
-      "bytes": 90377
+      "bytes": 90362
     },
     {
       "path": "services.html",
-      "bytes": 94829
+      "bytes": 94814
     },
     {
       "path": "site.webmanifest",
@@ -1025,63 +1025,63 @@
     },
     {
       "path": "verticals/01-entity-formation.html",
-      "bytes": 64428
+      "bytes": 64413
     },
     {
       "path": "verticals/02-roc-compliance.html",
-      "bytes": 80188
+      "bytes": 80173
     },
     {
       "path": "verticals/03-tax-compliance.html",
-      "bytes": 61177
+      "bytes": 61162
     },
     {
       "path": "verticals/04-statutory-licenses.html",
-      "bytes": 68512
+      "bytes": 68497
     },
     {
       "path": "verticals/05-contracts-legal.html",
-      "bytes": 59933
+      "bytes": 59918
     },
     {
       "path": "verticals/06-ipr-protection.html",
-      "bytes": 61556
+      "bytes": 61541
     },
     {
       "path": "verticals/07-labour-hr.html",
-      "bytes": 59561
+      "bytes": 59546
     },
     {
       "path": "verticals/08-fundraising-investment.html",
-      "bytes": 60148
+      "bytes": 60133
     },
     {
       "path": "verticals/09-ma-restructuring.html",
-      "bytes": 59828
+      "bytes": 59813
     },
     {
       "path": "verticals/10-litigation-dispute.html",
-      "bytes": 61390
+      "bytes": 61375
     },
     {
       "path": "verticals/11-governance-audit.html",
-      "bytes": 59846
+      "bytes": 59831
     },
     {
       "path": "verticals/12-esg-csr.html",
-      "bytes": 58553
+      "bytes": 58538
     },
     {
       "path": "verticals/13-cross-border-fema.html",
-      "bytes": 59989
+      "bytes": 59974
     },
     {
       "path": "verticals/15-it-digital.html",
-      "bytes": 58845
+      "bytes": 58830
     },
     {
       "path": "verticals/index.html",
-      "bytes": 68181
+      "bytes": 68166
     },
     {
       "path": "_redirects",
