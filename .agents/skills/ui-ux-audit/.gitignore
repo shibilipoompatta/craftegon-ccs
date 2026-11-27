@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# local audit output (screenshots + reports)
+/tmp/ui-ux-audit/
+ui-ux-audit-report/
+*.audit.png
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# npm
+*.tgz
+npm-debug.log*
+.npmrc

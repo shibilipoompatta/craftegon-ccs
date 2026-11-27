@@ -1,0 +1,43 @@
+{
+  "name": "ui-ux-audit-skill",
+  "version": "1.0.0",
+  "description": "Browser-driven UI/UX audit skill for AI coding agents — measures contrast, tap targets, spacing grid, misalignment, motion, and accessibility on any live or local website, then reports prioritized blocker/major/minor findings with concrete fixes.",
+  "bin": {
+    "ui-ux-audit-skill": "bin/install.js"
+  },
+  "files": [
+    "skills/",
+    "bin/",
+    ".claude-plugin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "install-skill": "node bin/install.js"
+  },
+  "keywords": [
+    "ui",
+    "ux",
+    "audit",
+    "accessibility",
+    "wcag",
+    "design-review",
+    "visual-qa",
+    "claude-code",
+    "skill",
+    "ai-agent"
+  ],
+  "author": "imYChaudhary22 (https://github.com/imYChaudhary22)",
+  "license": "MIT",
+  "homepage": "https://github.com/imYChaudhary22/ui-ux-audit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imYChaudhary22/ui-ux-audit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/imYChaudhary22/ui-ux-audit/issues"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

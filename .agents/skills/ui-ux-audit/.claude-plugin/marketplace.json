@@ -1,0 +1,17 @@
+{
+  "name": "ui-ux-audit",
+  "owner": {
+    "name": "imYChaudhary22"
+  },
+  "description": "A marketplace hosting the UI/UX Audit skill for Claude Code.",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "ui-ux-audit",
+      "source": "./",
+      "description": "Browser-driven UI/UX audit skill: measures contrast, tap targets, spacing, misalignment, motion, and accessibility on any live or local site, then reports prioritized fixes.",
+      "license": "MIT",
+      "keywords": ["ui", "ux", "audit", "accessibility", "design-review"]
+    }
+  ]
+}

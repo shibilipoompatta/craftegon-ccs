@@ -1,0 +1,24 @@
+{
+  "name": "ui-ux-audit",
+  "displayName": "UI/UX Audit",
+  "version": "1.0.0",
+  "description": "Audit a live website or web app for UI/UX quality — drives a browser at desktop + mobile, measures contrast, tap targets, spacing grid, misalignment, motion, and accessibility, then reports prioritized blocker/major/minor findings with concrete fixes.",
+  "author": {
+    "name": "imYChaudhary22",
+    "url": "https://github.com/imYChaudhary22"
+  },
+  "homepage": "https://github.com/imYChaudhary22/ui-ux-audit#readme",
+  "repository": "https://github.com/imYChaudhary22/ui-ux-audit",
+  "license": "MIT",
+  "keywords": [
+    "ui",
+    "ux",
+    "audit",
+    "accessibility",
+    "wcag",
+    "design-review",
+    "visual-qa",
+    "contrast",
+    "skill"
+  ]
+}
