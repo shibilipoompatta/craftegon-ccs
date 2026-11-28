@@ -1,7 +1,7 @@
 [
   {
     "id": "V01-SVC-001",
-    "name": "DPIIT Startup India Recognition & Section 140 Tax Holiday",
+    "name": "DPIIT Startup India Recognition & Section 140 Tax Holiday Assessment",
     "route": "/services/dpiit-startup-india.html",
     "h1": "DPIIT Startup India Recognition (G.S.R. 108(E)), Sec 140 Tax Holiday & KSUM Growth",
     "vertical_id": "V01",
@@ -15,15 +15,15 @@
       "LLP"
     ],
     "forms": [
-      "Form 1 (IMB Tax Holiday)",
-      "DPIIT Portal",
-      "NSWS Portal"
+      "Form 1",
+      "Form 2 (Angel Tax)",
+      "DPIIT Portal"
     ],
     "aliases": [
       "DPIIT Startup India Recognition",
       "Startup India Certificate",
-      "Section 140 Tax Holiday",
-      "Section 80-IAC Legacy Tax Holiday",
+      "Section 56(2)(viib) Angel Tax Exemption",
+      "Section 80-IAC Tax Holiday",
       "Find a service for my startup",
       "Startup Recognition"
     ],
@@ -37,7 +37,7 @@
       "seed fund"
     ],
     "description": "Authoritative startup regulatory positioning under DPIIT's expanded Notification G.S.R. 108(E) dated 4 February 2026 (₹200 Cr standard limit, 20-year / ₹300 Cr Deep Tech track, and Cooperative Societies inclusion). We manage your free NSWS registration dossier, prepare Section 140 (formerly 80-IAC) Inter-Ministerial Board applications, unlock 80% Patent / 50% Trademark fee rebates, and align with Kerala Startup Mission (KSUM) grants.",
-    "search_tokens": "dpiit startup india recognition & section 56(2)(viib) exemption v01-svc-001 business formation & structuring formation & startup dpiit startup india recognition startup india certificate section 56(2)(viib) angel tax exemption section 80-iac tax holiday find a service for my startup startup recognition form 1 form 2 (angel tax) dpiit portal startup dpiit angel tax 80-iac innovation tax holiday seed fund private limited llp"
+    "search_tokens": "dpiit startup india recognition & section 140 tax holiday assessment v01-svc-001 business formation & structuring formation & startup dpiit startup india recognition startup india certificate section 56(2)(viib) angel tax exemption section 80-iac tax holiday find a service for my startup startup recognition form 1 form 2 (angel tax) dpiit portal startup dpiit angel tax 80-iac innovation tax holiday seed fund private limited llp"
   },
   {
     "id": "V01-SVC-002",
@@ -64,10 +64,7 @@
       "Limited Liability Partnership Formation",
       "FiLLiP Incorporation",
       "Register an LLP",
-      "Partnership with limited liability",
-      "LLP Formation",
-      "LLP Company Registration",
-      "Incorporate an LLP"
+      "Partnership with limited liability"
     ],
     "keywords": [
       "llp",
@@ -77,13 +74,10 @@
       "dpin",
       "agreement",
       "roc",
-      "mca",
-      "llp formation",
-      "llp incorporation",
-      "register an llp"
+      "mca"
     ],
     "description": "Establish a legally protected corporate partnership under the Limited Liability Partnership Act, 2008 and LLP Rules, 2009 via the Ministry of Corporate Affairs (MCA V3) FiLLiP portal. Combines operational flexibility and tax-free profit distributions with complete limited liability protection for all partners.",
-    "search_tokens": "limited liability partnership (llp) registration v01-svc-002 business formation & structuring formation & startup llp registration limited liability partnership formation fillip incorporation register an llp partnership with limited liability fillip form 1 form 2 form 3 llp fillip partnership partners dpin agreement roc mca limited liability partnership (llp) llp formation llp incorporation register an llp"
+    "search_tokens": "limited liability partnership (llp) registration v01-svc-002 business formation & structuring formation & startup llp registration limited liability partnership formation fillip incorporation register an llp partnership with limited liability fillip form 1 form 2 form 3 llp fillip partnership partners dpin agreement roc mca limited liability partnership (llp)"
   },
   {
     "id": "V01-SVC-003",
@@ -236,7 +230,7 @@
       "trade license",
       "udyam"
     ],
-    "description": "A sole proprietorship does not involve company incorporation under the Companies Act, 2013—instead, legal legitimacy and current account readiness are established through statutory business licences. We assemble your compliant operational foundation: MSME Udyam Registration (aligned to the April 2025 revised limits), Kerala Shops & Establishments Act certification (mandatory even with zero workers), conditional GST registration, and a bank-compliant RBI KYC documentation kit.",
+    "description": "A sole proprietorship does not involve company incorporation under the Companies Act, 2013 - instead, legal legitimacy and current account readiness are established through statutory business licences. We assemble your compliant operational foundation: MSME Udyam Registration (aligned to the April 2025 revised limits), Kerala Shops & Establishments Act certification (mandatory even with zero workers), conditional GST registration, and a bank-compliant RBI KYC documentation kit.",
     "search_tokens": "sole proprietorship registration v01-svc-006 business formation & structuring formation & startup sole proprietorship registration register a proprietorship individual business registration shop and establishment proprietorship udyam gst-reg-01 proprietor sole proprietorship individual trade license udyam sole proprietorship"
   },
   {
@@ -267,9 +261,7 @@
       "Company Registration",
       "SPICe+ Incorporation",
       "Start a company",
-      "New company formation",
-      "Pvt Ltd Company Registration",
-      "Incorporate Private Limited"
+      "New company formation"
     ],
     "keywords": [
       "incorporation",
@@ -282,15 +274,10 @@
       "pan",
       "tan",
       "name approval",
-      "run",
-      "pvt ltd",
-      "company incorporation",
-      "incorporate pvt ltd",
-      "pvt ltd registration",
-      "start a company"
+      "run"
     ],
-    "description": "Incorporate your Private Limited Company under Companies Act, 2013 via MCA SPICe+ with CraftEgon Corporate Services (CCS). Statutory coordination, DIN allocation, MOA/AOA, PAN, TAN, and bank account resolution documentation (DSC not included in package; existing accepted).",
-    "search_tokens": "private limited company registration (spice+) v01-svc-007 business formation & structuring formation & startup register a private limited company pvt ltd registration private limited company incorporation company registration spice+ incorporation start a company new company formation spice+ inc-32 inc-33 inc-34 agile-pro-s incorporation formation roc mca spice director din pan tan name approval run private limited company pvt ltd company incorporation incorporate pvt ltd pvt ltd registration start a company"
+    "description": "Incorporate your Private Limited Company under Companies Act, 2013 via MCA SPICe+ with CraftEgon Corporate Services (CCS). Full statutory advisory, DIN allocation, MOA/AOA, PAN.",
+    "search_tokens": "private limited company registration (spice+) v01-svc-007 business formation & structuring formation & startup register a private limited company pvt ltd registration private limited company incorporation company registration spice+ incorporation start a company new company formation spice+ inc-32 inc-33 inc-34 agile-pro-s incorporation formation roc mca spice director din pan tan name approval run private limited company"
   },
   {
     "id": "V01-SVC-008",
@@ -361,7 +348,7 @@
       "governing body",
       "registrar of societies"
     ],
-    "description": "Authoritative legal structuring and State Registrar filing for charitable, educational, cultural, scientific, and sports societies across India. Built natively for Kerala's unified Kerala Societies Registration Act, 2025 (Act 14 of 2025)—alongside state-specific frameworks in Tamil Nadu, Karnataka, Maharashtra, and West Bengal—covering custom 12AB-ready MoA/Bye-laws, District Registrar certification, NGO Darpan ID, and Income Tax Form 10A/10AB compliance.",
+    "description": "Authoritative legal structuring and State Registrar filing for charitable, educational, cultural, scientific, and sports societies across India. Built natively for Kerala's unified Kerala Societies Registration Act, 2025 (Act 14 of 2025) - alongside state-specific frameworks in Tamil Nadu, Karnataka, Maharashtra, and West Bengal - covering custom 12AB-ready MoA/Bye-laws, District Registrar certification, NGO Darpan ID, and Income Tax Form 10A/10AB compliance.",
     "search_tokens": "society registration v01-svc-009 business formation & structuring formation & startup society registration register a society societies registration act welfare society memorandum of association society rules society ngo bylaws governing body registrar of societies society"
   },
   {
@@ -438,7 +425,7 @@
     "id": "V02-SVC-002",
     "name": "DIR-3 KYC Annual Director Verification",
     "route": "/services/dir3-kyc.html",
-    "h1": "DIR-3 KYC Annual Director Verification",
+    "h1": "DIR-3 KYC and Director Particulars Update",
     "vertical_id": "V02",
     "vertical_name": "Corporate Compliance & Secretarial",
     "status": "DIRECT_SERVICE",
@@ -469,7 +456,7 @@
       "deactivation",
       "penalty"
     ],
-    "description": "Mandatory annual verification of Director Identification Numbers (DIN/DPIN) under Rule 12A of the Companies (Appointment and Qualification of Directors) Rules, 2014 via the Ministry of Corporate Affairs portal. Fast-track OTP verification, qualified CS certification, and emergency DIN reactivation to eliminate ₹5,000 late penalties and prevent operational filing freezes.",
+    "description": "DIR-3 KYC is governed by Rule 12A of the Companies (Appointment and Qualification of Directors) Rules, 2014. The current framework generally requires KYC once in every third consecutive financial year, by 30 June following that cycle. Changes to mobile number, email address or residential address must be intimated within 30 days. Check current MCA records and applicable rules before filing.",
     "search_tokens": "dir-3 kyc annual director verification v02-svc-002 corporate compliance & secretarial annual governance dir-3 kyc filing director kyc online dir-3 kyc web director identification number kyc dir-3 kyc dir-3 kyc web dir3 kyc din director otp verification deactivation penalty din holders directors designated partners"
   },
   {
@@ -963,7 +950,7 @@
     "id": "V02-SVC-017",
     "name": "RoC Annual Compliance & Secretarial Retainer",
     "route": "/services/roc-annual-compliance.html",
-    "h1": "RoC Annual Compliance & Secretarial Retainer",
+    "h1": "RoC Annual Compliance & Retainer",
     "vertical_id": "V02",
     "vertical_name": "Corporate Compliance & Secretarial",
     "status": "DIRECT_SERVICE",
@@ -994,7 +981,7 @@
       "agm",
       "roc"
     ],
-    "description": "Full-lifecycle statutory secretarial and RoC compliance management under the Companies Act, 2013 and LLP Act, 2008. Eliminate Section 403 cumulative daily late fee liabilities (₹100/day per form without statutory ceiling), prevent director disqualification under Section 164(2), and maintain pristine active MCA company standing.",
+    "description": "Year-round ROC compliance support for Indian Private Limited Companies and LLPs: annual filings, governance calendar, MCA forms, document coordination and retainer options.",
     "search_tokens": "roc annual compliance & secretarial retainer v02-svc-017 corporate compliance & secretarial annual governance roc annual compliance annual compliance package company annual filing yearly roc filings aoc-4 mgt-7 adt-1 annual filing compliance calendar financial statements board report agm roc private limited public limited opc"
   },
   {
@@ -1275,10 +1262,7 @@
       "SHA Drafting",
       "Founder Vesting Agreement",
       "Share Subscription Agreement (SSA)",
-      "Co-founder agreement",
-      "ESOP Structuring & Stock Options",
-      "Founders Pact",
-      "Founder Vesting & Equity Structuring"
+      "Co-founder agreement"
     ],
     "keywords": [
       "sha",
@@ -1288,14 +1272,10 @@
       "co-founder",
       "tag-along",
       "drag-along",
-      "pre-emption",
-      "esop",
-      "stock option",
-      "founders pact",
-      "equity vesting"
+      "pre-emption"
     ],
     "description": "Drafting robust, enforceable contractual architectures defining equity vesting schedules, board representation, affirmative voting rights, liquidation preferences, drag-along/tag-along covenants, and non-compete protections between founders and institutional venture investors.",
-    "search_tokens": "founder pacts, shareholder agreements (sha) & share purchase agreements (spa) v05-svc-001 contracts & legal architecture contracts & legal architecture founder & shareholders agreements sha drafting founder vesting agreement share subscription agreement (ssa) co-founder agreement sha ssa reverse vesting agreement sha ssa vesting equity co-founder tag-along drag-along pre-emption startups venture funded entities esop stock option founders pact equity vesting"
+    "search_tokens": "founder pacts, shareholder agreements (sha) & share purchase agreements (spa) v05-svc-001 contracts & legal architecture contracts & legal architecture founder & shareholders agreements sha drafting founder vesting agreement share subscription agreement (ssa) co-founder agreement sha ssa reverse vesting agreement sha ssa vesting equity co-founder tag-along drag-along pre-emption startups venture funded entities"
   },
   {
     "id": "V05-SVC-002",
@@ -1321,10 +1301,7 @@
       "Master Service Agreements (MSA)",
       "SOW Contract Drafting",
       "Commercial Service Contracts",
-      "B2B Client Contracts",
-      "Non-Disclosure Agreement (NDA)",
-      "Confidentiality Agreement",
-      "Commercial Vendor Contract"
+      "B2B Client Contracts"
     ],
     "keywords": [
       "msa",
@@ -1332,15 +1309,10 @@
       "contract",
       "indemnity",
       "ip assignment",
-      "commercial agreement",
-      "nda",
-      "non-disclosure agreement",
-      "non disclosure agreement",
-      "confidentiality agreement",
-      "vendor contract"
+      "commercial agreement"
     ],
     "description": "Structuring legally enforceable, commercially protective commercial contracting frameworks establishing clear payment terms, IP work-for-hire assignment, SLAs, warranty caps, indemnification mechanisms, and dispute resolution architecture.",
-    "search_tokens": "master service agreements (msa), sows & commercial vendor contracts v05-svc-002 contracts & legal architecture contracts & legal architecture master service agreements (msa) sow contract drafting commercial service contracts b2b client contracts msa framework statement of work msa sow contract indemnity ip assignment commercial agreement saas it companies service providers nda non-disclosure agreement non disclosure agreement confidentiality agreement vendor contract"
+    "search_tokens": "master service agreements (msa), sows & commercial vendor contracts v05-svc-002 contracts & legal architecture contracts & legal architecture master service agreements (msa) sow contract drafting commercial service contracts b2b client contracts msa framework statement of work msa sow contract indemnity ip assignment commercial agreement saas it companies service providers"
   },
   {
     "id": "V06-SVC-001",
@@ -1691,7 +1663,7 @@
       "scheme of amalgamation",
       "tribunal petition"
     ],
-    "description": "Transactional secretarial documentation, valuation coordination, convening of shareholder and creditor meetings, and statutory authority reporting for corporate compromise and arrangement schemes under Sections 230–232 of the Companies Act, 2013.",
+    "description": "Comprehensive corporate secretarial documentation, Registered Valuer coordination, shareholder/creditor meeting administration, and statutory authority reporting for schemes of arrangement, amalgamation, demerger, and corporate restructuring sanctioned by the National Company Law Tribunal (NCLT).",
     "search_tokens": "nclt merger petition & complex amalgamation execution v09-svc-003 corporate transactions & m&a corporate transactions & m&a nclt merger petitions (sections 230-232) tribunal sanctioned schemes of arrangement corporate amalgamation petition form nclt-1 company application nclt merger section 230 section 232 scheme of amalgamation tribunal petition public & large private companies"
   },
   {
@@ -2056,9 +2028,7 @@
       "RBI FLA Return",
       "Foreign Liabilities & Assets Annual Return",
       "FLAIR Portal Return",
-      "Annual FEMA Reporting",
-      "Import Export Code (IEC) & DGFT Filing",
-      "IEC Registration"
+      "Annual FEMA Reporting"
     ],
     "keywords": [
       "fla",
@@ -2067,14 +2037,10 @@
       "fdi",
       "odi",
       "foreign liabilities",
-      "july 15",
-      "iec",
-      "import export code",
-      "dgft",
-      "export import"
+      "july 15"
     ],
     "description": "Mandatory annual reporting of all foreign assets and liabilities, inward Foreign Direct Investment (FDI) equity holdings, and Overseas Direct Investments (ODI) to the Reserve Bank of India, maintaining national balance of payments statistics and legal remittance eligibility.",
-    "search_tokens": "rbi foreign liabilities and assets (fla) return filing v13-svc-003 international business & fema international business & fema rbi fla return foreign liabilities & assets annual return flair portal return annual fema reporting fla return (flairs) fla flair rbi fdi odi foreign liabilities july 15 indian companies with fdi or odi iec import export code dgft export import"
+    "search_tokens": "rbi foreign liabilities and assets (fla) return filing v13-svc-003 international business & fema international business & fema rbi fla return foreign liabilities & assets annual return flair portal return annual fema reporting fla return (flairs) fla flair rbi fdi odi foreign liabilities july 15 indian companies with fdi or odi"
   },
   {
     "id": "TOOL-SEARCH",

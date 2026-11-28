@@ -379,7 +379,7 @@ function calculateCost() {
   const delayDays = parseInt(document.getElementById('roc-delay-days')?.value, 10) || 0;
   const ccfsMode = Boolean(document.getElementById('ccfs-mode')?.checked) && Date.now() <= CCFS_2026_DEADLINE.getTime();
 
-  let baseProf = 15999;
+  let baseProf = 15000;
   let baseGovt = 1200;
   let stampDuty = 1000;
   let addonTotal = 0;
@@ -394,36 +394,36 @@ function calculateCost() {
     else stampDuty = 1000;
 
     if (entityType === 'pvt-ltd') {
-      baseProf = 7999; // Harmonized with services/pvt-ltd-registration.html & pricing.json
+      baseProf = 7500; // Harmonized with services/pvt-ltd-registration.html & pricing.json
       baseGovt = 0; // MCA fee exempt up to 15L capital under Rule 38
-      if (tier === 'tier-3') { baseProf = 8499; stampDuty += 500; }
-      else if (tier === 'tier-4') { baseProf = 9999; baseGovt = 1000; stampDuty += 1500; }
+      if (tier === 'tier-3') { baseProf = 9500; stampDuty += 500; }
+      else if (tier === 'tier-4') { baseProf = 12500; baseGovt = 1000; stampDuty += 1500; }
     } else if (entityType === 'llp') {
-      baseProf = 6499; // Harmonized with services/llp-registration.html & pricing.json
+      baseProf = 6000; // Harmonized with services/llp-registration.html & pricing.json
       baseGovt = 500; // FiLLiP statutory fee
       stampDuty = 500; // LLP Agreement stamp duty baseline
-      if (tier === 'tier-3') { baseProf = 6999; stampDuty += 500; }
-      else if (tier === 'tier-4') { baseProf = 7999; baseGovt = 1000; stampDuty += 1000; }
+      if (tier === 'tier-3') { baseProf = 7500; stampDuty += 500; }
+      else if (tier === 'tier-4') { baseProf = 9500; baseGovt = 1000; stampDuty += 1000; }
     } else if (entityType === 'opc') {
-      baseProf = 6999; // Harmonized with services/opc-registration.html & pricing.json
+      baseProf = 6500; // Harmonized with services/opc-registration.html & pricing.json
       baseGovt = 0; // MCA fee exempt under Rule 38
-      if (tier === 'tier-3') { baseProf = 7499; stampDuty += 500; }
-      else if (tier === 'tier-4') { baseProf = 8499; baseGovt = 1000; stampDuty += 1000; }
+      if (tier === 'tier-3') { baseProf = 8000; stampDuty += 500; }
+      else if (tier === 'tier-4') { baseProf = 10000; baseGovt = 1000; stampDuty += 1000; }
     } else if (entityType === 'section-8') {
-      baseProf = 13999; // Harmonized with services/section-8-registration.html & pricing.json
+      baseProf = 15000; // Harmonized with services/section-8-registration.html & pricing.json
       baseGovt = 2000; // INC-12 central license fee
       stampDuty = 1000;
     } else if (entityType === 'public-ltd') {
-      baseProf = 19999;
+      baseProf = 20000;
       baseGovt = 1000;
       stampDuty = 2000;
     }
 
     // Formation Addons
-    if (document.getElementById('f-addon-gst')?.checked) addonTotal += 999;
-    if (document.getElementById('f-addon-dpiit')?.checked) addonTotal += 2499;
-    if (document.getElementById('f-addon-tm')?.checked) addonTotal += 4999;
-    if (document.getElementById('f-addon-governance')?.checked) addonTotal += 1499;
+    if (document.getElementById('f-addon-gst')?.checked) addonTotal += 1000;
+    if (document.getElementById('f-addon-dpiit')?.checked) addonTotal += 2500;
+    if (document.getElementById('f-addon-tm')?.checked) addonTotal += 5000;
+    if (document.getElementById('f-addon-governance')?.checked) addonTotal += 1500;
 
     total = baseProf + baseGovt + stampDuty + addonTotal;
 
@@ -468,18 +468,18 @@ function calculateCost() {
     }
   } else {
     // ANNUAL COMPLIANCE & LATE FEE MODE
-    if (service === 'pvt-ltd') { baseProf = 7999; baseGovt = 3500; }
-    else if (service === 'llp') { baseProf = 6499; baseGovt = 2500; }
-    else if (service === 'roc-retainer') { baseProf = 15999; baseGovt = 1200; }
-    else if (service === 'gst-annual') { baseProf = 13999; baseGovt = 0; }
-    else if (service === 'trademark') { baseProf = 4999; baseGovt = 4500; }
+    if (service === 'pvt-ltd') { baseProf = 7500; baseGovt = 3500; }
+    else if (service === 'llp') { baseProf = 6000; baseGovt = 2500; }
+    else if (service === 'roc-retainer') { baseProf = 15000; baseGovt = 1200; }
+    else if (service === 'gst-annual') { baseProf = 12000; baseGovt = 0; }
+    else if (service === 'trademark') { baseProf = 5000; baseGovt = 4500; }
 
     if (tier === 'tier-2') baseGovt = Math.round(baseGovt * 1.5);
     if (tier === 'tier-3' || tier === 'tier-4') baseGovt = Math.round(baseGovt * 2.5);
 
-    if (document.getElementById('addon-msme')?.checked) addonTotal += 999;
-    if (document.getElementById('addon-sha')?.checked) addonTotal += 4999;
-    if (document.getElementById('addon-current-ac')?.checked) addonTotal += 1499;
+    if (document.getElementById('addon-msme')?.checked) addonTotal += 1000;
+    if (document.getElementById('addon-sha')?.checked) addonTotal += 5000;
+    if (document.getElementById('addon-current-ac')?.checked) addonTotal += 1500;
 
     // Section 403's first proviso applies the not-less-than ₹100/day additional-fee rule to Sections 92 and 137 filings.
     // This illustrative model therefore counts only MGT-7 (Section 92) and AOC-4 (Section 137).
@@ -1135,10 +1135,10 @@ function generateStatutoryMemo() {
   if (currentTab1Mode === 'formation') {
     if (subjectEl) subjectEl.textContent = 'EXECUTIVE STATUTORY OUTLAY MEMORANDUM: ' + (entityLabels[entityType] || entityType);
 
-    const profFee = document.getElementById('prof-fee')?.textContent || '₹7,999';
+    const profFee = document.getElementById('prof-fee')?.textContent || '₹7,500';
     const govtFee = document.getElementById('govt-fee')?.textContent || '₹0';
     const stampFee = document.getElementById('stamp-fee')?.textContent || '₹1,000';
-    const totalFee = document.getElementById('total-fee')?.textContent || '₹8,999';
+    const totalFee = document.getElementById('total-fee')?.textContent || '₹8,500';
 
     rows.push({
       item: 'Professional Secretarial & CS Retainer',
@@ -1167,13 +1167,13 @@ function generateStatutoryMemo() {
     });
 
     if (document.getElementById('f-addon-gst')?.checked) {
-      rows.push({ item: 'GST Registration Expedited Filing', basis: 'Form GST REG-01 & ARN verification', amt: '₹999' });
+      rows.push({ item: 'GST Registration Expedited Filing', basis: 'Form GST REG-01 & ARN verification', amt: '₹1,000' });
     }
     if (document.getElementById('f-addon-dpiit')?.checked) {
       rows.push({ item: 'Startup India DPIIT Recognition & Tax Exemption Kit', basis: 'Form 1 Section 80-IAC tax exemption & DPIIT certificate', amt: '₹2,499' });
     }
     if (document.getElementById('f-addon-tm')?.checked) {
-      rows.push({ item: 'Trademark Clearance & Form TM-A Filing', basis: 'NICE Class clearance & filing under Trade Marks Act 1999', amt: '₹4,999' });
+      rows.push({ item: 'Trademark Clearance & Form TM-A Filing', basis: 'NICE Class clearance & filing under Trade Marks Act 1999', amt: '₹5,000' });
     }
     if (document.getElementById('f-addon-governance')?.checked) {
       rows.push({ item: 'Corporate Banking Resolution & Share Certificates Kit', basis: 'Form SH-1 share certificates and banking minutes', amt: '₹1,499' });
@@ -1192,7 +1192,7 @@ function generateStatutoryMemo() {
   } else {
     if (subjectEl) subjectEl.textContent = 'EXECUTIVE STATUTORY EXPOSURE & REGULARIZATION MEMO: ROC ANNUAL RETURNS';
 
-    const profFee = document.getElementById('prof-fee')?.textContent || '₹15,999';
+    const profFee = document.getElementById('prof-fee')?.textContent || '₹15,000';
     const govtFee = document.getElementById('govt-fee')?.textContent || '₹1,200';
     const lateFee = document.getElementById('roc-late-fee')?.textContent || '₹0';
     const addonFee = document.getElementById('addon-fee')?.textContent || '₹0';
