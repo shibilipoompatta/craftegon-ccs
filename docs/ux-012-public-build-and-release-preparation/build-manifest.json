@@ -1,7 +1,7 @@
 {
   "projectName": "CraftEgon Corporate Services (CCS)",
   "buildTarget": "Cloudflare Pages Static Production Distribution",
-  "buildTimestamp": "2026-11-27T09:25:04.875Z",
+  "buildTimestamp": "2026-11-28T05:13:45.795Z",
   "buildStatus": "SUCCESS",
   "environment": {
     "nodeVersion": "v24.20.0",
@@ -11,7 +11,7 @@
   },
   "metrics": {
     "totalFilesIncluded": 237,
-    "totalOutputSizeBytes": 18942107,
+    "totalOutputSizeBytes": 18939233,
     "totalOutputSizeFormatted": "18.06 MB",
     "sanitizedResidualLinksCount": 0,
     "preRenderedSSGPagesCount": 0,
@@ -221,7 +221,7 @@
     },
     {
       "path": "assets/js/calculator.js",
-      "bytes": 76183
+      "bytes": 76189
     },
     {
       "path": "assets/js/campaign-pixels.js",
@@ -277,7 +277,7 @@
     },
     {
       "path": "assets/js/search-index.js",
-      "bytes": 81133
+      "bytes": 79869
     },
     {
       "path": "assets/js/service-bundle-map.js",
@@ -369,7 +369,7 @@
     },
     {
       "path": "conversion/calculator.html",
-      "bytes": 137329
+      "bytes": 137337
     },
     {
       "path": "conversion/contract-intake.html",
@@ -401,7 +401,7 @@
     },
     {
       "path": "conversion/index.html",
-      "bytes": 119571
+      "bytes": 119572
     },
     {
       "path": "conversion/license-qualification.html",
@@ -425,7 +425,7 @@
     },
     {
       "path": "conversion/ppc-company-registration.html",
-      "bytes": 63523
+      "bytes": 63544
     },
     {
       "path": "conversion/ppc-trademark-registration.html",
@@ -477,7 +477,7 @@
     },
     {
       "path": "data/search-index.json",
-      "bytes": 90957
+      "bytes": 89489
     },
     {
       "path": "data/service-bundle-map.json",
@@ -793,7 +793,7 @@
     },
     {
       "path": "services/form-stk2-strike-off.html",
-      "bytes": 67221
+      "bytes": 67222
     },
     {
       "path": "services/founder-shareholder-agreements.html",
@@ -813,7 +813,7 @@
     },
     {
       "path": "services/itr7.html",
-      "bytes": 66953
+      "bytes": 66954
     },
     {
       "path": "services/labour-code-handbooks.html",
@@ -841,7 +841,7 @@
     },
     {
       "path": "services/msme-udyam.html",
-      "bytes": 141917
+      "bytes": 141921
     },
     {
       "path": "services/nclt-insolvency-defense.html",
@@ -853,7 +853,7 @@
     },
     {
       "path": "services/opc-registration.html",
-      "bytes": 104107
+      "bytes": 104108
     },
     {
       "path": "services/oppression-mismanagement-petitions.html",
@@ -881,7 +881,7 @@
     },
     {
       "path": "services/pvt-ltd-registration.html",
-      "bytes": 112486
+      "bytes": 112487
     },
     {
       "path": "services/rbi-fla-return.html",
@@ -889,7 +889,7 @@
     },
     {
       "path": "services/roc-annual-compliance.html",
-      "bytes": 88912
+      "bytes": 88724
     },
     {
       "path": "services/rof-maintenance.html",
@@ -921,11 +921,11 @@
     },
     {
       "path": "services/trust-registration.html",
-      "bytes": 91449
+      "bytes": 91451
     },
     {
       "path": "services.html",
-      "bytes": 94831
+      "bytes": 94826
     },
     {
       "path": "site.webmanifest",
@@ -933,7 +933,7 @@
     },
     {
       "path": "verticals/01-entity-formation.html",
-      "bytes": 64501
+      "bytes": 64503
     },
     {
       "path": "verticals/02-roc-compliance.html",
@@ -941,11 +941,11 @@
     },
     {
       "path": "verticals/03-tax-compliance.html",
-      "bytes": 61149
+      "bytes": 61150
     },
     {
       "path": "verticals/04-statutory-licenses.html",
-      "bytes": 68453
+      "bytes": 68455
     },
     {
       "path": "verticals/05-contracts-legal.html",
