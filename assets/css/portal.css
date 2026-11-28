@@ -44,7 +44,7 @@
 
 .portal-title {
   font-family: var(--font-heading);
-  font-size: 2.25rem;
+  font-size: var(--type-display);
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 0.75rem;
@@ -568,7 +568,7 @@ input:checked + .slider:before {
 
 .tier-price {
   font-family: var(--font-mono);
-  font-size: 2.5rem;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   font-weight: 800;
   color: var(--brand-gold);
 }
@@ -742,7 +742,7 @@ input:checked + .slider:before {
 @media (max-width: 640px) {
   .tier-card { padding: 1.25rem; }
   .tier-price-wrap { flex-wrap: wrap; }
-  .tier-price { font-size: clamp(1.75rem, 9vw, 2.25rem); }
+  .tier-price { font-size: clamp(1.3rem, 5vw, 1.65rem); }
 }
 
 @media (max-width: 640px) {

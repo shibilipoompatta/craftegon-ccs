@@ -217,7 +217,7 @@
 article h1,
 .article-main-col h1 {
   font-family: var(--font-heading, 'Manrope', sans-serif) !important;
-  font-size: clamp(1.75rem, 4.2vw, 2.5rem) !important;
+  font-size: var(--type-display) !important;
   font-weight: 800 !important;
   color: var(--navy-900, #17251F) !important;
   line-height: 1.25 !important;
@@ -238,13 +238,13 @@ article p {
   max-width: var(--measure-prose, 68ch);
   line-height: 1.68;
   color: var(--text-main, #22342C);
-  font-size: 1rem;
+  font-size: var(--type-body);
 }
 
 .article-main-col h2,
 .article-content h2 {
   font-family: var(--font-heading, 'Manrope', sans-serif);
-  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-size: var(--type-h2);
   font-weight: 700;
   color: var(--navy-900, #17251F);
   margin-top: 2.5rem;

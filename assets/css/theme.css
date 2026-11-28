@@ -70,12 +70,12 @@ h1, h2, h3, h4, h5, h6, .noble-heading {
   overflow-wrap: break-word;
 }
 
-h1 { font-size: clamp(1.85rem, 3.8vw, 3rem); }
-h2 { font-size: clamp(1.45rem, 2.8vw, 2.25rem); }
-h3 { font-size: clamp(1.18rem, 2.1vw, 1.55rem); }
-h4 { font-size: clamp(1.05rem, 1.6vw, 1.25rem); }
-h5 { font-size: 1.05rem; }
-h6 { font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.05em; }
+h1 { font-size: var(--type-display); line-height: 1.22; }
+h2 { font-size: var(--type-h2); line-height: 1.28; }
+h3 { font-size: var(--type-h3); line-height: 1.32; }
+h4 { font-size: clamp(0.96rem, 1.05vw, 1.06rem); line-height: 1.35; }
+h5 { font-size: 0.98rem; }
+h6 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
 p {
   margin: 0 0 1rem;
@@ -913,7 +913,45 @@ table {
 }
 
 /* I. Fluid Typography and Small Mobile Hardening */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+  .section {
+    padding: 3.25rem 1.25rem;
+  }
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+  .section-header p {
+    font-size: 0.96rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .section {
+    padding: 2.75rem 1rem;
+  }
+  .if-pricing-price {
+    font-size: clamp(1.3rem, 3.6vw, 1.6rem) !important;
+  }
+  .btn, .if-btn-primary, .if-btn-secondary {
+    font-size: 0.88rem;
+    padding: 0.65rem 1.1rem;
+  }
+}
+
 @media (max-width: 640px) {
+  body {
+    font-size: 0.90625rem;
+  }
+  p, li {
+    font-size: 0.90625rem;
+    line-height: 1.58;
+  }
   [style*="grid-template-columns"],
   .grid-auto-fit {
     grid-template-columns: 1fr !important;
@@ -922,20 +960,24 @@ table {
 }
 
 @media (max-width: 640px) {
-  h1, .hero-title, .section-title-large {
-    font-size: clamp(1.4rem, 6vw, 1.85rem) !important;
-    line-height: 1.25 !important;
+  h1, .hero-title, .hero-headline, .section-title-large {
+    font-size: clamp(1.36rem, 5vw, 1.62rem) !important;
+    line-height: 1.24 !important;
     word-break: break-word;
     hyphens: auto;
   }
-  h2, .section-title {
-    font-size: clamp(1.2rem, 5vw, 1.5rem) !important;
-    line-height: 1.3 !important;
+  h2, .section-title, .kl-h2 {
+    font-size: clamp(1.12rem, 4vw, 1.32rem) !important;
+    line-height: 1.28 !important;
     word-break: break-word;
   }
   h3 {
-    font-size: clamp(1.05rem, 4.5vw, 1.25rem) !important;
-    line-height: 1.35 !important;
+    font-size: clamp(0.98rem, 3.5vw, 1.12rem) !important;
+    line-height: 1.34 !important;
+  }
+  .hero-lead, .section-lead, .kl-lead, .desk-hero-lead {
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
   }
   .if-lead-form input,
   .if-lead-form select,
@@ -951,12 +993,15 @@ table {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 420px) {
   .container {
     padding: 0 0.75rem;
   }
   .section {
-    padding: 2.75rem 0.75rem;
+    padding: 2.25rem 0.75rem;
+  }
+  h1, .hero-title, .hero-headline, .section-title-large {
+    font-size: 1.32rem !important;
   }
 }
 

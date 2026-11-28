@@ -50,7 +50,7 @@
 
 .desk-hero-title {
   font-family: var(--font-heading, 'Manrope', sans-serif);
-  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-size: var(--type-display);
   font-weight: 800;
   color: var(--desk-navy-deep);
   line-height: 1.22;
@@ -61,7 +61,7 @@
 
 .desk-hero-lead {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: clamp(0.98rem, 1.8vw, 1.08rem);
+  font-size: var(--type-lead);
   color: var(--desk-text-muted);
   line-height: 1.62;
   max-width: 680px;

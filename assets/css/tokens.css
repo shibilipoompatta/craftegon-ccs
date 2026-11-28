@@ -139,13 +139,13 @@
   --font-cinzel: var(--font-heading);
   --font-tabular: var(--font-mono);
 
-  /* --- Strict 6-Level Typographic Scale --- */
-  --type-display: clamp(2.125rem, 3.6vw, 3.125rem);  /* Level 1: Hero H1 */
-  --type-h2:      clamp(1.625rem, 2.4vw, 2.125rem);  /* Level 2: Section H2 */
-  --type-h3:      1.25rem;                           /* Level 3: Card / Panel H3 (20px) */
-  --type-lead:    1.125rem;                          /* Level 4: Editorial Lead (18px) */
-  --type-body:    1rem;                              /* Level 5: Body Prose (16px) */
-  --type-caption: 0.8125rem;                         /* Level 6: Metadata / Legal (13px) */
+  /* --- Strict 6-Level Typographic Scale (Refined Cross-Device Proportions) --- */
+  --type-display: clamp(1.48rem, 2.2vw, 2.125rem); /* Level 1: Hero H1 (24px–34px) */
+  --type-h2:      clamp(1.2rem, 1.55vw, 1.5rem);    /* Level 2: Section H2 (19px–24px) */
+  --type-h3:      clamp(1.02rem, 1.15vw, 1.15rem);  /* Level 3: Card / Panel H3 (16.5px–18.5px) */
+  --type-lead:    clamp(0.92rem, 1vw, 1rem);        /* Level 4: Editorial Lead (14.7px–16px) */
+  --type-body:    clamp(0.89rem, 0.94vw, 0.96875rem); /* Level 5: Body Prose (14.2px–15.5px) */
+  --type-caption: 0.8rem;                           /* Level 6: Metadata / Legal (12.8px) */
 
   /* Backward-compatible scale aliases mapped cleanly to the 6 levels */
   --fs-hero: var(--type-display);
@@ -172,15 +172,15 @@
   --text-fluid-2xl: var(--type-h2);
   --text-fluid-3xl: var(--type-display);
 
-  --text-xs: 0.8125rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.625rem;
-  --text-3xl: 2.125rem;
-  --text-4xl: 2.5rem;
-  --text-5xl: 3.125rem;
+  --text-xs: 0.78rem;
+  --text-sm: 0.85rem;
+  --text-base: 0.96875rem;
+  --text-lg: 1.02rem;
+  --text-xl: 1.125rem;
+  --text-2xl: 1.45rem;
+  --text-3xl: 1.85rem;
+  --text-4xl: 2.05rem;
+  --text-5xl: 2.25rem;
 
   /* Line Heights */
   --lh-tight: 1.18;

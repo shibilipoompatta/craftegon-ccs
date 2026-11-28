@@ -1014,7 +1014,7 @@
         if (cases.length === 0) {
           container.innerHTML = `
             <div class="portal-state-container">
-              <div style="font-size: 2.25rem; color: var(--brand-gold);">📁</div>
+              <div style="font-size: clamp(1.4rem, 2vw, 1.75rem); color: var(--brand-gold);">📁</div>
               <h4 class="portal-state-title">No Active Filings Staged</h4>
               <p class="portal-state-desc">Your company account currently has zero active corporate filings. Stage an upcoming filing or request a secretarial retainer.</p>
               <a href="/portal/subscription.html" class="if-btn-primary" style="display: inline-flex;">Stage Retainer Filing &rarr;</a>
@@ -1065,7 +1065,7 @@
       } catch (err) {
         container.innerHTML = `
           <div class="portal-state-container">
-            <div style="font-size: 2.25rem; color: #EF4444;">⚠️</div>
+            <div style="font-size: clamp(1.4rem, 2vw, 1.75rem); color: #EF4444;">⚠️</div>
             <h4 class="portal-state-title">Unable to Connect to Cases Engine</h4>
             <p class="portal-state-desc">${escapeHtml(err.message || 'The server could not be reached. Check your network or local server status.')}</p>
             <button type="button" class="if-btn-primary" data-action="retry-server-cases" style="display: inline-flex;">Retry Connection</button>
@@ -1079,7 +1079,7 @@
       if (!container) return;
       container.innerHTML = `
         <div class="portal-state-container">
-          <div style="font-size: 2.25rem; color: var(--brand-gold);">🔒</div>
+          <div style="font-size: clamp(1.4rem, 2vw, 1.75rem); color: var(--brand-gold);">🔒</div>
           <h4 class="portal-state-title">Client Onboarding Required</h4>
           <p class="portal-state-desc">You are viewing the public regulatory countdown demonstration. Client portal access is available only to formally onboarded clients through an activated account.</p>
           <button type="button" class="if-btn-primary" data-action="open-auth-onboarding" style="display: inline-flex;">Client Onboarding Enquiry</button>
