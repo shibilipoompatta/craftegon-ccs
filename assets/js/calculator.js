@@ -1487,7 +1487,6 @@ function renderKeralaReadinessScope() {
   const p1Items = [];
   if (stage === 'new-pvt') p1Items.push('Entity Formation: Private Limited Company (MCA V3 SPICe+, DIN, PAN, TAN)');
   else if (stage === 'new-llp') p1Items.push('Entity Formation: Limited Liability Partnership (FiLLiP + Form 3 Agreement)');
-  else if (stage === 'nri-gcc') p1Items.push('NRI / Cross-Border SPV Structuring + Resident Director & FEMA FIRMS alignment');
   else p1Items.push('Existing Entity Audit: Structural & Licensing Gap Reconciliation');
 
   if (needLicensing) {
@@ -1534,14 +1533,12 @@ function renderKeralaReadinessScope() {
   const stageLabelMap = {
     'new-pvt': 'New Pvt Ltd Launch',
     'new-llp': 'New LLP Launch',
-    'existing-upgrade': 'Existing Entity Licensing/Contracts Upgrade',
-    'nri-gcc': 'NRI / GCC Founder Kerala Entry'
+    'existing-upgrade': 'Existing Entity Licensing/Contracts Upgrade'
   };
   const entityParamMap = {
     'new-pvt': 'pvt_ltd',
     'new-llp': 'llp',
-    'existing-upgrade': 'pvt_ltd',
-    'nri-gcc': 'foreign_sub'
+    'existing-upgrade': 'pvt_ltd'
   };
   const focusFlags = [
     needLicensing ? 'Pre-Launch Clearances' : null,

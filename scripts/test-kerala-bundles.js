@@ -173,7 +173,7 @@ const makeEl = (tag, initial = {}) => {
 
 const calcEls = {
   'kl-est-vertical': makeEl('select', { value: 'KL-BND-EXIM' }),
-  'kl-est-stage': makeEl('select', { value: 'nri-gcc' }),
+  'kl-est-stage': makeEl('select', { value: 'new-pvt' }),
   'kl-est-lsgd': makeEl('select', { value: 'corporation' }),
   'kl-est-premises': makeEl('select', { value: 'residential-change' }),
   'kl-est-scale': makeEl('select', { value: 'growth' }),

@@ -250,10 +250,12 @@
    High-Converting Asymmetric Grid with Sticky Executive Action Rail
    ========================================================================== */
 .service-layout-container {
+  width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   padding: 2.25rem 1.5rem 5rem;
   box-sizing: border-box;
+  overflow-x: clip;
 }
 
 .service-layout-grid {
@@ -264,6 +266,12 @@
   min-width: 0;
   width: 100%;
   max-width: 100%;
+}
+
+.service-layout-grid > * {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
@@ -277,6 +285,12 @@
     gap: 2rem;
     min-width: 0;
     width: 100%;
+    max-width: 100%;
+  }
+
+  .service-layout-grid > * {
+    width: 100%;
+    min-width: 0;
     max-width: 100%;
   }
 
@@ -298,6 +312,13 @@
     padding: 1.25rem 1rem 3rem;
   }
 
+  .service-hero-card,
+  .service-panel-card {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .service-hero-card {
     padding: 1.5rem 1.15rem !important;
     border-radius: 14px !important;
@@ -306,6 +327,14 @@
   .service-panel-card {
     padding: 1.35rem 1.1rem !important;
     border-radius: 14px !important;
+  }
+
+  .service-panel-card table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
